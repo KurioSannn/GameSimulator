@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nusantara/raw_capture_meta.schema.json",
+  "title": "Raw capture sidecar (<file>.meta.json written by scripts/research/common.py)",
+  "type": "object",
+  "required": ["source_id", "snapshot_id", "url", "retrieved_at", "http_status", "bytes", "sha256"],
+  "properties": {
+    "source_id": {"type": "string", "pattern": "^SRC-\\d{4}$"},
+    "snapshot_id": {"type": "string", "pattern": "^SNAP-\\d{4}-\\d{2}-\\d{2}$"},
+    "url": {"type": "string"},
+    "retrieved_at": {"type": "string", "format": "date-time"},
+    "http_status": {"type": "integer"},
+    "content_type": {"type": "string"},
+    "bytes": {"type": "integer", "minimum": 0},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}
