@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nusantara/source_card.schema.json",
+  "title": "Source card (docs/templates/SOURCE_CARD_TEMPLATE.md, docs/09 §6)",
+  "type": "object",
+  "required": ["source_id", "institution", "title", "source_type", "url", "retrieved_at", "geographic_resolution", "access_method", "status"],
+  "properties": {
+    "source_id": {"type": "string", "pattern": "^SRC-\\d{4}$"},
+    "institution": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "source_type": {"enum": ["official", "academic", "news", "community", "other"]},
+    "url": {"type": "string", "description": "Empty only when status is candidate and no official URL has been found."},
+    "publication_date": {"type": "string"},
+    "retrieved_at": {"type": "string"},
+    "reference_period": {"type": "string"},
+    "geographic_resolution": {"type": "string"},
+    "access_method": {"enum": ["api", "file", "gis", "web", "pdf", "other"]},
+    "license_or_terms": {"type": "string"},
+    "methodology_summary": {"type": "string"},
+    "credibility_notes": {"type": "string"},
+    "checksum": {"type": "string"},
+    "status": {"enum": ["verified", "candidate", "blocked", "deprecated"]}
+  }
+}
