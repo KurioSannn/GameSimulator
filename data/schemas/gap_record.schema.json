@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nusantara/gap_record.schema.json",
+  "title": "Gap registry row (docs/04 Gap registry, docs/09 §9)",
+  "type": "object",
+  "required": ["gap_id", "requested_field", "target_geography", "source_searched", "search_date", "missing_class", "why_unavailable"],
+  "properties": {
+    "gap_id": {"type": "string", "pattern": "^GAP-\\d{4}$"},
+    "requested_field": {"type": "string"},
+    "target_geography": {"type": "string"},
+    "source_searched": {"type": "string"},
+    "search_date": {"type": "string", "format": "date"},
+    "missing_class": {"enum": ["NOT_AVAILABLE", "NOT_PUBLISHED", "WRONG_RESOLUTION", "STALE_ONLY", "CONFLICTING", "PENDING_VERIFICATION"]},
+    "why_unavailable": {"type": "string"},
+    "alternate_source_used": {"type": "string"},
+    "resolution_mismatch": {"type": "string"},
+    "confidence": {"type": "string"},
+    "next_step": {"type": "string"}
+  }
+}
