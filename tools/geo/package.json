@@ -1,0 +1,8 @@
+{
+  "name": "nusantara-geo-tools",
+  "private": true,
+  "description": "Project-local geometry tooling for the NUSANTARA research pipeline (not shipped in the game).",
+  "dependencies": {
+    "mapshaper": "0.7.79"
+  }
+}
