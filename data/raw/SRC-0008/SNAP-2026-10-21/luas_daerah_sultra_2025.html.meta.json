@@ -1,0 +1,10 @@
+{
+  "source_id": "SRC-0008",
+  "snapshot_id": "SNAP-2026-10-21",
+  "url": "https://sultra.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+  "retrieved_at": "2026-10-21T15:51:45+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "bytes": 120727,
+  "sha256": "20b067c175d71d634c4971a351a5e5382aaa5ac7ab0356d726cd55bc327b7503"
+}

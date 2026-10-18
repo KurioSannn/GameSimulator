@@ -1,0 +1,10 @@
+{
+  "source_id": "SRC-0008",
+  "snapshot_id": "SNAP-2026-10-21",
+  "url": "https://gorontalo.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+  "retrieved_at": "2026-10-21T15:51:52+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "bytes": 107428,
+  "sha256": "db26ff4909247a80e62d0a1277f55013fbccb50d39caed9c9b4e49b270fb444c"
+}

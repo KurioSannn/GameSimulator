@@ -1,0 +1,10 @@
+{
+  "source_id": "SRC-0008",
+  "snapshot_id": "SNAP-2026-10-21",
+  "url": "https://bengkulu.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+  "retrieved_at": "2026-10-21T15:49:12+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "bytes": 110869,
+  "sha256": "05ba19f54eb42efe187e507316138493c68ce2f94bfd9b4823e6766878efb0f5"
+}
