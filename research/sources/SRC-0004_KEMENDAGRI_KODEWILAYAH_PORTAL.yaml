@@ -1,0 +1,15 @@
+source_id: SRC-0004
+institution: "Kementerian Dalam Negeri"
+title: "Kode Data Wilayah (kodewilayah.kemendagri.go.id)"
+source_type: official
+url: "https://kodewilayah.kemendagri.go.id/"
+publication_date: ""
+retrieved_at: "2026-10-21"
+reference_period: ""
+geographic_resolution: "all administrative levels (presumed)"
+access_method: web
+license_or_terms: "Redirects to /Login.aspx. Authentication required; not bypassed per CLAUDE.md."
+methodology_summary: ""
+credibility_notes: "Would be the most direct machine-readable source for Kemendagri codes if public access is granted. Missing credential - escalate to team if needed."
+checksum: ""
+status: blocked
