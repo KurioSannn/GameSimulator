@@ -1,0 +1,15 @@
+source_id: SRC-0001
+institution: "Badan Informasi Geospasial (BIG)"
+title: "Area Batas Wilayah Administrasi Kabupaten/Kota (BATASWILAYAH/BATAS_KABKOTA_AR, layer 0)"
+source_type: official
+url: "https://geoservices.big.go.id/rbi/rest/services/BATASWILAYAH/BATAS_KABKOTA_AR/MapServer/0"
+publication_date: "2026-06 (service description: 'Geodatabase data batas wilayah administrasi nasional edisi Juni 2026')"
+retrieved_at: "2026-10-21"
+reference_period: "Edisi Juni 2026. Per-feature METADATA shows segment update dates: 20260612 (350 features), 20221227 (143), 20230907 (24), 20240905 (18), 20250701 (6)."
+geographic_resolution: "kabupaten/kota polygons (plus 21 province-level unallocated island/problem-area fragments, TIPADM=6)"
+access_method: gis
+license_or_terms: "Public ArcGIS REST service, copyrightText 'Badan Informasi Geospasial'. No explicit licence text found on the service; no robots.txt (HTTP 404). Attribution to BIG required in game credits. PENDING_VERIFICATION: formal reuse terms (check BIG / UU 4/2011 Informasi Geospasial)."
+methodology_summary: "Official national administrative boundary geodatabase at 1:50.000 (METADATA prefix TASWIL50000). Codes in KDPPUM/KDPKAB are Kemendagri (PUM) codes; BPS code fields are blank in this layer."
+credibility_notes: "Authoritative national geospatial agency. Full capture 2026-10-21/22: 541/541 features, 118 raw files, 2.22 GB, 51.9 M vertices; every position carries a constant Z=0. Server returns HTTP 500 for some 10-feature pages (offsets 50, 90, 510, 530; retried feature-by-feature) and for OBJECTID 3424 (Kab. Sumbawa, 52.04) at full resolution in every format tried (geojson, json, pbf, maxAllowableOffset<=1e-8); that one feature is stored as kabkota_geom_oid03424_mao1e-7.geojson fetched with maxAllowableOffset=1e-7 deg (max deviation ~1.1 cm; area converged: 1e-6 vs 1e-7 differ by 1e-7 relative). LUASWH is km2 legal area despite the HA alias and Shape_Area is planar square degrees (research/reports/AREA_UNIT_INVESTIGATION.md). 541 features: 416 kabupaten + 98 kota main polygons, 6 'Wilayah terapung' secondary polygons (Sulawesi Tenggara: 74.02, 74.03, 74.04, 74.05, 74.07, 74.13), 21 TIPADM=6 fragments. REMARK fields cite 'Kepmendagri 300.2.2-2340 tahun 2025'; other sources cite 300.2.2-2430 (see GAP-0003). LUASWH alias says HA but values are km2 (GAP-0004)."
+checksum: "see data/raw/SRC-0001/SNAP-2026-10-21/*.meta.json"
+status: verified
