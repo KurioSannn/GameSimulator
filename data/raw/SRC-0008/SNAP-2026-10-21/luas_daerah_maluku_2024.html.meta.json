@@ -1,0 +1,10 @@
+{
+  "source_id": "SRC-0008",
+  "snapshot_id": "SNAP-2026-10-21",
+  "url": "https://maluku.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2024",
+  "retrieved_at": "2026-10-21T15:53:10+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "bytes": 95609,
+  "sha256": "c8eda641a295204ef7890d81edb58fe5fa5395fb8a6f92382f10a6dcde495652"
+}

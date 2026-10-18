@@ -1,0 +1,10 @@
+{
+  "source_id": "SRC-0008",
+  "snapshot_id": "SNAP-2026-10-21",
+  "url": "https://papuabarat.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2024",
+  "retrieved_at": "2026-10-21T15:53:14+00:00",
+  "http_status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "bytes": 91378,
+  "sha256": "5d814d3f3a88ca3bb2c9916f804a2b7c46cb26b7f4aef76f57ad5ed496b86e92"
+}
