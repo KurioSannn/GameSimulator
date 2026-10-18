@@ -1,0 +1,1347 @@
+{
+ "currentVersion": 10.81,
+ "id": 12,
+ "name": "Area Batas Wilayah Administrasi Provinsi",
+ "type": "Feature Layer",
+ "description": "",
+ "geometryType": "esriGeometryPolygon",
+ "sourceSpatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "copyrightText": "",
+ "parentLayer": null,
+ "subLayers": [],
+ "minScale": 0,
+ "maxScale": 0,
+ "drawingInfo": {
+  "renderer": {
+   "type": "uniqueValue",
+   "field1": "wadmpr",
+   "field2": null,
+   "field3": null,
+   "defaultSymbol": null,
+   "defaultLabel": null,
+   "uniqueValueInfos": [
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Aceh",
+     "label": "Aceh",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Bali",
+     "label": "Bali",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Banten",
+     "label": "Banten",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Bengkulu",
+     "label": "Bengkulu",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "DKI Jakarta",
+     "label": "DKI Jakarta",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Daerah Istimewa Yogyakarta",
+     "label": "Daerah Istimewa Yogyakarta",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Gorontalo",
+     "label": "Gorontalo",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Jambi",
+     "label": "Jambi",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Jawa Barat",
+     "label": "Jawa Barat",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Jawa Tengah",
+     "label": "Jawa Tengah",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Jawa Timur",
+     "label": "Jawa Timur",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Kalimantan Barat",
+     "label": "Kalimantan Barat",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Kalimantan Selatan",
+     "label": "Kalimantan Selatan",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Kalimantan Tengah",
+     "label": "Kalimantan Tengah",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Kalimantan Timur",
+     "label": "Kalimantan Timur",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Kalimantan Utara",
+     "label": "Kalimantan Utara",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Kepulauan Bangka Belitung",
+     "label": "Kepulauan Bangka Belitung",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Kepulauan Riau",
+     "label": "Kepulauan Riau",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Lampung",
+     "label": "Lampung",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Maluku",
+     "label": "Maluku",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Maluku Utara",
+     "label": "Maluku Utara",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Nusa Tenggara Barat",
+     "label": "Nusa Tenggara Barat",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Nusa Tenggara Timur",
+     "label": "Nusa Tenggara Timur",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Papua",
+     "label": "Papua",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Papua Barat",
+     "label": "Papua Barat",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Papua Barat Daya",
+     "label": "Papua Barat Daya",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Papua Pegunungan",
+     "label": "Papua Pegunungan",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Papua Selatan",
+     "label": "Papua Selatan",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Papua Tengah",
+     "label": "Papua Tengah",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Riau",
+     "label": "Riau",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Sulawesi Barat",
+     "label": "Sulawesi Barat",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Sulawesi Selatan",
+     "label": "Sulawesi Selatan",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Sulawesi Tengah",
+     "label": "Sulawesi Tengah",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Sulawesi Tenggara",
+     "label": "Sulawesi Tenggara",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Sulawesi Utara",
+     "label": "Sulawesi Utara",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Sumatera Barat",
+     "label": "Sumatera Barat",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Sumatera Selatan",
+     "label": "Sumatera Selatan",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        0
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Sumatera Utara",
+     "label": "Sumatera Utara",
+     "description": ""
+    }
+   ],
+   "fieldDelimiter": ","
+  },
+  "transparency": 0,
+  "labelingInfo": [
+   {
+    "labelPlacement": "esriServerPolygonPlacementAlwaysHorizontal",
+    "where": null,
+    "labelExpression": "[WADMPR]",
+    "useCodedValues": true,
+    "symbol": {
+     "type": "esriTS",
+     "color": [
+      0,
+      0,
+      0,
+      255
+     ],
+     "backgroundColor": null,
+     "borderLineColor": null,
+     "borderLineSize": null,
+     "verticalAlignment": "baseline",
+     "horizontalAlignment": "left",
+     "rightToLeft": false,
+     "angle": 0,
+     "xoffset": 0,
+     "yoffset": 0,
+     "kerning": true,
+     "haloColor": null,
+     "haloSize": null,
+     "font": {
+      "family": "Arial",
+      "size": 12,
+      "style": "normal",
+      "weight": "normal",
+      "decoration": "none"
+     }
+    },
+    "minScale": 0,
+    "maxScale": 0
+   }
+  ]
+ },
+ "defaultVisibility": false,
+ "extent": {
+  "xmin": 94.97194993500005,
+  "ymin": -11.007552182999973,
+  "xmax": 141.02004178900006,
+  "ymax": 6.0767408680000585,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "hasAttachments": false,
+ "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+ "displayField": "namobj",
+ "typeIdField": null,
+ "subtypeFieldName": null,
+ "subtypeField": null,
+ "defaultSubtypeCode": null,
+ "fields": [
+  {
+   "name": "objectid",
+   "type": "esriFieldTypeOID",
+   "alias": "OBJECTID",
+   "domain": null
+  },
+  {
+   "name": "shape",
+   "type": "esriFieldTypeGeometry",
+   "alias": "SHAPE",
+   "domain": null
+  },
+  {
+   "name": "namobj",
+   "type": "esriFieldTypeString",
+   "alias": "Nama Objek",
+   "length": 250,
+   "domain": null
+  },
+  {
+   "name": "fcode",
+   "type": "esriFieldTypeString",
+   "alias": "Feature Code",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "remark",
+   "type": "esriFieldTypeString",
+   "alias": "Catatan",
+   "length": 250,
+   "domain": null
+  },
+  {
+   "name": "metadata",
+   "type": "esriFieldTypeString",
+   "alias": "METADATA",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "srs_id",
+   "type": "esriFieldTypeString",
+   "alias": "Spatial Reference Spatial Identifier",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "kdbbps",
+   "type": "esriFieldTypeString",
+   "alias": "Kode BPS Kabupaten/Kota",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "kdcbps",
+   "type": "esriFieldTypeString",
+   "alias": "Kode BPS Kecamatan/Distrik",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "kdcpum",
+   "type": "esriFieldTypeString",
+   "alias": "Kode PUM Kecamatan/Distrik",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "kdebps",
+   "type": "esriFieldTypeString",
+   "alias": "Kode BPS Kelurahan/Desa",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "kdepum",
+   "type": "esriFieldTypeString",
+   "alias": "Kode PUM Kelurahan/Desa",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "kdpbps",
+   "type": "esriFieldTypeString",
+   "alias": "Kode BPS Provinsi",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "kdpkab",
+   "type": "esriFieldTypeString",
+   "alias": "Kode PUM Kabupaten/Kota",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "kdppum",
+   "type": "esriFieldTypeString",
+   "alias": "Kode PUM Provinsi",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "luaswh",
+   "type": "esriFieldTypeDouble",
+   "alias": "Luas Wilayah Menurut Peraturan (HA)",
+   "domain": null
+  },
+  {
+   "name": "tipadm",
+   "type": "esriFieldTypeInteger",
+   "alias": "Tipe Administrasi",
+   "domain": {
+    "type": "codedValue",
+    "name": "TAD",
+    "description": "Tipe Administrasi",
+    "codedValues": [
+     {
+      "name": "Kelurahan",
+      "code": 1
+     },
+     {
+      "name": "Desa",
+      "code": 2
+     },
+     {
+      "name": "Kecamatan/Distrik",
+      "code": 3
+     },
+     {
+      "name": "Kabupaten",
+      "code": 4
+     },
+     {
+      "name": "Kota",
+      "code": 5
+     },
+     {
+      "name": "Provinsi",
+      "code": 6
+     },
+     {
+      "name": "Lainnya",
+      "code": 999
+     }
+    ],
+    "mergePolicy": "esriMPTDefaultValue",
+    "splitPolicy": "esriSPTDefaultValue"
+   }
+  },
+  {
+   "name": "wadmkc",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah administrasi Kecamatan atau Distrik",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wadmkd",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah administrasi Kelurahan atau Desa",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wadmkk",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah administrasi Kebupaten/ Kota",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wadmpr",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah administrasi Propinsi",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wiadkc",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah induk administrasi Kecamatan/Distrik",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wiadkk",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah induk administrasi Kebupaten/ Kota",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wiadpr",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah induk administrasi Propinsi",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wiadkd",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah induk administrasi Kelurahan/Desa \n",
+   "length": 255,
+   "domain": null
+  },
+  {
+   "name": "st_area(shape)",
+   "type": "esriFieldTypeDouble",
+   "alias": "st_area(shape)",
+   "domain": null
+  },
+  {
+   "name": "st_length(shape)",
+   "type": "esriFieldTypeDouble",
+   "alias": "st_length(shape)",
+   "domain": null
+  }
+ ],
+ "geometryField": {
+  "name": "shape",
+  "type": "esriFieldTypeGeometry",
+  "alias": "SHAPE"
+ },
+ "indexes": [
+  {
+   "name": "r117_sde_rowid_uk",
+   "fields": "objectid",
+   "isAscending": true,
+   "isUnique": true,
+   "description": ""
+  },
+  {
+   "name": "a97_ix1",
+   "fields": "shape",
+   "isAscending": true,
+   "isUnique": true,
+   "description": ""
+  }
+ ],
+ "subtypes": [],
+ "relationships": [],
+ "canModifyLayer": true,
+ "canScaleSymbols": false,
+ "hasLabels": true,
+ "capabilities": "Map,Query,Data",
+ "maxRecordCount": 1000,
+ "supportsStatistics": true,
+ "supportsAdvancedQueries": true,
+ "hasZ": true,
+ "supportedQueryFormats": "JSON, geoJSON",
+ "isDataVersioned": false,
+ "ownershipBasedAccessControlForFeatures": {"allowOthersToQuery": true},
+ "useStandardizedQueries": true,
+ "advancedQueryCapabilities": {
+  "useStandardizedQueries": true,
+  "supportsStatistics": true,
+  "supportsHavingClause": true,
+  "supportsCountDistinct": true,
+  "supportsOrderBy": true,
+  "supportsDistinct": true,
+  "supportsPagination": true,
+  "supportsTrueCurve": true,
+  "supportsReturningQueryExtent": true,
+  "supportsQueryWithDistance": true,
+  "supportsSqlExpression": true
+ },
+ "supportsDatumTransformation": true,
+ "supportsCoordinatesQuantization": true,
+ "serviceItemId": "2b90614c9619463491b4725c192eda68"
+}
