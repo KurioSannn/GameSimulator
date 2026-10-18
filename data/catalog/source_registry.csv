@@ -1,0 +1,9 @@
+source_id,institution,short_title,source_type,access_method,status,domain,card
+SRC-0001,Badan Informasi Geospasial,BATAS_KABKOTA_AR edisi Juni 2026,official,gis,verified,geography,research/sources/SRC-0001_BIG_BATAS_KABKOTA_AR.yaml
+SRC-0002,Badan Pusat Statistik,SIG Bridging Kode Wilayah BPS-Kemendagri,official,api,verified,geography,research/sources/SRC-0002_BPS_SIG_BRIDGING.yaml
+SRC-0003,Kementerian Dalam Negeri,Kepmendagri 300.2.2-2138/2025,official,pdf,blocked,geography,research/sources/SRC-0003_KEMENDAGRI_KEPMEN_300.2.2-2138_2025.yaml
+SRC-0004,Kementerian Dalam Negeri,kodewilayah.kemendagri.go.id,official,web,blocked,geography,research/sources/SRC-0004_KEMENDAGRI_KODEWILAYAH_PORTAL.yaml
+SRC-0005,Badan Informasi Geospasial,BATAS_WILAYAH layer 12 (mislabelled),official,gis,deprecated,geography,research/sources/SRC-0005_BIG_BATAS_WILAYAH_LAYER12.yaml
+SRC-0006,Kementerian Dalam Negeri,Kepmendagri 300.2.2-2430/2025 (amendment),official,pdf,candidate,geography,research/sources/SRC-0006_KEMENDAGRI_KEPMEN_300.2.2-2430_2025.yaml
+SRC-0007,Badan Informasi Geospasial,BATAS_WILAYAH layer 8 province boundary lines (cross-check only),official,gis,verified,geography,research/sources/SRC-0007_BIG_BATAS_PROVINSI_LN.yaml
+SRC-0008,Badan Pusat Statistik (provincial),Luas Daerah dan Jumlah Pulau tables 2025/2024,official,web,verified,geography,research/sources/SRC-0008_BPS_LUAS_DAERAH_TABLES.yaml
