@@ -1,0 +1,22 @@
+{
+  "snapshot_id": "SNAP-2026-10-21",
+  "status": "open",
+  "collection_started": "2026-10-21",
+  "geography_milestone_closed": "2026-10-22",
+  "scope": "geography baseline (provinsi + kabupaten/kota), render LODs, area-unit audit",
+  "sources": {
+    "SRC-0001": {"version": "BIG BATAS_KABKOTA_AR edisi Juni 2026 (541 features; OBJECTID 3424 via maxAllowableOffset 1e-7 deg)", "raw": "data/raw/SRC-0001/SNAP-2026-10-21/"},
+    "SRC-0002": {"version": "BPS bridging period 2025_2.2025", "raw": "data/raw/SRC-0002/SNAP-2026-10-21/"},
+    "SRC-0005": {"version": "BIG BATAS_WILAYAH layer 12 (deprecated, attributes only)", "raw": "data/raw/SRC-0005/SNAP-2026-10-21/"},
+    "SRC-0007": {"version": "BIG BATAS_WILAYAH layer 8 province boundary lines (segments 2021-05..2024-09)", "raw": "data/raw/SRC-0007/SNAP-2026-10-21/"},
+    "SRC-0008": {"version": "BPS Luas Daerah dan Jumlah Pulau tables, 2025 (29 provinces) / 2024 (2)", "raw": "data/raw/SRC-0008/SNAP-2026-10-21/"}
+  },
+  "data_years": {"admin_codes": "Kemendagri 2025", "boundaries": "BIG edisi Juni 2026", "official_area_tables": "BPS 2025/2024"},
+  "derived": {
+    "region_registry": "data/normalized/geography/",
+    "render_lods": {"lod1": "DP 1,000 m", "lod2": "DP 100 m", "lod3": "DP 40 m", "path": "data/processed/geography/SNAP-2026-10-21/render/", "tool": "mapshaper 0.7.79 (tools/geo)"},
+    "area_audit": "data/processed/geography/SNAP-2026-10-21/area_unit_audit.csv"
+  },
+  "transformation_code": "scripts/research/ (Git repository initialised 2026-10-22)",
+  "notes": "Snapshot stays open while further domains are captured; freeze (status=frozen) before competition build per docs/16 R7."
+}
