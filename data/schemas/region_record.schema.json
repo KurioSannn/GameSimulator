@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nusantara/region_record.schema.json",
+  "title": "Region registry record (data/normalized/geography/regions_kabkota.csv rows)",
+  "type": "object",
+  "required": ["region_id", "region_level", "name", "kode_kemendagri", "kode_bps", "parent_region_id", "big_objectids", "fact_class"],
+  "properties": {
+    "region_id": {"type": "string", "pattern": "^\\d{2}(\\.\\d{2})?$", "description": "Kemendagri code; primary key (D-012)"},
+    "region_level": {"enum": ["provinsi", "kabupaten", "kota"]},
+    "name": {"type": "string", "description": "Kemendagri name as served by SRC-0002; display label, not a key"},
+    "name_bps": {"type": "string"},
+    "kode_kemendagri": {"type": "string"},
+    "kode_kemendagri_raw": {"type": "string"},
+    "kode_bps": {"type": "string", "pattern": "^\\d{2}(\\d{2})?$"},
+    "parent_region_id": {"type": "string"},
+    "province_kode_bps": {"type": "string"},
+    "big_name": {"type": "string"},
+    "big_tipadm_level": {"type": "string"},
+    "big_objectids": {"type": "string", "description": "';'-separated BIG OBJECTIDs"},
+    "big_floating_area_objectids": {"type": "string"},
+    "big_luaswh_raw": {"type": ["number", "string"], "description": "Unit CONFLICTING (GAP-0004); never converted silently"},
+    "big_metadata_edition": {"type": "string"},
+    "big_remark": {"type": "string"},
+    "island_group": {"type": "string"},
+    "fact_class": {"enum": ["REAL_OFFICIAL", "REAL_ACADEMIC", "REAL_NEWS", "REAL_SECONDARY", "DERIVED", "SIMULATED", "FICTIONAL"]}
+  }
+}
