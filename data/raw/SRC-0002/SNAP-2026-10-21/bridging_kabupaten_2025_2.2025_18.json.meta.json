@@ -1,0 +1,10 @@
+{
+  "source_id": "SRC-0002",
+  "snapshot_id": "SNAP-2026-10-21",
+  "url": "https://sig.bps.go.id/rest-bridging/getwilayah?level=kabupaten&parent=18&periode_merge=2025_2.2025",
+  "retrieved_at": "2026-10-21T15:23:43+00:00",
+  "http_status": 200,
+  "content_type": "application/json; charset=UTF-8",
+  "bytes": 1553,
+  "sha256": "30c3a809e7f1163cefb8813a73b069bd35158d316d678e20ae26b040209d0cc4"
+}

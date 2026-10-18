@@ -1,0 +1,10 @@
+{
+  "source_id": "SRC-0002",
+  "snapshot_id": "SNAP-2026-10-21",
+  "url": "https://sig.bps.go.id/rest-drop-down/getperiode",
+  "retrieved_at": "2026-10-21T15:23:28+00:00",
+  "http_status": 200,
+  "content_type": "application/json; charset=UTF-8",
+  "bytes": 519,
+  "sha256": "cb33e9d93906213100ba997755cc4dfee876aea52dc615d0b58b9f9e1a10467d"
+}
