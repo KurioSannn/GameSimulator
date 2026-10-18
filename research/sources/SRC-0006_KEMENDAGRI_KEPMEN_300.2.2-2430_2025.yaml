@@ -1,0 +1,15 @@
+source_id: SRC-0006
+institution: "Kementerian Dalam Negeri"
+title: "Keputusan Menteri Dalam Negeri Nomor 300.2.2-2430 Tahun 2025 (perubahan atas 300.2.2-2138 Tahun 2025)"
+source_type: official
+url: ""
+publication_date: "2025-06-23 per secondary sources (paralegal.id, cahyadsn/wilayah) - PENDING_VERIFICATION"
+retrieved_at: ""
+reference_period: "2025"
+geographic_resolution: "provinsi to desa/kelurahan and pulau"
+access_method: pdf
+license_or_terms: "Public legal instrument."
+methodology_summary: "Reportedly amends island allocations (incl. four islands assigned to Kab. Aceh Singkil per BIG press release)."
+credibility_notes: "Not listed on the Ditjen Bina Adwil regulations page as of 2026-10-21. BIG SRC-0001 REMARK fields cite 'Kepmendagri 300.2.2-2340 tahun 2025', which may be a typo for 2430 or a different instrument (GAP-0003). Of 31 BPS provincial area tables captured 2026-10-21 (SRC-0008), the 2025 tables citing a 2025 decree all cite 300.2.2-2138 (25 April 2025); none cites 2430 or 2340. Secondary references only: https://paralegal.id/peraturan/keputusan-menteri-dalam-negeri-nomor-300-2-2-2430-tahun-2025/ , https://github.com/cahyadsn/wilayah (MIT)."
+checksum: ""
+status: candidate
