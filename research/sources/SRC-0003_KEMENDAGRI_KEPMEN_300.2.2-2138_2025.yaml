@@ -1,0 +1,15 @@
+source_id: SRC-0003
+institution: "Kementerian Dalam Negeri - Direktorat Jenderal Bina Administrasi Kewilayahan"
+title: "Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tentang Pemberian dan Pemutakhiran Kode, Data Wilayah Administrasi Pemerintahan, dan Pulau"
+source_type: official
+url: "https://ditjenbinaadwil.kemendagri.go.id/peraturan/keputusan-menteri-dalam-negeri-nomor-30022-2138-tahun-2025"
+publication_date: "2025 (launch/socialization reported 2025-05-15; Ditjen Bina Adwil news dated 2025-05-16). Secondary sources give ditetapkan 2025-04-25 - PENDING_VERIFICATION."
+retrieved_at: "2026-10-21 (detail page only; PDF not retrieved)"
+reference_period: "2025"
+geographic_resolution: "provinsi to desa/kelurahan and pulau"
+access_method: pdf
+license_or_terms: "Public legal instrument."
+methodology_summary: "Legal basis for Kemendagri administrative codes; replaces Kepmendagri 100.1.1-6117 Tahun 2022 (per Ditjen Bina Adwil news)."
+credibility_notes: "Primary legal authority for region codes. The 'Unduh / Kunjungi' link is a relative href ('PEMBERIAN_DAN_PEMUTAKHIRAN_KODE,_DATA_WILAYAH_ADMINISTRASI__PEMERINTAHAN,_DAN_PULAU_KEPMENDAGRI-.pdf') that does not resolve: tried under /, /peraturan/, /uploads/, /uploads/peraturan/, /uploads/files/ -> HTTP 400 (raw commas) / 404 (encoded). Other PDFs on the same page are equally broken. BPS Jawa Barat's 2025 area table cites jdih.kemendagri.go.id/dokumen/view?id=1937 (accessed by BPS 2026-02-12), but that host did not resolve (DNS ENOTFOUND) from this machine or via WebFetch on 2026-10-22. Codes are therefore taken from the BPS bridge (SRC-0002) and cross-checked with BIG (SRC-0001)."
+checksum: ""
+status: blocked
