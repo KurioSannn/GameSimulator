@@ -1,0 +1,15 @@
+source_id: SRC-0008
+institution: "Badan Pusat Statistik (BPS) - provincial offices"
+title: "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi <X> (statistics-table 3, id VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==)"
+source_type: official
+url: "https://<province>.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=<year>"
+publication_date: "Per table (table_created recorded in data/processed/geography/SNAP-2026-10-21/bps_area_tables_*.json)"
+retrieved_at: "2026-10-21"
+reference_period: "tahun_data 2025 for 29 provinces; 2024 for Sumatera Utara and DKI Jakarta"
+geographic_resolution: "kabupaten/kota"
+access_method: web
+license_or_terms: "Public BPS statistical tables. No robots.txt served (HTTP 404) on the province subdomains. One request per table, >=1 s apart."
+methodology_summary: "Area (km2) and island counts tabulated from the Kemendagri decree named in each table's 'sumber' field (mostly Kepmendagri 300.2.2-2138/2025; some 100.1.1-6117/2022, 050-145/2022, provincial bureaus, or a BIG letter for Kalimantan Utara). Table JSON is parsed from the Next.js page payload."
+credibility_notes: "Official. Coverage gaps: no table for Aceh, Maluku, Papua Barat (parse failed 2025 and 2024), and none for Papua Selatan/Tengah/Pegunungan/Barat Daya (no BPS subdomain; papua.bps.go.id table covers Papua only) - GAP-0011. Known anomaly: Sulawesi Tenggara 2025 values are ~1000x the km2 figure (GAP-0012), flagged not corrected. Used as independent evidence in the LUASWH unit audit."
+checksum: "see data/raw/SRC-0008/SNAP-2026-10-21/*.meta.json"
+status: verified
