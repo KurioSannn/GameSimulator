@@ -1,0 +1,15 @@
+source_id: SRC-0005
+institution: "Badan Informasi Geospasial (BIG)"
+title: "BATASWILAYAH/BATAS_WILAYAH MapServer layer 12 'Area Batas Wilayah Administrasi Provinsi'"
+source_type: official
+url: "https://geoservices.big.go.id/rbi/rest/services/BATASWILAYAH/BATAS_WILAYAH/MapServer/12"
+publication_date: "Feature METADATA editions 20240905 (328), 20221227 (186), 20230907 (25)"
+retrieved_at: "2026-10-21 (attributes only)"
+reference_period: "<= 2024-09"
+geographic_resolution: "kabupaten/kota polygons despite the layer name (539 features, TIPADM 4/5/6)"
+access_method: gis
+license_or_terms: "As SRC-0001."
+methodology_summary: ""
+credibility_notes: "Layer name says 'Provinsi' but content is kab/kota-level and older than SRC-0001. Not used. Province geometry will be derived by dissolving SRC-0001 by KDPPUM (planned)."
+checksum: "see data/raw/SRC-0005/SNAP-2026-10-21/*.meta.json"
+status: deprecated
