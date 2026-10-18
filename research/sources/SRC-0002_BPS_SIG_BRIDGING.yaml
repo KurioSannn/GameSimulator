@@ -1,0 +1,15 @@
+source_id: SRC-0002
+institution: "Badan Pusat Statistik (BPS)"
+title: "Sistem Informasi Geografis BPS - Bridging Kode Wilayah BPS-Kemendagri"
+source_type: official
+url: "https://sig.bps.go.id/bridging-kode"
+publication_date: "Period list served on 2026-10-21; latest period '2025_2.2025' = 2025 Semester 2 (BPS) - 2025 (Kemendagri)"
+retrieved_at: "2026-10-21"
+reference_period: "BPS Wilkerstat 2025 Semester 2 / Kemendagri 2025 coding"
+geographic_resolution: "provinsi, kabupaten/kota (kecamatan/desa available but not captured in this milestone)"
+access_method: api
+license_or_terms: "Public JSON endpoints used by the official page (/rest-bridging/getwilayah, /rest-drop-down/getperiode). robots.txt: 'User-agent: * / Disallow:' (allows all). Requests rate-limited to >=1 s apart."
+methodology_summary: "BPS maintains the statistical-area code master (Perka BPS 3/2019) and publishes a bridge to Kemendagri administrative codes per semester."
+credibility_notes: "Official. Known defect: kode_dagri values with a trailing zero are served truncated (e.g. '11.1' for '11.10'); 23 kab/kota affected; normalized by right-padding and verified against BIG KDPKAB. Endpoint /rest-bridging/getwilayahperiode returned HTTP 500 'An internal server error occurred.'"
+checksum: "see data/raw/SRC-0002/SNAP-2026-10-21/*.meta.json"
+status: verified
