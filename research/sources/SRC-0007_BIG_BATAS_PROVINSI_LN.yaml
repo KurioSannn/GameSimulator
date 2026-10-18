@@ -1,0 +1,15 @@
+source_id: SRC-0007
+institution: "Badan Informasi Geospasial (BIG)"
+title: "Batas Wilayah Administrasi Provinsi (lines) - BATASWILAYAH/BATAS_WILAYAH MapServer layer 8"
+source_type: official
+url: "https://geoservices.big.go.id/rbi/rest/services/BATASWILAYAH/BATAS_WILAYAH/MapServer/8"
+publication_date: "No service-level edition; segment METADATA dates 20221227 (834), 20220921 (387), 20240905 (89), 20230907 (21), 20210531 (3)"
+retrieved_at: "2026-10-22"
+reference_period: "2021-05 .. 2024-09 (older than SRC-0001 edisi Juni 2026)"
+geographic_resolution: "province boundary line segments (1,334 features), 1:50.000"
+access_method: gis
+license_or_terms: "As SRC-0001."
+methodology_summary: "Fields include WAPRO1/WAPRO2 (provinces on each side), STSBTS (boundary status code), KLBADM, TIPLOK. Code lists for STSBTS/KLBADM not published in the service (not interpreted)."
+credibility_notes: "Used only as an independent cross-check of the province outlines dissolved from SRC-0001 (research/reports/province_outline_crosscheck.json). Not a geometry source: older edition; no current province polygon layer exists (GAP-0006)."
+checksum: "see data/raw/SRC-0007/SNAP-2026-10-21/*.meta.json"
+status: verified
