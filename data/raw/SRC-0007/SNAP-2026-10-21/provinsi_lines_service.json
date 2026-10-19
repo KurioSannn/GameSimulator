@@ -1,0 +1,479 @@
+{
+ "currentVersion": 10.81,
+ "id": 8,
+ "name": "Batas Wilayah Administrasi Provinsi",
+ "type": "Feature Layer",
+ "description": "",
+ "geometryType": "esriGeometryPolyline",
+ "sourceSpatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "copyrightText": "",
+ "parentLayer": null,
+ "subLayers": [],
+ "minScale": 0,
+ "maxScale": 0,
+ "drawingInfo": {
+  "renderer": {
+   "type": "uniqueValue",
+   "field1": "klbadm",
+   "field2": "stsbts",
+   "field3": null,
+   "defaultSymbol": null,
+   "defaultLabel": null,
+   "uniqueValueInfos": [
+    {
+     "symbol": {
+      "type": "esriSLS",
+      "style": "esriSLSDashDot",
+      "color": [
+       204,
+       204,
+       204,
+       255
+      ],
+      "width": 6
+     },
+     "value": "1,2",
+     "label": "Batas Provinsi, Hasil Kesepakatan",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSLS",
+      "style": "esriSLSDashDot",
+      "color": [
+       204,
+       204,
+       204,
+       255
+      ],
+      "width": 5
+     },
+     "value": "1,3",
+     "label": "Batas Provinsi, Belum Ditegaskan",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSLS",
+      "style": "esriSLSDashDot",
+      "color": [
+       204,
+       204,
+       204,
+       255
+      ],
+      "width": 5
+     },
+     "value": "1,1",
+     "label": "Batas Provinsi, Referensi Resmi",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSLS",
+      "style": "esriSLSDashDot",
+      "color": [
+       204,
+       204,
+       204,
+       255
+      ],
+      "width": 5
+     },
+     "value": "1,999",
+     "label": "Batas Provinsi, Lainnya",
+     "description": ""
+    }
+   ],
+   "fieldDelimiter": ","
+  },
+  "transparency": 0,
+  "labelingInfo": null
+ },
+ "defaultVisibility": true,
+ "extent": {
+  "xmin": 95.27240527800006,
+  "ymin": -10.29285000699997,
+  "xmax": 141.00273535700012,
+  "ymax": 5.6119646150000335,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "hasAttachments": false,
+ "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+ "displayField": "namobj",
+ "typeIdField": null,
+ "subtypeFieldName": null,
+ "subtypeField": null,
+ "defaultSubtypeCode": null,
+ "fields": [
+  {
+   "name": "objectid",
+   "type": "esriFieldTypeOID",
+   "alias": "OBJECTID",
+   "domain": null
+  },
+  {
+   "name": "shape",
+   "type": "esriFieldTypeGeometry",
+   "alias": "SHAPE",
+   "domain": null
+  },
+  {
+   "name": "namobj",
+   "type": "esriFieldTypeString",
+   "alias": "Nama Objek",
+   "length": 250,
+   "domain": null
+  },
+  {
+   "name": "fcode",
+   "type": "esriFieldTypeString",
+   "alias": "Feature Code",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "remark",
+   "type": "esriFieldTypeString",
+   "alias": "Catatan",
+   "length": 250,
+   "domain": null
+  },
+  {
+   "name": "metadata",
+   "type": "esriFieldTypeString",
+   "alias": "METADATA",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "srs_id",
+   "type": "esriFieldTypeString",
+   "alias": "Spatial Reference System Identifier",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "admin1",
+   "type": "esriFieldTypeString",
+   "alias": "Kode PUM Administrasi #1\n",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "admin2",
+   "type": "esriFieldTypeString",
+   "alias": "Kode PUM Administrasi #2\n",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "karktr",
+   "type": "esriFieldTypeInteger",
+   "alias": "Karakteristik Batas\n",
+   "domain": {
+    "type": "codedValue",
+    "name": "BDT",
+    "description": "Karakteristik Batas",
+    "codedValues": [
+     {
+      "name": "Batas Alam",
+      "code": 1
+     },
+     {
+      "name": "Batas Buatan",
+      "code": 2
+     },
+     {
+      "name": "Lainnya",
+      "code": 999
+     }
+    ],
+    "mergePolicy": "esriMPTDefaultValue",
+    "splitPolicy": "esriSPTDefaultValue"
+   }
+  },
+  {
+   "name": "klbadm",
+   "type": "esriFieldTypeInteger",
+   "alias": "Kelas Batas Wilayah\n",
+   "domain": {
+    "type": "codedValue",
+    "name": "KBL",
+    "description": "Kelas Batas WIlayah",
+    "codedValues": [
+     {
+      "name": "Batas Provinsi",
+      "code": 1
+     },
+     {
+      "name": "Batas Kabupaten/Kota",
+      "code": 2
+     },
+     {
+      "name": "Batas Kecamatan/Distrik",
+      "code": 3
+     },
+     {
+      "name": "Batas Kelurahan/Desa",
+      "code": 4
+     },
+     {
+      "name": "Lainnya",
+      "code": 999
+     }
+    ],
+    "mergePolicy": "esriMPTDefaultValue",
+    "splitPolicy": "esriSPTDefaultValue"
+   }
+  },
+  {
+   "name": "pjgbts",
+   "type": "esriFieldTypeDouble",
+   "alias": "Panjang batas\n",
+   "domain": null
+  },
+  {
+   "name": "stsbts",
+   "type": "esriFieldTypeInteger",
+   "alias": "Status batas\n",
+   "domain": {
+    "type": "codedValue",
+    "name": "BDS",
+    "description": "Status Batas",
+    "codedValues": [
+     {
+      "name": "Referensi Resmi",
+      "code": 1
+     },
+     {
+      "name": "Hasil Kesepakatan",
+      "code": 2
+     },
+     {
+      "name": "Belum Ditegaskan",
+      "code": 3
+     },
+     {
+      "name": "Lainnya",
+      "code": 999
+     }
+    ],
+    "mergePolicy": "esriMPTDefaultValue",
+    "splitPolicy": "esriSPTDefaultValue"
+   }
+  },
+  {
+   "name": "tiplok",
+   "type": "esriFieldTypeInteger",
+   "alias": "Tipe Lokasi\n",
+   "domain": {
+    "type": "codedValue",
+    "name": "LOK",
+    "description": "Tipe Lokasi",
+    "codedValues": [
+     {
+      "name": "Darat",
+      "code": 1
+     },
+     {
+      "name": "Laut",
+      "code": 2
+     },
+     {
+      "name": "Lainnya",
+      "code": 999
+     }
+    ],
+    "mergePolicy": "esriMPTDefaultValue",
+    "splitPolicy": "esriSPTDefaultValue"
+   }
+  },
+  {
+   "name": "tiptbt",
+   "type": "esriFieldTypeInteger",
+   "alias": "Tipe Batas\n",
+   "domain": {
+    "type": "codedValue",
+    "name": "TBT",
+    "description": "Tipe Batas",
+    "codedValues": [
+     {
+      "name": "antar provinsi",
+      "code": 1
+     },
+     {
+      "name": "antar kabupaten",
+      "code": 2
+     },
+     {
+      "name": "antar kota",
+      "code": 3
+     },
+     {
+      "name": "kabupaten-kota",
+      "code": 4
+     },
+     {
+      "name": "kota-kabupaten",
+      "code": 5
+     },
+     {
+      "name": "antar desa",
+      "code": 7
+     },
+     {
+      "name": "antar kelurahan",
+      "code": 8
+     },
+     {
+      "name": "desa-kelurahan",
+      "code": 9
+     },
+     {
+      "name": "kelurahan-desa",
+      "code": 10
+     },
+     {
+      "name": "antar kecamatan/distrik",
+      "code": 6
+     }
+    ],
+    "mergePolicy": "esriMPTDefaultValue",
+    "splitPolicy": "esriSPTDefaultValue"
+   }
+  },
+  {
+   "name": "uupp",
+   "type": "esriFieldTypeString",
+   "alias": "Referensi Peraturan\n",
+   "length": 255,
+   "domain": null
+  },
+  {
+   "name": "wadkc1",
+   "type": "esriFieldTypeString",
+   "alias": "Wilayah Administrasi Kecamatan atau Distrik 1",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wadkc2",
+   "type": "esriFieldTypeString",
+   "alias": "Wilayah Administrasi Kecamatan atau Distrik 2",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wakbk1",
+   "type": "esriFieldTypeString",
+   "alias": "Wilayah Administrasi Kabupaten atau Kota 1\n",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wakbk2",
+   "type": "esriFieldTypeString",
+   "alias": "Wilayah Administrasi Kabupaten atau Kota 2\n",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wakld1",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah administrasi Kelurahan atau Desa 1\n",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wakld2",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah administrasi Kelurahan atau Desa 2\n",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wapro1",
+   "type": "esriFieldTypeString",
+   "alias": "Wilayah Administrasi Provinsi 1\n",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "wapro2",
+   "type": "esriFieldTypeString",
+   "alias": "Wilayah Administrasi Provinsi 2\n",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "stsklb",
+   "type": "esriFieldTypeString",
+   "alias": "Status dan Kelas Batas",
+   "length": 255,
+   "domain": null
+  },
+  {
+   "name": "st_length(shape)",
+   "type": "esriFieldTypeDouble",
+   "alias": "st_length(shape)",
+   "domain": null
+  }
+ ],
+ "geometryField": {
+  "name": "shape",
+  "type": "esriFieldTypeGeometry",
+  "alias": "SHAPE"
+ },
+ "indexes": [
+  {
+   "name": "r118_sde_rowid_uk",
+   "fields": "objectid",
+   "isAscending": true,
+   "isUnique": true,
+   "description": ""
+  },
+  {
+   "name": "a98_ix1",
+   "fields": "shape",
+   "isAscending": true,
+   "isUnique": true,
+   "description": ""
+  }
+ ],
+ "subtypes": [],
+ "relationships": [],
+ "canModifyLayer": true,
+ "canScaleSymbols": false,
+ "hasLabels": false,
+ "capabilities": "Map,Query,Data",
+ "maxRecordCount": 1000,
+ "supportsStatistics": true,
+ "supportsAdvancedQueries": true,
+ "supportedQueryFormats": "JSON, geoJSON",
+ "isDataVersioned": false,
+ "ownershipBasedAccessControlForFeatures": {"allowOthersToQuery": true},
+ "useStandardizedQueries": true,
+ "advancedQueryCapabilities": {
+  "useStandardizedQueries": true,
+  "supportsStatistics": true,
+  "supportsHavingClause": true,
+  "supportsCountDistinct": true,
+  "supportsOrderBy": true,
+  "supportsDistinct": true,
+  "supportsPagination": true,
+  "supportsTrueCurve": true,
+  "supportsReturningQueryExtent": true,
+  "supportsQueryWithDistance": true,
+  "supportsSqlExpression": true
+ },
+ "supportsDatumTransformation": true,
+ "supportsCoordinatesQuantization": true,
+ "serviceItemId": "2b90614c9619463491b4725c192eda68"
+}
