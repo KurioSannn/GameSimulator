@@ -1,0 +1,25 @@
+{
+  "snapshot_id": "SNAP-2026-10-21",
+  "checked_at": "2026-10-21T17:02:15+00:00",
+  "pages": 118,
+  "page_bytes_total": 2219946824,
+  "page_integrity_problems": [],
+  "recovered_features_not_full_resolution": [
+    {
+      "page": "kabkota_geom_oid03424_mao1e-7.geojson",
+      "OBJECTID": 3424,
+      "url": "https://geoservices.big.go.id/rbi/rest/services/BATASWILAYAH/BATAS_KABKOTA_AR/MapServer/0/query?where=OBJECTID%3D3424&outFields=%2A&returnGeometry=true&maxAllowableOffset=0.0000001&f=geojson"
+    }
+  ],
+  "features_expected": 541,
+  "features_captured": 541,
+  "missing_objectids": [],
+  "duplicate_objectids": [],
+  "empty_geometry_objectids": [],
+  "registry_regions_affected": [],
+  "total_vertices": 51901883,
+  "max_vertices_feature": [
+    2691,
+    1776432
+  ]
+}
