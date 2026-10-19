@@ -1,0 +1,10 @@
+{
+  "source_id": "SRC-0001",
+  "snapshot_id": "SNAP-2026-10-21",
+  "url": "https://geoservices.big.go.id/rbi/rest/services/BATASWILAYAH/BATAS_KABKOTA_AR/MapServer/0/query?where=1%3D1&f=geojson&outFields=%2A&returnGeometry=true&resultOffset=283&resultRecordCount=1&orderByFields=OBJECTID",
+  "retrieved_at": "2026-10-21T16:04:51+00:00",
+  "http_status": 200,
+  "content_type": "application/geo+json;charset=UTF-8",
+  "bytes": 217370,
+  "sha256": "bb743666d8ebf8d888bc4c61fc29683453e833eb9304d650b67641bd759f3955"
+}
