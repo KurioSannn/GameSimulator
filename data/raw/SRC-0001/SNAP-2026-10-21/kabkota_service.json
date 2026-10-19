@@ -1,0 +1,339 @@
+{
+ "currentVersion": 10.81,
+ "id": 0,
+ "name": "Area Batas Wilayah Administrasi Kabupaten/Kota",
+ "type": "Feature Layer",
+ "description": "",
+ "geometryType": "esriGeometryPolygon",
+ "sourceSpatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326,
+  "vcsWkid": 105790,
+  "latestVcsWkid": 3855
+ },
+ "copyrightText": "",
+ "parentLayer": null,
+ "subLayers": [],
+ "minScale": 0,
+ "maxScale": 0,
+ "drawingInfo": {
+  "renderer": {
+   "type": "simple",
+   "symbol": {
+    "type": "esriSFS",
+    "style": "esriSFSSolid",
+    "color": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "outline": {
+     "type": "esriSLS",
+     "style": "esriSLSSolid",
+     "color": [
+      0,
+      0,
+      0,
+      255
+     ],
+     "width": 0.4
+    }
+   },
+   "label": "",
+   "description": ""
+  },
+  "transparency": 0,
+  "labelingInfo": null
+ },
+ "defaultVisibility": true,
+ "extent": {
+  "xmin": 94.97194993500005,
+  "ymin": -11.007552182999973,
+  "xmax": 141.0200485430001,
+  "ymax": 6.0767408680000665,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "hasAttachments": false,
+ "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+ "displayField": "NAMOBJ",
+ "typeIdField": null,
+ "subtypeFieldName": null,
+ "subtypeField": null,
+ "defaultSubtypeCode": null,
+ "fields": [
+  {
+   "name": "OBJECTID",
+   "type": "esriFieldTypeOID",
+   "alias": "OBJECTID",
+   "domain": null
+  },
+  {
+   "name": "Shape",
+   "type": "esriFieldTypeGeometry",
+   "alias": "SHAPE",
+   "domain": null
+  },
+  {
+   "name": "NAMOBJ",
+   "type": "esriFieldTypeString",
+   "alias": "Nama Objek",
+   "length": 250,
+   "domain": null
+  },
+  {
+   "name": "FCODE",
+   "type": "esriFieldTypeString",
+   "alias": "Feature Code",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "REMARK",
+   "type": "esriFieldTypeString",
+   "alias": "Catatan",
+   "length": 250,
+   "domain": null
+  },
+  {
+   "name": "METADATA",
+   "type": "esriFieldTypeString",
+   "alias": "METADATA",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "SRS_ID",
+   "type": "esriFieldTypeString",
+   "alias": "Spatial Reference Spatial Identifier",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "KDBBPS",
+   "type": "esriFieldTypeString",
+   "alias": "Kode BPS Kabupaten/Kota",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "KDCBPS",
+   "type": "esriFieldTypeString",
+   "alias": "Kode BPS Kecamatan/Distrik",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "KDCPUM",
+   "type": "esriFieldTypeString",
+   "alias": "Kode PUM Kecamatan/Distrik",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "KDEBPS",
+   "type": "esriFieldTypeString",
+   "alias": "Kode BPS Kelurahan/Desa",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "KDEPUM",
+   "type": "esriFieldTypeString",
+   "alias": "Kode PUM Kelurahan/Desa",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "KDPBPS",
+   "type": "esriFieldTypeString",
+   "alias": "Kode BPS Provinsi",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "KDPKAB",
+   "type": "esriFieldTypeString",
+   "alias": "Kode PUM Kabupaten/Kota",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "KDPPUM",
+   "type": "esriFieldTypeString",
+   "alias": "Kode PUM Provinsi",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "LUASWH",
+   "type": "esriFieldTypeDouble",
+   "alias": "Luas Wilayah Menurut Peraturan (HA)",
+   "domain": null
+  },
+  {
+   "name": "TIPADM",
+   "type": "esriFieldTypeInteger",
+   "alias": "Tipe Administrasi",
+   "domain": {
+    "type": "codedValue",
+    "name": "TAD",
+    "description": "Tipe Administrasi",
+    "codedValues": [
+     {
+      "name": "Kelurahan",
+      "code": 1
+     },
+     {
+      "name": "Desa",
+      "code": 2
+     },
+     {
+      "name": "Kecamatan/Distrik",
+      "code": 3
+     },
+     {
+      "name": "Kabupaten",
+      "code": 4
+     },
+     {
+      "name": "Kota",
+      "code": 5
+     },
+     {
+      "name": "Provinsi",
+      "code": 6
+     },
+     {
+      "name": "Lainnya",
+      "code": 999
+     }
+    ],
+    "mergePolicy": "esriMPTDefaultValue",
+    "splitPolicy": "esriSPTDefaultValue"
+   }
+  },
+  {
+   "name": "WADMKC",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah administrasi Kecamatan atau Distrik",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "WADMKD",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah administrasi Kelurahan atau Desa",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "WADMKK",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah administrasi Kebupaten/ Kota",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "WADMPR",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah administrasi Propinsi",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "WIADKC",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah induk administrasi Kecamatan/Distrik",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "WIADKK",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah induk administrasi Kebupaten/ Kota",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "WIADPR",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah induk administrasi Propinsi",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "WIADKD",
+   "type": "esriFieldTypeString",
+   "alias": "Nama wilayah induk administrasi Kelurahan/Desa \n",
+   "length": 255,
+   "domain": null
+  },
+  {
+   "name": "Shape_Length",
+   "type": "esriFieldTypeDouble",
+   "alias": "SHAPE_Length",
+   "domain": null
+  },
+  {
+   "name": "Shape_Area",
+   "type": "esriFieldTypeDouble",
+   "alias": "SHAPE_Area",
+   "domain": null
+  }
+ ],
+ "geometryField": {
+  "name": "Shape",
+  "type": "esriFieldTypeGeometry",
+  "alias": "SHAPE"
+ },
+ "indexes": [
+  {
+   "name": "FDO_OBJECTID",
+   "fields": "OBJECTID",
+   "isAscending": true,
+   "isUnique": true,
+   "description": ""
+  },
+  {
+   "name": "FDO_Shape",
+   "fields": "Shape",
+   "isAscending": true,
+   "isUnique": false,
+   "description": ""
+  }
+ ],
+ "subtypes": [],
+ "relationships": [],
+ "canModifyLayer": true,
+ "canScaleSymbols": false,
+ "hasLabels": true,
+ "capabilities": "Map,Query,Data",
+ "maxRecordCount": 1000,
+ "supportsStatistics": true,
+ "supportsAdvancedQueries": true,
+ "hasZ": true,
+ "supportedQueryFormats": "JSON, geoJSON",
+ "isDataVersioned": false,
+ "ownershipBasedAccessControlForFeatures": {"allowOthersToQuery": true},
+ "useStandardizedQueries": true,
+ "advancedQueryCapabilities": {
+  "useStandardizedQueries": true,
+  "supportsStatistics": true,
+  "supportsHavingClause": true,
+  "supportsCountDistinct": true,
+  "supportsOrderBy": true,
+  "supportsDistinct": true,
+  "supportsPagination": true,
+  "supportsTrueCurve": true,
+  "supportsReturningQueryExtent": true,
+  "supportsQueryWithDistance": true,
+  "supportsSqlExpression": true
+ },
+ "supportsDatumTransformation": true,
+ "supportsCoordinatesQuantization": true,
+ "serviceItemId": "46eea7e378e04224b6ae3767af0ab4d7"
+}
