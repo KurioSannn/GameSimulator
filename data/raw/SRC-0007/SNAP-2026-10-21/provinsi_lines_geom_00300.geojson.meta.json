@@ -1,0 +1,10 @@
+{
+  "source_id": "SRC-0007",
+  "snapshot_id": "SNAP-2026-10-21",
+  "url": "https://geoservices.big.go.id/rbi/rest/services/BATASWILAYAH/BATAS_WILAYAH/MapServer/8/query?where=1%3D1&f=geojson&outFields=%2A&returnGeometry=true&resultOffset=300&resultRecordCount=10&orderByFields=objectid",
+  "retrieved_at": "2026-10-21T17:07:22+00:00",
+  "http_status": 200,
+  "content_type": "application/geo+json;charset=UTF-8",
+  "bytes": 601242,
+  "sha256": "2dcec2d7ae588c63366111b3a2577e30ca8ea6b6f4b5938d85b7b23ca9b30e63"
+}
