@@ -1,0 +1,68 @@
+{
+ "source_id": "SRC-0008",
+ "parsed_at": "2026-10-21T15:53:23+00:00",
+ "year_requested": 2025,
+ "tables": [
+  {
+   "subdomain": "yogyakarta",
+   "url": "https://yogyakarta.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_yogyakarta_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi DI Yogyakarta, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi DI Yogyakarta",
+   "area_unit": "km 2",
+   "sumber": "Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2–2138 Tahun 2025 tanggal 25 April 2025/ Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2–2138 Year 2025, 25 April 2025",
+   "catatan": "",
+   "table_created": "2026-03-04 08:45:35",
+   "available_years": [
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Kulon Progo",
+     "kode_wilayah_bps": "3401000",
+     "area_value_raw": "576,80",
+     "area_value": 576.8
+    },
+    {
+     "label": "Bantul",
+     "kode_wilayah_bps": "3402000",
+     "area_value_raw": "511,53",
+     "area_value": 511.53
+    },
+    {
+     "label": "Gunung Kidul",
+     "kode_wilayah_bps": "3403000",
+     "area_value_raw": "1.475,47",
+     "area_value": 1475.47
+    },
+    {
+     "label": "Sleman",
+     "kode_wilayah_bps": "3404000",
+     "area_value_raw": "573,75",
+     "area_value": 573.75
+    },
+    {
+     "label": "Kota Yogyakarta",
+     "kode_wilayah_bps": "3471000",
+     "area_value_raw": "32,82",
+     "area_value": 32.82
+    },
+    {
+     "label": "DI Yogyakarta",
+     "kode_wilayah_bps": "3400000",
+     "area_value_raw": "3.170,36",
+     "area_value": 3170.36
+    }
+   ]
+  }
+ ]
+}

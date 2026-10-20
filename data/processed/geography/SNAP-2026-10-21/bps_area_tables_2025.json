@@ -1,0 +1,3350 @@
+{
+ "source_id": "SRC-0008",
+ "parsed_at": "2026-10-21T15:52:21+00:00",
+ "year_requested": 2025,
+ "tables": [
+  {
+   "subdomain": "aceh",
+   "url": "https://aceh.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "parse_failed",
+   "error": "table JSON not found in page"
+  },
+  {
+   "subdomain": "sumut",
+   "url": "https://sumut.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "parse_failed",
+   "error": "table JSON not found in page"
+  },
+  {
+   "subdomain": "sumbar",
+   "url": "https://sumbar.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_sumbar_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Sumatera Barat, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Sumatera Barat",
+   "area_unit": "km 2",
+   "sumber": "Kementerian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 Tanggal 25 April 2025 Tentang Poemberian dan Pemutakhiran Kode, Data Wilayah Administrasi Pemerintahan, dan Pulau / Ministry of Home Affairs, Decree of the Minister of Home Affairs Number 300.2.2-2138 of 2025 concerning Granting and Updating Codes, Data on Government Administration Areas, and Islands",
+   "catatan": "1 Data Bersumber dari Badan Informasi Geospasial berdasarkan Surat Deputi Bidang Informasi Geospasial Dasar Nomor B-16.10/DIGD-BIG/IGD.04.04/12/2024 tanggal 16 Desember 2024 Hal Penghitungan Luas Wilayah di Seluruh Wilayah Indonesia. 2 Data Bersumber dari Gazeter R.I Tahun 2021 3 Total Prov.Sumbar, termasuk 3 Pulau yang berada di Wilayah SUmatera Barat",
+   "table_created": "2026-02-24 08:25:59",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Kepulauan Mentawai",
+     "kode_wilayah_bps": "1301000",
+     "area_value_raw": "5.973,92",
+     "area_value": 5973.92
+    },
+    {
+     "label": "Pesisir Selatan",
+     "kode_wilayah_bps": "1302000",
+     "area_value_raw": "6.045,68",
+     "area_value": 6045.68
+    },
+    {
+     "label": "Solok",
+     "kode_wilayah_bps": "1303000",
+     "area_value_raw": "3.590,40",
+     "area_value": 3590.4
+    },
+    {
+     "label": "Sijunjung",
+     "kode_wilayah_bps": "1304000",
+     "area_value_raw": "3.150,58",
+     "area_value": 3150.58
+    },
+    {
+     "label": "Tanah Datar",
+     "kode_wilayah_bps": "1305000",
+     "area_value_raw": "1.377,19",
+     "area_value": 1377.19
+    },
+    {
+     "label": "Padang Pariaman",
+     "kode_wilayah_bps": "1306000",
+     "area_value_raw": "1.341,88",
+     "area_value": 1341.88
+    },
+    {
+     "label": "Agam",
+     "kode_wilayah_bps": "1307000",
+     "area_value_raw": "2.225,34",
+     "area_value": 2225.34
+    },
+    {
+     "label": "Lima Puluh Kota",
+     "kode_wilayah_bps": "1308000",
+     "area_value_raw": "3.273,41",
+     "area_value": 3273.41
+    },
+    {
+     "label": "Pasaman",
+     "kode_wilayah_bps": "1309000",
+     "area_value_raw": "3.902,44",
+     "area_value": 3902.44
+    },
+    {
+     "label": "Solok Selatan",
+     "kode_wilayah_bps": "1310000",
+     "area_value_raw": "3.282,14",
+     "area_value": 3282.14
+    },
+    {
+     "label": "Dharmasraya",
+     "kode_wilayah_bps": "1311000",
+     "area_value_raw": "2.920,93",
+     "area_value": 2920.93
+    },
+    {
+     "label": "Pasaman Barat",
+     "kode_wilayah_bps": "1312000",
+     "area_value_raw": "3.851,88",
+     "area_value": 3851.88
+    },
+    {
+     "label": "Kota Padang",
+     "kode_wilayah_bps": "1371000",
+     "area_value_raw": "694,32",
+     "area_value": 694.32
+    },
+    {
+     "label": "Kota Solok",
+     "kode_wilayah_bps": "1372000",
+     "area_value_raw": "58,72",
+     "area_value": 58.72
+    },
+    {
+     "label": "Kota Sawah Lunto",
+     "kode_wilayah_bps": "1373000",
+     "area_value_raw": "231,95",
+     "area_value": 231.95
+    },
+    {
+     "label": "Kota Padang Panjang",
+     "kode_wilayah_bps": "1374000",
+     "area_value_raw": "23,56",
+     "area_value": 23.56
+    },
+    {
+     "label": "Kota Bukittinggi",
+     "kode_wilayah_bps": "1375000",
+     "area_value_raw": "24,17",
+     "area_value": 24.17
+    },
+    {
+     "label": "Kota Payakumbuh",
+     "kode_wilayah_bps": "1376000",
+     "area_value_raw": "74,55",
+     "area_value": 74.55
+    },
+    {
+     "label": "Kota Pariaman",
+     "kode_wilayah_bps": "1377000",
+     "area_value_raw": "64,63",
+     "area_value": 64.63
+    },
+    {
+     "label": "Sumatera Barat",
+     "kode_wilayah_bps": "1300000",
+     "area_value_raw": "42.107,67",
+     "area_value": 42107.67
+    }
+   ]
+  },
+  {
+   "subdomain": "riau",
+   "url": "https://riau.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_riau_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Riau, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Riau",
+   "area_unit": "km 2",
+   "sumber": "Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025, 25 April 2025 Tentang Pemberian dan Pemutakhiran Kode, Data Wilayah Administrasi Pemerintahan, dan Pulau/ Based on Minister of Home Affairs Decree Number 300.2.2-2138 Year 2025, April 25, 2025.",
+   "catatan": "",
+   "table_created": "2026-03-04 11:21:22",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Kuantan Singingi",
+     "kode_wilayah_bps": "1401000",
+     "area_value_raw": "5.457,86",
+     "area_value": 5457.86
+    },
+    {
+     "label": "Indragiri Hulu",
+     "kode_wilayah_bps": "1402000",
+     "area_value_raw": "7.871,85",
+     "area_value": 7871.85
+    },
+    {
+     "label": "Indragiri Hilir",
+     "kode_wilayah_bps": "1403000",
+     "area_value_raw": "13.518,47",
+     "area_value": 13518.47
+    },
+    {
+     "label": "Pelalawan",
+     "kode_wilayah_bps": "1404000",
+     "area_value_raw": "13.256,10",
+     "area_value": 13256.1
+    },
+    {
+     "label": "Siak",
+     "kode_wilayah_bps": "1405000",
+     "area_value_raw": "7.803,57",
+     "area_value": 7803.57
+    },
+    {
+     "label": "Kampar",
+     "kode_wilayah_bps": "1406000",
+     "area_value_raw": "10.352,80",
+     "area_value": 10352.8
+    },
+    {
+     "label": "Rokan Hulu",
+     "kode_wilayah_bps": "1407000",
+     "area_value_raw": "7.658,15",
+     "area_value": 7658.15
+    },
+    {
+     "label": "Bengkalis",
+     "kode_wilayah_bps": "1408000",
+     "area_value_raw": "8.604,18",
+     "area_value": 8604.18
+    },
+    {
+     "label": "Rokan Hilir",
+     "kode_wilayah_bps": "1409000",
+     "area_value_raw": "9.068,61",
+     "area_value": 9068.61
+    },
+    {
+     "label": "Kepulauan Meranti",
+     "kode_wilayah_bps": "1410000",
+     "area_value_raw": "3.609,40",
+     "area_value": 3609.4
+    },
+    {
+     "label": "Kota Pekanbaru",
+     "kode_wilayah_bps": "1471000",
+     "area_value_raw": "638,00",
+     "area_value": 638.0
+    },
+    {
+     "label": "Kota Dumai",
+     "kode_wilayah_bps": "1473000",
+     "area_value_raw": "2.061,46",
+     "area_value": 2061.46
+    },
+    {
+     "label": "Riau",
+     "kode_wilayah_bps": "1400000",
+     "area_value_raw": "89.900,78",
+     "area_value": 89900.78
+    }
+   ]
+  },
+  {
+   "subdomain": "jambi",
+   "url": "https://jambi.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_jambi_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Jambi, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Jambi",
+   "area_unit": "km 2",
+   "sumber": "Kementerian Dalam Negeri/Ministry of Home Affairs",
+   "catatan": "1 Berdasarkan Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tanggal 25 April 2025/ Based on Minister of Home Affairs Decree 300.2.2-2138 Year 2025 date 25 April 2025",
+   "table_created": "2026-02-14 16:15:09",
+   "available_years": [
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Kerinci",
+     "kode_wilayah_bps": "1501000",
+     "area_value_raw": "3.445,20",
+     "area_value": 3445.2
+    },
+    {
+     "label": "Merangin",
+     "kode_wilayah_bps": "1502000",
+     "area_value_raw": "7.540,12",
+     "area_value": 7540.12
+    },
+    {
+     "label": "Sarolangun",
+     "kode_wilayah_bps": "1503000",
+     "area_value_raw": "5.935,89",
+     "area_value": 5935.89
+    },
+    {
+     "label": "Batang Hari",
+     "kode_wilayah_bps": "1504000",
+     "area_value_raw": "5.453,69",
+     "area_value": 5453.69
+    },
+    {
+     "label": "Muaro Jambi",
+     "kode_wilayah_bps": "1505000",
+     "area_value_raw": "5.159,62",
+     "area_value": 5159.62
+    },
+    {
+     "label": "Tanjung Jabung Timur",
+     "kode_wilayah_bps": "1506000",
+     "area_value_raw": "4.544,58",
+     "area_value": 4544.58
+    },
+    {
+     "label": "Tanjung Jabung Barat",
+     "kode_wilayah_bps": "1507000",
+     "area_value_raw": "5.544,57",
+     "area_value": 5544.57
+    },
+    {
+     "label": "Tebo",
+     "kode_wilayah_bps": "1508000",
+     "area_value_raw": "6.103,74",
+     "area_value": 6103.74
+    },
+    {
+     "label": "Bungo",
+     "kode_wilayah_bps": "1509000",
+     "area_value_raw": "4.760,83",
+     "area_value": 4760.83
+    },
+    {
+     "label": "Kota Jambi",
+     "kode_wilayah_bps": "1571000",
+     "area_value_raw": "169,89",
+     "area_value": 169.89
+    },
+    {
+     "label": "Kota Sungai Penuh",
+     "kode_wilayah_bps": "1572000",
+     "area_value_raw": "364,92",
+     "area_value": 364.92
+    },
+    {
+     "label": "Jambi",
+     "kode_wilayah_bps": "1500000",
+     "area_value_raw": "49.023,04",
+     "area_value": 49023.04
+    }
+   ]
+  },
+  {
+   "subdomain": "sumsel",
+   "url": "https://sumsel.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_sumsel_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Sumatera Selatan, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Sumatera Selatan",
+   "area_unit": "km 2",
+   "sumber": "Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025/Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2-2138 Tahun 2025",
+   "catatan": "",
+   "table_created": "2026-02-19 10:55:37",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Ogan Komering Ulu",
+     "kode_wilayah_bps": "1601000",
+     "area_value_raw": "3.774,50",
+     "area_value": 3774.5
+    },
+    {
+     "label": "Ogan Komering Ilir",
+     "kode_wilayah_bps": "1602000",
+     "area_value_raw": "17.075,71",
+     "area_value": 17075.71
+    },
+    {
+     "label": "Muara Enim",
+     "kode_wilayah_bps": "1603000",
+     "area_value_raw": "6.763,91",
+     "area_value": 6763.91
+    },
+    {
+     "label": "Lahat",
+     "kode_wilayah_bps": "1604000",
+     "area_value_raw": "4.333,07",
+     "area_value": 4333.07
+    },
+    {
+     "label": "Musi Rawas",
+     "kode_wilayah_bps": "1605000",
+     "area_value_raw": "6.122,59",
+     "area_value": 6122.59
+    },
+    {
+     "label": "Musi Banyuasin",
+     "kode_wilayah_bps": "1606000",
+     "area_value_raw": "14.550,79",
+     "area_value": 14550.79
+    },
+    {
+     "label": "Banyu Asin",
+     "kode_wilayah_bps": "1607000",
+     "area_value_raw": "12.258,59",
+     "area_value": 12258.59
+    },
+    {
+     "label": "Ogan Komering Ulu Selatan",
+     "kode_wilayah_bps": "1608000",
+     "area_value_raw": "4.369,25",
+     "area_value": 4369.25
+    },
+    {
+     "label": "Ogan Komering Ulu Timur",
+     "kode_wilayah_bps": "1609000",
+     "area_value_raw": "3.412,72",
+     "area_value": 3412.72
+    },
+    {
+     "label": "Ogan Ilir",
+     "kode_wilayah_bps": "1610000",
+     "area_value_raw": "2.302,86",
+     "area_value": 2302.86
+    },
+    {
+     "label": "Empat Lawang",
+     "kode_wilayah_bps": "1611000",
+     "area_value_raw": "2.234,10",
+     "area_value": 2234.1
+    },
+    {
+     "label": "Penukal Abab Lematang Ilir",
+     "kode_wilayah_bps": "1612000",
+     "area_value_raw": "1.842,56",
+     "area_value": 1842.56
+    },
+    {
+     "label": "Musi Rawas Utara",
+     "kode_wilayah_bps": "1613000",
+     "area_value_raw": "5.937,80",
+     "area_value": 5937.8
+    },
+    {
+     "label": "Kota Palembang",
+     "kode_wilayah_bps": "1671000",
+     "area_value_raw": "352,52",
+     "area_value": 352.52
+    },
+    {
+     "label": "Kota Prabumulih",
+     "kode_wilayah_bps": "1672000",
+     "area_value_raw": "447,31",
+     "area_value": 447.31
+    },
+    {
+     "label": "Kota Pagar Alam",
+     "kode_wilayah_bps": "1673000",
+     "area_value_raw": "625,91",
+     "area_value": 625.91
+    },
+    {
+     "label": "Kota Lubuklinggau",
+     "kode_wilayah_bps": "1674000",
+     "area_value_raw": "367,73",
+     "area_value": 367.73
+    },
+    {
+     "label": "Sumatera Selatan",
+     "kode_wilayah_bps": "1600000",
+     "area_value_raw": "86.771,92",
+     "area_value": 86771.92
+    }
+   ]
+  },
+  {
+   "subdomain": "bengkulu",
+   "url": "https://bengkulu.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_bengkulu_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Bengkulu, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Bengkulu",
+   "area_unit": "km 2",
+   "sumber": "- Kementerian Dalam Negeri / Ministry of Home Affairs - Badan Pertanahan Nasional Kantor Wilayah Bengkulu/ National Land Agency Bengkulu Regional Office",
+   "catatan": "",
+   "table_created": "2026-02-20 11:40:31",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Bengkulu Selatan",
+     "kode_wilayah_bps": "1701000",
+     "area_value_raw": "1.219,06",
+     "area_value": 1219.06
+    },
+    {
+     "label": "Rejang Lebong",
+     "kode_wilayah_bps": "1702000",
+     "area_value_raw": "1.559,42",
+     "area_value": 1559.42
+    },
+    {
+     "label": "Bengkulu Utara",
+     "kode_wilayah_bps": "1703000",
+     "area_value_raw": "4.478,11",
+     "area_value": 4478.11
+    },
+    {
+     "label": "Kaur",
+     "kode_wilayah_bps": "1704000",
+     "area_value_raw": "2.607,84",
+     "area_value": 2607.84
+    },
+    {
+     "label": "Seluma",
+     "kode_wilayah_bps": "1705000",
+     "area_value_raw": "2.432,09",
+     "area_value": 2432.09
+    },
+    {
+     "label": "Mukomuko",
+     "kode_wilayah_bps": "1706000",
+     "area_value_raw": "4.137,52",
+     "area_value": 4137.52
+    },
+    {
+     "label": "Lebong",
+     "kode_wilayah_bps": "1707000",
+     "area_value_raw": "1.666,62",
+     "area_value": 1666.62
+    },
+    {
+     "label": "Kepahiang",
+     "kode_wilayah_bps": "1708000",
+     "area_value_raw": "738,97",
+     "area_value": 738.97
+    },
+    {
+     "label": "Bengkulu Tengah",
+     "kode_wilayah_bps": "1709000",
+     "area_value_raw": "1.132,41",
+     "area_value": 1132.41
+    },
+    {
+     "label": "Kota Bengkulu",
+     "kode_wilayah_bps": "1771000",
+     "area_value_raw": "150,18",
+     "area_value": 150.18
+    },
+    {
+     "label": "Bengkulu",
+     "kode_wilayah_bps": "1700000",
+     "area_value_raw": "20.122,21",
+     "area_value": 20122.21
+    }
+   ]
+  },
+  {
+   "subdomain": "lampung",
+   "url": "https://lampung.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_lampung_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Lampung, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Lampung",
+   "area_unit": "km 2",
+   "sumber": "Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 050-145 Tahun 2022 tanggal 14 Februari 2022/ Ministry of Home Affairs, The Decree of Home Affairs Minister Number 050-145 Year 2022, 14 February 2022",
+   "catatan": "Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025/Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2-2138 Year 2025",
+   "table_created": "2026-02-23 07:53:38",
+   "available_years": [
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Lampung Barat",
+     "kode_wilayah_bps": "1801000",
+     "area_value_raw": "2.110,10",
+     "area_value": 2110.1
+    },
+    {
+     "label": "Tanggamus",
+     "kode_wilayah_bps": "1802000",
+     "area_value_raw": "2.947,19",
+     "area_value": 2947.19
+    },
+    {
+     "label": "Lampung Selatan",
+     "kode_wilayah_bps": "1803000",
+     "area_value_raw": "2.227,36",
+     "area_value": 2227.36
+    },
+    {
+     "label": "Lampung Timur",
+     "kode_wilayah_bps": "1804000",
+     "area_value_raw": "3.860,55",
+     "area_value": 3860.55
+    },
+    {
+     "label": "Lampung Tengah",
+     "kode_wilayah_bps": "1805000",
+     "area_value_raw": "4.559,57",
+     "area_value": 4559.57
+    },
+    {
+     "label": "Lampung Utara",
+     "kode_wilayah_bps": "1806000",
+     "area_value_raw": "2.669,30",
+     "area_value": 2669.3
+    },
+    {
+     "label": "Way Kanan",
+     "kode_wilayah_bps": "1807000",
+     "area_value_raw": "3.522,11",
+     "area_value": 3522.11
+    },
+    {
+     "label": "Tulangbawang",
+     "kode_wilayah_bps": "1808000",
+     "area_value_raw": "3.118,61",
+     "area_value": 3118.61
+    },
+    {
+     "label": "Pesawaran",
+     "kode_wilayah_bps": "1809000",
+     "area_value_raw": "1.286,84",
+     "area_value": 1286.84
+    },
+    {
+     "label": "Pringsewu",
+     "kode_wilayah_bps": "1810000",
+     "area_value_raw": "617,19",
+     "area_value": 617.19
+    },
+    {
+     "label": "Mesuji",
+     "kode_wilayah_bps": "1811000",
+     "area_value_raw": "2.200,41",
+     "area_value": 2200.41
+    },
+    {
+     "label": "Tulang Bawang Barat",
+     "kode_wilayah_bps": "1812000",
+     "area_value_raw": "1.257,09",
+     "area_value": 1257.09
+    },
+    {
+     "label": "Pesisir Barat",
+     "kode_wilayah_bps": "1813000",
+     "area_value_raw": "2.937,50",
+     "area_value": 2937.5
+    },
+    {
+     "label": "Kota Bandar Lampung",
+     "kode_wilayah_bps": "1871000",
+     "area_value_raw": "183,72",
+     "area_value": 183.72
+    },
+    {
+     "label": "Kota Metro",
+     "kode_wilayah_bps": "1872000",
+     "area_value_raw": "73,21",
+     "area_value": 73.21
+    },
+    {
+     "label": "Lampung",
+     "kode_wilayah_bps": "1800000",
+     "area_value_raw": "33.570,76",
+     "area_value": 33570.76
+    }
+   ]
+  },
+  {
+   "subdomain": "babel",
+   "url": "https://babel.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_babel_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Kepulauan Bangka Belitung, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Kepulauan Bangka Belitung",
+   "area_unit": "km 2",
+   "sumber": "Biro Pemerintahan Sekretariat Daerah Provinsi Kepulauan Bangka Belitung / Government Bureau of Kepulauan Bangka Belitung Province Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2 -2L38 Tahun 2025 tanggal 25 April 2025 / Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2 -2L38 Year 2025, 25 April 2025",
+   "catatan": "$23",
+   "table_created": "2026-02-23 08:53:41",
+   "available_years": [
+    "2004",
+    "2005",
+    "2006",
+    "2007",
+    "2008",
+    "2009",
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Bangka",
+     "kode_wilayah_bps": "1901000",
+     "area_value_raw": "3.011,44",
+     "area_value": 3011.44
+    },
+    {
+     "label": "Belitung",
+     "kode_wilayah_bps": "1902000",
+     "area_value_raw": "2.266,11",
+     "area_value": 2266.11
+    },
+    {
+     "label": "Bangka Barat",
+     "kode_wilayah_bps": "1903000",
+     "area_value_raw": "2.853,41",
+     "area_value": 2853.41
+    },
+    {
+     "label": "Bangka Tengah",
+     "kode_wilayah_bps": "1904000",
+     "area_value_raw": "2.253,85",
+     "area_value": 2253.85
+    },
+    {
+     "label": "Bangka Selatan",
+     "kode_wilayah_bps": "1905000",
+     "area_value_raw": "3.595,45",
+     "area_value": 3595.45
+    },
+    {
+     "label": "Belitung Timur",
+     "kode_wilayah_bps": "1906000",
+     "area_value_raw": "2.585,73",
+     "area_value": 2585.73
+    },
+    {
+     "label": "Kota Pangkal Pinang",
+     "kode_wilayah_bps": "1971000",
+     "area_value_raw": "104,24",
+     "area_value": 104.24
+    },
+    {
+     "label": "Kepulauan Bangka Belitung",
+     "kode_wilayah_bps": "1900000",
+     "area_value_raw": "16.670,22",
+     "area_value": 16670.22
+    }
+   ]
+  },
+  {
+   "subdomain": "kepri",
+   "url": "https://kepri.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_kepri_2025.html",
+   "title": "Luas Daerah&lt;sup&gt;1&lt;/sup&gt; dan Jumlah Pulau&lt;sup&gt;2&lt;/sup&gt; Menurut Kabupaten/Kota di Provinsi Kepulauan Riau, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Kepulauan Riau",
+   "area_unit": "km 2",
+   "sumber": "Biro Pemerintahan dan Otonomi Daerah Provinsi Kepulauan Riau/ Government Bureau and Regional Outonomy of Kepulauan Riau Province",
+   "catatan": "1 Luas provinsi berdasarkan Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025, tanggal 25 April 2025/ Province area based on Decree of the Minister of Home Affairs Number 300.2.2-2138 of 2025, dated April 25th, 2025 2 Jumlah pulau berdasarkan Peraturan Menteri Dalam Negeri Nomor 58 Tahun 2021, tanggal 21 Desember 2021/ Number of islands based on Minister of Home Affairs Regulation Number 58 of 2021, dated Desember 21st ,2021",
+   "table_created": "2026-01-28 10:00:33",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Karimun",
+     "kode_wilayah_bps": "2101000",
+     "area_value_raw": "916,33",
+     "area_value": 916.33
+    },
+    {
+     "label": "Bintan",
+     "kode_wilayah_bps": "2102000",
+     "area_value_raw": "1.311,87",
+     "area_value": 1311.87
+    },
+    {
+     "label": "Natuna",
+     "kode_wilayah_bps": "2103000",
+     "area_value_raw": "1.978,01",
+     "area_value": 1978.01
+    },
+    {
+     "label": "Lingga",
+     "kode_wilayah_bps": "2104000",
+     "area_value_raw": "2.173,63",
+     "area_value": 2173.63
+    },
+    {
+     "label": "Kepulauan Anambas",
+     "kode_wilayah_bps": "2105000",
+     "area_value_raw": "620,62",
+     "area_value": 620.62
+    },
+    {
+     "label": "Kota Batam",
+     "kode_wilayah_bps": "2171000",
+     "area_value_raw": "1.020,28",
+     "area_value": 1020.28
+    },
+    {
+     "label": "Kota Tanjung Pinang",
+     "kode_wilayah_bps": "2172000",
+     "area_value_raw": "149,63",
+     "area_value": 149.63
+    },
+    {
+     "label": "Kepulauan Riau",
+     "kode_wilayah_bps": "2100000",
+     "area_value_raw": "8.170,38",
+     "area_value": 8170.38
+    }
+   ]
+  },
+  {
+   "subdomain": "jakarta",
+   "url": "https://jakarta.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "parse_failed",
+   "error": "table JSON not found in page"
+  },
+  {
+   "subdomain": "jabar",
+   "url": "https://jabar.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_jabar_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Jawa Barat, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Jawa Barat",
+   "area_unit": "km 2",
+   "sumber": "Kementerian Dalam Negeri/ Ministry of Home Affairs jdih.kemendagri.go.id/dokumen/view?id&#x3D;1937&amp;utm diakses 12 Februari 2026 pukul 11:34",
+   "catatan": "1 Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tentang Pemberian dan Pemutakhiran Kode, Data Wilayah Administrasi Pemerintahan dan Pulau, ditetapkan 25 April 2025/ Based on Minister of Home Affairs Regulation Number 300.2.2-2138 of 2025",
+   "table_created": "2026-02-23 09:18:30",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Bogor",
+     "kode_wilayah_bps": "3201000",
+     "area_value_raw": "2.991,78",
+     "area_value": 2991.78
+    },
+    {
+     "label": "Sukabumi",
+     "kode_wilayah_bps": "3202000",
+     "area_value_raw": "4.163,82",
+     "area_value": 4163.82
+    },
+    {
+     "label": "Cianjur",
+     "kode_wilayah_bps": "3203000",
+     "area_value_raw": "3.631,97",
+     "area_value": 3631.97
+    },
+    {
+     "label": "Bandung",
+     "kode_wilayah_bps": "3204000",
+     "area_value_raw": "1.740,84",
+     "area_value": 1740.84
+    },
+    {
+     "label": "Garut",
+     "kode_wilayah_bps": "3205000",
+     "area_value_raw": "3.101,13",
+     "area_value": 3101.13
+    },
+    {
+     "label": "Tasikmalaya",
+     "kode_wilayah_bps": "3206000",
+     "area_value_raw": "2.706,97",
+     "area_value": 2706.97
+    },
+    {
+     "label": "Ciamis",
+     "kode_wilayah_bps": "3207000",
+     "area_value_raw": "1.595,94",
+     "area_value": 1595.94
+    },
+    {
+     "label": "Kuningan",
+     "kode_wilayah_bps": "3208000",
+     "area_value_raw": "1.193,45",
+     "area_value": 1193.45
+    },
+    {
+     "label": "Cirebon",
+     "kode_wilayah_bps": "3209000",
+     "area_value_raw": "1.073,77",
+     "area_value": 1073.77
+    },
+    {
+     "label": "Majalengka",
+     "kode_wilayah_bps": "3210000",
+     "area_value_raw": "1.331,55",
+     "area_value": 1331.55
+    },
+    {
+     "label": "Sumedang",
+     "kode_wilayah_bps": "3211000",
+     "area_value_raw": "1.566,20",
+     "area_value": 1566.2
+    },
+    {
+     "label": "Indramayu",
+     "kode_wilayah_bps": "3212000",
+     "area_value_raw": "2.076,27",
+     "area_value": 2076.27
+    },
+    {
+     "label": "Subang",
+     "kode_wilayah_bps": "3213000",
+     "area_value_raw": "2.168,91",
+     "area_value": 2168.91
+    },
+    {
+     "label": "Purwakarta",
+     "kode_wilayah_bps": "3214000",
+     "area_value_raw": "993,09",
+     "area_value": 993.09
+    },
+    {
+     "label": "Karawang",
+     "kode_wilayah_bps": "3215000",
+     "area_value_raw": "1.916,06",
+     "area_value": 1916.06
+    },
+    {
+     "label": "Bekasi",
+     "kode_wilayah_bps": "3216000",
+     "area_value_raw": "1.255,00",
+     "area_value": 1255.0
+    },
+    {
+     "label": "Bandung Barat",
+     "kode_wilayah_bps": "3217000",
+     "area_value_raw": "1.283,44",
+     "area_value": 1283.44
+    },
+    {
+     "label": "Pangandaran",
+     "kode_wilayah_bps": "3218000",
+     "area_value_raw": "1.128,12",
+     "area_value": 1128.12
+    },
+    {
+     "label": "Kota Bogor",
+     "kode_wilayah_bps": "3271000",
+     "area_value_raw": "111,37",
+     "area_value": 111.37
+    },
+    {
+     "label": "Kota Sukabumi",
+     "kode_wilayah_bps": "3272000",
+     "area_value_raw": "48,31",
+     "area_value": 48.31
+    },
+    {
+     "label": "Kota Bandung",
+     "kode_wilayah_bps": "3273000",
+     "area_value_raw": "166,59",
+     "area_value": 166.59
+    },
+    {
+     "label": "Kota Cirebon",
+     "kode_wilayah_bps": "3274000",
+     "area_value_raw": "39,40",
+     "area_value": 39.4
+    },
+    {
+     "label": "Kota Bekasi",
+     "kode_wilayah_bps": "3275000",
+     "area_value_raw": "213,04",
+     "area_value": 213.04
+    },
+    {
+     "label": "Kota Depok",
+     "kode_wilayah_bps": "3276000",
+     "area_value_raw": "199,91",
+     "area_value": 199.91
+    },
+    {
+     "label": "Kota Cimahi",
+     "kode_wilayah_bps": "3277000",
+     "area_value_raw": "42,43",
+     "area_value": 42.43
+    },
+    {
+     "label": "Kota Tasikmalaya",
+     "kode_wilayah_bps": "3278000",
+     "area_value_raw": "182,96",
+     "area_value": 182.96
+    },
+    {
+     "label": "Kota Banjar",
+     "kode_wilayah_bps": "3279000",
+     "area_value_raw": "131,01",
+     "area_value": 131.01
+    },
+    {
+     "label": "Jawa Barat",
+     "kode_wilayah_bps": "3200000",
+     "area_value_raw": "37.053,33",
+     "area_value": 37053.33
+    }
+   ]
+  },
+  {
+   "subdomain": "jateng",
+   "url": "https://jateng.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_jateng_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Jawa Tengah, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Jawa Tengah",
+   "area_unit": "km 2",
+   "sumber": "Berdasarkan Peraturan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tanggal 25 April 2025/Based on Minister of Home Affairs Regulation Number 300.2.2-2138 Year 2025, April 25, 2025",
+   "catatan": "",
+   "table_created": "2026-02-12 11:43:14",
+   "available_years": [
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Cilacap",
+     "kode_wilayah_bps": "3301000",
+     "area_value_raw": "2.325,17",
+     "area_value": 2325.17
+    },
+    {
+     "label": "Banyumas",
+     "kode_wilayah_bps": "3302000",
+     "area_value_raw": "1.391,15",
+     "area_value": 1391.15
+    },
+    {
+     "label": "Purbalingga",
+     "kode_wilayah_bps": "3303000",
+     "area_value_raw": "805,76",
+     "area_value": 805.76
+    },
+    {
+     "label": "Banjarnegara",
+     "kode_wilayah_bps": "3304000",
+     "area_value_raw": "1.144,90",
+     "area_value": 1144.9
+    },
+    {
+     "label": "Kebumen",
+     "kode_wilayah_bps": "3305000",
+     "area_value_raw": "1.333,90",
+     "area_value": 1333.9
+    },
+    {
+     "label": "Purworejo",
+     "kode_wilayah_bps": "3306000",
+     "area_value_raw": "1.081,76",
+     "area_value": 1081.76
+    },
+    {
+     "label": "Wonosobo",
+     "kode_wilayah_bps": "3307000",
+     "area_value_raw": "1.011,62",
+     "area_value": 1011.62
+    },
+    {
+     "label": "Magelang",
+     "kode_wilayah_bps": "3308000",
+     "area_value_raw": "1.129,98",
+     "area_value": 1129.98
+    },
+    {
+     "label": "Boyolali",
+     "kode_wilayah_bps": "3309000",
+     "area_value_raw": "1.096,61",
+     "area_value": 1096.61
+    },
+    {
+     "label": "Klaten",
+     "kode_wilayah_bps": "3310000",
+     "area_value_raw": "701,51",
+     "area_value": 701.51
+    },
+    {
+     "label": "Sukoharjo",
+     "kode_wilayah_bps": "3311000",
+     "area_value_raw": "493,60",
+     "area_value": 493.6
+    },
+    {
+     "label": "Wonogiri",
+     "kode_wilayah_bps": "3312000",
+     "area_value_raw": "1.905,82",
+     "area_value": 1905.82
+    },
+    {
+     "label": "Karanganyar",
+     "kode_wilayah_bps": "3313000",
+     "area_value_raw": "802,85",
+     "area_value": 802.85
+    },
+    {
+     "label": "Sragen",
+     "kode_wilayah_bps": "3314000",
+     "area_value_raw": "994,57",
+     "area_value": 994.57
+    },
+    {
+     "label": "Grobogan",
+     "kode_wilayah_bps": "3315000",
+     "area_value_raw": "2.023,85",
+     "area_value": 2023.85
+    },
+    {
+     "label": "Blora",
+     "kode_wilayah_bps": "3316000",
+     "area_value_raw": "1.957,29",
+     "area_value": 1957.29
+    },
+    {
+     "label": "Rembang",
+     "kode_wilayah_bps": "3317000",
+     "area_value_raw": "1.038,32",
+     "area_value": 1038.32
+    },
+    {
+     "label": "Pati",
+     "kode_wilayah_bps": "3318000",
+     "area_value_raw": "1.576,69",
+     "area_value": 1576.69
+    },
+    {
+     "label": "Kudus",
+     "kode_wilayah_bps": "3319000",
+     "area_value_raw": "447,45",
+     "area_value": 447.45
+    },
+    {
+     "label": "Jepara",
+     "kode_wilayah_bps": "3320000",
+     "area_value_raw": "1.020,12",
+     "area_value": 1020.12
+    },
+    {
+     "label": "Demak",
+     "kode_wilayah_bps": "3321000",
+     "area_value_raw": "970,08",
+     "area_value": 970.08
+    },
+    {
+     "label": "Semarang",
+     "kode_wilayah_bps": "3322000",
+     "area_value_raw": "1.019,27",
+     "area_value": 1019.27
+    },
+    {
+     "label": "Temanggung",
+     "kode_wilayah_bps": "3323000",
+     "area_value_raw": "864,83",
+     "area_value": 864.83
+    },
+    {
+     "label": "Kendal",
+     "kode_wilayah_bps": "3324000",
+     "area_value_raw": "1.006,17",
+     "area_value": 1006.17
+    },
+    {
+     "label": "Batang",
+     "kode_wilayah_bps": "3325000",
+     "area_value_raw": "857,07",
+     "area_value": 857.07
+    },
+    {
+     "label": "Pekalongan",
+     "kode_wilayah_bps": "3326000",
+     "area_value_raw": "892,58",
+     "area_value": 892.58
+    },
+    {
+     "label": "Pemalang",
+     "kode_wilayah_bps": "3327000",
+     "area_value_raw": "1.135,76",
+     "area_value": 1135.76
+    },
+    {
+     "label": "Tegal",
+     "kode_wilayah_bps": "3328000",
+     "area_value_raw": "983,71",
+     "area_value": 983.71
+    },
+    {
+     "label": "Brebes",
+     "kode_wilayah_bps": "3329000",
+     "area_value_raw": "1.754,77",
+     "area_value": 1754.77
+    },
+    {
+     "label": "Kota Magelang",
+     "kode_wilayah_bps": "3371000",
+     "area_value_raw": "18,56",
+     "area_value": 18.56
+    },
+    {
+     "label": "Kota Surakarta",
+     "kode_wilayah_bps": "3372000",
+     "area_value_raw": "46,80",
+     "area_value": 46.8
+    },
+    {
+     "label": "Kota Salatiga",
+     "kode_wilayah_bps": "3373000",
+     "area_value_raw": "54,98",
+     "area_value": 54.98
+    },
+    {
+     "label": "Kota Semarang",
+     "kode_wilayah_bps": "3374000",
+     "area_value_raw": "374,75",
+     "area_value": 374.75
+    },
+    {
+     "label": "Kota Pekalongan",
+     "kode_wilayah_bps": "3375000",
+     "area_value_raw": "46,08",
+     "area_value": 46.08
+    },
+    {
+     "label": "Kota Tegal",
+     "kode_wilayah_bps": "3376000",
+     "area_value_raw": "39,08",
+     "area_value": 39.08
+    },
+    {
+     "label": "Jawa Tengah",
+     "kode_wilayah_bps": "3300000",
+     "area_value_raw": "34.347,43",
+     "area_value": 34347.43
+    }
+   ]
+  },
+  {
+   "subdomain": "jogja",
+   "url": "https://jogja.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "fetch_failed",
+   "error": "fetch failed for https://jogja.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025: URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+   "subdomain": "jatim",
+   "url": "https://jatim.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_jatim_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Jawa Timur, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Jawa Timur",
+   "area_unit": "km 2",
+   "sumber": "Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 100.1.1-6117 Tahun 2022 tanggal 9 November 2022/ Ministry of Home Affairs, The Decree of Home Affairs Minister Number 100.1.1-6117 Year 2022, 9 November 2022",
+   "catatan": "Penjumlahan pulau Jawa Timur tidak termasuk Pulau Madura dan Pulau Galang/ The sum of the islands of East Java does not include Madura Island and Galang Island",
+   "table_created": "2026-02-26 08:51:30",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Pacitan",
+     "kode_wilayah_bps": "3501000",
+     "area_value_raw": "1.434,82",
+     "area_value": 1434.82
+    },
+    {
+     "label": "Ponorogo",
+     "kode_wilayah_bps": "3502000",
+     "area_value_raw": "1.418,62",
+     "area_value": 1418.62
+    },
+    {
+     "label": "Trenggalek",
+     "kode_wilayah_bps": "3503000",
+     "area_value_raw": "1.249,37",
+     "area_value": 1249.37
+    },
+    {
+     "label": "Tulungagung",
+     "kode_wilayah_bps": "3504000",
+     "area_value_raw": "1.144,86",
+     "area_value": 1144.86
+    },
+    {
+     "label": "Blitar",
+     "kode_wilayah_bps": "3505000",
+     "area_value_raw": "1.745,38",
+     "area_value": 1745.38
+    },
+    {
+     "label": "Kediri",
+     "kode_wilayah_bps": "3506000",
+     "area_value_raw": "1.523,56",
+     "area_value": 1523.56
+    },
+    {
+     "label": "Malang",
+     "kode_wilayah_bps": "3507000",
+     "area_value_raw": "3.473,75",
+     "area_value": 3473.75
+    },
+    {
+     "label": "Lumajang",
+     "kode_wilayah_bps": "3508000",
+     "area_value_raw": "1.796,49",
+     "area_value": 1796.49
+    },
+    {
+     "label": "Jember",
+     "kode_wilayah_bps": "3509000",
+     "area_value_raw": "3.314,36",
+     "area_value": 3314.36
+    },
+    {
+     "label": "Banyuwangi",
+     "kode_wilayah_bps": "3510000",
+     "area_value_raw": "3.593,85",
+     "area_value": 3593.85
+    },
+    {
+     "label": "Bondowoso",
+     "kode_wilayah_bps": "3511000",
+     "area_value_raw": "1.554,99",
+     "area_value": 1554.99
+    },
+    {
+     "label": "Situbondo",
+     "kode_wilayah_bps": "3512000",
+     "area_value_raw": "1.654,71",
+     "area_value": 1654.71
+    },
+    {
+     "label": "Probolinggo",
+     "kode_wilayah_bps": "3513000",
+     "area_value_raw": "1.725,17",
+     "area_value": 1725.17
+    },
+    {
+     "label": "Pasuruan",
+     "kode_wilayah_bps": "3514000",
+     "area_value_raw": "1.493,16",
+     "area_value": 1493.16
+    },
+    {
+     "label": "Sidoarjo",
+     "kode_wilayah_bps": "3515000",
+     "area_value_raw": "724,77",
+     "area_value": 724.77
+    },
+    {
+     "label": "Mojokerto",
+     "kode_wilayah_bps": "3516000",
+     "area_value_raw": "984,38",
+     "area_value": 984.38
+    },
+    {
+     "label": "Jombang",
+     "kode_wilayah_bps": "3517000",
+     "area_value_raw": "1.109,84",
+     "area_value": 1109.84
+    },
+    {
+     "label": "Nganjuk",
+     "kode_wilayah_bps": "3518000",
+     "area_value_raw": "1.289,07",
+     "area_value": 1289.07
+    },
+    {
+     "label": "Madiun",
+     "kode_wilayah_bps": "3519000",
+     "area_value_raw": "1.113,63",
+     "area_value": 1113.63
+    },
+    {
+     "label": "Magetan",
+     "kode_wilayah_bps": "3520000",
+     "area_value_raw": "706,44",
+     "area_value": 706.44
+    },
+    {
+     "label": "Ngawi",
+     "kode_wilayah_bps": "3521000",
+     "area_value_raw": "1.395,80",
+     "area_value": 1395.8
+    },
+    {
+     "label": "Bojonegoro",
+     "kode_wilayah_bps": "3522000",
+     "area_value_raw": "2.312,63",
+     "area_value": 2312.63
+    },
+    {
+     "label": "Tuban",
+     "kode_wilayah_bps": "3523000",
+     "area_value_raw": "1.973,52",
+     "area_value": 1973.52
+    },
+    {
+     "label": "Lamongan",
+     "kode_wilayah_bps": "3524000",
+     "area_value_raw": "1.752,99",
+     "area_value": 1752.99
+    },
+    {
+     "label": "Gresik",
+     "kode_wilayah_bps": "3525000",
+     "area_value_raw": "1.264,01",
+     "area_value": 1264.01
+    },
+    {
+     "label": "Bangkalan",
+     "kode_wilayah_bps": "3526000",
+     "area_value_raw": "1.302,64",
+     "area_value": 1302.64
+    },
+    {
+     "label": "Sampang",
+     "kode_wilayah_bps": "3527000",
+     "area_value_raw": "1.229,17",
+     "area_value": 1229.17
+    },
+    {
+     "label": "Pamekasan",
+     "kode_wilayah_bps": "3528000",
+     "area_value_raw": "796,24",
+     "area_value": 796.24
+    },
+    {
+     "label": "Sumenep",
+     "kode_wilayah_bps": "3529000",
+     "area_value_raw": "2.083,05",
+     "area_value": 2083.05
+    },
+    {
+     "label": "Kota Kediri",
+     "kode_wilayah_bps": "3571000",
+     "area_value_raw": "67,23",
+     "area_value": 67.23
+    },
+    {
+     "label": "Kota Blitar",
+     "kode_wilayah_bps": "3572000",
+     "area_value_raw": "33,20",
+     "area_value": 33.2
+    },
+    {
+     "label": "Kota Malang",
+     "kode_wilayah_bps": "3573000",
+     "area_value_raw": "111,08",
+     "area_value": 111.08
+    },
+    {
+     "label": "Kota Probolinggo",
+     "kode_wilayah_bps": "3574000",
+     "area_value_raw": "55,20",
+     "area_value": 55.2
+    },
+    {
+     "label": "Kota Pasuruan",
+     "kode_wilayah_bps": "3575000",
+     "area_value_raw": "39,11",
+     "area_value": 39.11
+    },
+    {
+     "label": "Kota Mojokerto",
+     "kode_wilayah_bps": "3576000",
+     "area_value_raw": "20,48",
+     "area_value": 20.48
+    },
+    {
+     "label": "Kota Madiun",
+     "kode_wilayah_bps": "3577000",
+     "area_value_raw": "36,13",
+     "area_value": 36.13
+    },
+    {
+     "label": "Kota Surabaya",
+     "kode_wilayah_bps": "3578000",
+     "area_value_raw": "338,05",
+     "area_value": 338.05
+    },
+    {
+     "label": "Kota Batu",
+     "kode_wilayah_bps": "3579000",
+     "area_value_raw": "194,17",
+     "area_value": 194.17
+    },
+    {
+     "label": "Jawa Timur",
+     "kode_wilayah_bps": "3500000",
+     "area_value_raw": "48.055,90",
+     "area_value": 48055.9
+    }
+   ]
+  },
+  {
+   "subdomain": "banten",
+   "url": "https://banten.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_banten_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Banten, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Banten",
+   "area_unit": "km 2",
+   "sumber": "Kementerian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025/ Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2-2138 Year 2025",
+   "catatan": "",
+   "table_created": "2026-03-02 14:08:35",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Pandeglang",
+     "kode_wilayah_bps": "3601000",
+     "area_value_raw": "2.771,49",
+     "area_value": 2771.49
+    },
+    {
+     "label": "Lebak",
+     "kode_wilayah_bps": "3602000",
+     "area_value_raw": "3.312,30",
+     "area_value": 3312.3
+    },
+    {
+     "label": "Tangerang",
+     "kode_wilayah_bps": "3603000",
+     "area_value_raw": "1.028,34",
+     "area_value": 1028.34
+    },
+    {
+     "label": "Serang",
+     "kode_wilayah_bps": "3604000",
+     "area_value_raw": "1.471,54",
+     "area_value": 1471.54
+    },
+    {
+     "label": "Kota Tangerang",
+     "kode_wilayah_bps": "3671000",
+     "area_value_raw": "178,35",
+     "area_value": 178.35
+    },
+    {
+     "label": "Kota Cilegon",
+     "kode_wilayah_bps": "3672000",
+     "area_value_raw": "162,58",
+     "area_value": 162.58
+    },
+    {
+     "label": "Kota Serang",
+     "kode_wilayah_bps": "3673000",
+     "area_value_raw": "266,31",
+     "area_value": 266.31
+    },
+    {
+     "label": "Kota Tangerang Selatan",
+     "kode_wilayah_bps": "3674000",
+     "area_value_raw": "164,86",
+     "area_value": 164.86
+    },
+    {
+     "label": "Banten",
+     "kode_wilayah_bps": "3600000",
+     "area_value_raw": "9.355,76",
+     "area_value": 9355.76
+    }
+   ]
+  },
+  {
+   "subdomain": "bali",
+   "url": "https://bali.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_bali_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Bali, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "Bidang Integrasi Pengolahan dan Diseminasi Statistik BPS Provinsi Bali",
+   "area_unit": "km 2",
+   "sumber": "Kementerian Dalam Negeri/Ministry of Home Afairs",
+   "catatan": "Luas: Berdasarkan Keputusan Menteri Dalam Negeri Nomor 300.2.2–2138 Tahun 2025 Jumlah Pulau: Berdasarkan data Badan Informasi Geospasial",
+   "table_created": "2026-02-23 12:34:40",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Jembrana",
+     "kode_wilayah_bps": "5101000",
+     "area_value_raw": "847,52",
+     "area_value": 847.52
+    },
+    {
+     "label": "Tabanan",
+     "kode_wilayah_bps": "5102000",
+     "area_value_raw": "848,54",
+     "area_value": 848.54
+    },
+    {
+     "label": "Badung",
+     "kode_wilayah_bps": "5103000",
+     "area_value_raw": "397,40",
+     "area_value": 397.4
+    },
+    {
+     "label": "Gianyar",
+     "kode_wilayah_bps": "5104000",
+     "area_value_raw": "363,78",
+     "area_value": 363.78
+    },
+    {
+     "label": "Klungkung",
+     "kode_wilayah_bps": "5105000",
+     "area_value_raw": "312,12",
+     "area_value": 312.12
+    },
+    {
+     "label": "Bangli",
+     "kode_wilayah_bps": "5106000",
+     "area_value_raw": "526,76",
+     "area_value": 526.76
+    },
+    {
+     "label": "Karang Asem",
+     "kode_wilayah_bps": "5107000",
+     "area_value_raw": "838,90",
+     "area_value": 838.9
+    },
+    {
+     "label": "Buleleng",
+     "kode_wilayah_bps": "5108000",
+     "area_value_raw": "1.322,12",
+     "area_value": 1322.12
+    },
+    {
+     "label": "Kota Denpasar",
+     "kode_wilayah_bps": "5171000",
+     "area_value_raw": "125,69",
+     "area_value": 125.69
+    },
+    {
+     "label": "Bali",
+     "kode_wilayah_bps": "5100000",
+     "area_value_raw": "5.582,83",
+     "area_value": 5582.83
+    }
+   ]
+  },
+  {
+   "subdomain": "ntb",
+   "url": "https://ntb.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_ntb_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Nusa Tenggara Barat, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Nusa Tenggara Barat",
+   "area_unit": "km 2",
+   "sumber": "Keputusan Menteri Dalam Negeri Nomor 100.1.1-6117 Tahun 2022 Decree of the Minister of Home Affairs Number 100.1.1-6117 of 2022",
+   "catatan": "Total keseluruhan jumlah pulau provinsi ditambahkan 2 pulau besar (pulau lombok dan pulau sumbawa)",
+   "table_created": "2026-02-24 12:04:21",
+   "available_years": [
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Lombok Barat",
+     "kode_wilayah_bps": "5201000",
+     "area_value_raw": "923,06",
+     "area_value": 923.06
+    },
+    {
+     "label": "Lombok Tengah",
+     "kode_wilayah_bps": "5202000",
+     "area_value_raw": "1.169,52",
+     "area_value": 1169.52
+    },
+    {
+     "label": "Lombok Timur",
+     "kode_wilayah_bps": "5203000",
+     "area_value_raw": "1.606,47",
+     "area_value": 1606.47
+    },
+    {
+     "label": "Sumbawa",
+     "kode_wilayah_bps": "5204000",
+     "area_value_raw": "6.655,92",
+     "area_value": 6655.92
+    },
+    {
+     "label": "Dompu",
+     "kode_wilayah_bps": "5205000",
+     "area_value_raw": "2.281,75",
+     "area_value": 2281.75
+    },
+    {
+     "label": "Bima",
+     "kode_wilayah_bps": "5206000",
+     "area_value_raw": "4.216,09",
+     "area_value": 4216.09
+    },
+    {
+     "label": "Sumbawa Barat",
+     "kode_wilayah_bps": "5207000",
+     "area_value_raw": "1.743,58",
+     "area_value": 1743.58
+    },
+    {
+     "label": "Lombok Utara",
+     "kode_wilayah_bps": "5208000",
+     "area_value_raw": "811,19",
+     "area_value": 811.19
+    },
+    {
+     "label": "Kota Mataram",
+     "kode_wilayah_bps": "5271000",
+     "area_value_raw": "60,42",
+     "area_value": 60.42
+    },
+    {
+     "label": "Kota Bima",
+     "kode_wilayah_bps": "5272000",
+     "area_value_raw": "207,89",
+     "area_value": 207.89
+    },
+    {
+     "label": "Nusa Tenggara Barat",
+     "kode_wilayah_bps": "5200000",
+     "area_value_raw": "19.675,89",
+     "area_value": 19675.89
+    }
+   ]
+  },
+  {
+   "subdomain": "ntt",
+   "url": "https://ntt.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_ntt_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Nusa Tenggara Timur, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Nusa Tenggara Timur",
+   "area_unit": "km 2",
+   "sumber": "Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tanggal 25 April 2025/Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2-2138 Year 2025, 25 April 2025",
+   "catatan": "a Termasuk 2 (dua) pulau utama yakni Pulau Flores dan Pulau Sumba/Including 2 (two) main islands, namely Flores Island and Sumba Island",
+   "table_created": "2026-02-18 09:08:40",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Sumba Barat",
+     "kode_wilayah_bps": "5301000",
+     "area_value_raw": "755,84",
+     "area_value": 755.84
+    },
+    {
+     "label": "Sumba Timur",
+     "kode_wilayah_bps": "5302000",
+     "area_value_raw": "6.975,20",
+     "area_value": 6975.2
+    },
+    {
+     "label": "Kupang",
+     "kode_wilayah_bps": "5303000",
+     "area_value_raw": "5.130,66",
+     "area_value": 5130.66
+    },
+    {
+     "label": "Timor Tengah Selatan",
+     "kode_wilayah_bps": "5304000",
+     "area_value_raw": "3.931,75",
+     "area_value": 3931.75
+    },
+    {
+     "label": "Timor Tengah Utara",
+     "kode_wilayah_bps": "5305000",
+     "area_value_raw": "2.622,29",
+     "area_value": 2622.29
+    },
+    {
+     "label": "Belu",
+     "kode_wilayah_bps": "5306000",
+     "area_value_raw": "1.126,77",
+     "area_value": 1126.77
+    },
+    {
+     "label": "Alor",
+     "kode_wilayah_bps": "5307000",
+     "area_value_raw": "2.918,75",
+     "area_value": 2918.75
+    },
+    {
+     "label": "Lembata",
+     "kode_wilayah_bps": "5308000",
+     "area_value_raw": "1.263,77",
+     "area_value": 1263.77
+    },
+    {
+     "label": "Flores Timur",
+     "kode_wilayah_bps": "5309000",
+     "area_value_raw": "1.741,06",
+     "area_value": 1741.06
+    },
+    {
+     "label": "Sikka",
+     "kode_wilayah_bps": "5310000",
+     "area_value_raw": "1.669,71",
+     "area_value": 1669.71
+    },
+    {
+     "label": "Ende",
+     "kode_wilayah_bps": "5311000",
+     "area_value_raw": "2.084,08",
+     "area_value": 2084.08
+    },
+    {
+     "label": "Ngada",
+     "kode_wilayah_bps": "5312000",
+     "area_value_raw": "1.736,74",
+     "area_value": 1736.74
+    },
+    {
+     "label": "Manggarai",
+     "kode_wilayah_bps": "5313000",
+     "area_value_raw": "1.343,34",
+     "area_value": 1343.34
+    },
+    {
+     "label": "Rote Ndao",
+     "kode_wilayah_bps": "5314000",
+     "area_value_raw": "1.277,26",
+     "area_value": 1277.26
+    },
+    {
+     "label": "Manggarai Barat",
+     "kode_wilayah_bps": "5315000",
+     "area_value_raw": "3.120,03",
+     "area_value": 3120.03
+    },
+    {
+     "label": "Sumba Tengah",
+     "kode_wilayah_bps": "5316000",
+     "area_value_raw": "1.786,44",
+     "area_value": 1786.44
+    },
+    {
+     "label": "Sumba Barat Daya",
+     "kode_wilayah_bps": "5317000",
+     "area_value_raw": "1.381,94",
+     "area_value": 1381.94
+    },
+    {
+     "label": "Nagekeo",
+     "kode_wilayah_bps": "5318000",
+     "area_value_raw": "1.397,97",
+     "area_value": 1397.97
+    },
+    {
+     "label": "Manggarai Timur",
+     "kode_wilayah_bps": "5319000",
+     "area_value_raw": "2.389,50",
+     "area_value": 2389.5
+    },
+    {
+     "label": "Sabu Raijua",
+     "kode_wilayah_bps": "5320000",
+     "area_value_raw": "457,14",
+     "area_value": 457.14
+    },
+    {
+     "label": "Malaka",
+     "kode_wilayah_bps": "5321000",
+     "area_value_raw": "1.109,00",
+     "area_value": 1109.0
+    },
+    {
+     "label": "Kota Kupang",
+     "kode_wilayah_bps": "5371000",
+     "area_value_raw": "158,89",
+     "area_value": 158.89
+    },
+    {
+     "label": "Nusa Tenggara Timur",
+     "kode_wilayah_bps": "5300000",
+     "area_value_raw": "46.378,11",
+     "area_value": 46378.11
+    }
+   ]
+  },
+  {
+   "subdomain": "kalbar",
+   "url": "https://kalbar.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_kalbar_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Kalimantan Barat, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Kalimantan Barat",
+   "area_unit": "km 2",
+   "sumber": "Kementerian Dalam Negeri/Ministry of Home Affairs",
+   "catatan": "1 Data Luas Wilayah Berdasarkan Keputusan Menteri Dalam Negeri No.100.1.1-6117 Tahun 2022 Tentang Pemberian dan Pemutakhiran Kode, Data Wilayah Administrasi Pemerintahan, dan Pulau (Revisi Kepmendagri Sedang Berproses); Data Jumlah Pulau Berdasarkan Gazeter Republik Indonesia Unsur Rupabumi Pulau Volume 3 Tahun 2024. * Pulau dibawah naungan Provinsi Kalimantan Barat",
+   "table_created": "2026-02-10 14:15:47",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Sambas",
+     "kode_wilayah_bps": "6101000",
+     "area_value_raw": "5.928,22",
+     "area_value": 5928.22
+    },
+    {
+     "label": "Bengkayang",
+     "kode_wilayah_bps": "6102000",
+     "area_value_raw": "5.488,32",
+     "area_value": 5488.32
+    },
+    {
+     "label": "Landak",
+     "kode_wilayah_bps": "6103000",
+     "area_value_raw": "8.430,71",
+     "area_value": 8430.71
+    },
+    {
+     "label": "Mempawah",
+     "kode_wilayah_bps": "6104000",
+     "area_value_raw": "1.934,83",
+     "area_value": 1934.83
+    },
+    {
+     "label": "Sanggau",
+     "kode_wilayah_bps": "6105000",
+     "area_value_raw": "12.452,22",
+     "area_value": 12452.22
+    },
+    {
+     "label": "Ketapang",
+     "kode_wilayah_bps": "6106000",
+     "area_value_raw": "30.012,02",
+     "area_value": 30012.02
+    },
+    {
+     "label": "Sintang",
+     "kode_wilayah_bps": "6107000",
+     "area_value_raw": "22.025,79",
+     "area_value": 22025.79
+    },
+    {
+     "label": "Kapuas Hulu",
+     "kode_wilayah_bps": "6108000",
+     "area_value_raw": "31.318,25",
+     "area_value": 31318.25
+    },
+    {
+     "label": "Sekadau",
+     "kode_wilayah_bps": "6109000",
+     "area_value_raw": "5.979,04",
+     "area_value": 5979.04
+    },
+    {
+     "label": "Melawi",
+     "kode_wilayah_bps": "6110000",
+     "area_value_raw": "10.122,51",
+     "area_value": 10122.51
+    },
+    {
+     "label": "Kayong Utara",
+     "kode_wilayah_bps": "6111000",
+     "area_value_raw": "4.108,53",
+     "area_value": 4108.53
+    },
+    {
+     "label": "Kubu Raya",
+     "kode_wilayah_bps": "6112000",
+     "area_value_raw": "8.549,06",
+     "area_value": 8549.06
+    },
+    {
+     "label": "Kota Pontianak",
+     "kode_wilayah_bps": "6171000",
+     "area_value_raw": "118,21",
+     "area_value": 118.21
+    },
+    {
+     "label": "Kota Singkawang",
+     "kode_wilayah_bps": "6172000",
+     "area_value_raw": "550,35",
+     "area_value": 550.35
+    },
+    {
+     "label": "Kalimantan Barat",
+     "kode_wilayah_bps": "6100000",
+     "area_value_raw": "147.018,06",
+     "area_value": 147018.06
+    }
+   ]
+  },
+  {
+   "subdomain": "kalteng",
+   "url": "https://kalteng.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_kalteng_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Kalimantan Tengah, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Kalimantan Tengah",
+   "area_unit": "km 2",
+   "sumber": "Berdasarkan Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tentang Pemberian dan Pemutakhiran Kode, Data Wilayah Administrasi Pemerintahan, dan Pulau/ Based on 2025 Minister of Home Affairs Regulation Number 300.2.2-2138 concerning Granting and Updating of Codes, Data on Government Administration Areas, and Islands",
+   "catatan": "",
+   "table_created": "2026-02-26 11:12:07",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Kotawaringin Barat",
+     "kode_wilayah_bps": "6201000",
+     "area_value_raw": "9.475,85",
+     "area_value": 9475.85
+    },
+    {
+     "label": "Kotawaringin Timur",
+     "kode_wilayah_bps": "6202000",
+     "area_value_raw": "15.541,88",
+     "area_value": 15541.88
+    },
+    {
+     "label": "Kapuas",
+     "kode_wilayah_bps": "6203000",
+     "area_value_raw": "17.033,54",
+     "area_value": 17033.54
+    },
+    {
+     "label": "Barito Selatan",
+     "kode_wilayah_bps": "6204000",
+     "area_value_raw": "6.267,08",
+     "area_value": 6267.08
+    },
+    {
+     "label": "Barito Utara",
+     "kode_wilayah_bps": "6205000",
+     "area_value_raw": "9.984,81",
+     "area_value": 9984.81
+    },
+    {
+     "label": "Sukamara",
+     "kode_wilayah_bps": "6206000",
+     "area_value_raw": "3.310,13",
+     "area_value": 3310.13
+    },
+    {
+     "label": "Lamandau",
+     "kode_wilayah_bps": "6207000",
+     "area_value_raw": "7.632,39",
+     "area_value": 7632.39
+    },
+    {
+     "label": "Seruyan",
+     "kode_wilayah_bps": "6208000",
+     "area_value_raw": "15.211,71",
+     "area_value": 15211.71
+    },
+    {
+     "label": "Katingan",
+     "kode_wilayah_bps": "6209000",
+     "area_value_raw": "20.380,50",
+     "area_value": 20380.5
+    },
+    {
+     "label": "Pulang Pisau",
+     "kode_wilayah_bps": "6210000",
+     "area_value_raw": "9.650,16",
+     "area_value": 9650.16
+    },
+    {
+     "label": "Gunung Mas",
+     "kode_wilayah_bps": "6211000",
+     "area_value_raw": "9.305,76",
+     "area_value": 9305.76
+    },
+    {
+     "label": "Barito Timur",
+     "kode_wilayah_bps": "6212000",
+     "area_value_raw": "3.212,52",
+     "area_value": 3212.52
+    },
+    {
+     "label": "Murung Raya",
+     "kode_wilayah_bps": "6213000",
+     "area_value_raw": "23.575,33",
+     "area_value": 23575.33
+    },
+    {
+     "label": "Kota Palangka Raya",
+     "kode_wilayah_bps": "6271000",
+     "area_value_raw": "2.848,70",
+     "area_value": 2848.7
+    },
+    {
+     "label": "Kalimantan Tengah",
+     "kode_wilayah_bps": "6200000",
+     "area_value_raw": "153.430,36",
+     "area_value": 153430.36
+    }
+   ]
+  },
+  {
+   "subdomain": "kalsel",
+   "url": "https://kalsel.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_kalsel_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Kalimantan Selatan, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Kalimantan Selatan",
+   "area_unit": "km 2",
+   "sumber": "Kementerian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2–2138 Tahun 2025 tanggal 25 April 2025 tentang Pemberian dan Pemutakhiran Kode, Data Wilayah Administrasi Pemerintahan,dan Pulau/ Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2–2138 Year 2025 on Code Granting and Updating, Government Administration Area Data, and Islands, 25 April 2025",
+   "catatan": "",
+   "table_created": "2026-02-26 21:59:27",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Tanah Laut",
+     "kode_wilayah_bps": "6301000",
+     "area_value_raw": "3.841,16",
+     "area_value": 3841.16
+    },
+    {
+     "label": "Kota Baru",
+     "kode_wilayah_bps": "6302000",
+     "area_value_raw": "9.345,91",
+     "area_value": 9345.91
+    },
+    {
+     "label": "Banjar",
+     "kode_wilayah_bps": "6303000",
+     "area_value_raw": "4.588,37",
+     "area_value": 4588.37
+    },
+    {
+     "label": "Barito Kuala",
+     "kode_wilayah_bps": "6304000",
+     "area_value_raw": "2.425,83",
+     "area_value": 2425.83
+    },
+    {
+     "label": "Tapin",
+     "kode_wilayah_bps": "6305000",
+     "area_value_raw": "2.155,94",
+     "area_value": 2155.94
+    },
+    {
+     "label": "Hulu Sungai Selatan",
+     "kode_wilayah_bps": "6306000",
+     "area_value_raw": "1.697,22",
+     "area_value": 1697.22
+    },
+    {
+     "label": "Hulu Sungai Tengah",
+     "kode_wilayah_bps": "6307000",
+     "area_value_raw": "1.573,54",
+     "area_value": 1573.54
+    },
+    {
+     "label": "Hulu Sungai Utara",
+     "kode_wilayah_bps": "6308000",
+     "area_value_raw": "907,49",
+     "area_value": 907.49
+    },
+    {
+     "label": "Tabalong",
+     "kode_wilayah_bps": "6309000",
+     "area_value_raw": "3.473,07",
+     "area_value": 3473.07
+    },
+    {
+     "label": "Tanah Bumbu",
+     "kode_wilayah_bps": "6310000",
+     "area_value_raw": "4.884,86",
+     "area_value": 4884.86
+    },
+    {
+     "label": "Balangan",
+     "kode_wilayah_bps": "6311000",
+     "area_value_raw": "1.828,51",
+     "area_value": 1828.51
+    },
+    {
+     "label": "Kota Banjarmasin",
+     "kode_wilayah_bps": "6371000",
+     "area_value_raw": "98,37",
+     "area_value": 98.37
+    },
+    {
+     "label": "Kota Banjar Baru",
+     "kode_wilayah_bps": "6372000",
+     "area_value_raw": "305,15",
+     "area_value": 305.15
+    },
+    {
+     "label": "Kalimantan Selatan",
+     "kode_wilayah_bps": "6300000",
+     "area_value_raw": "37.125,43",
+     "area_value": 37125.43
+    }
+   ]
+  },
+  {
+   "subdomain": "kaltim",
+   "url": "https://kaltim.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_kaltim_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Kalimantan Timur, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Kalimantan Timur",
+   "area_unit": "km 2",
+   "sumber": "Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025/ Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2-2138 Year 2025",
+   "catatan": "Jumlah pulau total di Provinsi Kalimantan Timur termasuk 1 (satu) pulau milik Pemerintah Provinsi Kalimantan Timur/ The total number of islands in the Kalimantan Timur Province includes 1 (one) islands belonging to the Government of the Kalimantan Timur Province",
+   "table_created": "2026-02-20 12:51:13",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Paser",
+     "kode_wilayah_bps": "6401000",
+     "area_value_raw": "10.780,68",
+     "area_value": 10780.68
+    },
+    {
+     "label": "Kutai Barat",
+     "kode_wilayah_bps": "6402000",
+     "area_value_raw": "13.611,17",
+     "area_value": 13611.17
+    },
+    {
+     "label": "Kutai Kartanegara",
+     "kode_wilayah_bps": "6403000",
+     "area_value_raw": "26.912,07",
+     "area_value": 26912.07
+    },
+    {
+     "label": "Kutai Timur",
+     "kode_wilayah_bps": "6404000",
+     "area_value_raw": "31.572,69",
+     "area_value": 31572.69
+    },
+    {
+     "label": "Berau",
+     "kode_wilayah_bps": "6405000",
+     "area_value_raw": "20.999,29",
+     "area_value": 20999.29
+    },
+    {
+     "label": "Penajam Paser Utara",
+     "kode_wilayah_bps": "6409000",
+     "area_value_raw": "3.197,20",
+     "area_value": 3197.2
+    },
+    {
+     "label": "Mahakam Ulu",
+     "kode_wilayah_bps": "6411000",
+     "area_value_raw": "18.492,24",
+     "area_value": 18492.24
+    },
+    {
+     "label": "Kota Balikpapan",
+     "kode_wilayah_bps": "6471000",
+     "area_value_raw": "509,45",
+     "area_value": 509.45
+    },
+    {
+     "label": "Kota Samarinda",
+     "kode_wilayah_bps": "6472000",
+     "area_value_raw": "716,78",
+     "area_value": 716.78
+    },
+    {
+     "label": "Kota Bontang",
+     "kode_wilayah_bps": "6474000",
+     "area_value_raw": "160,20",
+     "area_value": 160.2
+    },
+    {
+     "label": "Kalimantan Timur",
+     "kode_wilayah_bps": "6400000",
+     "area_value_raw": "126.951,76",
+     "area_value": 126951.76
+    }
+   ]
+  },
+  {
+   "subdomain": "kaltara",
+   "url": "https://kaltara.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_kaltara_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Kalimantan Utara, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Kalimantan Utara",
+   "area_unit": "km 2",
+   "sumber": "Badan Informasi Geospasial berdasarkan Surat Deputi Bidang Informasi Geospasial Dasar Nomor B-16.10/DIGD-BIG/IGD.04.04/12/2024, Tanggal 16 Desember 2024, Hal Penghitungan Luas Wilayah di Seluruh Indonesia dan KEPUTUSAN MENTERI DALAM NEGERI NOMOR 300.2.2 -2138 TAHUN 2025 TENTANG PEMBERIAN DAN PEMUTAKHIRAN KODE, DATA WILAYAH ADMINISTRASI PEMERINTAHAN, DAN PULAU",
+   "catatan": "Terdapat 1 pulau di Provinsi Kalimantan Utara sehingga total keseluruhan pulau ada sebanyak 196",
+   "table_created": "2026-02-25 07:58:20",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Malinau",
+     "kode_wilayah_bps": "6501000",
+     "area_value_raw": "32.902,00",
+     "area_value": 32902.0
+    },
+    {
+     "label": "Bulungan",
+     "kode_wilayah_bps": "6502000",
+     "area_value_raw": "13.720,00",
+     "area_value": 13720.0
+    },
+    {
+     "label": "Tana Tidung",
+     "kode_wilayah_bps": "6503000",
+     "area_value_raw": "3.481,00",
+     "area_value": 3481.0
+    },
+    {
+     "label": "Nunukan",
+     "kode_wilayah_bps": "6504000",
+     "area_value_raw": "13.550,00",
+     "area_value": 13550.0
+    },
+    {
+     "label": "Kota Tarakan",
+     "kode_wilayah_bps": "6571000",
+     "area_value_raw": "248,00",
+     "area_value": 248.0
+    },
+    {
+     "label": "Kalimantan Utara",
+     "kode_wilayah_bps": "6500000",
+     "area_value_raw": "69.901,00",
+     "area_value": 69901.0
+    }
+   ]
+  },
+  {
+   "subdomain": "sulut",
+   "url": "https://sulut.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_sulut_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Sulawesi Utara, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Sulawesi Utara",
+   "area_unit": "km 2",
+   "sumber": "Sumber/Source: Kementerian Dalam Negeri/Ministry of Home Affairs",
+   "catatan": "Satu pulau tidak masuk dalam wilayah kabupaten/kota yaitu Pulau Libuton",
+   "table_created": "2026-02-09 14:12:17",
+   "available_years": [
+    "2004",
+    "2005",
+    "2006",
+    "2007",
+    "2008",
+    "2009",
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Bolaang Mongondow",
+     "kode_wilayah_bps": "7101000",
+     "area_value_raw": "3.291,24",
+     "area_value": 3291.24
+    },
+    {
+     "label": "Minahasa",
+     "kode_wilayah_bps": "7102000",
+     "area_value_raw": "1.128,25",
+     "area_value": 1128.25
+    },
+    {
+     "label": "Kepulauan Sangihe",
+     "kode_wilayah_bps": "7103000",
+     "area_value_raw": "596,46",
+     "area_value": 596.46
+    },
+    {
+     "label": "Kepulauan Talaud",
+     "kode_wilayah_bps": "7104000",
+     "area_value_raw": "1.009,74",
+     "area_value": 1009.74
+    },
+    {
+     "label": "Minahasa Selatan",
+     "kode_wilayah_bps": "7105000",
+     "area_value_raw": "1.455,91",
+     "area_value": 1455.91
+    },
+    {
+     "label": "Minahasa Utara",
+     "kode_wilayah_bps": "7106000",
+     "area_value_raw": "992,98",
+     "area_value": 992.98
+    },
+    {
+     "label": "Bolaang Mongondow Utara",
+     "kode_wilayah_bps": "7107000",
+     "area_value_raw": "1.643,86",
+     "area_value": 1643.86
+    },
+    {
+     "label": "Siau Tagulandang Biaro",
+     "kode_wilayah_bps": "7108000",
+     "area_value_raw": "215,61",
+     "area_value": 215.61
+    },
+    {
+     "label": "Minahasa Tenggara",
+     "kode_wilayah_bps": "7109000",
+     "area_value_raw": "752,79",
+     "area_value": 752.79
+    },
+    {
+     "label": "Bolaang Mongondow Selatan",
+     "kode_wilayah_bps": "7110000",
+     "area_value_raw": "1.772,83",
+     "area_value": 1772.83
+    },
+    {
+     "label": "Bolaang Mongondow Timur",
+     "kode_wilayah_bps": "7111000",
+     "area_value_raw": "859,68",
+     "area_value": 859.68
+    },
+    {
+     "label": "Kota Manado",
+     "kode_wilayah_bps": "7171000",
+     "area_value_raw": "161,76",
+     "area_value": 161.76
+    },
+    {
+     "label": "Kota Bitung",
+     "kode_wilayah_bps": "7172000",
+     "area_value_raw": "329,36",
+     "area_value": 329.36
+    },
+    {
+     "label": "Kota Tomohon",
+     "kode_wilayah_bps": "7173000",
+     "area_value_raw": "169,06",
+     "area_value": 169.06
+    },
+    {
+     "label": "Kota Kotamobagu",
+     "kode_wilayah_bps": "7174000",
+     "area_value_raw": "108,89",
+     "area_value": 108.89
+    },
+    {
+     "label": "Sulawesi Utara",
+     "kode_wilayah_bps": "7100000",
+     "area_value_raw": "14.488,43",
+     "area_value": 14488.43
+    }
+   ]
+  },
+  {
+   "subdomain": "sulteng",
+   "url": "https://sulteng.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_sulteng_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Sulawesi Tengah, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Sulawesi Tengah",
+   "area_unit": "km 2",
+   "sumber": "Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tanggal 25 April 2025",
+   "catatan": "",
+   "table_created": "2026-02-27 14:50:57",
+   "available_years": [
+    "2018",
+    "2019",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Banggai Kepulauan",
+     "kode_wilayah_bps": "7201000",
+     "area_value_raw": "2.378,05",
+     "area_value": 2378.05
+    },
+    {
+     "label": "Banggai",
+     "kode_wilayah_bps": "7202000",
+     "area_value_raw": "8.241,14",
+     "area_value": 8241.14
+    },
+    {
+     "label": "Morowali",
+     "kode_wilayah_bps": "7203000",
+     "area_value_raw": "4.433,54",
+     "area_value": 4433.54
+    },
+    {
+     "label": "Poso",
+     "kode_wilayah_bps": "7204000",
+     "area_value_raw": "7.544,97",
+     "area_value": 7544.97
+    },
+    {
+     "label": "Donggala",
+     "kode_wilayah_bps": "7205000",
+     "area_value_raw": "5.122,74",
+     "area_value": 5122.74
+    },
+    {
+     "label": "Toli-Toli",
+     "kode_wilayah_bps": "7206000",
+     "area_value_raw": "3.695,95",
+     "area_value": 3695.95
+    },
+    {
+     "label": "Buol",
+     "kode_wilayah_bps": "7207000",
+     "area_value_raw": "3.719,21",
+     "area_value": 3719.21
+    },
+    {
+     "label": "Parigi Moutong",
+     "kode_wilayah_bps": "7208000",
+     "area_value_raw": "5.800,06",
+     "area_value": 5800.06
+    },
+    {
+     "label": "Tojo Una-Una",
+     "kode_wilayah_bps": "7209000",
+     "area_value_raw": "5.565,95",
+     "area_value": 5565.95
+    },
+    {
+     "label": "Sigi",
+     "kode_wilayah_bps": "7210000",
+     "area_value_raw": "5.225,44",
+     "area_value": 5225.44
+    },
+    {
+     "label": "Banggai Laut",
+     "kode_wilayah_bps": "7211000",
+     "area_value_raw": "680,31",
+     "area_value": 680.31
+    },
+    {
+     "label": "Morowali Utara",
+     "kode_wilayah_bps": "7212000",
+     "area_value_raw": "8.733,73",
+     "area_value": 8733.73
+    },
+    {
+     "label": "Kota Palu",
+     "kode_wilayah_bps": "7271000",
+     "area_value_raw": "355,92",
+     "area_value": 355.92
+    },
+    {
+     "label": "Sulawesi Tengah",
+     "kode_wilayah_bps": "7200000",
+     "area_value_raw": "61.496,98",
+     "area_value": 61496.98
+    }
+   ]
+  },
+  {
+   "subdomain": "sulsel",
+   "url": "https://sulsel.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_sulsel_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Sulawesi Selatan, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Sulawesi Selatan",
+   "area_unit": "km 2",
+   "sumber": "Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tanggal 25 April 2025/ Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2-2138 Year 2025, 25 April 2025",
+   "catatan": "",
+   "table_created": "2026-02-26 13:55:41",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Kepulauan Selayar",
+     "kode_wilayah_bps": "7301000",
+     "area_value_raw": "1.163,38",
+     "area_value": 1163.38
+    },
+    {
+     "label": "Bulukumba",
+     "kode_wilayah_bps": "7302000",
+     "area_value_raw": "1.175,56",
+     "area_value": 1175.56
+    },
+    {
+     "label": "Bantaeng",
+     "kode_wilayah_bps": "7303000",
+     "area_value_raw": "390,95",
+     "area_value": 390.95
+    },
+    {
+     "label": "Jeneponto",
+     "kode_wilayah_bps": "7304000",
+     "area_value_raw": "795,13",
+     "area_value": 795.13
+    },
+    {
+     "label": "Takalar",
+     "kode_wilayah_bps": "7305000",
+     "area_value_raw": "553,21",
+     "area_value": 553.21
+    },
+    {
+     "label": "Gowa",
+     "kode_wilayah_bps": "7306000",
+     "area_value_raw": "1.812,99",
+     "area_value": 1812.99
+    },
+    {
+     "label": "Sinjai",
+     "kode_wilayah_bps": "7307000",
+     "area_value_raw": "865,70",
+     "area_value": 865.7
+    },
+    {
+     "label": "Maros",
+     "kode_wilayah_bps": "7308000",
+     "area_value_raw": "1.443,79",
+     "area_value": 1443.79
+    },
+    {
+     "label": "Pangkajene Dan Kepulauan",
+     "kode_wilayah_bps": "7309000",
+     "area_value_raw": "883,55",
+     "area_value": 883.55
+    },
+    {
+     "label": "Barru",
+     "kode_wilayah_bps": "7310000",
+     "area_value_raw": "1.201,32",
+     "area_value": 1201.32
+    },
+    {
+     "label": "Bone",
+     "kode_wilayah_bps": "7311000",
+     "area_value_raw": "4.568,03",
+     "area_value": 4568.03
+    },
+    {
+     "label": "Soppeng",
+     "kode_wilayah_bps": "7312000",
+     "area_value_raw": "1.385,55",
+     "area_value": 1385.55
+    },
+    {
+     "label": "Wajo",
+     "kode_wilayah_bps": "7313000",
+     "area_value_raw": "2.505,49",
+     "area_value": 2505.49
+    },
+    {
+     "label": "Sidenreng Rappang",
+     "kode_wilayah_bps": "7314000",
+     "area_value_raw": "1.935,33",
+     "area_value": 1935.33
+    },
+    {
+     "label": "Pinrang",
+     "kode_wilayah_bps": "7315000",
+     "area_value_raw": "1.895,01",
+     "area_value": 1895.01
+    },
+    {
+     "label": "Enrekang",
+     "kode_wilayah_bps": "7316000",
+     "area_value_raw": "1.806,82",
+     "area_value": 1806.82
+    },
+    {
+     "label": "Luwu",
+     "kode_wilayah_bps": "7317000",
+     "area_value_raw": "2.901,70",
+     "area_value": 2901.7
+    },
+    {
+     "label": "Tana Toraja",
+     "kode_wilayah_bps": "7318000",
+     "area_value_raw": "2.043,62",
+     "area_value": 2043.62
+    },
+    {
+     "label": "Luwu Utara",
+     "kode_wilayah_bps": "7322000",
+     "area_value_raw": "7.422,26",
+     "area_value": 7422.26
+    },
+    {
+     "label": "Luwu Timur",
+     "kode_wilayah_bps": "7325000",
+     "area_value_raw": "6.745,77",
+     "area_value": 6745.77
+    },
+    {
+     "label": "Toraja Utara",
+     "kode_wilayah_bps": "7326000",
+     "area_value_raw": "1.289,13",
+     "area_value": 1289.13
+    },
+    {
+     "label": "Kota Makassar",
+     "kode_wilayah_bps": "7371000",
+     "area_value_raw": "177,17",
+     "area_value": 177.17
+    },
+    {
+     "label": "Kota Parepare",
+     "kode_wilayah_bps": "7372000",
+     "area_value_raw": "89,63",
+     "area_value": 89.63
+    },
+    {
+     "label": "Kota Palopo",
+     "kode_wilayah_bps": "7373000",
+     "area_value_raw": "272,89",
+     "area_value": 272.89
+    },
+    {
+     "label": "Sulawesi Selatan",
+     "kode_wilayah_bps": "7300000",
+     "area_value_raw": "45.323,98",
+     "area_value": 45323.98
+    }
+   ]
+  },
+  {
+   "subdomain": "sultra",
+   "url": "https://sultra.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_sultra_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Sulawesi Tenggara, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Sulawesi Tenggara",
+   "area_unit": "km 2",
+   "sumber": "Kementerian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tanggal 25 April 2025/Ministry of Home Affairs, Decree of the Minister of Home Affairs Number 300.2.2-2138 of 2025 dated 25 April 2025.",
+   "catatan": "Termasuk Pulau Buton, Pulau Kabaena, dan Pulau Muna/ Includes Buton Island, Kabaena Island, and Muna Island",
+   "table_created": "2026-02-19 12:20:10",
+   "available_years": [
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Buton",
+     "kode_wilayah_bps": "7401000",
+     "area_value_raw": "1.664.982,00",
+     "area_value": 1664982.0
+    },
+    {
+     "label": "Muna",
+     "kode_wilayah_bps": "7402000",
+     "area_value_raw": "1.856.910,00",
+     "area_value": 1856910.0
+    },
+    {
+     "label": "Konawe",
+     "kode_wilayah_bps": "7403000",
+     "area_value_raw": "5.352.922,00",
+     "area_value": 5352922.0
+    },
+    {
+     "label": "Kolaka",
+     "kode_wilayah_bps": "7404000",
+     "area_value_raw": "2.958.870,00",
+     "area_value": 2958870.0
+    },
+    {
+     "label": "Konawe Selatan",
+     "kode_wilayah_bps": "7405000",
+     "area_value_raw": "4.234.214,00",
+     "area_value": 4234214.0
+    },
+    {
+     "label": "Bombana",
+     "kode_wilayah_bps": "7406000",
+     "area_value_raw": "3.291.922,00",
+     "area_value": 3291922.0
+    },
+    {
+     "label": "Wakatobi",
+     "kode_wilayah_bps": "7407000",
+     "area_value_raw": "450.800,00",
+     "area_value": 450800.0
+    },
+    {
+     "label": "Kolaka Utara",
+     "kode_wilayah_bps": "7408000",
+     "area_value_raw": "2.931.677,00",
+     "area_value": 2931677.0
+    },
+    {
+     "label": "Buton Utara",
+     "kode_wilayah_bps": "7409000",
+     "area_value_raw": "1.752.370,00",
+     "area_value": 1752370.0
+    },
+    {
+     "label": "Konawe Utara",
+     "kode_wilayah_bps": "7410000",
+     "area_value_raw": "4.219.214,00",
+     "area_value": 4219214.0
+    },
+    {
+     "label": "Kolaka Timur",
+     "kode_wilayah_bps": "7411000",
+     "area_value_raw": "3.992.531,00",
+     "area_value": 3992531.0
+    },
+    {
+     "label": "Konawe Kepulauan",
+     "kode_wilayah_bps": "7412000",
+     "area_value_raw": "704.184,00",
+     "area_value": 704184.0
+    },
+    {
+     "label": "Muna Barat",
+     "kode_wilayah_bps": "7413000",
+     "area_value_raw": "816.717,00",
+     "area_value": 816717.0
+    },
+    {
+     "label": "Buton Tengah",
+     "kode_wilayah_bps": "7414000",
+     "area_value_raw": "835.562,00",
+     "area_value": 835562.0
+    },
+    {
+     "label": "Buton Selatan",
+     "kode_wilayah_bps": "7415000",
+     "area_value_raw": "516.479,00",
+     "area_value": 516479.0
+    },
+    {
+     "label": "Kota Kendari",
+     "kode_wilayah_bps": "7471000",
+     "area_value_raw": "265.845,00",
+     "area_value": 265845.0
+    },
+    {
+     "label": "Kota Baubau",
+     "kode_wilayah_bps": "7472000",
+     "area_value_raw": "294.104,00",
+     "area_value": 294104.0
+    },
+    {
+     "label": "Sulawesi Tenggara",
+     "kode_wilayah_bps": "7400000",
+     "area_value_raw": "36.139.303,00",
+     "area_value": 36139303.0
+    }
+   ]
+  },
+  {
+   "subdomain": "gorontalo",
+   "url": "https://gorontalo.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_gorontalo_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Gorontalo, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Gorontalo",
+   "area_unit": "km 2",
+   "sumber": "Kementerian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tanggal 25 April 2025/ Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2-2138 Year 2025, 25 April 2025",
+   "catatan": "",
+   "table_created": "2026-02-04 09:43:50",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Boalemo",
+     "kode_wilayah_bps": "7501000",
+     "area_value_raw": "1.831,64",
+     "area_value": 1831.64
+    },
+    {
+     "label": "Gorontalo",
+     "kode_wilayah_bps": "7502000",
+     "area_value_raw": "2.160,18",
+     "area_value": 2160.18
+    },
+    {
+     "label": "Pohuwato",
+     "kode_wilayah_bps": "7503000",
+     "area_value_raw": "4.370,66",
+     "area_value": 4370.66
+    },
+    {
+     "label": "Bone Bolango",
+     "kode_wilayah_bps": "7504000",
+     "area_value_raw": "1.888,93",
+     "area_value": 1888.93
+    },
+    {
+     "label": "Gorontalo Utara",
+     "kode_wilayah_bps": "7505000",
+     "area_value_raw": "1.702,75",
+     "area_value": 1702.75
+    },
+    {
+     "label": "Kota Gorontalo",
+     "kode_wilayah_bps": "7571000",
+     "area_value_raw": "70,83",
+     "area_value": 70.83
+    },
+    {
+     "label": "Gorontalo",
+     "kode_wilayah_bps": "7500000",
+     "area_value_raw": "12.024,98",
+     "area_value": 12024.98
+    }
+   ]
+  },
+  {
+   "subdomain": "sulbar",
+   "url": "https://sulbar.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_sulbar_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten di Provinsi Sulawesi Barat, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Sulawesi Barat",
+   "area_unit": "km 2",
+   "sumber": "Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tanggal 25 April 2025 Tentang Pemberian dan Pemutakhiran Kode, Data Wilayah Administrasi Pemerintahan, dan Pulau/ Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2-2138/2025 on Code Granting and Updating, Government Administration Area Data, and Islands, 25 April 2025",
+   "catatan": "",
+   "table_created": "2026-02-19 12:30:13",
+   "available_years": [
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Majene",
+     "kode_wilayah_bps": "7601000",
+     "area_value_raw": "900,53",
+     "area_value": 900.53
+    },
+    {
+     "label": "Polewali Mandar",
+     "kode_wilayah_bps": "7602000",
+     "area_value_raw": "2.074,19",
+     "area_value": 2074.19
+    },
+    {
+     "label": "Mamasa",
+     "kode_wilayah_bps": "7603000",
+     "area_value_raw": "3.016,13",
+     "area_value": 3016.13
+    },
+    {
+     "label": "Mamuju",
+     "kode_wilayah_bps": "7604000",
+     "area_value_raw": "4.942,04",
+     "area_value": 4942.04
+    },
+    {
+     "label": "Pasangkayu",
+     "kode_wilayah_bps": "7605000",
+     "area_value_raw": "2.901,70",
+     "area_value": 2901.7
+    },
+    {
+     "label": "Mamuju Tengah",
+     "kode_wilayah_bps": "7606000",
+     "area_value_raw": "2.756,08",
+     "area_value": 2756.08
+    },
+    {
+     "label": "Sulawesi Barat",
+     "kode_wilayah_bps": "7600000",
+     "area_value_raw": "16.590,67",
+     "area_value": 16590.67
+    }
+   ]
+  },
+  {
+   "subdomain": "maluku",
+   "url": "https://maluku.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "parse_failed",
+   "error": "table JSON not found in page"
+  },
+  {
+   "subdomain": "malut",
+   "url": "https://malut.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_malut_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Maluku Utara, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Maluku Utara",
+   "area_unit": "km 2",
+   "sumber": "Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tanggal 25 April 2025/Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2-2138 Year 2025, 25 April 2025",
+   "catatan": "a Termasuk 6 Pulau yang tidak masuk kabupaten manapun di Maluku Utara/Including 6 islands that are not part of any district in Maluku Utara",
+   "table_created": "2026-02-19 10:06:07",
+   "available_years": [
+    "2018",
+    "2020",
+    "2021",
+    "2022",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Halmahera Barat",
+     "kode_wilayah_bps": "8201000",
+     "area_value_raw": "2.237,39",
+     "area_value": 2237.39
+    },
+    {
+     "label": "Halmahera Tengah",
+     "kode_wilayah_bps": "8202000",
+     "area_value_raw": "2.272,26",
+     "area_value": 2272.26
+    },
+    {
+     "label": "Kepulauan Sula",
+     "kode_wilayah_bps": "8203000",
+     "area_value_raw": "1.777,02",
+     "area_value": 1777.02
+    },
+    {
+     "label": "Halmahera Selatan",
+     "kode_wilayah_bps": "8204000",
+     "area_value_raw": "8.102,00",
+     "area_value": 8102.0
+    },
+    {
+     "label": "Halmahera Utara",
+     "kode_wilayah_bps": "8205000",
+     "area_value_raw": "3.402,94",
+     "area_value": 3402.94
+    },
+    {
+     "label": "Halmahera Timur",
+     "kode_wilayah_bps": "8206000",
+     "area_value_raw": "6.487,63",
+     "area_value": 6487.63
+    },
+    {
+     "label": "Pulau Morotai",
+     "kode_wilayah_bps": "8207000",
+     "area_value_raw": "2.337,26",
+     "area_value": 2337.26
+    },
+    {
+     "label": "Pulau Taliabu",
+     "kode_wilayah_bps": "8208000",
+     "area_value_raw": "2.984,01",
+     "area_value": 2984.01
+    },
+    {
+     "label": "Kota Ternate",
+     "kode_wilayah_bps": "8271000",
+     "area_value_raw": "162,04",
+     "area_value": 162.04
+    },
+    {
+     "label": "Kota Tidore Kepulauan",
+     "kode_wilayah_bps": "8272000",
+     "area_value_raw": "1.703,43",
+     "area_value": 1703.43
+    },
+    {
+     "label": "Maluku Utara",
+     "kode_wilayah_bps": "8200000",
+     "area_value_raw": "31.465,98",
+     "area_value": 31465.98
+    }
+   ]
+  },
+  {
+   "subdomain": "papuabarat",
+   "url": "https://papuabarat.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "parse_failed",
+   "error": "table JSON not found in page"
+  },
+  {
+   "subdomain": "papua",
+   "url": "https://papua.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2025",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_papua_2025.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Papua, 2025",
+   "tahun_data": 2025,
+   "penanggung_jawab": "BPS Provinsi Papua",
+   "area_unit": "km 2",
+   "sumber": "Sumber: Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 300.2.2-2138 Tahun 2025 tanggal 25 April 2025/Ministry of Home Affairs, The Decree of Home Affairs Minister Number 300.2.2-2138 Year 20253, 25th April 2025",
+   "catatan": "",
+   "table_created": "2026-02-25 09:16:00",
+   "available_years": [
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2024",
+    "2025"
+   ],
+   "rows": [
+    {
+     "label": "Jayapura",
+     "kode_wilayah_bps": "9403000",
+     "area_value_raw": "14.081,94",
+     "area_value": 14081.94
+    },
+    {
+     "label": "Kepulauan Yapen",
+     "kode_wilayah_bps": "9408000",
+     "area_value_raw": "2.425,37",
+     "area_value": 2425.37
+    },
+    {
+     "label": "Biak Numfor",
+     "kode_wilayah_bps": "9409000",
+     "area_value_raw": "2.258,86",
+     "area_value": 2258.86
+    },
+    {
+     "label": "Sarmi",
+     "kode_wilayah_bps": "9419000",
+     "area_value_raw": "14.068,31",
+     "area_value": 14068.31
+    },
+    {
+     "label": "Keerom",
+     "kode_wilayah_bps": "9420000",
+     "area_value_raw": "9.526,32",
+     "area_value": 9526.32
+    },
+    {
+     "label": "Waropen",
+     "kode_wilayah_bps": "9426000",
+     "area_value_raw": "10.781,04",
+     "area_value": 10781.04
+    },
+    {
+     "label": "Supiori",
+     "kode_wilayah_bps": "9427000",
+     "area_value_raw": "660,68",
+     "area_value": 660.68
+    },
+    {
+     "label": "Mamberamo Raya",
+     "kode_wilayah_bps": "9428000",
+     "area_value_raw": "26.745,34",
+     "area_value": 26745.34
+    },
+    {
+     "label": "Kota Jayapura",
+     "kode_wilayah_bps": "9471000",
+     "area_value_raw": "835,44",
+     "area_value": 835.44
+    },
+    {
+     "label": "Papua",
+     "kode_wilayah_bps": "9400000",
+     "area_value_raw": "81.383,30",
+     "area_value": 81383.3
+    }
+   ]
+  }
+ ]
+}
