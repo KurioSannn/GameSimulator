@@ -1,0 +1,1334 @@
+{
+ "snapshot_id": "SNAP-2026-10-21",
+ "built_at": "2026-10-22T01:30:17+00:00",
+ "source_parts": 23225,
+ "source_parts_without_reliable_interior_point": 0,
+ "source_size_bins": {
+  ">=1e+07 m2": 1043,
+  "1000-10000 m2": 6507,
+  "100-1000 m2": 5529,
+  "10000-100000 m2": 4041,
+  "100000-1e+06 m2": 2430,
+  "1e+06-1e+07 m2": 1123,
+  "0-100 m2": 2552
+ },
+ "lods": {
+  "lod1": {
+   "lod": "lod1",
+   "interval_m": 1000.0,
+   "reference_m_per_px": 1250,
+   "source_parts": 23225,
+   "status_counts": {
+    "distinct": 18308,
+    "merged": 2223,
+    "deformed": 2126,
+    "absorbing": 376,
+    "displaced": 192
+   },
+   "by_size_bin": {
+    "0-100 m2": {
+     "distinct": 1732,
+     "merged": 643,
+     "deformed": 160,
+     "displaced": 17
+    },
+    "100-1000 m2": {
+     "distinct": 4174,
+     "deformed": 482,
+     "merged": 831,
+     "displaced": 42
+    },
+    "1000-10000 m2": {
+     "distinct": 5184,
+     "merged": 577,
+     "deformed": 679,
+     "displaced": 60,
+     "absorbing": 7
+    },
+    "10000-100000 m2": {
+     "distinct": 3360,
+     "deformed": 467,
+     "displaced": 47,
+     "merged": 160,
+     "absorbing": 7
+    },
+    "100000-1e+06 m2": {
+     "distinct": 2120,
+     "deformed": 255,
+     "absorbing": 21,
+     "displaced": 22,
+     "merged": 12
+    },
+    "1e+06-1e+07 m2": {
+     "distinct": 979,
+     "deformed": 83,
+     "absorbing": 57,
+     "displaced": 4
+    },
+    ">=1e+07 m2": {
+     "distinct": 759,
+     "absorbing": 284
+    }
+   },
+   "visible_parts_at_reference_scale": 2677,
+   "visible_parts_not_drawn_on_their_own": 15,
+   "visible_parts_lost": 0,
+   "noticeable_parts_displaced_or_lost": [],
+   "noticeable_parts": 1066,
+   "visible_not_drawn_on_their_own_status_counts": {
+    "displaced": 12,
+    "merged": 3
+   },
+   "largest_visible_not_drawn_on_their_own": [
+    {
+     "region_id": "13.09",
+     "status": "displaced",
+     "area_m2": 2664409.8,
+     "extent_m": 2140.2,
+     "at": [
+      100.39889,
+      -3.20352
+     ]
+    },
+    {
+     "region_id": "19.02",
+     "status": "displaced",
+     "area_m2": 1486324.6,
+     "extent_m": 2621.7,
+     "at": [
+      107.48312,
+      -2.93505
+     ]
+    },
+    {
+     "region_id": "21.01",
+     "status": "displaced",
+     "area_m2": 1347213.1,
+     "extent_m": 2442.9,
+     "at": [
+      107.48109,
+      0.95212
+     ]
+    },
+    {
+     "region_id": "92.07",
+     "status": "displaced",
+     "area_m2": 1031696.0,
+     "extent_m": 2601.3,
+     "at": [
+      134.30457,
+      -2.49449
+     ]
+    },
+    {
+     "region_id": "65.04",
+     "status": "merged",
+     "area_m2": 867022.4,
+     "extent_m": 2430.4,
+     "at": [
+      117.41757,
+      3.37245
+     ],
+     "merged_with_largest_area_m2": 35202763.5,
+     "merged_part_count": 2
+    },
+    {
+     "region_id": "64.02",
+     "status": "merged",
+     "area_m2": 701679.6,
+     "extent_m": 1579.6,
+     "at": [
+      117.34798,
+      -0.77174
+     ],
+     "merged_with_largest_area_m2": 103294890.6,
+     "merged_part_count": 5
+    },
+    {
+     "region_id": "13.09",
+     "status": "displaced",
+     "area_m2": 693353.2,
+     "extent_m": 1774.6,
+     "at": [
+      99.17249,
+      -1.48124
+     ]
+    },
+    {
+     "region_id": "74.06",
+     "status": "displaced",
+     "area_m2": 604031.9,
+     "extent_m": 1719.5,
+     "at": [
+      121.50396,
+      -4.7223
+     ]
+    },
+    {
+     "region_id": "21.05",
+     "status": "displaced",
+     "area_m2": 448393.9,
+     "extent_m": 1414.7,
+     "at": [
+      106.30522,
+      3.24213
+     ]
+    },
+    {
+     "region_id": "81.07",
+     "status": "displaced",
+     "area_m2": 349050.9,
+     "extent_m": 1463.1,
+     "at": [
+      134.43644,
+      -6.43108
+     ]
+    },
+    {
+     "region_id": "53.15",
+     "status": "displaced",
+     "area_m2": 285730.5,
+     "extent_m": 1717.6,
+     "at": [
+      119.76636,
+      -8.70411
+     ]
+    },
+    {
+     "region_id": "21.05",
+     "status": "displaced",
+     "area_m2": 262878.8,
+     "extent_m": 1359.7,
+     "at": [
+      106.4144,
+      2.98503
+     ]
+    },
+    {
+     "region_id": "18.01",
+     "status": "displaced",
+     "area_m2": 258070.4,
+     "extent_m": 1365.0,
+     "at": [
+      105.34252,
+      -5.56239
+     ]
+    },
+    {
+     "region_id": "14.04",
+     "status": "merged",
+     "area_m2": 253910.7,
+     "extent_m": 1413.4,
+     "at": [
+      103.65821,
+      -0.01679
+     ],
+     "merged_with_largest_area_m2": 13423077000.7,
+     "merged_part_count": 4
+    },
+    {
+     "region_id": "81.05",
+     "status": "displaced",
+     "area_m2": 86102.9,
+     "extent_m": 1744.2,
+     "at": [
+      131.17326,
+      -3.91996
+     ]
+    }
+   ],
+   "regions_with_any_part": 514,
+   "deformed_summary": {
+    "count": 2126,
+    "visible_count": 150,
+    "area_ratio_median": 0.4279833397466082,
+    "area_ratio_p05": 0.2009130681120325,
+    "iou_median": 0.6976829791830119,
+    "largest": [
+     {
+      "area_m2": 8568504.109,
+      "extent_m": 6602.007,
+      "iou": 0.777,
+      "area_ratio": 0.819
+     },
+     {
+      "area_m2": 7666038.307,
+      "extent_m": 5099.483,
+      "iou": 0.877,
+      "area_ratio": 0.409
+     },
+     {
+      "area_m2": 6389945.494,
+      "extent_m": 4341.227,
+      "iou": 0.891,
+      "area_ratio": 0.42
+     },
+     {
+      "area_m2": 5926558.659,
+      "extent_m": 5082.409,
+      "iou": 0.539,
+      "area_ratio": 0.378
+     },
+     {
+      "area_m2": 5397645.923,
+      "extent_m": 4585.069,
+      "iou": 0.766,
+      "area_ratio": 0.673
+     },
+     {
+      "area_m2": 5311186.574,
+      "extent_m": 5352.034,
+      "iou": 0.964,
+      "area_ratio": 0.699
+     },
+     {
+      "area_m2": 5276989.618,
+      "extent_m": 6084.266,
+      "iou": 0.954,
+      "area_ratio": 0.359
+     },
+     {
+      "area_m2": 5107867.664,
+      "extent_m": 3789.87,
+      "iou": 0.811,
+      "area_ratio": 0.751
+     },
+     {
+      "area_m2": 4601299.155,
+      "extent_m": 5493.292,
+      "iou": 0.956,
+      "area_ratio": 0.453
+     },
+     {
+      "area_m2": 4485522.721,
+      "extent_m": 5208.663,
+      "iou": 0.536,
+      "area_ratio": 0.21
+     }
+    ]
+   }
+  },
+  "lod2": {
+   "lod": "lod2",
+   "interval_m": 100.0,
+   "reference_m_per_px": 190,
+   "source_parts": 23225,
+   "status_counts": {
+    "distinct": 20595,
+    "deformed": 1837,
+    "displaced": 141,
+    "merged": 526,
+    "absorbing": 126
+   },
+   "by_size_bin": {
+    "0-100 m2": {
+     "distinct": 1997,
+     "deformed": 186,
+     "merged": 353,
+     "displaced": 16
+    },
+    "100-1000 m2": {
+     "distinct": 4782,
+     "deformed": 563,
+     "merged": 149,
+     "displaced": 35
+    },
+    "1000-10000 m2": {
+     "distinct": 5692,
+     "deformed": 729,
+     "displaced": 61,
+     "merged": 21,
+     "absorbing": 4
+    },
+    "10000-100000 m2": {
+     "distinct": 3654,
+     "deformed": 351,
+     "displaced": 29,
+     "absorbing": 4,
+     "merged": 3
+    },
+    "100000-1e+06 m2": {
+     "distinct": 2409,
+     "absorbing": 13,
+     "deformed": 8
+    },
+    "1e+06-1e+07 m2": {
+     "distinct": 1102,
+     "absorbing": 21
+    },
+    ">=1e+07 m2": {
+     "distinct": 959,
+     "absorbing": 84
+    }
+   },
+   "visible_parts_at_reference_scale": 8030,
+   "visible_parts_not_drawn_on_their_own": 33,
+   "visible_parts_lost": 0,
+   "noticeable_parts_displaced_or_lost": [],
+   "noticeable_parts": 3499,
+   "visible_not_drawn_on_their_own_status_counts": {
+    "displaced": 28,
+    "merged": 5
+   },
+   "largest_visible_not_drawn_on_their_own": [
+    {
+     "region_id": "81.05",
+     "status": "displaced",
+     "area_m2": 86102.9,
+     "extent_m": 1744.2,
+     "at": [
+      131.17326,
+      -3.91996
+     ]
+    },
+    {
+     "region_id": "74.04",
+     "status": "merged",
+     "area_m2": 75633.1,
+     "extent_m": 369.2,
+     "at": [
+      123.15924,
+      -5.24713
+     ],
+     "merged_with_largest_area_m2": 1657414373.7,
+     "merged_part_count": 13
+    },
+    {
+     "region_id": "74.04",
+     "status": "merged",
+     "area_m2": 57127.4,
+     "extent_m": 557.9,
+     "at": [
+      122.89557,
+      -5.56398
+     ],
+     "merged_with_largest_area_m2": 1657414373.7,
+     "merged_part_count": 13
+    },
+    {
+     "region_id": "21.01",
+     "status": "displaced",
+     "area_m2": 55683.3,
+     "extent_m": 846.8,
+     "at": [
+      104.67612,
+      1.05352
+     ]
+    },
+    {
+     "region_id": "61.04",
+     "status": "displaced",
+     "area_m2": 42490.2,
+     "extent_m": 306.4,
+     "at": [
+      110.07122,
+      -2.37095
+     ]
+    },
+    {
+     "region_id": "82.04",
+     "status": "displaced",
+     "area_m2": 36925.7,
+     "extent_m": 415.1,
+     "at": [
+      127.7068,
+      -1.27037
+     ]
+    },
+    {
+     "region_id": "35.10",
+     "status": "displaced",
+     "area_m2": 30950.7,
+     "extent_m": 231.4,
+     "at": [
+      113.99467,
+      -8.61747
+     ]
+    },
+    {
+     "region_id": "21.04",
+     "status": "displaced",
+     "area_m2": 25604.6,
+     "extent_m": 401.7,
+     "at": [
+      104.45307,
+      -0.26653
+     ]
+    },
+    {
+     "region_id": "96.03",
+     "status": "displaced",
+     "area_m2": 24421.3,
+     "extent_m": 334.1,
+     "at": [
+      130.08655,
+      0.1333
+     ]
+    },
+    {
+     "region_id": "31.01",
+     "status": "displaced",
+     "area_m2": 19936.9,
+     "extent_m": 246.3,
+     "at": [
+      106.55851,
+      -5.5905
+     ]
+    },
+    {
+     "region_id": "72.01",
+     "status": "displaced",
+     "area_m2": 19852.1,
+     "extent_m": 211.2,
+     "at": [
+      123.0772,
+      -0.88194
+     ]
+    },
+    {
+     "region_id": "31.01",
+     "status": "displaced",
+     "area_m2": 17717.8,
+     "extent_m": 296.5,
+     "at": [
+      106.73596,
+      -6.03938
+     ]
+    },
+    {
+     "region_id": "21.71",
+     "status": "displaced",
+     "area_m2": 16962.4,
+     "extent_m": 213.2,
+     "at": [
+      103.76589,
+      1.00996
+     ]
+    },
+    {
+     "region_id": "96.03",
+     "status": "displaced",
+     "area_m2": 16703.7,
+     "extent_m": 194.6,
+     "at": [
+      130.41842,
+      -2.20781
+     ]
+    },
+    {
+     "region_id": "21.04",
+     "status": "displaced",
+     "area_m2": 16678.6,
+     "extent_m": 208.1,
+     "at": [
+      104.29994,
+      0.34912
+     ]
+    },
+    {
+     "region_id": "71.03",
+     "status": "displaced",
+     "area_m2": 16649.4,
+     "extent_m": 244.1,
+     "at": [
+      125.6756,
+      3.05748
+     ]
+    },
+    {
+     "region_id": "72.12",
+     "status": "displaced",
+     "area_m2": 16538.2,
+     "extent_m": 216.2,
+     "at": [
+      121.55076,
+      -1.95073
+     ]
+    },
+    {
+     "region_id": "13.09",
+     "status": "displaced",
+     "area_m2": 15709.6,
+     "extent_m": 203.5,
+     "at": [
+      99.23813,
+      -1.67995
+     ]
+    },
+    {
+     "region_id": "74.04",
+     "status": "merged",
+     "area_m2": 14890.5,
+     "extent_m": 195.0,
+     "at": [
+      122.99959,
+      -5.40781
+     ],
+     "merged_with_largest_area_m2": 31879.6,
+     "merged_part_count": 6
+    },
+    {
+     "region_id": "71.03",
+     "status": "displaced",
+     "area_m2": 14377.9,
+     "extent_m": 203.6,
+     "at": [
+      125.70208,
+      4.22748
+     ]
+    },
+    {
+     "region_id": "96.03",
+     "status": "displaced",
+     "area_m2": 13311.3,
+     "extent_m": 274.4,
+     "at": [
+      130.48257,
+      -0.45431
+     ]
+    },
+    {
+     "region_id": "92.08",
+     "status": "displaced",
+     "area_m2": 13246.1,
+     "extent_m": 191.7,
+     "at": [
+      134.02293,
+      -3.86724
+     ]
+    },
+    {
+     "region_id": "82.03",
+     "status": "displaced",
+     "area_m2": 12899.6,
+     "extent_m": 238.1,
+     "at": [
+      127.78854,
+      2.12475
+     ]
+    },
+    {
+     "region_id": "31.01",
+     "status": "displaced",
+     "area_m2": 12757.8,
+     "extent_m": 250.1,
+     "at": [
+      106.58295,
+      -5.86233
+     ]
+    },
+    {
+     "region_id": "92.03",
+     "status": "displaced",
+     "area_m2": 11131.7,
+     "extent_m": 377.0,
+     "at": [
+      131.99197,
+      -2.91429
+     ]
+    },
+    {
+     "region_id": "96.03",
+     "status": "displaced",
+     "area_m2": 10892.7,
+     "extent_m": 319.7,
+     "at": [
+      130.47475,
+      -1.9529
+     ]
+    },
+    {
+     "region_id": "74.03",
+     "status": "merged",
+     "area_m2": 9181.2,
+     "extent_m": 220.2,
+     "at": [
+      122.26996,
+      -5.02198
+     ],
+     "merged_with_largest_area_m2": 51341.1,
+     "merged_part_count": 2
+    },
+    {
+     "region_id": "96.03",
+     "status": "displaced",
+     "area_m2": 8038.4,
+     "extent_m": 285.7,
+     "at": [
+      130.48933,
+      -1.95748
+     ]
+    },
+    {
+     "region_id": "35.09",
+     "status": "displaced",
+     "area_m2": 6584.4,
+     "extent_m": 208.0,
+     "at": [
+      113.29871,
+      -8.50519
+     ]
+    },
+    {
+     "region_id": "81.07",
+     "status": "displaced",
+     "area_m2": 5103.7,
+     "extent_m": 251.0,
+     "at": [
+      134.43185,
+      -6.40789
+     ]
+    },
+    {
+     "region_id": "53.08",
+     "status": "displaced",
+     "area_m2": 3512.0,
+     "extent_m": 238.8,
+     "at": [
+      121.66669,
+      -8.49933
+     ]
+    },
+    {
+     "region_id": "74.07",
+     "status": "merged",
+     "area_m2": 3020.1,
+     "extent_m": 358.6,
+     "at": [
+      123.74741,
+      -5.53964
+     ],
+     "merged_with_largest_area_m2": 2087316.2,
+     "merged_part_count": 2
+    },
+    {
+     "region_id": "76.04",
+     "status": "displaced",
+     "area_m2": 2177.7,
+     "extent_m": 333.1,
+     "at": [
+      119.2794,
+      -3.45516
+     ]
+    }
+   ],
+   "regions_with_any_part": 514,
+   "deformed_summary": {
+    "count": 1837,
+    "visible_count": 317,
+    "area_ratio_median": 0.4213708267462262,
+    "area_ratio_p05": 0.20446481486146856,
+    "iou_median": 0.6941685117255307,
+    "largest": [
+     {
+      "area_m2": 287839.579,
+      "extent_m": 1838.283,
+      "iou": 0.929,
+      "area_ratio": 0.861
+     },
+     {
+      "area_m2": 202993.425,
+      "extent_m": 827.685,
+      "iou": 0.878,
+      "area_ratio": 0.869
+     },
+     {
+      "area_m2": 169639.098,
+      "extent_m": 826.757,
+      "iou": 0.776,
+      "area_ratio": 0.84
+     },
+     {
+      "area_m2": 137453.688,
+      "extent_m": 700.03,
+      "iou": 0.83,
+      "area_ratio": 0.736
+     },
+     {
+      "area_m2": 126247.421,
+      "extent_m": 662.499,
+      "iou": 0.825,
+      "area_ratio": 0.855
+     },
+     {
+      "area_m2": 119816.869,
+      "extent_m": 553.708,
+      "iou": 0.93,
+      "area_ratio": 1.067
+     },
+     {
+      "area_m2": 112359.46,
+      "extent_m": 502.524,
+      "iou": 0.966,
+      "area_ratio": 0.583
+     },
+     {
+      "area_m2": 104449.491,
+      "extent_m": 1063.253,
+      "iou": 0.903,
+      "area_ratio": 0.602
+     },
+     {
+      "area_m2": 89072.075,
+      "extent_m": 517.895,
+      "iou": 0.815,
+      "area_ratio": 0.58
+     },
+     {
+      "area_m2": 86333.913,
+      "extent_m": 857.984,
+      "iou": 0.884,
+      "area_ratio": 0.712
+     }
+    ]
+   }
+  },
+  "lod3": {
+   "lod": "lod3",
+   "interval_m": 40.0,
+   "reference_m_per_px": 50,
+   "source_parts": 23225,
+   "status_counts": {
+    "distinct": 21395,
+    "deformed": 1418,
+    "merged": 247,
+    "absorbing": 66,
+    "displaced": 99
+   },
+   "by_size_bin": {
+    "0-100 m2": {
+     "distinct": 2129,
+     "deformed": 196,
+     "merged": 209,
+     "displaced": 18
+    },
+    "100-1000 m2": {
+     "distinct": 4893,
+     "deformed": 569,
+     "merged": 32,
+     "displaced": 35
+    },
+    "1000-10000 m2": {
+     "distinct": 5832,
+     "deformed": 623,
+     "displaced": 45,
+     "absorbing": 4,
+     "merged": 3
+    },
+    "10000-100000 m2": {
+     "distinct": 4003,
+     "deformed": 29,
+     "displaced": 1,
+     "absorbing": 5,
+     "merged": 3
+    },
+    "100000-1e+06 m2": {
+     "distinct": 2426,
+     "deformed": 1,
+     "absorbing": 3
+    },
+    "1e+06-1e+07 m2": {
+     "distinct": 1118,
+     "absorbing": 5
+    },
+    ">=1e+07 m2": {
+     "distinct": 994,
+     "absorbing": 49
+    }
+   },
+   "visible_parts_at_reference_scale": 15003,
+   "visible_parts_not_drawn_on_their_own": 55,
+   "visible_parts_lost": 0,
+   "noticeable_parts_displaced_or_lost": [],
+   "noticeable_parts": 7552,
+   "visible_not_drawn_on_their_own_status_counts": {
+    "merged": 6,
+    "displaced": 49
+   },
+   "largest_visible_not_drawn_on_their_own": [
+    {
+     "region_id": "74.04",
+     "status": "merged",
+     "area_m2": 75633.1,
+     "extent_m": 369.2,
+     "at": [
+      123.15924,
+      -5.24713
+     ],
+     "merged_with_largest_area_m2": 1657414373.7,
+     "merged_part_count": 11
+    },
+    {
+     "region_id": "74.04",
+     "status": "merged",
+     "area_m2": 57127.4,
+     "extent_m": 557.9,
+     "at": [
+      122.89557,
+      -5.56398
+     ],
+     "merged_with_largest_area_m2": 1657414373.7,
+     "merged_part_count": 11
+    },
+    {
+     "region_id": "74.04",
+     "status": "merged",
+     "area_m2": 14890.5,
+     "extent_m": 195.0,
+     "at": [
+      122.99959,
+      -5.40781
+     ],
+     "merged_with_largest_area_m2": 31879.6,
+     "merged_part_count": 6
+    },
+    {
+     "region_id": "92.03",
+     "status": "displaced",
+     "area_m2": 11131.7,
+     "extent_m": 377.0,
+     "at": [
+      131.99197,
+      -2.91429
+     ]
+    },
+    {
+     "region_id": "96.03",
+     "status": "displaced",
+     "area_m2": 9268.6,
+     "extent_m": 176.9,
+     "at": [
+      130.56671,
+      -0.35414
+     ]
+    },
+    {
+     "region_id": "74.03",
+     "status": "merged",
+     "area_m2": 9181.2,
+     "extent_m": 220.2,
+     "at": [
+      122.26996,
+      -5.02198
+     ],
+     "merged_with_largest_area_m2": 51341.1,
+     "merged_part_count": 2
+    },
+    {
+     "region_id": "74.04",
+     "status": "merged",
+     "area_m2": 8455.6,
+     "extent_m": 167.6,
+     "at": [
+      122.99969,
+      -5.40702
+     ],
+     "merged_with_largest_area_m2": 31879.6,
+     "merged_part_count": 6
+    },
+    {
+     "region_id": "96.03",
+     "status": "displaced",
+     "area_m2": 8038.4,
+     "extent_m": 285.7,
+     "at": [
+      130.48933,
+      -1.95748
+     ]
+    },
+    {
+     "region_id": "21.04",
+     "status": "displaced",
+     "area_m2": 5973.2,
+     "extent_m": 184.8,
+     "at": [
+      104.48402,
+      -0.68217
+     ]
+    },
+    {
+     "region_id": "21.01",
+     "status": "displaced",
+     "area_m2": 5103.8,
+     "extent_m": 136.9,
+     "at": [
+      104.81094,
+      0.74261
+     ]
+    },
+    {
+     "region_id": "19.02",
+     "status": "displaced",
+     "area_m2": 4882.8,
+     "extent_m": 153.2,
+     "at": [
+      107.63225,
+      -2.74794
+     ]
+    },
+    {
+     "region_id": "21.01",
+     "status": "displaced",
+     "area_m2": 4826.6,
+     "extent_m": 102.2,
+     "at": [
+      104.70665,
+      0.87162
+     ]
+    },
+    {
+     "region_id": "96.03",
+     "status": "displaced",
+     "area_m2": 4623.6,
+     "extent_m": 127.7,
+     "at": [
+      130.47838,
+      -1.95447
+     ]
+    },
+    {
+     "region_id": "11.06",
+     "status": "displaced",
+     "area_m2": 3888.9,
+     "extent_m": 103.9,
+     "at": [
+      95.05815,
+      5.60854
+     ]
+    },
+    {
+     "region_id": "21.04",
+     "status": "displaced",
+     "area_m2": 3869.0,
+     "extent_m": 91.3,
+     "at": [
+      104.3541,
+      0.18688
+     ]
+    },
+    {
+     "region_id": "53.08",
+     "status": "displaced",
+     "area_m2": 3512.0,
+     "extent_m": 238.8,
+     "at": [
+      121.66669,
+      -8.49933
+     ]
+    },
+    {
+     "region_id": "21.05",
+     "status": "displaced",
+     "area_m2": 3487.3,
+     "extent_m": 111.9,
+     "at": [
+      105.77729,
+      2.97856
+     ]
+    },
+    {
+     "region_id": "92.07",
+     "status": "displaced",
+     "area_m2": 3455.4,
+     "extent_m": 125.4,
+     "at": [
+      134.70411,
+      -1.96927
+     ]
+    },
+    {
+     "region_id": "96.03",
+     "status": "displaced",
+     "area_m2": 3324.8,
+     "extent_m": 126.0,
+     "at": [
+      129.37996,
+      -1.18227
+     ]
+    },
+    {
+     "region_id": "61.04",
+     "status": "displaced",
+     "area_m2": 3243.6,
+     "extent_m": 132.3,
+     "at": [
+      110.30689,
+      -2.99503
+     ]
+    },
+    {
+     "region_id": "74.07",
+     "status": "merged",
+     "area_m2": 3020.1,
+     "extent_m": 358.6,
+     "at": [
+      123.74741,
+      -5.53964
+     ],
+     "merged_with_largest_area_m2": 2087316.2,
+     "merged_part_count": 2
+    },
+    {
+     "region_id": "74.03",
+     "status": "displaced",
+     "area_m2": 2883.9,
+     "extent_m": 76.2,
+     "at": [
+      122.70873,
+      -4.58857
+     ]
+    },
+    {
+     "region_id": "21.01",
+     "status": "displaced",
+     "area_m2": 2633.5,
+     "extent_m": 78.3,
+     "at": [
+      104.4072,
+      1.20273
+     ]
+    },
+    {
+     "region_id": "52.03",
+     "status": "displaced",
+     "area_m2": 2531.5,
+     "extent_m": 64.3,
+     "at": [
+      116.52045,
+      -8.81789
+     ]
+    },
+    {
+     "region_id": "71.03",
+     "status": "displaced",
+     "area_m2": 2509.8,
+     "extent_m": 93.7,
+     "at": [
+      125.63493,
+      3.78429
+     ]
+    },
+    {
+     "region_id": "33.05",
+     "status": "displaced",
+     "area_m2": 2500.7,
+     "extent_m": 75.6,
+     "at": [
+      109.4113,
+      -7.77772
+     ]
+    },
+    {
+     "region_id": "96.03",
+     "status": "displaced",
+     "area_m2": 2233.9,
+     "extent_m": 73.8,
+     "at": [
+      129.42087,
+      -1.16584
+     ]
+    },
+    {
+     "region_id": "76.04",
+     "status": "displaced",
+     "area_m2": 2177.7,
+     "extent_m": 333.1,
+     "at": [
+      119.2794,
+      -3.45516
+     ]
+    },
+    {
+     "region_id": "35.03",
+     "status": "displaced",
+     "area_m2": 2138.8,
+     "extent_m": 114.8,
+     "at": [
+      111.65139,
+      -8.37686
+     ]
+    },
+    {
+     "region_id": "35.09",
+     "status": "displaced",
+     "area_m2": 2090.0,
+     "extent_m": 73.6,
+     "at": [
+      113.80386,
+      -8.55342
+     ]
+    },
+    {
+     "region_id": "21.01",
+     "status": "displaced",
+     "area_m2": 2072.4,
+     "extent_m": 76.8,
+     "at": [
+      104.64159,
+      1.10419
+     ]
+    },
+    {
+     "region_id": "61.11",
+     "status": "displaced",
+     "area_m2": 2068.8,
+     "extent_m": 63.7,
+     "at": [
+      109.1855,
+      -1.27162
+     ]
+    },
+    {
+     "region_id": "18.01",
+     "status": "displaced",
+     "area_m2": 2028.0,
+     "extent_m": 73.5,
+     "at": [
+      105.75984,
+      -5.86081
+     ]
+    },
+    {
+     "region_id": "92.03",
+     "status": "displaced",
+     "area_m2": 2005.8,
+     "extent_m": 53.8,
+     "at": [
+      132.45533,
+      -3.09831
+     ]
+    },
+    {
+     "region_id": "21.01",
+     "status": "displaced",
+     "area_m2": 1812.5,
+     "extent_m": 68.5,
+     "at": [
+      104.63633,
+      0.72671
+     ]
+    },
+    {
+     "region_id": "76.02",
+     "status": "displaced",
+     "area_m2": 1774.0,
+     "extent_m": 115.0,
+     "at": [
+      118.81006,
+      -2.63772
+     ]
+    },
+    {
+     "region_id": "81.07",
+     "status": "displaced",
+     "area_m2": 1727.5,
+     "extent_m": 66.7,
+     "at": [
+      134.5287,
+      -5.42669
+     ]
+    },
+    {
+     "region_id": "96.01",
+     "status": "displaced",
+     "area_m2": 1662.9,
+     "extent_m": 58.7,
+     "at": [
+      131.41229,
+      -0.76313
+     ]
+    },
+    {
+     "region_id": "34.03",
+     "status": "displaced",
+     "area_m2": 1605.1,
+     "extent_m": 53.3,
+     "at": [
+      110.66246,
+      -8.17739
+     ]
+    },
+    {
+     "region_id": "11.09",
+     "status": "displaced",
+     "area_m2": 1587.8,
+     "extent_m": 77.4,
+     "at": [
+      96.48898,
+      2.40144
+     ]
+    }
+   ],
+   "regions_with_any_part": 514,
+   "deformed_summary": {
+    "count": 1418,
+    "visible_count": 685,
+    "area_ratio_median": 0.41574758873481166,
+    "area_ratio_p05": 0.18415229282678425,
+    "iou_median": 0.6987325910573265,
+    "largest": [
+     {
+      "area_m2": 202993.425,
+      "extent_m": 827.685,
+      "iou": 0.878,
+      "area_ratio": 0.869
+     },
+     {
+      "area_m2": 49951.783,
+      "extent_m": 353.416,
+      "iou": 0.804,
+      "area_ratio": 0.879
+     },
+     {
+      "area_m2": 35449.178,
+      "extent_m": 639.823,
+      "iou": 0.955,
+      "area_ratio": 0.628
+     },
+     {
+      "area_m2": 25080.223,
+      "extent_m": 559.505,
+      "iou": 0.871,
+      "area_ratio": 0.739
+     },
+     {
+      "area_m2": 24735.396,
+      "extent_m": 211.246,
+      "iou": 0.929,
+      "area_ratio": 0.585
+     },
+     {
+      "area_m2": 23021.951,
+      "extent_m": 359.446,
+      "iou": 0.821,
+      "area_ratio": 0.879
+     },
+     {
+      "area_m2": 22436.091,
+      "extent_m": 382.834,
+      "iou": 0.977,
+      "area_ratio": 0.261
+     },
+     {
+      "area_m2": 22298.683,
+      "extent_m": 949.314,
+      "iou": 0.974,
+      "area_ratio": 0.111
+     },
+     {
+      "area_m2": 17369.523,
+      "extent_m": 212.478,
+      "iou": 0.781,
+      "area_ratio": 0.488
+     },
+     {
+      "area_m2": 16556.31,
+      "extent_m": 278.225,
+      "iou": 0.858,
+      "area_ratio": 0.414
+     }
+    ]
+   }
+  }
+ }
+}
