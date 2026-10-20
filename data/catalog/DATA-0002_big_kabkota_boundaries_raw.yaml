@@ -1,0 +1,26 @@
+dataset_id: DATA-0002
+name: "BIG kabupaten/kota boundary polygons, full resolution (raw)"
+domain: geography
+owner_institution: "Badan Informasi Geospasial"
+source_url: "https://geoservices.big.go.id/rbi/rest/services/BATASWILAYAH/BATAS_KABKOTA_AR/MapServer/0"
+access_method: gis
+primary: true
+publication_date: "edisi Juni 2026"
+retrieved_at: "2026-10-21"
+reference_period: "edisi Juni 2026"
+update_frequency: "irregular"
+geographic_resolution:
+  level: "kabupaten/kota polygon, EPSG:4326, scale 1:50.000"
+  coverage: "541 features (see SRC-0001)"
+variables: [OBJECTID, NAMOBJ, KDPPUM, KDPKAB, WADMPR, WADMKK, TIPADM, LUASWH, REMARK, METADATA, geometry]
+units: {LUASWH: "alias HA; magnitude km2 (GAP-0004)", geometry: "decimal degrees WGS84"}
+definitions: {TIPADM: "4 kabupaten, 5 kota, 6 unallocated province-level fragment (inferred from content; no code list found - GAP-0005)"}
+license_notes: "See SRC-0001."
+methodology_notes: "Captured as served (f=geojson), 10 features per page, ordered by OBJECTID. No simplification."
+known_limitations: ["Render geometry not yet derived (needs topology-preserving simplification)."]
+known_conflicts: []
+transformation_pipeline: ["fetch_big_boundaries.py --source SRC-0001"]
+output_tables: ["data/raw/SRC-0001/SNAP-2026-10-21/kabkota_geom_*.geojson"]
+validation_rules: ["feature count == kabkota_count.json"]
+checksum: "per page in .meta.json sidecars"
+status: active
