@@ -1,0 +1,317 @@
+{
+ "source_id": "SRC-0008",
+ "parsed_at": "2026-10-21T15:53:23+00:00",
+ "year_requested": 2024,
+ "tables": [
+  {
+   "subdomain": "aceh",
+   "url": "https://aceh.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2024",
+   "status": "parse_failed",
+   "error": "table JSON not found in page"
+  },
+  {
+   "subdomain": "sumut",
+   "url": "https://sumut.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2024",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_sumut_2024.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi Sumatera Utara, 2024",
+   "tahun_data": 2024,
+   "penanggung_jawab": "BPS Provinsi Sumatera Utara",
+   "area_unit": "km 2",
+   "sumber": "*) Kementrian Dalam Negeri, Keputusan Menteri Dalam Negeri Nomor 100.1.1-6117 Tahun 2022 tanggal 9 November 2022/Ministry of Home Affairs, The Decree of Home Affairs Minister Number 100.1.1-6117 Year 2022, 9 November 2022",
+   "catatan": "",
+   "table_created": "2025-02-27 08:45:11",
+   "available_years": [
+    "2018",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024"
+   ],
+   "rows": [
+    {
+     "label": "Nias",
+     "kode_wilayah_bps": "1201000",
+     "area_value_raw": "902,40",
+     "area_value": 902.4
+    },
+    {
+     "label": "Mandailing Natal",
+     "kode_wilayah_bps": "1202000",
+     "area_value_raw": "6.547,26",
+     "area_value": 6547.26
+    },
+    {
+     "label": "Tapanuli Selatan",
+     "kode_wilayah_bps": "1203000",
+     "area_value_raw": "4.201,04",
+     "area_value": 4201.04
+    },
+    {
+     "label": "Tapanuli Tengah",
+     "kode_wilayah_bps": "1204000",
+     "area_value_raw": "2.307,68",
+     "area_value": 2307.68
+    },
+    {
+     "label": "Tapanuli Utara",
+     "kode_wilayah_bps": "1205000",
+     "area_value_raw": "3.895,60",
+     "area_value": 3895.6
+    },
+    {
+     "label": "Toba Samosir",
+     "kode_wilayah_bps": "1206000",
+     "area_value_raw": "2.291,62",
+     "area_value": 2291.62
+    },
+    {
+     "label": "Labuhan Batu",
+     "kode_wilayah_bps": "1207000",
+     "area_value_raw": "2.772,38",
+     "area_value": 2772.38
+    },
+    {
+     "label": "Asahan",
+     "kode_wilayah_bps": "1208000",
+     "area_value_raw": "3.737,83",
+     "area_value": 3737.83
+    },
+    {
+     "label": "Simalungun",
+     "kode_wilayah_bps": "1209000",
+     "area_value_raw": "4.601,48",
+     "area_value": 4601.48
+    },
+    {
+     "label": "Dairi",
+     "kode_wilayah_bps": "1210000",
+     "area_value_raw": "2.083,60",
+     "area_value": 2083.6
+    },
+    {
+     "label": "Karo",
+     "kode_wilayah_bps": "1211000",
+     "area_value_raw": "2.206,88",
+     "area_value": 2206.88
+    },
+    {
+     "label": "Deli Serdang",
+     "kode_wilayah_bps": "1212000",
+     "area_value_raw": "2.581,23",
+     "area_value": 2581.23
+    },
+    {
+     "label": "Langkat",
+     "kode_wilayah_bps": "1213000",
+     "area_value_raw": "6.140,04",
+     "area_value": 6140.04
+    },
+    {
+     "label": "Nias Selatan",
+     "kode_wilayah_bps": "1214000",
+     "area_value_raw": "2.531,70",
+     "area_value": 2531.7
+    },
+    {
+     "label": "Humbang Hasundutan",
+     "kode_wilayah_bps": "1215000",
+     "area_value_raw": "2.351,51",
+     "area_value": 2351.51
+    },
+    {
+     "label": "Pakpak Bharat",
+     "kode_wilayah_bps": "1216000",
+     "area_value_raw": "1.365,61",
+     "area_value": 1365.61
+    },
+    {
+     "label": "Samosir",
+     "kode_wilayah_bps": "1217000",
+     "area_value_raw": "1.850,04",
+     "area_value": 1850.04
+    },
+    {
+     "label": "Serdang Bedagai",
+     "kode_wilayah_bps": "1218000",
+     "area_value_raw": "1.949,18",
+     "area_value": 1949.18
+    },
+    {
+     "label": "Batu Bara",
+     "kode_wilayah_bps": "1219000",
+     "area_value_raw": "888,14",
+     "area_value": 888.14
+    },
+    {
+     "label": "Padang Lawas Utara",
+     "kode_wilayah_bps": "1220000",
+     "area_value_raw": "3.945,56",
+     "area_value": 3945.56
+    },
+    {
+     "label": "Padang Lawas",
+     "kode_wilayah_bps": "1221000",
+     "area_value_raw": "3.914,41",
+     "area_value": 3914.41
+    },
+    {
+     "label": "Labuhan Batu Selatan",
+     "kode_wilayah_bps": "1222000",
+     "area_value_raw": "3.079,61",
+     "area_value": 3079.61
+    },
+    {
+     "label": "Labuhan Batu Utara",
+     "kode_wilayah_bps": "1223000",
+     "area_value_raw": "3.686,01",
+     "area_value": 3686.01
+    },
+    {
+     "label": "Nias Utara",
+     "kode_wilayah_bps": "1224000",
+     "area_value_raw": "1.238,06",
+     "area_value": 1238.06
+    },
+    {
+     "label": "Nias Barat",
+     "kode_wilayah_bps": "1225000",
+     "area_value_raw": "464,22",
+     "area_value": 464.22
+    },
+    {
+     "label": "Kota Sibolga",
+     "kode_wilayah_bps": "1271000",
+     "area_value_raw": "11,47",
+     "area_value": 11.47
+    },
+    {
+     "label": "Kota Tanjung Balai",
+     "kode_wilayah_bps": "1272000",
+     "area_value_raw": "60,07",
+     "area_value": 60.07
+    },
+    {
+     "label": "Kota Pematang Siantar",
+     "kode_wilayah_bps": "1273000",
+     "area_value_raw": "75,92",
+     "area_value": 75.92
+    },
+    {
+     "label": "Kota Tebing Tinggi",
+     "kode_wilayah_bps": "1274000",
+     "area_value_raw": "39,17",
+     "area_value": 39.17
+    },
+    {
+     "label": "Kota Medan",
+     "kode_wilayah_bps": "1275000",
+     "area_value_raw": "279,29",
+     "area_value": 279.29
+    },
+    {
+     "label": "Kota Binjai",
+     "kode_wilayah_bps": "1276000",
+     "area_value_raw": "93,77",
+     "area_value": 93.77
+    },
+    {
+     "label": "Kota Padangsidimpuan",
+     "kode_wilayah_bps": "1277000",
+     "area_value_raw": "159,30",
+     "area_value": 159.3
+    },
+    {
+     "label": "Kota Gunungsitoli",
+     "kode_wilayah_bps": "1278000",
+     "area_value_raw": "208,68",
+     "area_value": 208.68
+    },
+    {
+     "label": "Sumatera Utara",
+     "kode_wilayah_bps": "1200000",
+     "area_value_raw": "72.460,74",
+     "area_value": 72460.74
+    }
+   ]
+  },
+  {
+   "subdomain": "jakarta",
+   "url": "https://jakarta.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2024",
+   "status": "ok",
+   "raw_path": "data/raw/SRC-0008/SNAP-2026-10-21/luas_daerah_jakarta_2024.html",
+   "title": "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota di Provinsi DKI Jakarta, 2024",
+   "tahun_data": 2024,
+   "penanggung_jawab": "BPS Provinsi DKI Jakarta",
+   "area_unit": "km 2",
+   "sumber": "Kementerian Dalam Negeri/ Ministry of Home Affairs",
+   "catatan": "Berdasarkan Keputusan Menteri Dalam Negeri Nomor 100.1.1-6117 Tahun 2022 tanggal 9 November 2022/Based on The Decree of Home Affairs Minister Number 100.1.1-6117 Year 2023, 9 November 2022",
+   "table_created": "2025-02-17 11:50:16",
+   "available_years": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2023",
+    "2024"
+   ],
+   "rows": [
+    {
+     "label": "Kepulauan Seribu",
+     "kode_wilayah_bps": "3101000",
+     "area_value_raw": "10,73",
+     "area_value": 10.73
+    },
+    {
+     "label": "Kota Jakarta Selatan",
+     "kode_wilayah_bps": "3171000",
+     "area_value_raw": "144,94",
+     "area_value": 144.94
+    },
+    {
+     "label": "Kota Jakarta Timur",
+     "kode_wilayah_bps": "3172000",
+     "area_value_raw": "185,54",
+     "area_value": 185.54
+    },
+    {
+     "label": "Kota Jakarta Pusat",
+     "kode_wilayah_bps": "3173000",
+     "area_value_raw": "47,57",
+     "area_value": 47.57
+    },
+    {
+     "label": "Kota Jakarta Barat",
+     "kode_wilayah_bps": "3174000",
+     "area_value_raw": "125,00",
+     "area_value": 125.0
+    },
+    {
+     "label": "Kota Jakarta Utara",
+     "kode_wilayah_bps": "3175000",
+     "area_value_raw": "147,21",
+     "area_value": 147.21
+    },
+    {
+     "label": "DKI Jakarta",
+     "kode_wilayah_bps": "3100000",
+     "area_value_raw": "660,98",
+     "area_value": 660.98
+    }
+   ]
+  },
+  {
+   "subdomain": "maluku",
+   "url": "https://maluku.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2024",
+   "status": "parse_failed",
+   "error": "table JSON not found in page"
+  },
+  {
+   "subdomain": "papuabarat",
+   "url": "https://papuabarat.bps.go.id/id/statistics-table/3/VUZwV01tSlpPVlpsWlRKbmMxcFhhSGhEVjFoUFFUMDkjMw==/luas-daerah-dan-jumlah-pulau.html?year=2024",
+   "status": "parse_failed",
+   "error": "table JSON not found in page"
+  }
+ ]
+}
