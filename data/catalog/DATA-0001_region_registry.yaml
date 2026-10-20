@@ -1,0 +1,49 @@
+dataset_id: DATA-0001
+name: "Region registry (provinsi + kabupaten/kota)"
+domain: geography
+owner_institution: "Derived (NUSANTARA) from BPS SRC-0002 + BIG SRC-0001"
+source_url: "https://sig.bps.go.id/bridging-kode ; https://geoservices.big.go.id/rbi/rest/services/BATASWILAYAH/BATAS_KABKOTA_AR/MapServer/0"
+access_method: json
+primary: true
+publication_date: "BPS period 2025_2.2025; BIG edisi Juni 2026"
+retrieved_at: "2026-10-21"
+reference_period: "Kemendagri 2025 coding (Kepmendagri 300.2.2-2138/2025 and amendment)"
+update_frequency: "BPS bridge: per semester. BIG: irregular editions."
+
+geographic_resolution:
+  level: "provinsi; kabupaten/kota"
+  coverage: "38 provinsi, 514 kabupaten/kota (416 kabupaten, 98 kota) - full national coverage"
+
+variables: [region_id, region_level, name, name_bps, kode_kemendagri, kode_kemendagri_raw, kode_bps, parent_region_id, province_kode_bps, big_name, big_tipadm_level, big_objectids, big_floating_area_objectids, big_luaswh_raw, big_metadata_edition, big_remark, island_group, fact_class]
+units:
+  big_luaswh_raw: "as published by BIG. Declared label/unit: 'Luas Wilayah Menurut Peraturan (HA)'. Evidenced interpretation (separate metadata, D-017): km2 legal area, status UNIT_KM2_EVIDENCED (research/reports/AREA_UNIT_INVESTIGATION.md). Never converted."
+definitions:
+  region_id: "Kemendagri administrative code, 'PP' (provinsi) or 'PP.KK' (kab/kota). Primary key (D-012)."
+  kode_bps: "BPS statistical area code ('PP' / 'PPKK'). Differs from Kemendagri for the six Papua provinces."
+  kode_kemendagri_raw: "kode_dagri exactly as served by SRC-0002 before trailing-zero repair."
+  big_objectids: "OBJECTIDs of all SRC-0001 polygons for the region (main + 'Wilayah terapung')."
+  island_group: "Game navigation layer only (docs/08). Empty until decided."
+
+license_notes: "See SRC-0001, SRC-0002."
+methodology_notes: "scripts/research/build_region_registry.py. Join key: normalized kode_dagri == BIG KDPKAB."
+known_limitations:
+  - "Codes not verified against Kepmendagri PDF text (SRC-0003 blocked)."
+  - "21 BIG TIPADM=6 fragments are not assigned to any kab/kota; kept in big_unallocated_fragments.csv."
+  - "No area value is normalized; polygon-derived geom_area_km2 lives separately in data/processed/geography/SNAP-2026-10-21/area_unit_audit.csv (GAP-0004)."
+known_conflicts:
+  - "Name abbreviation: 71.09 'KEP. SIAU TAGULANDANG BIARO' (Kemendagri) vs 'KEPULAUAN SIAU TAGULANDANG BIARO' (BPS)."
+transformation_pipeline:
+  - "fetch_bps_bridging.py -> data/raw/SRC-0002/SNAP-2026-10-21/"
+  - "fetch_big_boundaries.py -> data/raw/SRC-0001/SNAP-2026-10-21/"
+  - "build_region_registry.py: right-pad kode_dagri kab part to 2 digits (23 rows); classify kab/kota by Kemendagri name prefix; join BIG by KDPKAB"
+output_tables:
+  - data/normalized/geography/provinces.csv
+  - data/normalized/geography/regions_kabkota.csv
+  - data/normalized/geography/crosswalk_bps_kemendagri.csv
+  - data/normalized/geography/big_unallocated_fragments.csv
+  - data/normalized/geography/region_registry.json
+validation_rules:
+  - "counts 38 / 416 / 98; unique region_id and kode_bps; code prefix == parent; 1:1 BIG main polygon; BIG TIPADM level == Kemendagri level (research/reports/geography_validation.json)"
+  - "scripts/research/tests/test_region_registry.py"
+checksum: "input checksums embedded in region_registry.json"
+status: active
