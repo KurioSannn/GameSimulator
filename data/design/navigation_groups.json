@@ -1,0 +1,23 @@
+{
+  "taxonomy_id": "NAV-GROUPS-v1",
+  "classification": "PRESENTATION_TAXONOMY",
+  "presentation_only": true,
+  "note": "Map navigation/visual framing only (docs/08: island labels are an organizational/game layer and must not overwrite official administrative hierarchy). Not an administrative level, not a simulation aggregation unit, makes no factual claim. Approved by the team 2026-10-21; see DECISIONS.md D-016.",
+  "membership_key": "province region_id (Kemendagri code)",
+  "groups": [
+    {"group_key": "sumatera", "display_name": "Sumatera", "sort_order": 1,
+     "provinces": ["11", "12", "13", "14", "15", "16", "17", "18", "19", "21"]},
+    {"group_key": "jawa", "display_name": "Jawa", "sort_order": 2,
+     "provinces": ["31", "32", "33", "34", "35", "36"]},
+    {"group_key": "bali_nusa_tenggara", "display_name": "Bali dan Nusa Tenggara", "sort_order": 3,
+     "provinces": ["51", "52", "53"]},
+    {"group_key": "kalimantan", "display_name": "Kalimantan", "sort_order": 4,
+     "provinces": ["61", "62", "63", "64", "65"]},
+    {"group_key": "sulawesi", "display_name": "Sulawesi", "sort_order": 5,
+     "provinces": ["71", "72", "73", "74", "75", "76"]},
+    {"group_key": "maluku", "display_name": "Maluku", "sort_order": 6,
+     "provinces": ["81", "82"]},
+    {"group_key": "papua", "display_name": "Papua", "sort_order": 7,
+     "provinces": ["91", "92", "93", "94", "95", "96"]}
+  ]
+}
