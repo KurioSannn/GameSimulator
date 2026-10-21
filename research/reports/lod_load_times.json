@@ -1,0 +1,58 @@
+{
+ "measured_at": "2026-10-22T01:41:13+00:00",
+ "runs_per_file": 5,
+ "kind": "PROXY (not Godot)",
+ "machine": {
+  "platform": "macOS-26.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "node": "v26.8.2",
+  "python": "3.13.13"
+ },
+ "files": {
+  "lod1/fragments.json": {
+   "bytes": 8456,
+   "node_parse_ms_median": 0.0815,
+   "python_parse_ms_median": 0.12150011025369167
+  },
+  "lod1/kabkota.json": {
+   "bytes": 2984232,
+   "node_parse_ms_median": 20.946,
+   "python_parse_ms_median": 49.27400010637939
+  },
+  "lod1/provinsi.json": {
+   "bytes": 2397034,
+   "node_parse_ms_median": 16.796542,
+   "python_parse_ms_median": 40.38641694933176
+  },
+  "lod2/fragments.json": {
+   "bytes": 10000,
+   "node_parse_ms_median": 0.087459,
+   "python_parse_ms_median": 0.15024980530142784
+  },
+  "lod2/kabkota.json": {
+   "bytes": 9179426,
+   "node_parse_ms_median": 57.355375,
+   "python_parse_ms_median": 148.15216697752476
+  },
+  "lod2/provinsi.json": {
+   "bytes": 5988060,
+   "node_parse_ms_median": 37.56525,
+   "python_parse_ms_median": 102.70512499846518
+  },
+  "lod3/fragments.json": {
+   "bytes": 12907,
+   "node_parse_ms_median": 0.105542,
+   "python_parse_ms_median": 0.17083319835364819
+  },
+  "lod3/kabkota.json": {
+   "bytes": 17126244,
+   "node_parse_ms_median": 109.394792,
+   "python_parse_ms_median": 270.66799998283386
+  },
+  "lod3/provinsi.json": {
+   "bytes": 11198332,
+   "node_parse_ms_median": 78.521583,
+   "python_parse_ms_median": 179.5707498677075
+  }
+ }
+}
