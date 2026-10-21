@@ -1,0 +1,141 @@
+{
+  "snapshot_id": "SNAP-2026-10-21",
+  "built_at": "2026-10-21T17:10:11+00:00",
+  "counts": {
+    "provinsi": 38,
+    "kabupaten": 416,
+    "kota": 98,
+    "kabupaten_kota": 514,
+    "big_unallocated_fragments": 21
+  },
+  "checks": [
+    {
+      "check": "province_count == 38",
+      "passed": true,
+      "hard": true,
+      "detail": 38
+    },
+    {
+      "check": "kabupaten_count == 416",
+      "passed": true,
+      "hard": true,
+      "detail": 416
+    },
+    {
+      "check": "kota_count == 98",
+      "passed": true,
+      "hard": true,
+      "detail": 98
+    },
+    {
+      "check": "region_id unique",
+      "passed": true,
+      "hard": true,
+      "detail": 0
+    },
+    {
+      "check": "kode_bps unique",
+      "passed": true,
+      "hard": true,
+      "detail": 0
+    },
+    {
+      "check": "every kab/kota has a known province",
+      "passed": true,
+      "hard": true,
+      "detail": []
+    },
+    {
+      "check": "kemendagri code prefix == parent province",
+      "passed": true,
+      "hard": true,
+      "detail": []
+    },
+    {
+      "check": "bps code prefix == bps province code",
+      "passed": true,
+      "hard": true,
+      "detail": []
+    },
+    {
+      "check": "every kab/kota has a BIG polygon",
+      "passed": true,
+      "hard": true,
+      "detail": []
+    },
+    {
+      "check": "every BIG kab/kota polygon maps to a registry region",
+      "passed": true,
+      "hard": true,
+      "detail": []
+    },
+    {
+      "check": "BIG TIPADM level agrees with Kemendagri kab/kota",
+      "passed": true,
+      "hard": true,
+      "detail": []
+    },
+    {
+      "check": "BIG KDPPUM agrees with KDPKAB prefix",
+      "passed": true,
+      "hard": true,
+      "detail": []
+    },
+    {
+      "check": "at most one main BIG polygon per region",
+      "passed": true,
+      "hard": true,
+      "detail": {}
+    },
+    {
+      "check": "names agree across Kemendagri/BPS/BIG (normalized)",
+      "passed": false,
+      "hard": false,
+      "detail": [
+        {
+          "region_id": "71.09",
+          "kemendagri": "KABUPATEN KEP. SIAU TAGULANDANG BIARO",
+          "bps": "KEPULAUAN SIAU TAGULANDANG BIARO",
+          "big": "Kep. Siau Tagulandang Biaro"
+        }
+      ]
+    },
+    {
+      "check": "province codes identical in BPS and Kemendagri",
+      "passed": false,
+      "hard": false,
+      "detail": [
+        {
+          "kemendagri": "92",
+          "bps": "91",
+          "name": "PAPUA BARAT"
+        },
+        {
+          "kemendagri": "96",
+          "bps": "92",
+          "name": "PAPUA BARAT DAYA"
+        },
+        {
+          "kemendagri": "91",
+          "bps": "94",
+          "name": "PAPUA"
+        },
+        {
+          "kemendagri": "93",
+          "bps": "95",
+          "name": "PAPUA SELATAN"
+        },
+        {
+          "kemendagri": "94",
+          "bps": "96",
+          "name": "PAPUA TENGAH"
+        },
+        {
+          "kemendagri": "95",
+          "bps": "97",
+          "name": "PAPUA PEGUNUNGAN"
+        }
+      ]
+    }
+  ]
+}
