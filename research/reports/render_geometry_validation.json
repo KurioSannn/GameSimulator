@@ -1,0 +1,593 @@
+{
+ "snapshot_id": "SNAP-2026-10-21",
+ "raw_source": {
+  "bytes": 2219946824,
+  "kabkota_vertices": 51894237,
+  "regions_with_geometry": 514
+ },
+ "lods": {
+  "lod1": {
+   "lod": "lod1",
+   "interval_m": 1000.0,
+   "validated_at": "2026-10-22T01:29:28+00:00",
+   "mapshaper_stats": {
+    "removed_vertices": 49689682,
+    "collapsed_rings": 16,
+    "mean_displacement_m": 167.8171,
+    "max_displacement_m": 999.963,
+    "displacement_quartiles_m": [
+     6.29,
+     28.42,
+     247.09
+    ],
+    "repair_messages": [
+     "[simplify] Repaired 2,661 intersections"
+    ]
+   },
+   "counts": {
+    "kabkota": 514,
+    "provinsi": 38,
+    "fragments": 21,
+    "kabkota_output_parts": 20971,
+    "source_parts": 23225
+   },
+   "vertices": {
+    "kabkota": 123110,
+    "provinsi": 102495
+   },
+   "bytes": {
+    "kabkota.json": 2984232,
+    "provinsi.json": 2397034,
+    "fragments.json": 8456
+   },
+   "area_error": {
+    "median_abs": 0.0037771137017156287,
+    "p95_abs": 0.04267033755060634,
+    "max_abs": 0.38901595673370926,
+    "worst": [
+     {
+      "region_id": "31.01",
+      "rel_error": -0.38901595673370926
+     },
+     {
+      "region_id": "12.73",
+      "rel_error": -0.16555516668423975
+     },
+     {
+      "region_id": "35.72",
+      "rel_error": -0.1382218334321832
+     },
+     {
+      "region_id": "21.05",
+      "rel_error": -0.1156828817696477
+     },
+     {
+      "region_id": "34.71",
+      "rel_error": -0.10614026393829668
+     },
+     {
+      "region_id": "74.07",
+      "rel_error": -0.08252350662850527
+     },
+     {
+      "region_id": "13.72",
+      "rel_error": -0.07942192137019521
+     },
+     {
+      "region_id": "17.71",
+      "rel_error": 0.0767055342322216
+     },
+     {
+      "region_id": "33.76",
+      "rel_error": 0.076056946801077
+     },
+     {
+      "region_id": "35.77",
+      "rel_error": -0.07548166860654482
+     }
+    ],
+    "small_regions_lt_50km2_max_abs": 0.38901595673370926
+   },
+   "file_sha256": {
+    "kabkota.json": "f69be3d2053c5df879ec1b097f6cf8ab274e3eefcc665dceacf5199da78a5b8d",
+    "provinsi.json": "fc7197911ed64285114335967bc243a6c809d79e7aabceef6703db0d1313dc7e",
+    "fragments.json": "411245da686c805f3f19aee542e4acb322d985432fe87774337c3303105c4a53"
+   },
+   "checks": [
+    {
+     "check": "kabkota feature count == 514",
+     "passed": true,
+     "hard": true,
+     "detail": 514
+    },
+    {
+     "check": "kabkota region_id unique",
+     "passed": true,
+     "hard": true,
+     "detail": 0
+    },
+    {
+     "check": "kabkota ids == registry",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "missing": [],
+      "extra": []
+     }
+    },
+    {
+     "check": "kabkota codes/parent/level/name/group preserved",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "provinsi feature count == 38",
+     "passed": true,
+     "hard": true,
+     "detail": 38
+    },
+    {
+     "check": "provinsi ids == registry",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "missing": [],
+      "extra": []
+     }
+    },
+    {
+     "check": "provinsi codes and nav group preserved",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "fragments feature count == 21",
+     "passed": true,
+     "hard": true,
+     "detail": 21
+    },
+    {
+     "check": "structural validity (all layers)",
+     "passed": true,
+     "hard": true,
+     "detail": {}
+    },
+    {
+     "check": "no self-intersections/overlaps in kabkota+fragments",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "no containment overlaps (part of one feature inside another)",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "adjacency preserved (no neighbour pair lost or gained vs raw source)",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "source_pairs": 997,
+      "lod_pairs": 997,
+      "lost": [],
+      "gained": []
+     }
+    },
+    {
+     "check": "no self-intersections/overlaps in provinsi",
+     "passed": true,
+     "hard": false,
+     "detail": []
+    },
+    {
+     "check": "full-res source available for every region",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "island survival (every source part represented in its own region)",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "lost": 0,
+      "examples": []
+     }
+    }
+   ]
+  },
+  "lod2": {
+   "lod": "lod2",
+   "interval_m": 100.0,
+   "validated_at": "2026-10-22T01:29:41+00:00",
+   "mapshaper_stats": {
+    "removed_vertices": 49492868,
+    "collapsed_rings": 12,
+    "mean_displacement_m": 42.4939,
+    "max_displacement_m": 99.9997,
+    "displacement_quartiles_m": [
+     19.46,
+     39.51,
+     64.19
+    ],
+    "repair_messages": [
+     "[simplify] Repaired 2,302 intersections"
+    ]
+   },
+   "counts": {
+    "kabkota": 514,
+    "provinsi": 38,
+    "fragments": 21,
+    "kabkota_output_parts": 22693,
+    "source_parts": 23225
+   },
+   "vertices": {
+    "kabkota": 398555,
+    "provinsi": 261842
+   },
+   "bytes": {
+    "kabkota.json": 9179426,
+    "provinsi.json": 5988060,
+    "fragments.json": 10000
+   },
+   "area_error": {
+    "median_abs": 0.0002031348994172566,
+    "p95_abs": 0.002611393112586846,
+    "max_abs": 0.17792489727368577,
+    "worst": [
+     {
+      "region_id": "31.01",
+      "rel_error": -0.17792489727368577
+     },
+     {
+      "region_id": "12.73",
+      "rel_error": -0.01626602140988187
+     },
+     {
+      "region_id": "21.71",
+      "rel_error": -0.007250307020596369
+     },
+     {
+      "region_id": "21.05",
+      "rel_error": -0.006170760788143492
+     },
+     {
+      "region_id": "75.71",
+      "rel_error": 0.0048822532678001185
+     },
+     {
+      "region_id": "33.71",
+      "rel_error": 0.0047247612372294245
+     },
+     {
+      "region_id": "73.10",
+      "rel_error": -0.004713600268646978
+     },
+     {
+      "region_id": "11.71",
+      "rel_error": 0.004449937866222831
+     },
+     {
+      "region_id": "33.75",
+      "rel_error": 0.004341055745696654
+     },
+     {
+      "region_id": "12.76",
+      "rel_error": -0.004283740353372534
+     }
+    ],
+    "small_regions_lt_50km2_max_abs": 0.17792489727368577
+   },
+   "file_sha256": {
+    "kabkota.json": "d94067a7065acf84d00b310b32291981e71095b972ec54e13a4c102022535bb1",
+    "provinsi.json": "1d65b274a6d885f0ff23ec96e917000f3fa16138927444dc6049cd89d749ffa8",
+    "fragments.json": "db3abc18be86a77aa9347c97685fc3e3aee25cb79352f6b6245a5cfb28766253"
+   },
+   "checks": [
+    {
+     "check": "kabkota feature count == 514",
+     "passed": true,
+     "hard": true,
+     "detail": 514
+    },
+    {
+     "check": "kabkota region_id unique",
+     "passed": true,
+     "hard": true,
+     "detail": 0
+    },
+    {
+     "check": "kabkota ids == registry",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "missing": [],
+      "extra": []
+     }
+    },
+    {
+     "check": "kabkota codes/parent/level/name/group preserved",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "provinsi feature count == 38",
+     "passed": true,
+     "hard": true,
+     "detail": 38
+    },
+    {
+     "check": "provinsi ids == registry",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "missing": [],
+      "extra": []
+     }
+    },
+    {
+     "check": "provinsi codes and nav group preserved",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "fragments feature count == 21",
+     "passed": true,
+     "hard": true,
+     "detail": 21
+    },
+    {
+     "check": "structural validity (all layers)",
+     "passed": true,
+     "hard": true,
+     "detail": {}
+    },
+    {
+     "check": "no self-intersections/overlaps in kabkota+fragments",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "no containment overlaps (part of one feature inside another)",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "adjacency preserved (no neighbour pair lost or gained vs raw source)",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "source_pairs": 997,
+      "lod_pairs": 997,
+      "lost": [],
+      "gained": []
+     }
+    },
+    {
+     "check": "no self-intersections/overlaps in provinsi",
+     "passed": true,
+     "hard": false,
+     "detail": []
+    },
+    {
+     "check": "full-res source available for every region",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "island survival (every source part represented in its own region)",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "lost": 0,
+      "examples": []
+     }
+    }
+   ]
+  },
+  "lod3": {
+   "lod": "lod3",
+   "interval_m": 40.0,
+   "validated_at": "2026-10-22T01:30:17+00:00",
+   "mapshaper_stats": {
+    "removed_vertices": 49215167,
+    "collapsed_rings": 11,
+    "mean_displacement_m": 18.611,
+    "max_displacement_m": 39.9999,
+    "displacement_quartiles_m": [
+     10.16,
+     17.59,
+     26.86
+    ],
+    "repair_messages": [
+     "[simplify] Repaired 1,611 intersections"
+    ]
+   },
+   "counts": {
+    "kabkota": 514,
+    "provinsi": 38,
+    "fragments": 21,
+    "kabkota_output_parts": 22973,
+    "source_parts": 23225
+   },
+   "vertices": {
+    "kabkota": 752109,
+    "provinsi": 493508
+   },
+   "bytes": {
+    "kabkota.json": 17126244,
+    "provinsi.json": 11198332,
+    "fragments.json": 12907
+   },
+   "area_error": {
+    "median_abs": 6.826544137539248e-05,
+    "p95_abs": 0.0010541783002073757,
+    "max_abs": 0.058743099202540616,
+    "worst": [
+     {
+      "region_id": "31.01",
+      "rel_error": -0.058743099202540616
+     },
+     {
+      "region_id": "12.73",
+      "rel_error": -0.0031347224077650226
+     },
+     {
+      "region_id": "35.76",
+      "rel_error": -0.0029702294347793146
+     },
+     {
+      "region_id": "64.74",
+      "rel_error": -0.002824980871189986
+     },
+     {
+      "region_id": "13.74",
+      "rel_error": -0.002566206446760755
+     },
+     {
+      "region_id": "21.71",
+      "rel_error": -0.0024935289737370026
+     },
+     {
+      "region_id": "21.02",
+      "rel_error": -0.0019916718923604915
+     },
+     {
+      "region_id": "13.72",
+      "rel_error": -0.001954322273038822
+     },
+     {
+      "region_id": "34.71",
+      "rel_error": 0.0019323255635468328
+     },
+     {
+      "region_id": "72.11",
+      "rel_error": -0.0018682538812385685
+     }
+    ],
+    "small_regions_lt_50km2_max_abs": 0.058743099202540616
+   },
+   "file_sha256": {
+    "kabkota.json": "251d3c60832832b9ef01e6ea954822c69088d7b3fd3638c0e9d43c8c62f9b53e",
+    "provinsi.json": "ad2df253dd0628ec6cb3732b62873dd1dcd39406f94d8428cb617aa0018cc2c8",
+    "fragments.json": "49a74719915028853e60c8a4c5334eb290119fafed943f12638e463fea344784"
+   },
+   "checks": [
+    {
+     "check": "kabkota feature count == 514",
+     "passed": true,
+     "hard": true,
+     "detail": 514
+    },
+    {
+     "check": "kabkota region_id unique",
+     "passed": true,
+     "hard": true,
+     "detail": 0
+    },
+    {
+     "check": "kabkota ids == registry",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "missing": [],
+      "extra": []
+     }
+    },
+    {
+     "check": "kabkota codes/parent/level/name/group preserved",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "provinsi feature count == 38",
+     "passed": true,
+     "hard": true,
+     "detail": 38
+    },
+    {
+     "check": "provinsi ids == registry",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "missing": [],
+      "extra": []
+     }
+    },
+    {
+     "check": "provinsi codes and nav group preserved",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "fragments feature count == 21",
+     "passed": true,
+     "hard": true,
+     "detail": 21
+    },
+    {
+     "check": "structural validity (all layers)",
+     "passed": true,
+     "hard": true,
+     "detail": {}
+    },
+    {
+     "check": "no self-intersections/overlaps in kabkota+fragments",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "no containment overlaps (part of one feature inside another)",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "adjacency preserved (no neighbour pair lost or gained vs raw source)",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "source_pairs": 997,
+      "lod_pairs": 997,
+      "lost": [],
+      "gained": []
+     }
+    },
+    {
+     "check": "no self-intersections/overlaps in provinsi",
+     "passed": true,
+     "hard": false,
+     "detail": []
+    },
+    {
+     "check": "full-res source available for every region",
+     "passed": true,
+     "hard": true,
+     "detail": []
+    },
+    {
+     "check": "island survival (every source part represented in its own region)",
+     "passed": true,
+     "hard": true,
+     "detail": {
+      "lost": 0,
+      "examples": []
+     }
+    }
+   ]
+  }
+ },
+ "cross_lod_id_sets_identical": true
+}
