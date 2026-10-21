@@ -1,0 +1,737 @@
+{
+ "snapshot_id": "SNAP-2026-10-21",
+ "viewport_assumption_px": 1600,
+ "lod_view_bands": {
+  "lod1": "view width >= 2,000 km (national)",
+  "lod2": "300-2,000 km (island group / province)",
+  "lod3": "< 300 km; reference view 80 km wide (kab/kota)"
+ },
+ "selected_method": "dp (Ramer-Douglas-Peucker, spherical): bounded displacement (max <= interval)",
+ "rejected_method": "weighted Visvalingam: unbounded displacement (max 24.8 km at 2 km interval); island audit found 60-80 km2 islands collapsed to 0.01 km2 specks km away at LOD1",
+ "documented_selection_rule": "Coarsest candidate that (1) passes every hard validation check, (2) has mean displacement <= 0.5 px and Q3 displacement <= 1 px at the LOD's reference scale, (3) for LOD1 has median |area error| <= 2 %, and (4) has no NOTICEABLE source part (length >= 4 px and mean width = area/length >= 1 px at the reference scale) displaced or lost in the island component audit.",
+ "rule_history": "This is a documented selection rule, not a predeclared one. Criteria (1)-(3) were written after a first single-pass metrics run had been observed. Criterion (4) was added after the island audit exposed weighted-Visvalingam island collapse; its 'noticeable' definition was refined (adding the >= 1 px mean-width condition) after observing that length-only counted hairline sandbars/spits. The LOD2 100 m candidate was added after no LOD2 candidate passed; the rule was not relaxed to make a candidate pass. All candidate measurements are preserved below.",
+ "rules": {
+  "lod1": {
+   "reference_m_per_px": 1250,
+   "max_mean_disp_m": 625,
+   "max_q3_disp_m": 1250,
+   "max_median_area_err": 0.02
+  },
+  "lod2": {
+   "reference_m_per_px": 190,
+   "max_mean_disp_m": 95,
+   "max_q3_disp_m": 190,
+   "max_median_area_err": null
+  },
+  "lod3": {
+   "reference_m_per_px": 50,
+   "max_mean_disp_m": 25,
+   "max_q3_disp_m": 50,
+   "max_median_area_err": null
+  }
+ },
+ "selected_interval_m": {
+  "lod1": 1000.0,
+  "lod2": 100.0,
+  "lod3": 40.0
+ },
+ "candidates_dp": [
+  {
+   "candidate": "lod1_4000",
+   "method": "dp",
+   "lod": "lod1",
+   "interval_m": 4000.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 223.6731,
+   "q3_displacement_m": 76.39,
+   "max_displacement_m": 3999.9572,
+   "area_error_median": 0.024756212778904774,
+   "area_error_p95": 0.26238516458052175,
+   "area_error_max": 0.9073718149483638,
+   "kabkota_vertices": 93770,
+   "total_bytes": 4350891,
+   "island_audit": {
+    "noticeable_parts": 1066,
+    "noticeable_displaced_or_lost": 3,
+    "examples": [
+     {
+      "region_id": "33.13",
+      "status": "displaced",
+      "area_m2": 17602739.6,
+      "extent_m": 10184.8,
+      "at": [
+       110.75443,
+       -7.53655
+      ]
+     },
+     {
+      "region_id": "21.01",
+      "status": "displaced",
+      "area_m2": 13868061.8,
+      "extent_m": 5485.6,
+      "at": [
+       104.67683,
+       0.86471
+      ]
+     },
+     {
+      "region_id": "81.07",
+      "status": "displaced",
+      "area_m2": 9185134.3,
+      "extent_m": 6097.0,
+      "at": [
+       134.31009,
+       -6.32387
+      ]
+     }
+    ],
+    "status_counts": {
+     "distinct": 17518,
+     "deformed": 2121,
+     "merged": 3016,
+     "absorbing": 381,
+     "displaced": 189
+    },
+    "deformed_area_ratio_median": 0.4289808228684537
+   },
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod1_2000",
+   "method": "dp",
+   "lod": "lod1",
+   "interval_m": 2000.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 200.504,
+   "q3_displacement_m": 124.97,
+   "max_displacement_m": 1999.8541,
+   "area_error_median": 0.010955764456828887,
+   "area_error_p95": 0.11272195452821143,
+   "area_error_max": 0.4343194334336846,
+   "kabkota_vertices": 103675,
+   "total_bytes": 4703429,
+   "island_audit": {
+    "noticeable_parts": 1066,
+    "noticeable_displaced_or_lost": 3,
+    "examples": [
+     {
+      "region_id": "33.13",
+      "status": "displaced",
+      "area_m2": 17602739.6,
+      "extent_m": 10184.8,
+      "at": [
+       110.75443,
+       -7.53655
+      ]
+     },
+     {
+      "region_id": "21.01",
+      "status": "displaced",
+      "area_m2": 13868061.8,
+      "extent_m": 5485.6,
+      "at": [
+       104.67683,
+       0.86471
+      ]
+     },
+     {
+      "region_id": "81.07",
+      "status": "displaced",
+      "area_m2": 9185134.3,
+      "extent_m": 6097.0,
+      "at": [
+       134.31009,
+       -6.32387
+      ]
+     }
+    ],
+    "status_counts": {
+     "distinct": 17836,
+     "merged": 2696,
+     "deformed": 2125,
+     "absorbing": 386,
+     "displaced": 182
+    },
+    "deformed_area_ratio_median": 0.42857412857788035
+   },
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod1_1000",
+   "method": "dp",
+   "lod": "lod1",
+   "interval_m": 1000.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 167.8171,
+   "q3_displacement_m": 247.09,
+   "max_displacement_m": 999.963,
+   "area_error_median": 0.0037771137017156287,
+   "area_error_p95": 0.04267033755060634,
+   "area_error_max": 0.38901595673370926,
+   "kabkota_vertices": 123110,
+   "total_bytes": 5389722,
+   "island_audit": {
+    "noticeable_parts": 1066,
+    "noticeable_displaced_or_lost": 0,
+    "examples": [],
+    "status_counts": {
+     "distinct": 18308,
+     "merged": 2223,
+     "deformed": 2126,
+     "absorbing": 376,
+     "displaced": 192
+    },
+    "deformed_area_ratio_median": 0.4279833397466082
+   },
+   "meets_rule": true
+  },
+  {
+   "candidate": "lod2_600",
+   "method": "dp",
+   "lod": "lod2",
+   "interval_m": 600.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 138.4248,
+   "q3_displacement_m": 239.52,
+   "max_displacement_m": 599.9867,
+   "area_error_median": 0.0023532338744768344,
+   "area_error_p95": 0.023554714990932424,
+   "area_error_max": 0.38901595673370926,
+   "kabkota_vertices": 147594,
+   "total_bytes": 6250038,
+   "island_audit": {
+    "noticeable_parts": 3499,
+    "noticeable_displaced_or_lost": 14,
+    "examples": [
+     {
+      "region_id": "19.02",
+      "status": "displaced",
+      "area_m2": 1486324.6,
+      "extent_m": 2621.7,
+      "at": [
+       107.48312,
+       -2.93505
+      ]
+     },
+     {
+      "region_id": "21.01",
+      "status": "displaced",
+      "area_m2": 1347213.1,
+      "extent_m": 2442.9,
+      "at": [
+       107.48109,
+       0.95212
+      ]
+     },
+     {
+      "region_id": "92.07",
+      "status": "displaced",
+      "area_m2": 1031696.0,
+      "extent_m": 2601.3,
+      "at": [
+       134.30457,
+       -2.49449
+      ]
+     },
+     {
+      "region_id": "13.09",
+      "status": "displaced",
+      "area_m2": 693353.2,
+      "extent_m": 1774.6,
+      "at": [
+       99.17249,
+       -1.48124
+      ]
+     },
+     {
+      "region_id": "74.06",
+      "status": "displaced",
+      "area_m2": 604031.9,
+      "extent_m": 1719.5,
+      "at": [
+       121.50396,
+       -4.7223
+      ]
+     }
+    ],
+    "status_counts": {
+     "distinct": 18813,
+     "deformed": 2132,
+     "merged": 1769,
+     "displaced": 178,
+     "absorbing": 333
+    },
+    "deformed_area_ratio_median": 0.42744105060012605
+   },
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod2_300",
+   "method": "dp",
+   "lod": "lod2",
+   "interval_m": 300.0,
+   "hard_checks_passed": false,
+   "failed_checks": [
+    "no containment overlaps (part of one feature inside another)",
+    "island survival (every source part represented in its own region)"
+   ],
+   "mean_displacement_m": 96.0025,
+   "q3_displacement_m": 160.85,
+   "max_displacement_m": 299.987,
+   "area_error_median": 0.0008496150631761568,
+   "area_error_p95": 0.010192130833264201,
+   "area_error_max": 0.37437866672416575,
+   "kabkota_vertices": 203411,
+   "total_bytes": 8203180,
+   "island_audit": {
+    "noticeable_parts": 3499,
+    "noticeable_displaced_or_lost": 6,
+    "examples": [
+     {
+      "region_id": "21.05",
+      "status": "displaced",
+      "area_m2": 262878.8,
+      "extent_m": 1359.7,
+      "at": [
+       106.4144,
+       2.98503
+      ]
+     },
+     {
+      "region_id": "92.03",
+      "status": "displaced",
+      "area_m2": 226868.3,
+      "extent_m": 955.6,
+      "at": [
+       132.78063,
+       -3.82402
+      ]
+     },
+     {
+      "region_id": "72.11",
+      "status": "displaced",
+      "area_m2": 208475.3,
+      "extent_m": 933.0,
+      "at": [
+       123.1826,
+       -1.89712
+      ]
+     },
+     {
+      "region_id": "96.03",
+      "status": "displaced",
+      "area_m2": 200227.7,
+      "extent_m": 983.7,
+      "at": [
+       130.48188,
+       -0.05844
+      ]
+     },
+     {
+      "region_id": "92.07",
+      "status": "displaced",
+      "area_m2": 192573.4,
+      "extent_m": 981.5,
+      "at": [
+       134.1337,
+       -2.02104
+      ]
+     }
+    ],
+    "status_counts": {
+     "distinct": 19403,
+     "deformed": 2088,
+     "merged": 1292,
+     "absorbing": 274,
+     "displaced": 167,
+     "lost": 1
+    },
+    "deformed_area_ratio_median": 0.4253856035166693
+   },
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod2_150",
+   "method": "dp",
+   "lod": "lod2",
+   "interval_m": 150.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 59.231,
+   "q3_displacement_m": 92.47,
+   "max_displacement_m": 149.9969,
+   "area_error_median": 0.0003711379599647402,
+   "area_error_p95": 0.004201551969129191,
+   "area_error_max": 0.2682082692984906,
+   "kabkota_vertices": 305145,
+   "total_bytes": 11817867,
+   "island_audit": {
+    "noticeable_parts": 3499,
+    "noticeable_displaced_or_lost": 1,
+    "examples": [
+     {
+      "region_id": "96.03",
+      "status": "displaced",
+      "area_m2": 200227.7,
+      "extent_m": 983.7,
+      "at": [
+       130.48188,
+       -0.05844
+      ]
+     }
+    ],
+    "status_counts": {
+     "distinct": 20180,
+     "deformed": 1961,
+     "displaced": 155,
+     "merged": 755,
+     "absorbing": 174
+    },
+    "deformed_area_ratio_median": 0.4236579404008428
+   },
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod3_80",
+   "method": "dp",
+   "lod": "lod3",
+   "interval_m": 80.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 35.0866,
+   "q3_displacement_m": 52.17,
+   "max_displacement_m": 79.9991,
+   "area_error_median": 0.00016966345068208932,
+   "area_error_p95": 0.0022396384003958714,
+   "area_error_max": 0.1395022818560937,
+   "kabkota_vertices": 463201,
+   "total_bytes": 17540785,
+   "island_audit": {
+    "noticeable_parts": 7552,
+    "noticeable_displaced_or_lost": 7,
+    "examples": [
+     {
+      "region_id": "21.04",
+      "status": "displaced",
+      "area_m2": 25604.6,
+      "extent_m": 401.7,
+      "at": [
+       104.45307,
+       -0.26653
+      ]
+     },
+     {
+      "region_id": "31.01",
+      "status": "displaced",
+      "area_m2": 19936.9,
+      "extent_m": 246.3,
+      "at": [
+       106.55851,
+       -5.5905
+      ]
+     },
+     {
+      "region_id": "72.12",
+      "status": "displaced",
+      "area_m2": 16538.2,
+      "extent_m": 216.2,
+      "at": [
+       121.55076,
+       -1.95073
+      ]
+     },
+     {
+      "region_id": "13.09",
+      "status": "displaced",
+      "area_m2": 15709.6,
+      "extent_m": 203.5,
+      "at": [
+       99.23813,
+       -1.67995
+      ]
+     },
+     {
+      "region_id": "71.03",
+      "status": "displaced",
+      "area_m2": 14377.9,
+      "extent_m": 203.6,
+      "at": [
+       125.70208,
+       4.22748
+      ]
+     }
+    ],
+    "status_counts": {
+     "distinct": 20801,
+     "deformed": 1749,
+     "displaced": 129,
+     "merged": 436,
+     "absorbing": 110
+    },
+    "deformed_area_ratio_median": 0.42033008487146306
+   },
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod3_40",
+   "method": "dp",
+   "lod": "lod3",
+   "interval_m": 40.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 18.611,
+   "q3_displacement_m": 26.86,
+   "max_displacement_m": 39.9999,
+   "area_error_median": 6.826544137539248e-05,
+   "area_error_p95": 0.0010541783002073757,
+   "area_error_max": 0.058743099202540616,
+   "kabkota_vertices": 752109,
+   "total_bytes": 28337483,
+   "island_audit": {
+    "noticeable_parts": 7552,
+    "noticeable_displaced_or_lost": 0,
+    "examples": [],
+    "status_counts": {
+     "distinct": 21395,
+     "deformed": 1418,
+     "merged": 247,
+     "absorbing": 66,
+     "displaced": 99
+    },
+    "deformed_area_ratio_median": 0.41574758873481166
+   },
+   "meets_rule": true
+  },
+  {
+   "candidate": "lod3_20",
+   "method": "dp",
+   "lod": "lod3",
+   "interval_m": 20.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 9.5354,
+   "q3_displacement_m": 13.61,
+   "max_displacement_m": 20.0,
+   "area_error_median": 2.96143258929904e-05,
+   "area_error_p95": 0.00034255369656599477,
+   "area_error_max": 0.024130690434772006,
+   "kabkota_vertices": 1232159,
+   "total_bytes": 46886343,
+   "island_audit": {
+    "noticeable_parts": 7552,
+    "noticeable_displaced_or_lost": 0,
+    "examples": [],
+    "status_counts": {
+     "distinct": 22023,
+     "deformed": 1001,
+     "merged": 107,
+     "absorbing": 35,
+     "displaced": 59
+    },
+    "deformed_area_ratio_median": 0.4184095678289241
+   },
+   "meets_rule": true
+  },
+  {
+   "candidate": "lod2_100",
+   "method": "dp",
+   "lod": "lod2",
+   "interval_m": 100.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 42.4939,
+   "q3_displacement_m": 64.19,
+   "max_displacement_m": 99.9997,
+   "area_error_median": 0.0002031348994172566,
+   "area_error_p95": 0.002611393112586846,
+   "area_error_max": 0.17792489727368577,
+   "kabkota_vertices": 398555,
+   "total_bytes": 15177486,
+   "island_audit": {
+    "noticeable_parts": 3499,
+    "noticeable_displaced_or_lost": 0,
+    "examples": [],
+    "status_counts": {
+     "distinct": 20595,
+     "deformed": 1837,
+     "displaced": 141,
+     "merged": 526,
+     "absorbing": 126
+    },
+    "deformed_area_ratio_median": 0.4213708267462262
+   },
+   "meets_rule": true
+  }
+ ],
+ "candidates_weighted_visvalingam": [
+  {
+   "candidate": "lod1_2000",
+   "method": "weighted",
+   "lod": "lod1",
+   "interval_m": 2000.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 206.0194,
+   "q3_displacement_m": 93.41,
+   "max_displacement_m": 24751.6188,
+   "area_error_median": 0.007946444723144763,
+   "area_error_p95": 0.1538205526044122,
+   "area_error_max": 0.601130261447262,
+   "kabkota_vertices": 119533,
+   "total_bytes": 5387793,
+   "island_audit": null,
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod1_4000",
+   "method": "weighted",
+   "lod": "lod1",
+   "interval_m": 4000.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 229.7324,
+   "q3_displacement_m": 58.57,
+   "max_displacement_m": 31577.8021,
+   "area_error_median": 0.023792875304958994,
+   "area_error_p95": 0.3578382800003941,
+   "area_error_max": 0.8514340139610733,
+   "kabkota_vertices": 108533,
+   "total_bytes": 5006712,
+   "island_audit": null,
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod1_1000",
+   "method": "weighted",
+   "lod": "lod1",
+   "interval_m": 1000.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 172.5099,
+   "q3_displacement_m": 182.02,
+   "max_displacement_m": 14057.0888,
+   "area_error_median": 0.0030226854194861374,
+   "area_error_p95": 0.049122840512371924,
+   "area_error_max": 0.42896125386013395,
+   "kabkota_vertices": 142324,
+   "total_bytes": 6171853,
+   "island_audit": null,
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod2_600",
+   "method": "weighted",
+   "lod": "lod2",
+   "interval_m": 600.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 139.3467,
+   "q3_displacement_m": 177.72,
+   "max_displacement_m": 8469.0594,
+   "area_error_median": 0.0012991933473527895,
+   "area_error_p95": 0.025435247806233963,
+   "area_error_max": 0.3713456312975447,
+   "kabkota_vertices": 172947,
+   "total_bytes": 7237928,
+   "island_audit": null,
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod2_300",
+   "method": "weighted",
+   "lod": "lod2",
+   "interval_m": 300.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 93.4257,
+   "q3_displacement_m": 118.69,
+   "max_displacement_m": 4595.1759,
+   "area_error_median": 0.0005108139226105424,
+   "area_error_p95": 0.00885705723533925,
+   "area_error_max": 0.3713456312975447,
+   "kabkota_vertices": 246141,
+   "total_bytes": 9769065,
+   "island_audit": null,
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod2_150",
+   "method": "weighted",
+   "lod": "lod2",
+   "interval_m": 150.0,
+   "hard_checks_passed": false,
+   "failed_checks": [
+    "island survival (every source part represented in its own region)"
+   ],
+   "mean_displacement_m": 54.8307,
+   "q3_displacement_m": 66.45,
+   "max_displacement_m": 3589.2176,
+   "area_error_median": 0.00016979880845868767,
+   "area_error_p95": 0.003744953358690961,
+   "area_error_max": 0.3381450255670191,
+   "kabkota_vertices": 387828,
+   "total_bytes": 14713591,
+   "island_audit": null,
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod3_80",
+   "method": "weighted",
+   "lod": "lod3",
+   "interval_m": 80.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 30.6233,
+   "q3_displacement_m": 35.51,
+   "max_displacement_m": 2599.0659,
+   "area_error_median": 5.889015387838814e-05,
+   "area_error_p95": 0.0012195153467046138,
+   "area_error_max": 0.18405319810865917,
+   "kabkota_vertices": 622110,
+   "total_bytes": 23025775,
+   "island_audit": null,
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod3_40",
+   "method": "weighted",
+   "lod": "lod3",
+   "interval_m": 40.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 15.0551,
+   "q3_displacement_m": 17.09,
+   "max_displacement_m": 2059.2185,
+   "area_error_median": 1.949598667094765e-05,
+   "area_error_p95": 0.0005211139478515925,
+   "area_error_max": 0.06577984893084932,
+   "kabkota_vertices": 1076215,
+   "total_bytes": 39580916,
+   "island_audit": null,
+   "meets_rule": false
+  },
+  {
+   "candidate": "lod3_20",
+   "method": "weighted",
+   "lod": "lod3",
+   "interval_m": 20.0,
+   "hard_checks_passed": true,
+   "failed_checks": [],
+   "mean_displacement_m": 7.0353,
+   "q3_displacement_m": 7.95,
+   "max_displacement_m": 984.8349,
+   "area_error_median": 8.277218667585018e-06,
+   "area_error_p95": 0.00016879933197810892,
+   "area_error_max": 0.022801798396712925,
+   "kabkota_vertices": 1872757,
+   "total_bytes": 69734823,
+   "island_audit": null,
+   "meets_rule": false
+  }
+ ],
+ "visual_check": "research/reports/geometry_previews/ (national, provincial, kab/kota windows; raw outline overlaid in red)"
+}
