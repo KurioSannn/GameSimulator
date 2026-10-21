@@ -1,0 +1,77 @@
+{
+ "snapshot_id": "SNAP-2026-10-21",
+ "built_at": "2026-10-22T01:40:24+00:00",
+ "lod_dir": "data/processed/geography/SNAP-2026-10-21/render/lod3",
+ "sample_every_nth_vertex": 5,
+ "note": "SRC-0007 layer 8 holds kab/kota-level boundary lines with WAPRO1/WAPRO2; only lines with two different provinces are province boundaries (primary comparison). All lines are also compared with the kab/kota borders (secondary).",
+ "inter_province_vs_province_outlines": {
+  "n": 66941,
+  "median_m": 7.470752607722899,
+  "p90_m": 24.431973104793556,
+  "p95_m": 29.560726889004552,
+  "within_10m_pct": 59.512107676909515,
+  "within_50m_pct": 99.74604502472326,
+  "within_100m_pct": 99.81476225332756,
+  "within_500m_pct": 99.91186268505102,
+  "within_1000m_pct": 99.93277662419145,
+  "side_match_pct": 99.98655532483829,
+  "beyond_search_radius": 0
+ },
+ "inter_province_by_line_edition": {
+  "20220921": {
+   "n": 16467,
+   "median_m": 6.928499836743983,
+   "p90_m": 24.069738748562195,
+   "p95_m": 29.13771753682503,
+   "within_10m_pct": 61.64450112345904,
+   "within_50m_pct": 99.97570899374507,
+   "within_100m_pct": 99.99392724843626,
+   "within_500m_pct": 100.0,
+   "within_1000m_pct": 100.0,
+   "side_match_pct": 99.9635634906176,
+   "beyond_search_radius": 0
+  },
+  "20221227": {
+   "n": 49039,
+   "median_m": 7.598196323621307,
+   "p90_m": 24.510654461052887,
+   "p95_m": 29.635038684433386,
+   "within_10m_pct": 58.97143090193519,
+   "within_50m_pct": 99.68596423254961,
+   "within_100m_pct": 99.76957115765003,
+   "within_500m_pct": 99.89396194865311,
+   "within_1000m_pct": 99.9184322681947,
+   "side_match_pct": 99.9938824201146,
+   "beyond_search_radius": 0
+  },
+  "20240905": {
+   "n": 1435,
+   "median_m": 9.149968458248432,
+   "p90_m": 26.418826931759607,
+   "p95_m": 32.00267709922419,
+   "within_10m_pct": 53.5191637630662,
+   "within_50m_pct": 99.1637630662021,
+   "within_100m_pct": 99.30313588850174,
+   "within_500m_pct": 99.51219512195122,
+   "within_1000m_pct": 99.65156794425087,
+   "side_match_pct": 100.0,
+   "beyond_search_radius": 0
+  }
+ },
+ "all_lines_vs_kabkota_borders": {
+  "n": 375377,
+  "median_m": 7.390998568307392,
+  "p90_m": 24.357936914760298,
+  "p95_m": 29.48133870435634,
+  "within_10m_pct": 59.703178404643864,
+  "within_50m_pct": 99.79380729240204,
+  "within_100m_pct": 99.82364396326892,
+  "within_500m_pct": 99.8987684381302,
+  "within_1000m_pct": 99.92167873897442,
+  "side_match_pct": 99.98655532483829,
+  "beyond_search_radius": 0
+ },
+ "line_samples_total": 375377,
+ "line_samples_inter_province": 66941,
+ "unmatched_province_names_in_lines": {}
+}
