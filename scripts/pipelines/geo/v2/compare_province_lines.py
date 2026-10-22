@@ -12,7 +12,7 @@ For each sampled line vertex:
                   official line separates (WAPRO1 / WAPRO2)
 
 Usage:
-  python3 scripts/research/compare_province_lines.py data/processed/geography/<snap>/render/lod3
+  python3 scripts/pipelines/geo/v2/compare_province_lines.py data/processed/geography/<snap>/render/lod3
 Writes research/reports/province_outline_crosscheck.json
 """
 

@@ -1,4 +1,4 @@
-"""Unit tests for scripts/research/geo.py."""
+"""Unit tests for scripts/pipelines/geo/v2/geo.py."""
 
 from __future__ import annotations
 

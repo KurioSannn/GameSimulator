@@ -1,7 +1,7 @@
 """Capture BPS provincial "Luas Daerah dan Jumlah Pulau Menurut Kabupaten/Kota" tables (SRC-0008).
 
 These are the independent official area figures used by the LUASWH area-unit
-audit (research/reports/AREA_UNIT_INVESTIGATION.md). BPS tabulates area from
+audit (research/reports/2026-10-22_AREA_UNIT_INVESTIGATION.md). BPS tabulates area from
 the Kemendagri code/area decree named in each table's `sumber` field.
 
 The table pages are Next.js; the table itself is embedded as JSON in the
@@ -9,7 +9,7 @@ flight payload, so raw HTML is captured as-is and parsed offline here.
 No robots.txt is served (404) on the province subdomains checked.
 
 Usage:
-  python3 scripts/research/fetch_bps_area_tables.py [--year 2025]
+  python3 scripts/pipelines/geo/v2/fetch_bps_area_tables.py [--year 2025]
 Writes data/processed/geography/<snapshot>/bps_area_tables_<year>.json
 """
 

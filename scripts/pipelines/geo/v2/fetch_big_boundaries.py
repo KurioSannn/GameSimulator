@@ -9,7 +9,7 @@ Raw pages are stored exactly as served (GeoJSON, full resolution, EPSG:4326).
 No simplification happens here; render geometry is derived separately.
 
 Usage:
-  python3 scripts/research/fetch_big_boundaries.py [--no-geometry]
+  python3 scripts/pipelines/geo/v2/fetch_big_boundaries.py [--no-geometry]
 """
 
 from __future__ import annotations

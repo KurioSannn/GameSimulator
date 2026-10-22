@@ -4,7 +4,7 @@ Inputs (immutable raw, see data/catalog/):
   SRC-0002  BPS <-> Kemendagri bridging, period 2025_2.2025
   SRC-0001  BIG BATAS_KABKOTA_AR attributes, edisi Juni 2026
 
-Key strategy (DECISIONS.md D-012):
+Key strategy (DECISIONS.md D-050):
   region_id = Kemendagri code ("11", "11.05"), the legal administrative code.
   BPS codes are carried as a crosswalk column, never used as the primary key.
 
@@ -193,7 +193,7 @@ def main() -> int:
     registry = {
         "snapshot_id": args.snapshot,
         "built_at": utc_now_iso(),
-        "builder": "scripts/research/build_region_registry.py",
+        "builder": "scripts/pipelines/geo/v2/build_region_registry.py",
         "key_strategy": "region_id = Kemendagri code; BPS code is a crosswalk attribute",
         "sources": {"SRC-0002": f"BPS SIG bridging, period {PERIOD}",
                     "SRC-0001": "BIG BATAS_KABKOTA_AR, edisi Juni 2026"},

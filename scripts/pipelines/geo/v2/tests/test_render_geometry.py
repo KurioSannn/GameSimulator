@@ -1,6 +1,6 @@
 """Tests for navigation groups, render LODs and the area-unit audit (docs/14 QA).
 
-Run: python3 -m unittest discover -s scripts/research/tests
+Run: python3 -m unittest discover -s scripts/pipelines/geo/v2/tests
 LOD tests are skipped (not failed) until the LODs have been built.
 """
 
@@ -137,7 +137,7 @@ class TestRenderLods(unittest.TestCase):
             self.assertEqual(l["noticeable_parts_displaced_or_lost"], [], lod)
 
     def test_precision_and_method_consistent(self):
-        # build command, build log, output coordinates and DECISIONS.md D-015 must agree
+        # build command, build log, output coordinates and DECISIONS.md D-053 must agree
         sel = json.loads((REPO_ROOT / "research" / "reports" / "lod_tolerance_selection.json").read_text())
         decisions = (REPO_ROOT / "DECISIONS.md").read_text(encoding="utf-8")
         self.assertIn("1e-6°", decisions)

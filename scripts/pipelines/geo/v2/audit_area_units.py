@@ -109,9 +109,9 @@ def main() -> None:
             "region_id": r["region_id"], "kode_bps": r["kode_bps"], "name": r["name"],
             "region_level": r["region_level"], "big_objectid": main,
             "luaswh_raw": r["big_luaswh_raw"], "luaswh_source_label": LUASWH_LABEL, "luaswh_declared_unit": "HA",
-            # evidenced interpretation kept separate from the declared metadata (D-017)
+            # evidenced interpretation kept separate from the declared metadata (D-055)
             "luaswh_evidenced_unit": "km2", "luaswh_unit_status": "UNIT_KM2_EVIDENCED",
-            "luaswh_unit_evidence": "research/reports/AREA_UNIT_INVESTIGATION.md",
+            "luaswh_unit_evidence": "research/reports/2026-10-22_AREA_UNIT_INVESTIGATION.md",
             "shape_area_raw": g["Shape_Area"] if g else "",
             "planar_deg2": planar_deg2(g["geom"]) if g else "",
             "geom_area_km2": area_km2(g["geom"]) if g else "",

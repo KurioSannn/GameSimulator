@@ -8,7 +8,7 @@ Kecamatan/desa levels are intentionally out of scope for this milestone
 (the simulation's region unit is kabupaten/kota; see docs/07).
 
 Usage:
-  python3 scripts/research/fetch_bps_bridging.py [--period 2025_2.2025]
+  python3 scripts/pipelines/geo/v2/fetch_bps_bridging.py [--period 2025_2.2025]
 """
 
 from __future__ import annotations

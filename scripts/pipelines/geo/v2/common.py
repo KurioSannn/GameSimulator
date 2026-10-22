@@ -20,7 +20,7 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[4]  # scripts/pipelines/geo/v2/ -> repo root
 DATA_RAW = REPO_ROOT / "data" / "raw"
 DATA_NORMALIZED = REPO_ROOT / "data" / "normalized"
 DATA_CATALOG = REPO_ROOT / "data" / "catalog"

@@ -4,7 +4,7 @@ Raw source (never modified): data/raw/SRC-0001/<snap>/kabkota_geom_*.geojson
 Derived output (per LOD):     data/processed/geography/<snap>/render/<lod>/
     kabkota.json    514 features, one (multi)polygon per kab/kota
     provinsi.json   38 features, dissolved from the simplified kab/kota layer
-    fragments.json  21 BIG TIPADM=6 unallocated fragments (render-only, D-014)
+    fragments.json  21 BIG TIPADM=6 unallocated fragments (render-only, D-052)
     build_log.json  exact mapshaper command, version, stats and messages
 
 Pipeline per LOD (one mapshaper process, so every layer shares one arc topology):
@@ -14,7 +14,7 @@ Pipeline per LOD (one mapshaper process, so every layer shares one arc topology)
   4. explode to single parts, so keep-shapes protects every island, not only the
      largest ring of each region
   5. simplify (Douglas-Peucker by default - displacement bounded by the interval; weighted
-     Visvalingam was rejected, see D-015 - spherical, interval=<m>, keep-shapes, repair on)
+     Visvalingam was rejected, see D-053 - spherical, interval=<m>, keep-shapes, repair on)
   6. write the simplified parts, then re-import them (second mapshaper pass): mapshaper
      simplification is non-destructive, so repairs must run on the baked geometry. Pass B:
      -clean (gap-width=0), re-dissolve parts by region_id, round inside mapshaper
@@ -24,10 +24,10 @@ Pipeline per LOD (one mapshaper process, so every layer shares one arc topology)
      crossings between near-touching tiny islands (0 crossings unrounded and at 1e-6)
 
 Usage:
-  python3 scripts/research/build_render_geometry.py --lod lod1 --interval 1000   # production (D-015)
-  python3 scripts/research/build_render_geometry.py --lod lod2 --interval 100
-  python3 scripts/research/build_render_geometry.py --lod lod3 --interval 40
-  python3 scripts/research/build_render_geometry.py --lod lod1_2000 --interval 2000 --out-root <dir>  # candidate
+  python3 scripts/pipelines/geo/v2/build_render_geometry.py --lod lod1 --interval 1000   # production (D-053)
+  python3 scripts/pipelines/geo/v2/build_render_geometry.py --lod lod2 --interval 100
+  python3 scripts/pipelines/geo/v2/build_render_geometry.py --lod lod3 --interval 40
+  python3 scripts/pipelines/geo/v2/build_render_geometry.py --lod lod1_2000 --interval 2000 --out-root <dir>  # candidate
 """
 
 from __future__ import annotations

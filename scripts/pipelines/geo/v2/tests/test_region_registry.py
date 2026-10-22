@@ -1,6 +1,6 @@
 """Regression tests for the normalized region registry (docs/14 QA: geography registry, region count and IDs).
 
-Run: python3 -m unittest discover -s scripts/research/tests
+Run: python3 -m unittest discover -s scripts/pipelines/geo/v2/tests
 """
 
 from __future__ import annotations
