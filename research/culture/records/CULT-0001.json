@@ -1,0 +1,80 @@
+{
+ "culture_id": "CULT-0001",
+ "preferred_name": "Penyiapan lahan berkelompok sistem handel dengan pembakaran terkendali (Dayak Ngaju)",
+ "aliases": [
+  "sistem handel",
+  "barunding",
+  "jipen"
+ ],
+ "category": "pengelolaan lahan dan api",
+ "subcategory": "tata kelola komunal penyiapan lahan gambut",
+ "region_refs": [
+  "62.03"
+ ],
+ "community_refs": [
+  "Masyarakat Dayak Ngaju di Desa Mantangai, Kabupaten Kapuas (lokasi studi)"
+ ],
+ "description": "Studi IPB (2017) di Desa Mantangai, Kapuas, mencatat bahwa masyarakat Dayak Ngaju mengelola lahan gambut untuk pertanian dengan sistem handel, yaitu kegiatan bertani berkelompok pada satu hamparan di sepanjang sungai kecil, dengan struktur organisasi (ketua, wakil ketua, bendahara, kepala padan, anggota). Penyiapan lahan dilakukan dengan pembakaran yang harus diawasi, secara bergotong royong, diputuskan melalui barunding (musyawarah), melibatkan tokoh adat (damang dan mantir), dengan sekat bakar selebar 3–6 meter di sekeliling lahan. Jika api menjalar dan membakar lahan orang lain, dikenakan denda adat (jipen). Studi juga mencatat ketergantungan tinggi petani pada api karena belum ada teknologi penyiapan lahan alternatif yang sesuai.",
+ "history_context": "Studi menyebut praktik ini telah dilakukan sejak generasi awal Dayak Ngaju (menurut informan).",
+ "social_function": "Koordinasi kolektif, pembagian tanggung jawab, dan akuntabilitas atas risiko api melalui musyawarah dan sanksi adat.",
+ "values_principles": [
+  "keputusan bersama (barunding)",
+  "gotong royong",
+  "tanggung jawab atas dampak ke lahan orang lain (jipen)",
+  "pengendalian teknis (sekat bakar)"
+ ],
+ "practice_process": [
+  "pemilihan lokasi",
+  "penebasan",
+  "penebangan",
+  "pengeringan",
+  "pembakaran terkendali dengan sekat bakar",
+  "penanaman",
+  "pemanenan"
+ ],
+ "ritual_note": "Studi juga mencatat ritual adat sebelum pembakaran sebagai penghormatan kepada makhluk gaib di lahan. Bagian ritual ini TIDAK diadaptasi menjadi mekanik permainan.",
+ "status": {
+  "wbtb": false,
+  "cagar_budaya": false,
+  "unesco": false,
+  "indigenous_related": true
+ },
+ "related_regulation": "Pergub Kalimantan Tengah 27/2019 kemudian mengatur pembakaran terbatas dan terkendali yang memadukan aspek teknis modern dan kearifan lokal: dilarang di gambut pedalaman >50 cm, dilarang pada musim kemarau, dilarang saat status siaga darurat karhutla (lihat SRC-JDIH-KALTENG-PERGUB-27-2019).",
+ "sensitivity": {
+  "level": "medium",
+  "sacred_or_restricted": false,
+  "game_adaptation": "adaptable_with_caution",
+  "adaptation_notes": "Hanya prinsip tata kelola (musyawarah, sekat bakar, aturan musim, akuntabilitas/sanksi) yang diabstraksikan. Ritual tidak digamifikasi. Pembakaran tetap berisiko; permainan tidak menyiratkan bahwa praktik ini menjamin bebas kebakaran, terutama di gambut dalam (yang menurut Pergub 27/2019 tidak boleh dibakar)."
+ },
+ "mechanic_mapping": {
+  "source_fact": "Penyiapan lahan berkelompok (handel) dengan keputusan musyawarah, sekat bakar 3–6 m, pengawasan, dan denda adat jipen bila api menjalar (SRC-ACAD-IPB-JSILVIK-2017); kemudian diakui dalam aturan pembakaran terbatas dan terkendali Pergub Kalteng 27/2019.",
+  "interpretation": "Tata kelola api berbasis komunitas: aturan bersama, kontrol teknis, dan akuntabilitas lokal dapat menurunkan risiko api menjalar sambil mempertahankan mata pencaharian petani kecil.",
+  "mechanic_abstraction": "Kebijakan POL-KEBENCANAAN-API-ADAT: menambah fire_prevention secara bertahap di wilayah sasaran, dengan efektivitas bergantung pada kepercayaan (trust) masyarakat sebagai proksi legitimasi tata kelola komunitas (scale_by trust, kapasitas), tanpa memangkas kesejahteraan petani. Lebih lambat dan kurang pasti dibanding larangan total.",
+  "why_reasonable": "Sumber menunjukkan efektivitas bergantung pada kepatuhan kolektif dan sanksi sosial; trust adalah variabel model terdekat untuk legitimasi tersebut. Tidak ada klaim kuantitatif tentang besar efeknya (nilai desain, belum terkalibrasi).",
+  "sensitivity_review": "Ditinjau 2026-10-06 oleh Claude Code (perlu tinjauan manusia, idealnya narasumber Dayak Ngaju/akademisi): ritual dikecualikan; tidak menggeneralisasi ke seluruh Kalimantan Tengah atau seluruh masyarakat Dayak; penyebutan komunitas dan lokasi sesuai studi."
+ },
+ "sources": [
+  {
+   "source_id": "SRC-ACAD-IPB-JSILVIK-2017",
+   "institution": "Fakultas Kehutanan IPB — Jurnal Silvikultur Tropika 8(1), April 2017",
+   "title": "Kearifan Lokal Masyarakat Dayak Ngaju di Kalimantan Tengah dalam Melakukan Penyiapan Lahan dengan Pembakaran (Hadiwijoyo, Saharjo, Putra)",
+   "url": "https://journal.ipb.ac.id/index.php/jsilvik/article/download/16868/12266",
+   "publication_date": "2017-04",
+   "retrieved_at": "2026-10-06",
+   "fact_class": "REAL_ACADEMIC",
+   "raw_path": "data/raw/sources_docs/ipb_jsilvik_8_1_2017_dayak_ngaju.pdf"
+  },
+  {
+   "source_id": "SRC-JDIH-KALTENG-PERGUB-27-2019",
+   "institution": "Pemerintah Provinsi Kalimantan Tengah (JDIH)",
+   "title": "Peraturan Gubernur Kalimantan Tengah No. 27 Tahun 2019 tentang Pemanfaatan Lahan Rawa Gambut Melalui Kearifan Lokal",
+   "url": "https://jdih.kalteng.go.id/storage/app/uploads/public/5ef/42d/beb/5ef42dbeb9a94601194544.pdf",
+   "publication_date": "2019-09-26",
+   "retrieved_at": "2026-10-06",
+   "fact_class": "REAL_OFFICIAL",
+   "raw_path": "data/raw/sources_docs/pergub_kalteng_27_2019.pdf"
+  }
+ ],
+ "confidence": "medium",
+ "notes": "Satu studi lapangan di satu desa; jangan digeneralisasi. Validasi lanjutan: sumber kedua independen tentang praktik jipen/handel."
+}

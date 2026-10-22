@@ -1,0 +1,28 @@
+{
+ "culture_id": "CULT-0003",
+ "preferred_name": "Mamar — agroforestri tradisional Timor Barat",
+ "aliases": ["mamar"],
+ "category": "pengelolaan lahan",
+ "subcategory": "agroforestri tradisional lahan kering",
+ "region_refs": ["53.01"],
+ "community_refs": ["Petani di Amarasi Barat, Kabupaten Kupang (lokasi studi: Teunbaun; lima desa di Kabupaten Kupang menurut Ngaji dkk. 2021)"],
+ "description": "Mamar adalah sistem agroforestri tradisional di Timor Barat. Ndun dkk. (2021) membandingkan tiga sistem pengelolaan lahan tradisional di Amarasi Barat: mamar di Teunbaun, tebas-bakar di Niukbaun, dan wanaternak di Merbaun. Prediksi erosi (metode USLE) paling tinggi pada tebas-bakar (2.368,7 ton/ha/tahun). Studi merekomendasikan teras gulud, tajuk rapat, rotasi tanaman, dan mulsa. Ngaji dkk. (2021) menyebut mamar menghasilkan jasa ekosistem penting di wilayah kering ini. Namun pengelolaannya cenderung berubah: nilai penting tanaman budaya menurun, keanekaragaman menurun, dan ada kerusakan tanah, sehingga keberlanjutannya terganggu.",
+ "history_context": "Tidak didokumentasikan dalam sumber yang diambil.",
+ "social_function": "Tidak dianalisis dalam sumber yang diambil (abstrak Ngaji dkk. menyebut nilai jasa ekosistem 'tidak berfokus pada jasa budaya').",
+ "values_principles": [],
+ "practice_process": [],
+ "status": {"wbtb": false, "cagar_budaya": false, "unesco": false, "indigenous_related": false},
+ "sensitivity": {
+  "level": "low",
+  "sacred_or_restricted": false,
+  "game_adaptation": "informational_only",
+  "adaptation_notes": "NOT adapted as a CASE-0006 mechanic, for three reasons. (1) The retrieved evidence concerns erosion and agroforestry sustainability, not drought, water availability or springs. A link to springs appears only in secondary citations (Sumu 2011; Matheus et al. 2017, cited in a 2020 UNSRI proceedings paper that could not be retrieved, HTTP 468). (2) The documented scope is villages in Kecamatan Amarasi Barat, while the game's finest unit is the whole Kabupaten Kupang; a mechanic would generalize it. (3) Presenting it as a drought remedy would overstate the evidence."
+ },
+ "sources": [
+  {"source_id": "SRC-ACAD-IPB-JITL-2021-NDUN", "institution": "IPB University (Jurnal Ilmu Tanah dan Lingkungan)", "title": "Agricultural Conservation Planning on Traditional Land Management in Amarasi Barat District, East Nusa Tenggara (Ndun, Murtilaksono, Baskoro, Hidayat), vol. 23 no. 1, pp. 7–17, doi:10.29244/jitl.23.1.7-17", "url": "https://journal.ipb.ac.id/index.php/jtanah/article/view/32794", "publication_date": "2021", "retrieved_at": "2026-10-23", "source_quality": "REAL_ACADEMIC"},
+  {"source_id": "SRC-ACAD-FS-2021-NGAJI", "institution": "Forest and Society (Universitas Hasanuddin)", "title": "Assessing the sustainability of traditional agroforestry practices: A case of mamar agroforestry in Kupang-Indonesia (Ngaji, Baiquni, Suryatmojo, Haryono), vol. 5 no. 2, pp. 438–457", "url": "https://ir.lib.ugm.ac.id/id/eprint/3932", "publication_date": "2021", "retrieved_at": "2026-10-23", "source_quality": "REAL_ACADEMIC (abstract only; full text not available)"}
+ ],
+ "confidence": "medium",
+ "related_cases": ["CASE-0006 (context only)"],
+ "reviewed": "2026-10-23 by Claude Code; needs human review by a person with local expertise before any future adaptation"
+}

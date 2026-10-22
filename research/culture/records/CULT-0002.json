@@ -1,0 +1,47 @@
+{
+ "culture_id": "CULT-0002",
+ "preferred_name": "Tabat — sekat air tradisional pada saluran di lahan rawa gambut",
+ "aliases": [
+  "tabat"
+ ],
+ "category": "pengelolaan air",
+ "subcategory": "konservasi air lahan gambut",
+ "region_refs": [
+  "62"
+ ],
+ "community_refs": [
+  "Masyarakat lokal/petani lahan rawa gambut Kalimantan Tengah (sebagaimana dirumuskan Pergub 27/2019)"
+ ],
+ "description": "Pergub Kalimantan Tengah 27/2019 mendefinisikan tabat (dari bahasa Dayak) sebagai sekat atau bendungan air pada saluran/parit drainase untuk menahan laju drainase agar lahan tidak kering pada musim kemarau; dibuat dari tanah mineral dan papan kayu sebagai tanggul penahan air, pada akhir musim hujan. Pergub yang sama juga mencatat handil (saluran tegak lurus dari sungai) dan kearifan lain.",
+ "social_function": "Menjaga kebasahan lahan gambut pada musim kemarau.",
+ "values_principles": [
+  "konservasi air",
+  "pengaturan menurut musim"
+ ],
+ "status": {
+  "wbtb": false,
+  "cagar_budaya": false,
+  "unesco": false,
+  "indigenous_related": true
+ },
+ "sensitivity": {
+  "level": "low",
+  "sacred_or_restricted": false,
+  "game_adaptation": "potentially_adaptable",
+  "adaptation_notes": "Informatif dalam versi ini; terkait konsep pembasahan gambut pada kebijakan restorasi. Belum dijadikan mekanik tersendiri."
+ },
+ "sources": [
+  {
+   "source_id": "SRC-JDIH-KALTENG-PERGUB-27-2019",
+   "institution": "Pemerintah Provinsi Kalimantan Tengah (JDIH)",
+   "title": "Peraturan Gubernur Kalimantan Tengah No. 27 Tahun 2019 tentang Pemanfaatan Lahan Rawa Gambut Melalui Kearifan Lokal",
+   "url": "https://jdih.kalteng.go.id/storage/app/uploads/public/5ef/42d/beb/5ef42dbeb9a94601194544.pdf",
+   "publication_date": "2019-09-26",
+   "retrieved_at": "2026-10-06",
+   "fact_class": "REAL_OFFICIAL",
+   "raw_path": "data/raw/sources_docs/pergub_kalteng_27_2019.pdf"
+  }
+ ],
+ "confidence": "medium",
+ "notes": "Definisi dari regulasi daerah, bukan studi etnografis."
+}
