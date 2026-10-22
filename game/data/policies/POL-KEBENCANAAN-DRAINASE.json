@@ -1,0 +1,88 @@
+{
+ "schema": "nusantara.policy/1",
+ "policy_id": "POL-KEBENCANAAN-DRAINASE",
+ "name": "Normalisasi Sungai dan Drainase",
+ "category": "kebencanaan",
+ "description": "Membangun dan memperbaiki drainase serta tanggul di daerah yang sering banjir. Konstruksi mengganggu warga sementara waktu.",
+ "fact_class": "FICTIONAL",
+ "provenance": {
+  "basis": "game_design",
+  "references": [],
+  "note": "Game policy option. Not a description of a real government programme; magnitudes are uncalibrated design values."
+ },
+ "target_scope": [
+  "national",
+  "island_group",
+  "province",
+  "kabkota",
+  "selected"
+ ],
+ "cost": {
+  "upfront_fiscal": 3.0,
+  "monthly_commitment": 0.03,
+  "commitment_months": 21
+ },
+ "implementation_months": 9,
+ "duration_months": 12,
+ "cooldown_months": 12,
+ "prerequisites": {},
+ "mutually_exclusive": [],
+ "uncertainty": {
+  "magnitude": 0.3
+ },
+ "effects": [
+  {
+   "phase": "implementation",
+   "scope": "target",
+   "var": "trust",
+   "op": "add",
+   "value": -0.2,
+   "duration": 9,
+   "kind": "expected",
+   "dimension": "stakeholder",
+   "label": "Gangguan konstruksi dan penataan bantaran menurunkan kepercayaan warga terdampak selama pembangunan"
+  },
+  {
+   "phase": "implementation",
+   "scope": "target",
+   "var": "environment",
+   "op": "add",
+   "value": -0.1,
+   "duration": 9,
+   "kind": "expected",
+   "dimension": "environmental",
+   "label": "Tekanan lingkungan selama konstruksi"
+  },
+  {
+   "phase": "active",
+   "scope": "target",
+   "var": "flood_protection",
+   "op": "add",
+   "value": 1.5,
+   "duration": 12,
+   "scale_by": {
+    "var": "services",
+    "mode": "capacity",
+    "ref": 50,
+    "min": 0.5,
+    "max": 1.5
+   },
+   "kind": "delayed",
+   "dimension": "regional",
+   "label": "Proteksi banjir naik bertahap (~18 poin); mengurangi dampak banjir berikutnya, bukan frekuensinya"
+  }
+ ],
+ "stakeholder_notes": [
+  "warga bantaran sungai: gangguan selama konstruksi",
+  "daerah lain: anggaran program sektor berkurang selama komitmen"
+ ],
+ "follow_up_case_triggers": [
+  "CASE-0001-R reads damaging monthly floods; protection lowers the chance it re-opens"
+ ],
+ "memory": {
+  "policy_drainase_enacted": true
+ },
+ "cultural_basis": null,
+ "game_design_notes": "Only regions with flood_frequency >= 3/yr are eligible (target_filter). Payoff appears only when floods occur.",
+ "target_filter": "flood_frequency>=3"
+}
