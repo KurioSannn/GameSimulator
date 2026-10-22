@@ -1,0 +1,108 @@
+{
+ "type": "object",
+ "required": [
+  "schema",
+  "snapshot_id",
+  "region_order",
+  "variables"
+ ],
+ "properties": {
+  "variables": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "object",
+    "required": [
+     "status",
+     "default",
+     "values",
+     "provenance"
+    ],
+    "properties": {
+     "status": {
+      "enum": [
+       "REAL_OFFICIAL",
+       "DERIVED",
+       "BY_DESIGN",
+       "UNCALIBRATED"
+      ],
+      "description": "BY_DESIGN = a model state defined by the simulation (reason in provenance.reason), not a measurement."
+     },
+     "values": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "items": {
+       "type": [
+        "number",
+        "null"
+       ]
+      }
+     },
+     "missing": {
+      "type": "object",
+      "description": "region_id -> missing_class for null entries",
+      "additionalProperties": {
+       "enum": [
+        "NOT_AVAILABLE",
+        "NOT_PUBLISHED",
+        "WRONG_RESOLUTION",
+        "STALE_ONLY",
+        "CONFLICTING",
+        "PENDING_VERIFICATION"
+       ]
+      }
+     },
+     "region_status": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "items": {
+       "enum": [
+        "REAL",
+        "PROVINCE_PROXY",
+        "UNCALIBRATED"
+       ]
+      },
+      "description": "Per-region provenance of the starting value, aligned with region_order."
+     },
+     "rule": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "inputs": {
+      "type": [
+       "array",
+       "null"
+      ]
+     }
+    },
+    "if": {
+     "properties": {
+      "status": {
+       "enum": [
+        "REAL_OFFICIAL",
+        "DERIVED"
+       ]
+      }
+     }
+    },
+    "then": {
+     "properties": {
+      "provenance": {
+       "type": "object"
+      },
+      "values": {
+       "type": "array"
+      }
+     }
+    }
+   }
+  }
+ },
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "baseline"
+}

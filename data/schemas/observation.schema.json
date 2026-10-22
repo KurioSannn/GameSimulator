@@ -1,0 +1,120 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "observation",
+ "description": "One official value as published (REAL layer). Stored as JSON Lines in data/normalized/observations/<obs_variable_id>.jsonl. Either value or missing_class is set, never both.",
+ "type": "object",
+ "required": [
+  "obs_variable_id",
+  "region_id",
+  "resolution",
+  "reference_period",
+  "unit",
+  "source_id",
+  "dataset_ref",
+  "retrieved_at",
+  "raw_path",
+  "fact_class"
+ ],
+ "properties": {
+  "obs_variable_id": {
+   "type": "string",
+   "pattern": "^[a-z0-9_]+$"
+  },
+  "region_id": {
+   "type": "string",
+   "pattern": "^(ID|\\d\\d|\\d\\d\\.\\d\\d)$"
+  },
+  "resolution": {
+   "enum": [
+    "national",
+    "island_group",
+    "provinsi",
+    "kabkota",
+    "kecamatan",
+    "desa",
+    "point"
+   ]
+  },
+  "value": {
+   "type": [
+    "number",
+    "null"
+   ]
+  },
+  "missing_class": {
+   "enum": [
+    "NOT_AVAILABLE",
+    "NOT_PUBLISHED",
+    "WRONG_RESOLUTION",
+    "STALE_ONLY",
+    "CONFLICTING",
+    "PENDING_VERIFICATION"
+   ]
+  },
+  "reference_period": {
+   "type": "string",
+   "pattern": "^\\d{4}(-(S[12]|Q[1-4]|\\d\\d))?$"
+  },
+  "unit": {
+   "type": "string",
+   "minLength": 1
+  },
+  "source_id": {
+   "type": "string",
+   "pattern": "^SRC-"
+  },
+  "dataset_ref": {
+   "type": "string",
+   "minLength": 1,
+   "description": "source-native identifier, e.g. 'bps:var=414;domain=3200'"
+  },
+  "source_label": {
+   "type": "string",
+   "description": "region label as written in the source (for crosswalk audit)"
+  },
+  "retrieved_at": {
+   "type": "string"
+  },
+  "raw_path": {
+   "type": "string",
+   "description": "repo-relative path of the raw capture this row was parsed from"
+  },
+  "fact_class": {
+   "enum": [
+    "REAL_OFFICIAL",
+    "REAL_SECONDARY"
+   ]
+  },
+  "note": {
+   "type": "string"
+  }
+ },
+ "oneOf": [
+  {
+   "required": [
+    "value"
+   ],
+   "properties": {
+    "value": {
+     "type": "number"
+    }
+   },
+   "not": {
+    "required": [
+     "missing_class"
+    ]
+   }
+  },
+  {
+   "required": [
+    "missing_class"
+   ],
+   "properties": {
+    "value": {
+     "type": "null"
+    }
+   }
+  }
+ ],
+ "additionalProperties": false
+}

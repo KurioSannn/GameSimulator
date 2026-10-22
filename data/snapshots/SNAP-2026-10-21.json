@@ -17,6 +17,6 @@
     "render_lods": {"lod1": "DP 1,000 m", "lod2": "DP 100 m", "lod3": "DP 40 m", "path": "data/processed/geography/SNAP-2026-10-21/render/", "tool": "mapshaper 0.7.79 (tools/geo)"},
     "area_audit": "data/processed/geography/SNAP-2026-10-21/area_unit_audit.csv"
   },
-  "transformation_code": "scripts/research/ (Git repository initialised 2026-10-22)",
+  "transformation_code": "scripts/pipelines/geo/v2/ (Git repository initialised 2026-10-22)",
   "notes": "Snapshot stays open while further domains are captured; freeze (status=frozen) before competition build per docs/16 R7."
 }

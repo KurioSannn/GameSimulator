@@ -1,0 +1,86 @@
+{
+ "type": "object",
+ "required": [
+  "culture_id",
+  "preferred_name",
+  "category",
+  "region_refs",
+  "community_refs",
+  "description",
+  "sources",
+  "sensitivity",
+  "confidence"
+ ],
+ "properties": {
+  "culture_id": {
+   "type": "string",
+   "pattern": "^CULT-\\d{4}$"
+  },
+  "region_refs": {
+   "type": "array",
+   "items": {
+    "type": "string",
+    "pattern": "^\\d\\d(\\.\\d\\d)?$"
+   },
+   "description": "Where documented; never imply a whole province shares the practice."
+  },
+  "community_refs": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "string"
+   }
+  },
+  "sensitivity": {
+   "type": "object",
+   "required": [
+    "level",
+    "sacred_or_restricted",
+    "game_adaptation"
+   ],
+   "properties": {
+    "level": {
+     "enum": [
+      "low",
+      "medium",
+      "high"
+     ]
+    },
+    "sacred_or_restricted": {
+     "type": "boolean"
+    },
+    "game_adaptation": {
+     "enum": [
+      "informational_only",
+      "potentially_adaptable",
+      "adaptable_with_caution",
+      "do_not_gamify"
+     ]
+    }
+   }
+  },
+  "mechanic_mapping": {
+   "type": "object",
+   "required": [
+    "source_fact",
+    "interpretation",
+    "mechanic_abstraction",
+    "why_reasonable",
+    "sensitivity_review"
+   ]
+  },
+  "sources": {
+   "type": "array",
+   "minItems": 1
+  },
+  "confidence": {
+   "enum": [
+    "high",
+    "medium",
+    "low"
+   ]
+  }
+ },
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "cultural_record"
+}

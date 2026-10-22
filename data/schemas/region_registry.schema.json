@@ -1,0 +1,73 @@
+{
+ "type": "object",
+ "required": [
+  "schema",
+  "counts",
+  "provinces",
+  "kabkota"
+ ],
+ "properties": {
+  "provinces": {
+   "type": "array",
+   "minItems": 38,
+   "maxItems": 38,
+   "items": {
+    "type": "object",
+    "required": [
+     "region_id",
+     "name",
+     "level"
+    ],
+    "properties": {
+     "region_id": {
+      "type": "string",
+      "pattern": "^\\d\\d$"
+     }
+    }
+   }
+  },
+  "kabkota": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "region_id",
+     "level",
+     "kind",
+     "parent_region_id",
+     "name",
+     "provenance"
+    ],
+    "properties": {
+     "region_id": {
+      "type": "string",
+      "pattern": "^\\d\\d\\.\\d\\d$"
+     },
+     "kind": {
+      "enum": [
+       "kabupaten",
+       "kota"
+      ]
+     },
+     "parent_region_id": {
+      "type": "string",
+      "pattern": "^\\d\\d$"
+     },
+     "island_group": {
+      "enum": [
+       "sumatera",
+       "jawa",
+       "bali_nusa_tenggara",
+       "kalimantan",
+       "sulawesi",
+       "maluku",
+       "papua"
+      ]
+     }
+    }
+   }
+  }
+ },
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "region_registry"
+}

@@ -1,0 +1,172 @@
+{
+ "$id": "common",
+ "$defs": {
+  "fact_class": {
+   "enum": [
+    "REAL_OFFICIAL",
+    "REAL_ACADEMIC",
+    "REAL_NEWS",
+    "REAL_SECONDARY",
+    "DERIVED",
+    "SIMULATED",
+    "FICTIONAL"
+   ]
+  },
+  "missing_class": {
+   "enum": [
+    "NOT_AVAILABLE",
+    "NOT_PUBLISHED",
+    "WRONG_RESOLUTION",
+    "STALE_ONLY",
+    "CONFLICTING",
+    "PENDING_VERIFICATION"
+   ]
+  },
+  "resolution": {
+   "enum": [
+    "national",
+    "island_group",
+    "provinsi",
+    "kabkota",
+    "kecamatan",
+    "desa",
+    "point"
+   ]
+  },
+  "region_code": {
+   "type": "string",
+   "pattern": "^\\d\\d(\\.\\d\\d)?$"
+  },
+  "effect": {
+   "type": "object",
+   "required": [
+    "scope",
+    "var",
+    "op",
+    "value"
+   ],
+   "properties": {
+    "scope": {
+     "type": "string",
+     "pattern": "^(national|all|region:\\d\\d\\.\\d\\d|province:\\d\\d|regions:\\d\\d\\.\\d\\d(,\\d\\d\\.\\d\\d)*|where:[a-z_]+(>=|<=|>|<)-?[0-9.]+(&in:\\d\\d\\.\\d\\d(,\\d\\d\\.\\d\\d)*)?)$"
+    },
+    "var": {
+     "type": "string"
+    },
+    "op": {
+     "enum": [
+      "add",
+      "mul",
+      "set"
+     ]
+    },
+    "value": {
+     "type": "number"
+    },
+    "delay": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "duration": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "scale_by": {
+     "type": "object",
+     "required": [
+      "var",
+      "mode"
+     ],
+     "properties": {
+      "var": {
+       "type": "string"
+      },
+      "mode": {
+       "enum": [
+        "capacity",
+        "gap"
+       ]
+      },
+      "ref": {
+       "type": "number"
+      },
+      "min": {
+       "type": "number",
+       "minimum": 0
+      },
+      "max": {
+       "type": "number",
+       "minimum": 0
+      }
+     },
+     "additionalProperties": false
+    }
+   },
+   "additionalProperties": false
+  },
+  "provenance": {
+   "type": "object",
+   "required": [
+    "source_id",
+    "reference_period",
+    "retrieved_at",
+    "unit",
+    "geographic_resolution"
+   ],
+   "properties": {
+    "source_id": {
+     "type": "string"
+    },
+    "dataset_id": {
+     "type": "string"
+    },
+    "variable": {
+     "type": "string"
+    },
+    "reference_period": {
+     "type": "string"
+    },
+    "retrieved_at": {
+     "type": "string"
+    },
+    "unit": {
+     "type": "string"
+    },
+    "geographic_resolution": {
+     "enum": [
+      "national",
+      "island_group",
+      "provinsi",
+      "kabkota",
+      "kecamatan",
+      "desa",
+      "point"
+     ]
+    },
+    "transformation": {
+     "type": "string"
+    },
+    "fact_class": {
+     "enum": [
+      "REAL_OFFICIAL",
+      "REAL_ACADEMIC",
+      "REAL_NEWS",
+      "REAL_SECONDARY",
+      "DERIVED",
+      "SIMULATED",
+      "FICTIONAL"
+     ]
+    },
+    "confidence": {
+     "enum": [
+      "high",
+      "medium",
+      "low"
+     ]
+    }
+   }
+  }
+ },
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "common"
+}

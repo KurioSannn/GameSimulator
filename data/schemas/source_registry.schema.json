@@ -1,0 +1,67 @@
+{
+ "type": "object",
+ "required": [
+  "schema",
+  "sources"
+ ],
+ "properties": {
+  "sources": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "source_id",
+     "institution",
+     "title",
+     "source_type",
+     "access_method",
+     "status"
+    ],
+    "properties": {
+     "source_id": {
+      "type": "string",
+      "pattern": "^SRC-[A-Z0-9-]+$"
+     },
+     "source_type": {
+      "enum": [
+       "official",
+       "academic",
+       "news",
+       "community",
+       "other"
+      ]
+     },
+     "access_method": {
+      "enum": [
+       "api",
+       "file",
+       "gis",
+       "web",
+       "pdf",
+       "other"
+      ]
+     },
+     "url": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "status": {
+      "enum": [
+       "verified_ingested",
+       "verified_reachable",
+       "blocked_credential",
+       "unreachable",
+       "candidate",
+       "secondary_crosscheck",
+       "deprecated"
+      ]
+     }
+    }
+   }
+  }
+ },
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "source_registry"
+}
