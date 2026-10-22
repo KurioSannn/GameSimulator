@@ -1,0 +1,34 @@
+{
+ "files": {
+  "dpr_puslit_isu_sepekan_III_mei_2022.pdf": {
+   "sha256": "6a0423e536892aa557176f303b689abec99b6474344a3c78fdc3c6855737e09e",
+   "url": "https://berkas.dpr.go.id/pusaka/files/isu_sepekan/Isu Sepekan---III-PUSLIT-Mei-2022-195.pdf",
+   "institution": "Pusat Penelitian Badan Keahlian Sekretariat Jenderal DPR RI",
+   "title": "Dampak Pemberlakuan Larangan Ekspor Crude Palm Oil dalam Permendag No. 22 Tahun 2022 (Isu Sepekan III, Mei 2022)",
+   "author": "Sulasi Rongiyati",
+   "retrieved_at": "2026-10-06"
+  },
+  "ipb_jsilvik_8_1_2017_dayak_ngaju.pdf": {
+   "sha256": "210ea19da8e28b939432f455c62cf861b29ed159bd832cb3492169d0c8719715",
+   "url": "https://journal.ipb.ac.id/index.php/jsilvik/article/download/16868/12266",
+   "institution": "Departemen Silvikultur, Fakultas Kehutanan IPB (Jurnal Silvikultur Tropika)",
+   "title": "Hadiwijoyo, Saharjo & Putra (2017). Kearifan Lokal Masyarakat Dayak Ngaju di Kalimantan Tengah dalam Melakukan Penyiapan Lahan dengan Pembakaran. J. Silvikultur Tropika 8(1):1-8",
+   "retrieved_at": "2026-10-06"
+  },
+  "pergub_kalteng_27_2019.pdf": {
+   "sha256": "4c9cb0dd22bda1ed85b9b2a05f19526a27575e8047338f275ba5f86395e34948",
+   "url": "https://jdih.kalteng.go.id/storage/app/uploads/public/5ef/42d/beb/5ef42dbeb9a94601194544.pdf",
+   "institution": "Pemerintah Provinsi Kalimantan Tengah (JDIH)",
+   "title": "Peraturan Gubernur Kalimantan Tengah No. 27 Tahun 2019 tentang Pemanfaatan Lahan Rawa Gambut Melalui Kearifan Lokal (ditetapkan 26 September 2019)",
+   "retrieved_at": "2026-10-06"
+  },
+  "klhk_sp307_2017.pdf": {
+   "sha256": "a47738b8cd301b5bd0521011c1be04494d4ac277595b2c4de5ec7a5104f05998",
+   "url": "https://ksdae.kehutanan.go.id/storages/afa7e08240d24a7a84a58d67b9b33d41.pdf",
+   "institution": "Kementerian Lingkungan Hidup dan Kehutanan",
+   "title": "Siaran Pers SP.307/HUMAS/PP/HMS.3/10/2017: Tahun 2017, Luas Kebakaran Hutan dan Lahan Menurun 71,5% (22 Oktober 2017)",
+   "retrieved_at": "2026-10-06"
+  }
+ },
+ "note": "PDFs are gitignored; checksums committed."
+}

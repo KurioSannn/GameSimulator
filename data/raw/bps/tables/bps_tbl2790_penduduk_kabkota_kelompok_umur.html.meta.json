@@ -1,0 +1,9 @@
+{
+ "source_id": "SRC-BPS-TBL-2790-PENDUDUK-KABKOTA",
+ "snapshot_id": "BPS-TABLES-2026-10-23",
+ "url": "https://www.bps.go.id/id/statistics-table/2/Mjc5MCMy/-jumlah-penduduk-menurut-kabupaten-kota-dan-kelompok-umur.html",
+ "retrieved_at": "2026-10-23T03:42:03+00:00",
+ "http_status": 200,
+ "bytes": 363794,
+ "sha256": "a51cf47a3c11d61aedf6d92bb484a01f1281b2bb20168c959a8dfe9202574ea3"
+}

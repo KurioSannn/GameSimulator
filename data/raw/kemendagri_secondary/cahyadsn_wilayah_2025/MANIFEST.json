@@ -1,0 +1,12 @@
+{
+ "source_id": "SRC-KEMENDAGRI-KODE-2025-SECONDARY",
+ "origin_url": "https://raw.githubusercontent.com/cahyadsn/wilayah/master/db/wilayah_level_1_2.sql",
+ "file_header_note": "sesuai Kepmendagri No 300.2.2-2138 Tahun 2025; last edit 2026-05-11",
+ "license": "MIT (repository)",
+ "retrieved_at": "2026-10-05T10:38:21+00:00",
+ "files": {
+  "wilayah_level_1_2.sql": "84aae46fa34a5c361404bcb59eb8c95d18508e8460cfdd9fb4deaa6382c2e352",
+  "extracted_level_1_2.csv": "8ec3461636d45f0e24fc34e97340e52da380836926c955c41ea6ce72c3e85908"
+ },
+ "extraction": "regex over INSERT tuples (kode,nama,ibukota); see this manifest; no values modified except SQL quote unescaping"
+}
