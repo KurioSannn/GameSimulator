@@ -1,0 +1,51 @@
+{
+ "source_id": "SRC-BNPB-CKAN",
+ "package_id": "kompilasi-data-jumlah-dan-dampak-kejadian-bencana-2024",
+ "title": "Kompilasi Data Kejadian dan Dampak Bencana tahun 2024",
+ "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+ "license": "Open Data Commons Open Database License (ODbL)",
+ "metadata_modified": "2026-04-16T07:37:39.623402",
+ "retrieved_at": "2026-10-06T03:34:24+00:00",
+ "files": {
+  "353da3aa-9ada-42aa-a5c2-e653d52ffd9c.json": {
+   "sha256": "8fb9949f96cd36209103713d1ee04d80f21fb2aebcb510bd15dae448b7440d2a",
+   "bytes": 186427
+  },
+  "4cddaa9f-45b1-47f5-9428-519e876a8e20.json": {
+   "sha256": "4ec063e886446d98d8ca7ee093965941b21346f8bb21a9e249434011b9ff6c68",
+   "bytes": 186372
+  },
+  "5c9f7ea9-f809-487c-b1f8-f05a6f3291b3.json": {
+   "sha256": "60cb13a8fa049c28700207f17475de86ffda165368f297ce81391ad9c91c7831",
+   "bytes": 183222
+  },
+  "5ff9f41f-8312-4b7c-aa18-fdbedac6ee7e.json": {
+   "sha256": "b87c2450e83f3713d98e46653e0cc495da69ec7bf03e117a44188a6ee49b2378",
+   "bytes": 181021
+  },
+  "68c4448c-3de9-42e3-987d-31f5c05c37ba.json": {
+   "sha256": "3264f02c4f5590bc5325c95049b03c2acb328832e605792504dab21024a3d68d",
+   "bytes": 183216
+  },
+  "820e56bc-fd26-4e47-ae12-5b23f1d5fd08.json": {
+   "sha256": "3286a3a1ee7ce1eb49daef2153aa4b24de608ecad4f243d546af8c926fa3872e",
+   "bytes": 182809
+  },
+  "89eb9dac-a891-477e-b264-2265f72f4e56.json": {
+   "sha256": "f42669a7a953c7fea17cc8b762373b991b3bab1a4c4a1b621cee4574da0846a0",
+   "bytes": 182848
+  },
+  "8eea8adc-3c4d-4d0d-be9f-6d170127ff6c.json": {
+   "sha256": "3fd4b8ad4cceb4c13bacb7624139168d34f78e84a0fa0dfbed809b7d2d75d3c6",
+   "bytes": 184602
+  },
+  "bf415deb-7076-4aaf-90ad-013b9a5292f7.json": {
+   "sha256": "996373dae1442ed4de0a77c3356f00865faa5cd68721ff47278e02d2ee643e0c",
+   "bytes": 182802
+  },
+  "fdebc70a-2305-4b25-9fa7-e876892b0f54.json": {
+   "sha256": "6d7482064e646096926535e2b0c7df4c1cd30f9d9226e22901af5078334edbc6",
+   "bytes": 182781
+  }
+ }
+}
