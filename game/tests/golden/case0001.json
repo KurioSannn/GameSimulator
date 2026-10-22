@@ -1,0 +1,55 @@
+{
+  "a": {
+    "end": {
+      "bogor_damage": 6.9387,
+      "control_price": 100.5492,
+      "control_sentiment": 53.6605,
+      "dki_damage": 2.2981,
+      "dki_infra": 50.0,
+      "dki_sentiment": 50.0011,
+      "fiscal_space": 45.0,
+      "nat_sentiment": 48.5642,
+      "nat_welfare": 71.4187
+    },
+    "presented": [
+      "CASE-0001",
+      "CASE-0001-A",
+      "CASE-0001-R"
+    ]
+  },
+  "b": {
+    "end": {
+      "bogor_damage": 6.7291,
+      "control_price": 100.5428,
+      "control_sentiment": 54.2849,
+      "dki_damage": 2.362,
+      "dki_infra": 50.0,
+      "dki_sentiment": 48.2364,
+      "fiscal_space": 40.0,
+      "nat_sentiment": 49.1784,
+      "nat_welfare": 71.9319
+    },
+    "presented": [
+      "CASE-0001",
+      "CASE-0001-B",
+      "CASE-0001-R"
+    ]
+  },
+  "c": {
+    "end": {
+      "bogor_damage": 6.9572,
+      "control_price": 100.5435,
+      "control_sentiment": 54.2712,
+      "dki_damage": 1.9028,
+      "dki_infra": 53.0,
+      "dki_sentiment": 47.492,
+      "fiscal_space": 41.0,
+      "nat_sentiment": 49.0057,
+      "nat_welfare": 71.8721
+    },
+    "presented": [
+      "CASE-0001",
+      "CASE-0001-C"
+    ]
+  }
+}
