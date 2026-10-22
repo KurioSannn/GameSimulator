@@ -1,0 +1,47 @@
+{
+  "a": {
+    "end": {
+      "fiscal_space": 48.0,
+      "national_price": 104.7607,
+      "national_sentiment": 46.3207,
+      "national_welfare": 70.8507,
+      "price_pressure": 0.021438,
+      "riau_trust": 47.2822,
+      "riau_welfare": 69.7834
+    },
+    "presented": [
+      "CASE-0003",
+      "CASE-0003-A"
+    ]
+  },
+  "b": {
+    "end": {
+      "fiscal_space": 50.0,
+      "national_price": 103.3122,
+      "national_sentiment": 47.5551,
+      "national_welfare": 71.3733,
+      "price_pressure": 0.00884,
+      "riau_trust": 47.2038,
+      "riau_welfare": 70.3067
+    },
+    "presented": [
+      "CASE-0003",
+      "CASE-0003-B"
+    ]
+  },
+  "c": {
+    "end": {
+      "fiscal_space": 39.0,
+      "national_price": 105.4398,
+      "national_sentiment": 45.7394,
+      "national_welfare": 70.6182,
+      "price_pressure": 0.027316,
+      "riau_trust": 47.092,
+      "riau_welfare": 69.5487
+    },
+    "presented": [
+      "CASE-0003",
+      "CASE-0003-C"
+    ]
+  }
+}
