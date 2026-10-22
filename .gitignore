@@ -1,19 +1,30 @@
-# --- Raw source captures -------------------------------------------------------
-# Full-resolution BIG kab/kota polygon pages (SRC-0001) total ~2.2 GB: too large for Git.
-# They stay on disk as the immutable raw source; their .meta.json sidecars (URL, sha256,
-# bytes, retrieved_at) ARE committed, so every page can be re-fetched and verified.
-data/raw/SRC-0001/**/kabkota_geom_*.geojson
-
-# --- Regenerable caches --------------------------------------------------------
+# Local toolchain (Godot editor, node tools) — reproducible via docs/TECHNICAL_ARCHITECTURE.md
+tools/*
+# ...except the pinned manifest of the geography toolchain (mapshaper, earcut); reinstall with
+# npm ci --prefix tools/geo --cache tools/geo/.npm-cache  (docs/29_GEOGRAPHY_DATA_PIPELINE.md)
+!tools/geo/
+tools/geo/*
+!tools/geo/package.json
+!tools/geo/package-lock.json
+# Regenerable caches of the geography v2 pipeline
 data/processed/geography/*/fullres_region_metrics.json
 data/processed/geography/*/fullres_parts.json
 data/processed/geography/*/render/_join/
-
-# --- Local tooling (reinstall with: npm ci --prefix tools/geo --cache tools/geo/.npm-cache) ---
-tools/geo/node_modules/
-tools/geo/.npm-cache/
-
-# --- OS / editor / Python ------------------------------------------------------
+# Large immutable raw captures: checksums are committed in data/raw/**/MANIFEST.json
+data/raw/**/features/
+data/raw/**/*.geojson
+# Godot
+game/.godot/
+game/export/
+*.import.tmp
+# OS / editor
 .DS_Store
 __pycache__/
 *.pyc
+.venv/
+# Secrets
+.env
+*.key
+data/raw/**/*.sql
+data/processed/**/*.geojson
+data/raw/**/*.pdf
