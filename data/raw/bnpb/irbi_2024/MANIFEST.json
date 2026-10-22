@@ -1,0 +1,12 @@
+{
+ "source_id": "SRC-BNPB-IRBI-2024",
+ "url": "https://inarisk.bnpb.go.id/pdf/BUKU%20IRBI%202024.pdf",
+ "retrieved_at": "2026-10-06",
+ "files": {
+  "BUKU_IRBI_2024.pdf": {
+   "sha256": "1a7845c88e6b489dd88952d08717735ef4fc602c33b2469ae02cde8626ca3458",
+   "bytes": 68170736
+  }
+ },
+ "note": "PDF gitignored (size); checksum here. Downloaded with resumable curl; verified %%EOF and 374 pages."
+}
