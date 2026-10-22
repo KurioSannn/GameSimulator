@@ -1,0 +1,69 @@
+{
+ "schema": "nusantara.policy/1",
+ "policy_id": "POL-INFRA-JALAN",
+ "name": "Program Peningkatan Jalan Daerah",
+ "category": "infrastruktur",
+ "description": "Peningkatan jalan kabupaten/kota. Lama dibangun; manfaat terbesar di daerah dengan jalan paling buruk.",
+ "fact_class": "FICTIONAL",
+ "provenance": {
+  "basis": "game_design",
+  "references": [],
+  "note": "Game policy option. Not a description of a real government programme; magnitudes are uncalibrated design values."
+ },
+ "target_scope": [
+  "national",
+  "island_group",
+  "province",
+  "kabkota",
+  "selected"
+ ],
+ "cost": {
+  "upfront_fiscal": 1.0,
+  "monthly_commitment": 0.05,
+  "commitment_months": 36
+ },
+ "implementation_months": 12,
+ "duration_months": 24,
+ "cooldown_months": 24,
+ "prerequisites": {},
+ "mutually_exclusive": [],
+ "uncertainty": {
+  "magnitude": 0.25
+ },
+ "effects": [
+  {
+   "phase": "implementation",
+   "scope": "target",
+   "var": "environment",
+   "op": "add",
+   "value": -0.05,
+   "duration": 12,
+   "kind": "expected",
+   "dimension": "environmental",
+   "label": "Pembukaan lahan selama konstruksi"
+  },
+  {
+   "phase": "active",
+   "scope": "target",
+   "var": "infrastructure",
+   "op": "add",
+   "value": 0.4,
+   "duration": 24,
+   "scale_by": {
+    "var": "infrastructure",
+    "mode": "gap",
+    "ref": 50,
+    "min": 0.25,
+    "max": 1.75
+   },
+   "kind": "delayed",
+   "dimension": "regional",
+   "label": "Infrastruktur naik bertahap (~10 poin rata-rata); memperbaiki logistik, harga pangan, ketahanan banjir, dan pemulihan"
+  }
+ ],
+ "stakeholder_notes": [],
+ "follow_up_case_triggers": [],
+ "memory": {},
+ "cultural_basis": null,
+ "game_design_notes": "Causal: infrastructure -> logistics -> food realization & trade -> price -> welfare; infrastructure -> flood resilience & recovery speed."
+}
