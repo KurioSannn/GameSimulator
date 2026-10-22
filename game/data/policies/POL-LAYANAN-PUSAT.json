@@ -1,0 +1,57 @@
+{
+ "schema": "nusantara.policy/1",
+ "policy_id": "POL-LAYANAN-PUSAT",
+ "name": "Program Layanan Terpusat",
+ "category": "pemerintahan",
+ "description": "Pemerintah pusat menjalankan program layanan langsung di daerah. Lebih cepat dan merata, tetapi lebih mahal dan tidak membangun kapasitas daerah sendiri.",
+ "fact_class": "FICTIONAL",
+ "provenance": {
+  "basis": "game_design",
+  "references": [],
+  "note": "Game policy option. Not a description of a real government programme; magnitudes are uncalibrated design values."
+ },
+ "target_scope": [
+  "national",
+  "island_group",
+  "province",
+  "kabkota",
+  "selected"
+ ],
+ "cost": {
+  "upfront_fiscal": 2.0,
+  "monthly_commitment": 0.06,
+  "commitment_months": 27
+ },
+ "implementation_months": 3,
+ "duration_months": 24,
+ "cooldown_months": 12,
+ "prerequisites": {
+  "national": "fiscal_space",
+  "op": ">=",
+  "value": 15
+ },
+ "mutually_exclusive": [
+  "POL-LAYANAN-DAERAH"
+ ],
+ "uncertainty": {
+  "magnitude": 0.1
+ },
+ "effects": [
+  {
+   "phase": "active",
+   "scope": "target",
+   "var": "services",
+   "op": "add",
+   "value": 0.4,
+   "duration": 24,
+   "kind": "delayed",
+   "dimension": "regional",
+   "label": "Layanan publik naik merata (~10 poin) di semua wilayah sasaran"
+  }
+ ],
+ "stakeholder_notes": [],
+ "follow_up_case_triggers": [],
+ "memory": {},
+ "cultural_basis": null,
+ "game_design_notes": "Faster, uniform, more expensive, less uncertain. Requires fiscal space >= 15."
+}

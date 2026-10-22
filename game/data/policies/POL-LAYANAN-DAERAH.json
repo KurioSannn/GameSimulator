@@ -1,0 +1,60 @@
+{
+ "schema": "nusantara.policy/1",
+ "policy_id": "POL-LAYANAN-DAERAH",
+ "name": "Penguatan Kapasitas Layanan Daerah",
+ "category": "pemerintahan",
+ "description": "Dana dan pendampingan agar pemerintah daerah memperkuat layanannya sendiri. Murah dan membantu daerah lemah, tetapi lambat dan hasilnya tidak pasti.",
+ "fact_class": "FICTIONAL",
+ "provenance": {
+  "basis": "game_design",
+  "references": [],
+  "note": "Game policy option. Not a description of a real government programme; magnitudes are uncalibrated design values."
+ },
+ "target_scope": [
+  "national",
+  "island_group",
+  "province",
+  "kabkota",
+  "selected"
+ ],
+ "cost": {
+  "upfront_fiscal": 0.5,
+  "monthly_commitment": 0.04,
+  "commitment_months": 42
+ },
+ "implementation_months": 6,
+ "duration_months": 36,
+ "cooldown_months": 12,
+ "prerequisites": {},
+ "mutually_exclusive": [
+  "POL-LAYANAN-PUSAT"
+ ],
+ "uncertainty": {
+  "magnitude": 0.35
+ },
+ "effects": [
+  {
+   "phase": "active",
+   "scope": "target",
+   "var": "services",
+   "op": "add",
+   "value": 0.25,
+   "duration": 36,
+   "scale_by": {
+    "var": "services",
+    "mode": "gap",
+    "ref": 50,
+    "min": 0.25,
+    "max": 1.75
+   },
+   "kind": "delayed",
+   "dimension": "regional",
+   "label": "Layanan publik naik bertahap (~9 poin), lebih besar di daerah yang layanannya lemah"
+  }
+ ],
+ "stakeholder_notes": [],
+ "follow_up_case_triggers": [],
+ "memory": {},
+ "cultural_basis": null,
+ "game_design_notes": "Mutually exclusive with the centralized variant: two incompatible delivery models."
+}
