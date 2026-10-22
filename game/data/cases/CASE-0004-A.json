@@ -1,0 +1,135 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0004-A",
+ "origin_case": "CASE-0004",
+ "research_ref": "research/cases/CASE-0004.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Petani Ladang Kehilangan Mata Pencaharian",
+ "location_label": "Kalimantan Tengah",
+ "focus_regions": [
+  "62.01",
+  "62.02",
+  "62.03",
+  "62.04",
+  "62.05",
+  "62.06",
+  "62.07",
+  "62.08",
+  "62.09",
+  "62.10",
+  "62.11",
+  "62.12",
+  "62.13",
+  "62.71"
+ ],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0004",
+     "choice": "a"
+    },
+    {
+     "tick": ">=",
+     "value": 48
+    },
+    {
+     "var": "welfare",
+     "scope": "province:62",
+     "agg": "mean",
+     "op": "<",
+     "value": 71.4
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul jika kesejahteraan di Kalimantan Tengah menurun setelah larangan total. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Sosial",
+  "text": "Larangan membakar berhasil menekan api, Pak. Tapi petani ladang mengaku tidak punya cara lain menyiapkan lahan. Banyak lahan dibiarkan kosong musim ini."
+ },
+ "on_trigger_effects": [],
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Bantuan alat dan teknik tanpa bakar",
+   "description": "Petani dibantu alat dan pendampingan penyiapan lahan tanpa bakar.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "province:62",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.4,
+     "duration": 6
+    }
+   ],
+   "memory": {
+    "peat_ban_livelihood_support": true
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Izinkan pembakaran terkendali sesuai aturan adat",
+   "description": "Pembakaran terbatas diizinkan sesuai Pergub Kalteng 27/2019; di Kabupaten Kapuas, tempat praktik handel Dayak Ngaju terdokumentasi, aturan berkelompok dan tanggung jawab adat didukung (kebijakan kearifan lokal).",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "province:62",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    }
+   ],
+   "enact_policy": {
+    "policy_id": "POL-KEBENCANAAN-API-ADAT",
+    "target": {
+     "type": "kabkota",
+     "id": "62.03"
+    }
+   },
+   "memory": {
+    "peat_ban_relaxed_adat": true
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Pertahankan larangan",
+   "description": "Larangan dipertahankan tanpa program tambahan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "province:62",
+     "var": "trust",
+     "op": "add",
+     "value": -2.0
+    }
+   ],
+   "memory": {
+    "peat_ban_held": true
+   }
+  }
+ ],
+ "follow_ups": [],
+ "trigger_notes": {
+  "welfare_threshold": "Province 62 mean starting welfare = mean IPM 2024 of its kab/kota = 72.39; threshold = start − 1.0 = 71.4 (was 54.0 = neutral start 55 − 1.0 before calibration)."
+ }
+}

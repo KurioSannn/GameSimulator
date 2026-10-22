@@ -1,0 +1,155 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0004-C",
+ "origin_case": "CASE-0004",
+ "research_ref": "research/cases/CASE-0004.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Api Menjalar dari Ladang",
+ "location_label": "Kabupaten Kapuas, Kalimantan Tengah",
+ "focus_regions": [
+  "62.03"
+ ],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0004",
+     "choice": "c"
+    },
+    {
+     "case_seen": "CASE-0004-R"
+    },
+    {
+     "tick": ">=",
+     "value": 54
+    },
+    {
+     "month": [
+      8,
+      9,
+      10
+     ]
+    },
+    {
+     "var": "trust",
+     "scope": "region:62.03",
+     "agg": "mean",
+     "op": "<",
+     "value": 52.0
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul jika kepercayaan di Kabupaten Kapuas (lokasi praktik handel yang terdokumentasi) rendah saat musim kemarau, sehingga aturan bersama lemah ditaati. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Lingkungan",
+  "text": "Di beberapa desa di Kapuas, aturan sekat bakar tidak dijalankan dan api menjalar ke lahan tetangga. Para tetua adat meminta dukungan untuk menegakkan aturan."
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:62.03",
+   "var": "damage",
+   "op": "add",
+   "value": 5.0
+  },
+  {
+   "scope": "region:62.03",
+   "var": "environment",
+   "op": "add",
+   "value": -2.0
+  }
+ ],
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Dukung lembaga adat menegakkan aturan",
+   "description": "Pendampingan dan dukungan bagi lembaga adat untuk mengawasi dan menyelesaikan pelanggaran.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "region:62.03",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    },
+    {
+     "scope": "region:62.03",
+     "var": "fire_prevention",
+     "op": "add",
+     "value": 4.0,
+     "delay": 1
+    }
+   ],
+   "memory": {
+    "peat_adat_enforcement_supported": true
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Cabut izin pembakaran",
+   "description": "Semua pembakaran dilarang lagi. Api berkurang; kepercayaan turun.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "region:62.03",
+     "var": "trust",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:62.03",
+     "var": "fire_prevention",
+     "op": "add",
+     "value": 8.0,
+     "delay": 1
+    }
+   ],
+   "memory": {
+    "peat_adat_permission_revoked": true
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Ganti rugi lahan yang terbakar",
+   "description": "Pemilik lahan terdampak menerima ganti rugi dari pemerintah.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:62.03",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.5,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "peat_fire_compensation": true
+   }
+  }
+ ],
+ "follow_ups": []
+}

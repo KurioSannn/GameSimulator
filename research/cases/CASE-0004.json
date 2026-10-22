@@ -1,0 +1,128 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0004",
+  "title": "Kebakaran hutan dan lahan gambut 2015 dan respons tata kelola gambut",
+  "status": "researched",
+  "status_note": "Event scale is from an official KLHK press release; the policy response (BRG) is from the official cabinet secretariat; the local practice is from a peer-reviewed IPB study and a provincial regulation. Health/haze figures seen in searches (ISPU readings, ISPA counts) were from weak or unverified sources and are NOT used. Not 'validated': regional burned-area breakdown for 2015 not yet sourced.",
+  "category": "environment",
+  "subcategories": [
+    "peat_fire",
+    "haze",
+    "land_use",
+    "livelihood",
+    "local_wisdom",
+    "restoration"
+  ],
+  "start_date": "2015-06",
+  "end_date": "2015-11",
+  "island": "kalimantan",
+  "provinces": [
+    "62"
+  ],
+  "regency_city_documented": [
+    {
+      "region_id": "62.11",
+      "evidence": "Pulang Pisau named a first-priority district for peat restoration (Perpres 1/2016 via setkab)"
+    },
+    {
+      "region_id": "62.03",
+      "evidence": "Kapuas: site of the IPB Dayak Ngaju study (Desa Mantangai)"
+    }
+  ],
+  "real_facts": [
+    {
+      "fact": "KLHK reported that forest and land fires in 2015 reached 2.61 million hectares (vs 438,360 ha in 2016 and 124,983 ha in Jan–Sep 2017), and that after 2015 the government shifted toward prevention and early response.",
+      "source_refs": [
+        "SRC-KLHK-SP307-2017"
+      ],
+      "as_of": "2017-10-22"
+    },
+    {
+      "fact": "Perpres 1/2016 (signed 6 Jan 2016) created the Badan Restorasi Gambut to restore about 2 million ha of peat in five years (30% in 2016, 20% 2017–2019, 10% 2020), in Riau, Jambi, Sumatera Selatan, Kalimantan Barat, Kalimantan Tengah, Kalimantan Selatan and Papua, starting with Pulang Pisau, Musi Banyuasin, Ogan Komering Ilir and Kepulauan Meranti.",
+      "source_refs": [
+        "SRC-SETKAB-PERPRES-1-2016"
+      ],
+      "as_of": "2016-01-25"
+    },
+    {
+      "fact": "An IPB study in Desa Mantangai (Kapuas) documented Dayak Ngaju land preparation in the handel group system: supervised burning decided by deliberation (barunding) with customary leaders, firebreaks 3–6 m wide, and a customary fine (jipen) if fire spreads to others' land; farmers remained highly dependent on fire for land preparation.",
+      "source_refs": [
+        "SRC-ACAD-IPB-JSILVIK-2017"
+      ],
+      "as_of": "2017-04"
+    },
+    {
+      "fact": "Pergub Kalimantan Tengah 27/2019 (26 Sep 2019) requires no-burn land clearing on peat in the dry season, bans burning on inland peat thicker than 50 cm and during a declared fire emergency, allows limited controlled burning on thin coastal peat outside the dry season, and recognises local practices such as handil channels and tabat water blocks.",
+      "source_refs": [
+        "SRC-JDIH-KALTENG-PERGUB-27-2019"
+      ],
+      "as_of": "2019-09-26"
+    }
+  ],
+  "trigger": [
+    "Dry-season fires on drained peatland (2015)"
+  ],
+  "root_causes_note": "Causes (land clearing by fire, peat drainage, El Niño) are widely discussed; none is asserted in game text beyond what the sources above state.",
+  "stakeholders": [
+    "petani ladang dan masyarakat adat",
+    "perusahaan perkebunan/HTI",
+    "pemerintah provinsi dan kabupaten",
+    "KLHK",
+    "BNPB",
+    "BRG",
+    "warga terdampak asap"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-KLHK-SP307-2017",
+      "institution": "Kementerian Lingkungan Hidup dan Kehutanan",
+      "title": "Siaran Pers SP.307/HUMAS/PP/HMS.3/10/2017: Tahun 2017, Luas Kebakaran Hutan dan Lahan Menurun 71,5%",
+      "url": "https://ksdae.kehutanan.go.id/storages/afa7e08240d24a7a84a58d67b9b33d41.pdf",
+      "publication_date": "2017-10-22",
+      "retrieved_at": "2026-10-06",
+      "source_quality": "REAL_OFFICIAL (archived)"
+    },
+    {
+      "source_id": "SRC-SETKAB-PERPRES-1-2016",
+      "institution": "Sekretariat Kabinet RI",
+      "title": "Inilah Perpres No. 1 Tahun 2016 tentang Badan Restorasi Gambut",
+      "url": "https://setkab.go.id/inilah-perpres-no-1-tahun-2016-tentang-badan-restorasi-gambut/",
+      "publication_date": "2016-01-25",
+      "retrieved_at": "2026-10-06",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-ACAD-IPB-JSILVIK-2017",
+      "institution": "Fakultas Kehutanan IPB — Jurnal Silvikultur Tropika 8(1)",
+      "title": "Kearifan Lokal Masyarakat Dayak Ngaju di Kalimantan Tengah dalam Melakukan Penyiapan Lahan dengan Pembakaran",
+      "url": "https://journal.ipb.ac.id/index.php/jsilvik/article/download/16868/12266",
+      "publication_date": "2017-04",
+      "retrieved_at": "2026-10-06",
+      "source_quality": "REAL_ACADEMIC (archived)"
+    },
+    {
+      "source_id": "SRC-JDIH-KALTENG-PERGUB-27-2019",
+      "institution": "Pemerintah Provinsi Kalimantan Tengah (JDIH)",
+      "title": "Pergub Kalimantan Tengah No. 27 Tahun 2019 tentang Pemanfaatan Lahan Rawa Gambut Melalui Kearifan Lokal",
+      "url": "https://jdih.kalteng.go.id/storage/app/uploads/public/5ef/42d/beb/5ef42dbeb9a94601194544.pdf",
+      "publication_date": "2019-09-26",
+      "retrieved_at": "2026-10-06",
+      "source_quality": "REAL_OFFICIAL (archived)"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Palangka Raya PM10/ISPU readings (weak source)",
+    "Kalteng ISPA monthly counts (source not identified)",
+    "School-closure thresholds (article not retrievable)",
+    "World Bank loss estimate (not retrieved)"
+  ],
+  "todo_to_validate": [
+    "Provincial burned-area breakdown 2015 (KLHK SiPongi)",
+    "Health impact from Kemenkes/BNPB primary sources",
+    "Second independent source on handel/jipen"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0004.json",
+  "game_adaptation_notes": "Shock magnitudes are design values (no provincial breakdown sourced); Kalimantan Tengah strongest, the other BRG priority provinces (except Papua, whose 2016 boundaries no longer map to a single current province) secondary. Fire-season recurrence is a scripted case scaled by fire_prevention, consistent with KLHK's documented annual (smaller) fires after 2015; magnitudes uncalibrated.",
+  "cultural_connection": "CULT-0001 (Dayak Ngaju handel/jipen) is directly relevant: it concerns land preparation by fire in Central Kalimantan peat. It is implemented as POL-KEBENCANAAN-API-ADAT (choice c). The ritual component is excluded.",
+  "fact_vs_simulation_notes": "Burned area, the BRG mandate, the documented practice and the 2019 regulation are real. Choices and consequences are SIMULATED; the 2019 regulation is shown as a later real development, not as the outcome of the player's choice."
+}

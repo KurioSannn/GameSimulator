@@ -1,0 +1,334 @@
+{
+  "schema": "nusantara.case/1",
+  "case_id": "CASE-0004",
+  "research_ref": "research/cases/CASE-0004.json",
+  "research_status": "researched",
+  "class": "major_historical",
+  "title": "Gambut Terbakar, Langit Menguning",
+  "location_label": "Kalimantan Tengah; provinsi gambut Sumatra dan Kalimantan",
+  "focus_regions": [
+    "62.01",
+    "62.02",
+    "62.03",
+    "62.04",
+    "62.05",
+    "62.06",
+    "62.07",
+    "62.08",
+    "62.09",
+    "62.10",
+    "62.11",
+    "62.12",
+    "62.13",
+    "62.71"
+  ],
+  "trigger": {
+    "type": "condition",
+    "conditions": {
+      "all": [
+        {
+          "tick": ">=",
+          "value": 44
+        },
+        {
+          "not": {
+            "case_seen": "CASE-0004"
+          }
+        }
+      ]
+    },
+    "weight": 100,
+    "story_priority": 10
+  },
+  "real_context": {
+    "fact_class": "REAL_OFFICIAL",
+    "lines": [
+      {
+        "text": "KLHK mencatat kebakaran hutan dan lahan tahun 2015 mencapai 2,61 juta hektare; sesudahnya pemerintah lebih mengedepankan pencegahan.",
+        "source_refs": [
+          "SRC-KLHK-SP307-2017"
+        ],
+        "as_of": "2017-10-22"
+      },
+      {
+        "text": "Perpres 1/2016 membentuk Badan Restorasi Gambut dengan target sekitar 2 juta hektare dalam lima tahun; Kalimantan Tengah termasuk provinsi prioritas dan Pulang Pisau kabupaten prioritas pertama.",
+        "source_refs": [
+          "SRC-SETKAB-PERPRES-1-2016"
+        ],
+        "as_of": "2016-01-25"
+      },
+      {
+        "text": "Studi IPB (2017) mencatat masyarakat Dayak Ngaju di Mantangai, Kapuas, menyiapkan lahan secara berkelompok (sistem handel) dengan musyawarah, sekat bakar 3–6 meter, dan denda adat (jipen) bila api menjalar.",
+        "source_refs": [
+          "SRC-ACAD-IPB-JSILVIK-2017"
+        ],
+        "as_of": "2017-04"
+      }
+    ]
+  },
+  "briefing": {
+    "fact_class": "FICTIONAL",
+    "speaker": "Penasihat Lingkungan",
+    "text": "Pak Presiden, kasus ini diangkat dari kebakaran gambut nyata tahun 2015. Dalam simulasi kita, asap menutup Kalimantan Tengah dan provinsi gambut lain. Kita bisa melarang semua pembakaran, membasahi gambut, atau bekerja bersama aturan masyarakat setempat. Tidak ada jalan yang cepat sekaligus murah dan adil."
+  },
+  "on_trigger_effects": [
+    {
+      "scope": "province:62",
+      "var": "damage",
+      "op": "add",
+      "value": 20.0
+    },
+    {
+      "scope": "province:14",
+      "var": "damage",
+      "op": "add",
+      "value": 8.0
+    },
+    {
+      "scope": "province:15",
+      "var": "damage",
+      "op": "add",
+      "value": 8.0
+    },
+    {
+      "scope": "province:16",
+      "var": "damage",
+      "op": "add",
+      "value": 8.0
+    },
+    {
+      "scope": "province:61",
+      "var": "damage",
+      "op": "add",
+      "value": 8.0
+    },
+    {
+      "scope": "province:63",
+      "var": "damage",
+      "op": "add",
+      "value": 8.0
+    },
+    {
+      "scope": "province:62",
+      "var": "environment",
+      "op": "add",
+      "value": -8.0
+    },
+    {
+      "scope": "province:14",
+      "var": "environment",
+      "op": "add",
+      "value": -4.0
+    },
+    {
+      "scope": "province:15",
+      "var": "environment",
+      "op": "add",
+      "value": -4.0
+    },
+    {
+      "scope": "province:16",
+      "var": "environment",
+      "op": "add",
+      "value": -4.0
+    },
+    {
+      "scope": "province:61",
+      "var": "environment",
+      "op": "add",
+      "value": -4.0
+    },
+    {
+      "scope": "province:63",
+      "var": "environment",
+      "op": "add",
+      "value": -4.0
+    },
+    {
+      "scope": "province:62",
+      "var": "welfare",
+      "op": "add",
+      "value": -2.0
+    },
+    {
+      "scope": "province:14",
+      "var": "welfare",
+      "op": "add",
+      "value": -1.0
+    },
+    {
+      "scope": "province:15",
+      "var": "welfare",
+      "op": "add",
+      "value": -1.0
+    },
+    {
+      "scope": "province:16",
+      "var": "welfare",
+      "op": "add",
+      "value": -1.0
+    },
+    {
+      "scope": "province:61",
+      "var": "welfare",
+      "op": "add",
+      "value": -1.0
+    },
+    {
+      "scope": "province:63",
+      "var": "welfare",
+      "op": "add",
+      "value": -1.0
+    }
+  ],
+  "shock_note": {
+    "fact_class": "DERIVED",
+    "text": "Design magnitudes: Kalimantan Tengah damage +20, environment −8, welfare −2 (haze/health simulated); other BRG priority provinces (Riau, Jambi, Sumsel, Kalbar, Kalsel) +8/−4/−1. The 2015 provincial breakdown is not yet sourced; Papua excluded because 2016 Papua province boundaries do not map to a single current province."
+  },
+  "choices": [
+    {
+      "choice_id": "a",
+      "label": "Larangan total membakar dan penegakan hukum",
+      "description": "Semua pembakaran lahan dilarang dan pelanggar, termasuk perusahaan, ditindak tegas. Pencegahan paling cepat dan andal, tetapi petani kecil yang bergantung pada api kehilangan cara berladang.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "national",
+          "var": "fiscal_space",
+          "op": "add",
+          "value": -4.0
+        },
+        {
+          "scope": "province:62",
+          "var": "damage",
+          "op": "add",
+          "value": -8.0,
+          "delay": 1
+        },
+        {
+          "scope": "province:62",
+          "var": "fire_prevention",
+          "op": "add",
+          "value": 20.0,
+          "delay": 1
+        },
+        {
+          "scope": "province:14",
+          "var": "fire_prevention",
+          "op": "add",
+          "value": 20.0,
+          "delay": 1
+        },
+        {
+          "scope": "province:15",
+          "var": "fire_prevention",
+          "op": "add",
+          "value": 20.0,
+          "delay": 1
+        },
+        {
+          "scope": "province:16",
+          "var": "fire_prevention",
+          "op": "add",
+          "value": 20.0,
+          "delay": 1
+        },
+        {
+          "scope": "province:61",
+          "var": "fire_prevention",
+          "op": "add",
+          "value": 20.0,
+          "delay": 1
+        },
+        {
+          "scope": "province:63",
+          "var": "fire_prevention",
+          "op": "add",
+          "value": 20.0,
+          "delay": 1
+        },
+        {
+          "scope": "province:62",
+          "var": "welfare",
+          "op": "add",
+          "value": -0.4,
+          "duration": 12
+        },
+        {
+          "scope": "province:62",
+          "var": "trust",
+          "op": "add",
+          "value": -2.0
+        }
+      ],
+      "memory": {
+        "peat2015_response": "total_ban"
+      }
+    },
+    {
+      "choice_id": "b",
+      "label": "Restorasi gambut: pembasahan dan sekat kanal",
+      "description": "Gambut Kalimantan Tengah dibasahi kembali lewat program besar. Mahal dan baru terasa setelah enam bulan, tetapi tidak memangkas mata pencaharian petani.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "province:62",
+          "var": "damage",
+          "op": "add",
+          "value": -4.0,
+          "delay": 1
+        }
+      ],
+      "enact_policy": {
+        "policy_id": "POL-KEBENCANAAN-RESTORASI-GAMBUT",
+        "target": {
+          "type": "province",
+          "id": "62"
+        }
+      },
+      "memory": {
+        "peat2015_response": "restoration"
+      }
+    },
+    {
+      "choice_id": "c",
+      "label": "Pengendalian api berbasis kearifan lokal",
+      "description": "Aturan penyiapan lahan berkelompok diakui dan didukung di Kabupaten Kapuas, tempat praktik handel Dayak Ngaju terdokumentasi (Desa Mantangai): musyawarah, sekat bakar, larangan musim kemarau, tanggung jawab adat. Murah dan menjaga mata pencaharian; hasilnya bergantung pada kepercayaan masyarakat. Tidak diberlakukan ke daerah lain tanpa dasar dokumentasi.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "province:62",
+          "var": "damage",
+          "op": "add",
+          "value": -4.0,
+          "delay": 1
+        }
+      ],
+      "enact_policy": {
+        "policy_id": "POL-KEBENCANAAN-API-ADAT",
+        "target": {
+          "type": "kabkota",
+          "id": "62.03"
+        }
+      },
+      "memory": {
+        "peat2015_response": "community_fire_governance"
+      }
+    }
+  ],
+  "follow_ups": [
+    "CASE-0004-A",
+    "CASE-0004-C",
+    "CASE-0004-R"
+  ],
+  "consequence_notes": {
+    "fact_class": "SIMULATED",
+    "cross_system_chain": "fire governance choice -> fire_prevention (enforcement / rewetting / community rules scaled by trust) -> severity of the next fire season (scale_by gap) -> damage, environment, welfare -> logistics, food, price -> sentiment; plus livelihood loss under a total ban -> welfare -> sentiment; costs -> fiscal_space and policy commitments -> sector budgets",
+    "immediate": "fiscal cost; suppression reduces damage after 1 month; trust drop under a ban",
+    "delayed": "restoration prevention after 6 months (policy); community prevention after 3 months, scaled by trust; livelihood loss over 12 months (ban)",
+    "regional": "Kalimantan Tengah vs other peat provinces: the ban protects all six peat provinces immediately; restoration and community policies protect only Kalimantan Tengah",
+    "national": "fiscal_space and policy commitments; national food-price spillover from damage",
+    "branching": "a -> CASE-0004-A if Kalteng welfare falls; all paths -> CASE-0004-R at the start of the next dry season (July–October design calendar; severity depends on prevention); c -> CASE-0004-C after R if Kalteng trust is low (weak legitimacy)",
+    "explainable_tradeoff": "No option is tuned to win. The ban is fastest and covers all peat provinces but costs livelihoods and trust; restoration is strongest per region but slow and expensive; community governance is cheapest and preserves livelihoods but is slower and depends on trust. The next fire season makes the differences visible region by region."
+  }
+}
