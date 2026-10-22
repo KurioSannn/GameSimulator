@@ -1,0 +1,120 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0002-B",
+ "origin_case": "CASE-0002",
+ "research_ref": "research/cases/CASE-0002.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Pulang ke Zona Merah",
+ "location_label": "Kota Palu, Sigi",
+ "focus_regions": [
+  "72.71",
+  "72.10"
+ ],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0002",
+     "choice": "b"
+    },
+    {
+     "tick": ">=",
+     "value": 27
+    },
+    {
+     "var": "trust",
+     "scope": "regions:72.71,72.10",
+     "agg": "mean",
+     "op": "<",
+     "value": 54.0
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul jika kepercayaan warga Palu dan Sigi tetap rendah selama relokasi. Hasil simulasi, bukan peristiwa sejarah, meskipun ketegangan serupa tercatat dalam laporan nyata tentang zona merah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Sosial",
+  "text": "Hunian tetap belum rampung, dan sebagian warga mulai kembali ke rumah lama di zona merah. Mereka bilang air bersih dan pekerjaan ada di sana. Kita perlu bersikap."
+ },
+ "on_trigger_effects": [],
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Tegakkan larangan tinggal di zona merah",
+   "description": "Aparat menertibkan kawasan. Risiko berkurang, tetapi warga merasa diperlakukan keras.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "regions:72.71,72.10",
+     "var": "trust",
+     "op": "add",
+     "value": -3.0
+    }
+   ],
+   "memory": {
+    "palu2018_red_zone_enforced": true
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Percepat hunian tetap dan sediakan air bersih",
+   "description": "Anggaran tambahan agar hunian tetap selesai lebih cepat dan layanan dasar tersedia di lokasi baru.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "regions:72.71,72.10",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 2
+    },
+    {
+     "scope": "regions:72.71,72.10",
+     "var": "trust",
+     "op": "add",
+     "value": 2.0,
+     "delay": 2
+    }
+   ],
+   "memory": {
+    "palu2018_huntap_accelerated": true
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Izinkan dengan syarat mitigasi",
+   "description": "Warga boleh kembali dengan aturan bangunan dan jalur evakuasi. Diterima warga, tetapi risiko jangka panjang tetap ada.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "regions:72.71,72.10",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    }
+   ],
+   "memory": {
+    "palu2018_red_zone_residual_risk": true
+   }
+  }
+ ],
+ "follow_ups": []
+}

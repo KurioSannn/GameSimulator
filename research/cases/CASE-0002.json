@@ -1,0 +1,126 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0002",
+  "title": "Gempa, tsunami, dan likuefaksi Palu–Sigi–Donggala, 28 September 2018",
+  "status": "researched",
+  "status_note": "Core event, BMKG parameters, BNPB impact and loss figures, and liquefaction/red-zone facts are supported by national media reporting official sources, each tied to its date. Not 'validated' yet: BNPB/BMKG primary documents not archived; casualty totals were revised over months (see real_facts).",
+  "category": "earthquake",
+  "subcategories": [
+    "tsunami",
+    "liquefaction",
+    "displacement",
+    "reconstruction",
+    "relocation"
+  ],
+  "start_date": "2018-09-28",
+  "end_date": null,
+  "island": "sulawesi",
+  "provinces": [
+    "72"
+  ],
+  "regency_city_documented": [
+    {
+      "region_id": "72.71",
+      "evidence": "Liquefaction at Petobo and Balaroa (Mongabay 2019-04-10); largest loss share Rp 8.3 T (Kontan/BNPB 2018-10-28)"
+    },
+    {
+      "region_id": "72.10",
+      "evidence": "Liquefaction at Jono Oge and Sibalaya (Mongabay); loss Rp 6.9 T (Kontan/BNPB)"
+    },
+    {
+      "region_id": "72.03",
+      "evidence": "Epicentre ~26 km north of Donggala (Detik/BMKG); loss Rp 2.7 T (Kontan/BNPB)"
+    },
+    {
+      "region_id": "72.08",
+      "evidence": "Loss Rp 640 billion (Kontan/BNPB)"
+    }
+  ],
+  "real_facts": [
+    {
+      "fact": "BMKG: magnitude 7.4 earthquake at 17:02:44 WIB on 28 Sep 2018, depth 11 km, about 26 km north of Donggala (initially reported as M7.7). A tsunami warning was issued with estimated arrival at Palu around 17:22 WIB; 22 aftershocks (M2.9–M6.3) by 20:00 WIB.",
+      "source_refs": [
+        "SRC-NEWS-DETIK-20180928"
+      ],
+      "as_of": "2018-09-28"
+    },
+    {
+      "fact": "BNPB: total loss and damage Rp 18.48 trillion as of 27 Oct 2018 (losses Rp 2.89 T, damage Rp 15.58 T); by location Palu Rp 8.3 T, Sigi Rp 6.9 T, Donggala Rp 2.7 T, Parigi Moutong Rp 640 billion. Casualties at the same report: 2,086 dead, 1,309 missing, 4,438 injured, 206,524 displaced.",
+      "source_refs": [
+        "SRC-NEWS-KONTAN-20181028"
+      ],
+      "as_of": "2018-10-27"
+    },
+    {
+      "fact": "Liquefaction occurred at Petobo and Balaroa (Palu) and Jono Oge and Sibalaya (Sigi), among other sites. Petobo was designated a red zone considered uninhabitable, yet some residents returned, citing better access to clean water and sanitation than in evacuation sites.",
+      "source_refs": [
+        "SRC-NEWS-MONGABAY-20190410"
+      ],
+      "as_of": "2019-04-10"
+    },
+    {
+      "fact": "Casualty figures were revised repeatedly after October 2018; later provincial totals (reported in academic/secondary sources) differ from BNPB's October figures. The game shows only dated BNPB figures.",
+      "source_refs": [
+        "SRC-NEWS-KONTAN-20181028"
+      ],
+      "as_of": "2018-10-27"
+    }
+  ],
+  "trigger": [
+    "M7.4 strike-slip earthquake (BMKG)"
+  ],
+  "root_causes_note": "Geological causes of liquefaction are documented by Badan Geologi publications (geologi.esdm.go.id) found during search but not yet reviewed; not used in game text until reviewed.",
+  "stakeholders": [
+    "warga terdampak (termasuk zona likuefaksi)",
+    "BNPB",
+    "BMKG",
+    "Pemprov Sulawesi Tengah",
+    "Pemkot Palu",
+    "Pemkab Sigi, Donggala, Parigi Moutong",
+    "pemerintah pusat",
+    "relawan"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-NEWS-DETIK-20180928",
+      "institution": "detikNews (reporting BMKG)",
+      "title": "Detik-detik Gempa Memicu Tsunami Palu dan Donggala",
+      "url": "https://news.detik.com/berita/d-4233919/detik-detik-gempa-memicu-tsunami-palu-dan-donggala",
+      "publication_date": "2018-09-28",
+      "retrieved_at": "2026-10-06",
+      "source_quality": "REAL_NEWS (reporting official BMKG statements)"
+    },
+    {
+      "source_id": "SRC-NEWS-KONTAN-20181028",
+      "institution": "Kontan (reporting BNPB, Sutopo Purwo Nugroho)",
+      "title": "BNPB: Kerugian dan kerusakan gempa Sulteng capai Rp 18,48 triliun",
+      "url": "https://nasional.kontan.co.id/news/bnpb-kerugian-dan-kerusakan-gempa-sulteng-capai-rp-1848-triliun",
+      "publication_date": "2018-10-28",
+      "retrieved_at": "2026-10-06",
+      "source_quality": "REAL_NEWS (reporting official BNPB figures)"
+    },
+    {
+      "source_id": "SRC-NEWS-MONGABAY-20190410",
+      "institution": "Mongabay Indonesia (citing BNPB, Universitas Tadulako)",
+      "title": "Jejak Tua di Area Likuifaksi Sulawesi Tengah",
+      "url": "https://mongabay.co.id/2019/04/10/jejak-tua-di-area-likuifaksi-sulawesi-tengah/",
+      "publication_date": "2019-04-10",
+      "retrieved_at": "2026-10-06",
+      "source_quality": "REAL_NEWS"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Sector breakdown of the Rp 18.48 T: two retrieval summaries disagreed, not used",
+    "Bappenas estimate (>Rp 40 T) mentioned in a news summary: not verified, not used",
+    "Provincial casualty totals of Feb 2019: seen only in secondary summaries, not used"
+  ],
+  "todo_to_validate": [
+    "Archive BNPB situation reports / DIBI records for Sep–Dec 2018",
+    "Archive BMKG primary press release",
+    "Review Badan Geologi liquefaction publications",
+    "Source the official relocation/red-zone policy document (Pemprov/ATR) before any game text claims what the government decided"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0002.json",
+  "game_adaptation_notes": "Shock intensity per kab/kota is distributed in proportion to BNPB's loss by location (DERIVED), anchored at Palu = 45 damage points (design). Earthquake recurrence is NOT simulated in-term; relocation's long-term risk reduction is recorded as memory for the legacy assessment, not as an in-term bonus.",
+  "fact_vs_simulation_notes": "BMKG parameters, BNPB figures and the red-zone fact are real and dated. The player's options and every consequence are SIMULATED; the game does not claim what the real government chose."
+}

@@ -1,0 +1,113 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0002-C",
+ "origin_case": "CASE-0002",
+ "research_ref": "research/cases/CASE-0002.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Mutu Rumah Swadaya Dipertanyakan",
+ "location_label": "Kota Palu, Sigi",
+ "focus_regions": [
+  "72.71",
+  "72.10"
+ ],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0002",
+     "choice": "c"
+    },
+    {
+     "tick": ">=",
+     "value": 33
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Konsekuensi dari keputusan memberi dana stimulan. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Pembangunan",
+  "text": "Rumah-rumah sudah berdiri lagi, tapi tim lapangan menemukan banyak yang dibangun tanpa standar tahan gempa. Kalau dibiarkan, kita hanya memindahkan masalah ke masa depan."
+ },
+ "on_trigger_effects": [],
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Program pemeriksaan dan pendampingan teknis",
+   "description": "Tim teknis memeriksa dan mendampingi perbaikan. Sedang biayanya, memperkuat layanan daerah.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:72.71,72.10",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "delay": 3
+    }
+   ],
+   "memory": {
+    "palu2018_building_inspection": true
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Dana perkuatan rumah (retrofit)",
+   "description": "Tambahan dana agar rumah diperkuat sesuai standar. Mahal, tetapi warga merasa diperhatikan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.0
+    },
+    {
+     "scope": "regions:72.71,72.10",
+     "var": "trust",
+     "op": "add",
+     "value": 2.0
+    }
+   ],
+   "memory": {
+    "palu2018_retrofit": true,
+    "palu2018_red_zone_residual_risk": false
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Biarkan; fokus pada program lain",
+   "description": "Tidak ada biaya sekarang. Risiko bangunan tetap tinggi dan kepercayaan menurun bila masalah ini menyebar.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "regions:72.71,72.10",
+     "var": "trust",
+     "op": "add",
+     "value": -2.0
+    }
+   ],
+   "memory": {
+    "palu2018_unsafe_buildings": true
+   }
+  }
+ ],
+ "follow_ups": []
+}

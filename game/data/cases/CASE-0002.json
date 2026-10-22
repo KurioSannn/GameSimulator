@@ -1,0 +1,251 @@
+{
+  "schema": "nusantara.case/1",
+  "case_id": "CASE-0002",
+  "research_ref": "research/cases/CASE-0002.json",
+  "research_status": "researched",
+  "class": "major_historical",
+  "title": "Bumi Bergerak di Teluk Palu",
+  "location_label": "Kota Palu, Sigi, Donggala, Parigi Moutong",
+  "focus_regions": [
+    "72.71",
+    "72.10",
+    "72.03",
+    "72.08"
+  ],
+  "trigger": {
+    "type": "condition",
+    "conditions": {
+      "all": [
+        {
+          "tick": ">=",
+          "value": 20
+        },
+        {
+          "not": {
+            "case_seen": "CASE-0002"
+          }
+        }
+      ]
+    },
+    "weight": 100,
+    "story_priority": 10
+  },
+  "real_context": {
+    "fact_class": "REAL_NEWS",
+    "lines": [
+      {
+        "text": "BMKG mencatat gempa M7,4 pada 28 September 2018 pukul 17.02 WIB, kedalaman 11 km, sekitar 26 km utara Donggala; peringatan tsunami dikeluarkan untuk Palu.",
+        "source_refs": [
+          "SRC-NEWS-DETIK-20180928"
+        ],
+        "as_of": "2018-09-28"
+      },
+      {
+        "text": "Menurut BNPB per 27 Oktober 2018, kerugian dan kerusakan mencapai Rp18,48 triliun; 2.086 orang meninggal, 1.309 hilang, dan 206.524 mengungsi.",
+        "source_refs": [
+          "SRC-NEWS-KONTAN-20181028"
+        ],
+        "as_of": "2018-10-27"
+      },
+      {
+        "text": "Likuefaksi melanda antara lain Petobo dan Balaroa (Palu) serta Jono Oge (Sigi); Petobo ditetapkan sebagai zona merah.",
+        "source_refs": [
+          "SRC-NEWS-MONGABAY-20190410"
+        ],
+        "as_of": "2019-04-10"
+      }
+    ]
+  },
+  "briefing": {
+    "fact_class": "FICTIONAL",
+    "speaker": "Penasihat Pembangunan",
+    "text": "Pak Presiden, kasus ini diangkat dari bencana nyata 2018. Dalam simulasi kita, sebagian kawasan permukiman di Palu dan Sigi hilang ditelan tanah yang mencair. Warga ingin segera pulang, tetapi sebagian lokasi itu tidak aman lagi. Kita harus memilih cara membangun kembali."
+  },
+  "on_trigger_effects": [
+    {
+      "scope": "region:72.71",
+      "var": "damage",
+      "op": "add",
+      "value": 45.0
+    },
+    {
+      "scope": "region:72.10",
+      "var": "damage",
+      "op": "add",
+      "value": 37.4
+    },
+    {
+      "scope": "region:72.03",
+      "var": "damage",
+      "op": "add",
+      "value": 14.6
+    },
+    {
+      "scope": "region:72.08",
+      "var": "damage",
+      "op": "add",
+      "value": 3.5
+    }
+  ],
+  "shock_note": {
+    "fact_class": "DERIVED",
+    "text": "Damage per region is proportional to BNPB's loss by location (Palu 8.3, Sigi 6.9, Donggala 2.7, Parigi Moutong 0.64 trillion rupiah), anchored at Palu = 45 damage points (design value): {'72.71': 45.0, '72.10': 37.4, '72.03': 14.6, '72.08': 3.5}."
+  },
+  "choices": [
+    {
+      "choice_id": "a",
+      "label": "Bangun kembali secepatnya di lokasi semula",
+      "description": "Rumah dan fasilitas dibangun ulang di tempat yang sama. Pemulihan tercepat, tetapi risiko di kawasan rawan tetap ada untuk masa depan.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "national",
+          "var": "fiscal_space",
+          "op": "add",
+          "value": -7.0
+        },
+        {
+          "scope": "regions:72.71,72.10",
+          "var": "damage",
+          "op": "add",
+          "value": -14.0,
+          "delay": 2
+        },
+        {
+          "scope": "regions:72.03,72.08",
+          "var": "damage",
+          "op": "add",
+          "value": -5.0,
+          "delay": 2
+        },
+        {
+          "scope": "regions:72.71,72.10",
+          "var": "trust",
+          "op": "add",
+          "value": 3.0
+        }
+      ],
+      "memory": {
+        "palu2018_reconstruction": "rebuild_in_place",
+        "palu2018_red_zone_residual_risk": true
+      }
+    },
+    {
+      "choice_id": "b",
+      "label": "Relokasi dari zona merah ke hunian tetap",
+      "description": "Warga zona likuefaksi dipindahkan ke hunian sementara lalu hunian tetap di lokasi aman. Mahal dan lambat; warga kecewa di awal, tetapi permukiman baru dilengkapi layanan.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "national",
+          "var": "fiscal_space",
+          "op": "add",
+          "value": -9.0
+        },
+        {
+          "scope": "regions:72.71,72.10",
+          "var": "damage",
+          "op": "add",
+          "value": -7.0,
+          "delay": 4
+        },
+        {
+          "scope": "regions:72.71,72.10",
+          "var": "damage",
+          "op": "add",
+          "value": -10.0,
+          "delay": 12
+        },
+        {
+          "scope": "regions:72.03,72.08",
+          "var": "damage",
+          "op": "add",
+          "value": -5.0,
+          "delay": 3
+        },
+        {
+          "scope": "regions:72.71,72.10",
+          "var": "trust",
+          "op": "add",
+          "value": -3.0
+        },
+        {
+          "scope": "regions:72.71,72.10",
+          "var": "trust",
+          "op": "add",
+          "value": 4.0,
+          "delay": 12
+        },
+        {
+          "scope": "regions:72.71,72.10",
+          "var": "services",
+          "op": "add",
+          "value": 3.0,
+          "delay": 12
+        }
+      ],
+      "memory": {
+        "palu2018_reconstruction": "relocation",
+        "palu2018_red_zone_cleared": true
+      }
+    },
+    {
+      "choice_id": "c",
+      "label": "Dana stimulan agar warga membangun sendiri",
+      "description": "Warga menerima dana stimulan untuk memperbaiki atau membangun rumahnya sendiri. Murah dan cepat menyentuh rumah tangga, tetapi mutu bangunan tidak merata.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "national",
+          "var": "fiscal_space",
+          "op": "add",
+          "value": -4.0
+        },
+        {
+          "scope": "regions:72.71,72.10",
+          "var": "damage",
+          "op": "add",
+          "value": -9.0,
+          "delay": 3
+        },
+        {
+          "scope": "regions:72.03,72.08",
+          "var": "damage",
+          "op": "add",
+          "value": -4.0,
+          "delay": 3
+        },
+        {
+          "scope": "regions:72.71,72.10",
+          "var": "welfare",
+          "op": "add",
+          "value": 1.5,
+          "duration": 3
+        },
+        {
+          "scope": "regions:72.71,72.10",
+          "var": "trust",
+          "op": "add",
+          "value": 1.0
+        }
+      ],
+      "memory": {
+        "palu2018_reconstruction": "self_build_stimulus",
+        "palu2018_red_zone_residual_risk": true
+      }
+    }
+  ],
+  "follow_ups": [
+    "CASE-0002-B",
+    "CASE-0002-C"
+  ],
+  "consequence_notes": {
+    "fact_class": "SIMULATED",
+    "immediate": "fiscal cost; trust shift in Palu/Sigi",
+    "delayed": "damage reduction after 2 (a), 3 (c) or 4 + 12 months (b); services +3 and trust +4 when permanent housing completes (b, month 12)",
+    "regional": "Palu and Sigi strongest; Donggala and Parigi Moutong smaller (BNPB loss shares)",
+    "national": "fiscal_space; food-price spillover through the national pool",
+    "branching": "b -> CASE-0002-B only if Palu trust stays low; c -> CASE-0002-C after a year",
+    "not_simulated": "Earthquake recurrence is not simulated in-term. Relocation's long-term risk reduction is recorded as memory (palu2018_red_zone_cleared) for the legacy assessment, never as an in-term bonus."
+  }
+}
