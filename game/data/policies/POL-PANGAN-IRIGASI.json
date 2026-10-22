@@ -1,0 +1,58 @@
+{
+ "schema": "nusantara.policy/1",
+ "policy_id": "POL-PANGAN-IRIGASI",
+ "name": "Rehabilitasi Jaringan Irigasi",
+ "category": "pangan",
+ "description": "Memperbaiki saluran irigasi agar sawah mendapat air lebih andal. Hasil baru terasa setelah konstruksi selesai.",
+ "fact_class": "FICTIONAL",
+ "provenance": {
+  "basis": "game_design",
+  "references": [],
+  "note": "Game policy option. Not a description of a real government programme; magnitudes are uncalibrated design values."
+ },
+ "target_scope": [
+  "national",
+  "island_group",
+  "province",
+  "kabkota",
+  "selected"
+ ],
+ "cost": {
+  "upfront_fiscal": 2.0,
+  "monthly_commitment": 0.04,
+  "commitment_months": 30
+ },
+ "implementation_months": 6,
+ "duration_months": 24,
+ "cooldown_months": 12,
+ "prerequisites": {},
+ "mutually_exclusive": [],
+ "uncertainty": {
+  "magnitude": 0.25
+ },
+ "effects": [
+  {
+   "phase": "active",
+   "scope": "target",
+   "var": "food_capacity",
+   "op": "mul",
+   "value": 1.0025,
+   "duration": 24,
+   "scale_by": {
+    "var": "services",
+    "mode": "capacity",
+    "ref": 50,
+    "min": 0.5,
+    "max": 1.5
+   },
+   "kind": "delayed",
+   "dimension": "regional",
+   "label": "Kapasitas pangan naik bertahap (~6% dalam 24 bulan); lebih besar di daerah dengan layanan kuat"
+  }
+ ],
+ "stakeholder_notes": [],
+ "follow_up_case_triggers": [],
+ "memory": {},
+ "cultural_basis": null,
+ "game_design_notes": "Causal: food_capacity -> realized supply -> price -> welfare -> sentiment. Opportunity cost via 4% envelope commitment for 30 months."
+}
