@@ -1,0 +1,351 @@
+{
+ "schema": "nusantara.sim_params/1",
+ "fact_class": "DERIVED",
+ "note": "Design coefficients of the game model (v0, vertical slice). These are NOT real-world measurements. Each coefficient documents its intent; all are subject to calibration against real baseline data in Phase 9-10. v0.2 (2026-10-05): sentiment uses deviations from baseline so an unshocked world is a stable equilibrium. v0.3: recurring floods (exposure -> damage, mitigated by protection) and budget sector intensities. v0.4 (2026-10-06): exponential flood severity independent of exposure, after real IRBI exposure made all 397 listed regions flood-prone. v0.5 (2026-10-06): flood frequency from BNPB event history (Poisson events/month), severity scaled by IRBI-derived risk profile and infrastructure resilience; flood_exposure removed (D-032). v0.6 (2026-10-06): national price_pressure (commodity/import shock) multiplies every region's price target (D-045). v0.7 (2026-10-06): fire_prevention capacity; fire-season episodes are scripted cases scaled by prevention (D-046).",
+ "variables": {
+  "population": {
+   "semantics": "stock",
+   "unit": "jiwa",
+   "min": 0,
+   "max": 1000000000.0,
+   "label": "Penduduk"
+  },
+  "food_capacity": {
+   "semantics": "capacity",
+   "unit": "rasio",
+   "min": 0,
+   "max": 5,
+   "label": "Kapasitas Pangan",
+   "desc": "Local food production capacity relative to local demand (1.0 = self-sufficient)."
+  },
+  "food_supply": {
+   "semantics": "index",
+   "unit": "rasio",
+   "min": 0,
+   "max": 5,
+   "label": "Ketersediaan Pangan",
+   "desc": "Effective supply/demand after logistics, disruption and inter-regional trade."
+  },
+  "price_level": {
+   "semantics": "price",
+   "unit": "indeks",
+   "min": 20,
+   "max": 400,
+   "label": "Tingkat Harga",
+   "desc": "100 = baseline price level."
+  },
+  "infrastructure": {
+   "semantics": "capacity",
+   "unit": "indeks",
+   "min": 0,
+   "max": 100,
+   "label": "Infrastruktur"
+  },
+  "logistics": {
+   "semantics": "index",
+   "unit": "indeks",
+   "min": 0,
+   "max": 100,
+   "label": "Logistik",
+   "desc": "Derived each tick from infrastructure and damage."
+  },
+  "services": {
+   "semantics": "capacity",
+   "unit": "indeks",
+   "min": 0,
+   "max": 100,
+   "label": "Layanan Publik"
+  },
+  "damage": {
+   "semantics": "stock",
+   "unit": "indeks",
+   "min": 0,
+   "max": 100,
+   "label": "Kerusakan",
+   "desc": "Unrecovered disaster/shock damage. Decays via recovery."
+  },
+  "environment": {
+   "semantics": "index",
+   "unit": "indeks",
+   "min": 0,
+   "max": 100,
+   "label": "Lingkungan"
+  },
+  "welfare_base": {
+   "semantics": "index",
+   "unit": "indeks",
+   "min": 0,
+   "max": 100,
+   "label": "Kesejahteraan Struktural",
+   "desc": "Structural welfare level that current welfare converges to absent shocks; to be calibrated from IPM/poverty baselines. Raised by long-term policy."
+  },
+  "welfare": {
+   "semantics": "index",
+   "unit": "indeks",
+   "min": 0,
+   "max": 100,
+   "label": "Kesejahteraan"
+  },
+  "trust": {
+   "semantics": "index",
+   "unit": "indeks",
+   "min": 0,
+   "max": 100,
+   "label": "Kepercayaan"
+  },
+  "sentiment_base": {
+   "semantics": "index",
+   "unit": "skor 0-100",
+   "min": 0,
+   "max": 100,
+   "label": "Dukungan Struktural",
+   "desc": "Region's structural support level; sentiment converges here when conditions equal baseline. To be informed by real context only where defensible; otherwise neutral."
+  },
+  "sentiment": {
+   "semantics": "score",
+   "unit": "skor 0-100",
+   "min": 0,
+   "max": 100,
+   "label": "Sentimen"
+  },
+  "flood_protection": {
+   "semantics": "capacity",
+   "unit": "indeks",
+   "min": 0,
+   "max": 100,
+   "label": "Proteksi Banjir",
+   "desc": "Flood-control capacity (drainage, embankments, retention, early warning). Reduces flood severity, not occurrence."
+  },
+  "flood_damage_last": {
+   "semantics": "flow",
+   "unit": "indeks",
+   "min": 0,
+   "max": 100,
+   "label": "Dampak Banjir Bulan Ini",
+   "desc": "Damage added by a flood this month (0 if none). Derived each tick; never calibrated."
+  },
+  "flood_risk_profile": {
+   "semantics": "index",
+   "unit": "indeks 0-100 (turunan)",
+   "min": 0,
+   "max": 100,
+   "label": "Profil Risiko Banjir",
+   "desc": "DERIVED from the official BNPB IRBI flood risk score (100 x score/36). Not an official percentage. Modifies flood severity (vulnerability/capacity composite)."
+  },
+  "flood_frequency": {
+   "semantics": "flow",
+   "unit": "kejadian/tahun",
+   "min": 0,
+   "max": 100,
+   "label": "Frekuensi Banjir Historis",
+   "desc": "Expected recorded flood events per year, from BNPB event history (Gamma-Poisson). Drives monthly event probability."
+  },
+  "flood_events_last": {
+   "semantics": "flow",
+   "unit": "kejadian",
+   "min": 0,
+   "max": 1000,
+   "label": "Kejadian Banjir Bulan Ini",
+   "desc": "Simulated flood events this month."
+  },
+  "fire_prevention": {
+   "semantics": "capacity",
+   "unit": "indeks",
+   "min": 0,
+   "max": 100,
+   "label": "Pencegahan Kebakaran Lahan",
+   "desc": "Additional land/peat fire prevention capacity built during the term (enforcement, rewetting, community fire governance). Reduces the severity of simulated fire-season episodes. 0 at start by design."
+  }
+ },
+ "coefficients": {
+  "recovery_base_rate": {
+   "value": 0.08,
+   "intent": "Monthly share of damage recovered at average capacity."
+  },
+  "recovery_capacity_weight": {
+   "value": 0.5,
+   "intent": "How much infrastructure+services accelerate recovery."
+  },
+  "damage_logistics_penalty": {
+   "value": 0.7,
+   "intent": "Fraction of logistics lost at 100 damage."
+  },
+  "damage_food_penalty": {
+   "value": 0.5,
+   "intent": "Fraction of local food realization lost at 100 damage."
+  },
+  "logistics_food_floor": {
+   "value": 0.6,
+   "intent": "Food realized when logistics is fully disrupted, as share of normal (logistics relative to the region's own infrastructure)."
+  },
+  "trade_share_max": {
+   "value": 0.5,
+   "intent": "Max share of food supply that equalizes with national pool when logistics=100."
+  },
+  "price_elasticity": {
+   "value": 0.8,
+   "intent": "Price response to supply shortfall: target = 100 * supply^-elasticity."
+  },
+  "price_smoothing": {
+   "value": 0.35,
+   "intent": "Monthly convergence of price toward target."
+  },
+  "welfare_smoothing": {
+   "value": 0.2,
+   "intent": "Monthly convergence of welfare toward target."
+  },
+  "welfare_price_weight": {
+   "value": 0.35,
+   "intent": "Welfare points lost per price index point above 100."
+  },
+  "welfare_damage_weight": {
+   "value": 0.3,
+   "intent": "Welfare points lost per damage point."
+  },
+  "welfare_services_weight": {
+   "value": 0.25,
+   "intent": "Welfare points gained per service point above 50."
+  },
+  "sentiment_smoothing": {
+   "value": 0.25,
+   "intent": "Monthly convergence of sentiment toward target."
+  },
+  "trust_smoothing": {
+   "value": 0.04,
+   "intent": "Trust drifts slowly toward sentiment (long memory)."
+  },
+  "sentiment_w_welfare": {
+   "value": 0.8,
+   "intent": "Sentiment points per welfare point above/below welfare_base."
+  },
+  "sentiment_w_price": {
+   "value": 0.5,
+   "intent": "Sentiment points lost per price index point above 100 (gained below)."
+  },
+  "sentiment_w_trust": {
+   "value": 0.5,
+   "intent": "Sentiment points per trust point above/below sentiment_base (historical memory)."
+  },
+  "sentiment_w_environment": {
+   "value": 0.3,
+   "intent": "Sentiment points per environment point above/below 50."
+  },
+  "sentiment_w_damage": {
+   "value": 0.25,
+   "intent": "Sentiment points lost per unrecovered damage point (visible suffering, beyond welfare)."
+  },
+  "flood_mitigation_max": {
+   "value": 0.75,
+   "intent": "Share of flood damage prevented at protection 100 (never 100%: residual risk)."
+  },
+  "budget_fiscal_rate": {
+   "value": 5.0,
+   "intent": "Fiscal-space points per month per unit of spending level above/below 1.0 (level 1.1 -> -0.5/month)."
+  },
+  "budget_infra_rate": {
+   "value": 0.6,
+   "intent": "Infrastructure points per month per unit of sector intensity above/below baseline funding."
+  },
+  "budget_services_rate": {
+   "value": 0.6,
+   "intent": "Service points per month per unit of sector intensity above/below baseline."
+  },
+  "budget_food_rate": {
+   "value": 0.01,
+   "intent": "Relative food-capacity change per month per unit of sector intensity above/below baseline."
+  },
+  "budget_protection_rate": {
+   "value": 1.5,
+   "intent": "Flood-protection points per month per unit of disaster-sector intensity above/below baseline, scaled by exposure/100 (money goes where the hazard is)."
+  },
+  "budget_recovery_weight": {
+   "value": 0.5,
+   "intent": "Recovery-rate multiplier slope per unit of disaster-sector intensity (intensity 2 -> 1.5x recovery)."
+  },
+  "flood_severity_mean": {
+   "value": 0.961121,
+   "intent": "Mean damage points per flood event before modifiers (Exp distribution). DERIVED by scripts/pipelines/calibration/build_hazard_calibration.py to preserve the validated national expected flood damage while using REAL BNPB frequencies. Population-based empirical anchor pending (G-01).",
+   "derivation": {
+    "D_ref_points_per_year": 1645.323,
+    "sum_lambda_scale": 1711.879,
+    "national_expected_events_per_year": 1585.9,
+    "built_at": "2026-10-06T03:34:59+00:00"
+   }
+  },
+  "flood_severity_cap": {
+   "value": 40.0,
+   "intent": "Upper bound of one flood's damage (order of the scripted 2020 Jakarta event, 35)."
+  },
+  "flood_risk_scale_min": {
+   "value": 0.5,
+   "intent": "Severity multiplier at risk profile 0; multiplier = 0.5 + profile/100 (median IRBI ~1.0)."
+  },
+  "resilience_infra_slope": {
+   "value": 0.5,
+   "intent": "Impact multiplier = 1.25 - 0.5 x infrastructure/100 (infrastructure 50 -> 1.0; 100 -> 0.75; 0 -> 1.25)."
+  },
+  "price_pressure_decay": {
+   "value": 0.04,
+   "intent": "Monthly fractional decay of national commodity price pressure absent policy (markets partly adjust). Design value, uncalibrated."
+  }
+ },
+ "sentiment_states": [
+  {
+   "min": 80,
+   "id": "sangat_mendukung",
+   "label": "Sangat Mendukung"
+  },
+  {
+   "min": 65,
+   "id": "mendukung",
+   "label": "Mendukung"
+  },
+  {
+   "min": 50,
+   "id": "stabil",
+   "label": "Stabil"
+  },
+  {
+   "min": 40,
+   "id": "khawatir",
+   "label": "Khawatir"
+  },
+  {
+   "min": 30,
+   "id": "tidak_puas",
+   "label": "Tidak Puas"
+  },
+  {
+   "min": 18,
+   "id": "marah",
+   "label": "Marah"
+  },
+  {
+   "min": 0,
+   "id": "kritis",
+   "label": "Kritis"
+  }
+ ],
+ "calendar": {
+  "start_month": 1,
+  "note": "Tick 0 = January of term year 1 (fictional calendar year). Chosen so the rainy-season peak opens the term, matching CASE-0001."
+ },
+ "flood_season": {
+  "status": "UNCALIBRATED",
+  "values": [
+   1.0,
+   0.9,
+   0.6,
+   0.3,
+   0.15,
+   0.1,
+   0.05,
+   0.05,
+   0.1,
+   0.3,
+   0.6,
+   0.85
+  ],
+  "note": "Generic monthly factor (Jan..Dec) for a monsoon pattern with a December–February peak. NOT valid for all of Indonesia (parts of Maluku have a different rainy season). To be replaced by per-region BMKG climate normals."
+ }
+}
