@@ -1,0 +1,15 @@
+{
+ "_fixture_note": "SYNTHETIC TEST FIXTURE shaped like a BPS WebAPI 'data' response. Values are invented for parser tests and are NOT real statistics. Never copy into data/.",
+ "status": "OK",
+ "data-availability": "available",
+ "var": [{"val": 9001, "label": "Indikator Uji", "unit": "indeks"}],
+ "turvar": [{"val": 0, "label": "Tidak ada"}],
+ "labelvervar": "Kabupaten/Kota",
+ "vervar": [{"val": 3200, "label": "Jawa Barat"}, {"val": 3201, "label": "Bogor"}, {"val": 3275, "label": "Kota Bekasi"}, {"val": 3276, "label": "Kota Depok"}],
+ "tahun": [{"val": 124, "label": "2024"}, {"val": 125, "label": "2025"}],
+ "turtahun": [{"val": 0, "label": "Tahunan"}],
+ "datacontent": {
+  "3200900101240": 11.1, "3201900101240": 22.2, "3275900101240": 33.3, "3276900101240": 44.4,
+  "3201900101250": 25.0, "3275900101250": "-"
+ }
+}
