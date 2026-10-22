@@ -1,0 +1,52 @@
+{
+ "schema": "nusantara.game_budget/1",
+ "generated_at": "2026-10-06T03:34:59+00:00",
+ "pool_rp": null,
+ "pool_status": "UNCALIBRATED",
+ "pool_reference_period": null,
+ "pool_source_id": null,
+ "level_min": 0.8,
+ "level_max": 1.2,
+ "sectors": {
+  "infrastruktur": {
+   "label": "Infrastruktur",
+   "base_share": 25.0,
+   "share_status": "UNCALIBRATED",
+   "apbn_candidates": [
+    "fungsi Ekonomi (subfungsi transportasi)",
+    "fungsi Perumahan dan Fasilitas Umum"
+   ],
+   "mapping_status": "TO_VERIFY"
+  },
+  "kebencanaan": {
+   "label": "Kebencanaan & Mitigasi",
+   "base_share": 15.0,
+   "share_status": "UNCALIBRATED",
+   "apbn_candidates": [
+    "anggaran BNPB / dana cadangan penanggulangan bencana",
+    "fungsi Perlindungan Lingkungan Hidup (sebagian)"
+   ],
+   "mapping_status": "TO_VERIFY"
+  },
+  "layanan": {
+   "label": "Layanan Publik",
+   "base_share": 40.0,
+   "share_status": "UNCALIBRATED",
+   "apbn_candidates": [
+    "fungsi Pendidikan",
+    "fungsi Kesehatan",
+    "fungsi Perlindungan Sosial"
+   ],
+   "mapping_status": "TO_VERIFY"
+  },
+  "pangan": {
+   "label": "Pangan & Pertanian",
+   "base_share": 20.0,
+   "share_status": "UNCALIBRATED",
+   "apbn_candidates": [
+    "fungsi Ekonomi (subfungsi pertanian, kehutanan, perikanan)"
+   ],
+   "mapping_status": "TO_VERIFY"
+  }
+ }
+}

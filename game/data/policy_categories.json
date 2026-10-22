@@ -1,0 +1,61 @@
+{
+ "schema": "nusantara.policy_categories/1",
+ "categories": [
+  {
+   "id": "pangan",
+   "label": "Pangan"
+  },
+  {
+   "id": "ekonomi",
+   "label": "Ekonomi"
+  },
+  {
+   "id": "energi",
+   "label": "Energi"
+  },
+  {
+   "id": "pendidikan",
+   "label": "Pendidikan"
+  },
+  {
+   "id": "kesehatan",
+   "label": "Kesehatan"
+  },
+  {
+   "id": "lingkungan",
+   "label": "Lingkungan"
+  },
+  {
+   "id": "infrastruktur",
+   "label": "Infrastruktur"
+  },
+  {
+   "id": "industri",
+   "label": "Industri"
+  },
+  {
+   "id": "digitalisasi",
+   "label": "Digitalisasi"
+  },
+  {
+   "id": "sosial",
+   "label": "Sosial"
+  },
+  {
+   "id": "kebencanaan",
+   "label": "Kebencanaan"
+  },
+  {
+   "id": "pemerintahan",
+   "label": "Pemerintahan"
+  },
+  {
+   "id": "kebudayaan",
+   "label": "Kebudayaan"
+  },
+  {
+   "id": "pembangunan_daerah",
+   "label": "Pembangunan Daerah"
+  }
+ ]
+}
