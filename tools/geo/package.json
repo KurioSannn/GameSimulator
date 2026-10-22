@@ -3,6 +3,7 @@
   "private": true,
   "description": "Project-local geometry tooling for the NUSANTARA research pipeline (not shipped in the game).",
   "dependencies": {
+    "earcut": "3.2.3",
     "mapshaper": "0.7.79"
   }
 }
