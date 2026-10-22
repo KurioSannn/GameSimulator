@@ -1,0 +1,66 @@
+{
+  "a": {
+    "end": {
+      "72.06_environment": 44.0,
+      "72.06_sentiment": 46.9175,
+      "72.06_services": 50.0,
+      "72.06_trust": 47.9902,
+      "72.06_welfare": 75.0584,
+      "72.06_welfare_base": 76.54,
+      "82.02_environment": 46.0,
+      "82.02_sentiment": 48.1104,
+      "82.02_services": 50.0,
+      "82.02_trust": 50.3536,
+      "82.02_welfare": 69.5986,
+      "82.02_welfare_base": 71.45,
+      "fiscal_space": 53.0,
+      "national_sentiment": 49.1563,
+      "national_welfare": 71.852
+    },
+    "presented": [
+      "CASE-0005-A"
+    ]
+  },
+  "b": {
+    "end": {
+      "72.06_environment": 47.6,
+      "72.06_sentiment": 50.3438,
+      "72.06_services": 53.0,
+      "72.06_trust": 51.4155,
+      "72.06_welfare": 74.3272,
+      "72.06_welfare_base": 75.04,
+      "82.02_environment": 47.6,
+      "82.02_sentiment": 50.3176,
+      "82.02_services": 53.0,
+      "82.02_trust": 52.5342,
+      "82.02_welfare": 68.8687,
+      "82.02_welfare_base": 69.95,
+      "fiscal_space": 49.0,
+      "national_sentiment": 49.1589,
+      "national_welfare": 71.8514
+    },
+    "presented": []
+  },
+  "c": {
+    "end": {
+      "72.06_environment": 47.0,
+      "72.06_sentiment": 49.0349,
+      "72.06_services": 50.0,
+      "72.06_trust": 50.3916,
+      "72.06_welfare": 73.5522,
+      "72.06_welfare_base": 75.04,
+      "82.02_environment": 47.0,
+      "82.02_sentiment": 48.7229,
+      "82.02_services": 50.0,
+      "82.02_trust": 50.9848,
+      "82.02_welfare": 68.0924,
+      "82.02_welfare_base": 69.95,
+      "fiscal_space": 49.0,
+      "national_sentiment": 49.1577,
+      "national_welfare": 71.8507
+    },
+    "presented": [
+      "CASE-0005-C"
+    ]
+  }
+}
