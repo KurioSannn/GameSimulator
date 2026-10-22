@@ -1,0 +1,303 @@
+{
+ "schema": "nusantara.source_registry/1",
+ "updated_at": "2026-10-06",
+ "status_vocabulary": {
+  "verified_ingested": "data retrieved, archived in data/raw with checksums, used by a pipeline",
+  "verified_reachable": "endpoint confirmed reachable and relevant; not yet ingested",
+  "blocked_credential": "requires a human-registered API key/account; do not bypass",
+  "unreachable": "DNS/HTTP failure from the research environment on the probe date; retry later, may work from Indonesia",
+  "candidate": "known institution/system; endpoint and terms not yet verified",
+  "secondary_crosscheck": "non-official transcription used only to cross-check an official source"
+ },
+ "probe_note": "Reachability probed 2026-10-05 from the research machine with a plain GET (User-Agent NUSANTARA-research-pipeline/0.1). 403 may mean bot protection; never bypass.",
+ "sources": [
+  {
+   "source_id": "SRC-BIG-ADM-KABKOTA",
+   "institution": "Badan Informasi Geospasial (BIG)",
+   "title": "Wilayah Administrasi Kabupaten/Kota (Feature Service), geodatabase batas wilayah administrasi kab/kota edisi September 2023",
+   "source_type": "official",
+   "access_method": "gis",
+   "url": "https://geoservices.big.go.id/rbi/rest/services/Hosted/Wilayah_Administrasi_Kabupaten__Kota/FeatureServer/0",
+   "publication_date": "2023-09 (edition; service description notes later updates incl. April 2025 segment changes — verify)",
+   "retrieved_at": "2026-10-05",
+   "reference_period": "boundary edition 2023-09",
+   "geographic_resolution": "kabupaten/kota polygons (548 features; 514 coded kab/kota + uncoded/disputed areas)",
+   "unit": "geometry EPSG:4326; luaswh area field (unit assumed km2 — VERIFY against BIG field definition)",
+   "license_or_terms": "Not stated on service; BIG data generally public. TODO: record BIG terms of use before release.",
+   "status": "verified_ingested",
+   "raw_path": "data/raw/big/kabkota_2023-09/",
+   "pipeline": "scripts/pipelines/geo/fetch_big_kabkota.py"
+  },
+  {
+   "source_id": "SRC-KEMENDAGRI-KODE-2025",
+   "institution": "Kementerian Dalam Negeri (Ditjen Bina Adwil)",
+   "title": "Kepmendagri No. 300.2.2-2138 Tahun 2025 tentang Pemberian dan Pemutakhiran Kode, Data Wilayah Administrasi Pemerintahan, dan Pulau (amended by Kepmendagri 300.2.2-2430 Tahun 2025, 23 Jun 2025, per secondary source)",
+   "source_type": "official",
+   "access_method": "pdf",
+   "url": null,
+   "url_note": "Official PDF location not yet found. Do not fill until verified.",
+   "reference_period": "2025",
+   "geographic_resolution": "provinsi → desa/kelurahan",
+   "published_totals": {
+    "provinsi": 38,
+    "kabupaten": 416,
+    "kota": 98,
+    "kecamatan": 7285,
+    "kelurahan": 8496,
+    "desa": 75266,
+    "totals_source": "multiple secondary reports of the Kepmendagri; matches BIG coded kab/kota count exactly"
+   },
+   "status": "candidate"
+  },
+  {
+   "source_id": "SRC-BNPB-IRBI-2024",
+   "institution": "Badan Nasional Penanggulangan Bencana (BNPB)",
+   "title": "Buku Indeks Risiko Bencana Indonesia (IRBI) Tahun 2024",
+   "source_type": "official",
+   "access_method": "pdf",
+   "url": "https://inarisk.bnpb.go.id/pdf/BUKU%20IRBI%202024.pdf",
+   "publication_date": "2024 edition (exact publication date to be read from the book's colophon)",
+   "retrieved_at": "2026-10-06",
+   "reference_period": "2024",
+   "geographic_resolution": "kabupaten/kota",
+   "unit": "skor indeks risiko (multi-hazard total; per-hazard scores, flood max 36)",
+   "methodology_summary": "Risk = f(hazard, vulnerability, capacity) per BNPB method; per-hazard and multi-hazard indices with classes RENDAH/SEDANG/TINGGI.",
+   "license_or_terms": "Official public publication; terms not stated in the PDF text parsed. TODO verify before release.",
+   "credibility_notes": "Linked from the official InaRISK IRBI page. A newer IRBI 2025 exists only as an online flipbook (no PDF/text tables found), so 2024 is the latest edition with extractable tables. An IRBI 2023 copy hosted on bpbd.dumaikota.go.id was also archived (unused).",
+   "status": "verified_ingested",
+   "raw_path": "data/raw/bnpb/irbi_2024/",
+   "pipeline": "scripts/pipelines/hazard/ingest_irbi.py"
+  },
+  {
+   "source_id": "SRC-BNPB-CKAN",
+   "institution": "BNPB — Pusat Data Informasi dan Komunikasi Kebencanaan (Pusdatinkom)",
+   "title": "Satu Data Bencana Indonesia, CKAN portal: 'Kompilasi Data Jumlah dan Dampak Kejadian Bencana 2024' (kab/kota tables)",
+   "source_type": "official",
+   "access_method": "api",
+   "url": "https://data.bnpb.go.id/api/3/action/package_show?id=kompilasi-data-jumlah-dan-dampak-kejadian-bencana-2024",
+   "retrieved_at": "2026-10-06",
+   "reference_period": "2024",
+   "geographic_resolution": "kabupaten/kota",
+   "license_or_terms": "ODbL (per CKAN metadata)",
+   "status": "verified_ingested",
+   "raw_path": "data/raw/bnpb/ckan/",
+   "pipeline": "scripts/pipelines/hazard/ingest_bnpb_events.py",
+   "credibility_notes": "DataStore API used; direct file downloads are Cloudflare-challenged (not bypassed). Yearly packages 2002-2023 link to Google Drive folders whose download endpoints are disallowed by robots.txt -> manual download needed (G-15). Kab/kota sum 1428 vs national row 1420 (G-16).",
+   "known_discrepancies": [
+    {
+     "id": "G-16",
+     "description": "2024 flood events: kab/kota sum 1,428 vs national row 1,420 (+8); all impact tables consistent with national rows",
+     "status": "UNRESOLVED",
+     "report": "research/reports/validation/bnpb_2024_consistency.md"
+    }
+   ],
+   "yearly_index": "research/sources/bnpb_yearly_index.md"
+  },
+  {
+   "source_id": "SRC-KEMENDAGRI-KODE-2025-SECONDARY",
+   "institution": "cahyadsn/wilayah (community GitHub repository, MIT)",
+   "title": "wilayah_level_1_2.sql — transcription 'sesuai Kepmendagri No 300.2.2-2138 Tahun 2025' (file last edit 2026-05-11)",
+   "source_type": "other",
+   "access_method": "file",
+   "url": "https://raw.githubusercontent.com/cahyadsn/wilayah/master/db/wilayah_level_1_2.sql",
+   "retrieved_at": "2026-10-05",
+   "license_or_terms": "MIT",
+   "credibility_notes": "Used ONLY to cross-check BIG codes/names and to supply ibukota labels. Known defect found: 16.02 name truncated ('Kabupaten Ogan Komering').",
+   "status": "secondary_crosscheck",
+   "raw_path": "data/raw/kemendagri_secondary/cahyadsn_wilayah_2025/"
+  },
+  {
+   "source_id": "SRC-BPS-WEBAPI",
+   "institution": "Badan Pusat Statistik",
+   "title": "BPS WebAPI (static/dynamic tables: population, PDRB, IPM, poverty, labor, etc.)",
+   "source_type": "official",
+   "access_method": "api",
+   "url": "https://webapi.bps.go.id/developer/",
+   "status": "blocked_credential",
+   "notes": "Developer portal reachable (200). Requires registered app key. HUMAN ACTION: register an account + app key and provide it via a local .env (never committed). www.bps.go.id returned 403 to the probe. Workflow ready: scripts/pipelines/bps/bps_workflow.py (check/inventory/sample/bulk) with approval gate data/calibration/bps_indicators.json (D-038). UPDATE 2026-10-23: population (var 2790) and IPM (var 413) are ingested without a key from the public statistics-table pages, which embed the data cube (SRC-BPS-TBL-*). The API key is still needed for tables that do not embed full data."
+  },
+  {
+   "source_id": "SRC-DJPK",
+   "institution": "Kementerian Keuangan — DJPK",
+   "title": "Data APBD / TKD portal",
+   "source_type": "official",
+   "access_method": "web",
+   "url": "https://djpk.kemenkeu.go.id/",
+   "status": "unreachable",
+   "notes": "DNS failure 2026-10-05; retry; may need alternate official path."
+  },
+  {
+   "source_id": "SRC-BNPB-DIBI",
+   "institution": "BNPB",
+   "title": "Data Informasi Bencana Indonesia (DIBI)",
+   "source_type": "official",
+   "access_method": "web",
+   "url": "https://dibi.bnpb.go.id/",
+   "status": "verified_reachable",
+   "notes": "Priority for case library + disaster history."
+  },
+  {
+   "source_id": "SRC-BNPB-GIS",
+   "institution": "BNPB",
+   "title": "GIS BNPB",
+   "source_type": "official",
+   "access_method": "gis",
+   "url": "https://gis.bnpb.go.id/",
+   "status": "verified_reachable"
+  },
+  {
+   "source_id": "SRC-BNPB-INARISK",
+   "institution": "BNPB",
+   "title": "InaRISK (hazard/risk indices)",
+   "source_type": "official",
+   "access_method": "gis",
+   "url": "https://inarisk.bnpb.go.id/",
+   "status": "verified_reachable",
+   "notes": "Candidate source for regional disaster-risk baselines."
+  },
+  {
+   "source_id": "SRC-BMKG",
+   "institution": "BMKG",
+   "title": "BMKG portal / data online",
+   "source_type": "official",
+   "access_method": "web",
+   "url": "https://www.bmkg.go.id/",
+   "status": "verified_reachable"
+  },
+  {
+   "source_id": "SRC-SDI",
+   "institution": "Satu Data Indonesia",
+   "title": "data.go.id portal",
+   "source_type": "official",
+   "access_method": "web",
+   "url": "https://data.go.id/",
+   "status": "verified_reachable",
+   "notes": "katalog.data.go.id did not resolve."
+  },
+  {
+   "source_id": "SRC-ESDM-GEOPORTAL",
+   "institution": "Kementerian ESDM",
+   "title": "Geoportal ESDM (One Map ESDM)",
+   "source_type": "official",
+   "access_method": "gis",
+   "url": "https://geoportal.esdm.go.id/",
+   "status": "verified_reachable"
+  },
+  {
+   "source_id": "SRC-ESDM-MOMI",
+   "institution": "Kementerian ESDM — Ditjen Minerba",
+   "title": "MOMI (Minerba One Map Indonesia)",
+   "source_type": "official",
+   "access_method": "gis",
+   "url": "https://momi.minerba.esdm.go.id/",
+   "status": "verified_reachable",
+   "notes": "Mining permits (IUP) are not reserves/production — keep semantics separate."
+  },
+  {
+   "source_id": "SRC-BIG-TANAHAIR",
+   "institution": "BIG",
+   "title": "Ina-Geoportal (tanahair.indonesia.go.id)",
+   "source_type": "official",
+   "access_method": "gis",
+   "url": "https://tanahair.indonesia.go.id/",
+   "status": "verified_reachable"
+  },
+  {
+   "source_id": "SRC-KEMENDAGRI-DUKCAPIL",
+   "institution": "Kemendagri — Dukcapil",
+   "title": "Data kependudukan (DKB)",
+   "source_type": "official",
+   "access_method": "web",
+   "url": "https://dukcapil.kemendagri.go.id/",
+   "status": "verified_reachable",
+   "notes": "Alternative population source if BPS key unavailable; administrative registration counts differ from BPS projections — never mix without labeling."
+  },
+  {
+   "source_id": "SRC-KKP-STAT",
+   "institution": "Kementerian Kelautan dan Perikanan",
+   "title": "Statistik KKP",
+   "source_type": "official",
+   "access_method": "web",
+   "url": "https://statistik.kkp.go.id/",
+   "status": "unreachable"
+  },
+  {
+   "source_id": "SRC-KLHK-SIGAP",
+   "institution": "Kementerian Kehutanan / LH",
+   "title": "SIGAP (forest/land cover)",
+   "source_type": "official",
+   "access_method": "gis",
+   "url": "https://sigap.menlhk.go.id/",
+   "status": "unreachable",
+   "notes": "Ministry restructuring (Kehutanan vs LH) may have moved services; re-discover."
+  },
+  {
+   "source_id": "SRC-KEMENDIKDASMEN-DAPODIK",
+   "institution": "Kemendikdasmen",
+   "title": "Data Pokok Pendidikan",
+   "source_type": "official",
+   "access_method": "web",
+   "url": "https://dapo.kemendikdasmen.go.id/",
+   "status": "verified_reachable",
+   "notes": "403 to probe (likely bot protection). Do not bypass."
+  },
+  {
+   "source_id": "SRC-WBTB",
+   "institution": "Kementerian Kebudayaan",
+   "title": "Warisan Budaya Takbenda Indonesia",
+   "source_type": "official",
+   "access_method": "web",
+   "url": "https://warisanbudaya.kemdikbud.go.id/",
+   "status": "unreachable",
+   "notes": "DNS failure; ministry split (Kementerian Kebudayaan) may have moved domain — re-discover."
+  },
+  {
+   "source_id": "SRC-BADAN-BAHASA-PETA",
+   "institution": "Badan Pengembangan dan Pembinaan Bahasa",
+   "title": "Peta Bahasa",
+   "source_type": "official",
+   "access_method": "web",
+   "url": "https://petabahasa.kemdikbud.go.id/",
+   "status": "unreachable",
+   "notes": "DNS failure; re-discover current domain."
+  },
+  {
+   "source_id": "SRC-BPS-TBL-2790-PENDUDUK-KABKOTA",
+   "institution": "Badan Pusat Statistik",
+   "title": "Jumlah Penduduk menurut Kabupaten/Kota dan Kelompok Umur (tabel dinamis var 2790)",
+   "source_type": "official",
+   "access_method": "web",
+   "url": "https://www.bps.go.id/id/statistics-table/2/Mjc5MCMy/-jumlah-penduduk-menurut-kabupaten-kota-dan-kelompok-umur.html",
+   "publication_date": "table last updated 2026-08-28",
+   "retrieved_at": "2026-10-23",
+   "reference_period": "2026 (projection)",
+   "geographic_resolution": "kabupaten/kota (+ provinsi)",
+   "unit": "jiwa",
+   "methodology_summary": "Hasil Proyeksi Penduduk Indonesia hasil Sensus Penduduk 2020 (BPS). Definition: people residing in the territory. Access: the public statistics-table page embeds the full data cube as JSON; parsed from the cached page.",
+   "license_or_terms": "Public BPS statistics table; cite BPS as source. Terms of reuse not separately verified.",
+   "credibility_notes": "Province rows for Papua (91) and Papua Barat (92) disagree with the sum of their post-2022 kab/kota (pre-split totals); those two province rows are dropped (G-38). Kab/kota rows cover all 514 registry regions.",
+   "status": "verified_ingested",
+   "raw_path": "data/raw/bps/tables/bps_tbl2790_penduduk_kabkota_kelompok_umur.html",
+   "pipeline": "scripts/pipelines/bps/ingest_bps_table_pages.py"
+  },
+  {
+   "source_id": "SRC-BPS-TBL-413-IPM",
+   "institution": "Badan Pusat Statistik",
+   "title": "[Metode Baru] Indeks Pembangunan Manusia (tabel dinamis var 413)",
+   "source_type": "official",
+   "access_method": "web",
+   "url": "https://www.bps.go.id/id/statistics-table/2/NDEzIzI=/-metode-baru-indeks-pembangunan-manusia.html",
+   "publication_date": "table last updated 2025-05-15",
+   "retrieved_at": "2026-10-23",
+   "reference_period": "2024",
+   "geographic_resolution": "kabupaten/kota (+ provinsi)",
+   "unit": "indeks (0-100)",
+   "methodology_summary": "IPM metode baru: health (UHH), education (HLS, RLS), adjusted per-capita expenditure. Access: the public statistics-table page embeds the full data cube as JSON; parsed from the cached page.",
+   "license_or_terms": "Public BPS statistics table; cite BPS as source. Terms of reuse not separately verified.",
+   "credibility_notes": "All 514 registry kab/kota and 38 provinces present for 2024.",
+   "status": "verified_ingested",
+   "raw_path": "data/raw/bps/tables/bps_tbl413_ipm_metode_baru.html",
+   "pipeline": "scripts/pipelines/bps/ingest_bps_table_pages.py"
+  }
+ ]
+}

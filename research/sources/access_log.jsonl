@@ -1,0 +1,184 @@
+{"at": "2026-10-05T10:53:26+00:00", "source_id": "SRC-BIG-ADM-KABKOTA", "url": "https://geoservices.big.go.id/rbi/rest/services/Hosted/Wilayah_Administrasi_Kabupaten__Kota/FeatureServer/0", "status": "ok", "detail": "550 files, 0 failed"}
+{"at":"2026-10-05T11:48:51Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T11:49:16Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T11:49:41Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T11:50:06Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T11:50:31Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T11:50:56Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T11:50:56Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:01:21Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:01:46Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:02:11Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:02:36Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:03:01Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:03:26Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:03:26Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:12:54Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:13:19Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:13:44Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:13:52Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:14:09Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:14:17Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:14:34Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:14:42Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:15:00Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:15:00Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:15:07Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:15:32Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:15:57Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:15:57Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T12:56:14Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T12:56:14Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T12:56:18Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T12:56:19Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T13:11:54Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T13:11:55Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T13:11:55Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T14:17:25Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T14:17:25Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T14:17:25Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T14:17:26Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T14:24:45Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T14:24:45Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T14:24:45Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T16:15:00Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T16:15:06Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T16:15:06Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T16:15:07Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T16:26:47Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T16:26:48Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T16:26:48Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T19:17:37Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T19:17:38Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T19:17:38Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T19:17:38Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T19:18:03Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T19:18:04Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T19:18:04Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T19:30:32Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T19:30:32Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T19:30:32Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T19:30:33Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T19:46:02Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T19:46:21Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T19:46:21Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T20:46:45Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T20:46:45Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T20:46:45Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T20:46:46Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T20:47:11Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T20:47:30Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T20:47:30Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T21:02:30Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:02:30Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:02:30Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T21:02:31Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:02:56Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T21:03:15Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T21:03:15Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at": "2026-10-05T21:07:40+00:00", "source_id": "SRC-BNPB-CKAN", "url": "https://data.bnpb.go.id/api/3/action/datastore_search?resource_id=5ff9f41f-8312-4b7c-aa18-fdbedac6ee7e", "status": "ok", "detail": "451 records"}
+{"at": "2026-10-05T21:08:01+00:00", "source_id": "SRC-BNPB-CKAN", "url": "https://data.bnpb.go.id/api/3/action/datastore_search?resource_id=bf415deb-7076-4aaf-90ad-013b9a5292f7", "status": "ok", "detail": "451 records"}
+{"at": "2026-10-05T21:08:03+00:00", "source_id": "SRC-BNPB-CKAN", "url": "https://data.bnpb.go.id/api/3/action/datastore_search?resource_id=4cddaa9f-45b1-47f5-9428-519e876a8e20", "status": "ok", "detail": "451 records"}
+{"at": "2026-10-05T21:08:04+00:00", "source_id": "SRC-BNPB-CKAN", "url": "https://data.bnpb.go.id/api/3/action/datastore_search?resource_id=820e56bc-fd26-4e47-ae12-5b23f1d5fd08", "status": "ok", "detail": "451 records"}
+{"at": "2026-10-05T21:08:05+00:00", "source_id": "SRC-BNPB-CKAN", "url": "https://data.bnpb.go.id/api/3/action/datastore_search?resource_id=89eb9dac-a891-477e-b264-2265f72f4e56", "status": "ok", "detail": "451 records"}
+{"at": "2026-10-05T21:08:07+00:00", "source_id": "SRC-BNPB-CKAN", "url": "https://data.bnpb.go.id/api/3/action/datastore_search?resource_id=68c4448c-3de9-42e3-987d-31f5c05c37ba", "status": "ok", "detail": "451 records"}
+{"at": "2026-10-05T21:08:08+00:00", "source_id": "SRC-BNPB-CKAN", "url": "https://data.bnpb.go.id/api/3/action/datastore_search?resource_id=5c9f7ea9-f809-487c-b1f8-f05a6f3291b3", "status": "ok", "detail": "451 records"}
+{"at": "2026-10-05T21:08:09+00:00", "source_id": "SRC-BNPB-CKAN", "url": "https://data.bnpb.go.id/api/3/action/datastore_search?resource_id=8eea8adc-3c4d-4d0d-be9f-6d170127ff6c", "status": "ok", "detail": "451 records"}
+{"at": "2026-10-05T21:08:11+00:00", "source_id": "SRC-BNPB-CKAN", "url": "https://data.bnpb.go.id/api/3/action/datastore_search?resource_id=353da3aa-9ada-42aa-a5c2-e653d52ffd9c", "status": "ok", "detail": "451 records"}
+{"at": "2026-10-05T21:08:12+00:00", "source_id": "SRC-BNPB-CKAN", "url": "https://data.bnpb.go.id/api/3/action/datastore_search?resource_id=fdebc70a-2305-4b25-9fa7-e876892b0f54", "status": "ok", "detail": "451 records"}
+{"at":"2026-10-05T21:18:15Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:18:16Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:18:16Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T21:18:17Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:18:42Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T21:19:01Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T21:19:01Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T21:34:01Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:34:01Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:34:02Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T21:34:02Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:34:27Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T21:34:31Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T21:34:31Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T21:49:32Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:49:32Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:49:32Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T21:49:32Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T21:49:57Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T21:49:58Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T21:49:58Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T22:04:58Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:04:58Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:04:59Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T22:04:59Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:05:24Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T22:05:24Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T22:05:24Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T22:20:25Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:20:50Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T22:20:52Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T22:20:53Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:21:18Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T22:21:18Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T22:21:18Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T22:36:25Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:36:26Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:36:26Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T22:36:27Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:36:52Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T22:36:52Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T22:36:52Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T22:51:52Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:51:53Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:51:53Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T22:51:54Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:52:19Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T22:52:25Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T22:52:25Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T22:53:11Z","source_id":"PROBE","url":"https://webapi.bps.go.id/developer/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:53:11Z","source_id":"PROBE","url":"https://geoservices.big.go.id/rbi/rest/services?f=json","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:53:11Z","source_id":"PROBE","url":"https://dibi.bnpb.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T22:53:12Z","source_id":"PROBE","url":"https://data.go.id/","status":"probe","detail":"http 200"}
+{"at":"2026-10-05T22:53:37Z","source_id":"PROBE","url":"https://www.djpk.kemenkeu.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-05T22:53:56Z","source_id":"PROBE","url":"https://gis.dukcapil.kemendagri.go.id/","status":"probe","detail":"http 301"}
+{"at":"2026-10-05T22:53:56Z","source_id":"PROBE","url":"https://proxyapps.data.go.id/","status":"probe","detail":"http 000"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-ESDM-NIKEL-2019-09-02","url":"https://www.esdm.go.id/id/media-center/arsip-berita/bijih-nikel-tidak-boleh-diekspor-lagi-per-januari-2020","status":"ok","detail":"CASE-0005 research; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-ESDM-NIKEL-2020-07-28","url":"https://www.esdm.go.id/id/media-center/arsip-berita/hilirisasi-nikel-demi-nilai-tambah-bangsa-indonesia","status":"ok","detail":"read; smelter counts not used; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-WTO-DS592","url":"https://www.wto.org/english/tratop_e/dispu_e/cases_e/ds592_e.htm","status":"ok","detail":"CASE-0005 research; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-ESDM-PERPRES112-2022","url":"https://www.esdm.go.id/id/media-center/arsip-berita/perpres-112-tahun-2022-diteken-era-pembangkit-listrik-rendah-emisi-dimulai","status":"ok","detail":"CASE-0005 research; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-BPS-SULBAR-PDRB-2022","url":"https://sulbar.bps.go.id/en/pressrelease/2023/02/06/1152/ekonomi-sulawesi-barat-tahun-2022-tumbuh-2-30-persen--c-to-c-.html","status":"ok","detail":"CASE-0005 research; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"BPS-TOLITOLI-SULTENG-Q4-2022","url":"https://tolitolikab.bps.go.id/en/pressrelease/2023/02/06/1128/pertumbuhan-ekonomi-sulawesi-tengah-triwulan-iv-2022.html","status":"partial","detail":"abstract empty; figure not available on page; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-SETKAB-HILIRISASI-2023-08-19","url":"https://setkab.go.id/terus-gaungkan-hilirisasi-presiden-jangan-mengulang-sejarah-ekspor-bahan-mentah/","status":"ok","detail":"CASE-0005 research; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"PRESIDENRI-HILIRISASI","url":"https://presidenri.go.id/siaran-pers/presiden-jokowi-hilirisasi-nikel-dan-sumber-daya-alam-jadi-kunci-peningkatan-ekonomi-nasional/","status":"failed","detail":"http 403; not used; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-KPPIP-PSN-WEDABAY","url":"https://kppip.go.id/proyek-strategis-nasional/s-pembangunan-kawasan-industri-prioritas-kawasan-ekonomi-khusus/kawasan-industri-weda-bay/","status":"ok","detail":"province only, undated; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-KEMENPERIN-MOROWALI-2017","url":"https://www.kemenperin.go.id/artikel/17210/Kawasan-Industri-Morowali-Target-Produksi-Stainless-Steel-3-Juta-Tahun-2018","status":"ok","detail":"CASE-0005 research; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-KEMENPERIN-MOROWALI-2014","url":"http://www.kemenperin.go.id/artikel/10647/Morowali,-Langkah-Awal-Menyebar-Industri-ke-Luar-Jawa","status":"ok","detail":"CASE-0005 research; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-MONGABAY-HALTENG-2022","url":"https://mongabay.co.id/2022/12/06/ketika-tambang-nikel-kuasai-hutan-halmahera-tengah/","status":"ok","detail":"CASE-0005 research (news); logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-KONTAN-IMIP-2023-12-24","url":"https://industri.kontan.co.id/news/tungku-smleter-milik-itss-meledak-13-pekerja-meninggal-dan-38-lainnya-terluka","status":"ok","detail":"CASE-0005 research (news); logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"BISNIS-IMIP-2023-12-27","url":"https://ekonomi.bisnis.com/read/20231227/12/1727448/ledakan-smelter-di-morowali-telan-18-korban-jiwa-pt-itss-terancam-kena-sanksi","status":"failed","detail":"http 403; not used; logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-ANTARA-IMIP-2023-12-25","url":"https://www.antaranews.com/berita/3886725/pemerintah-turunkan-tim-pengawas-ketenagakerjaan-ke-morowali","status":"ok","detail":"CASE-0005 research (news); logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T15:02:06Z","source_id":"SRC-ANTARA-IMIP-2024-02-12","url":"https://kalsel.antaranews.com/berita/404766/ledakan-smelter-tewaskan-20-orang-dua-pimpinan-pt-itss-jadi-tersangka","status":"ok","detail":"CASE-0005 research (news); logged at end of research session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"SRC-BMKG-SP-2023-09-08","url":"https://www.bmkg.go.id/siaran-pers/kapan-musim-hujan-tiba-ini-prediksi-lengkap-bmkg","status":"ok","detail":"ok; CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"SRC-BMKG-STAKLIM-NTT-2023-09-20","url":"https://www.bmkg.go.id/berita/daerah/staklim-nusa-tenggara-timur-gelar-press-release-prakiraan-awal-musim-hujan-provinsi-ntt-tahun-2023-2024","status":"ok","detail":"ok; CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"SRC-ANTARA-NTT-KEKERINGAN-2023-08-26","url":"https://papuatengah.antaranews.com/berita/33051/enam-kabupaten-di-ntt-tetapkan-status-darurat-kekeringan","status":"ok","detail":"ok (301 redirect from papuabarat.antaranews.com); CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"SRC-BPS-NTT-KORBAN-BENCANA-2023","url":"https://ntt.bps.go.id/id/statistics-table/3/T0VGNVR6UkVaakVyUmxWTU1YTlhSQzkzYW1vclFUMDkjMw==/jumlah-korban-yang-diakibatkan-bencana-alam-menurut-kabupaten-kota-di-provinsi-nusa-tenggara-timur--2023.html?year=2023","status":"ok","detail":"ok (data embedded in HTML; cached); CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"SRC-BPS-NTT-PADI-2023","url":"https://ntt.bps.go.id/id/statistics-table/3/WmpaNk1YbGFjR0pOUjBKYWFIQlBSU3MwVHpOVWR6MDkjMw==/luas-panen--produktivitas--dan-produksi-padi-menurut-kabupaten-kota-di-provinsi-nusa-tenggara-timur--2023.html?year=2023","status":"ok","detail":"ok (cached); CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"SRC-ACAD-IPB-JITL-2021-NDUN","url":"https://journal.ipb.ac.id/index.php/jtanah/article/view/32794","status":"ok","detail":"ok (abstract); CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"SRC-ACAD-FS-2021-NGAJI","url":"https://ir.lib.ugm.ac.id/id/eprint/3932","status":"ok","detail":"ok (abstract only); CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"UNSRI-MAMAR-PROCEEDINGS","url":"https://conference.unsri.ac.id/index.php/lahansuboptimal/article/download/1897/1163","status":"failed","detail":"failed (HTTP 468); not used; CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"SRC-KEMENKES-PKI-2023","url":"https://kemkes.go.id/app_asset/file_content_download/172231123666a86244b83fd8.51637104.pdf","status":"ok","detail":"ok (cached, not committed); CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"SRC-KEMENKES-PROFIL-BAB2-2022DATA","url":"https://layanandata.kemkes.go.id/file/profil-kesehatan/2023/bab-2.pdf","status":"ok","detail":"ok (cached, not committed); CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"KEMENKES-PROFIL-2024-BAB2","url":"https://layanandata.kemkes.go.id/file/profil-kesehatan/2024/bab-2.pdf","status":"failed","detail":"failed (404); CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-22T18:58:33Z","source_id":"SRC-KEMENKES-PENUGASAN-KHUSUS-2023-02-14","url":"https://kemkes.go.id/id/kemenkes-penuhi-kebutuhan-nakes-di-puskesmas-lewat-penugasan-khusus","status":"ok","detail":"ok; CASE-0006/0007 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-23T00:17:11Z","source_id":"SRC-ESDM-BBM-2022-09-03","url":"https://www.esdm.go.id/en/media-center/news-archives/pengalihan-subsidi-bbm-demi-subsidi-tepat-sasaran-dan-antisipasi-gejolak-minyak-dunia","status":"ok","detail":"ok; CASE-0008 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-23T00:17:11Z","source_id":"SRC-SETKAB-PERS-BBM-2022-09-03","url":"https://setkab.go.id/penyataan-pers-presiden-ri-mengenai-pengalihan-subsidi-bbm/","status":"ok","detail":"ok; CASE-0008 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-23T00:17:11Z","source_id":"SRC-BPS-INFLASI-2022-10-03","url":"https://www.bps.go.id/id/pressrelease/2022/10/03/1865/inflasi-terjadi-pada-september2022-inflasi-sebesar-1-17-persen--inflasi-tertinggi-terjadi-di-bukittinggi-sebesar-1-87persen-.html","status":"ok","detail":"ok; CASE-0008 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-23T00:17:11Z","source_id":"KEMENKEU-BLT-BBM-2022-09-19","url":"https://www.kemenkeu.go.id/informasi-publik/publikasi/berita-utama/BLT-BBM","status":"failed","detail":"curl: connection timed out (40 s); WebFetch returned only the page shell; content not verified, not used; CASE-0008 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-23T00:17:11Z","source_id":"SRC-DJPB-PAREPARE-PERLINSOS-2022-09-14","url":"https://djpb.kemenkeu.go.id/kppn/parepare/id/data-publikasi/berita-terbaru/2844-perlinsos-sebagai-bentuk-pengalihan-subsidi-dan-kompensasi-bbm-2.html","status":"ok","detail":"ok (used instead of the Kemenkeu article); CASE-0008 research, logged at end of session (retrieval earlier the same day)"}
+{"at":"2026-10-23T00:17:11Z","source_id":"KEMENSOS-BLT-BBM","url":"https://kemensos.go.id/en/increasing-purchasing-power-of-poor-families-ministry-of-social-affairs-distributes-blt-bbm","status":"failed","detail":"article body not extractable; not used; CASE-0008 research, logged at end of session (retrieval earlier the same day)"}
+{"at": "2026-10-23T03:42:03+00:00", "source_id": "SRC-BPS-TBL-2790-PENDUDUK-KABKOTA", "url": "https://www.bps.go.id/id/statistics-table/2/Mjc5MCMy/-jumlah-penduduk-menurut-kabupaten-kota-dan-kelompok-umur.html", "status": "ok", "detail": "parsed 514 kab/kota + 38 provinsi, period 2026"}
+{"at": "2026-10-23T03:42:09+00:00", "source_id": "SRC-BPS-TBL-413-IPM", "url": "https://www.bps.go.id/id/statistics-table/2/NDEzIzI=/-metode-baru-indeks-pembangunan-manusia.html", "status": "ok", "detail": "parsed 514 kab/kota + 38 provinsi, period 2024"}
+{"at": "2026-10-23T03:42:51+00:00", "source_id": "SRC-BPS-TBL-2790-PENDUDUK-KABKOTA", "url": "https://www.bps.go.id/id/statistics-table/2/Mjc5MCMy/-jumlah-penduduk-menurut-kabupaten-kota-dan-kelompok-umur.html", "status": "conflict", "detail": "province 92 total 1242005 != kab/kota sum 596461; province row dropped"}
+{"at": "2026-10-23T03:42:51+00:00", "source_id": "SRC-BPS-TBL-2790-PENDUDUK-KABKOTA", "url": "https://www.bps.go.id/id/statistics-table/2/Mjc5MCMy/-jumlah-penduduk-menurut-kabupaten-kota-dan-kelompok-umur.html", "status": "conflict", "detail": "province 91 total 4656334 != kab/kota sum 1086454; province row dropped"}
+{"at": "2026-10-23T03:42:51+00:00", "source_id": "SRC-BPS-TBL-2790-PENDUDUK-KABKOTA", "url": "https://www.bps.go.id/id/statistics-table/2/Mjc5MCMy/-jumlah-penduduk-menurut-kabupaten-kota-dan-kelompok-umur.html", "status": "ok", "detail": "parsed 514 kab/kota + 36 provinsi, period 2026"}
+{"at": "2026-10-23T03:42:51+00:00", "source_id": "SRC-BPS-TBL-413-IPM", "url": "https://www.bps.go.id/id/statistics-table/2/NDEzIzI=/-metode-baru-indeks-pembangunan-manusia.html", "status": "ok", "detail": "parsed 514 kab/kota + 38 provinsi, period 2024"}

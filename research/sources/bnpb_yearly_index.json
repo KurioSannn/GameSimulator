@@ -1,0 +1,1400 @@
+{
+ "generated_at": "2026-10-06T03:34:58+00:00",
+ "discovery": "data.bnpb.go.id CKAN package_show",
+ "years": [
+  {
+   "year": 2000,
+   "package_id": "datakejadian2000",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2000",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "",
+   "metadata_modified": "2024-04-24T01:31:17.746569",
+   "official_source_url": "https://data.bnpb.go.id/dataset/datakejadian2000",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2000",
+   "resources": [
+    {
+     "title": "stat_by_wil_11_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/29fb919a-1864-42b5-95a0-2dcff61e7b92/download/stat_by_wil_11_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_12_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/117f7091-fc90-4532-8f02-96fdeb5e979d/download/stat_by_wil_12_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_13_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/023bac35-92c4-44cb-b8a9-89b08d06a1a3/download/stat_by_wil_13_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_14_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/222b0d87-8459-4d29-80b7-da681de24786/download/stat_by_wil_14_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_15_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/baffd256-231d-47b5-ba46-b8059128563f/download/stat_by_wil_15_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_16_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/e79d166f-f26c-45df-b7f3-bf5558601a27/download/stat_by_wil_16_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_17_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/7b6a9f06-af08-489a-8789-e0e12999a2a1/download/stat_by_wil_17_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_18_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/3a4f22b2-9ae7-4893-9069-7cde99f620ec/download/stat_by_wil_18_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_19_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/8744fbb4-ae0e-45a3-9bcf-b8edb7c87d3f/download/stat_by_wil_19_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_21_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/debc5608-8e33-43f2-807f-dd84b092746a/download/stat_by_wil_21_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_96_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/f2c746f9-f133-4965-9a0c-99eabcd28524/download/stat_by_wil_96_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_31_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/5547af76-c577-4491-86f0-f81fd4d83f3a/download/stat_by_wil_31_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_32_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/b2b6872e-9be8-4bee-b979-e90522eca808/download/stat_by_wil_32_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_33_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/55c22c63-a178-436e-b5d8-c031790724dd/download/stat_by_wil_33_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_34_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/fb988b4b-35da-492a-b5b4-25d55f2db358/download/stat_by_wil_34_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_35_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/beb52e68-1e6e-4842-9256-4d3d76d6cdba/download/stat_by_wil_35_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_36_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/f2591e6f-aba5-45d6-aafb-ccf75cd38ded/download/stat_by_wil_36_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_51_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/20f50888-a9b8-4b01-96e3-cc58c2c4a21f/download/stat_by_wil_51_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_52_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/c22d6216-3236-4f7f-80ea-c39d92431034/download/stat_by_wil_52_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_53_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/63a0421d-0187-4bcd-85ee-d19c0be8b617/download/stat_by_wil_53_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_61_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/468b0853-a61f-473e-944f-780f96ba3e93/download/stat_by_wil_61_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_62_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/c9f8a3f6-1e77-40a2-9ca0-7ee4db107c88/download/stat_by_wil_62_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_63_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/7f0b7f2f-015e-4fd9-8880-e282190b1042/download/stat_by_wil_63_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_64_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/7f2fb14c-35cf-4e25-a5f8-2dffd711ac2e/download/stat_by_wil_64_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_65_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/60350617-a0da-4229-952a-437af597659f/download/stat_by_wil_65_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_71_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/4c7c7507-4d75-460b-b790-7f9597bd481e/download/stat_by_wil_71_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_72_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/933ffb98-c1b4-4bc4-beff-04c664b86912/download/stat_by_wil_72_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_73_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/26947b38-dadc-4f4f-b228-45b8db6fc8f9/download/stat_by_wil_73_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_74_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/75bce3ed-63c5-484d-8cf2-02ae4f4c3f64/download/stat_by_wil_74_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_75_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/90ddb0dd-37d1-4024-829a-be3ff45dfdfd/download/stat_by_wil_75_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_76_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/a8f1afcf-ae72-45e9-8a51-9e4ab15569a7/download/stat_by_wil_76_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_81_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/73dff044-e59f-4d4b-b1d8-575209746733/download/stat_by_wil_81_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_82_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/d467dcbb-8355-461e-b30f-d2776fc9628c/download/stat_by_wil_82_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_91_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/6c0249ee-0bbf-4b2f-b64b-d68b7816b5cb/download/stat_by_wil_91_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_92_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/cbd02051-1150-44e5-9c19-c23286ccf527/download/stat_by_wil_92_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_93_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/39629d98-bf44-41ac-9a35-4eec15d1b728/download/stat_by_wil_93_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_94_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/dd7a81e4-88c4-4229-b2ae-7e2447db1be8/download/stat_by_wil_94_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_95_2000.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b40b63a8-30dc-49b1-9b63-4f285270bbd3/resource/46fbfede-d13f-4a87-831e-3e2641d02e26/download/stat_by_wil_95_2000.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    }
+   ],
+   "n_resources": 38,
+   "n_datastore": 32,
+   "n_drive": 0,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "API_AVAILABLE",
+   "expected_manual_destination": null,
+   "manual_files": [],
+   "used_for_frequency": false,
+   "note": "Excluded from frequency: predates many regency splits and BNPB (2008)."
+  },
+  {
+   "year": 2001,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2001",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2001",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:35:31.652160",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2001",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2001",
+   "resources": [
+    {
+     "title": "stat_by_wil_11_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/b35808d4-f623-4fcd-82e9-c5255b3340bd/download/stat_by_wil_11_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_12_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/7234dcb4-19c6-4b6d-96e7-59ea4cf8f3c4/download/stat_by_wil_12_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_13_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/7834d31b-2d98-40ab-a277-ae1e33d675c9/download/stat_by_wil_13_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_14_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/957aafcb-2385-44ec-8147-a6fd5600f49c/download/stat_by_wil_14_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_15_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/5da595fc-ced3-4d30-a24d-49431333b169/download/stat_by_wil_15_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_16_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/94c85c62-b8d8-454e-ac14-68ff47e12baa/download/stat_by_wil_16_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_17_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/c623ccff-b874-4b5b-8ef0-b1e257f8e64e/download/stat_by_wil_17_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_18_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/ff341c6a-6c83-4230-b93c-2913cf6f0ace/download/stat_by_wil_18_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_19_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/0c3c4624-8631-4a53-ae30-ae94f9afc533/download/stat_by_wil_19_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_21_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/6561592e-2b11-4074-bccc-4a2d7d35a457/download/stat_by_wil_21_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_31_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/51ba4506-25d9-4e33-9a6e-45d9ceb686ca/download/stat_by_wil_31_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_32_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/eedb6746-d709-4b63-8922-2561205caedf/download/stat_by_wil_32_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_33_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/6f460190-69fd-4da4-a4d7-44be75e5ba6f/download/stat_by_wil_33_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_34_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/195b68ad-c0f6-45f0-8f03-a760f608ed08/download/stat_by_wil_34_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_35_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/4e032716-6662-4a23-91d9-4372ef547cb3/download/stat_by_wil_35_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_36_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/32d0f4f9-35fa-4f7c-b6ce-12be57093522/download/stat_by_wil_36_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_51_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/6e934d7d-fe93-4fa8-b846-14e8cc6f7e24/download/stat_by_wil_51_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_52_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/317d8dbf-e687-4151-9851-ffc410ef15f1/download/stat_by_wil_52_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_53_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/af2fa395-97e8-4a82-8126-8bb65368cad8/download/stat_by_wil_53_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_61_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/d806d46a-712d-4777-a0d9-4a3689015865/download/stat_by_wil_61_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_62_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/db812893-6f74-42a6-b0bc-7ba67400c59f/download/stat_by_wil_62_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_63_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/86d72c58-32ef-4367-bbc6-f7d03f6a30d5/download/stat_by_wil_63_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_64_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/fed83e26-05fa-4cfa-a969-5d31bcd722e3/download/stat_by_wil_64_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_65_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/82cf9a73-199e-4f1f-809b-acfc15130b7e/download/stat_by_wil_65_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_71_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/9a642546-030b-4626-b89a-831236c6f774/download/stat_by_wil_71_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_72_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/954ff1dd-9091-40c3-8b7f-ea11cfa728ed/download/stat_by_wil_72_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_73_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/732ca2b9-a541-4589-8788-035ccd6ddfda/download/stat_by_wil_73_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_74_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/e79b5b2a-839d-4962-981d-f2c268a2104d/download/stat_by_wil_74_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_75_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/ac154cf4-2da5-4fd8-a845-3ad93aa51474/download/stat_by_wil_75_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_76_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/36d7874e-abc8-4d9e-9c28-1f2bd76faf36/download/stat_by_wil_76_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_81_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/57118b2c-9641-4d2f-bf72-987200e17245/download/stat_by_wil_81_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_82_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/154160a6-7ac1-4dd0-8eb4-8bcbab528cd4/download/stat_by_wil_82_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_91_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/5200a126-64f4-427a-98c3-4eb85feb36bd/download/stat_by_wil_91_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_92_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/925324a4-bed5-422b-9414-28c564dcfabc/download/stat_by_wil_92_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "stat_by_wil_93_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/5bc042e7-45d7-4b73-a550-a3265127b4d9/download/stat_by_wil_93_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_94_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/7d59243b-9942-4fa6-b6aa-b7839d95c694/download/stat_by_wil_94_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_95_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/daa641d1-1cb6-4c09-b6c4-6e3a4919ecd9/download/stat_by_wil_95_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    },
+    {
+     "title": "stat_by_wil_96_2001.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/b96e3ce5-2670-4f3a-9a57-db5e52cca6bb/resource/8e438980-42d6-4123-a248-145fd8e9d8d9/download/stat_by_wil_96_2001.xlsx",
+     "format": "XLSX",
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 38,
+   "n_datastore": 1,
+   "n_drive": 0,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "API_AVAILABLE",
+   "expected_manual_destination": null,
+   "manual_files": [],
+   "used_for_frequency": false,
+   "note": "Excluded from frequency: predates many regency splits and BNPB (2008)."
+  },
+  {
+   "year": 2002,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2002",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2002",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:36:55.320775",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2002",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2002",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2002",
+     "url": "https://drive.google.com/drive/folders/1cB1h3gjrTonMPsj49pb4aIc8UUDBB554?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2002/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2003,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2003",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2003",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:37:15.440800",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2003",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2003",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2003",
+     "url": "https://drive.google.com/drive/folders/1xMh5ByqtLZpp8gQomQE9hAdBRAS8QXv6?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2003/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2004,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2004",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2004",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:37:40.146629",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2004",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2004",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2004",
+     "url": "https://drive.google.com/drive/folders/1_KqSlahI4QbUiYtrxDaqf26K-b1X41Xg?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2004/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2005,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2005",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2005",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:38:00.791606",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2005",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2005",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2005",
+     "url": "https://drive.google.com/drive/folders/1IxqI09TnYEVLyrUYFhPV1Izap0eCfaGn?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2005/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2006,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2006",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2006",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:38:19.174708",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2006",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2006",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2006",
+     "url": "https://drive.google.com/drive/folders/16ESrYQPqMwBmxSzQk1y0QW-KTwkucyy8?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2006/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2007,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2007",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2007",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:38:44.457128",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2007",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2007",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2007",
+     "url": "https://drive.google.com/drive/folders/1h9mIoEwnWh1rsDErYmLuVEZbZAuXS5je?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2007/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2008,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2008",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2008",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:39:00.438834",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2008",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2008",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2008",
+     "url": "https://drive.google.com/drive/folders/11RcBlfjdPOCViFzLbXxdrzdwOwGkFfcM?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2008/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2009,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2009",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2009",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:39:21.629855",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2009",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2009",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2009",
+     "url": "https://drive.google.com/drive/folders/1dEmB9elGrudc_N7EzfVC6iXR7XscMXkV?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2009/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2010,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2010",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2010",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:39:45.719121",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2010",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2010",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2010",
+     "url": "https://drive.google.com/drive/folders/1HuADXppt6XVdfCt8FZ4Cobw1uAl8QO9F?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2010/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2011,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2011",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2011",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:40:04.028477",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2011",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2011",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2011",
+     "url": "https://drive.google.com/drive/folders/1AsFCoVXTcx_gKbLeWSTXZdvPyzS_b58y?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2011/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2012,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2012",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2012",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:40:39.287669",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2012",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2012",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2012",
+     "url": "https://drive.google.com/drive/folders/1iAhPmnbQ6ymdRnUqGUuUhApmymWHjfg3?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2012/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2013,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2013",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2013",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:41:06.352829",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2013",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2013",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2013",
+     "url": "https://drive.google.com/drive/folders/1P6aH3hmMQ8K3A6J0ABtT-uM4bfLeYFdr?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2013/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2014,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2014",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2014",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:41:25.140728",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2014",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2014",
+   "resources": [
+    {
+     "title": "jum",
+     "url": "https://drive.google.com/drive/folders/1NsN2l293L8vyxPq0wxRbmvRyqBQvVq-Z?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    },
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2014",
+     "url": "https://drive.google.com/drive/folders/1NsN2l293L8vyxPq0wxRbmvRyqBQvVq-Z?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 2,
+   "n_datastore": 0,
+   "n_drive": 2,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2014/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2015,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2015",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2015",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:41:48.361880",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2015",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2015",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2015",
+     "url": "https://drive.google.com/drive/folders/1iJ3br2AAf2y92CrODRa_q_5YzevneOa6?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2015/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2016,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2016",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2016",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:42:04.333389",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2016",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2016",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2016",
+     "url": "https://drive.google.com/drive/folders/19q72ocka_qm4cA0VYp0fFKYL4cgh4dLS?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2016/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2017,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2017",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2017",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:42:24.410450",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2017",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2017",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2017",
+     "url": "https://drive.google.com/drive/folders/1tuz5clbQ3r65MSj25SPuNLzqszlrkMzb?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2017/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2018,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2018",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2018",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:42:46.065960",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2018",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2018",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2018",
+     "url": "https://drive.google.com/drive/folders/169bzm5LKNf0Bmec4yBX2CASWcfxX6j14?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2018/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2019,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2019",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2019",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T01:43:04.562980",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2019",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2019",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2019",
+     "url": "https://drive.google.com/drive/folders/1DmMx0Zq4FGMZGQTEZJVK806T4h-OQh9t?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2019/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2020,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2020",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2020",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T02:17:17.767095",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2020",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2020",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2020",
+     "url": "https://drive.google.com/drive/folders/130sGQ59HWeS2CtBAYwq3c2ebr25cs96u?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2020/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2021,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2021",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2021",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T02:17:36.080433",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2021",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2021",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2021",
+     "url": "https://drive.google.com/drive/folders/1NGzGyYIr1CBhdVByeVMgMDIxtlOZjSam?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2021/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2022,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2022",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2022",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T02:18:01.867231",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2022",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2022",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2022",
+     "url": "https://drive.google.com/drive/folders/1u5AJWrbgSec1PRwYo1NHxYoX3HnH7lkn?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2022/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2023,
+   "package_id": "jumlah-kejadian-dan-dampak-bencana-tahun-2023",
+   "dataset_title": "Jumlah kejadian dan Dampak Bencana Tahun 2023",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Creative Commons Attribution",
+   "metadata_modified": "2024-04-24T02:18:21.204461",
+   "official_source_url": "https://data.bnpb.go.id/dataset/jumlah-kejadian-dan-dampak-bencana-tahun-2023",
+   "description": "Dataset berikut berisi dengan data kejadian dan dampak bencana menurut kabupaten/kota yang terjadi pada tahun 2023",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Tahun 2023",
+     "url": "https://drive.google.com/drive/folders/1ZmYjgbTTf6bByz_XvORmkJHpCRASXvEG?usp=sharing",
+     "format": null,
+     "datastore_active": false
+    }
+   ],
+   "n_resources": 1,
+   "n_datastore": 0,
+   "n_drive": 1,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "MANUAL_DOWNLOAD_REQUIRED",
+   "expected_manual_destination": "data/raw/bnpb/drive_manual/2023/",
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2024,
+   "package_id": "kompilasi-data-jumlah-dan-dampak-kejadian-bencana-2024",
+   "dataset_title": "Kompilasi Data Kejadian dan Dampak Bencana tahun 2024",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Open Data Commons Open Database License (ODbL)",
+   "metadata_modified": "2026-04-16T07:37:39.623402",
+   "official_source_url": "https://data.bnpb.go.id/dataset/kompilasi-data-jumlah-dan-dampak-kejadian-bencana-2024",
+   "description": "Kompilasi data kejadian dan dampak bencana di Indonesia tahun 2024",
+   "resources": [
+    {
+     "title": "Jumlah Kejadian Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/f345ba43-99aa-428c-82d8-4b6a0bba380e/download/jumlah-kejadian-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Meninggal Dunia Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/7a42016e-ce4d-402e-b10e-4e691a3c436f/download/jumlah-korban-meninggal-dunia-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Hilang Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/e5c7f8e7-c3b4-44ff-9581-e7d187240886/download/jumlah-korban-hilang-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Luka / Sakit Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/1852744b-f6b1-4010-933e-cf60087dd54e/download/jumlah-korban-luka-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Terdampak Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/39ceb577-b49f-45c9-b909-7dd8daef417a/download/jumlah-korban-terdampak-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Mengungsi Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/d528ad3f-5159-4c7d-b87e-e41d614df191/download/jumlah-korban-mengungsi-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Rumah Rusak Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/b5e3d843-cf11-4333-b8e3-233a2279b65a/download/jumlah-rumah-rusak-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Satuan Pendidikan Rusak Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/76c8231d-75e8-4e8e-bb9a-1b35ba6ed1f3/download/jumlah-satuan-pendidikan-rusak-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Rumah Ibadat yang Rusak Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/200c487f-e0fc-4dd3-8cf0-b4222d460229/download/jumlah-rumah-ibadat-yang-rusak-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Fasilitas Pelayanan Kesehatan yang Rusak Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/26858365-9061-4ff7-9ccf-53480c6efb61/download/jumlah-fasilitas-pelayanan-kesehatan-yang-rusak-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Kantor yang Rusak Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/091da066-4aca-4699-bd51-a2452f371778/download/jumlah-kantor-yang-rusak-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Kios / Toko yang Rusak Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/cbc56396-4cfa-4959-b9bd-38bf9d4a2d6c/download/jumlah-kios-yang-rusak-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Pabrik Rusak Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/5f69273d-7755-4a5f-82f7-617303ba78ec/download/jumlah-pabrik-rusak-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Jembatan Rusak Akibat Bencana Menurut Provinsi 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/ad86fca8-b15b-4fb6-b30c-259ab32e3113/download/jumlah-jembatan-rusak-akibat-bencana-menurut-provinsi-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Kejadian Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/5ff9f41f-8312-4b7c-aa18-fdbedac6ee7e/download/jumlah-kejadian-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Meninggal Dunia Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/bf415deb-7076-4aaf-90ad-013b9a5292f7/download/jumlah-korban-meninggal-dunia-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Hilang Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/4cddaa9f-45b1-47f5-9428-519e876a8e20/download/jumlah-korban-hilang-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Luka / Sakit Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/820e56bc-fd26-4e47-ae12-5b23f1d5fd08/download/jumlah-korban-luka-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Terdampak Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/89eb9dac-a891-477e-b264-2265f72f4e56/download/jumlah-korban-terdampak-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Mengungsi Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/68c4448c-3de9-42e3-987d-31f5c05c37ba/download/jumlah-korban-mengungsi-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Rumah Rusak Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/5c9f7ea9-f809-487c-b1f8-f05a6f3291b3/download/jumlah-rumah-rusak-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Satuan Pendidikan Rusak Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/8eea8adc-3c4d-4d0d-be9f-6d170127ff6c/download/jumlah-satuan-pendidikan-rusak-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Rumah Ibadat yang Rusak Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/d81153ed-d515-4d03-be64-6591c83b9539/download/jumlah-rumah-ibadat-yang-rusak-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Fasilitas Pelayanan Kesehatan yang Rusak Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/353da3aa-9ada-42aa-a5c2-e653d52ffd9c/download/jumlah-fasilitas-pelayanan-kesehatan-yang-rusak-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Kantor yang Rusak Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/caefcb96-50a3-4a32-af0f-9ccc4bbcf487/download/jumlah-kantor-yang-rusak-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Kios / Toko yang Rusak Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/135f1962-4cb7-4634-a284-ff440a21a70c/download/jumlah-kios-yang-rusak-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Pabrik Rusak Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/11ba1fdc-27cc-46e3-b75b-f4ec545dcf8f/download/jumlah-pabrik-rusak-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah jembatan Rusak Akibat Bencana Menurut Kabupaten 2024.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/36d9a6b5-9755-4515-8f8d-16e29843abc4/resource/fdebc70a-2305-4b25-9fa7-e876892b0f54/download/jumlah-jembatan-rusak-akibat-bencana-menurut-kabupaten-2024.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    }
+   ],
+   "n_resources": 28,
+   "n_datastore": 28,
+   "n_drive": 0,
+   "geographic_resolution": "kabupaten/kota",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "API_AVAILABLE",
+   "expected_manual_destination": null,
+   "manual_files": [],
+   "used_for_frequency": true,
+   "note": ""
+  },
+  {
+   "year": 2025,
+   "package_id": "kompilasi-data-kejadian-dan-dampak-bencana-2025",
+   "dataset_title": "Kompilasi Data Kejadian dan Dampak Bencana 2025",
+   "organization": "Pusat Data Informasi dan Komunikasi Kebencanaan",
+   "license": "Open Data Commons Attribution License",
+   "metadata_modified": "2026-07-08T04:01:34.994747",
+   "official_source_url": "https://data.bnpb.go.id/dataset/kompilasi-data-kejadian-dan-dampak-bencana-2025",
+   "description": "Kompilasi data kejadian dan dampak bencana tahun 2025",
+   "resources": [
+    {
+     "title": "Rekapitulasi Jumlah Kejadian dan Dampak Bencana Menurut Provinsi 2025.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/58878b43-41b5-4ffb-b851-c6d8c8c4d438/resource/6e947c9c-2404-4c02-b743-34dc5320f399/download/rekapitulasi-jumlah-kejadian-dan-dampak-bencana-menurut-provinsi-2025.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Kejadian Bencana Menurut Provinsi 2025.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/58878b43-41b5-4ffb-b851-c6d8c8c4d438/resource/df39e8c3-117e-40fa-b518-ff1037743955/download/jumlah-kejadian-bencana-menurut-provinsi-2025.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Meninggal Akibat Bencana Menurut Provinsi 2025.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/58878b43-41b5-4ffb-b851-c6d8c8c4d438/resource/aefe8331-5962-4610-8b0c-2de637a336cd/download/jumlah-korban-meninggal-akibat-bencana-menurut-provinsi-2025.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Hilang Akibat Bencana Menurut Provinsi 2025.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/58878b43-41b5-4ffb-b851-c6d8c8c4d438/resource/f1de565c-c028-43e7-a48d-109ebb8f3081/download/jumlah-korban-hilang-akibat-bencana-menurut-provinsi-2025.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Terdampak Akibat Bencana Menurut Provinsi 2025.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/58878b43-41b5-4ffb-b851-c6d8c8c4d438/resource/8d8db1c8-d79b-4fb1-b735-d8b9c1e0517a/download/jumlah-korban-terdampak-akibat-bencana-menurut-provinsi-2025.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Luka Akibat Bencana Menurut Provinsi 2025.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/58878b43-41b5-4ffb-b851-c6d8c8c4d438/resource/50b99a45-d8ff-496e-a64f-9e689754371c/download/jumlah-korban-luka-akibat-bencana-menurut-provinsi-2025.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Mengungsi Akibat Bencana Menurut Provinsi 2025.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/58878b43-41b5-4ffb-b851-c6d8c8c4d438/resource/eefa5746-5c65-4156-ac74-2eff2bfac767/download/jumlah-korban-mengungsi-akibat-bencana-menurut-provinsi-2025.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Rumah Rusak Akibat Bencana Menurut Provinsi 2025.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/58878b43-41b5-4ffb-b851-c6d8c8c4d438/resource/43b83e79-c8b6-4b9a-b2f0-d1cbd9cfa636/download/jumlah-rumah-rusak-akibat-bencana-menurut-provinsi-2025.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Mengungsi per 100.000 Orang Akibat Bencana Menurut Provinsi 2025.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/58878b43-41b5-4ffb-b851-c6d8c8c4d438/resource/31a0d329-a363-4a16-852c-f4fa51f313bf/download/jumlah-korban-mengungsi-per-100.000-orang-akibat-bencana-menurut-provinsi-2025.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    },
+    {
+     "title": "Jumlah Korban Meninggal dan Hilang per 100.000 Orang Akibat Bencana Menurut Provinsi 2025.xlsx",
+     "url": "https://data.bnpb.go.id/dataset/58878b43-41b5-4ffb-b851-c6d8c8c4d438/resource/f800105c-ac2f-4b47-b097-0cd4f5d63b82/download/jumlah-korban-meninggal-dan-hilang-per-100.000-orang-akibat-bencana-menurut-provinsi-2025.xlsx",
+     "format": "XLSX",
+     "datastore_active": true
+    }
+   ],
+   "n_resources": 10,
+   "n_datastore": 10,
+   "n_drive": 0,
+   "geographic_resolution": "unknown (check resources)",
+   "variables_documented": "events and impacts by disaster type (per dataset description); exact columns to be confirmed on real files",
+   "status": "API_AVAILABLE",
+   "expected_manual_destination": null,
+   "manual_files": [],
+   "used_for_frequency": false,
+   "note": "Province level only."
+  }
+ ]
+}
