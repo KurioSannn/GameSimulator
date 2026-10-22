@@ -1,0 +1,218 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0006",
+ "research_ref": "research/cases/CASE-0006.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Kemarau Panjang di Sabu Raijua",
+ "location_label": "Kab. Sabu Raijua dan Kab. Kupang, Nusa Tenggara Timur",
+ "focus_regions": [
+  "53.20",
+  "53.01"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 9
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0006"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 10
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:53.20",
+   "var": "welfare",
+   "op": "add",
+   "value": -3.0
+  },
+  {
+   "scope": "region:53.20",
+   "var": "services",
+   "op": "add",
+   "value": -2.0
+  },
+  {
+   "scope": "region:53.01",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "region:53.01",
+   "var": "services",
+   "op": "add",
+   "value": -0.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "BMKG memprakirakan musim hujan 2023/2024 umumnya tiba lebih lambat: El Nino moderat (indeks +1,504) dan IOD positif (+1,527) diperkirakan bertahan hingga akhir 2023.",
+    "source_refs": [
+     "SRC-BMKG-SP-2023-09-08"
+    ],
+    "as_of": "2023-09-08"
+   },
+   {
+    "text": "Stasiun Klimatologi NTT memprakirakan 19 dari 28 zona musim di NTT mengalami awal musim hujan terlambat (Desember), termasuk Pulau Sumba, Rote Ndao, dan sebagian besar Pulau Timor.",
+    "source_refs": [
+     "SRC-BMKG-STAKLIM-NTT-2023-09-20"
+    ],
+    "as_of": "2023-09-20"
+   },
+   {
+    "text": "Pemprov NTT menetapkan siaga darurat kekeringan hingga Oktober 2023; enam kabupaten menetapkan status serupa: Belu, Rote Ndao, Sabu Raijua, Kupang, Alor, dan Sumba Barat Daya.",
+    "source_refs": [
+     "SRC-ANTARA-NTT-KEKERINGAN-2023-08-26"
+    ],
+    "as_of": "2023-08-26"
+   },
+   {
+    "text": "Data BNPB yang dipublikasikan BPS NTT mencatat 32.064 jiwa terdampak dan mengungsi akibat kekeringan pada 2023: 31.020 di Sabu Raijua dan 1.044 di Kabupaten Kupang; kabupaten lain tidak tercatat.",
+    "source_refs": [
+     "SRC-BPS-NTT-KORBAN-BENCANA-2023"
+    ],
+    "as_of": "2024-02-22"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Kebencanaan",
+  "text": "Pak Presiden, kasus ini diangkat dari kekeringan nyata tahun 2023 di NTT. Dalam simulasi kita, warga Sabu Raijua mengantre air dan ladang mengering; Kabupaten Kupang ikut terdampak dengan skala lebih kecil. Hujan diperkirakan baru datang Desember. Kita bisa menolong cepat, menopang penghidupan, atau membangun ketahanan air untuk kemarau berikutnya."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Sabu Raijua welfare −3, services (water access) −2; Kab. Kupang −1 / −0.5. The ordering follows the BNPB-recorded victims (31,020 vs 1,044 persons). The values are not proportional, because population is uncalibrated (G-01). No regional water, crop or livestock data was sourced."
+ },
+ "follow_ups": [
+  "CASE-0006-R"
+ ],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "drought -> services (water access) and welfare -> sentiment; relief -> services or welfare (temporary); water investment -> infrastructure (+ logistics, food realization in the model) and services after 9 months; the next dry season's hit is scaled by infrastructure (scale_by gap)",
+  "immediate": "a: services +1.5/month for 3 months, trust +1, fiscal −2; b: welfare +1/month for 4 months (stronger where welfare is low), fiscal −3; c: fiscal −5, trust −1 (no visible relief)",
+  "delayed": "c: infrastructure +10 and services +2 after 9 months",
+  "regional": "Only Sabu Raijua and Kab. Kupang (the regencies with BNPB drought victims). Other regencies that declared emergency status are context only.",
+  "national": "fiscal_space; national indicators move only through two regions (equal weighting)",
+  "branching": "every path -> CASE-0006-R in the next dry season (Aug–Oct, from month 22); its welfare/services hit is smaller where water infrastructure was built",
+  "assumptions": "All magnitudes are design values (G-29, G-30). 'services' stands in for basic water service and 'infrastructure' for water infrastructure."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Distribusi air bersih darurat",
+   "description": "Truk tangki dan penampungan air dikirim ke desa terdampak bersama BPBD. Cepat terasa, tetapi berhenti saat bantuan berhenti dan tidak mengubah kesiapan untuk kemarau berikutnya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:53.20,53.01",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "duration": 3
+    },
+    {
+     "scope": "regions:53.20,53.01",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "ntt2023_response": "emergency_water"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Bantuan pangan dan penghidupan",
+   "description": "Bantuan pangan dan dukungan penghidupan untuk rumah tangga petani dan peternak terdampak, lebih besar bagi yang paling rentan. Menopang kesejahteraan selama kemarau, tetapi tidak menambah pasokan air.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "regions:53.20,53.01",
+     "var": "welfare",
+     "op": "add",
+     "value": 1.0,
+     "duration": 4,
+     "scale_by": {
+      "var": "welfare",
+      "mode": "gap",
+      "ref": 50,
+      "min": 0.5,
+      "max": 1.5
+     }
+    },
+    {
+     "scope": "regions:53.20,53.01",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "ntt2023_response": "livelihood_support"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Bangun ketahanan air",
+   "description": "Anggaran dialihkan ke embung, sumur bor, dan jaringan perpipaan. Tidak ada bantuan yang terlihat sekarang; manfaat baru terasa setelah sekitar sembilan bulan dan mengurangi dampak kemarau berikutnya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "regions:53.20,53.01",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "regions:53.20,53.01",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 10.0,
+     "delay": 9
+    },
+    {
+     "scope": "regions:53.20,53.01",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 9
+    }
+   ],
+   "memory": {
+    "ntt2023_response": "water_resilience"
+   }
+  }
+ ]
+}

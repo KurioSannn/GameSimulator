@@ -1,0 +1,51 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0006",
+ "title": "Kekeringan 2023 di Nusa Tenggara Timur: ketahanan air dan penghidupan",
+ "status": "researched",
+ "status_note": "Climate context is from official BMKG releases (national, 8 Sep 2023; Staklim NTT, 20 Sep 2023). Drought victims by regency come from the BPS NTT table (source BNPB), parsed from the data embedded in the page. The emergency declarations are from ANTARA quoting BPBD NTT. Not 'validated': there are no regency-level data on water access, reservoirs, groundwater, crop or livestock losses.",
+ "category": "climate_water",
+ "subcategories": ["drought", "el_nino", "clean_water", "livelihood", "dryland_agriculture"],
+ "start_date": "2023-07",
+ "end_date": "2023-12",
+ "decision_as_of": "2023-09",
+ "island": "bali_nusa_tenggara",
+ "provinces": ["53"],
+ "regency_city_documented": [
+  {"region_id": "53.20", "evidence": "BPS NTT (source BNPB): 31,020 people affected and displaced by drought in 2023 (category 'Terdampak dan Mengungsi'). Also among the six regencies with a drought emergency status (ANTARA, 26 Aug 2023).", "source_refs": ["SRC-BPS-NTT-KORBAN-BENCANA-2023", "SRC-ANTARA-NTT-KEKERINGAN-2023-08-26"]},
+  {"region_id": "53.01", "evidence": "BPS NTT (source BNPB): 1,044 people affected and displaced by drought in 2023. Also among the six regencies with a drought emergency status.", "source_refs": ["SRC-BPS-NTT-KORBAN-BENCANA-2023", "SRC-ANTARA-NTT-KEKERINGAN-2023-08-26"]}
+ ],
+ "regions_considered_not_used": [
+  {"region_id": "53.04,53.05,53.14,53.18", "reason": "Belu, Rote Ndao, Alor and Sumba Barat Daya declared drought emergency status (ANTARA, Aug 2023), but the BPS/BNPB table records no drought victims there for 2023. A status declaration is not a measured impact, so these regencies are context only and receive no direct effects."},
+  {"region_id": "53", "reason": "BMKG's late-onset forecast covers 19 of 28 NTT season zones. It is a forecast, not an impact measurement, and zones do not map one-to-one to kabupaten. It is not used to spread effects across NTT."}
+ ],
+ "real_facts": [
+  {"fact": "BMKG: El Niño reached moderate strength (index +1.504) and the IOD was positive (+1.527), expected to stay positive through the end of 2023. The 2023/2024 rainy season would generally arrive later than usual, peaking in January–February 2024.", "kind": "fact", "source_refs": ["SRC-BMKG-SP-2023-09-08"], "as_of": "2023-09-08", "quote": "Musim Hujan pada tahun 2023/2024 umumnya akan tiba lebih lambat dibandingkan dengan biasanya."},
+  {"fact": "Stasiun Klimatologi NTT forecast that 19 of 28 season zones in NTT would have a late onset (December), with the peak mostly in February 2024. Late areas include Pulau Sumba, Rote Ndao and most of Pulau Timor.", "kind": "fact", "source_refs": ["SRC-BMKG-STAKLIM-NTT-2023-09-20"], "as_of": "2023-09-20", "note": "The same release also cites '16 ZOM (57%)' later than normal. The two counts measure different things (onset month vs comparison with the 1991–2020 normal). The game text uses the 19/28 statement of the station head."},
+  {"fact": "BPBD NTT (Ambrosius Kodo): the provincial government set a drought emergency alert (siaga darurat kekeringan) until October 2023. Six regencies had declared emergency status: Belu, Rote Ndao, Sabu Raijua, Kupang, Alor and Sumba Barat Daya. Measures included clean-water assistance and rapid assessments.", "kind": "fact", "source_refs": ["SRC-ANTARA-NTT-KEKERINGAN-2023-08-26"], "as_of": "2023-08-26"},
+  {"fact": "BPS NTT table 'Jumlah Korban yang Diakibatkan Bencana Alam Menurut Kabupaten/Kota di Provinsi NTT, 2023' (source BNPB): drought victims in the category 'Terdampak dan Mengungsi' (persons) were Kabupaten Kupang 1,044 and Sabu Raijua 31,020, NTT total 32,064. No drought deaths or injuries were recorded, and no other regency has a drought value.", "kind": "statistic", "source_refs": ["SRC-BPS-NTT-KORBAN-BENCANA-2023"], "as_of": "2024-02-22", "note": "BPS publishes '31.020' with a thousands separator. Table created 2024-02-22. The responsible agency listed is BPBD NTT. The counts are BNPB-recorded persons; they are not a share of the population and not a measure of water shortage."},
+  {"fact": "BPS NTT 2023 rice (padi): Kabupaten Kupang 18,609.03 ha harvested and 83,408.13 t produced; Sabu Raijua 1,458.30 ha and 6,645.16 t; NTT 184,698.89 ha and 766,810.46 t.", "kind": "statistic_context", "source_refs": ["SRC-BPS-NTT-PADI-2023"], "as_of": "2024-02-01", "note": "Context only. It is not a drought-loss measure, and no year-on-year loss is computed. Maize, the main dryland crop, was not retrieved."}
+ ],
+ "information_available_at_decision": "In September 2023 a decision-maker knew:\n- El Niño and positive-IOD conditions;\n- the late-rain forecast for most of NTT;\n- the provincial emergency alert and the six regency declarations.\nThe affected-person counts (BNPB, published by BPS in Feb 2024) were compiled later; the game shows them as the documented historical record of exposure.",
+ "trigger": ["El Niño + positive IOD dry season 2023 with delayed rainy-season onset in NTT"],
+ "root_causes_note": "Climate drivers are from BMKG. The game makes no claim about local water infrastructure, groundwater or reservoir capacity (no source).",
+ "stakeholders": ["rumah tangga di desa terdampak", "petani lahan kering dan peternak", "BPBD provinsi dan kabupaten", "BNPB", "BMKG", "pemerintah kabupaten Sabu Raijua dan Kupang"],
+ "cultural_connection": "CULT-0003 (mamar, Kab. Kupang/Amarasi Barat) was researched. The evidence concerns erosion and agroforestry sustainability, not drought or water supply, and is documented at village/kecamatan scale. It is recorded as informational only and NOT used as a mechanic.",
+ "sources": [
+  {"source_id": "SRC-BMKG-SP-2023-09-08", "institution": "BMKG", "title": "Kapan Musim Hujan Tiba? Ini Prediksi Lengkap BMKG (siaran pers)", "url": "https://www.bmkg.go.id/siaran-pers/kapan-musim-hujan-tiba-ini-prediksi-lengkap-bmkg", "publication_date": "2023-09-08", "retrieved_at": "2026-10-23", "source_quality": "REAL_OFFICIAL"},
+  {"source_id": "SRC-BMKG-STAKLIM-NTT-2023-09-20", "institution": "BMKG — Stasiun Klimatologi Kelas II NTT", "title": "Staklim Nusa Tenggara Timur Gelar Press Release Prakiraan Awal Musim Hujan Provinsi NTT Tahun 2023/2024", "url": "https://www.bmkg.go.id/berita/daerah/staklim-nusa-tenggara-timur-gelar-press-release-prakiraan-awal-musim-hujan-provinsi-ntt-tahun-2023-2024", "publication_date": "2023-09-20", "retrieved_at": "2026-10-23", "source_quality": "REAL_OFFICIAL"},
+  {"source_id": "SRC-ANTARA-NTT-KEKERINGAN-2023-08-26", "institution": "ANTARA", "title": "Enam kabupaten di NTT tetapkan status darurat kekeringan", "url": "https://papuatengah.antaranews.com/berita/33051/enam-kabupaten-di-ntt-tetapkan-status-darurat-kekeringan", "publication_date": "2023-08-26", "retrieved_at": "2026-10-23", "source_quality": "REAL_NEWS (state news agency, quotes BPBD NTT)"},
+  {"source_id": "SRC-BPS-NTT-KORBAN-BENCANA-2023", "institution": "BPS Provinsi Nusa Tenggara Timur (sumber data: BNPB)", "title": "Jumlah Korban yang Diakibatkan Bencana Alam Menurut Kabupaten/Kota di Provinsi Nusa Tenggara Timur, 2023", "url": "https://ntt.bps.go.id/id/statistics-table/3/T0VGNVR6UkVaakVyUmxWTU1YTlhSQzkzYW1vclFUMDkjMw==/jumlah-korban-yang-diakibatkan-bencana-alam-menurut-kabupaten-kota-di-provinsi-nusa-tenggara-timur--2023.html?year=2023", "publication_date": "2024-02-22", "retrieved_at": "2026-10-23", "source_quality": "REAL_OFFICIAL", "raw_capture": "data/raw/cases/CASE-0006/bps_ntt_korban_bencana_2023.html (sha256 cf6461c5…)"},
+  {"source_id": "SRC-BPS-NTT-PADI-2023", "institution": "BPS Provinsi Nusa Tenggara Timur", "title": "Luas Panen, Produktivitas, dan Produksi Padi Menurut Kabupaten/Kota di Provinsi Nusa Tenggara Timur, 2023", "url": "https://ntt.bps.go.id/id/statistics-table/3/WmpaNk1YbGFjR0pOUjBKYWFIQlBSU3MwVHpOVWR6MDkjMw==/luas-panen--produktivitas--dan-produksi-padi-menurut-kabupaten-kota-di-provinsi-nusa-tenggara-timur--2023.html?year=2023", "publication_date": "2024-02-01", "retrieved_at": "2026-10-23", "source_quality": "REAL_OFFICIAL", "raw_capture": "data/raw/cases/CASE-0006/bps_ntt_padi_kabkota_2023.html (sha256 b003ee05…)"}
+ ],
+ "rejected_or_unverified": [
+  "Reservoir (embung) capacity, groundwater, water-tanker volumes, water prices: no source; not modeled.",
+  "Crop and livestock losses by regency for 2023: not retrieved (maize table not checked); not modeled.",
+  "Share of the population affected: population is UNCALIBRATED in the game (G-01), so 31,020 persons cannot be expressed as a share.",
+  "Media Indonesia / Metro TV zone counts (inconsistent with the BMKG release): not used."
+ ],
+ "todo_to_validate": ["BNPB DIBI event records for the NTT drought events of 2023", "BPS maize production by regency 2022–2023", "PUPR/BWS NT II data on embung and boreholes for Sabu Raijua and Kupang", "BPS population 2023 for 53.20 and 53.01 (to express exposure as a share)"],
+ "game_adaptation_ref": "game/data/cases/CASE-0006.json",
+ "game_adaptation_notes": "Direct effects apply only to 53.20 (Sabu Raijua) and 53.01 (Kab. Kupang), the regencies with BNPB-recorded drought victims. The case event is a design translation: welfare −3 / −1 and services (water access) −2 / −0.5. These preserve the ordering of exposure (31,020 vs 1,044 persons) but are not proportional, because population is uncalibrated. 'services' stands in for basic water service and 'infrastructure' for water infrastructure. No new variable: no regency-level water baseline exists. Existing national policies (BLT, irrigation) were not reused because their commitments are shares of the national budget envelope and would overstate the cost of support for two regencies.",
+ "fact_vs_simulation_notes": "BMKG forecasts, the emergency declarations and BNPB/BPS victim counts are real. The President's options, their consequences and the next dry season are SIMULATED."
+}

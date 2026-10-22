@@ -1,0 +1,158 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0006-R",
+ "origin_case": "CASE-0006",
+ "research_ref": "research/cases/CASE-0006.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Kemarau Berikutnya",
+ "location_label": "Kab. Sabu Raijua dan Kab. Kupang",
+ "focus_regions": [
+  "53.20",
+  "53.01"
+ ],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_seen": "CASE-0006"
+    },
+    {
+     "tick": ">=",
+     "value": 21
+    },
+    {
+     "month": [
+      8,
+      9,
+      10
+     ]
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:53.20",
+   "var": "welfare",
+   "op": "add",
+   "value": -2.5,
+   "scale_by": {
+    "var": "infrastructure",
+    "mode": "gap",
+    "ref": 50,
+    "min": 0.3,
+    "max": 1.5
+   }
+  },
+  {
+   "scope": "region:53.20",
+   "var": "services",
+   "op": "add",
+   "value": -1.5,
+   "scale_by": {
+    "var": "infrastructure",
+    "mode": "gap",
+    "ref": 50,
+    "min": 0.3,
+    "max": 1.5
+   }
+  },
+  {
+   "scope": "region:53.01",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.8,
+   "scale_by": {
+    "var": "infrastructure",
+    "mode": "gap",
+    "ref": 50,
+    "min": 0.3,
+    "max": 1.5
+   }
+  }
+ ],
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul pada musim kemarau berikutnya (Agustus–Oktober, mulai bulan ke-22). Dampaknya lebih kecil di wilayah yang infrastruktur airnya lebih baik. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Kebencanaan",
+  "text": "Kemarau datang lagi di Sabu Raijua dan Kupang. Pemerintah daerah bertanya apakah pusat akan mengirim bantuan seperti tahun lalu."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Kirim air bersih lagi",
+   "description": "Distribusi air darurat diulang.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:53.20,53.01",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "ntt_next_dry": "emergency_water"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Percepat proyek air",
+   "description": "Dana tambahan untuk menyelesaikan sumur bor dan perpipaan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "regions:53.20,53.01",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 3
+    }
+   ],
+   "memory": {
+    "ntt_next_dry": "accelerate_water"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Serahkan pada pemerintah daerah",
+   "description": "Penanganan diserahkan kepada pemerintah kabupaten.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "regions:53.20,53.01",
+     "var": "trust",
+     "op": "add",
+     "value": -1.5
+    }
+   ],
+   "memory": {
+    "ntt_next_dry": "local"
+   }
+  }
+ ]
+}

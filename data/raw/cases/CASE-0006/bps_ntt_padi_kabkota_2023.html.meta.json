@@ -1,0 +1,10 @@
+{
+ "source_id": "SRC-BPS-NTT-PADI-2023",
+ "snapshot_id": "CASES-2026-10-23",
+ "url": "https://ntt.bps.go.id/id/statistics-table/3/WmpaNk1YbGFjR0pOUjBKYWFIQlBSU3MwVHpOVWR6MDkjMw==/luas-panen--produktivitas--dan-produksi-padi-menurut-kabupaten-kota-di-provinsi-nusa-tenggara-timur--2023.html?year=2023",
+ "retrieved_at": "2026-10-23",
+ "http_status": 200,
+ "bytes": 114631,
+ "sha256": "b003ee05bde4b8e14bdb298bd23ca785b70ef14308e2ffd968443e7b6d7a8145",
+ "note": "Retrieved 2026-10-23 during CASE-0006/0007 research. BPS tables embed their data as JSON in the page HTML."
+}

@@ -1,0 +1,10 @@
+{
+ "source_id": "SRC-BPS-NTT-KORBAN-BENCANA-2023",
+ "snapshot_id": "CASES-2026-10-23",
+ "url": "https://ntt.bps.go.id/id/statistics-table/3/T0VGNVR6UkVaakVyUmxWTU1YTlhSQzkzYW1vclFUMDkjMw==/jumlah-korban-yang-diakibatkan-bencana-alam-menurut-kabupaten-kota-di-provinsi-nusa-tenggara-timur--2023.html?year=2023",
+ "retrieved_at": "2026-10-23",
+ "http_status": 200,
+ "bytes": 200117,
+ "sha256": "cf6461c5cdf475a6d2b236bcc1f41f5d9c8a526e2e7022eb3ae92f8df6beed40",
+ "note": "Retrieved 2026-10-23 during CASE-0006/0007 research. BPS tables embed their data as JSON in the page HTML."
+}
