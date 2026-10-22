@@ -1,0 +1,22 @@
+
+CASE-0005/a decided t=30
+  Q+1 t=33 | 72.06 wb=55.0 wel=52.67 env=48.5 trust=49.34 svc=48.0 sent=49.12 | 82.02 wb=55.0 wel=52.35 env=48.5 trust=49.62 svc=48.0 sent=48.24 | fiscal=41.0 natWel=53.102 natSent=51.117 natEnv=49.994
+  Q+2 t=36 | 72.06 wb=55.0 wel=52.66 env=47.0 trust=49.25 svc=48.0 sent=48.20 | 82.02 wb=55.0 wel=51.98 env=47.0 trust=49.39 svc=48.0 sent=47.07 | fiscal=41.0 natWel=53.137 natSent=51.058 natEnv=49.988
+  Q+3 t=39 | 72.06 wb=58.0 wel=53.79 env=45.5 trust=48.96 svc=48.0 sent=46.13 | 82.02 wb=58.0 wel=52.61 env=45.5 trust=48.89 svc=48.0 sent=44.16 | fiscal=41.0 natWel=52.993 natSent=50.713 natEnv=49.982 [CASE-0005-A→a]
+  Q+4 t=42 | 72.06 wb=58.0 wel=54.30 env=44.0 trust=48.54 svc=48.0 sent=45.08 | 82.02 wb=58.0 wel=52.19 env=44.0 trust=49.48 svc=48.0 sent=41.90 | fiscal=44.0 natWel=52.928 natSent=50.450 natEnv=49.977 [CASE-0003→a]
+  Q+5 t=45 | 72.06 wb=58.0 wel=54.31 env=44.0 trust=48.04 svc=48.0 sent=43.95 | 82.02 wb=58.0 wel=51.93 env=46.0 trust=48.48 svc=48.0 sent=40.44 | fiscal=42.0 natWel=52.484 natSent=49.408 natEnv=49.981 [CASE-0003-A→a]
+  Q+6 t=48 | 72.06 wb=58.0 wel=54.10 env=44.0 trust=47.50 svc=48.0 sent=42.97 | 82.02 wb=58.0 wel=52.11 env=46.0 trust=47.50 svc=48.0 sent=39.89 | fiscal=42.0 natWel=52.178 natSent=48.505 natEnv=49.981
+CASE-0005/b decided t=30
+  Q+1 t=33 | 72.06 wb=55.0 wel=52.67 env=49.4 trust=51.17 svc=48.0 sent=49.79 | 82.02 wb=55.0 wel=52.35 env=49.4 trust=51.45 svc=48.0 sent=48.91 | fiscal=38.0 natWel=53.102 natSent=51.120 natEnv=49.998
+  Q+2 t=36 | 72.06 wb=55.0 wel=53.03 env=48.8 trust=52.80 svc=51.0 sent=49.96 | 82.02 wb=55.0 wel=52.35 env=48.8 trust=52.94 svc=51.0 sent=48.83 | fiscal=38.0 natWel=53.138 natSent=51.065 natEnv=49.995
+  Q+3 t=39 | 72.06 wb=55.0 wel=52.88 env=48.2 trust=52.43 svc=51.0 sent=49.43 | 82.02 wb=55.0 wel=51.71 env=48.2 trust=52.37 svc=51.0 sent=47.46 | fiscal=38.0 natWel=52.989 natSent=50.725 natEnv=49.993 [CASE-0003→a]
+  Q+4 t=42 | 72.06 wb=56.5 wel=53.00 env=47.6 trust=51.91 svc=51.0 sent=47.37 | 82.02 wb=56.5 wel=50.88 env=47.6 trust=51.49 svc=51.0 sent=43.75 | fiscal=36.0 natWel=52.388 natSent=49.419 natEnv=49.991 [CASE-0003-A→a]
+  Q+5 t=45 | 72.06 wb=56.5 wel=53.13 env=47.6 trust=51.30 svc=51.0 sent=46.38 | 82.02 wb=56.5 wel=50.75 env=47.6 trust=50.44 svc=51.0 sent=41.96 | fiscal=38.0 natWel=52.123 natSent=48.522 natEnv=49.991 [CASE-0004→a]
+  Q+6 t=48 | 72.06 wb=56.5 wel=53.09 env=47.6 trust=50.69 svc=51.0 sent=45.68 | 82.02 wb=56.5 wel=51.11 env=47.6 trust=49.42 svc=51.0 sent=41.52 | fiscal=34.0 natWel=51.570 natSent=47.280 natEnv=49.251
+CASE-0005/c decided t=30
+  Q+1 t=33 | 72.06 wb=55.0 wel=52.67 env=49.7 trust=52.08 svc=48.0 sent=50.10 | 82.02 wb=55.0 wel=52.35 env=49.7 trust=51.45 svc=48.0 sent=48.95 | fiscal=41.0 natWel=53.102 natSent=51.120 natEnv=49.999
+  Q+2 t=36 | 72.06 wb=55.0 wel=52.66 env=49.4 trust=51.83 svc=48.0 sent=49.75 | 82.02 wb=55.0 wel=51.98 env=49.4 trust=51.13 svc=48.0 sent=48.25 | fiscal=41.0 natWel=53.137 natSent=51.064 natEnv=49.998 [CASE-0005-C→a]
+  Q+3 t=39 | 72.06 wb=55.5 wel=52.57 env=48.6 trust=51.51 svc=48.0 sent=48.76 | 82.02 wb=55.5 wel=51.39 env=48.6 trust=50.65 svc=48.0 sent=46.39 | fiscal=40.0 natWel=52.988 natSent=50.722 natEnv=49.995 [CASE-0003→a]
+  Q+4 t=42 | 72.06 wb=55.5 wel=51.97 env=47.9 trust=51.04 svc=48.0 sent=46.94 | 82.02 wb=55.5 wel=49.85 env=47.9 trust=49.87 svc=48.0 sent=42.91 | fiscal=38.0 natWel=52.384 natSent=49.416 natEnv=49.992 [CASE-0003-A→a]
+  Q+5 t=45 | 72.06 wb=56.5 wel=52.23 env=47.4 trust=50.45 svc=48.0 sent=45.51 | 82.02 wb=56.5 wel=49.84 env=47.4 trust=48.88 svc=48.0 sent=40.68 | fiscal=38.0 natWel=52.120 natSent=48.518 natEnv=49.990 [CASE-0004→a]
+  Q+6 t=48 | 72.06 wb=56.5 wel=52.25 env=47.0 trust=49.81 svc=48.0 sent=44.57 | 82.02 wb=56.5 wel=50.25 env=47.0 trust=47.87 svc=48.0 sent=40.01 | fiscal=34.0 natWel=51.567 natSent=47.275 natEnv=49.249

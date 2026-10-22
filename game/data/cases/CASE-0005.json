@@ -1,0 +1,227 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0005",
+ "research_ref": "research/cases/CASE-0005.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Nikel: Nilai Tambah atau Harga yang Dibayar?",
+ "location_label": "Kab. Morowali (Sulawesi Tengah) dan Kab. Halmahera Tengah (Maluku Utara)",
+ "focus_regions": [
+  "72.06",
+  "82.02"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 30
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0005"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 10
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:72.06",
+   "var": "trust",
+   "op": "add",
+   "value": -2.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Kementerian ESDM melarang ekspor bijih nikel berkadar di bawah 1,7% mulai 1 Januari 2020 untuk mempercepat pembangunan smelter; alasannya, cadangan terbukti 698 juta ton hanya cukup memasok fasilitas pemurnian sekitar 7,3 tahun.",
+    "source_refs": [
+     "SRC-ESDM-NIKEL-2019-09-02"
+    ],
+    "as_of": "2019-09-02"
+   },
+   {
+    "text": "Panel WTO (sengketa DS592 yang diajukan Uni Eropa) menyatakan larangan ekspor itu bertentangan dengan Pasal XI:1 GATT; Indonesia mengajukan banding pada 8 Desember 2022.",
+    "source_refs": [
+     "SRC-WTO-DS592"
+    ],
+    "as_of": "2022-12-08"
+   },
+   {
+    "text": "BPS mencatat pertumbuhan ekonomi 2022 Maluku Utara 22,94% dan Sulawesi Tengah 15,17%, tertinggi di Sulawesi–Maluku–Papua. Presiden menyebut ekspor nikel naik dari sekitar US$2,1 miliar per tahun sebelum 2020 menjadi US$33,8 miliar setelah hilirisasi (klaim pemerintah).",
+    "source_refs": [
+     "SRC-BPS-SULBAR-PDRB-2022",
+     "SRC-SETKAB-HILIRISASI-2023-08-19"
+    ],
+    "as_of": "2023-08-19"
+   },
+   {
+    "text": "Perpres 112/2022 melarang PLTU baru kecuali yang terintegrasi dengan industri pengolahan sumber daya alam, dengan kewajiban memangkas emisi minimal 35% dalam 10 tahun dan beroperasi paling lama sampai 2050.",
+    "source_refs": [
+     "SRC-ESDM-PERPRES112-2022"
+    ],
+    "as_of": "2022-09-23"
+   },
+   {
+    "text": "Ledakan tungku smelter di kawasan IMIP, Kabupaten Morowali, pada 24 Desember 2023 menewaskan 20 pekerja menurut Polda Sulawesi Tengah; Kemnaker menurunkan tim pengawas.",
+    "source_refs": [
+     "SRC-ANTARA-IMIP-2023-12-25",
+     "SRC-ANTARA-IMIP-2024-02-12"
+    ],
+    "as_of": "2024-02-12"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Ekonomi",
+  "text": "Pak Presiden, kasus ini diangkat dari kebijakan hilirisasi nikel yang nyata. Kawasan industri di Morowali dan Halmahera Tengah tumbuh sangat cepat, tetapi ledakan smelter, sengketa WTO, PLTU batu bara di kawasan, dan keluhan warga soal hutan dan sungai membuat banyak pihak bertanya: berapa harga yang dibayar daerah penghasil? Anda harus memutuskan arah izin smelter berikutnya."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event: trust −2 in Kab. Morowali (design translation of the documented fatal explosion). No official regional data on production, employment, local income, pollution or health was located: every magnitude in this case is a design value (UNCALIBRATED)."
+ },
+ "follow_ups": [
+  "CASE-0005-A",
+  "CASE-0005-C"
+ ],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "permit policy -> welfare_base (structural income from industrial jobs, design proxy) -> welfare -> sentiment; land clearing and emissions -> environment -> sentiment; safeguards -> services (inspection/health capacity) and trust; national revenue or enforcement cost -> fiscal_space -> sector budget room",
+  "immediate": "a: trust −2 in both estate regencies; b: fiscal −3 (enforcement); c: trust +1 in Morowali (safety review after the explosion)",
+  "delayed": "a: structural welfare +3 after 6 months, national revenue +4 after 9 months, environment −0.5/month for 12 months; b: services and trust +2/+3 after 3 months, structural welfare +1.5 after 9 months, revenue +2 after 12 months, environment −0.2/month; c: structural welfare +0.5 after 6 months (existing plants only), environment −0.1/month",
+  "regional": "Only the two documented estate regencies receive direct effects. Other nickel-mining or processing areas (e.g. Konawe, Obi) are not modeled until sourced. Province-level BPS growth is context only.",
+  "national": "fiscal_space (revenue vs enforcement cost); national indicators move only through the two regions' states",
+  "branching": "a -> CASE-0005-A if Halmahera Tengah's environment index falls below 46; c -> CASE-0005-C six months after the decision",
+  "assumptions": "All magnitudes are design values. welfare_base stands in for industrial income because no kab-level employment/income series was sourced (gap G-23). Environment pressure is not a pollution measurement (G-24). The revenue effect is not derived from tax data (G-25)."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Percepat hilirisasi",
+   "description": "Larangan ekspor bijih dipertahankan dan banding WTO dilanjutkan; izin smelter dan PLTU kawasan dipercepat sesuai pengecualian Perpres 112/2022. Pendapatan dan lapangan kerja tumbuh paling cepat, tetapi tekanan lingkungan di kawasan paling besar dan warga merasa keselamatan dikesampingkan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": 4.0,
+     "delay": 9
+    },
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    },
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "environment",
+     "op": "add",
+     "value": -0.5,
+     "duration": 12
+    },
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "trust",
+     "op": "add",
+     "value": -2.0
+    }
+   ],
+   "memory": {
+    "nickel2024_path": "accelerate"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Hilirisasi bersyarat",
+   "description": "Larangan ekspor tetap, tetapi izin baru disyaratkan audit keselamatan kerja (K3) dan lingkungan, pengawasan diperkuat, dan pembangkit baru di kawasan diarahkan ke energi bersih. Ada biaya pengawasan sekarang; manfaat ekonomi datang lebih lambat dan lebih kecil.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": 2.0,
+     "delay": 12
+    },
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 1.5,
+     "delay": 9
+    },
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "environment",
+     "op": "add",
+     "value": -0.2,
+     "duration": 12
+    },
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "services",
+     "op": "add",
+     "value": 3.0,
+     "delay": 3
+    },
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "trust",
+     "op": "add",
+     "value": 2.0,
+     "delay": 3
+    }
+   ],
+   "memory": {
+    "nickel2024_path": "conditional"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Tahan izin smelter baru",
+   "description": "Moratorium izin smelter baru sambil meninjau cadangan, keselamatan, dan dampak lingkungan; smelter yang sudah ada tetap beroperasi. Tekanan lingkungan paling kecil dan penyelidikan keselamatan dihargai di Morowali, tetapi pertumbuhan pendapatan daerah tertahan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.5,
+     "delay": 6
+    },
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "environment",
+     "op": "add",
+     "value": -0.1,
+     "duration": 12
+    },
+    {
+     "scope": "region:72.06",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "nickel2024_path": "moratorium"
+   }
+  }
+ ]
+}

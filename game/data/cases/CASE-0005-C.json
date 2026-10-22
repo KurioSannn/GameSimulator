@@ -1,0 +1,118 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0005-C",
+ "origin_case": "CASE-0005",
+ "research_ref": "research/cases/CASE-0005.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Investor Menunggu Kepastian",
+ "location_label": "Kab. Morowali dan Kab. Halmahera Tengah",
+ "focus_regions": [
+  "72.06",
+  "82.02"
+ ],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0005",
+     "choice": "c"
+    },
+    {
+     "tick": ">=",
+     "value": 36
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul enam bulan setelah moratorium izin smelter baru. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Ekonomi",
+  "text": "Beberapa proyek smelter menunggu kepastian izin. Pemerintah daerah bertanya kapan moratorium berakhir, dan apakah ada jalan tengah."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Buka kembali dengan syarat ketat",
+   "description": "Izin baru dibuka lagi hanya untuk proyek yang lolos audit K3 dan lingkungan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 1.0,
+     "delay": 6
+    },
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "environment",
+     "op": "add",
+     "value": -0.15,
+     "duration": 12
+    }
+   ],
+   "memory": {
+    "nickel2024_moratorium": "lifted_conditional"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Pertahankan moratorium",
+   "description": "Moratorium berlanjut sampai kajian cadangan dan dampak selesai.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    }
+   ],
+   "memory": {
+    "nickel2024_moratorium": "held"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Arahkan ke pengolahan lanjutan",
+   "description": "Izin baru hanya untuk pengolahan bernilai tambah lebih tinggi (misalnya bahan baku baterai), dengan insentif fiskal.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:72.06,82.02",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 1.5,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "nickel2024_moratorium": "higher_value_only"
+   }
+  }
+ ]
+}

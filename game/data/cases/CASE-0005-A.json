@@ -1,0 +1,130 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0005-A",
+ "origin_case": "CASE-0005",
+ "research_ref": "research/cases/CASE-0005.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Sungai Keruh di Teluk Weda",
+ "location_label": "Kab. Halmahera Tengah, Maluku Utara",
+ "focus_regions": [
+  "82.02"
+ ],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0005",
+     "choice": "a"
+    },
+    {
+     "tick": ">=",
+     "value": 39
+    },
+    {
+     "var": "environment",
+     "scope": "region:82.02",
+     "agg": "mean",
+     "op": "<",
+     "value": 46.0
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul jika indeks lingkungan simulasi di Halmahera Tengah turun di bawah 46 setelah hilirisasi dipercepat. Hasil simulasi, bukan peristiwa sejarah; keluhan serupa tentang banjir dan sungai pernah dilaporkan media (Mongabay, 2022)."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Lingkungan",
+  "text": "Warga desa di sekitar kawasan industri di Weda melaporkan sungai mereka keruh dan banjir makin sering. Pemda meminta pusat turun tangan."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Audit lingkungan dan sanksi",
+   "description": "Audit menyeluruh atas izin lingkungan di kawasan dan pemulihan daerah aliran sungai; perusahaan yang melanggar dikenai sanksi.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "region:82.02",
+     "var": "environment",
+     "op": "add",
+     "value": 2.0,
+     "delay": 3
+    },
+    {
+     "scope": "region:82.02",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    }
+   ],
+   "memory": {
+    "nickel2024_weda_audit": true
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Air bersih dan ganti rugi warga",
+   "description": "Pemerintah menyediakan air bersih dan ganti rugi bagi desa terdampak; sumber masalah belum ditangani.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:82.02",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 1
+    },
+    {
+     "scope": "region:82.02",
+     "var": "welfare",
+     "op": "add",
+     "value": 1.0,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "nickel2024_weda_compensation": true
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Serahkan pada perusahaan dan pemda",
+   "description": "Pusat tidak turun tangan; penyelesaian diserahkan kepada perusahaan dan pemerintah daerah.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "region:82.02",
+     "var": "trust",
+     "op": "add",
+     "value": -2.0
+    }
+   ],
+   "memory": {
+    "nickel2024_weda_left_local": true
+   }
+  }
+ ]
+}
