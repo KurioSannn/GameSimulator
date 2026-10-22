@@ -1,0 +1,55 @@
+{
+  "a": {
+    "end": {
+      "72.03_damage": 9.2897,
+      "72.03_services": 50.0,
+      "72.03_trust": 43.7898,
+      "72.10_damage": 5.208,
+      "72.10_services": 50.0,
+      "72.10_trust": 45.9872,
+      "72.71_damage": 5.0378,
+      "72.71_services": 50.0,
+      "72.71_trust": 47.0622,
+      "fiscal_space": 43.0
+    },
+    "presented": [
+      "CASE-0002"
+    ]
+  },
+  "b": {
+    "end": {
+      "72.03_damage": 9.2698,
+      "72.03_services": 50.0,
+      "72.03_trust": 43.799,
+      "72.10_damage": 4.3729,
+      "72.10_services": 53.0,
+      "72.10_trust": 45.1272,
+      "72.71_damage": 4.2034,
+      "72.71_services": 53.0,
+      "72.71_trust": 46.1953,
+      "fiscal_space": 41.0
+    },
+    "presented": [
+      "CASE-0002",
+      "CASE-0002-B"
+    ]
+  },
+  "c": {
+    "end": {
+      "72.03_damage": 9.3195,
+      "72.03_services": 50.0,
+      "72.03_trust": 43.5534,
+      "72.10_damage": 5.3641,
+      "72.10_services": 51.5,
+      "72.10_trust": 44.3539,
+      "72.71_damage": 5.1942,
+      "72.71_services": 51.5,
+      "72.71_trust": 45.4227,
+      "fiscal_space": 44.0
+    },
+    "presented": [
+      "CASE-0002",
+      "CASE-0002-C"
+    ]
+  }
+}
