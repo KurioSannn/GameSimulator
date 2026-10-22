@@ -1,0 +1,11 @@
+{
+ "schema": "nusantara.bps_indicators/1",
+ "note": "Approval gate for BPS bulk ingestion. An indicator is ingested in bulk ONLY when every field is filled from the live BPS API/documentation AND sample_checked is true (a person compared the sample output with the published BPS table). Nothing here is pre-filled from memory: var IDs come from `bps_workflow.py inventory`.",
+ "indicators": {
+  "pop_total":        {"keyword": "jumlah penduduk",                 "var_id": null, "title": null, "unit": null, "year": null, "level": null, "region_coding": null, "domain_scope": null, "sample_checked": false, "notes": ""},
+  "ipm":              {"keyword": "indeks pembangunan manusia",      "var_id": null, "title": null, "unit": null, "year": null, "level": null, "region_coding": null, "domain_scope": null, "sample_checked": false, "notes": ""},
+  "poverty_p0":       {"keyword": "persentase penduduk miskin",      "var_id": null, "title": null, "unit": null, "year": null, "level": null, "region_coding": null, "domain_scope": null, "sample_checked": false, "notes": ""},
+  "unemployment_tpt": {"keyword": "tingkat pengangguran terbuka",    "var_id": null, "title": null, "unit": null, "year": null, "level": null, "region_coding": null, "domain_scope": null, "sample_checked": false, "notes": ""},
+  "pdrb_adhb":        {"keyword": "produk domestik regional bruto",  "var_id": null, "title": null, "unit": null, "year": null, "level": null, "region_coding": null, "domain_scope": null, "sample_checked": false, "notes": ""}
+ }
+}

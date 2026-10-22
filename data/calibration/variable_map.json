@@ -1,0 +1,105 @@
+{
+ "schema": "nusantara.variable_map/1",
+ "note": "Calibration rules: REAL observations -> DERIVED starting values. Every rule is documented in research/data/VARIABLE_INVENTORY.md section B. Variables absent from 'rules' keep the neutral default and status UNCALIBRATED.",
+ "neutral_defaults": {
+  "population": 0.0,
+  "food_capacity": 1.0,
+  "food_supply": 1.0,
+  "price_level": 100.0,
+  "infrastructure": 50.0,
+  "logistics": 50.0,
+  "services": 50.0,
+  "damage": 0.0,
+  "environment": 50.0,
+  "welfare_base": 55.0,
+  "welfare": 55.0,
+  "trust": 55.0,
+  "sentiment": 55.0,
+  "sentiment_base": 55.0,
+  "flood_protection": 0.0,
+  "flood_damage_last": 0.0,
+  "flood_risk_profile": 50.0,
+  "flood_frequency": 0.0,
+  "flood_events_last": 0.0,
+  "fire_prevention": 0.0
+ },
+ "by_design_neutral": {
+  "price_level": "Index defined as 100 at game start.",
+  "damage": "No unrecovered simulated damage at game start.",
+  "sentiment_base": "No official measure of regional support for a fictional president exists; deriving it from proxies risks stereotyping regions.",
+  "sentiment": "Starts at sentiment_base.",
+  "trust": "Starts neutral for the same reason as sentiment_base.",
+  "flood_damage_last": "Computed each tick.",
+  "flood_protection": "Additional flood protection built during the term. Baseline protective capacity is already embedded in the IRBI risk score used for flood_exposure, so starting at 0 avoids double counting.",
+  "flood_events_last": "Computed each tick.",
+  "fire_prevention": "Additional prevention built during the term; baseline capacity is not measured (no official kab/kota index ingested).",
+  "food_supply": "Computed every tick from food capacity, logistics and damage; the starting value is overwritten in the first month."
+ },
+ "rules": {
+  "population": {
+   "rule": "identity",
+   "inputs": [
+    "pop_total"
+   ],
+   "fallback": "none",
+   "clamp": [
+    0,
+    1000000000.0
+   ]
+  },
+  "welfare_base": {
+   "rule": "identity",
+   "inputs": [
+    "ipm"
+   ],
+   "fallback": "province_proxy",
+   "clamp": [
+    0,
+    100
+   ]
+  },
+  "welfare": {
+   "rule": "copy",
+   "from": "welfare_base"
+  },
+  "infrastructure": {
+   "rule": "ratio_pct",
+   "inputs": [
+    "road_good_km",
+    "road_total_km"
+   ],
+   "fallback": "province_proxy",
+   "clamp": [
+    0,
+    100
+   ]
+  },
+  "logistics": {
+   "rule": "copy",
+   "from": "infrastructure"
+  },
+  "flood_risk_profile": {
+   "rule": "scaled",
+   "inputs": [
+    "official_irbi_flood_score"
+   ],
+   "fallback": "none",
+   "scale": 2.7777777777777777,
+   "clamp": [
+    0,
+    100
+   ],
+   "doc": "DERIVED baseline flood risk profile = 100 x official IRBI 2024 flood risk score / 36. NOT an official BNPB percentage. Missing IRBI -> neutral 50, UNCALIBRATED. Used only as a severity (vulnerability/capacity) modifier."
+  },
+  "flood_frequency": {
+   "rule": "gamma_poisson_rate",
+   "inputs": [
+    "bnpb_flood_events"
+   ],
+   "doc": "Expected recorded flood events per year: Gamma-Poisson empirical-Bayes rate over all observed BNPB years; province prior; never 0 by default. Production years are pinned explicitly; a multi-year candidate replaces them only after scripts/pipelines/calibration/compare_flood_frequency.py has been reviewed (D-037).",
+   "years": [
+    "2024"
+   ]
+  }
+ }
+}

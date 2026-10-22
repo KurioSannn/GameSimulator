@@ -1,0 +1,102 @@
+{
+ "schema": "nusantara.fiscal_structure/1",
+ "note": "Budget architecture contract (D-039). No values: real figures enter only as observations (data/normalized/observations/apbn_*.jsonl) and are turned into the game baseline by scripts/pipelines/calibration/build_budget.py. Official classification names are CANDIDATES to verify against APBN 2026 documents before use.",
+ "layers": {
+  "REAL": "observations apbn_*/apbd_* (Kemenkeu, DJPK) — none ingested yet",
+  "GAME_BASELINE": "game/data/budget.json — pool_rp (null until REAL), sector base shares (neutral, UNCALIBRATED), level bounds",
+  "SIMULATED": "SimWorld.national — budget_level, budget_shares, fiscal_space; SimWorld.policy_state — commitments; Simulation.fiscal_report() — monthly ledger in FU"
+ },
+ "unit": {
+  "FU": "Fiscal Unit: 100 FU = one year of the baseline program envelope. When pool_rp is REAL, rupiah = FU x pool_rp / 100 (display only; equations unchanged)."
+ },
+ "accounts": [
+  {
+   "id": "pendapatan_negara",
+   "concept": "National revenue",
+   "real_source": "REAL obs apbn_revenue (UU APBN / Kemenkeu)",
+   "game_role": "simulated as index: baseline revenue = 100 FU/yr (covers baseline program envelope)",
+   "official_classification": "candidate: Pendapatan Negara dan Hibah (perpajakan, PNBP, hibah)",
+   "mapping_status": "TO_VERIFY"
+  },
+  {
+   "id": "belanja_negara",
+   "concept": "National expenditure",
+   "real_source": "REAL obs apbn_spending",
+   "game_role": "simulated: programs + policy commitments (FU/month)",
+   "official_classification": "candidate: Belanja Negara = Belanja Pemerintah Pusat + Transfer ke Daerah",
+   "mapping_status": "TO_VERIFY"
+  },
+  {
+   "id": "keseimbangan_fiskal",
+   "concept": "Fiscal balance",
+   "real_source": "derived from REAL revenue - spending",
+   "game_role": "simulated: revenue - expenditure (FU/month), reported by Simulation.fiscal_report",
+   "official_classification": "candidate: Keseimbangan Primer / Surplus (Defisit) Anggaran",
+   "mapping_status": "TO_VERIFY"
+  },
+  {
+   "id": "pembiayaan",
+   "concept": "Financing",
+   "real_source": "REAL obs apbn_financing",
+   "game_role": "simulated as fiscal_space (0-100 index of remaining financing room); deficits drain it",
+   "official_classification": "candidate: Pembiayaan Anggaran; legal deficit ceiling to research (to calibrate fiscal_space scale)",
+   "mapping_status": "TO_VERIFY"
+  },
+  {
+   "id": "transfer_ke_daerah",
+   "concept": "Transfers to regions",
+   "real_source": "REAL obs (Kemenkeu/DJPK TKD)",
+   "game_role": "NOT simulated yet (reference-only account); planned regional fiscal capacity",
+   "official_classification": "candidate: Transfer ke Daerah (TKD) components",
+   "mapping_status": "TO_VERIFY"
+  },
+  {
+   "id": "belanja_fungsi",
+   "concept": "Sectoral/functional spending",
+   "real_source": "REAL obs apbn_spending_by_function",
+   "game_role": "simulated: sector shares (infrastruktur, kebencanaan, layanan, pangan) -> sector intensities",
+   "official_classification": "candidate: Belanja Pemerintah Pusat menurut Fungsi (mapping in budget_map.json, TO_VERIFY)",
+   "mapping_status": "TO_VERIFY"
+  },
+  {
+   "id": "belanja_modal",
+   "concept": "Capital expenditure",
+   "real_source": "REAL obs (economic classification)",
+   "game_role": "NOT separated yet; capacity-building effects are carried by sectors/policies",
+   "official_classification": "candidate: Belanja Pemerintah Pusat menurut Jenis: Belanja Modal",
+   "mapping_status": "TO_VERIFY"
+  },
+  {
+   "id": "belanja_darurat_bencana",
+   "concept": "Emergency/disaster spending",
+   "real_source": "REAL obs (dana cadangan penanggulangan bencana / BNPB)",
+   "game_role": "simulated: kebencanaan sector (protection, recovery) + case decision costs (fiscal_space)",
+   "official_classification": "candidate: Dana Cadangan Penanggulangan Bencana; BNPB budget",
+   "mapping_status": "TO_VERIFY"
+  },
+  {
+   "id": "belanja_pembangunan",
+   "concept": "Development spending",
+   "real_source": "REAL obs",
+   "game_role": "simulated: infrastruktur sector + infrastructure policies",
+   "official_classification": "candidate: to research (no single official 'development' line)",
+   "mapping_status": "TO_VERIFY"
+  },
+  {
+   "id": "belanja_kebijakan",
+   "concept": "Policy spending",
+   "real_source": "n/a (game construct)",
+   "game_role": "simulated: policy commitments (share of envelope) + upfront costs",
+   "official_classification": "game-only: maps onto functional lines of each policy's category when real data exists",
+   "mapping_status": "GAME_ONLY"
+  },
+  {
+   "id": "kapasitas_fiskal_tersisa",
+   "concept": "Remaining fiscal capacity",
+   "real_source": "derived",
+   "game_role": "simulated: fiscal_space",
+   "official_classification": "derived from pembiayaan room once calibrated",
+   "mapping_status": "TO_VERIFY"
+  }
+ ]
+}

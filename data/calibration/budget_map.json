@@ -1,0 +1,10 @@
+{
+ "schema": "nusantara.budget_map/1",
+ "note": "Game budget sectors and the APBN classification each is meant to draw its baseline share from. Mappings marked TO_VERIFY must be confirmed against the official 'Belanja Pemerintah Pusat menurut Fungsi' table of APBN 2026 before use. Until then base shares are neutral and status UNCALIBRATED.",
+ "sectors": {
+  "infrastruktur": {"label": "Infrastruktur", "apbn_candidates": ["fungsi Ekonomi (subfungsi transportasi)", "fungsi Perumahan dan Fasilitas Umum"], "mapping_status": "TO_VERIFY", "neutral_share": 25},
+  "kebencanaan":   {"label": "Kebencanaan & Mitigasi", "apbn_candidates": ["anggaran BNPB / dana cadangan penanggulangan bencana", "fungsi Perlindungan Lingkungan Hidup (sebagian)"], "mapping_status": "TO_VERIFY", "neutral_share": 15},
+  "layanan":       {"label": "Layanan Publik", "apbn_candidates": ["fungsi Pendidikan", "fungsi Kesehatan", "fungsi Perlindungan Sosial"], "mapping_status": "TO_VERIFY", "neutral_share": 40},
+  "pangan":        {"label": "Pangan & Pertanian", "apbn_candidates": ["fungsi Ekonomi (subfungsi pertanian, kehutanan, perikanan)"], "mapping_status": "TO_VERIFY", "neutral_share": 20}
+ }
+}
