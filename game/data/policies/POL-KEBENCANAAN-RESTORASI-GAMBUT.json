@@ -1,0 +1,76 @@
+{
+ "schema": "nusantara.policy/1",
+ "policy_id": "POL-KEBENCANAAN-RESTORASI-GAMBUT",
+ "name": "Restorasi Gambut: Pembasahan dan Sekat Kanal",
+ "category": "kebencanaan",
+ "description": "Program pembasahan kembali lahan gambut dengan sekat kanal dan revegetasi. Mahal dan lama, tetapi menurunkan risiko kebakaran tanpa melarang petani berladang.",
+ "fact_class": "FICTIONAL",
+ "provenance": {
+  "basis": "real_programme_inspired",
+  "references": [
+   "https://setkab.go.id/inilah-perpres-no-1-tahun-2016-tentang-badan-restorasi-gambut/"
+  ],
+  "note": "Inspired by the Badan Restorasi Gambut mandate (Perpres 1/2016). Not a model of its actual performance; magnitudes are uncalibrated design values."
+ },
+ "target_scope": [
+  "island_group",
+  "province",
+  "kabkota",
+  "selected"
+ ],
+ "cost": {
+  "upfront_fiscal": 3.0,
+  "monthly_commitment": 0.05,
+  "commitment_months": 24
+ },
+ "implementation_months": 6,
+ "duration_months": 18,
+ "cooldown_months": 24,
+ "prerequisites": {},
+ "mutually_exclusive": [],
+ "uncertainty": {
+  "magnitude": 0.25
+ },
+ "effects": [
+  {
+   "phase": "active",
+   "scope": "target",
+   "var": "fire_prevention",
+   "op": "add",
+   "value": 2.0,
+   "duration": 18,
+   "scale_by": {
+    "var": "services",
+    "mode": "capacity",
+    "ref": 50,
+    "min": 0.5,
+    "max": 1.5
+   },
+   "kind": "delayed",
+   "dimension": "regional",
+   "label": "Pencegahan kebakaran naik bertahap (~36 poin) setelah 6 bulan konstruksi; bergantung pada kapasitas layanan daerah"
+  },
+  {
+   "phase": "active",
+   "scope": "target",
+   "var": "environment",
+   "op": "add",
+   "value": 0.1,
+   "duration": 18,
+   "kind": "delayed",
+   "dimension": "environmental",
+   "label": "Kondisi lingkungan membaik seiring gambut basah kembali"
+  }
+ ],
+ "stakeholder_notes": [
+  "petani: tidak ada larangan baru",
+  "perusahaan konsesi: kewajiban restorasi",
+  "daerah lain: anggaran sektor berkurang selama komitmen"
+ ],
+ "follow_up_case_triggers": [],
+ "memory": {
+  "policy_restorasi_gambut_enacted": true
+ },
+ "cultural_basis": null,
+ "game_design_notes": "Most expensive and slowest prevention, strongest once built; no livelihood cost."
+}

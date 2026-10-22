@@ -1,0 +1,82 @@
+{
+ "schema": "nusantara.policy/1",
+ "policy_id": "POL-KEBENCANAAN-API-ADAT",
+ "name": "Pengendalian Api Berbasis Kearifan Lokal",
+ "category": "kebencanaan",
+ "description": "Mengakui aturan penyiapan lahan berkelompok: musyawarah, sekat bakar, larangan musim kemarau dan di gambut dalam, serta tanggung jawab adat bila api menjalar. Didukung pendampingan dan peralatan. Petani tetap bisa berladang; hasilnya bergantung pada kepercayaan dan kepatuhan masyarakat.",
+ "fact_class": "FICTIONAL",
+ "provenance": {
+  "basis": "game_design",
+  "references": [
+   "research/culture/records/CULT-0001.json"
+  ],
+  "note": "Game policy option derived from a documented practice (CULT-0001) and the later Pergub Kalteng 27/2019 rules. Magnitudes are uncalibrated design values."
+ },
+ "target_scope": [
+  "island_group",
+  "province",
+  "kabkota",
+  "selected"
+ ],
+ "cost": {
+  "upfront_fiscal": 1.0,
+  "monthly_commitment": 0.015,
+  "commitment_months": 27
+ },
+ "implementation_months": 3,
+ "duration_months": 24,
+ "cooldown_months": 12,
+ "prerequisites": {},
+ "mutually_exclusive": [],
+ "uncertainty": {
+  "magnitude": 0.3
+ },
+ "effects": [
+  {
+   "phase": "implementation",
+   "scope": "target",
+   "var": "trust",
+   "op": "add",
+   "value": 0.15,
+   "duration": 3,
+   "kind": "expected",
+   "dimension": "stakeholder",
+   "label": "Pengakuan aturan adat meningkatkan kepercayaan masyarakat setempat"
+  },
+  {
+   "phase": "active",
+   "scope": "target",
+   "var": "fire_prevention",
+   "op": "add",
+   "value": 1.0,
+   "duration": 24,
+   "scale_by": {
+    "var": "trust",
+    "mode": "capacity",
+    "ref": 55,
+    "min": 0.3,
+    "max": 1.3
+   },
+   "kind": "delayed",
+   "dimension": "regional",
+   "label": "Pencegahan kebakaran naik bertahap (~24 poin bila kepercayaan normal); lebih lemah bila kepercayaan rendah, lebih kuat bila tinggi"
+  }
+ ],
+ "stakeholder_notes": [
+  "petani ladang: mata pencaharian tetap",
+  "tokoh adat (damang/mantir): peran pengawasan dan sanksi",
+  "daerah tetangga: risiko asap bila kepatuhan rendah"
+ ],
+ "follow_up_case_triggers": [
+  "CASE-0004-C opens if trust in Kalimantan Tengah falls (weak legitimacy)"
+ ],
+ "memory": {
+  "policy_api_adat_enacted": true
+ },
+ "cultural_basis": {
+  "culture_record_ref": "CULT-0001",
+  "interpretation": "Community fire governance (collective decision, firebreaks, seasonal limits, accountability) as a prevention mechanism whose effectiveness depends on social legitimacy (trust). Ritual elements are excluded.",
+  "sensitivity_review": "See CULT-0001.mechanic_mapping.sensitivity_review; pending human review."
+ },
+ "game_design_notes": "Cheapest prevention; slower and less certain; preserves livelihoods (no welfare cost). Effectiveness scales with trust (scale_by). Does not imply burning is safe on deep peat."
+}
