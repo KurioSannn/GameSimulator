@@ -1,0 +1,116 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0003-C",
+ "origin_case": "CASE-0003",
+ "research_ref": "research/cases/CASE-0003.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Bantuan Habis, Harga Masih Tinggi",
+ "location_label": "Nasional",
+ "focus_regions": [],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0003",
+     "choice": "c"
+    },
+    {
+     "tick": ">=",
+     "value": 42
+    },
+    {
+     "national": "price_pressure",
+     "op": ">",
+     "value": 0.04
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul ketika bantuan tunai tiga bulan berakhir sementara tekanan harga belum reda. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Sosial",
+  "text": "Bantuan tunai sudah habis dibelanjakan, tetapi harga minyak goreng di pasar belum turun banyak. Warga bertanya apakah bantuan akan diperpanjang."
+ },
+ "on_trigger_effects": [],
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Perpanjang bantuan tunai",
+   "description": "Bantuan diperpanjang tiga bulan. Meringankan warga, membebani fiskal.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "all",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.8,
+     "duration": 3,
+     "scale_by": {
+      "var": "welfare",
+      "mode": "gap",
+      "ref": 50,
+      "min": 0.5,
+      "max": 1.5
+     }
+    }
+   ],
+   "memory": {
+    "edible_oil_2022_cash_extended": true
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Beralih ke kewajiban pasok domestik",
+   "description": "Kebijakan diganti DMO agar harga turun dari sisi pasokan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "price_pressure",
+     "op": "add",
+     "value": -0.03,
+     "delay": 2
+    }
+   ],
+   "memory": {
+    "edible_oil_2022_switch_dmo": true
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Hentikan intervensi",
+   "description": "Tidak ada program baru; harga turun perlahan mengikuti pasar.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    }
+   ],
+   "memory": {
+    "edible_oil_2022_no_further_action": true
+   }
+  }
+ ],
+ "follow_ups": []
+}

@@ -1,0 +1,115 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0003-B",
+ "origin_case": "CASE-0003",
+ "research_ref": "research/cases/CASE-0003.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Kepatuhan Pasok Dalam Negeri Lemah",
+ "location_label": "Nasional",
+ "focus_regions": [],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0003",
+     "choice": "b"
+    },
+    {
+     "tick": ">=",
+     "value": 44
+    },
+    {
+     "national": "price_pressure",
+     "op": ">",
+     "value": 0.03
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul jika tekanan harga masih tinggi beberapa bulan setelah kebijakan DMO. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Perdagangan",
+  "text": "Laporan pasar menunjukkan minyak goreng harga khusus tidak merata sampai ke daerah. Sebagian eksportir memenuhi kewajiban di atas kertas saja."
+ },
+ "on_trigger_effects": [],
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Perketat pengawasan dan sanksi",
+   "description": "Pengawasan distribusi diperketat. Harga turun, tetapi pelaku usaha mengeluh.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "price_pressure",
+     "op": "add",
+     "value": -0.02,
+     "delay": 1
+    },
+    {
+     "scope": "province:14",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    }
+   ],
+   "memory": {
+    "edible_oil_2022_dmo_enforced": true
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Tambah subsidi distribusi",
+   "description": "Biaya distribusi ke daerah disubsidi. Lebih cepat merata, membebani fiskal.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "national",
+     "var": "price_pressure",
+     "op": "add",
+     "value": -0.02,
+     "delay": 1
+    }
+   ],
+   "memory": {
+    "edible_oil_2022_distribution_subsidy": true
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Cabut DMO, serahkan ke pasar",
+   "description": "Kewajiban pasok dihapus. Tidak ada biaya, tetapi harga mengikuti pasar global.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "price_pressure",
+     "op": "add",
+     "value": 0.01
+    }
+   ],
+   "memory": {
+    "edible_oil_2022_dmo_revoked": true
+   }
+  }
+ ],
+ "follow_ups": []
+}

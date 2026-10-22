@@ -1,0 +1,127 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0003",
+  "title": "Krisis minyak goreng dan larangan sementara ekspor CPO, 2022",
+  "status": "researched",
+  "status_note": "All game facts are supported by an official parliamentary research document or by the state news agency/national media reporting official statements and regulations, each with its date. Not 'validated' yet: the Permendag texts (6/2022, 11/2022, 22/2022) and Kemendag price series are not archived.",
+  "category": "food_price_crisis",
+  "subcategories": [
+    "edible_oil",
+    "export_policy",
+    "commodity",
+    "smallholder_income",
+    "social_assistance"
+  ],
+  "start_date": "2022-01",
+  "end_date": "2022-05-23",
+  "island": "sumatera",
+  "provinces": [
+    "14",
+    "15",
+    "16"
+  ],
+  "regency_city_documented": [],
+  "regency_city_note": "Farmer price declines are documented at province level (Riau, Sumatera Selatan, Jambi; also 'Kalimantan' and 'Sulawesi' without a named province). The game scopes producer effects to the three named provinces only.",
+  "real_facts": [
+    {
+      "fact": "The Ministry of Trade replaced Permendag 6/2022 with Permendag 11/2022 (signed 16 Mar 2022): bulk cooking oil price cap Rp14,000/litre; the price cap for packaged oil was revoked.",
+      "source_refs": [
+        "SRC-NEWS-KONTAN-20220319"
+      ],
+      "as_of": "2022-03-19"
+    },
+    {
+      "fact": "The government gave a cooking-oil cash transfer of Rp300,000 per recipient (April–June 2022, paid in April) to 20.5 million families (BPNT/PKH) and 2.5 million fried-food street vendors; budget Rp6.9 trillion.",
+      "source_refs": [
+        "SRC-NEWS-ANTARA-20220406"
+      ],
+      "as_of": "2022-04-06"
+    },
+    {
+      "fact": "A temporary export ban on CPO and derivatives (Permendag 22/2022) took effect on 28 April 2022.",
+      "source_refs": [
+        "SRC-DPR-PUSLIT-20220500",
+        "SRC-NEWS-ANTARA-20220520"
+      ],
+      "as_of": "2022-05"
+    },
+    {
+      "fact": "After the ban, farmers' fresh fruit bunch (TBS) prices fell in almost all palm-oil centres: about Rp500/kg in Sumatera Selatan; in Riau by Rp1,000/kg to about Rp2,900/kg; declines also in Jambi, Kalimantan and Sulawesi. Palm oil was the largest export earner in 2021 (about USD 35 billion).",
+      "source_refs": [
+        "SRC-DPR-PUSLIT-20220500"
+      ],
+      "as_of": "2022-05"
+    },
+    {
+      "fact": "The government lifted the ban from 23 May 2022, citing domestic supply rising from 64,627 t in March (33.2% of the 194,634 t monthly need) to 211,639 t in April (108.7%), the average price falling from Rp19,800 to Rp17,200–17,500 per litre, and 17 million workers in the palm-oil industry.",
+      "source_refs": [
+        "SRC-NEWS-ANTARA-20220520"
+      ],
+      "as_of": "2022-05-20"
+    }
+  ],
+  "trigger": [
+    "High cooking-oil prices despite earlier price caps and export regulations"
+  ],
+  "root_causes_note": "Global CPO prices and domestic market structure are discussed in sources but not yet researched to game-text standard; not used.",
+  "stakeholders": [
+    "konsumen rumah tangga",
+    "pedagang kaki lima",
+    "petani sawit swadaya",
+    "perusahaan sawit dan eksportir",
+    "Kementerian Perdagangan",
+    "Apkasindo",
+    "pemerintah daerah sentra sawit"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-DPR-PUSLIT-20220500",
+      "institution": "Pusat Penelitian Badan Keahlian Sekretariat Jenderal DPR RI (Sulasi Rongiyati)",
+      "title": "Dampak Pemberlakuan Larangan Ekspor Crude Palm Oil dalam Permendag No. 22 Tahun 2022 (Isu Sepekan III, Mei 2022)",
+      "url": "https://berkas.dpr.go.id/pusaka/files/isu_sepekan/Isu Sepekan---III-PUSLIT-Mei-2022-195.pdf",
+      "publication_date": "2022-05",
+      "retrieved_at": "2026-10-06",
+      "source_quality": "REAL_OFFICIAL (parliamentary research centre); archived data/raw/sources_docs/ (checksum in MANIFEST)"
+    },
+    {
+      "source_id": "SRC-NEWS-ANTARA-20220520",
+      "institution": "ANTARA (state news agency), quoting Coordinating Minister for Economic Affairs Airlangga Hartarto",
+      "title": "Ini alasan pemerintah cabut larangan ekspor minyak goreng",
+      "url": "https://aceh.antaranews.com/berita/287273/ini-alasan-pemerintah-cabut-larangan-ekspor-minyak-goreng",
+      "publication_date": "2022-05-20",
+      "retrieved_at": "2026-10-06",
+      "source_quality": "REAL_NEWS (official statement)"
+    },
+    {
+      "source_id": "SRC-NEWS-KONTAN-20220319",
+      "institution": "Kontan (reporting Kementerian Perdagangan)",
+      "title": "HET minyak goreng curah Rp 14.000 per liter, HET minyak kemasan dicabut",
+      "url": "https://industri.kontan.co.id/news/het-minyak-goreng-curah-rp-14000-per-liter-het-minyak-kemasan-dicabut",
+      "publication_date": "2022-03-19",
+      "retrieved_at": "2026-10-06",
+      "source_quality": "REAL_NEWS (reporting official regulation)"
+    },
+    {
+      "source_id": "SRC-NEWS-ANTARA-20220406",
+      "institution": "ANTARA, quoting President Joko Widodo (Sidang Kabinet Paripurna, 5 Apr 2022)",
+      "title": "Presiden minta BLT minyak goreng dapat disalurkan pekan ini",
+      "url": "https://www.antaranews.com/berita/2804877/presiden-minta-blt-minyak-goreng-dapat-disalurkan-pekan-ini",
+      "publication_date": "2022-04-06",
+      "retrieved_at": "2026-10-06",
+      "source_quality": "REAL_NEWS (official statement)"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Shortage of bulk oil after the March price-cap change: only an article headline seen; not used",
+    "Post-ban TBS prices in Kalimantan Barat (June 2022 reports) are after the ban was lifted; not used for ban effects"
+  ],
+  "todo_to_validate": [
+    "Archive Permendag 6/2022, 11/2022, 22/2022 texts",
+    "Archive Kemendag/PIHPS cooking-oil price series",
+    "Province-level palm area/production (Ditjenbun or BPS) to calibrate producer exposure"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0003.json",
+  "game_adaptation_notes": "National price_pressure (D-045) represents the edible-oil shock on the general food price index (design magnitude 0.08). Producer-province income effects are proportional to the documented TBS declines (Riau about twice Sumatera Selatan; Jambi documented without a figure, so the smaller Sumatera Selatan magnitude is used, conservatively).",
+  "cultural_connection": "None identified. No documented local practice is specific to this case; none was added (per project rules).",
+  "fact_vs_simulation_notes": "Regulations, the cash transfer, the ban dates, supply and price figures and TBS declines are real and dated. The player's options include the historically chosen ban, but every consequence in the game is SIMULATED and does not reproduce real outcomes."
+}

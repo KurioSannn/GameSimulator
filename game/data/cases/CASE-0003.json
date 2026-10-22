@@ -1,0 +1,269 @@
+{
+  "schema": "nusantara.case/1",
+  "case_id": "CASE-0003",
+  "research_ref": "research/cases/CASE-0003.json",
+  "research_status": "researched",
+  "class": "major_historical",
+  "title": "Minyak Goreng Mahal, Sawit Melimpah",
+  "location_label": "Nasional; sentra sawit Riau, Jambi, Sumatera Selatan",
+  "focus_regions": [
+    "14.01",
+    "14.02",
+    "14.03",
+    "14.04",
+    "14.05",
+    "14.06",
+    "14.07",
+    "14.08",
+    "14.09",
+    "14.10",
+    "14.71",
+    "14.72",
+    "15.01",
+    "15.02",
+    "15.03",
+    "15.04",
+    "15.05",
+    "15.06",
+    "15.07",
+    "15.08",
+    "15.09",
+    "15.71",
+    "15.72",
+    "16.01",
+    "16.02",
+    "16.03",
+    "16.04",
+    "16.05",
+    "16.06",
+    "16.07",
+    "16.08",
+    "16.09",
+    "16.10",
+    "16.11",
+    "16.12",
+    "16.13",
+    "16.71",
+    "16.72",
+    "16.73",
+    "16.74"
+  ],
+  "trigger": {
+    "type": "condition",
+    "conditions": {
+      "all": [
+        {
+          "tick": ">=",
+          "value": 38
+        },
+        {
+          "not": {
+            "case_seen": "CASE-0003"
+          }
+        }
+      ]
+    },
+    "weight": 100,
+    "story_priority": 10
+  },
+  "real_context": {
+    "fact_class": "REAL_OFFICIAL",
+    "lines": [
+      {
+        "text": "Pemerintah menerapkan HET minyak goreng curah Rp14.000/liter dan mencabut HET minyak goreng kemasan lewat Permendag 11/2022 (16 Maret 2022).",
+        "source_refs": [
+          "SRC-NEWS-KONTAN-20220319"
+        ],
+        "as_of": "2022-03-19"
+      },
+      {
+        "text": "Larangan sementara ekspor CPO dan turunannya berlaku 28 April–22 Mei 2022; sesudahnya harga TBS petani turun, misalnya di Riau sekitar Rp1.000/kg.",
+        "source_refs": [
+          "SRC-DPR-PUSLIT-20220500",
+          "SRC-NEWS-ANTARA-20220520"
+        ],
+        "as_of": "2022-05-20"
+      },
+      {
+        "text": "Pemerintah mencatat pasokan dalam negeri naik dari 33,2% kebutuhan (Maret) menjadi 108,7% (April) dan harga rata-rata turun dari Rp19.800 menjadi sekitar Rp17.200–17.500 per liter.",
+        "source_refs": [
+          "SRC-NEWS-ANTARA-20220520"
+        ],
+        "as_of": "2022-05-20"
+      }
+    ]
+  },
+  "briefing": {
+    "fact_class": "FICTIONAL",
+    "speaker": "Penasihat Ekonomi",
+    "text": "Pak Presiden, kasus ini diangkat dari krisis nyata 2022. Dalam simulasi kita, harga minyak goreng melonjak padahal Indonesia produsen sawit terbesar. Menahan ekspor bisa menurunkan harga di dapur warga, tetapi petani sawit di Sumatra bisa terpukul. Setiap jalan punya korban."
+  },
+  "on_trigger_effects": [
+    {
+      "scope": "national",
+      "var": "price_pressure",
+      "op": "add",
+      "value": 0.08
+    }
+  ],
+  "shock_note": {
+    "fact_class": "DERIVED",
+    "text": "price_pressure 0.08 (8% upward pressure on every region's food price target) is a design translation of the documented cooking-oil price gap (Rp19,800 vs a Rp14,000 cap). Cooking oil's weight in the food price index is not yet sourced."
+  },
+  "choices": [
+    {
+      "choice_id": "a",
+      "label": "Larang ekspor CPO sementara",
+      "description": "Pasokan dialihkan ke dalam negeri. Harga minyak goreng cepat turun, tetapi harga TBS petani anjlok dan penerimaan ekspor hilang.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "national",
+          "var": "price_pressure",
+          "op": "add",
+          "value": -0.05,
+          "delay": 1
+        },
+        {
+          "scope": "national",
+          "var": "fiscal_space",
+          "op": "add",
+          "value": -2.0
+        },
+        {
+          "scope": "province:14",
+          "var": "welfare",
+          "op": "add",
+          "value": -1.0,
+          "duration": 2
+        },
+        {
+          "scope": "province:16",
+          "var": "welfare",
+          "op": "add",
+          "value": -0.5,
+          "duration": 2
+        },
+        {
+          "scope": "province:15",
+          "var": "welfare",
+          "op": "add",
+          "value": -0.5,
+          "duration": 2
+        },
+        {
+          "scope": "province:14",
+          "var": "trust",
+          "op": "add",
+          "value": -2.0
+        },
+        {
+          "scope": "province:16",
+          "var": "trust",
+          "op": "add",
+          "value": -1.0
+        },
+        {
+          "scope": "province:15",
+          "var": "trust",
+          "op": "add",
+          "value": -1.0
+        }
+      ],
+      "memory": {
+        "edible_oil_2022_response": "export_ban"
+      }
+    },
+    {
+      "choice_id": "b",
+      "label": "Wajib pasok dalam negeri (DMO) dan harga khusus",
+      "description": "Eksportir wajib menjual sebagian produksi ke dalam negeri dengan harga khusus. Ekspor tetap jalan; hasilnya lebih lambat dan bergantung pada kepatuhan.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "national",
+          "var": "price_pressure",
+          "op": "add",
+          "value": -0.03,
+          "delay": 2
+        },
+        {
+          "scope": "province:14",
+          "var": "welfare",
+          "op": "add",
+          "value": -0.2,
+          "duration": 2
+        },
+        {
+          "scope": "province:16",
+          "var": "welfare",
+          "op": "add",
+          "value": -0.1,
+          "duration": 2
+        },
+        {
+          "scope": "province:15",
+          "var": "welfare",
+          "op": "add",
+          "value": -0.1,
+          "duration": 2
+        }
+      ],
+      "memory": {
+        "edible_oil_2022_response": "dmo"
+      }
+    },
+    {
+      "choice_id": "c",
+      "label": "Subsidi minyak curah dan bantuan tunai",
+      "description": "Dana pungutan ekspor menyubsidi minyak curah, rumah tangga miskin menerima bantuan tunai tiga bulan. Petani aman, tetapi mahal dan harga pasar tetap tinggi.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "national",
+          "var": "fiscal_space",
+          "op": "add",
+          "value": -6.0
+        },
+        {
+          "scope": "national",
+          "var": "price_pressure",
+          "op": "add",
+          "value": -0.015,
+          "delay": 1
+        },
+        {
+          "scope": "all",
+          "var": "welfare",
+          "op": "add",
+          "value": 0.8,
+          "duration": 3,
+          "scale_by": {
+            "var": "welfare",
+            "mode": "gap",
+            "ref": 50,
+            "min": 0.5,
+            "max": 1.5
+          }
+        }
+      ],
+      "memory": {
+        "edible_oil_2022_response": "subsidy_cash"
+      }
+    }
+  ],
+  "follow_ups": [
+    "CASE-0003-A",
+    "CASE-0003-B",
+    "CASE-0003-C"
+  ],
+  "consequence_notes": {
+    "fact_class": "SIMULATED",
+    "cross_system_chain": "export/supply policy -> national price_pressure -> price_level in all 514 regions -> welfare -> sentiment; producer income -> welfare/trust in Riau, Jambi, Sumatera Selatan; subsidies -> fiscal_space -> sector budget room",
+    "immediate": "fiscal cost (a, c); producer trust (a); cash welfare (c)",
+    "delayed": "price relief after 1 (a, c) or 2 months (b)",
+    "regional": "producer provinces lose income under a (twice as much in Riau); c lifts welfare most where it is lowest",
+    "national": "price_pressure on all regions; fiscal_space",
+    "branching": "a -> CASE-0003-A if Riau welfare falls; b -> CASE-0003-B if price pressure persists; c -> CASE-0003-C when the cash support ends and prices remain high"
+  }
+}
