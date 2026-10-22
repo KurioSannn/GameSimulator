@@ -14,15 +14,15 @@ Technical reference for the geography baseline: snapshot `SNAP-2026-10-21`. It i
 
 ## 2. Keys and hierarchy
 
-- `region_id` is the Kemendagri code: `PP` for a province, `PP.KK` for a kab/kota (D-012). `kode_bps` is a lookup column only. The six Papua provinces have different BPS and Kemendagri codes.
-- Hierarchy: Indonesia → 38 provinsi → 514 kab/kota (416 kabupaten + 98 kota). Simulation regions are the 514 kab/kota (D-014).
-- Navigation groups are presentation-only (`data/design/navigation_groups.json`, D-016). There are seven groups covering all 38 provinces, each province exactly once. They are never written into the official registry.
+- `region_id` is the Kemendagri code: `PP` for a province, `PP.KK` for a kab/kota (D-050). `kode_bps` is a lookup column only. The six Papua provinces have different BPS and Kemendagri codes.
+- Hierarchy: Indonesia → 38 provinsi → 514 kab/kota (416 kabupaten + 98 kota). Simulation regions are the 514 kab/kota (D-052).
+- Navigation groups are presentation-only (`data/design/navigation_groups.json`, D-054). There are seven groups covering all 38 provinces, each province exactly once. They are never written into the official registry.
 
 ## 3. Raw capture
 
-- Code: `scripts/research/common.py`. Captures are cached and immutable, with a `.meta.json` sidecar per file (URL, retrieved_at, sha256, bytes). Every attempt is logged in `data/catalog/source_access_log.csv`. Requests are at least 1 s apart, with up to 4 attempts and exponential backoff.
+- Code: `scripts/pipelines/geo/v2/common.py`. Captures are cached and immutable, with a `.meta.json` sidecar per file (URL, retrieved_at, sha256, bytes). Every attempt is logged in `data/catalog/source_access_log.csv`. Requests are at least 1 s apart, with up to 4 attempts and exponential backoff.
 - BIG polygons are captured as GeoJSON in pages of 10 features. A page the server cannot serialize (HTTP 500) is retried one feature at a time.
-- Kab. Sumbawa (OBJECTID 3424) cannot be served at full resolution in any format, so it is captured with `maxAllowableOffset = 1e-7°`, a maximum deviation of about 1.1 cm (D-018, GAP-0010).
+- Kab. Sumbawa (OBJECTID 3424) cannot be served at full resolution in any format, so it is captured with `maxAllowableOffset = 1e-7°`, a maximum deviation of about 1.1 cm (D-056, GAP-0010).
 - Completeness check: `check_big_geometry.py` → `research/reports/geometry_capture_check.json`. It verifies 541/541 features, the sha256 and size of every page, the feature count per page, and that there are no duplicates or empty geometries.
 
 ## 4. Region registry
@@ -34,7 +34,7 @@ Technical reference for the geography baseline: snapshot `SNAP-2026-10-21`. It i
 
 ## 5. Render LODs
 
-`build_render_geometry.py`, mapshaper 0.7.79 (project-local, `tools/geo/`), two passes per LOD (D-015):
+`build_render_geometry.py`, mapshaper 0.7.79 (project-local, `tools/geo/`), two passes per LOD (D-053):
 
 1. **Pass A:**
    - merge raw pages, split off the fragments, dissolve by `KDPKAB` (attaches the terapung parts);
@@ -69,20 +69,20 @@ The game loads these files offline. Nothing calls BIG at runtime.
 | Dissolved province outlines vs BIG province lines | `compare_province_lines.py` | `province_outline_crosscheck.json` |
 | Visual previews: national, provincial and kab/kota windows, with the raw outline overlaid | `render_previews.py` | `geometry_previews/*.png` |
 | File size and JSON parse time (proxy; Godot not installed) | `measure_load_times.py` | `lod_load_times.json` |
-| Unit tests and regression tests | `scripts/research/tests/` | `python3 -m unittest discover -s scripts/research/tests` |
+| Unit tests and regression tests | `scripts/pipelines/geo/v2/tests/` | `python3 -m unittest discover -s scripts/pipelines/geo/v2/tests` |
 
 Adjacency reference: `compute_source_adjacency.py` → `fullres_adjacency.json`.
 
-## 7. Area fields (D-017)
+## 7. Area fields (D-055)
 
 - `LUASWH` is kept raw. Its declared label "(HA)" sits beside the evidenced interpretation, km² legal area (`UNIT_KM2_EVIDENCED`).
 - `Shape_Area` is planar square degrees.
 - `geom_area_km2` is derived and stored separately. Its method: the WGS84 ellipsoidal cylindrical equal-area projection (authalic latitude), then the shoelace formula, tested against numerical integration.
-- See `research/reports/AREA_UNIT_INVESTIGATION.md`.
+- See `research/reports/2026-10-22_AREA_UNIT_INVESTIGATION.md`.
 
 ## 8. Reproduce
 
-See `scripts/research/README.md`.
+See `scripts/pipelines/geo/v2/README.md`.
 
 ## 9. Known limitations
 
