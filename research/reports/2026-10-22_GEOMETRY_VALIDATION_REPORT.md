@@ -2,7 +2,7 @@
 
 - **Snapshot:** `SNAP-2026-10-21`
 - **Validated:** 2026-10-22
-- **Method:** Douglas–Peucker (spherical), mapshaper 0.7.79, two-pass build, coordinates at 1e-6° (D-015)
+- **Method:** Douglas–Peucker (spherical), mapshaper 0.7.79, two-pass build, coordinates at 1e-6° (D-053)
 - **Machine-readable reports** (all in `research/reports/`):
   - `render_geometry_validation.json`
   - `island_component_audit.json`
@@ -19,7 +19,7 @@
 | Raw files / size / vertices | 118 files, **2,219,946,824 bytes** (2.22 GB), **51,894,237** kab/kota vertices |
 | SHA-256 + byte size per file vs sidecar | all match (`page_integrity_problems: []`; test `test_raw_sidecars_match_files`) |
 | Feature count per page, duplicates, empty geometry | all as expected / none / none |
-| Not full resolution | 1 declared recovery copy: OBJECTID 3424, Kab. Sumbawa, `maxAllowableOffset = 1e-7°` (about 1.1 cm). The server returns HTTP 500 at full resolution (D-018, GAP-0010). |
+| Not full resolution | 1 declared recovery copy: OBJECTID 3424, Kab. Sumbawa, `maxAllowableOffset = 1e-7°` (about 1.1 cm). The server returns HTTP 500 at full resolution (D-056, GAP-0010). |
 | Raw geometry modified? | No. The raw store is immutable and checked by sha256 in every test run. |
 
 ## 2. Production LODs: size and complexity
@@ -107,7 +107,7 @@ Findings:
   - A 17.6 km² exclave of Kab. Karanganyar (33.13), about 10 × 2 km, is drawn at reduced width. Its matching enclave hole in Boyolali shrinks with it because the two share arcs, so there is no overlap.
   - Parts under about 1 px wide are allowed to be slivers at this scale.
 - **LOD3 preserves all meaningful small-island geometry.** 7,552 of 7,552 noticeable parts are drawn, and 0 parts are lost.
-- **Rejected alternative:** weighted Visvalingam turned 60–80 km² islands into 0.01 km² specks kilometres away at national scale. It was rejected (D-015).
+- **Rejected alternative:** weighted Visvalingam turned 60–80 km² islands into 0.01 km² specks kilometres away at national scale. It was rejected (D-053).
 
 ## 5. Province outlines vs the BIG province layer
 
@@ -160,7 +160,7 @@ Godot is not installed, so these are JSON read-and-parse timings, median of 5 ru
 | `build_render_geometry.py` (`PRECISION = "0.000001"`), pass A `-o precision=0.000001`, pass B `-snap precision=0.000001` and `-o precision=0.000001` | 1e-6° |
 | `build_log.json` (`precision_deg`) for lod1/2/3 | 1e-6 |
 | Output coordinates | all rounded to 6 decimals (checked by test `test_precision_and_method_consistent`) |
-| DECISIONS.md D-015 | 1e-6° (about 0.11 m) |
+| DECISIONS.md D-053 | 1e-6° (about 0.11 m) |
 
 ## 9. Remaining limitations
 

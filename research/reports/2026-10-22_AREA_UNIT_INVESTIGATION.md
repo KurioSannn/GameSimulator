@@ -2,7 +2,7 @@
 
 - **Snapshot:** `SNAP-2026-10-21`
 - **Investigated:** 2026-10-21/22
-- **Scripts:** `scripts/research/audit_area_units.py`, `scripts/research/fetch_bps_area_tables.py`
+- **Scripts:** `scripts/pipelines/geo/v2/audit_area_units.py`, `scripts/pipelines/geo/v2/fetch_bps_area_tables.py`
 - **Data:**
   - `data/processed/geography/SNAP-2026-10-21/area_unit_audit.csv`: all 514 regions
   - `research/reports/area_unit_audit_summary.json`: statistics and the pre-declared sample
