@@ -1,0 +1,58 @@
+{
+ "schema": "nusantara.policy/1",
+ "policy_id": "POL-SOSIAL-BLT",
+ "name": "Bantuan Langsung Tunai Sementara",
+ "category": "sosial",
+ "description": "Bantuan tunai bulanan selama enam bulan. Cepat meringankan rumah tangga, tetapi mahal dan tidak meninggalkan kapasitas baru.",
+ "fact_class": "FICTIONAL",
+ "provenance": {
+  "basis": "game_design",
+  "references": [],
+  "note": "Game policy option. Not a description of a real government programme; magnitudes are uncalibrated design values."
+ },
+ "target_scope": [
+  "national",
+  "island_group",
+  "province",
+  "kabkota",
+  "selected"
+ ],
+ "cost": {
+  "upfront_fiscal": 0.0,
+  "monthly_commitment": 0.08,
+  "commitment_months": 6
+ },
+ "implementation_months": 0,
+ "duration_months": 6,
+ "cooldown_months": 12,
+ "prerequisites": {},
+ "mutually_exclusive": [],
+ "uncertainty": {
+  "magnitude": 0.1
+ },
+ "effects": [
+  {
+   "phase": "immediate",
+   "scope": "target",
+   "var": "welfare",
+   "op": "add",
+   "value": 0.8,
+   "duration": 6,
+   "scale_by": {
+    "var": "welfare",
+    "mode": "gap",
+    "ref": 50,
+    "min": 0.5,
+    "max": 1.5
+   },
+   "kind": "expected",
+   "dimension": "regional",
+   "label": "Kesejahteraan naik segera selama 6 bulan, lebih besar di daerah berkesejahteraan rendah; memudar setelah berhenti"
+  }
+ ],
+ "stakeholder_notes": [],
+ "follow_up_case_triggers": [],
+ "memory": {},
+ "cultural_basis": null,
+ "game_design_notes": "Transient: welfare converges back to welfare_base after the transfers end. Large commitment crowds out capacity-building sectors."
+}
