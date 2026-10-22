@@ -1,0 +1,32 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0001-A",
+ "origin_case": "CASE-0001",
+ "research_ref": "research/cases/CASE-0001.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Tagihan Tanggap Darurat",
+ "location_label": "Nasional",
+ "focus_regions": [],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {"all": [{"case_choice": "CASE-0001", "choice": "a"}, {"tick": ">=", "value": 6}]},
+  "weight": 100, "story_priority": 20
+ },
+ "real_context": {"fact_class": "NONE", "lines": []},
+ "simulated_context": {"fact_class": "SIMULATED", "text": "Konsekuensi dari keputusanmu memimpin tanggap darurat terpusat. Situasi ini adalah hasil simulasi, bukan peristiwa sejarah."},
+ "briefing": {"fact_class": "FICTIONAL", "speaker": "Penasihat Keuangan", "text": "Pemulihan Jakarta berjalan cepat, Pak. Tapi biayanya menggerus ruang fiskal. Daerah lain mulai bertanya kapan giliran program mereka. Kita harus menutup celah ini."},
+ "on_trigger_effects": [],
+ "choices": [
+  {"choice_id": "a", "label": "Realokasi dari program daerah lain", "description": "Anggaran layanan di seluruh daerah dipangkas sedikit. Fiskal pulih, tetapi layanan publik melemah di mana-mana.", "fact_class": "SIMULATED",
+   "effects": [{"scope": "national", "var": "fiscal_space", "op": "add", "value": 6.0}, {"scope": "all", "var": "services", "op": "add", "value": -2.0, "delay": 1}],
+   "memory": {"fiscal_gap_response": "reallocate"}},
+  {"choice_id": "b", "label": "Tunda proyek infrastruktur nasional", "description": "Proyek baru ditunda setahun. Layanan tetap, tetapi infrastruktur di seluruh daerah tumbuh lebih lambat.", "fact_class": "SIMULATED",
+   "effects": [{"scope": "national", "var": "fiscal_space", "op": "add", "value": 5.0}, {"scope": "all", "var": "infrastructure", "op": "add", "value": -1.5, "delay": 3}],
+   "memory": {"fiscal_gap_response": "delay_infrastructure"}},
+  {"choice_id": "c", "label": "Terima ruang fiskal yang sempit", "description": "Tidak ada pemotongan. Daerah tidak dirugikan sekarang, tetapi kemampuan merespons krisis berikutnya berkurang.", "fact_class": "SIMULATED",
+   "effects": [{"scope": "all", "var": "trust", "op": "add", "value": 0.5}],
+   "memory": {"fiscal_gap_response": "absorb"}}
+ ],
+ "follow_ups": []
+}

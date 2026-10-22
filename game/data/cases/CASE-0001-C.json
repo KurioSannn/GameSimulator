@@ -1,0 +1,35 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0001-C",
+ "origin_case": "CASE-0001",
+ "research_ref": "research/cases/CASE-0001.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Warga Menagih Janji",
+ "location_label": "DKI Jakarta",
+ "focus_regions": ["31.71", "31.72", "31.73", "31.74", "31.75"],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {"all": [
+   {"case_choice": "CASE-0001", "choice": "c"}, {"tick": ">=", "value": 3},
+   {"var": "sentiment", "scope": "province:31", "agg": "mean", "op": "<", "value": 54.0}
+  ]},
+  "weight": 100, "story_priority": 20
+ },
+ "real_context": {"fact_class": "NONE", "lines": []},
+ "simulated_context": {"fact_class": "SIMULATED", "text": "Muncul jika sentimen di DKI Jakarta turun setelah bantuan darurat diminimalkan demi infrastruktur. Hasil simulasi, bukan peristiwa sejarah."},
+ "briefing": {"fact_class": "FICTIONAL", "speaker": "Penasihat Sosial", "text": "Pembangunan pengendali banjir sudah dimulai, tapi warga yang kehilangan rumah merasa ditinggalkan. Kritik makin keras di media sosial."},
+ "on_trigger_effects": [],
+ "choices": [
+  {"choice_id": "a", "label": "Bantuan tunai sementara", "description": "Bantuan langsung untuk warga terdampak. Meredakan kemarahan, membebani fiskal.", "fact_class": "SIMULATED",
+   "effects": [{"scope": "national", "var": "fiscal_space", "op": "add", "value": -3.0}, {"scope": "province:31", "var": "trust", "op": "add", "value": 5.0}, {"scope": "province:31", "var": "welfare", "op": "add", "value": 2.0}],
+   "memory": {"citizen_demand_response": "cash_aid"}},
+  {"choice_id": "b", "label": "Dialog terbuka dengan warga", "description": "Presiden menjelaskan rencana dan jadwal secara terbuka. Murah, tetapi hanya berhasil bila pembangunan benar-benar terlihat.", "fact_class": "SIMULATED",
+   "effects": [{"scope": "province:31", "var": "trust", "op": "add", "value": 2.0}],
+   "memory": {"citizen_demand_response": "dialogue"}},
+  {"choice_id": "c", "label": "Tetap pada rencana", "description": "Tidak ada perubahan. Anggaran utuh untuk infrastruktur; kepercayaan warga menurun.", "fact_class": "SIMULATED",
+   "effects": [{"scope": "province:31", "var": "trust", "op": "add", "value": -3.0}, {"scope": "province:31", "var": "infrastructure", "op": "add", "value": 2.0, "delay": 3}],
+   "memory": {"citizen_demand_response": "stay_course"}}
+ ],
+ "follow_ups": []
+}

@@ -1,0 +1,142 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0001",
+  "title": "Banjir dan longsor Jabodetabek–Banten awal Januari 2020",
+  "status": "researched",
+  "status_note": "Core event and headline figures supported by BNPB figures as reported by national media and BMKG statements as reported by media. Not yet 'validated': BNPB primary situation report and BMKG primary release not yet archived in data/raw. Figures evolved over days; values below are tied to their report date.",
+  "category": "flood",
+  "subcategories": [
+    "extreme_rainfall",
+    "landslide",
+    "urban_flood",
+    "displacement"
+  ],
+  "start_date": "2020-01-01",
+  "end_date": null,
+  "island": "jawa",
+  "provinces": [
+    "31",
+    "32",
+    "36"
+  ],
+  "regency_city_documented": [
+    {
+      "region_id": "32.01",
+      "evidence": "Sukajaya (Kab. Bogor) visited by the President during response — Kontan 2020-01-07"
+    },
+    {
+      "region_id": "36.02",
+      "evidence": "BPBD Banten reported deaths from flooding in Lebak — Tirto (headline)"
+    }
+  ],
+  "regency_city_note": "DKI Jakarta impacts are recorded at province level (63 flood points) in sources retrieved so far; per-kota breakdown NOT_PUBLISHED in retrieved sources.",
+  "real_facts": [
+    {
+      "fact": "Rainfall of 377 mm/day recorded at Halim Perdanakusuma (East Jakarta), 31 Dec 2019 evening to 1 Jan 2020; described by BMKG as the highest in the Jakarta-area measurement record (since 1866).",
+      "source_refs": [
+        "SRC-NEWS-MONGABAY-20200103",
+        "SRC-NEWS-REPUBLIKA-20200103"
+      ],
+      "as_of": "2020-01-03"
+    },
+    {
+      "fact": "At least 169 flood points: Jawa Barat 97, DKI Jakarta 63, Banten 9; water depth 30 cm to 2.5 m (BNPB).",
+      "source_refs": [
+        "SRC-NEWS-TIRTO-BNPB-16"
+      ],
+      "as_of": "2020-01-02"
+    },
+    {
+      "fact": "Casualty/evacuee totals per BNPB as of 2020-01-07: DKI Jakarta 16 dead / 3,685 evacuees; Jawa Barat 31 dead / 15,400 evacuees; Banten 20 dead, 1 missing / 16,821 evacuees. Total 67 dead, 1 missing, 35,502 evacuees; 293 villages in 74 subdistricts affected.",
+      "source_refs": [
+        "SRC-NEWS-KONTAN-20200107"
+      ],
+      "as_of": "2020-01-07"
+    },
+    {
+      "fact": "Earlier BNPB figures were lower (9 dead on 2020-01-01; 16 dead shortly after) — totals rose as reports came in.",
+      "source_refs": [
+        "SRC-NEWS-KATADATA-20200101",
+        "SRC-NEWS-TIRTO-BNPB-16"
+      ],
+      "as_of": "2020-01-01"
+    }
+  ],
+  "trigger": [
+    "extreme rainfall over the new-year night"
+  ],
+  "root_causes_note": "Root-cause analysis (land subsidence, river capacity, land-use change, drainage) NOT yet researched from primary sources; do not state in game text until sourced.",
+  "stakeholders": [
+    "warga terdampak",
+    "BNPB",
+    "BPBD provinsi/kab/kota",
+    "pemerintah provinsi DKI/Jabar/Banten",
+    "pemerintah pusat",
+    "relawan dan komunitas"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-NEWS-KONTAN-20200107",
+      "institution": "Kontan (reporting BNPB figures cited by Menko PMK)",
+      "title": "Data korban banjir di tiga provinsi: 67 orang meninggal dan 1 hilang",
+      "url": "https://nasional.kontan.co.id/news/data-korban-banjir-di-tiga-provinsi-67-orang-meninggal-dan-1-hilang",
+      "publication_date": "2020-01-07",
+      "retrieved_at": "2026-10-05",
+      "source_quality": "REAL_NEWS (reporting official figures)"
+    },
+    {
+      "source_id": "SRC-NEWS-TIRTO-BNPB-16",
+      "institution": "Tirto.id (reporting BNPB)",
+      "title": "BNPB sebut 16 orang tewas akibat hujan ekstrem Jabodetabek",
+      "url": "https://tirto.id/bnpb-sebut-16-orang-tewas-akibat-hujan-ekstrem-jabodetabek-ep8z",
+      "publication_date": "2020-01-02",
+      "retrieved_at": "2026-10-05",
+      "source_quality": "REAL_NEWS (search-result summary; full text not yet archived)"
+    },
+    {
+      "source_id": "SRC-NEWS-KATADATA-20200101",
+      "institution": "Katadata (reporting BNPB)",
+      "title": "BNPB: 9 Orang Meninggal Dunia akibat Banjir dan Longsor di Jabodetabek",
+      "url": "https://katadata.co.id/berita/2020/01/01/bnpb-9-orang-meninggal-dunia-akibat-banjir-dan-longsor-di-jabodetabek",
+      "publication_date": "2020-01-01",
+      "retrieved_at": "2026-10-05",
+      "source_quality": "REAL_NEWS (search-result summary)"
+    },
+    {
+      "source_id": "SRC-NEWS-MONGABAY-20200103",
+      "institution": "Mongabay Indonesia (reporting BMKG)",
+      "title": "BMKG: Curah Hujan Paling Ekstrem Dalam Sejarah Jadi Pemicu Banjir Jakarta",
+      "url": "https://mongabay.co.id/2020/01/03/bmkg-curah-hujan-paling-ekstrim-dalam-sejarah-jadi-pemicu-banjir-jakarta/",
+      "publication_date": "2020-01-03",
+      "retrieved_at": "2026-10-05",
+      "source_quality": "REAL_NEWS (reporting official statement)"
+    },
+    {
+      "source_id": "SRC-NEWS-REPUBLIKA-20200103",
+      "institution": "Republika (reporting BMKG)",
+      "title": "Curah hujan ekstrem dan ribut solusi banjir",
+      "url": "https://news.republika.co.id/berita/q3ihix328/curah-hujan-ekstrem-dan-ribut-solusi-banjir",
+      "publication_date": "2020-01-03",
+      "retrieved_at": "2026-10-05",
+      "source_quality": "REAL_NEWS (search-result summary)"
+    },
+    {
+      "source_id": "SRC-NEWS-TIRTO-LEBAK",
+      "institution": "Tirto.id (reporting BPBD Banten)",
+      "title": "BPBD Banten catat 9 orang tewas akibat banjir di Lebak",
+      "url": "https://tirto.id/bpbd-banten-catat-9-orang-tewas-akibat-banjir-di-lebak-eqKq",
+      "publication_date": null,
+      "retrieved_at": "2026-10-05",
+      "source_quality": "REAL_NEWS (headline only; full text not yet retrieved)"
+    }
+  ],
+  "todo_to_validate": [
+    "Archive BNPB primary situation report (bnpb.go.id / DIBI) for 1–7 Jan 2020",
+    "Archive BMKG primary press release on 377 mm record",
+    "Source per-kota DKI impact if published",
+    "Source root causes from official/academic studies before adding them to game text"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0001.json",
+  "fact_vs_simulation_notes": "The rainfall record and casualty figures are real and shown in the briefing with dates. Player choices, their costs and all subsequent state changes are SIMULATED and are not claims about what the real government did or should have done.",
+  "game_adaptation_notes": "Game adaptation sets flood_exposure > 0 for DKI, Kab. Bogor and Kab. Lebak as CASE_EVIDENCE (documented flood => exposure exists); magnitudes uncalibrated until BNPB IRBI. Recurring floods and follow-ups (CASE-0001-A/B/C/R) are simulated."
+}

@@ -1,0 +1,235 @@
+{
+  "schema": "nusantara.case/1",
+  "case_id": "CASE-0001",
+  "research_ref": "research/cases/CASE-0001.json",
+  "research_status": "researched",
+  "class": "major_historical",
+  "title": "Hujan Ekstrem Malam Tahun Baru",
+  "location_label": "DKI Jakarta, Jawa Barat, Banten",
+  "focus_regions": [
+    "31.71",
+    "31.72",
+    "31.73",
+    "31.74",
+    "31.75",
+    "32.01",
+    "36.02"
+  ],
+  "trigger": {
+    "type": "condition",
+    "conditions": {
+      "all": [
+        {
+          "tick": ">=",
+          "value": 0
+        },
+        {
+          "not": {
+            "case_seen": "CASE-0001"
+          }
+        }
+      ]
+    },
+    "weight": 100,
+    "story_priority": 10
+  },
+  "real_context": {
+    "fact_class": "REAL_NEWS",
+    "lines": [
+      {
+        "text": "BMKG mencatat curah hujan 377 mm/hari di Halim Perdanakusuma pada malam pergantian tahun 2019–2020, tertinggi sejak pencatatan dimulai.",
+        "source_refs": [
+          "SRC-NEWS-MONGABAY-20200103"
+        ],
+        "as_of": "2020-01-03"
+      },
+      {
+        "text": "Menurut data BNPB per 7 Januari 2020, 67 orang meninggal, 1 hilang, dan 35.502 orang mengungsi di DKI Jakarta, Jawa Barat, dan Banten.",
+        "source_refs": [
+          "SRC-NEWS-KONTAN-20200107"
+        ],
+        "as_of": "2020-01-07"
+      }
+    ]
+  },
+  "briefing": {
+    "fact_class": "FICTIONAL",
+    "speaker": "Penasihat Kebencanaan",
+    "text": "Pak Presiden, kasus ini diangkat dari peristiwa nyata awal 2020. Dalam simulasi kita, hujan ekstrem melanda Jakarta dan sekitarnya. Akses jalan terputus dan ribuan warga mengungsi. Kita perlu memutuskan arah penanganan sekarang — setiap pilihan punya harga."
+  },
+  "on_trigger_effects": [
+    {
+      "scope": "province:31",
+      "var": "damage",
+      "op": "add",
+      "value": 35.0
+    },
+    {
+      "scope": "regions:32.01,36.02",
+      "var": "damage",
+      "op": "add",
+      "value": 30.0
+    }
+  ],
+  "choices": [
+    {
+      "choice_id": "a",
+      "label": "Tanggap darurat terpusat",
+      "description": "Pemerintah pusat memimpin evakuasi dan pemulihan dengan anggaran besar. Cepat, tetapi mahal.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "national",
+          "var": "fiscal_space",
+          "op": "add",
+          "value": -8.0
+        },
+        {
+          "scope": "province:31",
+          "var": "damage",
+          "op": "add",
+          "value": -15.0,
+          "delay": 1
+        },
+        {
+          "scope": "regions:32.01,36.02",
+          "var": "damage",
+          "op": "add",
+          "value": -12.0,
+          "delay": 1
+        },
+        {
+          "scope": "province:31",
+          "var": "services",
+          "op": "add",
+          "value": 2.0,
+          "duration": 3
+        },
+        {
+          "scope": "province:31",
+          "var": "trust",
+          "op": "add",
+          "value": 4.0
+        }
+      ],
+      "memory": {
+        "flood2020_response": "central"
+      }
+    },
+    {
+      "choice_id": "b",
+      "label": "Perkuat pemerintah daerah",
+      "description": "Dana darurat disalurkan ke pemerintah daerah dan BPBD yang memimpin penanganan. Lebih murah dan membangun kapasitas lokal, tetapi pemulihan lebih lambat.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "national",
+          "var": "fiscal_space",
+          "op": "add",
+          "value": -4.0
+        },
+        {
+          "scope": "province:31",
+          "var": "damage",
+          "op": "add",
+          "value": -8.0,
+          "delay": 2
+        },
+        {
+          "scope": "regions:32.01,36.02",
+          "var": "damage",
+          "op": "add",
+          "value": -6.0,
+          "delay": 2
+        },
+        {
+          "scope": "province:31",
+          "var": "services",
+          "op": "add",
+          "value": 3.0,
+          "delay": 3
+        },
+        {
+          "scope": "regions:32.01,36.02",
+          "var": "services",
+          "op": "add",
+          "value": 3.0,
+          "delay": 3
+        }
+      ],
+      "memory": {
+        "flood2020_response": "regional"
+      }
+    },
+    {
+      "choice_id": "c",
+      "label": "Fokus infrastruktur jangka panjang",
+      "description": "Bantuan darurat minimum; anggaran dialihkan ke pembangunan pengendali banjir (drainase, tanggul, waduk). Warga kecewa sekarang; banjir musim hujan berikutnya lebih ringan.",
+      "fact_class": "SIMULATED",
+      "effects": [
+        {
+          "scope": "national",
+          "var": "fiscal_space",
+          "op": "add",
+          "value": -6.0
+        },
+        {
+          "scope": "province:31",
+          "var": "trust",
+          "op": "add",
+          "value": -5.0
+        },
+        {
+          "scope": "regions:32.01,36.02",
+          "var": "trust",
+          "op": "add",
+          "value": -4.0
+        },
+        {
+          "scope": "province:31",
+          "var": "flood_protection",
+          "op": "add",
+          "value": 30.0,
+          "delay": 6
+        },
+        {
+          "scope": "regions:32.01,36.02",
+          "var": "flood_protection",
+          "op": "add",
+          "value": 20.0,
+          "delay": 6
+        },
+        {
+          "scope": "province:31",
+          "var": "infrastructure",
+          "op": "add",
+          "value": 3.0,
+          "delay": 6
+        }
+      ],
+      "memory": {
+        "flood2020_response": "infrastructure"
+      }
+    }
+  ],
+  "follow_ups": [
+    "CASE-0001-A",
+    "CASE-0001-B",
+    "CASE-0001-C",
+    "CASE-0001-R"
+  ],
+  "consequence_notes": {
+    "fact_class": "SIMULATED",
+    "immediate": "fiscal_space change and trust/services shifts applied in the decision month",
+    "delayed": "damage reduction (1-2 months); flood protection +30 DKI / +20 Bogor-Lebak after 6 months (choice c)",
+    "regional": "focus regions only; untouched regions change only via emergent food-price spillover",
+    "national": "fiscal_space; national food pool/price spillover emerges from regional damage",
+    "branching": "choice a -> CASE-0001-A (always, after 2 quarters); b -> CASE-0001-B (only if Bogor/Lebak recovery lags); c -> CASE-0001-C (only if DKI sentiment falls)",
+    "recovery_escalation": "Recurring rainy-season floods in exposed regions (Nov-Mar peak) add damage scaled by (1 - 0.75 x protection/100). CASE-0001-R re-opens (cooldown 9 months, max 3) when a flood hits the focus regions hard; repeated unmitigated floods escalate damage, welfare loss and sentiment decline.",
+    "budget": "Choices cost fiscal_space; the Kebencanaan budget sector raises protection where exposure > 0 and speeds recovery; spending above baseline drains fiscal_space monthly."
+  },
+  "exposure_note": {
+    "fact_class": "DERIVED",
+    "text": "Flood exposure of every region comes from the BNPB IRBI 2024 flood risk index (scaled 0-100; see data/calibration/variable_map.json). This case no longer sets exposure itself. Recurring-flood frequency and severity remain uncalibrated design coefficients (G-13)."
+  }
+}

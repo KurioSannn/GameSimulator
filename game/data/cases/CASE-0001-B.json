@@ -1,0 +1,32 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0001-B",
+ "origin_case": "CASE-0001",
+ "research_ref": "research/cases/CASE-0001.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Pemulihan yang Tertinggal",
+ "location_label": "DKI Jakarta, Jawa Barat, Banten",
+ "focus_regions": ["31.71", "31.72", "31.73", "31.74", "31.75", "32.01", "36.02"],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {"all": [
+   {"case_choice": "CASE-0001", "choice": "b"}, {"tick": ">=", "value": 3},
+   {"var": "damage", "scope": "regions:32.01,36.02", "agg": "max", "op": ">=", "value": 12.0}
+  ]},
+  "weight": 100, "story_priority": 20
+ },
+ "real_context": {"fact_class": "NONE", "lines": []},
+ "simulated_context": {"fact_class": "SIMULATED", "text": "Muncul hanya jika kerusakan di Kabupaten Bogor atau Lebak masih tinggi setelah penanganan diserahkan ke daerah. Hasil simulasi, bukan peristiwa sejarah."},
+ "briefing": {"fact_class": "FICTIONAL", "speaker": "Penasihat Pembangunan", "text": "Jakarta mulai pulih, tetapi laporan dari Bogor dan Lebak menunjukkan pemulihan tertinggal. Kapasitas daerah ternyata tidak merata."},
+ "on_trigger_effects": [{"scope": "regions:32.01,36.02", "var": "trust", "op": "add", "value": -3.0}],
+ "choices": [
+  {"choice_id": "a", "label": "Kirim tim pusat ke daerah tertinggal", "description": "Pusat turun tangan khusus di Bogor dan Lebak. Pemulihan dipercepat dengan biaya tambahan.", "fact_class": "SIMULATED",
+   "effects": [{"scope": "national", "var": "fiscal_space", "op": "add", "value": -3.0}, {"scope": "regions:32.01,36.02", "var": "damage", "op": "add", "value": -10.0, "delay": 1}],
+   "memory": {"lagging_recovery_response": "central_team"}},
+  {"choice_id": "b", "label": "Dana pendampingan kapasitas BPBD", "description": "Melatih dan mendanai BPBD setempat. Lambat, tetapi layanan daerah menguat untuk jangka panjang.", "fact_class": "SIMULATED",
+   "effects": [{"scope": "national", "var": "fiscal_space", "op": "add", "value": -2.0}, {"scope": "regions:32.01,36.02", "var": "services", "op": "add", "value": 1.5, "delay": 2, "duration": 4}],
+   "memory": {"lagging_recovery_response": "capacity_building"}}
+ ],
+ "follow_ups": []
+}
