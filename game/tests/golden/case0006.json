@@ -1,0 +1,59 @@
+{
+  "a": {
+    "end": {
+      "53.01_infrastructure": 50.0,
+      "53.01_sentiment": 56.111,
+      "53.01_services": 58.5,
+      "53.01_trust": 55.59,
+      "53.01_welfare": 68.2948,
+      "53.20_infrastructure": 50.0,
+      "53.20_sentiment": 54.9976,
+      "53.20_services": 55.5,
+      "53.20_trust": 54.8769,
+      "53.20_welfare": 60.4419,
+      "fiscal_space": 46.0,
+      "national_welfare": 71.8528
+    },
+    "presented": [
+      "CASE-0006-R"
+    ]
+  },
+  "b": {
+    "end": {
+      "53.01_infrastructure": 50.0,
+      "53.01_sentiment": 54.7026,
+      "53.01_services": 54.0,
+      "53.01_trust": 54.5407,
+      "53.01_welfare": 67.1616,
+      "53.20_infrastructure": 50.0,
+      "53.20_sentiment": 53.6156,
+      "53.20_services": 51.0,
+      "53.20_trust": 53.8703,
+      "53.20_welfare": 59.3103,
+      "fiscal_space": 45.0,
+      "national_welfare": 71.8509
+    },
+    "presented": [
+      "CASE-0006-R"
+    ]
+  },
+  "c": {
+    "end": {
+      "53.01_infrastructure": 60.0,
+      "53.01_sentiment": 54.8933,
+      "53.01_services": 56.0,
+      "53.01_trust": 54.2575,
+      "53.01_welfare": 67.6543,
+      "53.20_infrastructure": 60.0,
+      "53.20_sentiment": 53.8621,
+      "53.20_services": 53.3,
+      "53.20_trust": 53.58,
+      "53.20_welfare": 59.8815,
+      "fiscal_space": 43.0,
+      "national_welfare": 71.8518
+    },
+    "presented": [
+      "CASE-0006-R"
+    ]
+  }
+}

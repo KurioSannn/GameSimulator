@@ -1,0 +1,57 @@
+{
+  "a": {
+    "end": {
+      "94_infrastructure": 50.0,
+      "94_sentiment": 51.2957,
+      "94_services": 49.4954,
+      "94_trust": 52.2579,
+      "94_welfare": 56.8178,
+      "95_infrastructure": 50.0,
+      "95_sentiment": 50.2282,
+      "95_services": 49.3759,
+      "95_trust": 51.4247,
+      "95_welfare": 48.9173,
+      "fiscal_space": 46.0,
+      "national_welfare": 71.8474
+    },
+    "presented": [
+      "CASE-0007-A"
+    ]
+  },
+  "b": {
+    "end": {
+      "94_infrastructure": 50.0,
+      "94_sentiment": 53.3798,
+      "94_services": 59.3,
+      "94_trust": 52.954,
+      "94_welfare": 59.2106,
+      "95_infrastructure": 50.0,
+      "95_sentiment": 51.7495,
+      "95_services": 57.1,
+      "95_trust": 51.7841,
+      "95_welfare": 50.791,
+      "fiscal_space": 41.0,
+      "national_welfare": 71.8699
+    },
+    "presented": [
+      "CASE-0007-B"
+    ]
+  },
+  "c": {
+    "end": {
+      "94_infrastructure": 50.0,
+      "94_sentiment": 49.0441,
+      "94_services": 41.3,
+      "94_trust": 50.8632,
+      "94_welfare": 54.77,
+      "95_infrastructure": 56.0,
+      "95_sentiment": 49.5488,
+      "95_services": 45.1,
+      "95_trust": 51.3531,
+      "95_welfare": 47.9311,
+      "fiscal_space": 45.0,
+      "national_welfare": 71.8315
+    },
+    "presented": []
+  }
+}
