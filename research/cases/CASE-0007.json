@@ -1,0 +1,50 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0007",
+ "title": "Akses layanan kesehatan primer di Papua Pegunungan dan Papua Tengah",
+ "status": "researched",
+ "status_note": "Facility and workforce gaps come from Kemenkes' Profil Kesehatan Indonesia (2023 edition with 38 provinces, published 2024; and the earlier edition with 2022 data on the pre-split provinces), parsed from the PDFs. The special-assignment program (Nusantara Sehat) comes from a Kemenkes article (14 Feb 2023). The finest reliable resolution is the province: the appendix tables of the 2023 edition are glyph-encoded and could not be extracted, so only figures stated in the narrative text are used. Not 'validated': no kab-level puskesmas, workforce, travel-time or outcome data.",
+ "category": "health_services",
+ "subcategories": ["primary_care", "health_workforce", "geographic_access", "remote_areas", "special_autonomy"],
+ "start_date": "2022-06",
+ "end_date": "2024",
+ "decision_as_of": "2024",
+ "island": "papua",
+ "provinces": ["95", "94"],
+ "regency_city_documented": [],
+ "province_level_evidence": [
+  {"province_id": "95", "evidence": "Papua Pegunungan: highest share of puskesmas without a doctor in 2023 (54.3%); among the provinces with the lowest puskesmas-per-kecamatan ratio; far below the accreditation target.", "source_refs": ["SRC-KEMENKES-PKI-2023"]},
+  {"province_id": "94", "evidence": "Papua Tengah: second-highest share of puskesmas without a doctor in 2023 (43.5%); lowest-ratio group; far below the accreditation target.", "source_refs": ["SRC-KEMENKES-PKI-2023"]}
+ ],
+ "regions_considered_not_used": [
+  {"region_id": "96", "reason": "Papua Barat Daya: third-highest share without a doctor (26.9%). Kept as context so the case stays focused on the two largest gaps; not given direct effects."},
+  {"region_id": "92,91,93", "reason": "Papua Barat, Papua and Papua Selatan are not in the top three for the doctor gap in the 2023 narrative. Treating all Papua provinces alike would contradict the evidence."},
+  {"region_id": "kab-level", "reason": "No kab-level data was retrieved. Effects apply uniformly within each of the two provinces, and the within-province variation (e.g. Mimika/Timika vs the highlands) is unknown and disclosed."}
+ ],
+ "real_facts": [
+  {"fact": "In 2023, the provinces with the highest share of puskesmas without a doctor were Papua Pegunungan (54.3%), Papua Tengah (43.5%) and Papua Barat Daya (26.9%). In 8 provinces every puskesmas had a doctor.", "kind": "statistic", "source_refs": ["SRC-KEMENKES-PKI-2023"], "as_of": "2024-06", "quote": "Provinsi Papua Pegunugan (54,3%), Papua Tengah (43,5%), dan Papua Barat Daya (26,9%)", "note": "Gambar 2.7, source SISDMK processed by the Ditjen Tenaga Kesehatan secretariat (Kemenkes 2024). 'Pegunugan' is a typo in the source."},
+  {"fact": "Puskesmas per kecamatan in 2023: the lowest ratios were in Papua Tengah, Papua Barat, Papua Barat Daya and Papua Pegunungan. A ratio below 1 means not every kecamatan has a puskesmas. Kemenkes notes that access also depends on geography, area, basic infrastructure and socio-economic conditions.", "kind": "statistic_qualitative", "source_refs": ["SRC-KEMENKES-PKI-2023"], "as_of": "2024-06", "note": "Exact ratios are in Lampiran 4.c, which could not be extracted (glyph-encoded table)."},
+  {"fact": "Papua Barat Daya, Papua Tengah and Papua Pegunungan were far below the Kemenkes 2023 strategic-plan target for puskesmas accreditation. Their puskesmas were to be supported through DAK Non Fisik to prepare for accreditation.", "kind": "fact", "source_refs": ["SRC-KEMENKES-PKI-2023"], "as_of": "2024-06"},
+  {"fact": "Using 2022 data for the pre-split province of Papua: 183 puskesmas had no doctor and 291 had one (61.4% with a doctor, vs 96.0% nationally). Only 36 of 474 met the minimum standard of 9 health-worker types (7.6%, vs 56.1% nationally).", "kind": "statistic", "source_refs": ["SRC-KEMENKES-PROFIL-BAB2-2022DATA"], "as_of": "2023", "note": "Publication month unknown (file metadata shows only a modification date), so this fact is kept out of the in-game real context, which requires month precision. Lampiran 4.e/4.f, source SISDMK (Kemenkes 2023), puskesmas count per the Pusdatin draft codification of June 2022. Pre-split Papua covers today's Papua, Papua Selatan, Papua Tengah and Papua Pegunungan."},
+  {"fact": "Kemenkes meets staffing needs at puskesmas through special assignments under Nusantara Sehat: team or individual placements for 2 years, prioritized to remote and very remote areas. 20,933 workers were assigned from 2015 to 2022 and 7,250 are active in 2,540 puskesmas. Nationally, after the 2022 PPPK selection, 404 puskesmas still had no doctor.", "kind": "policy_fact", "source_refs": ["SRC-KEMENKES-PENUGASAN-KHUSUS-2023-02-14"], "as_of": "2023-02-14"}
+ ],
+ "information_available_at_decision": "By 2024 a decision-maker had:\n- the provincial doctor-gap and access-ratio findings for 2023 (new provinces);\n- the 2022 workforce-standard figures for the pre-split province;\n- the existing special-assignment program.\nNo kab-level workforce, travel-time or health-outcome series was located.",
+ "trigger": ["Kemenkes reporting of persistent primary-care gaps in the new Papua highland/central provinces (Profil Kesehatan Indonesia 2023)"],
+ "root_causes_note": "Kemenkes names geography, area, basic infrastructure and socio-economic conditions as access factors. The game asserts no other causes (e.g. security conditions are not referenced).",
+ "stakeholders": ["masyarakat di distrik pegunungan", "tenaga kesehatan puskesmas", "dinas kesehatan kabupaten dan provinsi", "Kementerian Kesehatan", "pemerintah provinsi baru (DOB)", "tokoh adat dan gereja (tidak dimodelkan)"],
+ "sources": [
+  {"source_id": "SRC-KEMENKES-PKI-2023", "institution": "Kementerian Kesehatan RI", "title": "Profil Kesehatan Indonesia 2023 (Bab II Fasilitas Pelayanan Kesehatan dan UKBM)", "url": "https://kemkes.go.id/app_asset/file_content_download/172231123666a86244b83fd8.51637104.pdf", "publication_date": "2024-06", "retrieved_at": "2026-10-23", "source_quality": "REAL_OFFICIAL", "note": "Foreword by the Secretary-General and the Minister dated Juni 2024.", "raw_capture": "data/raw/cases/CASE-0007/kemenkes_profil_kesehatan_indonesia_2023.pdf (sha256 4147be8d…, not committed)"},
+  {"source_id": "SRC-KEMENKES-PROFIL-BAB2-2022DATA", "institution": "Kementerian Kesehatan RI", "title": "Profil Kesehatan — Bab 2 (lampiran 4.e/4.f, data tahun 2022)", "url": "https://layanandata.kemkes.go.id/file/profil-kesehatan/2023/bab-2.pdf", "publication_date": "2023", "retrieved_at": "2026-10-23", "source_quality": "REAL_OFFICIAL", "raw_capture": "data/raw/cases/CASE-0007/kemenkes_profil_bab2_data2022.pdf (sha256 dd1dd2f3…, not committed)"},
+  {"source_id": "SRC-KEMENKES-PENUGASAN-KHUSUS-2023-02-14", "institution": "Kementerian Kesehatan RI", "title": "Kemenkes Penuhi Kebutuhan Nakes di Puskesmas Lewat Penugasan Khusus", "url": "https://kemkes.go.id/id/kemenkes-penuhi-kebutuhan-nakes-di-puskesmas-lewat-penugasan-khusus", "publication_date": "2023-02-14", "retrieved_at": "2026-10-23", "source_quality": "REAL_OFFICIAL"}
+ ],
+ "rejected_or_unverified": [
+  "Otsus fund share for health (often cited as at least 20% of the specific-purpose part): only secondary sources (Katadata). The statute text (UU 2/2021 Pasal 36, PP 107/2021) was not retrieved. Not used.",
+  "2024 and 2025 doctor-gap percentages (62.57% / 66.67% for Papua Pegunungan): secondary (GoodStats, periskop); the official PDF was not retrieved. Not used.",
+  "Kab-level puskesmas counts (BPS Papua Pegunungan publications): not retrieved.",
+  "Travel times, mortality, maternal and child outcomes, staffing costs: not sourced; not modeled."
+ ],
+ "todo_to_validate": ["Lampiran 4.c/4.e of PKI 2023 (exact ratios and counts per new province)", "BPS Statistik Potensi Desa Papua Pegunungan 2024 (distance to health facilities per village)", "UU 2/2021 and PP 107/2021 text for Otsus health allocation", "Kemenkes SISDMK kab-level doctor availability"],
+ "game_adaptation_ref": "game/data/cases/CASE-0007.json",
+ "game_adaptation_notes": "Services start at a neutral 50 everywhere (UNCALIBRATED). When the case opens, a derived adjustment applies the documented provincial doctor gap to the 'services' index: −0.2 × (% of puskesmas without a doctor), giving −10.9 in Papua Pegunungan and −8.7 in Papua Tengah. It is labeled in the panel as a data adjustment, not an event. The 0.2 factor is a design choice. Choices use services, infrastructure (access/referral), trust and fiscal_space. The two existing service policies were not reused, because their monthly commitments are shares of the national budget envelope and would crowd out sector budgets nationwide for a 16-regency program.",
+ "fact_vs_simulation_notes": "The provincial gaps, the accreditation finding and the Nusantara Sehat program are real. The President's options and every consequence are SIMULATED. No health outcome is modeled."
+}

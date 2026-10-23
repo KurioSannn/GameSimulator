@@ -1,0 +1,43 @@
+
+CASE-0006/a decided t=9
+  Q+1 t=12 | Sabu wel=53.21 svc=50.50 infra=50.0 trust=55.77 sent=54.11 | Kupang wel=54.02 svc=52.00 | fiscal=46.0 natWel=53.962
+  Q+2 t=15 | Sabu wel=54.06 svc=50.50 infra=50.0 trust=55.59 sent=54.18 | Kupang wel=54.54 svc=52.00 | fiscal=46.0 natWel=53.599 [CASE-0007→a]
+  Q+3 t=18 | Sabu wel=54.44 svc=50.50 infra=50.0 trust=55.43 sent=54.31 | Kupang wel=54.83 svc=52.00 | fiscal=44.0 natWel=53.348
+  Q+4 t=21 | Sabu wel=54.66 svc=50.50 infra=50.0 trust=55.32 sent=54.46 | Kupang wel=55.00 svc=52.00 | fiscal=44.0 natWel=53.317 [CASE-0006-R→a]
+  Q+5 t=24 | Sabu wel=53.68 svc=53.50 infra=50.0 trust=55.16 sent=53.86 | Kupang wel=55.10 svc=56.50 | fiscal=42.0 natWel=53.292 [CASE-0007-A→a]
+  Q+6 t=27 | Sabu wel=54.42 svc=53.50 infra=50.0 trust=55.00 sent=53.77 | Kupang wel=55.72 svc=56.50 | fiscal=40.0 natWel=53.108
+CASE-0006/b decided t=9
+  Q+1 t=12 | Sabu wel=54.65 svc=46.00 infra=50.0 trust=55.36 sent=54.52 | Kupang wel=55.42 svc=47.50 | fiscal=45.0 natWel=53.967
+  Q+2 t=15 | Sabu wel=54.71 svc=46.00 infra=50.0 trust=55.29 sent=54.72 | Kupang wel=55.16 svc=47.50 | fiscal=45.0 natWel=53.601 [CASE-0007→a]
+  Q+3 t=18 | Sabu wel=54.23 svc=46.00 infra=50.0 trust=55.20 sent=54.46 | Kupang wel=54.59 svc=47.50 | fiscal=43.0 natWel=53.347
+  Q+4 t=21 | Sabu wel=54.00 svc=46.00 infra=50.0 trust=55.09 sent=54.20 | Kupang wel=54.33 svc=47.50 | fiscal=43.0 natWel=53.315 [CASE-0006-R→a]
+  Q+5 t=24 | Sabu wel=52.79 svc=49.00 infra=50.0 trust=54.91 sent=53.30 | Kupang wel=54.21 svc=52.00 | fiscal=41.0 natWel=53.288 [CASE-0007-A→a]
+  Q+6 t=27 | Sabu wel=53.42 svc=49.00 infra=50.0 trust=54.70 sent=53.00 | Kupang wel=54.71 svc=52.00 | fiscal=39.0 natWel=53.104
+CASE-0006/c decided t=9
+  Q+1 t=12 | Sabu wel=52.81 svc=46.00 infra=50.0 trust=53.95 sent=53.44 | Kupang wel=53.63 svc=47.50 | fiscal=43.0 natWel=53.960
+  Q+2 t=15 | Sabu wel=53.31 svc=46.00 infra=50.0 trust=53.86 sent=53.07 | Kupang wel=53.79 svc=47.50 | fiscal=43.0 natWel=53.596 [CASE-0007→a]
+  Q+3 t=18 | Sabu wel=53.51 svc=46.00 infra=50.0 trust=53.75 sent=52.94 | Kupang wel=53.89 svc=47.50 | fiscal=41.0 natWel=53.344
+  Q+4 t=21 | Sabu wel=53.87 svc=48.00 infra=60.0 trust=53.67 sent=53.01 | Kupang wel=54.21 svc=49.50 | fiscal=41.0 natWel=53.314 [CASE-0006-R→a]
+  Q+5 t=24 | Sabu wel=53.25 svc=51.30 infra=60.0 trust=53.55 sent=52.58 | Kupang wel=54.47 svc=54.00 | fiscal=39.0 natWel=53.290 [CASE-0007-A→a]
+  Q+6 t=27 | Sabu wel=53.94 svc=51.30 infra=60.0 trust=53.43 sent=52.56 | Kupang wel=55.08 svc=54.00 | fiscal=37.0 natWel=53.106
+CASE-0007/a decided t=15
+  Q+1 t=18 | Pegunungan svc=37.10 infra=50.0 wel=52.32 trust=54.36 sent=52.39 | Tengah svc=39.30 wel=53.01 | fiscal=44.0 natWel=53.348
+  Q+2 t=21 | Pegunungan svc=37.10 infra=50.0 wel=51.60 trust=54.07 sent=51.58 | Tengah svc=39.30 wel=52.43 | fiscal=44.0 natWel=53.317 [CASE-0006-R→a]
+  Q+3 t=24 | Pegunungan svc=38.04 infra=50.0 wel=51.32 trust=54.64 sent=51.28 | Tengah svc=40.21 wel=52.16 | fiscal=42.0 natWel=53.292 [CASE-0007-A→a]
+  Q+4 t=27 | Pegunungan svc=40.96 infra=50.0 wel=51.26 trust=54.22 sent=50.80 | Tengah svc=41.10 wel=52.03 | fiscal=40.0 natWel=53.108 [CASE-0002→a]
+  Q+5 t=30 | Pegunungan svc=41.84 infra=50.0 wel=51.48 trust=53.80 sent=50.54 | Tengah svc=41.98 wel=52.10 | fiscal=33.0 natWel=52.990 [CASE-0005→a]
+  Q+6 t=33 | Pegunungan svc=42.71 infra=50.0 wel=51.76 trust=53.42 sent=50.52 | Tengah svc=42.84 wel=52.26 | fiscal=33.0 natWel=53.052
+CASE-0007/b decided t=15
+  Q+1 t=18 | Pegunungan svc=37.60 infra=50.0 wel=52.34 trust=54.36 sent=52.39 | Tengah svc=39.80 wel=53.03 | fiscal=42.0 natWel=53.349
+  Q+2 t=21 | Pegunungan svc=39.10 infra=50.0 wel=51.80 trust=54.07 sent=51.65 | Tengah svc=41.30 wel=52.64 | fiscal=42.0 natWel=53.324 [CASE-0006-R→a]
+  Q+3 t=24 | Pegunungan svc=40.60 infra=50.0 wel=51.72 trust=53.76 sent=51.20 | Tengah svc=42.80 wel=52.57 | fiscal=40.0 natWel=53.304 [CASE-0002→a]
+  Q+4 t=27 | Pegunungan svc=42.10 infra=50.0 wel=51.73 trust=53.43 sent=50.74 | Tengah svc=44.30 wel=52.60 | fiscal=33.0 natWel=53.093
+  Q+5 t=30 | Pegunungan svc=43.60 infra=50.0 wel=51.92 trust=53.10 sent=50.50 | Tengah svc=45.80 wel=52.84 | fiscal=31.0 natWel=53.003 [CASE-0005→a]
+  Q+6 t=33 | Pegunungan svc=45.10 infra=50.0 wel=52.26 trust=52.80 sent=50.53 | Tengah svc=47.30 wel=53.16 | fiscal=31.0 natWel=53.075
+CASE-0007/c decided t=15
+  Q+1 t=18 | Pegunungan svc=40.10 infra=50.0 wel=52.58 trust=55.27 sent=52.75 | Tengah svc=39.30 wel=53.01 | fiscal=41.0 natWel=53.352
+  Q+2 t=21 | Pegunungan svc=43.10 infra=50.0 wel=52.36 trust=54.94 sent=52.28 | Tengah svc=39.30 wel=52.43 | fiscal=41.0 natWel=53.329 [CASE-0006-R→a]
+  Q+3 t=24 | Pegunungan svc=43.10 infra=50.0 wel=52.37 trust=54.61 sent=52.01 | Tengah svc=39.30 wel=52.08 | fiscal=39.0 natWel=53.307 [CASE-0002→a]
+  Q+4 t=27 | Pegunungan svc=43.10 infra=50.0 wel=52.23 trust=54.28 sent=51.59 | Tengah svc=39.30 wel=51.79 | fiscal=32.0 natWel=53.088
+  Q+5 t=30 | Pegunungan svc=43.10 infra=56.0 wel=52.17 trust=53.95 sent=51.27 | Tengah svc=39.30 wel=51.68 | fiscal=32.0 natWel=52.989 [CASE-0005→a]
+  Q+6 t=33 | Pegunungan svc=43.10 infra=56.0 wel=52.20 trust=53.63 sent=51.12 | Tengah svc=39.30 wel=51.64 | fiscal=32.0 natWel=53.051

@@ -1,0 +1,10 @@
+{
+ "source_id": "SRC-KEMENKES-PKI-2023",
+ "snapshot_id": "CASES-2026-10-23",
+ "url": "https://kemkes.go.id/app_asset/file_content_download/172231123666a86244b83fd8.51637104.pdf",
+ "retrieved_at": "2026-10-23",
+ "http_status": 200,
+ "bytes": 15215709,
+ "sha256": "4147be8dff206d9d488509287717d912f64a974dd136b0789728a3302bdd1aed",
+ "note": "Retrieved 2026-10-23 during CASE-0007 research. PDFs are not committed (.gitignore); verify with sha256."
+}

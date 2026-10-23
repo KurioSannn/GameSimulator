@@ -1,0 +1,10 @@
+{
+ "source_id": "SRC-KEMENKES-PROFIL-BAB2-2022DATA",
+ "snapshot_id": "CASES-2026-10-23",
+ "url": "https://layanandata.kemkes.go.id/file/profil-kesehatan/2023/bab-2.pdf",
+ "retrieved_at": "2026-10-23",
+ "http_status": 200,
+ "bytes": 767806,
+ "sha256": "dd1dd2f30809a72f880297ce32bbf4428f85506728c1e569ed626730c9c0622a",
+ "note": "Retrieved 2026-10-23 during CASE-0007 research. PDFs are not committed (.gitignore); verify with sha256."
+}

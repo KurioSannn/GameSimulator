@@ -1,0 +1,25 @@
+{
+ "snapshot_id": "CASES-2026-10-23",
+ "files": [
+  {
+   "path": "CASE-0006/bps_ntt_korban_bencana_2023.html",
+   "sha256": "cf6461c5cdf475a6d2b236bcc1f41f5d9c8a526e2e7022eb3ae92f8df6beed40",
+   "bytes": 200117
+  },
+  {
+   "path": "CASE-0006/bps_ntt_padi_kabkota_2023.html",
+   "sha256": "b003ee05bde4b8e14bdb298bd23ca785b70ef14308e2ffd968443e7b6d7a8145",
+   "bytes": 114631
+  },
+  {
+   "path": "CASE-0007/kemenkes_profil_kesehatan_indonesia_2023.pdf",
+   "sha256": "4147be8dff206d9d488509287717d912f64a974dd136b0789728a3302bdd1aed",
+   "bytes": 15215709
+  },
+  {
+   "path": "CASE-0007/kemenkes_profil_bab2_data2022.pdf",
+   "sha256": "dd1dd2f30809a72f880297ce32bbf4428f85506728c1e569ed626730c9c0622a",
+   "bytes": 767806
+  }
+ ]
+}

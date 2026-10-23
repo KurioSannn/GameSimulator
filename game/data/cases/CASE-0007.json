@@ -1,0 +1,219 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0007",
+ "research_ref": "research/cases/CASE-0007.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Puskesmas Tanpa Dokter di Pegunungan",
+ "location_label": "Provinsi Papua Pegunungan dan Papua Tengah",
+ "focus_regions": [
+  "95.01",
+  "95.02",
+  "95.03",
+  "95.04",
+  "95.05",
+  "95.06",
+  "95.07",
+  "95.08",
+  "94.01",
+  "94.02",
+  "94.03",
+  "94.04",
+  "94.05",
+  "94.06",
+  "94.07",
+  "94.08"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 15
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0007"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 10
+ },
+ "trigger_label": "Penyesuaian data kasus (kesenjangan dokter, Kemenkes 2023)",
+ "on_trigger_effects": [
+  {
+   "scope": "province:95",
+   "var": "services",
+   "op": "add",
+   "value": -10.9
+  },
+  {
+   "scope": "province:94",
+   "var": "services",
+   "op": "add",
+   "value": -8.7
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Kemenkes mencatat persentase puskesmas tanpa dokter tertinggi pada 2023 di Papua Pegunungan (54,3%), Papua Tengah (43,5%), dan Papua Barat Daya (26,9%); di 8 provinsi semua puskesmas sudah memiliki dokter.",
+    "source_refs": [
+     "SRC-KEMENKES-PKI-2023"
+    ],
+    "as_of": "2024-06"
+   },
+   {
+    "text": "Rasio puskesmas per kecamatan terendah pada 2023 ada di Papua Tengah, Papua Barat, Papua Barat Daya, dan Papua Pegunungan; rasio di bawah 1 berarti belum semua kecamatan memiliki puskesmas. Akreditasi puskesmas di Papua Pegunungan, Papua Tengah, dan Papua Barat Daya jauh di bawah target Renstra.",
+    "source_refs": [
+     "SRC-KEMENKES-PKI-2023"
+    ],
+    "as_of": "2024-06"
+   },
+   {
+    "text": "Kemenkes mengisi kekurangan tenaga di puskesmas melalui penugasan khusus Nusantara Sehat selama 2 tahun, diprioritaskan untuk wilayah terpencil dan sangat terpencil; 7.250 tenaga aktif di 2.540 puskesmas.",
+    "source_refs": [
+     "SRC-KEMENKES-PENUGASAN-KHUSUS-2023-02-14"
+    ],
+    "as_of": "2023-02-14"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Kesehatan",
+  "text": "Pak Presiden, kasus ini diangkat dari data Kemenkes yang nyata. Di Papua Pegunungan lebih dari separuh puskesmas tidak memiliki dokter, dan Papua Tengah tidak jauh berbeda. Banyak distrik hanya bisa dijangkau lewat udara atau jalan kaki. Kita bisa memperkuat pemerintah daerah, mengirim tim dari pusat, atau membuka akses dan rujukan. Tidak ada pilihan yang cepat, murah, dan bertahan sekaligus."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "All regions start with services = 50 (UNCALIBRATED). When the case opens, the documented provincial doctor gap is applied as services −0.2 × (% of puskesmas without a doctor): Papua Pegunungan −10.9, Papua Tengah −8.7, uniformly across each province's regencies (kab-level variation unknown). The factor 0.2 is a design choice. This is a data adjustment, not an event."
+ },
+ "follow_ups": [
+  "CASE-0007-A",
+  "CASE-0007-B"
+ ],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "health-service policy -> services (puskesmas capacity) -> welfare (services weight) -> sentiment; access investment -> infrastructure (logistics, recovery, food realization in the model); costs -> fiscal_space",
+  "immediate": "a: fiscal −2; b: fiscal −4; c: fiscal −5, services +1/month for 6 months in Papua Pegunungan (mobile outreach), trust +1",
+  "delayed": "a: services +0.25/month for 30 months after 6 months in both provinces, larger where services are weakest; trust +1 after 6 months. b: services +0.5/month for 24 months after 2 months in both provinces, fiscal −2 after 12 months. c: infrastructure +6 after 12 months in Papua Pegunungan",
+  "regional": "a and b act on both provinces (16 regencies); c concentrates on Papua Pegunungan (8 regencies) and leaves Papua Tengah unchanged",
+  "national": "fiscal_space only; welfare/sentiment change in 16 of 514 regions (equal weighting)",
+  "branching": "a -> CASE-0007-A if Papua Pegunungan services are still below 45 from month 25; b -> CASE-0007-B when the 24-month central deployment ends (month 43)",
+  "assumptions": "All magnitudes are design values (G-31 to G-33). No health outcome, workforce count, travel time or cost is modeled."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Perkuat dinas kesehatan daerah",
+   "description": "Dana dan pendampingan agar kabupaten merekrut, menahan, dan mengelola tenaga kesehatannya sendiri di kedua provinsi. Murah dan membangun kapasitas, tetapi lambat; hasil terbesar di wilayah yang layanannya paling lemah.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:95.01,95.02,95.03,95.04,95.05,95.06,95.07,95.08,94.01,94.02,94.03,94.04,94.05,94.06,94.07,94.08",
+     "var": "services",
+     "op": "add",
+     "value": 0.25,
+     "delay": 6,
+     "duration": 30,
+     "scale_by": {
+      "var": "services",
+      "mode": "gap",
+      "ref": 50,
+      "min": 0.5,
+      "max": 1.5
+     }
+    },
+    {
+     "scope": "regions:95.01,95.02,95.03,95.04,95.05,95.06,95.07,95.08,94.01,94.02,94.03,94.04,94.05,94.06,94.07,94.08",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "papua_health_path": "regional_capacity"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Tim kesehatan pusat bergilir",
+   "description": "Penugasan khusus tim dokter dan tenaga kesehatan dari pusat selama dua tahun ke puskesmas di kedua provinsi. Paling cepat dan merata, tetapi mahal dan berhenti saat masa tugas habis.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.0
+    },
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0,
+     "delay": 12
+    },
+    {
+     "scope": "regions:95.01,95.02,95.03,95.04,95.05,95.06,95.07,95.08,94.01,94.02,94.03,94.04,94.05,94.06,94.07,94.08",
+     "var": "services",
+     "op": "add",
+     "value": 0.5,
+     "delay": 2,
+     "duration": 24
+    }
+   ],
+   "memory": {
+    "papua_health_path": "central_teams"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Layanan bergerak dan rujukan",
+   "description": "Tim layanan bergerak menjangkau distrik terpencil di Papua Pegunungan, sambil membangun akses rujukan (lapangan terbang perintis, jalan, transportasi pasien). Ada manfaat segera, dan aksesnya membaik setelah sekitar setahun, tetapi Papua Tengah tidak tersentuh.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "province:95",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "duration": 6
+    },
+    {
+     "scope": "province:95",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    },
+    {
+     "scope": "province:95",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 6.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "papua_health_path": "outreach_referral"
+   }
+  }
+ ]
+}

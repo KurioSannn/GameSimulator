@@ -1,0 +1,138 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0007-B",
+ "origin_case": "CASE-0007",
+ "research_ref": "research/cases/CASE-0007.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Masa Tugas Tim Pusat Berakhir",
+ "location_label": "Provinsi Papua Pegunungan dan Papua Tengah",
+ "focus_regions": [
+  "95.01",
+  "95.02",
+  "95.03",
+  "95.04",
+  "95.05",
+  "95.06",
+  "95.07",
+  "95.08",
+  "94.01",
+  "94.02",
+  "94.03",
+  "94.04",
+  "94.05",
+  "94.06",
+  "94.07",
+  "94.08"
+ ],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0007",
+     "choice": "b"
+    },
+    {
+     "tick": ">=",
+     "value": 42
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul saat penugasan dua tahun tim pusat berakhir. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Kesehatan",
+  "text": "Masa tugas tim pusat hampir selesai. Kepala puskesmas bertanya siapa yang akan menggantikan mereka."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Perpanjang penugasan",
+   "description": "Tim pusat diperpanjang 12 bulan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "regions:95.01,95.02,95.03,95.04,95.05,95.06,95.07,95.08,94.01,94.02,94.03,94.04,94.05,94.06,94.07,94.08",
+     "var": "services",
+     "op": "add",
+     "value": 0.5,
+     "duration": 12
+    }
+   ],
+   "memory": {
+    "papua_teams": "extended"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Serah terima ke daerah",
+   "description": "Tim pusat mendampingi kabupaten mengambil alih layanan secara bertahap.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "regions:95.01,95.02,95.03,95.04,95.05,95.06,95.07,95.08,94.01,94.02,94.03,94.04,94.05,94.06,94.07,94.08",
+     "var": "services",
+     "op": "add",
+     "value": 0.2,
+     "duration": 18,
+     "scale_by": {
+      "var": "services",
+      "mode": "gap",
+      "ref": 50,
+      "min": 0.5,
+      "max": 1.5
+     }
+    },
+    {
+     "scope": "regions:95.01,95.02,95.03,95.04,95.05,95.06,95.07,95.08,94.01,94.02,94.03,94.04,94.05,94.06,94.07,94.08",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "papua_teams": "handover"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Akhiri program",
+   "description": "Penugasan berakhir tanpa pengganti.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "regions:95.01,95.02,95.03,95.04,95.05,95.06,95.07,95.08,94.01,94.02,94.03,94.04,94.05,94.06,94.07,94.08",
+     "var": "trust",
+     "op": "add",
+     "value": -1.5
+    }
+   ],
+   "memory": {
+    "papua_teams": "ended"
+   }
+  }
+ ]
+}

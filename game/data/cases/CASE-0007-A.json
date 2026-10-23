@@ -1,0 +1,124 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0007-A",
+ "origin_case": "CASE-0007",
+ "research_ref": "research/cases/CASE-0007.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Kabupaten Kesulitan Merekrut Dokter",
+ "location_label": "Provinsi Papua Pegunungan",
+ "focus_regions": [
+  "95.01",
+  "95.02",
+  "95.03",
+  "95.04",
+  "95.05",
+  "95.06",
+  "95.07",
+  "95.08"
+ ],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0007",
+     "choice": "a"
+    },
+    {
+     "tick": ">=",
+     "value": 24
+    },
+    {
+     "var": "services",
+     "scope": "province:95",
+     "agg": "mean",
+     "op": "<",
+     "value": 45.0
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul jika indeks layanan simulasi di Papua Pegunungan masih di bawah 45 sembilan bulan setelah penguatan daerah dipilih. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Kesehatan",
+  "text": "Dinas kesehatan kabupaten melaporkan formasi dokter belum terisi; pelamar enggan bertugas di distrik terpencil."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Insentif daerah sangat terpencil",
+   "description": "Tunjangan dan fasilitas tambahan bagi dokter yang bertugas di distrik terpencil.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "province:95",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 2
+    }
+   ],
+   "memory": {
+    "papua_health_incentive": true
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Pendidikan dokter putra-putri daerah",
+   "description": "Beasiswa pendidikan dokter dengan ikatan dinas kembali ke daerah. Manfaat baru terasa lama kemudian.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "province:95",
+     "var": "services",
+     "op": "add",
+     "value": 4.0,
+     "delay": 18
+    }
+   ],
+   "memory": {
+    "papua_health_local_doctors": true
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Tunggu hasil penguatan",
+   "description": "Tidak ada program tambahan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "province:95",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    }
+   ],
+   "memory": {
+    "papua_health_wait": true
+   }
+  }
+ ]
+}
