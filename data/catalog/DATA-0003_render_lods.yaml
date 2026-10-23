@@ -21,14 +21,14 @@ definitions:
   lod1: "Douglas-Peucker 1,000 m, national view (>= 2,000 km wide)"
   lod2: "Douglas-Peucker 100 m, island group / province view (300-2,000 km)"
   lod3: "Douglas-Peucker 40 m, kab/kota view (< 300 km)"
-  nav_group_key: "presentation-only navigation group (D-016), not an administrative level"
+  nav_group_key: "presentation-only navigation group (D-054), not an administrative level"
 license_notes: "Derived from BIG data; attribution to Badan Informasi Geospasial required (see SRC-0001)."
-methodology_notes: "scripts/research/build_render_geometry.py (two-pass mapshaper 0.7.79, D-015). Selection: research/reports/lod_tolerance_selection.json."
+methodology_notes: "scripts/pipelines/geo/v2/build_render_geometry.py (two-pass mapshaper 0.7.79, D-053). Selection: research/reports/lod_tolerance_selection.json."
 known_limitations:
   - "Small islands near the interval size drawn shrunken (deformed parts median area ratio ~0.42); sub-pixel slivers at coarse zoom"
   - "Province outlines derived (no current official province polygons); cross-checked vs older province lines: median 7.5 m, 99.75 % within 50 m"
-  - "Kab. Sumbawa from a 1e-7 deg recovery copy (D-018)"
-  - "No area fields: game-facing area must be chosen deliberately (D-017)"
+  - "Kab. Sumbawa from a 1e-7 deg recovery copy (D-056)"
+  - "No area fields: game-facing area must be chosen deliberately (D-055)"
 known_conflicts: []
 transformation_pipeline:
   - "build_render_geometry.py --lod lod1 --interval 1000 / lod2 100 / lod3 40"
@@ -40,6 +40,6 @@ output_tables:
 validation_rules:
   - "15 hard checks per LOD (research/reports/render_geometry_validation.json): all pass"
   - "island component audit: 0 lost parts, 0 noticeable parts displaced (island_component_audit.json)"
-  - "scripts/research/tests/test_render_geometry.py"
+  - "scripts/pipelines/geo/v2/tests/test_render_geometry.py"
 checksum: "file_sha256 per LOD in research/reports/render_geometry_validation.json"
 status: active

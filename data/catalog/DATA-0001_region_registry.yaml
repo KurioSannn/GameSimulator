@@ -16,16 +16,16 @@ geographic_resolution:
 
 variables: [region_id, region_level, name, name_bps, kode_kemendagri, kode_kemendagri_raw, kode_bps, parent_region_id, province_kode_bps, big_name, big_tipadm_level, big_objectids, big_floating_area_objectids, big_luaswh_raw, big_metadata_edition, big_remark, island_group, fact_class]
 units:
-  big_luaswh_raw: "as published by BIG. Declared label/unit: 'Luas Wilayah Menurut Peraturan (HA)'. Evidenced interpretation (separate metadata, D-017): km2 legal area, status UNIT_KM2_EVIDENCED (research/reports/AREA_UNIT_INVESTIGATION.md). Never converted."
+  big_luaswh_raw: "as published by BIG. Declared label/unit: 'Luas Wilayah Menurut Peraturan (HA)'. Evidenced interpretation (separate metadata, D-055): km2 legal area, status UNIT_KM2_EVIDENCED (research/reports/2026-10-22_AREA_UNIT_INVESTIGATION.md). Never converted."
 definitions:
-  region_id: "Kemendagri administrative code, 'PP' (provinsi) or 'PP.KK' (kab/kota). Primary key (D-012)."
+  region_id: "Kemendagri administrative code, 'PP' (provinsi) or 'PP.KK' (kab/kota). Primary key (D-050)."
   kode_bps: "BPS statistical area code ('PP' / 'PPKK'). Differs from Kemendagri for the six Papua provinces."
   kode_kemendagri_raw: "kode_dagri exactly as served by SRC-0002 before trailing-zero repair."
   big_objectids: "OBJECTIDs of all SRC-0001 polygons for the region (main + 'Wilayah terapung')."
   island_group: "Game navigation layer only (docs/08). Empty until decided."
 
 license_notes: "See SRC-0001, SRC-0002."
-methodology_notes: "scripts/research/build_region_registry.py. Join key: normalized kode_dagri == BIG KDPKAB."
+methodology_notes: "scripts/pipelines/geo/v2/build_region_registry.py. Join key: normalized kode_dagri == BIG KDPKAB."
 known_limitations:
   - "Codes not verified against Kepmendagri PDF text (SRC-0003 blocked)."
   - "21 BIG TIPADM=6 fragments are not assigned to any kab/kota; kept in big_unallocated_fragments.csv."
@@ -44,6 +44,6 @@ output_tables:
   - data/normalized/geography/region_registry.json
 validation_rules:
   - "counts 38 / 416 / 98; unique region_id and kode_bps; code prefix == parent; 1:1 BIG main polygon; BIG TIPADM level == Kemendagri level (research/reports/geography_validation.json)"
-  - "scripts/research/tests/test_region_registry.py"
+  - "scripts/pipelines/geo/v2/tests/test_region_registry.py"
 checksum: "input checksums embedded in region_registry.json"
 status: active

@@ -2,7 +2,7 @@
   "taxonomy_id": "NAV-GROUPS-v1",
   "classification": "PRESENTATION_TAXONOMY",
   "presentation_only": true,
-  "note": "Map navigation/visual framing only (docs/08: island labels are an organizational/game layer and must not overwrite official administrative hierarchy). Not an administrative level, not a simulation aggregation unit, makes no factual claim. Approved by the team 2026-10-21; see DECISIONS.md D-016.",
+  "note": "Map navigation/visual framing only (docs/08: island labels are an organizational/game layer and must not overwrite official administrative hierarchy). Not an administrative level, not a simulation aggregation unit, makes no factual claim. Approved by the team 2026-10-21; see DECISIONS.md D-054.",
   "membership_key": "province region_id (Kemendagri code)",
   "groups": [
     {"group_key": "sumatera", "display_name": "Sumatera", "sort_order": 1,

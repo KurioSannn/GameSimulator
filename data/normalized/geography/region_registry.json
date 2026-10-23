@@ -1,7 +1,7 @@
 {
  "snapshot_id": "SNAP-2026-10-21",
  "built_at": "2026-10-21T17:10:11+00:00",
- "builder": "scripts/research/build_region_registry.py",
+ "builder": "scripts/pipelines/geo/v2/build_region_registry.py",
  "key_strategy": "region_id = Kemendagri code; BPS code is a crosswalk attribute",
  "sources": {
   "SRC-0002": "BPS SIG bridging, period 2025_2.2025",
