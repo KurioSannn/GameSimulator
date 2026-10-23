@@ -1,0 +1,449 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0004-R",
+ "origin_case": "CASE-0004",
+ "research_ref": "research/cases/CASE-0004.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Musim Kemarau, Api Kembali",
+ "location_label": "Provinsi gambut Sumatra dan Kalimantan",
+ "focus_regions": [
+  "62.01",
+  "62.02",
+  "62.03",
+  "62.04",
+  "62.05",
+  "62.06",
+  "62.07",
+  "62.08",
+  "62.09",
+  "62.10",
+  "62.11",
+  "62.12",
+  "62.13",
+  "62.71"
+ ],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_seen": "CASE-0004"
+    },
+    {
+     "tick": ">=",
+     "value": 54
+    },
+    {
+     "month": [
+      7,
+      8,
+      9,
+      10
+     ]
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 25,
+  "recurring": {
+   "cooldown_ticks": 10,
+   "max_occurrences": 2
+  }
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Musim kemarau berikutnya dalam simulasi (kalender musim Juli–Oktober adalah asumsi desain, bukan data BMKG per wilayah). Besarnya dampak di setiap provinsi bergantung pada pencegahan yang sudah dibangun di sana (makin tinggi pencegahan, makin kecil dampak). Hasil simulasi, bukan peristiwa sejarah; KLHK mencatat kebakaran tetap terjadi setiap tahun sesudah 2015 dengan luas lebih kecil."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Lingkungan",
+  "text": "Titik api kembali muncul. Di beberapa provinsi asapnya tipis; di tempat lain pekat. Apa langkah kita musim ini?"
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "province:62",
+   "var": "damage",
+   "op": "add",
+   "value": 12.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:14",
+   "var": "damage",
+   "op": "add",
+   "value": 6.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:15",
+   "var": "damage",
+   "op": "add",
+   "value": 6.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:16",
+   "var": "damage",
+   "op": "add",
+   "value": 6.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:61",
+   "var": "damage",
+   "op": "add",
+   "value": 6.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:63",
+   "var": "damage",
+   "op": "add",
+   "value": 6.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:62",
+   "var": "environment",
+   "op": "add",
+   "value": -5.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:14",
+   "var": "environment",
+   "op": "add",
+   "value": -3.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:15",
+   "var": "environment",
+   "op": "add",
+   "value": -3.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:16",
+   "var": "environment",
+   "op": "add",
+   "value": -3.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:61",
+   "var": "environment",
+   "op": "add",
+   "value": -3.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:63",
+   "var": "environment",
+   "op": "add",
+   "value": -3.0,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:62",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.5,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:14",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.8,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:15",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.8,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:16",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.8,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:61",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.8,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  },
+  {
+   "scope": "province:63",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.8,
+   "scale_by": {
+    "var": "fire_prevention",
+    "mode": "gap",
+    "ref": 0,
+    "min": 0.15,
+    "max": 1.0
+   }
+  }
+ ],
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Operasi pemadaman darurat",
+   "description": "Pemadaman udara dan darat di provinsi gambut. Mahal, cepat menekan kerusakan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "province:62",
+     "var": "damage",
+     "op": "add",
+     "value": -4.0,
+     "delay": 1
+    },
+    {
+     "scope": "province:14",
+     "var": "damage",
+     "op": "add",
+     "value": -4.0,
+     "delay": 1
+    },
+    {
+     "scope": "province:15",
+     "var": "damage",
+     "op": "add",
+     "value": -4.0,
+     "delay": 1
+    },
+    {
+     "scope": "province:16",
+     "var": "damage",
+     "op": "add",
+     "value": -4.0,
+     "delay": 1
+    },
+    {
+     "scope": "province:61",
+     "var": "damage",
+     "op": "add",
+     "value": -4.0,
+     "delay": 1
+    },
+    {
+     "scope": "province:63",
+     "var": "damage",
+     "op": "add",
+     "value": -4.0,
+     "delay": 1
+    }
+   ],
+   "memory": {
+    "peat_fire_season_response": "emergency_suppression"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Status siaga dan larangan membakar musim ini",
+   "description": "Status siaga darurat ditetapkan; semua pembakaran dilarang selama musim ini. Murah, tetapi petani kecewa.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "province:62",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "delay": 1
+    },
+    {
+     "scope": "province:14",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "delay": 1
+    },
+    {
+     "scope": "province:15",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "delay": 1
+    },
+    {
+     "scope": "province:16",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "delay": 1
+    },
+    {
+     "scope": "province:61",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "delay": 1
+    },
+    {
+     "scope": "province:63",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "delay": 1
+    },
+    {
+     "scope": "province:62",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    }
+   ],
+   "memory": {
+    "peat_fire_season_response": "seasonal_ban"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Serahkan pada penanganan daerah",
+   "description": "Pemerintah daerah menangani dengan sumber daya sendiri. Tidak ada biaya pusat; hasil bergantung pada kapasitas daerah.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "province:62",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "delay": 1,
+     "scale_by": {
+      "var": "services",
+      "mode": "capacity",
+      "ref": 50,
+      "min": 0.3,
+      "max": 1.5
+     }
+    }
+   ],
+   "memory": {
+    "peat_fire_season_response": "regional_handling"
+   }
+  }
+ ],
+ "follow_ups": []
+}

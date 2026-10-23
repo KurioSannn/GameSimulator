@@ -1,0 +1,141 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0001-R",
+ "origin_case": "CASE-0001",
+ "research_ref": "research/cases/CASE-0001.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Banjir Musim Hujan Kembali",
+ "location_label": "DKI Jakarta, Kab. Bogor, Kab. Lebak",
+ "focus_regions": [
+  "31.71",
+  "31.72",
+  "31.73",
+  "31.74",
+  "31.75",
+  "32.01",
+  "36.02"
+ ],
+ "trigger": {
+  "type": "follow_up",
+  "recurring": {
+   "cooldown_ticks": 9,
+   "max_occurrences": 3
+  },
+  "conditions": {
+   "all": [
+    {
+     "case_seen": "CASE-0001"
+    },
+    {
+     "tick": ">=",
+     "value": 6
+    },
+    {
+     "var": "flood_damage_last",
+     "scope": "regions:31.71,31.72,31.73,31.74,31.75,32.01,36.02",
+     "agg": "max",
+     "op": ">=",
+     "value": 8.0
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 30
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Banjir musim hujan dalam simulasi kembali melanda wilayah kasus 2020. Frekuensinya mengikuti catatan kejadian BNPB; tingkat kerusakan bergantung pada proteksi dan infrastruktur yang sudah dibangun. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Kebencanaan",
+  "text": "Hujan deras kembali, Pak. Beberapa wilayah terendam lagi. Pertanyaannya sekarang: kita padamkan api lagi, atau mulai mengurangi risiko untuk tahun-tahun berikutnya?"
+ },
+ "on_trigger_effects": [],
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Bantuan darurat cepat",
+   "description": "Fokus pada evakuasi dan pemulihan wilayah yang terendam bulan ini. Kerusakan cepat berkurang, risiko tahun depan tetap sama.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "where:flood_damage_last>0&in:31.71,31.72,31.73,31.74,31.75,32.01,36.02",
+     "var": "damage",
+     "op": "add",
+     "value": -8.0,
+     "delay": 1
+    }
+   ],
+   "memory": {
+    "recurring_flood_last_response": "relief"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Percepat pengendali banjir",
+   "description": "Anggaran besar untuk drainase dan tanggul di wilayah kasus ini. Mahal dan baru terasa enam bulan lagi.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "regions:31.71,31.72,31.73,31.74,31.75,32.01,36.02",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 15.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "recurring_flood_last_response": "protection"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Peringatan dini dan kesiapsiagaan",
+   "description": "Sistem peringatan dini dan latihan evakuasi di wilayah kasus ini. Murah, mengurangi dampak sedikit, dan cepat berjalan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "regions:31.71,31.72,31.73,31.74,31.75,32.01,36.02",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 6.0,
+     "delay": 2
+    },
+    {
+     "scope": "regions:31.71,31.72,31.73,31.74,31.75,32.01,36.02",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "recurring_flood_last_response": "early_warning"
+   }
+  }
+ ],
+ "follow_ups": []
+}

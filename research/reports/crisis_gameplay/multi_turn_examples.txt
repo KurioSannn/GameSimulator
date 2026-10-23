@@ -1,0 +1,49 @@
+
+CASE-0002/a t=21:
+   Q+1 t=24 paluDmg=22.81 paluTrust=55.24 paluWel=46.63 paluSvc=48.0 donggalaDmg=11.65 fiscal=41.0 natWel=53.32
+   Q+2 t=27 paluDmg=19.24 paluTrust=53.41 paluWel=45.45 paluSvc=48.0 donggalaDmg=9.2 fiscal=41.0 natWel=53.13
+   Q+3 t=30 paluDmg=15.02 paluTrust=51.62 paluWel=45.76 paluSvc=48.0 donggalaDmg=8.15 fiscal=41.0 natWel=53.04
+   Q+4 t=33 paluDmg=11.73 paluTrust=50.08 paluWel=46.8 paluSvc=48.0 donggalaDmg=6.36 fiscal=41.0 natWel=53.1
+   Q+5 t=36 paluDmg=9.42 paluTrust=48.84 paluWel=48.02 paluSvc=48.0 donggalaDmg=4.96 fiscal=41.0 natWel=53.14
+CASE-0002/b t=21:
+   Q+1 t=24 paluDmg=35.7 paluTrust=49.73 paluWel=45.64 paluSvc=48.0 donggalaDmg=16.26 fiscal=39.0 natWel=53.32
+   Q+2 t=27 paluDmg=23.37 paluTrust=47.93 paluWel=43.34 paluSvc=48.0 donggalaDmg=8.89 fiscal=39.0 natWel=53.12 [CASE-0002-B→a]
+   Q+3 t=30 paluDmg=18.25 paluTrust=43.33 paluWel=43.71 paluSvc=48.0 donggalaDmg=7.9 fiscal=39.0 natWel=53.03
+   Q+4 t=33 paluDmg=14.24 paluTrust=41.91 paluWel=45.03 paluSvc=48.0 donggalaDmg=6.17 fiscal=39.0 natWel=53.09
+   Q+5 t=36 paluDmg=3.57 paluTrust=44.67 paluWel=48.6 paluSvc=51.0 donggalaDmg=4.82 fiscal=39.0 natWel=53.14
+CASE-0002/c t=21:
+   Q+1 t=24 paluDmg=35.7 paluTrust=53.44 paluWel=48.57 paluSvc=48.0 donggalaDmg=16.26 fiscal=44.0 natWel=53.33
+   Q+2 t=27 paluDmg=22.28 paluTrust=51.64 paluWel=45.54 paluSvc=48.0 donggalaDmg=9.67 fiscal=44.0 natWel=53.13
+   Q+3 t=30 paluDmg=17.39 paluTrust=49.8 paluWel=45.12 paluSvc=48.0 donggalaDmg=8.51 fiscal=44.0 natWel=53.03
+   Q+4 t=33 paluDmg=13.58 paluTrust=48.16 paluWel=45.95 paluSvc=48.0 donggalaDmg=6.65 fiscal=44.0 natWel=53.1 [CASE-0002-C→a]
+   Q+5 t=36 paluDmg=10.87 paluTrust=46.85 paluWel=47.19 paluSvc=48.0 donggalaDmg=5.19 fiscal=42.0 natWel=53.13
+CASE-0003/a t=39:
+   Q+1 t=42 riauWel=50.58 riauTrust=49.49 denpasarPrice=103.26 pp%=2.47 fiscal=39.0 natPrice=104.77 natSent=49.42 [CASE-0003-A→a]
+   Q+2 t=45 riauWel=51.49 riauTrust=50.92 denpasarPrice=104.31 pp%=3.95 fiscal=39.0 natPrice=105.63 natSent=48.52 [CASE-0004→a]
+   Q+3 t=48 riauWel=49.44 riauTrust=50.13 denpasarPrice=104.39 pp%=3.5 fiscal=35.0 natPrice=106.17 natSent=47.28
+CASE-0003/b t=39:
+   Q+1 t=42 riauWel=51.27 riauTrust=51.32 denpasarPrice=105.04 pp%=4.2 fiscal=41.0 natPrice=106.58 natSent=49.01
+   Q+2 t=45 riauWel=51.16 riauTrust=50.77 denpasarPrice=104.61 pp%=3.71 fiscal=41.0 natPrice=105.93 natSent=48.08 [CASE-0003-B→a]
+   Q+3 t=48 riauWel=51.27 riauTrust=49.79 denpasarPrice=103.04 pp%=1.44 fiscal=41.0 natPrice=104.35 natSent=47.88
+CASE-0003/c t=39:
+   Q+1 t=42 riauWel=53.0 riauTrust=51.37 denpasarPrice=105.24 pp%=5.7 fiscal=35.0 natPrice=106.78 natSent=49.57 [CASE-0003-C→a]
+   Q+2 t=45 riauWel=53.35 riauTrust=50.92 denpasarPrice=105.7 pp%=5.04 fiscal=30.0 natPrice=107.04 natSent=48.95 [CASE-0004→a]
+   Q+3 t=48 riauWel=50.18 riauTrust=50.2 denpasarPrice=105.52 pp%=4.46 fiscal=26.0 natPrice=107.32 natSent=47.59
+CASE-0004/a t=45:
+   Q+1 t=48 kapuasFP=20.0 kaltengFP=20.0 kapuasDmg=14.0 kaltengDmg=11.65 kaltengWel=47.81 kaltengTrust=49.06 kaltengEnv=42.0 fiscal=35.0 [CASE-0004-A→a]
+   Q+2 t=51 kapuasFP=20.0 kaltengFP=20.0 kapuasDmg=11.19 kaltengDmg=9.94 kaltengWel=47.88 kaltengTrust=47.92 kaltengEnv=42.0 fiscal=32.0
+   Q+3 t=54 kapuasFP=20.0 kaltengFP=20.0 kapuasDmg=9.99 kaltengDmg=7.93 kaltengWel=48.38 kaltengTrust=46.75 kaltengEnv=42.0 fiscal=32.0 [CASE-0004-R→a]
+   Q+4 t=57 kapuasFP=20.0 kaltengFP=20.0 kapuasDmg=11.9 kaltengDmg=10.36 kaltengWel=46.61 kaltengTrust=45.44 kaltengEnv=38.0 fiscal=29.0
+   Q+5 t=60 kapuasFP=20.0 kaltengFP=20.0 kapuasDmg=9.29 kaltengDmg=9.27 kaltengWel=47.64 kaltengTrust=44.15 kaltengEnv=38.0 fiscal=29.0
+CASE-0004/b t=45:
+   Q+1 t=48 kapuasFP=0.0 kaltengFP=0.0 kapuasDmg=17.51 kaltengDmg=15.14 kaltengWel=48.05 kaltengTrust=50.85 kaltengEnv=42.0 fiscal=36.0
+   Q+2 t=51 kapuasFP=0.0 kaltengFP=0.0 kapuasDmg=14.03 kaltengDmg=12.76 kaltengWel=47.26 kaltengTrust=49.46 kaltengEnv=42.0 fiscal=36.0
+   Q+3 t=54 kapuasFP=4.65 kaltengFP=4.65 kapuasDmg=12.29 kaltengDmg=10.2 kaltengWel=47.39 kaltengTrust=48.0 kaltengEnv=42.24 fiscal=36.0 [CASE-0004-R→a]
+   Q+4 t=57 kapuasFP=9.3 kaltengFP=9.3 kapuasDmg=15.11 kaltengDmg=13.53 kaltengWel=45.87 kaltengTrust=46.37 kaltengEnv=37.8 fiscal=33.0
+   Q+5 t=60 kapuasFP=13.94 kaltengFP=13.94 kapuasDmg=11.88 kaltengDmg=11.83 kaltengWel=46.43 kaltengTrust=44.75 kaltengEnv=38.04 fiscal=33.0
+CASE-0004/c t=45:
+   Q+1 t=48 kapuasFP=0.0 kaltengFP=0.0 kapuasDmg=17.42 kaltengDmg=15.07 kaltengWel=48.07 kaltengTrust=50.89 kaltengEnv=42.0 fiscal=38.0
+   Q+2 t=51 kapuasFP=3.22 kaltengFP=0.23 kapuasDmg=13.9 kaltengDmg=12.64 kaltengWel=47.33 kaltengTrust=49.5 kaltengEnv=42.0 fiscal=38.0
+   Q+3 t=54 kapuasFP=6.33 kaltengFP=0.45 kapuasDmg=12.13 kaltengDmg=10.06 kaltengWel=47.51 kaltengTrust=48.06 kaltengEnv=42.0 fiscal=38.0 [CASE-0004-R→a]
+   Q+4 t=57 kapuasFP=9.33 kaltengFP=0.67 kapuasDmg=14.79 kaltengDmg=13.88 kaltengWel=45.89 kaltengTrust=46.42 kaltengEnv=37.03 fiscal=35.0 [CASE-0004-C→a]
+   Q+5 t=60 kapuasFP=16.29 kaltengFP=4.88 kapuasDmg=15.49 kaltengDmg=15.95 kaltengWel=45.63 kaltengTrust=46.01 kaltengEnv=35.03 fiscal=34.0
