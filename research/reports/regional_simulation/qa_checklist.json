@@ -1,0 +1,464 @@
+{
+  "all_passed": true,
+  "generated_at": "2026-10-22T14:01:29",
+  "items": {
+    "CASE-0001: pilih keputusan dengan tombol 1-3, jendela kasus tertutup": {
+      "checks": [
+        {
+          "detail": "pending=CASE-0001 visible=true",
+          "ok": true,
+          "what": "CASE-0001 ditampilkan saat mulai"
+        },
+        {
+          "detail": "pending=",
+          "ok": true,
+          "what": "tombol 1 memutuskan kasus"
+        },
+        {
+          "detail": "visible=false",
+          "ok": true,
+          "what": "jendela kasus tertutup"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "peta terlihat (tidak tertutup modal)"
+        }
+      ],
+      "passed": true
+    },
+    "Gameplay dan simpan: Spasi maju satu kuartal, F5, F9, tanpa data rusak": {
+      "checks": [
+        {
+          "detail": "tick 0 -> 3",
+          "ok": true,
+          "what": "Spasi memajukan satu kuartal (3 bulan)"
+        },
+        {
+          "detail": "Tahun 1 · Kuartal 1 · Bulan 1 -> Tahun 1 · Kuartal 2 · Bulan 4",
+          "ok": true,
+          "what": "label periode berubah"
+        },
+        {
+          "detail": "user://qa_checklist_saves/quicksave.json",
+          "ok": true,
+          "what": "F5 menulis simpanan cepat"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "berkas simpanan valid (checksum)"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "keadaan berubah setelah kuartal berikutnya"
+        },
+        {
+          "detail": "tick 3 (saved 3)",
+          "ok": true,
+          "what": "F9 memulihkan keadaan persis (hash dunia simulasi sama)"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "514 wilayah utuh setelah muat"
+        },
+        {
+          "detail": "[]",
+          "ok": true,
+          "what": "tidak ada kesalahan runtime selama QA"
+        }
+      ],
+      "passed": true
+    },
+    "Navigasi peta: Home, zoom masuk/keluar melalui LOD1, LOD2, LOD3": {
+      "checks": [
+        {
+          "detail": "lod=lod1",
+          "ok": true,
+          "what": "Home menampilkan seluruh Indonesia"
+        },
+        {
+          "detail": "[\"lod1\", \"lod2\", \"lod3\"]",
+          "ok": true,
+          "what": "zoom masuk: LOD1 -> LOD2 -> LOD3"
+        },
+        {
+          "detail": "[\"lod3\", \"lod2\", \"lod1\"]",
+          "ok": true,
+          "what": "zoom keluar: LOD3 -> LOD2 -> LOD1"
+        },
+        {
+          "detail": "Detail peta: Nasional (LOD1) · 1 piksel ≈ 3,4 km",
+          "ok": true,
+          "what": "LOD sesuai skala (label panel kiri)"
+        }
+      ],
+      "passed": true
+    },
+    "Panel dan pergerakan: Lihat Provinsi, Esc, pan mouse/trackpad, panah, WASD": {
+      "checks": [
+        {
+          "detail": "",
+          "ok": true,
+          "what": "pilih wilayah untuk panel"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "tombol Lihat Provinsi ada"
+        },
+        {
+          "detail": "view=[P: (200.7249, -8.333374), S: (2059.315, 1123.831)] prov=[P: (771.5332, 272.6243), S: (917.6987, 561.9153)]",
+          "ok": true,
+          "what": "Lihat Provinsi menampilkan seluruh Provinsi Maluku"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "Esc menutup panel dan membatalkan pilihan"
+        },
+        {
+          "detail": "moved 139.61",
+          "ok": true,
+          "what": "geser dengan mouse (klik kanan + tarik)"
+        },
+        {
+          "detail": "moved 93.07",
+          "ok": true,
+          "what": "geser dengan mouse (klik tengah + tarik)"
+        },
+        {
+          "detail": "moved 93.07",
+          "ok": true,
+          "what": "geser dengan trackpad (pan gesture)"
+        },
+        {
+          "detail": "zoom 0.961 -> 1.153",
+          "ok": true,
+          "what": "zoom dengan trackpad (pinch)"
+        },
+        {
+          "detail": "moved 260.59",
+          "ok": true,
+          "what": "geser dengan panah kanan"
+        },
+        {
+          "detail": "moved 261.23",
+          "ok": true,
+          "what": "geser dengan panah bawah"
+        },
+        {
+          "detail": "moved 260.15",
+          "ok": true,
+          "what": "geser dengan WASD: D"
+        },
+        {
+          "detail": "moved 260.15",
+          "ok": true,
+          "what": "geser dengan WASD: A"
+        },
+        {
+          "detail": "moved 260.15",
+          "ok": true,
+          "what": "geser dengan WASD: W"
+        },
+        {
+          "detail": "moved 261.23",
+          "ok": true,
+          "what": "geser dengan WASD: S"
+        }
+      ],
+      "passed": true
+    },
+    "Pemilihan wilayah: hover + klik di Sumatera, Jawa, Kalimantan, Papua": {
+      "checks": [
+        {
+          "detail": "hover='12.71' tooltip='Kota Medan | Sentimen: Stabil'",
+          "ok": true,
+          "what": "12.71 hover"
+        },
+        {
+          "detail": "terpilih '12.71', hilang di panel: []",
+          "ok": true,
+          "what": "12.71 klik: Kota Medan, panel benar"
+        },
+        {
+          "detail": "hover='13.75' tooltip='Kota Bukittinggi | Sentimen: Stabil'",
+          "ok": true,
+          "what": "13.75 hover"
+        },
+        {
+          "detail": "terpilih '13.75', hilang di panel: []",
+          "ok": true,
+          "what": "13.75 klik: Kota Bukittinggi, panel benar"
+        },
+        {
+          "detail": "hover='18.71' tooltip='Kota Bandar Lampung | Sentimen: Stabil'",
+          "ok": true,
+          "what": "18.71 hover"
+        },
+        {
+          "detail": "terpilih '18.71', hilang di panel: []",
+          "ok": true,
+          "what": "18.71 klik: Kota Bandar Lampung, panel benar"
+        },
+        {
+          "detail": "hover='11.06' tooltip='Kabupaten Aceh Besar | Sentimen: Stabil'",
+          "ok": true,
+          "what": "11.06 hover"
+        },
+        {
+          "detail": "terpilih '11.06', hilang di panel: []",
+          "ok": true,
+          "what": "11.06 klik: Kabupaten Aceh Besar, panel benar"
+        },
+        {
+          "detail": "hover='31.71' tooltip='Kota Adm. Jakarta Pusat | Sentimen: Stabil'",
+          "ok": true,
+          "what": "31.71 hover"
+        },
+        {
+          "detail": "terpilih '31.71', hilang di panel: []",
+          "ok": true,
+          "what": "31.71 klik: Kota Adm. Jakarta Pusat, panel benar"
+        },
+        {
+          "detail": "hover='32.71' tooltip='Kota Bogor | Sentimen: Stabil'",
+          "ok": true,
+          "what": "32.71 hover"
+        },
+        {
+          "detail": "terpilih '32.71', hilang di panel: []",
+          "ok": true,
+          "what": "32.71 klik: Kota Bogor, panel benar"
+        },
+        {
+          "detail": "hover='35.78' tooltip='Kota Surabaya | Sentimen: Stabil'",
+          "ok": true,
+          "what": "35.78 hover"
+        },
+        {
+          "detail": "terpilih '35.78', hilang di panel: []",
+          "ok": true,
+          "what": "35.78 klik: Kota Surabaya, panel benar"
+        },
+        {
+          "detail": "hover='33.74' tooltip='Kota Semarang | Sentimen: Stabil'",
+          "ok": true,
+          "what": "33.74 hover"
+        },
+        {
+          "detail": "terpilih '33.74', hilang di panel: []",
+          "ok": true,
+          "what": "33.74 klik: Kota Semarang, panel benar"
+        },
+        {
+          "detail": "hover='64.72' tooltip='Kota Samarinda | Sentimen: Stabil'",
+          "ok": true,
+          "what": "64.72 hover"
+        },
+        {
+          "detail": "terpilih '64.72', hilang di panel: []",
+          "ok": true,
+          "what": "64.72 klik: Kota Samarinda, panel benar"
+        },
+        {
+          "detail": "hover='61.06' tooltip='Kabupaten Kapuas Hulu | Sentimen: Stabil'",
+          "ok": true,
+          "what": "61.06 hover"
+        },
+        {
+          "detail": "terpilih '61.06', hilang di panel: []",
+          "ok": true,
+          "what": "61.06 klik: Kabupaten Kapuas Hulu, panel benar"
+        },
+        {
+          "detail": "hover='63.71' tooltip='Kota Banjarmasin | Sentimen: Stabil'",
+          "ok": true,
+          "what": "63.71 hover"
+        },
+        {
+          "detail": "terpilih '63.71', hilang di panel: []",
+          "ok": true,
+          "what": "63.71 klik: Kota Banjarmasin, panel benar"
+        },
+        {
+          "detail": "hover='65.02' tooltip='Kabupaten Malinau | Sentimen: Stabil'",
+          "ok": true,
+          "what": "65.02 hover"
+        },
+        {
+          "detail": "terpilih '65.02', hilang di panel: []",
+          "ok": true,
+          "what": "65.02 klik: Kabupaten Malinau, panel benar"
+        },
+        {
+          "detail": "hover='91.71' tooltip='Kota Jayapura | Sentimen: Stabil'",
+          "ok": true,
+          "what": "91.71 hover"
+        },
+        {
+          "detail": "terpilih '91.71', hilang di panel: []",
+          "ok": true,
+          "what": "91.71 klik: Kota Jayapura, panel benar"
+        },
+        {
+          "detail": "hover='93.01' tooltip='Kabupaten Merauke | Sentimen: Stabil'",
+          "ok": true,
+          "what": "93.01 hover"
+        },
+        {
+          "detail": "terpilih '93.01', hilang di panel: []",
+          "ok": true,
+          "what": "93.01 klik: Kabupaten Merauke, panel benar"
+        },
+        {
+          "detail": "hover='94.04' tooltip='Kabupaten Mimika | Sentimen: Stabil'",
+          "ok": true,
+          "what": "94.04 hover"
+        },
+        {
+          "detail": "terpilih '94.04', hilang di panel: []",
+          "ok": true,
+          "what": "94.04 klik: Kabupaten Mimika, panel benar"
+        },
+        {
+          "detail": "hover='92.02' tooltip='Kabupaten Manokwari | Sentimen: Stabil'",
+          "ok": true,
+          "what": "92.02 hover"
+        },
+        {
+          "detail": "terpilih '92.02', hilang di panel: []",
+          "ok": true,
+          "what": "92.02 klik: Kabupaten Manokwari, panel benar"
+        }
+      ],
+      "passed": true
+    },
+    "Pulau kecil: Maluku, Nusa Tenggara, gugus pulau; klik tidak memilih wilayah yang salah": {
+      "checks": [
+        {
+          "detail": "",
+          "ok": true,
+          "what": "81.07: 5/5 pulau terpilih dengan ID yang benar"
+        },
+        {
+          "detail": "terpilih ''",
+          "ok": true,
+          "what": "81.07: klik di laut tidak memilih wilayah"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "81.01: 5/5 pulau terpilih dengan ID yang benar"
+        },
+        {
+          "detail": "terpilih ''",
+          "ok": true,
+          "what": "81.01: klik di laut tidak memilih wilayah"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "82.71: 5/5 pulau terpilih dengan ID yang benar"
+        },
+        {
+          "detail": "terpilih ''",
+          "ok": true,
+          "what": "82.71: klik di laut tidak memilih wilayah"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "53.14: 5/5 pulau terpilih dengan ID yang benar"
+        },
+        {
+          "detail": "terpilih ''",
+          "ok": true,
+          "what": "53.14: klik di laut tidak memilih wilayah"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "53.20: 5/5 pulau terpilih dengan ID yang benar"
+        },
+        {
+          "detail": "terpilih ''",
+          "ok": true,
+          "what": "53.20: klik di laut tidak memilih wilayah"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "52.08: 4/4 pulau terpilih dengan ID yang benar"
+        },
+        {
+          "detail": "terpilih ''",
+          "ok": true,
+          "what": "52.08: klik di laut tidak memilih wilayah"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "31.01: 5/5 pulau terpilih dengan ID yang benar"
+        },
+        {
+          "detail": "terpilih ''",
+          "ok": true,
+          "what": "31.01: klik di laut tidak memilih wilayah"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "74.07: 5/5 pulau terpilih dengan ID yang benar"
+        },
+        {
+          "detail": "terpilih ''",
+          "ok": true,
+          "what": "74.07: klik di laut tidak memilih wilayah"
+        },
+        {
+          "detail": "",
+          "ok": true,
+          "what": "96.03: 5/5 pulau terpilih dengan ID yang benar"
+        },
+        {
+          "detail": "terpilih ''",
+          "ok": true,
+          "what": "96.03: klik di laut tidak memilih wilayah"
+        }
+      ],
+      "passed": true
+    }
+  },
+  "mouse_injection": "warp_mouse",
+  "runtime_errors": [],
+  "runtime_warnings": 0,
+  "save_dir_used": "/Users/macbookpro/Library/Application Support/Godot/app_userdata/NUSANTARA/qa_checklist_saves",
+  "screenshots": [
+    "01_case0001_open.png",
+    "02_case_closed_map_visible.png",
+    "03_home_national_lod1.png",
+    "04_zoom_in_now_lod2.png",
+    "04_zoom_in_now_lod3.png",
+    "05_selection_sumatera.png",
+    "05_selection_jawa.png",
+    "05_selection_kalimantan.png",
+    "05_selection_papua.png",
+    "06_islands_81_07.png",
+    "06_islands_81_01.png",
+    "06_islands_82_71.png",
+    "06_islands_53_14.png",
+    "06_islands_53_20.png",
+    "06_islands_52_08.png",
+    "06_islands_31_01.png",
+    "06_islands_74_07.png",
+    "06_islands_96_03.png",
+    "07_lihat_provinsi_maluku.png",
+    "08_after_quickload.png"
+  ],
+  "viewport": "(1979.0, 1080.0)",
+  "window_size": "(3024, 1650)"
+}
