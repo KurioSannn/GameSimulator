@@ -1,0 +1,16 @@
+
+CASE-0008/a decided t=33 fiscal=33.0
+  Q+1 t=36 fiscal=30.0 pp=0.00% natPrice=101.69 natWel=53.090 natSent=51.017 natTrust=52.817 | Denpasar price=100.51 wel=54.22 [CASE-0008-A→a]
+  Q+2 t=39 fiscal=28.6 pp=2.65% natPrice=104.17 natWel=52.660 natSent=50.073 natTrust=52.541 | Denpasar price=102.66 wel=53.95 [CASE-0005-A→a]
+  Q+3 t=42 fiscal=31.0 pp=2.35% natPrice=104.48 natWel=52.335 natSent=49.210 natTrust=52.188 | Denpasar price=102.96 wel=53.70 [CASE-0003→a]
+  Q+4 t=45 fiscal=29.8 pp=4.55% natPrice=106.81 natWel=51.769 natSent=47.816 natTrust=51.637 | Denpasar price=105.47 wel=53.12
+CASE-0008/b decided t=33 fiscal=33.0
+  Q+1 t=36 fiscal=32.2 pp=2.65% natPrice=103.79 natWel=54.089 natSent=50.928 natTrust=52.812 | Denpasar price=102.59 wel=55.20 [CASE-0008-B→a]
+  Q+2 t=39 fiscal=33.4 pp=2.35% natPrice=104.50 natWel=54.129 natSent=50.462 natTrust=52.559 | Denpasar price=102.99 wel=55.38 [CASE-0005-A→a]
+  Q+3 t=42 fiscal=38.8 pp=2.08% natPrice=104.36 natWel=53.093 natSent=49.821 natTrust=52.270 | Denpasar price=102.84 wel=54.44 [CASE-0003→a]
+  Q+4 t=45 fiscal=37.6 pp=4.31% natPrice=106.58 natWel=52.192 natSent=48.395 natTrust=51.779 | Denpasar price=105.25 wel=53.53
+CASE-0008/c decided t=33 fiscal=33.0
+  Q+1 t=36 fiscal=32.8 pp=1.33% natPrice=102.74 natWel=53.530 natSent=50.929 natTrust=52.810 | Denpasar price=101.55 wel=54.66
+  Q+2 t=39 fiscal=34.0 pp=1.17% natPrice=103.28 natWel=53.559 natSent=50.547 natTrust=52.565 | Denpasar price=101.78 wel=54.85 [CASE-0005-A→a]
+  Q+3 t=42 fiscal=38.2 pp=2.37% natPrice=104.25 natWel=52.857 natSent=49.812 natTrust=52.278 | Denpasar price=102.74 wel=54.22 [CASE-0003→a]
+  Q+4 t=45 fiscal=36.6 pp=4.56% natPrice=106.76 natWel=52.051 natSent=48.284 natTrust=51.776 | Denpasar price=105.42 wel=53.40

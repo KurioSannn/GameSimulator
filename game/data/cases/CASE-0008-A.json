@@ -1,0 +1,116 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0008-A",
+ "origin_case": "CASE-0008",
+ "research_ref": "research/cases/CASE-0008.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "Anggaran Subsidi Menipis",
+ "location_label": "Nasional",
+ "focus_regions": [],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0008",
+     "choice": "a"
+    },
+    {
+     "tick": ">=",
+     "value": 36
+    },
+    {
+     "national": "fiscal_space",
+     "op": "<",
+     "value": 48.0
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul tiga bulan setelah harga BBM ditahan, jika ruang fiskal sudah turun di bawah 48. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Fiskal",
+  "text": "Kuota dan anggaran subsidi hampir habis sebelum akhir tahun. Kita harus memilih: menyesuaikan harga sekarang, menambah anggaran lagi, atau membatasi pembelian."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Sesuaikan harga sekarang",
+   "description": "Harga disesuaikan penuh tanpa paket bantuan yang siap.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "price_pressure",
+     "op": "add",
+     "value": 0.03
+    },
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": 0.8,
+     "delay": 1,
+     "duration": 6
+    }
+   ],
+   "memory": {
+    "fuel2022_quota": "late_adjustment"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Tambah anggaran subsidi lagi",
+   "description": "Harga tetap ditahan; anggaran ditambah dari pos lain.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0,
+     "duration": 6
+    }
+   ],
+   "memory": {
+    "fuel2022_quota": "more_subsidy"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Batasi pembelian bersubsidi",
+   "description": "Pembelian BBM bersubsidi dibatasi untuk kendaraan dan kelompok tertentu; harga naik sedikit bagi yang tidak berhak.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "price_pressure",
+     "op": "add",
+     "value": 0.01
+    },
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": 0.4,
+     "delay": 1,
+     "duration": 6
+    }
+   ],
+   "memory": {
+    "fuel2022_quota": "restrict_purchases"
+   }
+  }
+ ]
+}

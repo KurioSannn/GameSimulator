@@ -1,0 +1,201 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0008",
+ "research_ref": "research/cases/CASE-0008.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Subsidi BBM: Menahan Harga atau Mengalihkan Subsidi?",
+ "location_label": "Nasional (semua 514 kabupaten/kota)",
+ "focus_regions": [],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 33
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0008"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 10
+ },
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Mulai 3 September 2022 pukul 14.30 WIB, harga Pertalite naik dari Rp7.650 menjadi Rp10.000 per liter dan Solar bersubsidi dari Rp5.150 menjadi Rp6.800.",
+    "source_refs": [
+     "SRC-ESDM-BBM-2022-09-03"
+    ],
+    "as_of": "2022-09-03"
+   },
+   {
+    "text": "Menurut Presiden, anggaran subsidi dan kompensasi BBM 2022 telah naik dari Rp152,5 triliun menjadi Rp502,4 triliun dan bisa terus bertambah; lebih dari 70% subsidi dinikmati kelompok mampu (klaim pemerintah).",
+    "source_refs": [
+     "SRC-SETKAB-PERS-BBM-2022-09-03"
+    ],
+    "as_of": "2022-09-03"
+   },
+   {
+    "text": "Sebagai pengalihan: BLT BBM Rp150.000 per bulan selama empat bulan untuk 20,65 juta keluarga (Rp12,4 triliun), BSU Rp600.000 untuk 16 juta pekerja bergaji hingga Rp3,5 juta (Rp9,6 triliun), dan 2% Dana Transfer Umum (Rp2,17 triliun) untuk angkutan umum, ojek, dan nelayan.",
+    "source_refs": [
+     "SRC-SETKAB-PERS-BBM-2022-09-03",
+     "SRC-DJPB-PAREPARE-PERLINSOS-2022-09-14"
+    ],
+    "as_of": "2022-09-14"
+   },
+   {
+    "text": "BPS kemudian mencatat inflasi September 2022 sebesar 1,17% (bulanan) dan 5,95% (tahunan), dengan kelompok transportasi naik 8,88%; 88 dari 90 kota IHK mengalami inflasi. Angka ini konteks, bukan bukti bahwa seluruh inflasi berasal dari BBM.",
+    "source_refs": [
+     "SRC-BPS-INFLASI-2022-10-03"
+    ],
+    "as_of": "2022-10-03"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Fiskal",
+  "text": "Pak Presiden, kasus ini diangkat dari keputusan nyata September 2022. Dalam simulasi kita, anggaran subsidi BBM terus membengkak. Menahan harga melindungi semua orang sekarang, tetapi menguras ruang fiskal yang juga dibutuhkan untuk layanan lain. Menaikkan harga membebaskan anggaran, tetapi harga barang ikut naik, dan bantuan hanya menolong sebagian rumah tangga dan hanya sementara."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "No case event. All magnitudes are design values. Fiscal: holding prices costs −1 fiscal-space point per month for 9 months, a translation of the documented budget overrun (about Rp350 trillion over the original allocation), not a rupiah conversion. Adjusting saves +0.8 per month for 9 months, after a −2.4 compensation package (documented Rp24.17 trillion). Prices: the full adjustment adds national price pressure +0.03 (3% on every region's price target), decaying with the shared model rate. It is not a CPI forecast and is not derived from the 90-city BPS data. Targeting: BLT is scaled toward regions with lower simulated welfare (proxy for the poorest 30%; DTKS not modeled)."
+ },
+ "follow_ups": [
+  "CASE-0008-A",
+  "CASE-0008-B"
+ ],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "subsidy policy -> fiscal_space (national); price adjustment -> price_pressure (shared national driver, attributed by source) -> price_level in all regions -> welfare and sentiment -> trust (slow); cash transfers -> welfare (temporary, scaled to low-welfare regions); transport/livelihood support -> welfare (uniform, temporary)",
+  "immediate": "a: nothing visible, fiscal −1/month starts; b: price pressure +3%, compensation −2.4 fiscal, BLT +0.6 welfare/month for 4 months (more where welfare is low) and BSU +0.4 once; c: price pressure +1.5%, −1 fiscal, transport/livelihood support for 6 months",
+  "delayed": "b: subsidy savings +0.8/month for 9 months from month 2; c: second price step +1.5% after 6 months, savings +0.4/month for 9 months; all temporary support ends on schedule (duration)",
+  "regional": "Price pressure acts on every region's price target (uniform in relative terms); BLT is larger where simulated welfare is lower; no regional fuel or beneficiary data is used",
+  "national": "fiscal_space is a single national value (no 514-fold counting); national welfare/sentiment are means of regional states",
+  "branching": "a -> CASE-0008-A after 3 months if fiscal space has fallen below 48; b -> CASE-0008-B after 3 months (one BLT month left) if the national mean price level is still above 101. Follow-ups open at tick 36, a quarter left free by the other cases, so no other case is displaced.",
+  "assumptions": "G-34 to G-37: subsidy allocation, regional pass-through, targeting accuracy and compensation effectiveness are not calibrated. Temporary support acts only on welfare, which reverts toward its structural level after the support ends. 'services' has no reversion in the model, so a temporary programme on services would leave a permanent effect; it is deliberately not used."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Tahan harga BBM",
+   "description": "Harga Pertalite dan Solar tidak dinaikkan; anggaran subsidi ditambah. Semua rumah tangga terlindungi dari kenaikan harga sekarang, tetapi sebagian besar subsidi tetap dinikmati kelompok mampu, dan ruang fiskal terkuras setiap bulan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0,
+     "duration": 9
+    }
+   ],
+   "memory": {
+    "fuel2022_path": "hold_prices"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Naikkan harga, alihkan ke bantuan tertarget",
+   "description": "Harga disesuaikan penuh; sebagian penghematan dipakai untuk BLT empat bulan bagi rumah tangga termiskin dan subsidi upah bagi pekerja bergaji rendah. Anggaran pulih paling cepat, tetapi harga barang naik di semua wilayah dan bantuan berhenti setelah empat bulan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "price_pressure",
+     "op": "add",
+     "value": 0.03
+    },
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.4
+    },
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": 0.8,
+     "delay": 1,
+     "duration": 9
+    },
+    {
+     "scope": "all",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.6,
+     "duration": 4,
+     "scale_by": {
+      "var": "welfare",
+      "mode": "gap",
+      "ref": 50,
+      "min": 0.5,
+      "max": 1.5
+     }
+    },
+    {
+     "scope": "all",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.4
+    }
+   ],
+   "memory": {
+    "fuel2022_path": "adjust_targeted"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Naikkan bertahap, dukung transportasi dan penghidupan",
+   "description": "Harga naik separuh sekarang dan separuh enam bulan kemudian; dana daerah diarahkan ke angkutan umum, ojek, dan nelayan selama enam bulan. Kejutan harga lebih kecil dan lebih merata, tetapi penghematan anggaran lebih lambat dan bantuan tidak menyasar rumah tangga termiskin.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "price_pressure",
+     "op": "add",
+     "value": 0.015
+    },
+    {
+     "scope": "national",
+     "var": "price_pressure",
+     "op": "add",
+     "value": 0.015,
+     "delay": 6
+    },
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": 0.4,
+     "delay": 1,
+     "duration": 9
+    },
+    {
+     "scope": "all",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.3,
+     "duration": 6
+    }
+   ],
+   "memory": {
+    "fuel2022_path": "phased_transport"
+   }
+  }
+ ]
+}

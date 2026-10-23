@@ -1,0 +1,123 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0008-B",
+ "origin_case": "CASE-0008",
+ "research_ref": "research/cases/CASE-0008.json",
+ "research_status": "researched",
+ "class": "secondary_consequence",
+ "title": "BLT Segera Berakhir, Harga Belum Turun",
+ "location_label": "Nasional",
+ "focus_regions": [],
+ "trigger": {
+  "type": "follow_up",
+  "conditions": {
+   "all": [
+    {
+     "case_choice": "CASE-0008",
+     "choice": "b"
+    },
+    {
+     "tick": ">=",
+     "value": 36
+    },
+    {
+     "var": "price_level",
+     "scope": "all",
+     "agg": "mean",
+     "op": ">",
+     "value": 101.0
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 20
+ },
+ "real_context": {
+  "fact_class": "NONE",
+  "lines": []
+ },
+ "simulated_context": {
+  "fact_class": "SIMULATED",
+  "text": "Muncul tiga bulan setelah penyesuaian harga, ketika BLT tinggal satu bulan lagi dan rata-rata tingkat harga semua wilayah masih di atas 101. Hasil simulasi, bukan peristiwa sejarah."
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Sosial",
+  "text": "Bantuan tunai tinggal satu bulan lagi, tetapi harga belum kembali. Daerah meminta kepastian: diperpanjang, dialihkan, atau dihentikan sesuai jadwal?"
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Perpanjang BLT dua bulan",
+   "description": "Bantuan tunai diperpanjang dua bulan setelah jadwal semula berakhir, untuk rumah tangga termiskin.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.2
+    },
+    {
+     "scope": "all",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.6,
+     "duration": 2,
+     "scale_by": {
+      "var": "welfare",
+      "mode": "gap",
+      "ref": 50,
+      "min": 0.5,
+      "max": 1.5
+     },
+     "delay": 1
+    }
+   ],
+   "memory": {
+    "fuel2022_blt_end": "extended"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Alihkan ke program padat karya",
+   "description": "Dana dialihkan ke pekerjaan padat karya di daerah; manfaat lebih lambat tetapi lebih tahan lama.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "all",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.3,
+     "delay": 3,
+     "scale_by": {
+      "var": "welfare",
+      "mode": "gap",
+      "ref": 50,
+      "min": 0.5,
+      "max": 1.5
+     }
+    }
+   ],
+   "memory": {
+    "fuel2022_blt_end": "cash_for_work"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Hentikan sesuai jadwal",
+   "description": "Bantuan berakhir sesuai rencana bulan depan; tidak ada biaya tambahan.",
+   "fact_class": "SIMULATED",
+   "effects": [],
+   "memory": {
+    "fuel2022_blt_end": "ended"
+   }
+  }
+ ]
+}
