@@ -1,0 +1,120 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0018",
+  "title": "Sengketa Wilayah Adat Laman Kinipan dan Konsesi Sawit 2020",
+  "status": "researched",
+  "status_note": "Kronologi konflik pertanahan dan penangkapan tokoh adat mengacu pada siaran pers koalisi masyarakat sipil, Komnas HAM, dan kepolisian. Data status izin HGU perkebunan dan peta hutan adat bersumber dari KLHK dan ATR/BPN.",
+  "category": "indigenous_land_forestry_conflict",
+  "subcategories": [
+    "customary_forest",
+    "palm_oil_concession",
+    "criminalization",
+    "deforestation",
+    "local_governance"
+  ],
+  "start_date": "2020-08-26",
+  "end_date": "2021-03-31",
+  "decision_as_of": "2020-08-27",
+  "island": "kalimantan",
+  "provinces": [
+    "62"
+  ],
+  "geographic_resolution": "Provinsi Kalimantan Tengah (Kab. Lamandau 62.09 - Kecamatan Batang Kawa).",
+  "real_facts": [
+    {
+      "fact": "Pada 26 Agustus 2020 terjadi penangkapan paksa Ketua Komunitas Adat Dayak Tomun Laman Kinipan, Effendi Buhing, oleh aparat kepolisian atas laporan dugaan pencurian alat operasional perusahaan sawit PT Sawit Mandiri Lestari (SML).",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-KOMNAS-HAM-KINIPAN-2020"
+      ],
+      "as_of": "2020-08-27"
+    },
+    {
+      "fact": "Penangkapan tersebut memicu kemarahan publik nasional dan desakan koalisi masyarakat sipil, hingga kepolisian menangguhkan penahanan sehari kemudian pada 27 Agustus 2020.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-POLDA-KALTENG-PENANGGUHAN-2020"
+      ],
+      "as_of": "2020-08-28"
+    },
+    {
+      "fact": "Akar konflik bermula dari tumpang tindih izin pelepasan kawasan hutan dan Hak Guna Usaha (HGU) sawit PT SML seluas ribuan hektare dengan wilayah hutan adat yang diklaim komunitas Dayak Tomun Kinipan seluas ~16.000 hektare.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-AMAN-PETA-KINIPAN-2020",
+        "SRC-KLHK-STATUS-HUTAN-KINIPAN-2020"
+      ],
+      "as_of": "2020-09-05"
+    },
+    {
+      "fact": "Kementerian LHK menyatakan permohonan penetapan Hutan Adat Kinipan terkendala belum adanya Peraturan Daerah (Perda) Pengakuan dan Perlindungan Masyarakat Hukum Adat (MHA) yang diterbitkan oleh Pemerintah Kabupaten Lamandau.",
+      "kind": "official_claim",
+      "source_refs": [
+        "SRC-KLHK-KLARIFIKASI-KINIPAN-2020"
+      ],
+      "as_of": "2020-09-10"
+    }
+  ],
+  "information_available_at_decision": "Pada akhir Agustus 2020:\n- Video penangkapan tokoh adat viral memicu krisis legitimasi hukum dan hak asasi;\n- Belum ada regulasi Perda MHA di tingkat kabupaten untuk memayungi status hukum hutan adat;\n- Perusahaan memiliki legalitas izin pelepasan kawasan hutan resmi dari pemerintah pusat.",
+  "trigger": [
+    "Eskalasi konflik fisik di lapangan antara warga adat yang menolak penebangan hutan dan pihak keamanan perusahaan sawit"
+  ],
+  "root_causes_note": "Ketiadaan sinkronisasi antara penerbitan izin konsesi perkebunan skala besar dengan pemetaan partisipatif wilayah adat yang belum diakui regulasi Pemda.",
+  "stakeholders": [
+    "Komunitas Adat Dayak Tomun Laman Kinipan",
+    "PT Sawit Mandiri Lestari",
+    "Polda Kalimantan Tengah",
+    "Pemerintah Kabupaten Lamandau",
+    "Kementerian LHK",
+    "Aliansi Masyarakat Adat Nusantara (AMAN)"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-KOMNAS-HAM-KINIPAN-2020",
+      "institution": "Komisi Nasional Hak Asasi Manusia",
+      "title": "Pernyataan Sikap Komnas HAM atas Penangkapan Ketua Komunitas Adat Laman Kinipan",
+      "url": "https://www.komnasham.go.id/pernyataan-sikap-kasus-kinipan-2020",
+      "publication_date": "2020-08-27",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-POLDA-KALTENG-PENANGGUHAN-2020",
+      "institution": "Kepolisian Daerah Kalimantan Tengah",
+      "title": "Klarifikasi dan Penangguhan Penahanan Terkait Kasus Sengketa Lahan di Batang Kawa",
+      "url": "https://tribratanews.kalteng.polri.go.id/penangguhan-penahanan-kinipan-2020",
+      "publication_date": "2020-08-28",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KLHK-KLARIFIKASI-KINIPAN-2020",
+      "institution": "Kementerian Lingkungan Hidup dan Kehutanan",
+      "title": "Penjelasan Kementerian LHK Terkait Status Wilayah Adat dan Hutan di Kinipan Kabupaten Lamandau",
+      "url": "https://ppid.menlhk.go.id/siaran-pers-status-hutan-kinipan-2020",
+      "publication_date": "2020-09-10",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-AMAN-PETA-KINIPAN-2020",
+      "institution": "Aliansi Masyarakat Adat Nusantara (AMAN)",
+      "title": "Dokumentasi Pemetaan Wilayah Adat Laman Kinipan dan Kronologi Konflik Konsesi",
+      "url": "https://aman.or.id/laporan-advokasi-kinipan-2020",
+      "publication_date": "2020-09-05",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL (indigenous/civil society registry)"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Klaim kerugian finansial akibat perusakan fasilitas alat berat dibantah oleh masyarakat adat sebagai bentuk pembelaan diri atas hutan ulayat.",
+    "Batas administratif pasti wilayah adat 16.000 ha masih belum disepakati seluruh desa tetangga."
+  ],
+  "todo_to_validate": [
+    "Perkembangan penetapan Perda MHA Lamandau",
+    "Peta indikatif Hutan Adat BRWA untuk Lamandau"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0018.json",
+  "game_adaptation_notes": "Kasus konflik tata kelola hutan adat vs kepastian hukum izin usaha perkebunan. Pilihan mencakup: moratorium konsesi dan dorongan Perda Hutan Adat (stabilitas sosial terjaga, pendapatan sawit turun), penegakan hukum izin HGU (protes publik meluas), atau mediasi pembagian zona kemitraan plasma.",
+  "fact_vs_simulation_notes": "Kasus penangkapan Effendi Buhing, sengketa izin sawit Kinipan 2020, dan regulasi Perda MHA adalah fakta. Kebijakan penyelesaian di tangan pemain adalah simulasi interaktif."
+}
