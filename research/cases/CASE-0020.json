@@ -1,0 +1,123 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0020",
+  "title": "Krisis Gagal Ginjal Akut Progresif Atipikal (GGAPA) pada Anak 2022",
+  "status": "researched",
+  "status_note": "Data korban meninggal, kasus terkonfirmasi, dan sebaran rumah sakit bersumber dari Kementerian Kesehatan RI dan Ikatan Dokter Anak Indonesia (IDAI). Data cemaran senyawa EG/DEG dan investigasi farmasi bersumber dari BPOM dan Bareskrim Polri.",
+  "category": "public_health_pharmaceutical_crisis",
+  "subcategories": [
+    "toxic_contamination",
+    "pharmaceutical_regulation",
+    "child_mortality",
+    "antidote_procurement",
+    "trust_in_healthcare"
+  ],
+  "start_date": "2022-08-01",
+  "end_date": "2022-11-30",
+  "decision_as_of": "2022-10-18",
+  "island": "national",
+  "provinces": [
+    "31",
+    "32",
+    "35",
+    "13",
+    "12"
+  ],
+  "geographic_resolution": "Nasional di 27 provinsi, dengan konsentrasi kasus tertinggi di DKI Jakarta (31), Jawa Barat (32), Jawa Timur (35), dan Sumatera Barat (13).",
+  "real_facts": [
+    {
+      "fact": "Mulai Agustus hingga Oktober 2022 terjadi lonjakan kematian anak balita akibat Gagal Ginjal Akut Progresif Atipikal (GGAPA) dengan gejala anuria (air seni tidak keluar sama sekali) setelah mengonsumsi obat sirup demam.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-KEMENKES-GGAPA-PENGUMUMAN-2022"
+      ],
+      "as_of": "2022-10-18"
+    },
+    {
+      "fact": "Kemenkes dan BPOM mengonfirmasi penyebab gagal ginjal akut adalah intoksikasi senyawa toksik Etilen Glikol (EG) dan Dietilen Glikol (DEG) yang mencemari pelarut obat sirup (propilen glikol/gliserin) melebihi batas toleransi aman.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-BPOM-HASIL-UJI-OBAT-2022"
+      ],
+      "as_of": "2022-10-23"
+    },
+    {
+      "fact": "Kementerian Kesehatan mencatat total 324 kasus GGAPA di 27 provinsi dengan 199 anak meninggal dunia (tingkat fatalitas mencapai sekitar 61%).",
+      "kind": "statistic",
+      "source_refs": [
+        "SRC-KEMENKES-DATA-AKHIR-GGAPA-2022"
+      ],
+      "as_of": "2022-11-16"
+    },
+    {
+      "fact": "Pemerintah mengambil langkah drastis: Menkes melarang sementara peredaran seluruh obat cair/sirup di apotek dan faskes, serta mendatangkan darurat obat penawar (antidotum) Fomepizole dari Singapura, Australia, dan Jepang yang dibagikan gratis ke rumah sakit rujukan.",
+      "kind": "reported_outcome",
+      "source_refs": [
+        "SRC-KEMENKES-FOMEPIZOLE-2022"
+      ],
+      "as_of": "2022-10-25"
+    }
+  ],
+  "information_available_at_decision": "Pada 18 Oktober 2022:\n- Puluhan anak balita meninggal dalam hitungan hari di RSCM dan RS rujukan daerah;\n- Belum ada kepastian merek spesifik yang tercemar vs seluruh kategori obat sirup;\n- Keresahan publik memuncak mengenai keamanan obat anak di apotek.",
+  "trigger": [
+    "Lonjakan angka kematian balita secara misterius akibat gagal ginjal mendadak yang memicu kepanikan sistem kesehatan"
+  ],
+  "root_causes_note": "Kelemahan pengawasan mutu bahan baku kimia impor, celah pengujian cemaran EG/DEG pada farmakope produk jadi, dan pemalsuan zat pelarut farmasi oleh suplier kimia industri.",
+  "stakeholders": [
+    "keluarga korban anak",
+    "Kementerian Kesehatan",
+    "Badan Pengawas Obat dan Makanan (BPOM)",
+    "Ikatan Dokter Anak Indonesia (IDAI)",
+    "industri farmasi dan apotek",
+    "Bareskrim Polri"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-KEMENKES-GGAPA-PENGUMUMAN-2022",
+      "institution": "Kementerian Kesehatan RI",
+      "title": "Surat Edaran Kemenkes tentang Kewaspadaan dan Penyelidikan Epidemiologi Kasus Gangguan Ginjal Akut Atipikal pada Anak",
+      "url": "https://sehatnegeriku.kemkes.go.id/baca/rilis-media/20221018/kemenkes-terbitkan-se-ggapa/",
+      "publication_date": "2022-10-18",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-BPOM-HASIL-UJI-OBAT-2022",
+      "institution": "Badan Pengawas Obat dan Makanan (BPOM)",
+      "title": "Penjelasan BPOM RI tentang Hasil Uji Laboratorium dan Tindakan terhadap Sirup Obat Tercemar EG/DEG",
+      "url": "https://www.pom.go.id/penjelasan-bpom-sirup-obat-cemaran-eg-deg",
+      "publication_date": "2022-10-23",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KEMENKES-DATA-AKHIR-GGAPA-2022",
+      "institution": "Kementerian Kesehatan RI",
+      "title": "Konferensi Pers Perkembangan Kasus Gangguan Ginjal Akut pada Anak: Angka Kematian Turun Drastis",
+      "url": "https://sehatnegeriku.kemkes.go.id/baca/rilis-media/20221116/update-kasus-ggapa-kemenkes/",
+      "publication_date": "2022-11-16",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KEMENKES-FOMEPIZOLE-2022",
+      "institution": "Kementerian Kesehatan RI",
+      "title": "Pengadaan dan Distribusi Obat Penawar Fomepizole untuk Pasien Gagal Ginjal Akut Anak",
+      "url": "https://sehatnegeriku.kemkes.go.id/baca/rilis-media/20221025/pengadaan-fomepizole-gratis/",
+      "publication_date": "2022-10-25",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Teori awal keterkaitan dengan infeksi virus SARS-CoV-2 atau vaksinasi anak gugur setelah pengujian toksikologi EG/DEG terbukti secara klinis.",
+    "Kompensasi dana santunan bagi keluarga korban dari korporasi farmasi masih berproses dalam gugatan class action perdata."
+  ],
+  "todo_to_validate": [
+    "Putusan pengadilan pidana atas suplier pelarut kimia CV Samudera Chemical",
+    "Revisi Farmakope Indonesia Edisi VI Suplemen II"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0020.json",
+  "game_adaptation_notes": "Kasus krisis kesehatan regulasi dan kepercayaan publik. Menghadapkan presiden pada dilema: penarikan total seluruh obat sirup (kepanikan apotek, kelangkaan obat demam anak, tapi kematian berhenti), pengadaan darurat antidotum Fomepizole via anggaran cadangan bencana, dan reformasi regulasi pengawasan BPOM.",
+  "fact_vs_simulation_notes": "Data 199 anak meninggal, cemaran EG/DEG, importasi Fomepizole, dan instruksi Kemenkes Oktober 2022 adalah riil. Pilihan penanganan krisis di tangan pemain adalah simulasi."
+}
