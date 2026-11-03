@@ -1,0 +1,119 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0016",
+  "title": "Banjir Bandang Sentani dan Kerusakan DAS Cagar Alam Pegunungan Cycloop 2019",
+  "status": "researched",
+  "status_note": "Data korban dan kerusakan mengacu pada BNPB dan BPBD Papua. Analisis tutupan lahan dan kerusakan Cagar Alam Cycloop bersumber dari KLHK, BPDASHL Mamberamo, dan BRIN.",
+  "category": "watershed_deforestation_flash_flood",
+  "subcategories": [
+    "flash_flood",
+    "debris_flow",
+    "protected_forest_encroachment",
+    "indigenous_land_stewardship",
+    "resettlement"
+  ],
+  "start_date": "2019-03-16",
+  "end_date": "2019-07-31",
+  "decision_as_of": "2019-03-18",
+  "island": "papua",
+  "provinces": [
+    "91"
+  ],
+  "geographic_resolution": "Provinsi Papua (Kab. Jayapura 91.03 dan Kota Jayapura 91.71).",
+  "real_facts": [
+    {
+      "fact": "Pada 16 Maret 2019 malam terjadi hujan ekstrem intensitas tinggi (> 235 mm dalam beberapa jam) di kawasan hulu Pegunungan Cycloop, memicu longsoran tebing dan bendung alam yang jebol menjadi banjir bandang melanda Sentani.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-BMKG-HUJAN-SENTANI-2019"
+      ],
+      "as_of": "2019-03-17"
+    },
+    {
+      "fact": "BNPB mencatat banjir bandang dan longsor menewaskan 112 orang, 17 orang hilang, 915 luka-luka, dan lebih dari 11.000 orang mengungsi, dengan material lumpur, batu besar, dan gelondongan kayu menimbun rumah-rumah di Sentani hingga tepi Danau Sentani.",
+      "kind": "statistic",
+      "source_refs": [
+        "SRC-BNPB-SENTANI-FINAL-2019"
+      ],
+      "as_of": "2019-04-01"
+    },
+    {
+      "fact": "Kementerian Lingkungan Hidup dan Kehutanan (KLHK) mengidentifikasi pembukaan lahan perladangan dan pemukiman seluas sedikitnya 2.415 hektare di zona penyangga dan cagar alam Cycloop yang mengurangi daya serap air tanah.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-KLHK-DAS-CYCLOOP-2019"
+      ],
+      "as_of": "2019-03-25"
+    },
+    {
+      "fact": "Pemerintah meluncurkan program pemulihan DAS terpadu dan penanaman tanaman bernilai ekonomi berakar kuat (seperti bambu dan matoa) dengan melibatkan masyarakat adat Ondoafi sebagai pemilik ulayat Cycloop.",
+      "kind": "reported_outcome",
+      "source_refs": [
+        "SRC-KLHK-REHAB-CYCLOOP-2020"
+      ],
+      "as_of": "2020-01-20"
+    }
+  ],
+  "information_available_at_decision": "Pada 18 Maret 2019:\n- Korban jiwa terus ditemukan di antara tumpukan kayu gelondongan dan lumpur;\n- Akses jalan utama Jayapura-Sentani terputus;\n- Terungkap fakta bahwa cagar alam Cycloop telah mengalami perambahan di lereng terjal.",
+  "trigger": [
+    "Hujan lebat ekstrem yang menjebol bendung alami di lembah curam Pegunungan Cycloop yang telah terdegradasi"
+  ],
+  "root_causes_note": "Alih fungsi lahan penyangga cagar alam untuk pemukiman migran dan perladangan subsisten, tanpa terasering memadai di lereng berkemiringan > 40%.",
+  "stakeholders": [
+    "warga Sentani dan pesisir Danau Sentani",
+    "Masyarakat Adat Ondoafi Cycloop",
+    "BNPB dan BPBD Papua",
+    "Kementerian LHK",
+    "Kementerian PUPR",
+    "Pemerintah Kabupaten Jayapura"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-BMKG-HUJAN-SENTANI-2019",
+      "institution": "BMKG Stasiun Meteorologi Jayapura",
+      "title": "Analisis Meteorologis Hujan Ekstrem Pemicu Banjir Bandang Sentani",
+      "url": "https://www.bmkg.go.id/analisis-hujan-ekstrem-sentani-2019",
+      "publication_date": "2019-03-17",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-BNPB-SENTANI-FINAL-2019",
+      "institution": "Badan Nasional Penanggulangan Bencana",
+      "title": "Laporan Penanganan Darurat Bencana Banjir Bandang dan Tanah Longsor Sentani",
+      "url": "https://bnpb.go.id/laporan-akhir-banjir-sentani-2019",
+      "publication_date": "2019-04-01",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KLHK-DAS-CYCLOOP-2019",
+      "institution": "Kementerian Lingkungan Hidup dan Kehutanan",
+      "title": "Evaluasi Daya Dukung Lingkungan dan Tutupan Lahan Cagar Alam Pegunungan Cycloop",
+      "url": "https://ppid.menlhk.go.id/berita-evaluasi-das-cycloop-2019",
+      "publication_date": "2019-03-25",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KLHK-REHAB-CYCLOOP-2020",
+      "institution": "BPDASHL Mamberamo KLHK",
+      "title": "Rencana Induk Pemulihan Ekosistem DAS Cycloop Berbasis Kearifan Lokal Ondoafi",
+      "url": "https://menlhk.go.id/rencana-induk-pemulihan-cycloop",
+      "publication_date": "2020-01-20",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Tudingan pembalakan liar berskala industri di Cycloop tidak terbukti; yang ditemukan dominan adalah kayu tumbang akibat longsor alami bercampur perladangan tradisional.",
+    "Rincian bantuan stimulan rumah rusak kategori sedang tidak terlaporkan lengkap di semua kampung."
+  ],
+  "todo_to_validate": [
+    "Zonasi batas cagar alam Cycloop pasca-2019",
+    "Rencana tata ruang kawasan Danau Sentani"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0016.json",
+  "game_adaptation_notes": "Kasus bencana hidrometeorologi hulu-hilir di Papua. Dilema pengelolaan: Operasi penertiban paksa perambah cagar alam (konflik sosial dengan warga adat), relokasi pemukiman ke zona aman dataran Danau Sentani, atau kemitraan konservasi adat Ondoafi menjaga hutan lereng.",
+  "fact_vs_simulation_notes": "Data 112 korban, banjir bandang Sentani 16 Maret 2019, dan kerusakan Cycloop adalah riil. Pilihan strategi restorasi dan respon presiden adalah simulatif."
+}
