@@ -1,0 +1,133 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0009",
+  "title": "Krisis Pasokan Beras dan Dampak El Nino Kuat 2023–2024",
+  "status": "researched",
+  "status_note": "Data produksi beras, penurunan luas panen, dan lonjakan harga pangan bersumber dari Berita Resmi Statistik (BRS) BPS serta rilis resmi Badan Pangan Nasional (Bapanas) dan Perum Bulog. Data bantuan pangan beras 10 kg tercatat dalam Keputusan Bapanas dan Rapat Terbatas Presiden.",
+  "category": "food_security_agriculture",
+  "subcategories": [
+    "rice_production",
+    "el_nino_drought",
+    "price_inflation",
+    "food_aid",
+    "import_policy",
+    "market_operation"
+  ],
+  "start_date": "2023-07-01",
+  "end_date": "2024-03-31",
+  "decision_as_of": "2023-09-01",
+  "island": "national",
+  "provinces": [
+    "35",
+    "32",
+    "33",
+    "73"
+  ],
+  "geographic_resolution": "Nasional dengan fokus pada sentra lumbung padi Jawa Timur, Jawa Barat, Jawa Tengah, dan Sulawesi Selatan. Data inflasi harga beras dipantau di 90 kota IHK oleh BPS.",
+  "real_facts": [
+    {
+      "fact": "BPS mencatat produksi beras nasional 2023 sebesar 31,10 juta ton, turun 1,36% (0,44 juta ton) dibandingkan tahun 2022 (31,54 juta ton), terutama akibat penurunan luas panen padi seluas 255,08 ribu hektare terdampak kekeringan El Nino.",
+      "kind": "statistic",
+      "source_refs": [
+        "SRC-BPS-BRS-BERAS-202403"
+      ],
+      "as_of": "2024-03-01"
+    },
+    {
+      "fact": "Harga rata-rata beras medium nasional di tingkat penggilingan dan eceran melonjak melampaui Harga Eceran Tertinggi (HET), mencapai Rp13.000 hingga Rp16.000 per kg pada kuartal akhir 2023 dan awal 2024.",
+      "kind": "statistic",
+      "source_refs": [
+        "SRC-BAPANAS-HARGA-202310"
+      ],
+      "as_of": "2023-10-15"
+    },
+    {
+      "fact": "Pemerintah menugaskan Perum Bulog mengimpor beras hingga 3,5 juta ton pada tahun 2023-2024 untuk memperkuat Cadangan Beras Pemerintah (CBP) dan meredam spekulasi pasar.",
+      "kind": "official_claim",
+      "source_refs": [
+        "SRC-SETKAB-RATAS-BERAS-202309",
+        "SRC-BULOG-IMPOR-202311"
+      ],
+      "as_of": "2023-11-01"
+    },
+    {
+      "fact": "Pemerintah menyalurkan Bantuan Pangan Beras sebanyak 10 kg per bulan kepada 21,35 juta Keluarga Penerima Manfaat (KPM) serta menggelar program Stabilisasi Pasokan dan Harga Pangan (SPHP) secara masif.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-BAPANAS-BANTUAN-PANGAN-2023"
+      ],
+      "as_of": "2023-09-11"
+    }
+  ],
+  "information_available_at_decision": "Pada September 2023:\n- BMKG menyatakan puncak fenomena El Nino moderat hingga kuat memundurkan musim tanam utama (rendeng);\n- Stok CBP di Bulog menipis di bawah 1,5 juta ton;\n- Kenaikan harga beras menjadi kontributor utama inflasi harga bergejolak (volatile foods).",
+  "trigger": [
+    "Kekeringan parah akibat El Nino yang menurunkan debit waduk/irigasi dan menunda musim tanam padi, memicu kepanikan pasokan dan lonjakan harga beras"
+  ],
+  "root_causes_note": "Kombinasi anomali iklim El Nino, penurunan produktivitas lahan irigasi teknis, restriksi ekspor beras dari negara produsen global (India), dan ketergantungan pasokan antar-wilayah.",
+  "stakeholders": [
+    "petani padi lokal",
+    "konsumen rumah tangga berpenghasilan rendah",
+    "Perum Bulog",
+    "Badan Pangan Nasional (Bapanas)",
+    "Kementerian Pertanian",
+    "pedagang pasar beras grosir & eceran"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-BPS-BRS-BERAS-202403",
+      "institution": "Badan Pusat Statistik",
+      "title": "Luas Panen dan Produksi Padi di Indonesia 2023 (Angka Tetap)",
+      "url": "https://www.bps.go.id/id/pressrelease/2024/03/01/2371/luas-panen-dan-produksi-padi-di-indonesia-2023--angka-tetap-.html",
+      "publication_date": "2024-03-01",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-BAPANAS-HARGA-202310",
+      "institution": "Badan Pangan Nasional",
+      "title": "Panel Harga Pangan Nasional dan Evaluasi Relaksasi HET Beras",
+      "url": "https://panelharga.badanpangan.go.id/",
+      "publication_date": "2023-10-15",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-SETKAB-RATAS-BERAS-202309",
+      "institution": "Sekretariat Kabinet RI",
+      "title": "Rapat Terbatas Presiden RI mengenai Penanganan Dampak El Nino dan Ketersediaan Pangan",
+      "url": "https://setkab.go.id/presiden-jokowi-pimpin-ratas-antisipasi-dampak-el-nino/",
+      "publication_date": "2023-09-01",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-BULOG-IMPOR-202311",
+      "institution": "Perum BULOG",
+      "title": "Kesiapan Bulog Mengelola Cadangan Beras Pemerintah dan Penugasan Impor",
+      "url": "https://www.bulog.co.id/siaran-pers-realisasi-stok-cbp/",
+      "publication_date": "2023-11-10",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-BAPANAS-BANTUAN-PANGAN-2023",
+      "institution": "Badan Pangan Nasional",
+      "title": "Penyaluran Bantuan Pangan Beras Tahap II kepada 21,35 Juta KPM",
+      "url": "https://badanpangan.go.id/berita-penyaluran-bantuan-pangan-beras",
+      "publication_date": "2023-09-11",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Data spesifik kerugian finansial per petani di setiap kabupaten tidak terpetakan seragam.",
+    "Dugaan penimbunan beras oleh spekulan swasta tidak dikonfirmasi secara hukum menyeluruh di semua daerah."
+  ],
+  "todo_to_validate": [
+    "Data realisasi panen gadu 2023 per kabupaten di sentra Pantura",
+    "Rincian realisasi Bantuan Pangan Beras per kabupaten/kota"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0009.json",
+  "game_adaptation_notes": "Kasus pangan skala nasional dengan asimetri regional: sentra produsen padi (Jatim/Jabar/Jateng/Sulsel) tertekan penurunan output, sementara daerah konsumen defisit mengalami lonjakan harga tajam. Pilihan pemain melibatkan trade-off antara kuota impor kilat, bantuan pangan APBN, atau pompanisasi darurat.",
+  "fact_vs_simulation_notes": "Data penurunan produksi beras BPS, angka impor Bulog, dan bantuan pangan 21,35 juta KPM adalah fakta sejarah riil. Jalur kebijakan alternatif pemain dan proyeksi kestabilan harga jangka panjang adalah simulasi game."
+}
