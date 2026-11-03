@@ -1,0 +1,121 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0010",
+  "title": "Erupsi Eksplosif Gunung Merapi dan Relokasi Huntap 2010",
+  "status": "researched",
+  "status_note": "Data kronologi kegempaan dan erupsi bersumber dari PVMBG/Badan Geologi. Data korban jiwa, jumlah pengungsi, dan kerusakan bersumber dari laporan resmi BNPB dan BPBD DIY/Jateng. Dokumentasi pemukiman kembali (REKOMPAK) bersumber dari Kementerian PUPR dan Bappenas.",
+  "category": "volcanic_disaster_reconstruction",
+  "subcategories": [
+    "pyroclastic_flow",
+    "evacuation",
+    "displacement",
+    "permanent_relocation",
+    "cultural_resistance",
+    "disaster_recovery"
+  ],
+  "start_date": "2010-10-25",
+  "end_date": "2011-06-30",
+  "decision_as_of": "2010-11-05",
+  "island": "jawa",
+  "provinces": [
+    "34",
+    "33"
+  ],
+  "geographic_resolution": "Provinsi D.I. Yogyakarta (Kab. Sleman 34.04) dan Jawa Tengah (Kab. Magelang 33.08, Kab. Boyolali 33.09, Kab. Klaten 33.10).",
+  "real_facts": [
+    {
+      "fact": "PVMBG menetapkan status Merapi pada level 'Awas' (Level IV) pada 25 Oktober 2010. Erupsi paroksismal memuncak pada 5 November 2010 dini hari dengan kolom asap mencapai 14 km dan luncuran awan panas (wedhus gembel) sejauh 15 km di Kali Gendol.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-ESDM-PVMBG-MERAPI-2010"
+      ],
+      "as_of": "2010-11-05"
+    },
+    {
+      "fact": "BNPB memperluas zona aman/radius evakuasi bertahap dari 10 km, 15 km, hingga mencapai 20 km dari puncak Merapi, mengakibatkan mobilisasi pengungsian massal lebih dari 350.000 jiwa.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-BNPB-MERAPI-LAPORAN-2010"
+      ],
+      "as_of": "2010-11-06"
+    },
+    {
+      "fact": "BNPB mencatat total korban tewas akibat awan panas dan abu vulkanik mencapai 353 jiwa (termasuk juru kunci Mbah Maridjan di Dusun Kinahrejo, Cangkringan), serta ribuan ternak sapi mati.",
+      "kind": "statistic",
+      "source_refs": [
+        "SRC-BNPB-MERAPI-FINAL-2011"
+      ],
+      "as_of": "2011-01-15"
+    },
+    {
+      "fact": "Pemerintah pusat dan Pemda DIY/Jateng melaksanakan program rehabilitasi-rekonstruksi pascabencana melalui skema REKOMPAK, membangun Hunian Tetap (Huntap) di luar Kawasan Rawan Bencana (KRB) III untuk ribuan KK.",
+      "kind": "reported_outcome",
+      "source_refs": [
+        "SRC-PUPR-REKOMPAK-MERAPI-2012"
+      ],
+      "as_of": "2012-04-01"
+    }
+  ],
+  "information_available_at_decision": "Pada 5 November 2010:\n- Aktivitas seismik dan tremor vulkanik vulkanik terus bergemuruh dengan energi erupsi terbesar sejak 1872;\n- Awan panas telah menyapu perkampungan di Cangkringan;\n- Terdapat resistensi warga lereng atas yang enggan mengungsi karena menjaga ternak dan mempercayai mandat adat.",
+  "trigger": [
+    "Peningkatan energi letusan eksplosif Merapi yang menerobos kubah lava dan meluncurkan awan panas hingga radius bahaya 15-20 km"
+  ],
+  "root_causes_note": "Aktivitas magmatik subduksi lempeng tektonik aktif, ditambah kepadatan pemukiman dan aktivitas ekonomi tradisional warga di kawasan lereng subur KRB III.",
+  "stakeholders": [
+    "warga lereng Merapi (Sleman, Magelang, Boyolali, Klaten)",
+    "peternak sapi perah",
+    "tokoh adat/juru kunci",
+    "PVMBG Badan Geologi",
+    "BNPB dan relawan SAR",
+    "Pemerintah Provinsi DIY dan Jateng"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-ESDM-PVMBG-MERAPI-2010",
+      "institution": "Pusat Vulkanologi dan Mitigasi Bencana Geologi (PVMBG)",
+      "title": "Kronologi Peningkatan Aktivitas dan Erupsi Gunungapi Merapi Oktober-November 2010",
+      "url": "https://vsi.esdm.go.id/laporan-aktivitas-gunungapi-merapi-2010",
+      "publication_date": "2010-11-10",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-BNPB-MERAPI-LAPORAN-2010",
+      "institution": "Badan Nasional Penanggulangan Bencana",
+      "title": "Laporan Situasi Tanggap Darurat Bencana Erupsi Merapi No. 24",
+      "url": "https://bnpb.go.id/laporan-erupsi-merapi-2010",
+      "publication_date": "2010-11-08",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-BNPB-MERAPI-FINAL-2011",
+      "institution": "Badan Nasional Penanggulangan Bencana",
+      "title": "Evaluasi dan Penutupan Status Darurat Erupsi Gunung Merapi",
+      "url": "https://bnpb.go.id/evaluasi-merapi-2011",
+      "publication_date": "2011-01-15",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-PUPR-REKOMPAK-MERAPI-2012",
+      "institution": "Kementerian Pekerjaan Umum dan Perumahan Rakyat",
+      "title": "Praktik Baik Rekonstruksi Permukiman Berbasis Komunitas (REKOMPAK) Pasca Erupsi Merapi",
+      "url": "https://pu.go.id/berita-rekompak-huntap-merapi",
+      "publication_date": "2012-04-01",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Estimasi kerugian tidak langsung pada sektor pariwisata Jawa Tengah dan DIY bervariasi luas di berbagai studi akademis.",
+    "Tingkat kepatuhan evakuasi per dusun tidak terdata dalam persentase angka tunggal yang terverifikasi."
+  ],
+  "todo_to_validate": [
+    "Peta definitif KRB Merapi pasca-2010",
+    "Daftar lokasi huntap relokasi Sleman (Kuwang, Plosokerep, Pagerjurang)"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0010.json",
+  "game_adaptation_notes": "Kasus bencana geologi tingkat regional. Fokus interaksi mencakup: evakuasi paksa terpusat (biaya tinggi, sentimen turun tapi selamat), pengadaan pakan/evakuasi ternak bersama warga (kepercayaan tinggi), dan kebijakan zonasi KRB non-hunian dengan relokasi Huntap.",
+  "fact_vs_simulation_notes": "Data letusan 2010, radius 20 km, 353 korban, dan relokasi REKOMPAK adalah riil. Pilihan presiden, tanggapan mitigasi, dan hasil relokasi dalam permainan adalah kondisi simulatif."
+}
