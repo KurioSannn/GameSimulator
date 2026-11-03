@@ -1,0 +1,119 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0013",
+  "title": "Krisis Gizi Buruk dan Kejadian Luar Biasa Campak Asmat 2018",
+  "status": "researched",
+  "status_note": "Data korban, pasien, dan sebaran distrik mengacu pada rilis resmi Satgas Gabungan Kemenkes dan BNPB. Laporan infrastruktur logistik dan geografis bersumber dari Pemkab Asmat dan Kemensos.",
+  "category": "public_health_remote_crisis",
+  "subcategories": [
+    "malnutrition",
+    "measles_outbreak",
+    "infant_mortality",
+    "remote_healthcare",
+    "logistical_barrier"
+  ],
+  "start_date": "2018-01-08",
+  "end_date": "2018-02-28",
+  "decision_as_of": "2018-01-15",
+  "island": "papua",
+  "provinces": [
+    "93"
+  ],
+  "geographic_resolution": "Provinsi Papua Selatan (Kab. Asmat 93.04).",
+  "real_facts": [
+    {
+      "fact": "Pemkab Asmat dan Kementerian Kesehatan menetapkan status Kejadian Luar Biasa (KLB) campak dan gizi buruk pada 15 Januari 2018 setelah puluhan balita meninggal dunia di kampung-kampung terpencil.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-KEMENKES-ASMAT-KLB-2018"
+      ],
+      "as_of": "2018-01-15"
+    },
+    {
+      "fact": "Satgas Gabungan Kemenkes, TNI, Polri, dan Kemensos mencatat sebanyak 71 anak meninggal dunia akibat komplikasi campak dan gizi buruk di wilayah Kabupaten Asmat sepanjang periode September 2017 hingga awal 2018.",
+      "kind": "statistic",
+      "source_refs": [
+        "SRC-KEMENKES-LAPORAN-AKHIR-ASMAT-2018"
+      ],
+      "as_of": "2018-02-05"
+    },
+    {
+      "fact": "Sebanyak lebih dari 600 anak menderita campak dan 200 anak lebih mengalami gizi buruk dan gizi kurang yang dirawat intensif di RSUD Agats dan posko darurat distrik.",
+      "kind": "statistic",
+      "source_refs": [
+        "SRC-BNPB-SITREP-ASMAT-2018"
+      ],
+      "as_of": "2018-01-25"
+    },
+    {
+      "fact": "Pemerintah menerjunkan Tim Nusantara Sehat dan tenaga medis spesialis terbang, menyalurkan bantuan makanan pendamping ASI (MP-ASI), vaksinasi massal, serta merancang pembangunan infrastruktur air bersih dan penampungan air hujan di Asmat.",
+      "kind": "reported_outcome",
+      "source_refs": [
+        "SRC-SETKAB-PENANGANAN-ASMAT-2018"
+      ],
+      "as_of": "2018-02-10"
+    }
+  ],
+  "information_available_at_decision": "Pada pertengahan Januari 2018:\n- Angka kematian balita terus bertambah di distrik pedalaman yang hanya bisa dijangkau speedboat berbiaya bahan bakar mahal;\n- Tingkat cakupan imunisasi dasar lengkap di Asmat sangat rendah (< 20%);\n- Pola hidup semi-nomaden keluarga saat meramu di hutan menyulitkan pendataan dan pemberian layanan faskes statis.",
+  "trigger": [
+    "Kematian massal balita akibat wabah campak yang diperparah status gizi buruk di distrik-distrik rawa pedalaman Asmat"
+  ],
+  "root_causes_note": "Isolasi geografis rawa pasang surut, minimnya tenaga medis dan rantai dingin vaksin (cold-chain), air bersih yang minim, serta keterbatasan anggaran operasional perahu puskesmas keliling.",
+  "stakeholders": [
+    "masyarakat suku Asmat",
+    "Kementerian Kesehatan",
+    "Pemkab Asmat",
+    "TNI/Polri",
+    "Keuskupan Agats",
+    "Kementerian Sosial"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-KEMENKES-ASMAT-KLB-2018",
+      "institution": "Kementerian Kesehatan RI",
+      "title": "Penetapan Status KLB dan Pengiriman Tim Terpadu Penanganan Kesehatan Asmat",
+      "url": "https://sehatnegeriku.kemkes.go.id/baca/rilis-media/20180115/kemenkes-tangani-klb-asmat/",
+      "publication_date": "2018-01-15",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KEMENKES-LAPORAN-AKHIR-ASMAT-2018",
+      "institution": "Kementerian Kesehatan RI",
+      "title": "Laporan Akhir Penanggulangan KLB Campak dan Gizi Buruk di Kabupaten Asmat",
+      "url": "https://sehatnegeriku.kemkes.go.id/baca/rilis-media/20180205/laporan-akhir-klb-asmat/",
+      "publication_date": "2018-02-05",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-BNPB-SITREP-ASMAT-2018",
+      "institution": "Badan Nasional Penanggulangan Bencana",
+      "title": "Laporan Situasi Bencana Kesehatan Terpadu Asmat Papua",
+      "url": "https://bnpb.go.id/sitrep-kesehatan-asmat-2018",
+      "publication_date": "2018-01-25",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-SETKAB-PENANGANAN-ASMAT-2018",
+      "institution": "Sekretariat Kabinet RI",
+      "title": "Arahan Presiden RI Terkait Pembangunan Jangka Panjang Pelayanan Dasar di Asmat",
+      "url": "https://setkab.go.id/presiden-jokowi-instruksikan-penanganan-total-asmat/",
+      "publication_date": "2018-02-10",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Data prevalensi stunting sebelum tahun 2018 di tingkat kampung pedalaman Asmat tidak lengkap.",
+    "Wacana relokasi permanen warga seluruh kampung rawa ditolak oleh tokoh adat dan gereja lokal sehingga tidak dijalankan."
+  ],
+  "todo_to_validate": [
+    "Alokasi Dana Otsus bidang kesehatan Kab. Asmat tahun 2018",
+    "Data rasio perahu puskesmas keliling air"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0013.json",
+  "game_adaptation_notes": "Kasus krisis kesehatan daerah terpencil (3T). Menguji trade-off pengiriman tim medis terbang darurat berbiaya tinggi (efek cepat sementara) vs pembangunan sistem puskesmas terapung permanen dengan tenaga honorer lokal terdidik.",
+  "fact_vs_simulation_notes": "Data 71 korban tewas, KLB Asmat 2018, dan mobilisasi Satgas Gabungan adalah peristiwa sejarah. Respon kebijakan presiden dalam permainan bersifat simulasi terukur."
+}
