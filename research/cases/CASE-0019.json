@@ -1,0 +1,119 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0019",
+  "title": "Pencemaran Limbah Industri dan Revitalisasi DAS Citarum Harum 2018",
+  "status": "researched",
+  "status_note": "Dasar hukum mengacu pada Perpres No. 15/2018. Data mutu air, debit limbah, dan penegakan hukum saluran pembuangan bersumber dari Kementerian LHK, Kodam III/Siliwangi (Satgas Citarum), dan Dinas LH Jawa Barat.",
+  "category": "industrial_pollution_river_restoration",
+  "subcategories": [
+    "river_pollution",
+    "toxic_waste",
+    "water_security",
+    "military_civilian_taskforce",
+    "manufacturing_regulation"
+  ],
+  "start_date": "2018-03-14",
+  "end_date": "2020-12-31",
+  "decision_as_of": "2018-03-15",
+  "island": "jawa",
+  "provinces": [
+    "32"
+  ],
+  "geographic_resolution": "Daerah Aliran Sungai Citarum, Jawa Barat (Kab. Bandung 32.04, Kab. Bandung Barat 32.17, Kota Bandung 32.73, Kota Cimahi 32.77, Kab. Karawang 32.15, Kab. Bekasi 32.16).",
+  "real_facts": [
+    {
+      "fact": "Sungai Citarum sepanjang 297 km menyuplai 80% air baku minum DKI Jakarta dan mengairi 420.000 hektare sawah irigasi di Jawa Barat, namun sempat dinobatkan sebagai salah satu sungai paling tercemar di dunia dengan status cemar berat.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-KLHK-CITARUM-PROFIL-2018"
+      ],
+      "as_of": "2018-01-15"
+    },
+    {
+      "fact": "Tercatat sedikitnya 1.900 industri tekstil dan manufaktur beroperasi di sepanjang DAS Citarum, dengan sebagian besar membuang limbah cair berbahaya tanpa pengolahan IPAL memadai ke anak sungai.",
+      "kind": "statistic",
+      "source_refs": [
+        "SRC-SATGAS-CITARUM-DATA-2018"
+      ],
+      "as_of": "2018-03-01"
+    },
+    {
+      "fact": "Presiden menerbitkan Peraturan Presiden No. 15/2018 tentang Percepatan Pengendalian Pencemaran dan Kerusakan DAS Citarum pada 14 Maret 2018, membentuk Satgas Citarum Harum dengan komandan sektor TNI (Kodam III/Siliwangi) bersama kementerian dan Pemda.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-SETKAB-PERPRES-15-2018"
+      ],
+      "as_of": "2018-03-14"
+    },
+    {
+      "fact": "Satgas melakukan penindakan tegas berupa pengecoran (penutupan semen) ratusan pipa siluman pembuangan limbah beracun pabrik yang membandel serta mengeruk jutaan meter kubik endapan lumpur dan sampah.",
+      "kind": "reported_outcome",
+      "source_refs": [
+        "SRC-KODAM-SILIWANGI-PENINDAKAN-2019"
+      ],
+      "as_of": "2019-06-20"
+    }
+  ],
+  "information_available_at_decision": "Pada Maret 2018:\n- Tingkat keasaman (pH) dan kandungan logam berat di air sungai melebihi baku mutu;\n- Terdapat dilema penutupan pabrik tekstil yang memperkerjakan ratusan ribu buruh lokal;\n- Ketiadaan IPAL komunal terpadu di kawasan industri padat Majalaya dan Cimahi.",
+  "trigger": [
+    "Pencemaran ekstrem limbah kimia B3 yang memicu krisis air bersih, sedimentasi waduk PLTA Saguling-Cirata, dan kegagalan panen sawah"
+  ],
+  "root_causes_note": "Lemahnya penegakan hukum lingkungan daerah selama puluhan tahun, pembuangan limbah domestik tinja/sampah tanpa sanitasi, dan mahalnya biaya instalasi IPAL mandiri bagi pabrik tekstil.",
+  "stakeholders": [
+    "masyarakat DAS Citarum dan konsumen air baku Jakarta",
+    "pelaku industri tekstil (API)",
+    "Satgas Citarum Harum (TNI Kodam Siliwangi)",
+    "Kementerian LHK",
+    "Kementerian PUPR",
+    "Pemerintah Provinsi Jawa Barat"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-SETKAB-PERPRES-15-2018",
+      "institution": "Sekretariat Kabinet RI",
+      "title": "Peraturan Presiden Nomor 15 Tahun 2018 tentang Percepatan Pengendalian Pencemaran dan Kerusakan Daerah Aliran Sungai Citarum",
+      "url": "https://peraturan.go.id/id/perpres-no-15-tahun-2018",
+      "publication_date": "2018-03-14",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KLHK-CITARUM-PROFIL-2018",
+      "institution": "Kementerian Lingkungan Hidup dan Kehutanan",
+      "title": "Status Mutu Air dan Daya Tampung Beban Pencemaran Sungai Citarum",
+      "url": "https://ppid.menlhk.go.id/status-mutu-air-citarum-2018",
+      "publication_date": "2018-01-15",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-SATGAS-CITARUM-DATA-2018",
+      "institution": "Dinas Lingkungan Hidup Jawa Barat",
+      "title": "Pemetaan Industri dan Beban Limbah Cair di Wilayah Sektor Citarum",
+      "url": "https://dlh.jabarprov.go.id/laporan-industri-citarum-2018",
+      "publication_date": "2018-03-01",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KODAM-SILIWANGI-PENINDAKAN-2019",
+      "institution": "Kodam III/Siliwangi",
+      "title": "Laporan Progres Operasi Satgas Citarum Harum: Penegakan Hukum dan Pengecoran Pipa Limbah Siluman",
+      "url": "https://siliwangi.mil.id/citarum-harum-progres-2019",
+      "publication_date": "2019-06-20",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Data pasti jumlah limbah domestik septic tank per rumah tangga dihitung dengan estimasi sampling statistik.",
+    "Klaim penurunan tingkat pencemaran menjadi 'cemar ringan' pada 2020 di beberapa titik masih mengalami fluktuasi saat musim hujan."
+  ],
+  "todo_to_validate": [
+    "Evaluasi status mutu air IKA Citarum 2020",
+    "Realisasi anggaran pembangunan IPAL komunal Cisirung"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0019.json",
+  "game_adaptation_notes": "Kasus pemulihan lingkungan industri berskala masif. Pilihan mencakup: penegakan sanksi pidana dan penutupan pabrik pencemar (lingkungan membaik, output manufaktur/tenaga kerja tertekan), pemberian subsidi pembangunan IPAL komunal (fiskal tersedot), atau pembatasan kuota buang air limbah.",
+  "fact_vs_simulation_notes": "Kondisi pencemaran Citarum, Perpres 15/2018, dan penugasan Satgas TNI adalah fakta sejarah. Mekanika pilihan kebijakan dan indikator kesehatan air di game adalah simulasi."
+}
