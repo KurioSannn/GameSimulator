@@ -1,0 +1,120 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0015",
+  "title": "Tata Kelola Alat Tangkap Cantrang dan Perlindungan Ekosistem Laut 2015–2021",
+  "status": "researched",
+  "status_note": "Regulasi dan data perizinan mengacu pada Permen KP No. 2/2015, Permen KP No. 71/2016, dan Permen KP No. 18/2021. Data jumlah kapal dan tangkapan bersumber dari Statistik Perikanan Tangkap KKP dan BPS.",
+  "category": "fisheries_marine_conservation",
+  "subcategories": [
+    "trawl_ban",
+    "fishermen_livelihoods",
+    "overfishing",
+    "marine_conservation",
+    "inter_regional_conflict"
+  ],
+  "start_date": "2015-01-08",
+  "end_date": "2021-06-30",
+  "decision_as_of": "2018-01-17",
+  "island": "jawa",
+  "provinces": [
+    "33",
+    "35",
+    "21"
+  ],
+  "geographic_resolution": "Pantura Jawa (Jawa Tengah 33: Rembang, Pati, Batang; Jawa Timur 35: Lamongan, Tuban) serta perairan Kepulauan Riau (Natuna 21.03).",
+  "real_facts": [
+    {
+      "fact": "Kementerian Kelautan dan Perikanan (KKP) menerbitkan Permen KP No. 2/2015 yang melarang penggunaan alat penangkap ikan pukat hela (trawls) dan pukat tarik (seine nets / cantrang) di seluruh Wilayah Pengelolaan Perikanan (WPP) RI demi mencegah overfishing dan kerusakan terumbu karang.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-KKP-PERMEN-2-2015"
+      ],
+      "as_of": "2015-01-08"
+    },
+    {
+      "fact": "Larangan cantrang memicu gelombang protes besar puluhan ribu nelayan di Pantura Jawa Tengah dan Jawa Timur, dengan estimasi lebih dari 10.000 armada kapal cantrang dan ratusan ribu pekerja pelabuhan terancam kehilangan mata pencaharian.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-KKP-DIALOG-NELAYAN-2018"
+      ],
+      "as_of": "2018-01-17"
+    },
+    {
+      "fact": "Pemerintah memberikan masa transisi dan toleransi berulang kali serta menyalurkan bantuan alat tangkap ramah lingkungan pengganti (seperti gillnet dan bubu), namun banyak nelayan mengeluhkan hasil tangkapan yang jauh lebih sedikit dibanding cantrang.",
+      "kind": "reported_outcome",
+      "source_refs": [
+        "SRC-KKP-EVALUASI-BANTUAN-ALAT-2019"
+      ],
+      "as_of": "2019-04-10"
+    },
+    {
+      "fact": "Pergeseran operasi kapal cantrang Jawa ke perairan Laut Natuna memicu gesekan sosial dengan nelayan tradisional lokal Natuna yang merasa hasil tangkapannya tersapu oleh kapal cantrang berbobot mati > 30 GT.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-KKP-NATUNA-KONFLIK-2020"
+      ],
+      "as_of": "2020-02-15"
+    }
+  ],
+  "information_available_at_decision": "Pada Januari 2018:\n- Ribuan nelayan berunjuk rasa di depan Istana Negara menuntut pencabutan larangan cantrang;\n- Data biologis KKP menunjukkan penurunan tajam indeks biomassa demersal di Laut Jawa;\n- Kredit perbankan kapal cantrang nelayan terancam macet.",
+  "trigger": [
+    "Pemberlakuan penuh larangan cantrang tanpa alternatif pengganti yang memuaskan hasil tangkapan nelayan"
+  ],
+  "root_causes_note": "Ketegangan fundamental antara keberlanjutan stok ikan jangka panjang (SDGs 14) dan ketergantungan ekonomi jangka pendek jutaan tenaga kerja perikanan tradisional Pantura.",
+  "stakeholders": [
+    "nelayan cantrang Pantura Jawa",
+    "nelayan tradisional lokal Natuna",
+    "Kementerian Kelautan dan Perikanan",
+    "himpunan nelayan (HNSI)",
+    "industri pengolahan ikan (surimi)"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-KKP-PERMEN-2-2015",
+      "institution": "Kementerian Kelautan dan Perikanan",
+      "title": "Peraturan Menteri Kelautan dan Perikanan No. 2/PERMEN-KP/2015 tentang Larangan Penggunaan Alat Penangkapan Ikan Pukat Hela dan Pukat Tarik",
+      "url": "https://jdih.kkp.go.id/dokumen/permen-kp-2-2015",
+      "publication_date": "2015-01-08",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KKP-DIALOG-NELAYAN-2018",
+      "institution": "Sekretariat Presiden RI",
+      "title": "Pertemuan Presiden Joko Widodo dengan Perwakilan Nelayan Cantrang di Istana Merdeka",
+      "url": "https://setkab.go.id/presiden-jokowi-temui-perwakilan-nelayan-cantrang/",
+      "publication_date": "2018-01-17",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KKP-EVALUASI-BANTUAN-ALAT-2019",
+      "institution": "Kementerian Kelautan dan Perikanan",
+      "title": "Laporan Pelaksanaan Bantuan Alat Penangkapan Ikan Ramah Lingkungan",
+      "url": "https://kkp.go.id/laporan-bantuan-alat-tangkap-2019",
+      "publication_date": "2019-04-10",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KKP-NATUNA-KONFLIK-2020",
+      "institution": "Kementerian Kelautan dan Perikanan",
+      "title": "Penyelesaian Gesekan Wilayah Tangkap antara Nelayan Natuna dan Kapal Pantura",
+      "url": "https://kkp.go.id/penyelesaian-wilayah-tangkap-natuna-2020",
+      "publication_date": "2020-02-15",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Data pasti jumlah kapal cantrang yang memodifikasi mesin secara ilegal di atas izin 30 GT tidak tercatat resmi.",
+    "Estimasi penurunan stok ikan akibat cantrang dihitung secara agregat per WPP, bukan per kabupaten."
+  ],
+  "todo_to_validate": [
+    "Regulasi Permen KP 18/2021 tentang Jaring Tarik Berkantong",
+    "Data penyaluran KUR sektor perikanan tangkap"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0015.json",
+  "game_adaptation_notes": "Dilema sektor kelautan dan perikanan: Penegakan ketat larangan cantrang (stok ikan laut pulih, tapi pendapatan nelayan Pantura anjlok dan sentimen protes membara) vs legalisasi terbatas bersyarat zonasi (ekonomi nelayan terjaga, tapi konflik nelayan Natuna muncul dan stok ikan terancam).",
+  "fact_vs_simulation_notes": "Larangan cantrang, perdebatan 2015-2021, dan demo nelayan adalah riil. Keputusan akhir pemain dan dinamika stok ikan di engine adalah simulatif."
+}
