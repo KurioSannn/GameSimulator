@@ -1,0 +1,131 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0011",
+  "title": "Blackout Massal Sistem Kelistrikan Jawa–Bali Agustus 2019",
+  "status": "researched",
+  "status_note": "Penyebab teknis dan kronologi pemadaman listrik mengacu pada rilis resmi PT PLN (Persero), Kementerian ESDM, dan BPK. Dampak telekomunikasi bersumber dari Kemkominfo. Angka kompensasi pelanggan tercatat dalam laporan resmi PLN.",
+  "category": "infrastructure_energy_crisis",
+  "subcategories": [
+    "power_grid_failure",
+    "transmission_blackout",
+    "telecom_disruption",
+    "industrial_loss",
+    "compensation_liability"
+  ],
+  "start_date": "2019-08-04",
+  "end_date": "2019-08-05",
+  "decision_as_of": "2019-08-04",
+  "island": "jawa",
+  "provinces": [
+    "31",
+    "32",
+    "36",
+    "33"
+  ],
+  "geographic_resolution": "Jawa bagian barat: DKI Jakarta (31), Banten (36), Jawa Barat (32), dan sebagian Jawa Tengah (33).",
+  "real_facts": [
+    {
+      "fact": "Pada 4 Agustus 2019 pukul 11.48 WIB terjadi gangguan ganda pada transmisi Saluran Udara Tegangan Ekstra Tinggi (SUTET) 500 kV Ungaran-Pemalang akibat senggolan pohon yang melebihi batas ruang bebas (ROW), memicu pelepasan beban proteksi dan lepasnya pembangkitan listrik di Jawa Barat dan DKI Jakarta.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-ESDM-INVESTIGASI-BLACKOUT-2019"
+      ],
+      "as_of": "2019-08-06"
+    },
+    {
+      "fact": "Pemadaman listrik massal berlangsung antara 8 hingga 18 jam, melumpuhkan transportasi massal perkotaan (MRT Jakarta terhenti di bawah tanah, KRL mati total), lalu lintas jalan raya (lampu merah padam), serta gangguan jaringan seluler dan ATM.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-KOMINFO-JARINGAN-BLACKOUT-2019",
+        "SRC-MRT-EVAKUASI-2019"
+      ],
+      "as_of": "2019-08-05"
+    },
+    {
+      "fact": "Pemadaman berdampak pada lebih dari 21,9 juta pelanggan listrik PLN di Jawa Barat, DKI Jakarta, dan Banten.",
+      "kind": "statistic",
+      "source_refs": [
+        "SRC-PLN-KOMPENSASI-2019"
+      ],
+      "as_of": "2019-08-06"
+    },
+    {
+      "fact": "PLN membayarkan ganti rugi/kompensasi tingkat mutu pelayanan (TMP) kepada konsumen senilai Rp865 miliar sesuai regulasi Permen ESDM No. 27/2017.",
+      "kind": "official_claim",
+      "source_refs": [
+        "SRC-PLN-LAPORAN-KOMPENSASI-2019"
+      ],
+      "as_of": "2019-08-15"
+    }
+  ],
+  "information_available_at_decision": "Pada 4 Agustus 2019 siang:\n- Pemadaman berskala pulau terjadi serentak tanpa peringatan awal;\n- Proses pemulihan (black start) pembangkit PLTU membutuhkan waktu berjam-jam untuk sinkronisasi;\n- Kepanikan publik di ibukota dan kerugian komersial berlangsung cepat.",
+  "trigger": [
+    "Gangguan jaringan transmisi backbone 500 kV yang memicu kaskade trip pembangkit di separuh Pulau Jawa"
+  ],
+  "root_causes_note": "Kurangnya redundansi jalur transmisi transfer daya barat-timur Jawa, pemeliharaan vegetasi ROW yang terlambat, serta keterlambatan otomatisasi pertahanan beban (defense scheme).",
+  "stakeholders": [
+    "PT PLN (Persero)",
+    "Kementerian ESDM",
+    "masyarakat umum Jabodetabek dan Jabar",
+    "operator transportasi publik (MRT, KCI)",
+    "sektor industri manufaktur dan telekomunikasi"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-ESDM-INVESTIGASI-BLACKOUT-2019",
+      "institution": "Kementerian Energi dan Sumber Daya Mineral",
+      "title": "Laporan Tim Investigasi Independen atas Gangguan Sistem Tenaga Listrik Jawa-Bali 4 Agustus 2019",
+      "url": "https://www.esdm.go.id/siaran-pers-hasil-investigasi-pemadaman-listrik-2019",
+      "publication_date": "2019-08-06",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-PLN-KOMPENSASI-2019",
+      "institution": "PT PLN (Persero)",
+      "title": "Siaran Pers: Skema Kompensasi bagi 21,9 Juta Pelanggan Terdampak Blackout",
+      "url": "https://web.pln.co.id/media/siaran-pers/2019/08/kompensasi-tmp-blackout",
+      "publication_date": "2019-08-06",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KOMINFO-JARINGAN-BLACKOUT-2019",
+      "institution": "Kementerian Komunikasi dan Informatika",
+      "title": "Monitoring Kualitas Layanan Telekomunikasi Pasca Pemadaman Listrik Jawa Bagian Barat",
+      "url": "https://kominfo.go.id/berita/monitoring-telekomunikasi-blackout-2019",
+      "publication_date": "2019-08-05",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-PLN-LAPORAN-KOMPENSASI-2019",
+      "institution": "PT PLN (Persero)",
+      "title": "Realisasi Pelaksanaan Kompensasi Tagihan Listrik Periode September 2019",
+      "url": "https://web.pln.co.id/laporan-realisasi-kompensasi-2019",
+      "publication_date": "2019-08-15",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-MRT-EVAKUASI-2019",
+      "institution": "PT MRT Jakarta",
+      "title": "Laporan Penanganan Evakuasi Penumpang Saat Padam Listrik Serentak 4 Agustus",
+      "url": "https://jakartamrt.co.id/siaran-pers-evakuasi-penumpang-blackout",
+      "publication_date": "2019-08-05",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Estimasi total kerugian material ekonomi seluruh sektor swasta yang diklaim mencapai triliunan rupiah tidak diverifikasi melalui audit negara tunggal.",
+    "Isu sabotase yang sempat beredar di media sosial ditepis oleh hasil investigasi kepolisian dan BPK."
+  ],
+  "todo_to_validate": [
+    "Laporan BPK atas kepatuhan SOP transmisi PLN",
+    "Rincian alokasi investasi transmisi grid selatan Jawa"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0011.json",
+  "game_adaptation_notes": "Kasus kegagalan infrastruktur jaringan. Dampak instan berupa anjloknya kapasitas industri dan sentimen publik perkotaan. Pilihan presiden mencakup: audit dan sanksi manajemen PLN, kompensasi potongan fiskal, atau percepatan belanja modal untuk redundansi jalur transmisi ganda.",
+  "fact_vs_simulation_notes": "Insiden blackout 4 Agustus 2019, pemadaman 21,9 juta pelanggan, dan kompensasi Rp865 miliar adalah fakta. Tanggapan kabinet dalam simulasi bersifat fiktif."
+}
