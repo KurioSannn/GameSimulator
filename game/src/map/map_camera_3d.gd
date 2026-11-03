@@ -14,12 +14,12 @@ const ZOOM_STEP := 1.15
 const KEY_PAN_SPEED := 950.0
 
 var target := Vector3.ZERO
-var distance := 1200.0
-var pitch := 55.0       # degrees down from horizontal (90 = straight down top-down)
+var distance := 3000.0
+var pitch := 50.0       # degrees down from horizontal (90 = straight down top-down)
 var yaw := 0.0         # degrees orbit around Y axis
 var min_distance := 80.0
-var max_distance := 4500.0
-var min_pitch := 25.0
+var max_distance := 15000.0
+var min_pitch := 20.0
 var max_pitch := 85.0
 
 var map_bounds := Rect2()
@@ -28,14 +28,21 @@ var _dragging_orbit := false
 var _last_mouse_pos := Vector2.ZERO
 
 
+func _ready() -> void:
+	near = 1.0
+	far = 40000.0
+	fov = 50.0
+
+
 func fit(rect: Rect2, viewport_size: Vector2) -> void:
+	near = 1.0
+	far = 40000.0
 	map_bounds = rect
 	target = Vector3(rect.get_center().x, 0.0, rect.get_center().y)
-	# Estimate required distance based on FOV and bounding rect
 	var max_dim := maxf(rect.size.x, rect.size.y)
 	var fov_rad := deg_to_rad(fov)
-	distance = clampf((max_dim * 0.75) / tan(fov_rad * 0.5), min_distance, max_distance)
-	pitch = 55.0
+	distance = clampf((max_dim * 0.65) / tan(fov_rad * 0.5), min_distance, max_distance)
+	pitch = 50.0
 	yaw = 0.0
 	_apply_transform()
 	view_changed.emit()
@@ -155,3 +162,4 @@ func _apply_transform() -> void:
 	) * distance
 	global_position = target + offset
 	look_at(target, Vector3.UP)
+

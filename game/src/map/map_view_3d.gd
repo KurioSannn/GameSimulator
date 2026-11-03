@@ -18,7 +18,7 @@ const BORDER_COLOR := Color(0.12, 0.16, 0.22, 0.7)
 const PROVINCE_BORDER_COLOR := Color(0.05, 0.08, 0.12, 0.95)
 const SELECT_COLOR := Color(1.0, 0.85, 0.15)
 const HOVER_COLOR := Color(1.0, 1.0, 1.0, 0.9)
-const SKIRT_DEPTH := -2.5
+const SKIRT_DEPTH := -12.0
 
 var bounds := Rect2()
 var region_ids: PackedStringArray = []
@@ -118,11 +118,11 @@ func _build_ocean() -> void:
 	_ocean_mesh = MeshInstance3D.new()
 	_ocean_mesh.name = "OceanSurface"
 	var plane := PlaneMesh.new()
-	plane.size = Vector2(8000.0, 4500.0)
-	plane.subdivide_width = 32
-	plane.subdivide_depth = 32
+	plane.size = Vector2(32000.0, 20000.0)
+	plane.subdivide_width = 48
+	plane.subdivide_depth = 48
 	_ocean_mesh.mesh = plane
-	_ocean_mesh.position = Vector3(0.0, -0.4, 0.0)
+	_ocean_mesh.position = Vector3(0.0, -8.0, 0.0)
 	
 	var ocean_mat := ShaderMaterial.new()
 	ocean_mat.shader = load("res://src/map/map_water_3d.gdshader")
@@ -133,7 +133,7 @@ func _build_ocean() -> void:
 func _build_highlight_node() -> void:
 	_highlight_instance = MeshInstance3D.new()
 	_highlight_instance.name = "RegionHighlight3D"
-	_highlight_instance.position = Vector3(0.0, 0.25, 0.0)
+	_highlight_instance.position = Vector3(0.0, 1.2, 0.0)
 	add_child(_highlight_instance)
 
 
@@ -217,13 +217,13 @@ func _build_lod_meshes(name: String, l: MapLod) -> void:
 	add_child(fill_inst)
 	_fill_instances[name] = fill_inst
 	
-	# 2. Border Lines (elevated slightly at Y=0.08)
+	# 2. Border Lines (elevated slightly at Y=0.5)
 	var border_mesh := ArrayMesh.new()
 	var b_verts := PackedVector3Array()
 	b_verts.resize(l.positions.size())
 	for i in l.positions.size():
 		var p := l.positions[i]
-		b_verts[i] = Vector3(p.x, 0.08, p.y)
+		b_verts[i] = Vector3(p.x, 0.5, p.y)
 	
 	var border_arrays := []
 	border_arrays.resize(Mesh.ARRAY_MAX)
@@ -232,12 +232,12 @@ func _build_lod_meshes(name: String, l: MapLod) -> void:
 	border_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_LINES, border_arrays)
 	border_mesh.surface_set_material(0, _mat_border)
 	
-	# Province outlines (elevated at Y=0.12)
+	# Province outlines (elevated at Y=0.8)
 	var prov_verts := PackedVector3Array()
 	prov_verts.resize(l.province_positions.size())
 	for i in l.province_positions.size():
 		var p := l.province_positions[i]
-		prov_verts[i] = Vector3(p.x, 0.12, p.y)
+		prov_verts[i] = Vector3(p.x, 0.8, p.y)
 	
 	var prov_arrays := []
 	prov_arrays.resize(Mesh.ARRAY_MAX)
@@ -348,3 +348,4 @@ func _add_highlight_surface(mesh: ArrayMesh, rings: Array, mat: Material, elevat
 	var s_idx := mesh.get_surface_count()
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_LINES, arrays)
 	mesh.surface_set_material(s_idx, mat)
+
