@@ -318,17 +318,23 @@ func _build_ui() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var wp: Vector2 = camera_3d.get_ground_position((event as InputEventMouseMotion).position) if _mode_3d else map_view.get_global_mouse_position()
-		var id := map_view.region_at(wp)
-		if _mode_3d and map_view_3d:
+		var id: String
+		if _mode_3d and map_view_3d and camera_3d:
+			id = map_view_3d.region_at_ray(camera_3d, (event as InputEventMouseMotion).position)
 			map_view_3d.set_hovered(id)
+		else:
+			var wp := map_view.get_global_mouse_position()
+			id = map_view.region_at(wp)
 		map_view.set_hovered(id)
 		_update_tooltip(id, (event as InputEventMouseMotion).position)
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var wp: Vector2 = camera_3d.get_ground_position(event.position) if _mode_3d else map_view.get_global_mouse_position()
-		var id := map_view.region_at(wp)
-		if _mode_3d and map_view_3d:
+		var id: String
+		if _mode_3d and map_view_3d and camera_3d:
+			id = map_view_3d.region_at_ray(camera_3d, event.position)
 			map_view_3d.set_selected(id)
+		else:
+			var wp := map_view.get_global_mouse_position()
+			id = map_view.region_at(wp)
 		map_view.set_selected(id)
 		region_panel.show_region(id)
 		if policy_panel.visible:
