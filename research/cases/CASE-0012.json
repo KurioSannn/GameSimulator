@@ -1,0 +1,121 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0012",
+  "title": "Konflik Agraria dan Relokasi Proyek Strategis Nasional Rempang Eco-City 2023",
+  "status": "researched",
+  "status_note": "Data investasi bersumber dari rilis Kementerian Investasi/BKPM dan BP Batam. Data hak ulayat kampung tua dan catatan pelanggaran HAM bersumber dari laporan investigasi Komnas HAM dan Ombudsman RI.",
+  "category": "land_conflict_industrial_investment",
+  "subcategories": [
+    "indigenous_rights",
+    "strategic_national_project",
+    "forced_relocation",
+    "protest_unrest",
+    "customary_tenure"
+  ],
+  "start_date": "2023-08-20",
+  "end_date": "2023-12-31",
+  "decision_as_of": "2023-09-07",
+  "island": "sumatera",
+  "provinces": [
+    "21"
+  ],
+  "geographic_resolution": "Provinsi Kepulauan Riau (Kota Batam 21.71 - Pulau Rempang).",
+  "real_facts": [
+    {
+      "fact": "Pemerintah menetapkan Rempang Eco-City sebagai Proyek Strategis Nasional (PSN) dengan rencana investasi industri kaca dan sel surya oleh Xinyi Group senilai sekitar Rp175 triliun di lahan seluas ribuan hektare.",
+      "kind": "official_claim",
+      "source_refs": [
+        "SRC-BKPM-REMPANG-2023"
+      ],
+      "as_of": "2023-08-15"
+    },
+    {
+      "fact": "Rencana pengosongan lahan memicu penolakan warga 16 Kampung Tua Melayu Rempang yang telah mendiami wilayah tersebut secara turun-temurun sejak sebelum masa kemerdekaan.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-KOMNAS-HAM-REMPANG-2023"
+      ],
+      "as_of": "2023-09-10"
+    },
+    {
+      "fact": "Pada 7 September 2023 terjadi bentrokan antara aparat keamanan gabungan dan warga di Jembatan 4 Barelang saat aparat memaksakan pemasangan patok tata batas hutan, melibatkan tembakan gas air mata yang berdampak pada sekolah di sekitar lokasi.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-OMBUDSMAN-REMPANG-2023",
+        "SRC-KOMNAS-HAM-REMPANG-2023"
+      ],
+      "as_of": "2023-09-08"
+    },
+    {
+      "fact": "Menyikapi eskalasi konflik, pemerintah pusat merevisi pendekatan: menunda batas waktu pengosongan, memindahkan lokasi relokasi ke Tanjung Banon, serta menjanjikan rumah tipe 45 di tanah 500 m2 dengan Sertifikat Hak Milik (SHM) dan uang tunggu sewa.",
+      "kind": "reported_outcome",
+      "source_refs": [
+        "SRC-SETKAB-REMPANG-KOMPROMI-2023"
+      ],
+      "as_of": "2023-09-25"
+    }
+  ],
+  "information_available_at_decision": "Pada September 2023:\n- Investor asing menuntut kepastian batas lahan clean and clear;\n- Masyarakat adat menolak relokasi total keluar pulau;\n- Terjadi keresahan sosial dan gelombang protes solidaritas di Batam dan kota lain di Kepulauan Riau.",
+  "trigger": [
+    "Pemasangan patok batas dan rencana penggusuran paksa pemukiman tradisional untuk proyek kawasan industri hilirisasi kaca pasir kuarsa"
+  ],
+  "root_causes_note": "Tumpang tindih Hak Pengelolaan Lahan (HPL) BP Batam tahun 2001 dengan eksistensi perkampungan tua Melayu yang belum memiliki kepastian legalitas sertifikat tanah agraria.",
+  "stakeholders": [
+    "masyarakat adat Melayu Rempang",
+    "BP Batam",
+    "Kementerian Investasi/BKPM",
+    "Kementerian ATR/BPN",
+    "investor Xinyi Group",
+    "aparat penegak hukum",
+    "Lembaga Adat Melayu (LAM)"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-BKPM-REMPANG-2023",
+      "institution": "Kementerian Investasi / BKPM",
+      "title": "Perkembangan Investasi Hilirisasi Pasir Kuarsa dan Kawasan Rempang Eco-City",
+      "url": "https://www.bkpm.go.id/siaran-pers-investasi-rempang-2023",
+      "publication_date": "2023-08-15",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KOMNAS-HAM-REMPANG-2023",
+      "institution": "Komisi Nasional Hak Asasi Manusia (Komnas HAM)",
+      "title": "Laporan Pemantauan dan Rekomendasi Kasus Kemanusiaan Pulau Rempang",
+      "url": "https://www.komnasham.go.id/laporan-pemantauan-rempang-2023",
+      "publication_date": "2023-09-22",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-OMBUDSMAN-REMPANG-2023",
+      "institution": "Ombudsman Republik Indonesia",
+      "title": "Temuan Malaadministrasi dan Rekomendasi Ombudsman atas Penanganan Lahan Rempang",
+      "url": "https://ombudsman.go.id/berita-investigasi-rempang-2023",
+      "publication_date": "2023-09-27",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-SETKAB-REMPANG-KOMPROMI-2023",
+      "institution": "Sekretariat Kabinet RI",
+      "title": "Pernyataan Presiden RI Terkait Komunikasi Publik dan Pendekatan Humanis di Rempang",
+      "url": "https://setkab.go.id/presiden-jokowi-instruksikan-penyelesaian-humanis-kasus-rempang/",
+      "publication_date": "2023-09-25",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Jumlah pasti keluarga yang menerima kompensasi pada gelombang pertama masih menjadi perdebatan antara pihak Pemda dan warga penolak.",
+    "Estimasi kerugian ekologis biota perairan pesisir Rempang belum dihitung secara lengkap dalam AMDAL awal."
+  ],
+  "todo_to_validate": [
+    "Rincian masterplan relokasi Tanjung Banon",
+    "Data luasan hutan lindung Pulau Rempang"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0012.json",
+  "game_adaptation_notes": "Kasus sengketa agraria vs realisasi investasi strategis. Menghadapkan presiden pada dilema: pemaksaan hukum demi target FDI (kepercayaan investor naik, legitimasi adat & stabilitas runtuh), kompromi tata ruang bertahap (biaya tinggi, jadwal molor), atau pembatalan proyek (kepercayaan investor anjlok).",
+  "fact_vs_simulation_notes": "Fakta peristiwa Rempang 2023, PSN Rempang Eco-City, dan bentrokan Jembatan 4 adalah riil. Pilihan kebijakan simulasi dan konsekuensi skenario dalam game merupakan adaptasi interaktif."
+}
