@@ -8,6 +8,10 @@ extends Node
 
 var map_view: MapView
 var camera: MapCamera
+var map_view_3d: MapView3D
+var camera_3d: MapCamera3D
+var _mode_3d := false
+var _mode_btn: Button
 var region_panel: RegionPanel
 var case_modal: CaseModal
 var budget_panel: BudgetPanel
@@ -44,6 +48,19 @@ func _ready() -> void:
 	if err != "":
 		push_error(err)
 	print("map loaded in %d ms (%d regions, %s)" % [map_view.load_ms, map_view.region_ids.size(), map_view.active_lod])
+	
+	# 3D Tabletop Diorama map initialization
+	map_view_3d = MapView3D.new()
+	map_view_3d.name = "MapView3D"
+	map_view_3d.visible = false
+	add_child(map_view_3d)
+	camera_3d = MapCamera3D.new()
+	camera_3d.name = "Camera3D"
+	camera_3d.current = false
+	add_child(camera_3d)
+	map_view_3d.setup(map_view)
+	camera_3d.view_changed.connect(_on_view_changed)
+	map_view.lod_changed.connect(func(l_name, _r): if map_view_3d: map_view_3d.set_active_lod(l_name))
 	_build_ui()
 	camera.view_changed.connect(_on_view_changed)
 	camera.fit(map_view.bounds, get_viewport().get_visible_rect().size)
@@ -87,6 +104,8 @@ func _debug_automation() -> void:
 	if not args.has("screenshot"):
 		return
 	await get_tree().process_frame
+	if args.has("3d"):
+		_toggle_3d_mode()
 	if args.has("hide-case"):
 		case_modal.visible = false
 	if args.has("play-to"):  # --play-to=<case_id> [--choices=<case_id>:<choice>,...] (others: first choice)
@@ -129,9 +148,11 @@ func _debug_automation() -> void:
 		_toggle_log()
 	for _f in 8:
 		await get_tree().process_frame
-	var img := get_viewport().get_texture().get_image()
-	img.save_png(args.screenshot)
-	print("screenshot saved: ", args.screenshot)
+	var tex := get_viewport().get_texture()
+	var img := tex.get_image() if tex else null
+	if img != null:
+		img.save_png(args.screenshot)
+		print("screenshot saved: ", args.screenshot)
 	get_tree().quit()
 
 
@@ -232,11 +253,13 @@ func _build_ui() -> void:
 	root.add_child(bottom)
 	var bb := UiKit.hbox(10)
 	bottom.add_child(bb)
-	for spec in [["Catatan (L)", _toggle_log], ["Kebijakan (P)", _toggle_policy], ["Anggaran (B)", _toggle_budget], ["Simpan Cepat (F5)", _quicksave], ["Muat Cepat (F9)", _quickload]]:
+	for spec in [["Peta 3D (T)", _toggle_3d_mode], ["Catatan (L)", _toggle_log], ["Kebijakan (P)", _toggle_policy], ["Anggaran (B)", _toggle_budget], ["Simpan Cepat (F5)", _quicksave], ["Muat Cepat (F9)", _quickload]]:
 		var b := Button.new()
 		b.text = spec[0]
 		b.pressed.connect(spec[1])
 		bb.add_child(b)
+		if spec[0].begins_with("Peta"):
+			_mode_btn = b
 	_next_btn = Button.new()
 	_next_btn.text = "Lanjut Kuartal ▶  (Spasi)"
 	_next_btn.pressed.connect(_next_quarter)
@@ -294,12 +317,17 @@ func _build_ui() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var wp := map_view.get_global_mouse_position()
+		var wp: Vector2 = camera_3d.get_ground_position((event as InputEventMouseMotion).position) if _mode_3d else map_view.get_global_mouse_position()
 		var id := map_view.region_at(wp)
+		if _mode_3d and map_view_3d:
+			map_view_3d.set_hovered(id)
 		map_view.set_hovered(id)
 		_update_tooltip(id, (event as InputEventMouseMotion).position)
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var id := map_view.region_at(map_view.get_global_mouse_position())
+		var wp: Vector2 = camera_3d.get_ground_position(event.position) if _mode_3d else map_view.get_global_mouse_position()
+		var id := map_view.region_at(wp)
+		if _mode_3d and map_view_3d:
+			map_view_3d.set_selected(id)
 		map_view.set_selected(id)
 		region_panel.show_region(id)
 		if policy_panel.visible:
@@ -312,10 +340,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_F5: _quicksave()
 			KEY_B: _toggle_budget()
 			KEY_P: _toggle_policy()
+			KEY_T: _toggle_3d_mode()
 			KEY_C: _change_btn.button_pressed = not _change_btn.button_pressed
 			KEY_L: _toggle_log()
 			KEY_F9: _quickload()
 			KEY_ESCAPE:
+				if _mode_3d and map_view_3d:
+					map_view_3d.set_selected("")
 				map_view.set_selected("")
 				region_panel.show_region("")
 			KEY_S:
@@ -353,6 +384,8 @@ func _recolor() -> void:
 	if _overlay.ramp == "categorical":
 		map_view.recolor(func(id): return Overlays.ISLAND_COLORS.get(ContentDB.region_by_id[id].island_group, Color.GRAY))
 		_legend.text = "Pengelompokan pulau/kawasan untuk navigasi (bukan hierarki administrasi resmi)."
+		if map_view_3d:
+			map_view_3d.sync_colors()
 		return
 	var v: String = _overlay.var
 	var uncal := PackedByteArray()
@@ -368,6 +401,8 @@ func _recolor() -> void:
 		if d.is_empty():
 			map_view.recolor(func(_id): return Overlays.change_color(0.0, 1.0))
 			_legend.text = "Perubahan %s: belum ada kuartal yang disimulasikan." % _overlay.label
+			if map_view_3d:
+				map_view_3d.sync_colors()
 			return
 		var scale := Overlays.change_scale(d)
 		map_view.recolor(func(id):
@@ -376,6 +411,8 @@ func _recolor() -> void:
 			return Overlays.uncalibrated(col) if uncal[i] == 1 else col)
 		_legend.text = "Perubahan %s, bulan ke-%d–%d: biru = turun, oranye = naik, abu-abu = tetap (skala ±%s). Warna tidak menilai baik/buruk.\nNilai SIMULASI.%s" % [
 			_overlay.label, int(w.ledger.start_tick) + 1, w.tick, Fmt.num(scale, 1), hatch]
+		if map_view_3d:
+			map_view_3d.sync_colors()
 		return
 	var arr: PackedFloat64Array = w.vars[v]
 	map_view.recolor(func(id):
@@ -384,6 +421,8 @@ func _recolor() -> void:
 		return Overlays.uncalibrated(col) if uncal[i] == 1 else col)
 	_legend.text = "%s: %s (rendah) → %s (tinggi)\nNilai SIMULASI.%s" % [
 		_overlay.label, Fmt.num(_overlay.min, 0), Fmt.num(_overlay.max, 0), hatch]
+	if map_view_3d:
+		map_view_3d.sync_colors()
 
 
 func _refresh_all() -> void:
@@ -512,19 +551,56 @@ func _manual_save() -> void:
 	_toast_msg(err if err != "" else "Tersimpan sebagai slot baru.")
 
 
+func _toggle_3d_mode() -> void:
+	_mode_3d = not _mode_3d
+	if _mode_3d:
+		map_view.visible = false
+		camera.enabled = false
+		map_view_3d.visible = true
+		camera_3d.current = true
+		camera_3d.fit(map_view.bounds, get_viewport().get_visible_rect().size)
+		map_view_3d.sync_colors()
+		if _mode_btn:
+			_mode_btn.text = "Peta 2D (T)"
+		_on_view_changed()
+		_toast_msg("Beralih ke Peta Diorama 3D (Shift/Tengah: Putar, Kanan: Geser)")
+	else:
+		map_view_3d.visible = false
+		camera_3d.current = false
+		map_view.visible = true
+		camera.enabled = true
+		camera.make_current()
+		if _mode_btn:
+			_mode_btn.text = "Peta 3D (T)"
+		_on_view_changed()
+		_toast_msg("Beralih ke Peta Kartografi 2D")
+
+
 func _on_view_changed() -> void:
-	map_view.update_view(camera.zoom.x)
-	var m_per_px := MapView.KM_PER_UNIT * 1000.0 / camera.zoom.x
-	var level: String = {"lod1": "Nasional", "lod2": "Kawasan/provinsi", "lod3": "Kabupaten/kota"}.get(map_view.active_lod, "?")
-	_lod_label.text = "Detail peta: %s (%s) · 1 piksel ≈ %s" % [level, map_view.active_lod.to_upper(),
-		("%s km" % Fmt.num(m_per_px / 1000.0, 2)) if m_per_px >= 1000.0 else ("%d m" % roundi(m_per_px))]
+	if _mode_3d and camera_3d:
+		var approx_zoom := 1200.0 / maxf(camera_3d.distance, 1.0)
+		map_view.update_view(approx_zoom)
+		map_view_3d.update_view(approx_zoom)
+		var m_per_px := MapView.KM_PER_UNIT * 1000.0 / approx_zoom
+		var level: String = {"lod1": "Nasional", "lod2": "Kawasan/provinsi", "lod3": "Kabupaten/kota"}.get(map_view.active_lod, "?")
+		_lod_label.text = "Detail peta: %s (%s) [3D] · 1 piksel ≈ %s" % [level, map_view.active_lod.to_upper(),
+			("%s km" % Fmt.num(m_per_px / 1000.0, 2)) if m_per_px >= 1000.0 else ("%d m" % roundi(m_per_px))]
+	else:
+		map_view.update_view(camera.zoom.x)
+		var m_per_px := MapView.KM_PER_UNIT * 1000.0 / camera.zoom.x
+		var level: String = {"lod1": "Nasional", "lod2": "Kawasan/provinsi", "lod3": "Kabupaten/kota"}.get(map_view.active_lod, "?")
+		_lod_label.text = "Detail peta: %s (%s) · 1 piksel ≈ %s" % [level, map_view.active_lod.to_upper(),
+			("%s km" % Fmt.num(m_per_px / 1000.0, 2)) if m_per_px >= 1000.0 else ("%d m" % roundi(m_per_px))]
 
 
 ## Zoom to a province (the "higher administrative view" of a selected kab/kota).
 func _view_province(province_id: String) -> void:
 	var rect := map_view.province_rect(province_id)
 	if rect.size != Vector2.ZERO:
-		camera.focus_rect(rect, get_viewport().get_visible_rect().size)
+		if _mode_3d and camera_3d:
+			camera_3d.focus_rect(rect, get_viewport().get_visible_rect().size)
+		else:
+			camera.focus_rect(rect, get_viewport().get_visible_rect().size)
 
 
 func _toast_msg(msg: String) -> void:

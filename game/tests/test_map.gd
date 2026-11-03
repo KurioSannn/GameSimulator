@@ -296,7 +296,7 @@ static func _scripts(dir: String) -> PackedStringArray:
 
 func test_map_code_makes_no_network_requests() -> void:
 	var forbidden := ["HTTPRequest", "HTTPClient", "StreamPeerTCP", "StreamPeerTLS", "WebSocket", "PacketPeerUDP", "http://", "https://"]
-	for path in ["res://src/map/map_view.gd", "res://src/map/map_lod.gd", "res://src/map/map_camera.gd", "res://src/app/main.gd"]:
+	for path in ["res://src/map/map_view.gd", "res://src/map/map_lod.gd", "res://src/map/map_camera.gd", "res://src/map/map_view_3d.gd", "res://src/map/map_camera_3d.gd", "res://src/app/main.gd"]:
 		var src := FileAccess.get_file_as_string(path)
 		for word in forbidden:
 			t.check(not src.contains(word), "%s must not use %s" % [path, word])
