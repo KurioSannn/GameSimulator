@@ -1,0 +1,119 @@
+{
+  "schema": "nusantara.case_research/1",
+  "case_id": "CASE-0017",
+  "title": "Pembangunan IKN Nusantara dan Penataan Ruang Kalimantan Timur 2022–2024",
+  "status": "researched",
+  "status_note": "Dasar hukum mengacu pada UU No. 3/2022 dan UU No. 21/2023. Angka alokasi APBN bersumber dari Nota Keuangan dan Kemenkeu (APBN KiTa). Data lingkungan dan koridor satwa bersumber dari KLHK dan Bappenas.",
+  "category": "spatial_planning_capital_relocation",
+  "subcategories": [
+    "capital_relocation",
+    "fiscal_tradeoff",
+    "environmental_corridor",
+    "indigenous_protection",
+    "infrastructure_investment"
+  ],
+  "start_date": "2022-01-18",
+  "end_date": "2024-08-17",
+  "decision_as_of": "2022-02-15",
+  "island": "kalimantan",
+  "provinces": [
+    "64"
+  ],
+  "geographic_resolution": "Provinsi Kalimantan Timur (Kab. Penajam Paser Utara 64.09, Kab. Kutai Kartanegara 64.02, Kota Balikpapan 64.71) dengan dampak fiskal nasional.",
+  "real_facts": [
+    {
+      "fact": "DPR RI mengesahkan UU No. 3/2022 tentang Ibu Kota Negara pada 18 Januari 2022, menetapkan pemindahan ibu kota negara dari DKI Jakarta ke wilayah IKN Nusantara di Kalimantan Timur seluas 256.142 hektare.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-DPR-UU-IKN-2022"
+      ],
+      "as_of": "2022-01-18"
+    },
+    {
+      "fact": "Alokasi anggaran APBN untuk pembangunan infrastruktur dasar Kawasan Inti Pusat Pemerintahan (KIPP) IKN periode 2022–2024 mencapai lebih dari Rp72 triliun, difokuskan pada Istana Kepresidenan, gedung kementerian, jalan tol, dan Waduk Sepaku Semoi.",
+      "kind": "statistic",
+      "source_refs": [
+        "SRC-KEMENKEU-APBN-IKN-2024"
+      ],
+      "as_of": "2024-03-15"
+    },
+    {
+      "fact": "Bappenas dan KLHK merancang konsep 'Forest City' dengan target 75% wilayah IKN tetap berupa area hijau, termasuk reboisasi hutan tanaman industri monokultur (eukaliptus) kembali menjadi hutan hujan tropis alami.",
+      "kind": "official_claim",
+      "source_refs": [
+        "SRC-BAPPENAS-FOREST-CITY-2022"
+      ],
+      "as_of": "2022-03-01"
+    },
+    {
+      "fact": "Masyarakat adat suku Balik di Sepaku menyuarakan kekhawatiran atas potensi terpinggirkannya ruang hidup tradisional mereka dan risiko hilangnya hak atas tanah adat di sekitar KIPP.",
+      "kind": "fact",
+      "source_refs": [
+        "SRC-KOMNAS-HAM-IKN-MASYARAKAT-2023"
+      ],
+      "as_of": "2023-04-10"
+    }
+  ],
+  "information_available_at_decision": "Pada awal 2022:\n- Target pemindahan upacara kemerdekaan 17 Agustus 2024 ditetapkan secara ketat;\n- Porsi APBN dipatok maksimal 20% dari estimasi total kebutuhan Rp466 triliun, sisanya mengandalkan investasi swasta dan KPBU;\n- Kritisnya koridor satwa liar di Teluk Balikpapan dan hutan lindung Sungai Wain.",
+  "trigger": [
+    "Pengesahan undang-undang pemindahan ibu kota negara yang memulai alokasi masif APBN untuk konstruksi fisik di tengah tantangan fiskal"
+  ],
+  "root_causes_note": "Beban daya dukung lingkungan dan geologis Jakarta (penurunan tanah, banjir), tingginya ketimpangan ekonomi Jawa vs Luar Jawa, serta ambisi redistribusi gravitasi pembangunan nasional.",
+  "stakeholders": [
+    "Otorita IKN",
+    "Kementerian PUPR",
+    "Kementerian Keuangan",
+    "masyarakat adat Suku Balik dan Paser",
+    "Pemerintah Provinsi Kalimantan Timur",
+    "investor swasta & BUMN konstruksi"
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-DPR-UU-IKN-2022",
+      "institution": "Dewan Perwakilan Rakyat RI",
+      "title": "Undang-Undang Republik Indonesia Nomor 3 Tahun 2022 tentang Ibu Kota Negara",
+      "url": "https://peraturan.go.id/id/uu-no-3-tahun-2022",
+      "publication_date": "2022-01-18",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KEMENKEU-APBN-IKN-2024",
+      "institution": "Kementerian Keuangan RI",
+      "title": "Laporan Realisasi dan Alokasi Anggaran Pembangunan IKN dalam APBN KiTa",
+      "url": "https://kemenkeu.go.id/alokasi-apbn-ikn-2024",
+      "publication_date": "2024-03-15",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-BAPPENAS-FOREST-CITY-2022",
+      "institution": "Kementerian PPN / Bappenas",
+      "title": "Rencana Induk Ibu Kota Nusantara: Prinsip Desain Kota Hutan Cerdas dan Berkelanjutan",
+      "url": "https://ikn.go.id/rencana-induk-ikn-bappenas",
+      "publication_date": "2022-03-01",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    },
+    {
+      "source_id": "SRC-KOMNAS-HAM-IKN-MASYARAKAT-2023",
+      "institution": "Komisi Nasional Hak Asasi Manusia",
+      "title": "Catatan Pengawasan Perlindungan Hak-Hak Masyarakat Adat di Kawasan Otorita IKN",
+      "url": "https://komnasham.go.id/pengawasan-hak-masyarakat-adat-ikn-2023",
+      "publication_date": "2023-04-10",
+      "retrieved_at": "2026-11-03",
+      "source_quality": "REAL_OFFICIAL"
+    }
+  ],
+  "rejected_or_unverified": [
+    "Nilai pasti komitmen investasi asing langsung (FDI) yang telah terealisasi secara kas riil di KIPP per akhir 2024 masih dalam verifikasi bertahap.",
+    "Klaim zero-deforestation diperdebatkan oleh LSM lingkungan mengingat pembukaan tutupan vegetasi untuk jalur tol dan waduk."
+  ],
+  "todo_to_validate": [
+    "Realisasi belanja IKN dalam LKPP 2023 dan 2024",
+    "Peta zonasi perlindungan satwa Teluk Balikpapan"
+  ],
+  "game_adaptation_ref": "game/data/cases/CASE-0017.json",
+  "game_adaptation_notes": "Mega-proyek tata ruang dan beban fiskal. Menghadapkan pemain pada trade-off: percepatan alokasi APBN untuk IKN (beban fiskal naik, belanja daerah lain tertekan), skema kemitraan investor selektif (lebih lambat tapi fiskal aman), atau penundaan tahap fisik untuk fokus pemulihan ekonomi.",
+  "fact_vs_simulation_notes": "Undang-Undang IKN, lokasi Kaltim, anggaran Rp72 triliun, dan target forest city adalah fakta. Kecepatan pembangunan dan dampak pemerataan ekonomi dalam game adalah simulasi."
+}
