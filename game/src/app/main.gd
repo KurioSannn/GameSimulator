@@ -64,6 +64,7 @@ func _ready() -> void:
 	_build_ui()
 	camera.view_changed.connect(_on_view_changed)
 	camera.fit(map_view.bounds, get_viewport().get_visible_rect().size)
+	_toggle_3d_mode()
 	# LOD2/LOD3 parse on worker threads once the first frame is on screen (measured: avoids a ~105 ms
 	# first-zoom stall without delaying the first frame).
 	RenderingServer.frame_post_draw.connect(map_view.preload_remaining, CONNECT_ONE_SHOT)
@@ -558,6 +559,7 @@ func _toggle_3d_mode() -> void:
 		camera.enabled = false
 		map_view_3d.visible = true
 		camera_3d.current = true
+		camera_3d.make_current()
 		camera_3d.fit(map_view.bounds, get_viewport().get_visible_rect().size)
 		map_view_3d.sync_colors()
 		if _mode_btn:
