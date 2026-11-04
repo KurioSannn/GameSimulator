@@ -64,7 +64,6 @@ func _ready() -> void:
 	_build_ui()
 	camera.view_changed.connect(_on_view_changed)
 	camera.fit(map_view.bounds, get_viewport().get_visible_rect().size)
-	_toggle_3d_mode()
 	# LOD2/LOD3 parse on worker threads once the first frame is on screen (measured: avoids a ~105 ms
 	# first-zoom stall without delaying the first frame).
 	RenderingServer.frame_post_draw.connect(map_view.preload_remaining, CONNECT_ONE_SHOT)
@@ -74,6 +73,7 @@ func _ready() -> void:
 	Game.case_resolved.connect(func(_c, _ch): _refresh_all())
 	Game.policy_enacted.connect(func(_p): _refresh_all())
 	_refresh_all()
+	_toggle_3d_mode()
 	var pend := Game.pending_case()
 	if pend != "":
 		_on_case_presented(pend)
@@ -131,6 +131,11 @@ func _debug_automation() -> void:
 	if args.has("focus-province"):
 		_view_province(args["focus-province"])
 	if args.has("select"):
+		if _mode_3d and map_view_3d:
+			map_view_3d.set_selected(args.select)
+			var r := map_view.region_rect(args.select)
+			if r.size != Vector2.ZERO and camera_3d:
+				camera_3d.focus_region(r, false)
 		map_view.set_selected(args.select)
 		region_panel.show_region(args.select)
 	if args.has("budget"):
@@ -332,6 +337,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if _mode_3d and map_view_3d and camera_3d:
 			id = map_view_3d.region_at_ray(camera_3d, event.position)
 			map_view_3d.set_selected(id)
+			if id != "":
+				var r := map_view.region_rect(id)
+				if r.size != Vector2.ZERO:
+					camera_3d.focus_region(r, true)
 		else:
 			var wp := map_view.get_global_mouse_position()
 			id = map_view.region_at(wp)
@@ -509,7 +518,10 @@ func _focus_case(case_id: String) -> void:
 	var rect := map_view.region_rect(c.focus_regions[0])
 	for id in c.focus_regions:
 		rect = rect.merge(map_view.region_rect(id))
-	camera.focus_rect(rect, get_viewport().get_visible_rect().size)
+	if _mode_3d and camera_3d:
+		camera_3d.focus_rect(rect, get_viewport().get_visible_rect().size)
+	else:
+		camera.focus_rect(rect, get_viewport().get_visible_rect().size)
 
 
 func _on_decided(case_id: String, choice_id: String) -> void:

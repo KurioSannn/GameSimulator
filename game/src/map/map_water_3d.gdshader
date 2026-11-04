@@ -1,28 +1,38 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_always, cull_back;
-// Vibrant strategy-game tropical ocean shader with animated waves, sun specular, and foam.
+// High-fidelity diorama tabletop ocean: deep tropical sea with sun specular sheen and wave ripples.
 
-uniform vec4 ocean_deep : source_color = vec4(0.05, 0.16, 0.32, 1.0);
-uniform vec4 ocean_shallow : source_color = vec4(0.10, 0.42, 0.58, 1.0);
-uniform vec4 foam_color : source_color = vec4(0.85, 0.95, 1.0, 0.8);
-uniform float wave_speed : hint_range(0.0, 2.0) = 0.6;
+uniform vec4 ocean_deep : source_color = vec4(0.04, 0.09, 0.18, 1.0);
+uniform vec4 ocean_shallow : source_color = vec4(0.07, 0.22, 0.35, 1.0);
+uniform vec4 sun_specular_color : source_color = vec4(0.9, 0.95, 1.0, 1.0);
+uniform float wave_speed : hint_range(0.0, 2.0) = 0.35;
 
 void fragment() {
-	vec2 uv_scaled1 = UV * 60.0;
-	vec2 uv_scaled2 = UV * 35.0;
-	
-	float w1 = sin(uv_scaled1.x * 0.9 + TIME * wave_speed) * cos(uv_scaled1.y * 0.8 + TIME * wave_speed * 0.8);
-	float w2 = sin(uv_scaled2.x * 1.4 - TIME * wave_speed * 0.7) * cos(uv_scaled2.y * 1.2 + TIME * wave_speed * 1.1);
-	float wave = (w1 + w2) * 0.5;
-	
-	vec3 water_col = mix(ocean_deep.rgb, ocean_shallow.rgb, wave * 0.4 + 0.4);
-	
-	// Caustic glint lines
-	float caust = pow(abs(sin(uv_scaled1.x * 2.5 + TIME * 0.5) * cos(uv_scaled1.y * 2.5 - TIME * 0.4)), 4.0) * 0.25;
-	water_col += vec3(caust);
-	
-	ALBEDO = water_col;
-	ROUGHNESS = 0.18;
-	SPECULAR = 0.65;
-	METALLIC = 0.05;
+	// World-space UV ripples (continuous, seamless across vast ocean)
+	vec2 world_pos = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xz;
+	vec2 uv1 = world_pos * 0.003;
+	vec2 uv2 = world_pos * 0.007;
+	vec2 uv3 = world_pos * 0.015;
+
+	float t = TIME * wave_speed;
+	float w1 = sin(uv1.x * 3.1 + uv1.y * 2.2 + t);
+	float w2 = cos(uv2.x * 2.7 - uv2.y * 3.4 - t * 0.8);
+	float w3 = sin(uv3.x * 4.2 + uv3.y * 3.8 + t * 1.2);
+	float wave = (w1 + w2 * 0.5 + w3 * 0.25) * 0.57;
+
+	// Rich deep-water gradient
+	vec3 water_color = mix(ocean_deep.rgb, ocean_shallow.rgb, wave * 0.3 + 0.35);
+
+	// Normal perturbation for sun specular glints
+	vec3 n = vec3(
+		(cos(uv2.x * 3.0 + t) + cos(uv3.x * 5.0 - t)) * 0.08,
+		1.0,
+		(sin(uv2.y * 3.0 + t) + sin(uv3.y * 5.0 - t)) * 0.08
+	);
+	NORMAL = normalize(n);
+
+	ALBEDO = water_color;
+	ROUGHNESS = 0.15;
+	SPECULAR = 0.85;
+	METALLIC = 0.10;
 }

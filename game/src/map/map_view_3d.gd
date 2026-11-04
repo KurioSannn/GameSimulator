@@ -21,10 +21,10 @@ const BORDER_COLOR := Color(0.12, 0.16, 0.22, 0.7)
 const PROVINCE_BORDER_COLOR := Color(0.05, 0.08, 0.12, 0.95)
 const SELECT_COLOR := Color(1.0, 0.88, 0.18)
 const HOVER_COLOR := Color(0.85, 0.95, 1.0)
-const SKIRT_DEPTH := -12.0
+const SKIRT_DEPTH := -28.0
 
-const SELECTED_LIFT := 28.0
-const HOVER_LIFT := 6.0
+const HOVER_LIFT := 10.0
+const DEFAULT_SELECTED_LIFT := 55.0
 const ELEVATION_DURATION := 0.35
 const ELEVATION_DOWN_DURATION := 0.22
 
@@ -57,6 +57,7 @@ var _sel_light: OmniLight3D
 var _sel_beacon: Node3D
 var _sel_center := Vector2.ZERO
 var _selected_lift := 0.0
+var _target_selected_lift := DEFAULT_SELECTED_LIFT
 var _selected_tween: Tween
 
 # 3D Hover Lift Nodes
@@ -103,10 +104,13 @@ func _init_materials() -> void:
 	_mat_province.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	_mat_province.albedo_color = PROVINCE_BORDER_COLOR
 	
-	# Tabletop skirt material (dark basalt / tabletop edge)
+	# Tabletop skirt material (dark basalt cliff)
 	_mat_skirt = StandardMaterial3D.new()
-	_mat_skirt.albedo_color = Color(0.14, 0.18, 0.22)
-	_mat_skirt.roughness = 0.85
+	_mat_skirt.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
+	_mat_skirt.diffuse_mode = BaseMaterial3D.DIFFUSE_BURLEY
+	_mat_skirt.albedo_color = Color(0.20, 0.24, 0.29)
+	_mat_skirt.metallic = 0.15
+	_mat_skirt.roughness = 0.75
 	
 	# Extruded side walls (chiseled stone cliff with vertical AO vertex colors)
 	_mat_elevated_wall = StandardMaterial3D.new()
@@ -134,12 +138,12 @@ func _init_environment() -> void:
 	# Directional Sun Light (isometric angle with soft shadows)
 	_sun = DirectionalLight3D.new()
 	_sun.name = "SunLight"
-	_sun.rotation_degrees = Vector3(-48.0, 38.0, 0.0)
+	_sun.rotation_degrees = Vector3(-42.0, 40.0, 0.0)
 	_sun.light_color = Color(1.0, 0.98, 0.93)
-	_sun.light_energy = 1.30
+	_sun.light_energy = 1.40
 	_sun.shadow_enabled = true
 	_sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS
-	_sun.directional_shadow_max_distance = 15000.0
+	_sun.directional_shadow_max_distance = 18000.0
 	_sun.shadow_bias = 0.02
 	add_child(_sun)
 	
@@ -168,7 +172,7 @@ func _build_ocean() -> void:
 	plane.subdivide_width = 48
 	plane.subdivide_depth = 48
 	_ocean_mesh.mesh = plane
-	_ocean_mesh.position = Vector3(0.0, -8.0, 0.0)
+	_ocean_mesh.position = Vector3(0.0, -25.0, 0.0)
 	
 	var ocean_mat := ShaderMaterial.new()
 	ocean_mat.shader = load("res://src/map/map_water_3d.gdshader")
@@ -302,7 +306,7 @@ func set_selected(id: String) -> void:
 		_apply_selected_lift(start_lift)
 		_selected_tween = create_tween()
 		# Clash of Clans bouncy spring pop-up effect:
-		_selected_tween.tween_method(_apply_selected_lift, start_lift, SELECTED_LIFT, ELEVATION_DURATION).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		_selected_tween.tween_method(_apply_selected_lift, start_lift, _target_selected_lift, ELEVATION_DURATION).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		region_clicked.emit(id)
 	
 	# If hovered was the newly selected region, drop hover
@@ -343,9 +347,9 @@ func _apply_selected_lift(h: float) -> void:
 		_sel_rim_mesh.position.y = h + 0.35
 	if _sel_light:
 		_sel_light.position = Vector3(_sel_center.x, h * 0.45 + 1.0, _sel_center.y)
-		_sel_light.light_energy = clampf(h / SELECTED_LIFT * 2.8, 0.0, 3.5)
+		_sel_light.light_energy = clampf(h / maxf(_target_selected_lift, 1.0) * 3.2, 0.0, 4.0)
 	if _sel_beacon:
-		_sel_beacon.position = Vector3(_sel_center.x, h + 14.0, _sel_center.y)
+		_sel_beacon.position = Vector3(_sel_center.x, h + 16.0, _sel_center.y)
 
 
 func _apply_hover_lift(h: float) -> void:
@@ -374,8 +378,9 @@ func _rebuild_selected_mesh(id: String) -> void:
 		var box: Rect2 = l.bbox[id]
 		_sel_center = box.get_center()
 		var rad := maxf(box.size.x, box.size.y) * 0.5
+		_target_selected_lift = clampf(rad * 0.85, 45.0, 95.0)
 		if _sel_light:
-			_sel_light.omni_range = maxf(rad * 2.4, 90.0)
+			_sel_light.omni_range = maxf(rad * 2.8, 120.0)
 
 
 func _rebuild_hover_mesh(id: String) -> void:
@@ -650,7 +655,7 @@ func _build_lod_meshes(name: String, l: MapLod) -> void:
 	add_child(border_inst)
 	_border_instances[name] = border_inst
 	
-	# 3. Island Skirts (tabletop relief edge dropped to Y = -12.0)
+	# 3. Island Skirts (tabletop relief edge dropped to ocean)
 	var skirt_mesh := ArrayMesh.new()
 	var sk_verts := PackedVector3Array()
 	var sk_norms := PackedVector3Array()
@@ -661,6 +666,14 @@ func _build_lod_meshes(name: String, l: MapLod) -> void:
 			var n: int = ring.size()
 			if n < 3:
 				continue
+			var box := Rect2(ring[0], Vector2.ZERO)
+			for pt in ring:
+				box = box.expand(pt)
+			var ring_span := maxf(box.size.x, box.size.y)
+			if ring_span < 2.0:
+				continue
+			var skirt_h := clampf(ring_span * 0.9, 4.0, absf(SKIRT_DEPTH))
+			var skirt_y := -skirt_h
 			for k in n:
 				var p1: Vector2 = ring[k]
 				var p2: Vector2 = ring[(k + 1) % n]
@@ -669,8 +682,8 @@ func _build_lod_meshes(name: String, l: MapLod) -> void:
 				
 				var v0 := sk_verts.size()
 				sk_verts.append(Vector3(p1.x, 0.0, p1.y))
-				sk_verts.append(Vector3(p1.x, SKIRT_DEPTH, p1.y))
-				sk_verts.append(Vector3(p2.x, SKIRT_DEPTH, p2.y))
+				sk_verts.append(Vector3(p1.x, skirt_y, p1.y))
+				sk_verts.append(Vector3(p2.x, skirt_y, p2.y))
 				sk_verts.append(Vector3(p2.x, 0.0, p2.y))
 				
 				for _vi in 4:

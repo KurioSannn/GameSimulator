@@ -15,23 +15,24 @@ const KEY_PAN_SPEED := 950.0
 
 var target := Vector3.ZERO
 var distance := 3000.0
-var pitch := 50.0       # degrees down from horizontal (90 = straight down top-down)
-var yaw := 0.0         # degrees orbit around Y axis
+var pitch := 38.0       # degrees down from horizontal (38 = classic Clash of Clans / isometric strategy)
+var yaw := -18.0       # degrees orbit around Y (isometric angle showing depth and cliff faces)
 var min_distance := 80.0
 var max_distance := 15000.0
-var min_pitch := 20.0
+var min_pitch := 15.0
 var max_pitch := 85.0
 
 var map_bounds := Rect2()
 var _dragging_pan := false
 var _dragging_orbit := false
 var _last_mouse_pos := Vector2.ZERO
+var _focus_tween: Tween
 
 
 func _ready() -> void:
 	near = 1.0
 	far = 40000.0
-	fov = 50.0
+	fov = 48.0
 
 
 func fit(rect: Rect2, viewport_size: Vector2) -> void:
@@ -41,9 +42,9 @@ func fit(rect: Rect2, viewport_size: Vector2) -> void:
 	target = Vector3(rect.get_center().x, 0.0, rect.get_center().y)
 	var max_dim := maxf(rect.size.x, rect.size.y)
 	var fov_rad := deg_to_rad(fov)
-	distance = clampf((max_dim * 0.65) / tan(fov_rad * 0.5), min_distance, max_distance)
-	pitch = 50.0
-	yaw = 0.0
+	distance = clampf((max_dim * 0.58) / tan(fov_rad * 0.5), min_distance, max_distance)
+	pitch = 38.0
+	yaw = -18.0
 	_apply_transform()
 	view_changed.emit()
 
@@ -52,9 +53,32 @@ func focus_rect(rect: Rect2, viewport_size: Vector2) -> void:
 	target = Vector3(rect.get_center().x, 0.0, rect.get_center().y)
 	var max_dim := maxf(rect.size.x, rect.size.y)
 	var fov_rad := deg_to_rad(fov)
-	distance = clampf((max_dim * 0.9) / tan(fov_rad * 0.5), min_distance, max_distance)
+	distance = clampf((max_dim * 0.85) / tan(fov_rad * 0.5), min_distance, max_distance)
+	pitch = 38.0
+	yaw = -18.0
 	_apply_transform()
 	view_changed.emit()
+
+
+func focus_region(rect: Rect2, animate: bool = true) -> void:
+	var new_target := Vector3(rect.get_center().x, 0.0, rect.get_center().y)
+	var max_dim := maxf(rect.size.x, rect.size.y)
+	var fov_rad := deg_to_rad(fov)
+	var want_dist := clampf((max_dim * 3.2) / tan(fov_rad * 0.5), 350.0, 1800.0)
+	
+	if _focus_tween and _focus_tween.is_valid():
+		_focus_tween.kill()
+		
+	if animate:
+		_focus_tween = create_tween().set_parallel(true)
+		_focus_tween.tween_property(self, "target", new_target, 0.45).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		_focus_tween.tween_property(self, "distance", want_dist, 0.45).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		_focus_tween.tween_method(func(_v): _apply_transform(); view_changed.emit(), 0.0, 1.0, 0.45)
+	else:
+		target = new_target
+		distance = want_dist
+		_apply_transform()
+		view_changed.emit()
 
 
 ## Projects screen coordinate to ground plane (Y = 0) and returns 2D world coords (X, Z).
