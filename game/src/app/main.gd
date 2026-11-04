@@ -31,6 +31,9 @@ var _change_btn: CheckButton
 var _weighting_label: Label
 var _log_panel: PanelContainer
 var _log_label: Label
+var _left_down := false
+var _left_down_pos := Vector2.ZERO
+var _is_panning := false
 
 
 var ready_ticks_ms := 0  # engine start -> main screen _ready (QA timing)
@@ -322,33 +325,42 @@ func _build_ui() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseButton:
+		var mb := event as InputEventMouseButton
+		if mb.button_index == MOUSE_BUTTON_LEFT:
+			if mb.pressed:
+				_left_down = true
+				_left_down_pos = mb.position
+				_is_panning = false
+			else:
+				var was_panning := _is_panning
+				_left_down = false
+				_is_panning = false
+				if not was_panning:
+					_handle_map_click(mb.position, mb.double_click)
+	elif event is InputEventMouseMotion:
+		var mm := event as InputEventMouseMotion
+		if _left_down:
+			if not _is_panning and (mm.position - _left_down_pos).length() > 5.0:
+				_is_panning = true
+			if _is_panning:
+				if _mode_3d and camera_3d:
+					camera_3d.drag_pan_step(mm.position - mm.relative, mm.position)
+				elif camera:
+					camera.position -= mm.relative / camera.zoom.x
+					camera.view_changed.emit()
+				return
+		
+		# Normal hover update
 		var id: String
 		if _mode_3d and map_view_3d and camera_3d:
-			id = map_view_3d.region_at_ray(camera_3d, (event as InputEventMouseMotion).position)
+			id = map_view_3d.region_at_ray(camera_3d, mm.position)
 			map_view_3d.set_hovered(id)
 		else:
 			var wp := map_view.get_global_mouse_position()
 			id = map_view.region_at(wp)
 		map_view.set_hovered(id)
-		_update_tooltip(id, (event as InputEventMouseMotion).position)
-	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var id: String
-		if _mode_3d and map_view_3d and camera_3d:
-			id = map_view_3d.region_at_ray(camera_3d, event.position)
-			map_view_3d.set_selected(id)
-			if id != "":
-				var r := map_view.region_rect(id)
-				if r.size != Vector2.ZERO:
-					camera_3d.focus_region(r, true)
-		else:
-			var wp := map_view.get_global_mouse_position()
-			id = map_view.region_at(wp)
-		map_view.set_selected(id)
-		region_panel.show_region(id)
-		if policy_panel.visible:
-			policy_panel.region_id = id
-			policy_panel.refresh()
+		_update_tooltip(id, mm.position)
 	elif event is InputEventKey and event.pressed and not event.echo:
 		var k := event as InputEventKey
 		match k.keycode:
@@ -368,6 +380,30 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_S:
 				if k.ctrl_pressed or k.meta_pressed:
 					_manual_save()
+
+
+func _handle_map_click(screen_pos: Vector2, is_double_click: bool) -> void:
+	var id: String
+	if _mode_3d and map_view_3d and camera_3d:
+		id = map_view_3d.region_at_ray(camera_3d, screen_pos)
+		map_view_3d.set_selected(id)
+		if id != "" and is_double_click:
+			var r := map_view.region_rect(id)
+			if r.size != Vector2.ZERO:
+				camera_3d.focus_region(r, true)
+	else:
+		var wp := map_view.get_global_mouse_position()
+		id = map_view.region_at(wp)
+		if id != "" and is_double_click:
+			var r := map_view.region_rect(id)
+			if r.size != Vector2.ZERO:
+				camera.focus_rect(r, get_viewport().get_visible_rect().size)
+	
+	map_view.set_selected(id)
+	region_panel.show_region(id)
+	if policy_panel.visible:
+		policy_panel.region_id = id
+		policy_panel.refresh()
 
 
 func _update_tooltip(id: String, screen_pos: Vector2) -> void:
@@ -583,7 +619,7 @@ func _toggle_3d_mode() -> void:
 		if _mode_btn:
 			_mode_btn.text = "Peta 2D (T)"
 		_on_view_changed()
-		_toast_msg("Beralih ke Peta Diorama 3D (Shift/Tengah: Putar, Kanan: Geser)")
+		_toast_msg("Peta Diorama 3D · Geser: Tahan Klik Kiri · Putar 3D: Tahan Klik Kanan · Zoom: Scroll / Q,E: Putar")
 	else:
 		map_view_3d.visible = false
 		camera_3d.current = false

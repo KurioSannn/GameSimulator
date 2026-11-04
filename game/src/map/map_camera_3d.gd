@@ -104,35 +104,36 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif mb.button_index == MOUSE_BUTTON_RIGHT or mb.button_index == MOUSE_BUTTON_MIDDLE:
 			if mb.pressed:
 				_last_mouse_pos = mb.position
-				if Input.is_key_pressed(KEY_SHIFT) or mb.button_index == MOUSE_BUTTON_MIDDLE:
-					_dragging_orbit = true
-				else:
-					_dragging_pan = true
+				_dragging_orbit = true
 			else:
-				_dragging_pan = false
 				_dragging_orbit = false
 	elif event is InputEventMouseMotion:
 		var mm := event as InputEventMouseMotion
 		if _dragging_orbit:
-			yaw -= mm.relative.x * 0.3
-			pitch = clampf(pitch - mm.relative.y * 0.3, min_pitch, max_pitch)
-			_apply_transform()
-			view_changed.emit()
-		elif _dragging_pan:
-			var prev_ground := get_ground_position(_last_mouse_pos)
-			var curr_ground := get_ground_position(mm.position)
-			var delta_ground := prev_ground - curr_ground
-			target.x += delta_ground.x
-			target.z += delta_ground.y
-			_clamp_target()
-			_last_mouse_pos = mm.position
-			_apply_transform()
-			view_changed.emit()
+			drag_orbit_step(mm.relative)
 	elif event is InputEventKey and event.pressed:
 		match (event as InputEventKey).keycode:
 			KEY_EQUAL, KEY_KP_ADD: _zoom_step(1.0 / ZOOM_STEP, get_viewport().get_visible_rect().size * 0.5)
 			KEY_MINUS, KEY_KP_SUBTRACT: _zoom_step(ZOOM_STEP, get_viewport().get_visible_rect().size * 0.5)
-			KEY_HOME: fit(map_bounds, get_viewport().get_visible_rect().size)
+			KEY_HOME, KEY_BACKSPACE: fit(map_bounds, get_viewport().get_visible_rect().size)
+
+
+func drag_pan_step(from_screen: Vector2, to_screen: Vector2) -> void:
+	var prev_ground := get_ground_position(from_screen)
+	var curr_ground := get_ground_position(to_screen)
+	var delta_ground := prev_ground - curr_ground
+	target.x += delta_ground.x
+	target.z += delta_ground.y
+	_clamp_target()
+	_apply_transform()
+	view_changed.emit()
+
+
+func drag_orbit_step(relative: Vector2) -> void:
+	yaw -= relative.x * 0.35
+	pitch = clampf(pitch - relative.y * 0.35, min_pitch, max_pitch)
+	_apply_transform()
+	view_changed.emit()
 
 
 func _process(delta: float) -> void:
@@ -153,6 +154,20 @@ func _process(delta: float) -> void:
 		var move := (right * dir.x - forward * dir.y) * speed
 		target += move
 		_clamp_target()
+		_apply_transform()
+		view_changed.emit()
+	
+	# Keyboard Orbit (Q / E)
+	var rot_dir := float(Input.is_physical_key_pressed(KEY_E)) - float(Input.is_physical_key_pressed(KEY_Q))
+	if rot_dir != 0.0:
+		yaw += rot_dir * 65.0 * delta
+		_apply_transform()
+		view_changed.emit()
+	
+	# Keyboard Tilt (R / F)
+	var tilt_dir := float(Input.is_physical_key_pressed(KEY_R)) - float(Input.is_physical_key_pressed(KEY_F))
+	if tilt_dir != 0.0:
+		pitch = clampf(pitch + tilt_dir * 45.0 * delta, min_pitch, max_pitch)
 		_apply_transform()
 		view_changed.emit()
 
