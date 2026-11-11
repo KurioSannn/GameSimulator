@@ -17,7 +17,8 @@ var case_modal: CaseModal
 var budget_panel: BudgetPanel
 var policy_panel: PolicyPanel
 var _ui: CanvasLayer
-var _period: Label
+var hud: Hud
+var _period: Label  # alias of the HUD period label (QA checklist reads it)
 var _indicators: HBoxContainer
 var _legend: Label
 var _lod_label: Label
@@ -36,12 +37,13 @@ var _left_down_pos := Vector2.ZERO
 var _is_panning := false
 
 
+const ICONS := {"welfare": "hati", "sentiment": "perisai", "price_level": "grafik", "trust": "jempol", "environment": "daun", "fiscal_space": "koin"}
 var ready_ticks_ms := 0  # engine start -> main screen _ready (QA timing)
 
 
 func _ready() -> void:
 	ready_ticks_ms = Time.get_ticks_msec()
-	RenderingServer.set_default_clear_color(Color("1b2f3d"))
+	RenderingServer.set_default_clear_color(StitchTheme.color("sea").darkened(0.35))
 	map_view = MapView.new()
 	add_child(map_view)
 	camera = MapCamera.new()
@@ -174,85 +176,44 @@ func _build_ui() -> void:
 	root.theme = UiKit.make_theme()
 	_ui.add_child(root)
 
-	# Top bar: national state (Level 1 · Ringkas).
-	var top := PanelContainer.new()
-	top.set_anchors_preset(Control.PRESET_TOP_WIDE)
-	top.add_theme_stylebox_override("panel", UiKit.panel_style(UiKit.PANEL, 0, 12))
-	root.add_child(top)
-	var tb := UiKit.hbox(28)
-	top.add_child(tb)
-	var titlebox := UiKit.vbox(0)
-	titlebox.add_child(UiKit.label("NUSANTARA", 22, UiKit.ACCENT))
-	titlebox.add_child(UiKit.label("Presiden Nara Adinata", 12, UiKit.MUTED))
-	tb.add_child(titlebox)
-	_period = UiKit.label("", 16)
-	tb.add_child(_period)
-	var indbox := UiKit.vbox(2)
-	indbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	tb.add_child(indbox)
-	_indicators = UiKit.hbox(22)
-	indbox.add_child(_indicators)
-	_weighting_label = UiKit.label("", 11, UiKit.MUTED)
-	indbox.add_child(_weighting_label)
+	# Stitch-style HUD (sidebar, stat cards, agenda, big CTA). See ui/hud.gd.
+	hud = Hud.new()
+	root.add_child(hud)
+	_indicators = hud.indicators
+	_period = hud._term
+	_weighting_label = hud.weighting_label
+	_legend = hud.legend
+	_lod_label = hud.lod_label
+	_change_btn = hud.change_btn
+	_next_btn = hud.next_btn
+	hud.next_pressed.connect(_next_quarter)
+	hud.policy_pressed.connect(_toggle_policy)
+	hud.budget_pressed.connect(_toggle_budget)
+	hud.log_pressed.connect(_toggle_log)
+	hud.decision_pressed.connect(func(): if Game.pending_case() != "": case_modal.present(Game.pending_case()))
+	hud.overlay_selected.connect(_set_overlay)
+	hud.change_toggled.connect(func(on: bool): _change_mode = on; _recolor())
+	hud.zoom_pressed.connect(func(f: float): camera._zoom_at(f, get_viewport().get_visible_rect().size / 2))
+	hud.menu_selected.connect(_on_menu)
 	# Names exactly which starting values are still neutral defaults (none -> no warning).
 	var uncal: Array = ContentDB.uncalibrated_variables()
 	if not uncal.is_empty():
 		var warn := UiKit.tag("%d VARIABEL AWAL BELUM TERKALIBRASI" % uncal.size(), UiKit.WARN)
 		warn.tooltip_text = "Belum ada data resmi tingkat kab/kota yang diolah untuk: %s. Penduduk dan kesejahteraan (IPM) sudah memakai data BPS." % ", ".join(uncal.map(func(v): return ChangeText.var_label(str(v))))
 		warn.mouse_filter = Control.MOUSE_FILTER_STOP
-		tb.add_child(warn)
+		hud.right_col.add_child(warn)
 
-	# Left column: overlay selector + legend, then budget panel (stacked, never overlapping).
-	var left_col := UiKit.vbox(10)
-	left_col.position = Vector2(16, 86)
-	root.add_child(left_col)
-	var left := PanelContainer.new()
-	left_col.add_child(left)
-	var lb := UiKit.vbox(6)
-	left.add_child(lb)
-	lb.add_child(UiKit.label("Lapisan peta", 14, UiKit.MUTED))
-	var group := ButtonGroup.new()
-	var grid := GridContainer.new()
-	grid.columns = 2
-	grid.add_theme_constant_override("h_separation", 6)
-	grid.add_theme_constant_override("v_separation", 6)
-	lb.add_child(grid)
-	for d in Overlays.DEFS:
-		var b := Button.new()
-		b.text = d.label
-		b.toggle_mode = true
-		b.button_group = group
-		b.button_pressed = d == _overlay
-		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		var dd: Dictionary = d
-		b.pressed.connect(func(): _set_overlay(dd))
-		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		b.add_theme_font_size_override("font_size", 14)
-		grid.add_child(b)
-	_change_btn = CheckButton.new()
-	_change_btn.text = "Perubahan kuartal (C)"
-	_change_btn.tooltip_text = "Warnai peta menurut perubahan variabel ini selama kuartal terakhir, bukan nilainya."
-	_change_btn.toggled.connect(func(on: bool): _change_mode = on; _recolor())
-	lb.add_child(_change_btn)
-	_legend = UiKit.label("", 12, UiKit.MUTED, true)
-	_legend.custom_minimum_size.x = 170
-	left.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-	lb.add_child(_legend)
-	_lod_label = UiKit.label("", 11, UiKit.MUTED, true)
-	_lod_label.custom_minimum_size.x = 170
-	lb.add_child(_lod_label)
-
-	# Region panel (right).
+	# Region panel (right, left of the HUD column).
 	region_panel = RegionPanel.new()
 	region_panel.set_anchors_preset(Control.PRESET_RIGHT_WIDE)
-	region_panel.offset_left = -476
-	region_panel.offset_top = 86
-	region_panel.offset_right = -16
-	region_panel.offset_bottom = -90
+	region_panel.offset_left = -820
+	region_panel.offset_top = 130
+	region_panel.offset_right = -340
+	region_panel.offset_bottom = -200
 	root.add_child(region_panel)
 	region_panel.province_view_requested.connect(_view_province)
 
-	# Bottom controls.
+	# Keep the 3D map toggle separate from the Stitch HUD controls.
 	var bottom := PanelContainer.new()
 	bottom.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
 	bottom.grow_horizontal = Control.GROW_DIRECTION_BEGIN
@@ -262,21 +223,15 @@ func _build_ui() -> void:
 	root.add_child(bottom)
 	var bb := UiKit.hbox(10)
 	bottom.add_child(bb)
-	for spec in [["Peta 3D (T)", _toggle_3d_mode], ["Catatan (L)", _toggle_log], ["Kebijakan (P)", _toggle_policy], ["Anggaran (B)", _toggle_budget], ["Simpan Cepat (F5)", _quicksave], ["Muat Cepat (F9)", _quickload]]:
-		var b := Button.new()
-		b.text = spec[0]
-		b.pressed.connect(spec[1])
-		bb.add_child(b)
-		if spec[0].begins_with("Peta"):
-			_mode_btn = b
-	_next_btn = Button.new()
-	_next_btn.text = "Lanjut Kuartal ▶  (Spasi)"
-	_next_btn.pressed.connect(_next_quarter)
-	bb.add_child(_next_btn)
+	_mode_btn = Button.new()
+	_mode_btn.text = "Peta 3D (T)"
+	_mode_btn.pressed.connect(_toggle_3d_mode)
+	bb.add_child(_mode_btn)
 
-	# Budget panel (left, below overlays).
+	# Budget panel (floats right of the sidebar).
 	budget_panel = BudgetPanel.new()
-	left_col.add_child(budget_panel)
+	budget_panel.position = Vector2(160, 150)
+	root.add_child(budget_panel)
 
 	# Case modal (centre).
 	var center := CenterContainer.new()
@@ -288,6 +243,7 @@ func _build_ui() -> void:
 	policy_panel = PolicyPanel.new()
 	center.add_child(policy_panel)
 	case_modal.decided.connect(_on_decided)
+	case_modal.region_data_requested.connect(func(id: String): map_view.set_selected(id); region_panel.show_region(id))
 
 	# Event log (bottom left, toggled): decisions and quarter summaries from SimWorld.event_log.
 	_log_panel = PanelContainer.new()
@@ -479,7 +435,7 @@ func _recolor() -> void:
 
 func _refresh_all() -> void:
 	var w := Game.world
-	_period.text = Fmt.period(w) + (" · MASA JABATAN SELESAI" if w.is_term_over() else "")
+	hud.refresh(w, Game.pending_case())
 	UiKit.clear(_indicators)
 	var n: Dictionary = Game.sim.national_summary(w)
 	var has_q := SimLedger.active(w)
@@ -487,15 +443,22 @@ func _refresh_all() -> void:
 	for spec in [["Kesejahteraan", "welfare"], ["Sentimen", "sentiment"], ["Harga", "price_level"], ["Kepercayaan", "trust"], ["Lingkungan", "environment"], ["Ruang Fiskal", "fiscal_space"]]:
 		var key: String = spec[1]
 		var val: float = float(w.national.get("fiscal_space", 0.0)) if key == "fiscal_space" else float(n[key])
-		var box := UiKit.vbox(0)
-		box.add_child(UiKit.label(spec[0], 12, UiKit.MUTED))
+		var box := PanelContainer.new()
+		box.theme_type_variation = "PanelCard"
+		box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var outer := UiKit.hbox(8)
+		box.add_child(outer)
+		outer.add_child(UiKit.icon("res://assets/ui/icons/%s.png" % ICONS[key], Vector2(30, 32)))
+		var col := UiKit.vbox(0)
+		outer.add_child(col)
+		col.add_child(UiKit.title(str(spec[0]).to_upper(), 10, UiKit.MUTED))
 		var row := UiKit.hbox(4)
-		row.add_child(UiKit.label(Fmt.num(val, 1), 18))
+		row.add_child(UiKit.title(Fmt.num(val, 1), 22))
 		if has_q:
 			var prev: float = float(w.ledger.get("fiscal_space_start", val)) if key == "fiscal_space" else w.weighted_mean_of(w.ledger.start[key])
 			if absf(val - prev) >= 0.05:
 				row.add_child(UiKit.label("%s %s" % ["▲" if val > prev else "▼", Fmt.num(absf(val - prev), 1)], 12, UiKit.MUTED))
-		box.add_child(row)
+		col.add_child(row)
 		if key == "fiscal_space":
 			box.tooltip_text = "Ruang fiskal nasional (indeks simulasi). ▲▼ = perubahan selama kuartal terakhir."
 		else:
@@ -588,6 +551,14 @@ func _toggle_budget() -> void:
 		budget_panel.visible = false
 	else:
 		budget_panel.open()
+
+
+func _on_menu(id: String) -> void:
+	match id:
+		"save_quick": _quicksave()
+		"load_quick": _quickload()
+		"save_new": _manual_save()
+		"log": _toggle_log()
 
 
 func _quicksave() -> void:

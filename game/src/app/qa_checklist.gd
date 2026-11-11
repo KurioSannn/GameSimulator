@@ -72,8 +72,9 @@ func _item_case() -> void:
 	_check("CASE-0001 ditampilkan saat mulai", pend == "CASE-0001" and main.case_modal.visible, "pending=%s visible=%s" % [pend, main.case_modal.visible])
 	await _shot("01_case0001_open")
 	await _key(KEY_1)
+	await _key(KEY_ENTER)
 	await _frames(3)
-	_check("tombol 1 memutuskan kasus", Game.pending_case() == "", "pending=%s" % Game.pending_case())
+	_check("tombol 1 + Enter memutuskan kasus", Game.pending_case() == "", "pending=%s" % Game.pending_case())
 	_check("jendela kasus tertutup", not main.case_modal.visible, "visible=%s" % main.case_modal.visible)
 	_check("peta terlihat (tidak tertutup modal)", main.map_view.visible and not main.case_modal.visible, "")
 	await _shot("02_case_closed_map_visible")
@@ -207,6 +208,7 @@ func _item_gameplay_and_save() -> void:
 	_check("label periode berubah", main._period.text != period0, "%s -> %s" % [period0, main._period.text])
 	if Game.pending_case() != "":
 		await _key(KEY_1)  # a follow-up case may open; decide it so play can continue
+		await _key(KEY_ENTER)
 		await _frames(3)
 	var saved := _world_hash()
 	var tick_saved: int = Game.world.tick
@@ -220,6 +222,7 @@ func _item_gameplay_and_save() -> void:
 	await _frames(3)
 	if Game.pending_case() != "":
 		await _key(KEY_1)
+		await _key(KEY_ENTER)
 		await _frames(3)
 	_check("keadaan berubah setelah kuartal berikutnya", _world_hash() != saved, "")
 	await _key(KEY_F9)
