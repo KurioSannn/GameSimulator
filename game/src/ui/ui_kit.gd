@@ -2,12 +2,13 @@ class_name UiKit
 extends RefCounted
 ## Prototype styling helpers. Final visuals (Cleo/Figma) should replace these via a Theme resource.
 
-const BG := Color("14202b")
-const PANEL := Color(0.09, 0.13, 0.17, 0.94)
-const PANEL_LIGHT := Color(0.14, 0.19, 0.24, 0.96)
-const TEXT := Color("e8e4d8")
-const MUTED := Color("9fb0ba")
-const ACCENT := Color("e3b341")
+# Palette mirrors data/ui/stitch_tokens.json (checked by tests/test_ui_theme.gd).
+const BG := Color("133b7a")
+const PANEL := Color("283f83")
+const PANEL_LIGHT := Color("283f83")
+const TEXT := Color("ffffff")
+const MUTED := Color("b9c4e8")
+const ACCENT := Color("ffdc45")
 const REAL := Color("6fbf8e")
 const SIM := Color("7fa8d9")
 const FICTION := Color("c69bd6")
@@ -25,22 +26,7 @@ static func panel_style(color: Color = PANEL, radius: int = 8, pad: int = 14) ->
 
 
 static func make_theme() -> Theme:
-	var t := Theme.new()
-	t.default_font_size = 16
-	t.set_color("font_color", "Label", TEXT)
-	t.set_stylebox("panel", "PanelContainer", panel_style())
-	var btn := panel_style(Color("27394a"), 6, 10)
-	var hov := panel_style(Color("34506a"), 6, 10)
-	var prs := panel_style(Color("1d2b38"), 6, 10)
-	var dis := panel_style(Color("1b242d"), 6, 10)
-	t.set_stylebox("normal", "Button", btn)
-	t.set_stylebox("hover", "Button", hov)
-	t.set_stylebox("pressed", "Button", prs)
-	t.set_stylebox("disabled", "Button", dis)
-	t.set_stylebox("focus", "Button", panel_style(Color(0, 0, 0, 0), 6, 10))
-	t.set_color("font_color", "Button", TEXT)
-	t.set_color("font_disabled_color", "Button", Color(0.5, 0.55, 0.6))
-	return t
+	return StitchTheme.build()
 
 
 static func label(text: String, size: int = 16, color: Color = TEXT, wrap: bool = false) -> Label:
@@ -80,3 +66,25 @@ static func clear(node: Node) -> void:
 	for c in node.get_children():
 		node.remove_child(c)
 		c.queue_free()
+
+
+## Outlined, heavy "sticker" title label (Stitch headings). Uses a bold system font until the team supplies one.
+static func title(text: String, size: int = 20, color: Color = TEXT) -> Label:
+	var l := label(text, size, color)
+	var f := SystemFont.new()
+	f.font_names = PackedStringArray(["Arial Rounded MT Bold", "Arial Black", "Impact", "Helvetica Neue"])
+	f.font_weight = 800
+	l.add_theme_font_override("font", f)
+	l.add_theme_constant_override("outline_size", maxi(2, size / 6))
+	l.add_theme_color_override("font_outline_color", StitchTheme.color("outline"))
+	return l
+
+
+static func icon(path: String, min_size: Vector2) -> TextureRect:
+	var r := TextureRect.new()
+	if ResourceLoader.exists(path):
+		r.texture = load(path)
+	r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	r.custom_minimum_size = min_size
+	return r
