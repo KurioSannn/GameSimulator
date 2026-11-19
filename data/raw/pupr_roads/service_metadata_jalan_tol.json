@@ -1,0 +1,348 @@
+{
+  "isCoGoEnabled": false,
+  "extent": {
+    "ymin": -970542.9986999929,
+    "xmin": -2187747.837200001,
+    "ymax": 604748.3608999997,
+    "xmax": 1133996.6248000003,
+    "spatialReference": {
+      "wkt": "PROJCS[\"Indonesia Lambert Conformal Conic\",GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Lambert_Conformal_Conic\"],PARAMETER[\"False_Easting\",0.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",115.0],PARAMETER[\"Standard_Parallel_1\",2.0],PARAMETER[\"Standard_Parallel_2\",-7.0],PARAMETER[\"Latitude_Of_Origin\",0.0],UNIT[\"Meter\",1.0]]",
+      "falseM": -100000,
+      "xyTolerance": 0.001,
+      "mUnits": 10000,
+      "wkt2": "PROJCRS[\"Indonesia Lambert Conformal Conic\",BASEGEOGCRS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",ELLIPSOID[\"WGS_1984\",6378137.0,298.257223563,LENGTHUNIT[\"Meter\",1.0]]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"Degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"Latitude (lat)\",north,ORDER[1]],AXIS[\"Longitude (lon)\",east,ORDER[2]],ANGLEUNIT[\"Degree\",0.0174532925199433]],CONVERSION[\"Lambert_Conformal_Conic\",METHOD[\"Lambert_Conformal_Conic\"],PARAMETER[\"False_Easting\",0.0,LENGTHUNIT[\"Meter\",1.0]],PARAMETER[\"False_Northing\",0.0,LENGTHUNIT[\"Meter\",1.0]],PARAMETER[\"Central_Meridian\",115.0,ANGLEUNIT[\"Degree\",0.0174532925199433]],PARAMETER[\"Standard_Parallel_1\",2.0,ANGLEUNIT[\"Degree\",0.0174532925199433]],PARAMETER[\"Standard_Parallel_2\",-7.0,ANGLEUNIT[\"Degree\",0.0174532925199433]],PARAMETER[\"Latitude_Of_Origin\",0.0,ANGLEUNIT[\"Degree\",0.0174532925199433]]],CS[Cartesian,2],AXIS[\"Easting (X)\",east,ORDER[1]],AXIS[\"Northing (Y)\",north,ORDER[2]],LENGTHUNIT[\"Meter\",1.0]]",
+      "zUnits": 10000,
+      "zTolerance": 0.001,
+      "xyUnits": 10000,
+      "mTolerance": 0.001,
+      "falseX": -23670400,
+      "falseY": -112013100,
+      "falseZ": -100000
+    }
+  },
+  "isDataBranchVersioned": false,
+  "supportsApplyEditsWithGlobalIds": false,
+  "maxRecordCount": 2000,
+  "infoInEstimates": [
+    "extent",
+    "count"
+  ],
+  "datesInUnknownTimezone": false,
+  "type": "Feature Layer",
+  "onlyAllowTrueCurveUpdatesByTrueCurveClients": true,
+  "supportsAttachmentsByUploadId": true,
+  "editingInfo": {
+    "lastEditDate": 1750349994102
+  },
+  "relationships": [],
+  "supportsAttachmentsResizing": true,
+  "cimVersion": "3.4.0",
+  "isDataArchived": false,
+  "id": 0,
+  "supportsSubtypeEditing": true,
+  "supportsStatistics": true,
+  "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+  "standardMaxRecordCount": 2000,
+  "isDataVersioned": false,
+  "templates": [
+    {
+      "name": "sigi_postgis_testdb_ast_bpjt_tol_operasi_v3_1",
+      "description": "",
+      "drawingTool": "esriFeatureEditToolLine",
+      "prototype": {
+        "attributes": {
+          "ruas": null,
+          "sub_status": null,
+          "nama": null,
+          "kodefikasi": null,
+          "jenis": null,
+          "objectid": null,
+          "status": null
+        }
+      }
+    }
+  ],
+  "hasGeometryProperties": true,
+  "supportsAdvancedQueries": true,
+  "parentLayer": null,
+  "currentVersion": 11.4,
+  "canScaleSymbols": false,
+  "hasZ": false,
+  "advancedEditingCapabilities": {
+    "supportsAsyncApplyEdits": true,
+    "supportsApplyEditsbyUploadID": true,
+    "supportsReturnEditResults": true,
+    "supportedSqlFormatsInCalculate": [
+      "standard"
+    ],
+    "supportedApplyEditsUploadIDFormats": "JSON,PBF"
+  },
+  "objectIdField": "id",
+  "supportsQuantizationEditMode": true,
+  "name": "sigi_postgis_testdb_ast_bpjt_tol_operasi_v3_1",
+  "allowTrueCurvesUpdates": false,
+  "displayField": "kodefikasi",
+  "supportsCalculate": true,
+  "fields": [
+    {
+      "nullable": false,
+      "defaultValue": null,
+      "editable": false,
+      "length": 4,
+      "type": "esriFieldTypeOID",
+      "modelName": "id",
+      "domain": null,
+      "name": "id",
+      "alias": "id"
+    },
+    {
+      "modelName": "kodefikasi",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "kodefikasi",
+      "length": 255,
+      "alias": "kodefikasi",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "sub_status",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "sub_status",
+      "length": 255,
+      "alias": "sub_status",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "objectid",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "objectid",
+      "length": 255,
+      "alias": "objectid",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "nama",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "nama",
+      "length": 255,
+      "alias": "nama",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "jenis",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "jenis",
+      "length": 255,
+      "alias": "jenis",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "status",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "status",
+      "length": 255,
+      "alias": "status",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "modelName": "ruas",
+      "nullable": true,
+      "editable": true,
+      "defaultValue": null,
+      "domain": null,
+      "name": "ruas",
+      "length": 255,
+      "alias": "ruas",
+      "type": "esriFieldTypeString"
+    },
+    {
+      "virtual": true,
+      "nullable": true,
+      "editable": false,
+      "defaultValue": null,
+      "domain": null,
+      "name": "SHAPE__Length",
+      "alias": "SHAPE__Length",
+      "type": "esriFieldTypeDouble"
+    }
+  ],
+  "maxRecordCountFactor": 1,
+  "dateFieldsTimeReference": {
+    "timeZoneIANA": "Etc/UTC",
+    "respectsDaylightSaving": false,
+    "timeZone": "UTC"
+  },
+  "supportsFieldDescriptionProperty": true,
+  "hasM": false,
+  "allowGeometryUpdates": true,
+  "useStandardizedQueries": true,
+  "globalIdField": null,
+  "description": "",
+  "syncCanReturnChanges": true,
+  "supportsAsyncDelete": true,
+  "supportedSpatialRelationships": [
+    "esriSpatialRelIntersects",
+    "esriSpatialRelContains",
+    "esriSpatialRelCrosses",
+    "esriSpatialRelEnvelopeIntersects",
+    "esriSpatialRelOverlaps",
+    "esriSpatialRelTouches",
+    "esriSpatialRelWithin"
+  ],
+  "geometryProperties": {
+    "shapeLengthFieldName": "SHAPE__Length",
+    "units": "esriMeters"
+  },
+  "supportsRollbackOnFailureParameter": true,
+  "isDataReplicaTracked": false,
+  "standardMaxRecordCountNoGeometry": 16000,
+  "supportsTruncate": true,
+  "indexes": [
+    {
+      "name": "r1407_sde_rowid_uk",
+      "isUnique": true,
+      "description": "",
+      "fields": "id",
+      "isAscending": true
+    },
+    {
+      "name": "a1352_ix1",
+      "isUnique": false,
+      "description": "",
+      "fields": "geometry",
+      "isAscending": true
+    }
+  ],
+  "supportedAppendSourceFilterFormats": "featureService",
+  "editFieldsInfo": null,
+  "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+  "GUIDFormat": "O",
+  "minScale": 0,
+  "hasAttachments": false,
+  "queryBinsCapabilities": {
+    "supportedStatisticTypes": [
+      "count",
+      "sum",
+      "min",
+      "max",
+      "avg",
+      "stddev",
+      "var",
+      "percentile_cont",
+      "percentile_disc"
+    ],
+    "supportsFixedIntervalBin": true,
+    "supportsAutoIntervalBin": true,
+    "supportsFixedBoundariesBin": true,
+    "supportsDateBin": true
+  },
+  "advancedQueryCapabilities": {
+    "supportsSqlExpression": true,
+    "supportsQueryWithResultType": true,
+    "supportsQueryRelatedPagination": true,
+    "supportsQueryWithCacheHint": false,
+    "supportsQueryWithDatumTransformation": true,
+    "supportsCurrentUserQueries": true,
+    "supportsQueryAttachmentsWithReturnUrl": true,
+    "supportsDefaultSR": true,
+    "supportsQueryDateBins": false,
+    "supportsQueryWithLodSR": true,
+    "supportsPaginationOnAggregatedQueries": true,
+    "supportsPagination": true,
+    "supportsMaxRecordCountFactor": true,
+    "supportsStatistics": true,
+    "supportsOrderBy": true,
+    "supportsReturningGeometryProperties": true,
+    "supportsFullTextSearch": true,
+    "supportsQueryWithDistance": true,
+    "supportsLod": true,
+    "supportsSpatialAggregationStatistics": false,
+    "supportsCountDistinct": true,
+    "supportsAdvancedQueryRelated": true,
+    "supportsQueryAttachments": true,
+    "supportsReturningQueryExtent": true,
+    "supportsQueryAttachmentsCountOnly": true,
+    "supportsOrderByOnlyOnLayerFields": false,
+    "supportsOutFieldSqlExpression": true,
+    "supportsTopFeaturesQuery": true,
+    "supportsReturningGeometryEnvelope": true,
+    "supportsDistinct": true,
+    "supportsReturningGeometryCentroid": false,
+    "supportsQueryAnalytic": true,
+    "supportsPercentileStatistics": true,
+    "supportsHavingClause": true
+  },
+  "subtypeField": "",
+  "supportsValidateSQL": true,
+  "enableZDefaults": true,
+  "serviceItemId": "a414dd8d5bb442138e0749d6edadbcf5",
+  "allowUpdateWithoutMValues": true,
+  "supportsCoordinatesQuantization": true,
+  "types": [],
+  "capabilities": "Query,Extract",
+  "maxScale": 0,
+  "supportsAppend": true,
+  "supportsExceedsLimitStatistics": true,
+  "defaultVisibility": true,
+  "advancedQueryAnalyticCapabilities": {
+    "supportsAsync": true,
+    "supportsLinearRegression": true,
+    "supportsPercentileAnalytic": false
+  },
+  "hasMetadata": true,
+  "supportedAppendFormats": "csv,excel,featureCollection,featureService,geojson,jsonl,pbf,shapefile",
+  "tileMaxRecordCount": 2000,
+  "typeIdField": "",
+  "supportsASyncCalculate": true,
+  "supportedQueryFormats": "JSON, geoJSON, PBF",
+  "sqlParserVersion": "PG_11.4.0",
+  "drawingInfo": {
+    "renderer": {
+      "symbol": {
+        "color": [
+          140,
+          44,
+          60,
+          255
+        ],
+        "width": 1,
+        "style": "esriSLSSolid",
+        "type": "esriSLS"
+      },
+      "type": "simple"
+    },
+    "scaleSymbols": true,
+    "transparency": 0,
+    "labelingInfo": null
+  },
+  "geometryField": {
+    "sqlType": "sqlTypeOther",
+    "nullable": true,
+    "editable": true,
+    "name": "geometry",
+    "typeName": "st_geometry",
+    "length": 2147483647,
+    "type": "esriFieldTypeGeometry"
+  },
+  "copyrightText": "",
+  "zDefault": 0,
+  "geometryType": "esriGeometryPolyline",
+  "supportsLayerOverrides": true
+}
