@@ -122,7 +122,6 @@ func _build() -> void:
 		motion.text = "Aktif" if on else "Nonaktif")
 	mrow.add_child(motion)
 	access.add_child(mrow)
-	access.add_child(UiKit.label("Fokus keyboard ditandai garis putih. Setiap perubahan data selalu disertai angka dan label.", 13, UiKit.MUTED, true))
 
 	var foot := UiKit.hbox(12)
 	var reset_btn := UiKit.ghost_button("SETELAN AWAL", func():
@@ -131,7 +130,6 @@ func _build() -> void:
 		_build())
 	reset_btn.custom_minimum_size.y = 44
 	foot.add_child(reset_btn)
-	foot.add_child(UiKit.label("Hanya mengubah preferensi perangkat; progres permainan aman.", 13, UiKit.MUTED))
 	foot.add_child(UiKit.spacer())
 	var cancel_btn := UiKit.ghost_button("BATAL", func(): cancelled.emit())
 	cancel_btn.custom_minimum_size = Vector2(110, 44)

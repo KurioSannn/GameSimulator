@@ -19,7 +19,7 @@ const FIELDS := [
 
 
 func _ready() -> void:
-	add_theme_stylebox_override("panel", StitchTheme.box(StitchTheme.color("surface"), StitchTheme.color("outline"), 4, 14, 20, 18))
+	add_theme_stylebox_override("panel", GameSkin.frame())
 	var root := UiKit.vbox(12)
 	add_child(root)
 
@@ -50,7 +50,6 @@ func open(model: Dictionary) -> void:
 
 	_content.add_child(UiKit.title(str(model.name).to_upper(), 26, UiKit.ACCENT))
 	_content.add_child(UiKit.label(str(model.resolution), 14, UiKit.MUTED, true))
-	_content.add_child(UiKit.tag("Data acuan memakai satuan & resolusi sumber · Nilai permainan adalah SIMULASI", UiKit.SIM, 12))
 
 	var shown := {}
 	for fact in model.facts:
@@ -74,7 +73,7 @@ func open(model: Dictionary) -> void:
 	if model.facts.is_empty():
 		_content.add_child(UiKit.tag("Data acuan pada resolusi ini belum tersedia · statistik kab/kota tidak disamaratakan ke tingkat provinsi/pulau.", UiKit.WARN, 12))
 
-	_content.add_child(UiKit.section_bar("ASAL NILAI AWAL SIMULASI", "Metodologi & Kalibrasi", UiKit.ACCENT))
+	_content.add_child(UiKit.section_bar("ASAL NILAI AWAL", "Metodologi & Kalibrasi", UiKit.ACCENT))
 	for metric in model.metrics:
 		var key := str(metric.key)
 		var spec: Dictionary = ContentDB.baseline.get("variables", {}).get(key, {})
@@ -114,7 +113,7 @@ func _add_source(body: VBoxContainer, source: Dictionary) -> void:
 		if field[0] == "url":
 			url_val = value
 		var row := UiKit.hbox(12)
-		var k := UiKit.label(field[1], 13, UiKit.MUTED)
+		var k := UiKit.label(field[1], 13, UiKit.MUTED, true)
 		k.custom_minimum_size.x = 240
 		row.add_child(k)
 		var v := UiKit.label(value, 13, UiKit.TEXT, true)
