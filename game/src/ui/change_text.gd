@@ -226,23 +226,16 @@ static func _case_title(id: String) -> String:
 	return str(ContentDB.cases.get(id, {}).get("title", id))
 
 
-## One-line toast after a decision: where, how many regions, immediate vs delayed.
+## One-line toast after a decision: clear, concise, non-technical summary.
 static func decision_toast(entry: Dictionary) -> String:
 	var regions := {}
-	var now := 0
-	var later := 0
+	var max_n := 0
 	for e in entry.get("effects", []):
 		if int(e.regions) > 0:
 			regions[str(e.scope)] = int(e.regions)
-		if int(e.delay_months) == 0:
-			now += 1
-		else:
-			later += 1
-	var n := 0
-	for k in regions:
-		n = maxi(n, int(regions[k]))
-	var where := "nasional" if regions.is_empty() else ("hingga %d wilayah" % n)
-	return "Keputusan dicatat: %d efek segera (bulan simulasi berikutnya) dan %d efek tertunda · cakupan %s. Lanjutkan kuartal untuk melihat dampaknya." % [now, later, where]
+			max_n = maxi(max_n, int(e.regions))
+	var where := "skala nasional" if regions.is_empty() else ("%d wilayah terdampak" % max_n)
+	return "Keputusan «%s» ditetapkan (%s). Lanjutkan kuartal untuk melihat hasilnya." % [str(entry.get("title", "")), where]
 
 
 ## Multi-line text for the event log panel.
@@ -298,3 +291,325 @@ static func national_line(nrow: Dictionary) -> String:
 
 static func weighting_label(weighting: String) -> String:
 	return "rata-rata berbobot penduduk" if weighting == "population" else "rata-rata setara 514 wilayah (data penduduk belum terkalibrasi)"
+
+
+## Short plain-Indonesian outlet & date label for news cards ("Mongabay · Jan 2020"),
+## keeping raw source IDs in hover tooltips instead of cluttering the briefing text.
+static func clean_source_names(refs: Array, as_of: String) -> String:
+	var names: Array = []
+	for sid in refs:
+		var s := str(sid)
+		var src: Dictionary = ContentDB.sources.get(s, {})
+		var inst := str(src.get("institution", "")).strip_edges()
+		if inst == "":
+			# Fallback for news/research refs such as "SRC-NEWS-MONGABAY-20200103" or "SRC-NEWS-CNNID-20220520"
+			var parts := s.split("-", false)
+			if parts.size() >= 3 and parts[0] == "SRC":
+				var core := parts[2] if parts[1] in ["NEWS", "OFFICIAL", "DATA", "RESEARCH"] and parts.size() >= 3 else parts[1]
+				inst = {"CNNID": "CNN Indonesia", "CNBCID": "CNBC Indonesia", "BPK": "BPK", "BMKG": "BMKG",
+					"BNPB": "BNPB", "BPS": "BPS", "KEMENKEU": "Kemenkeu", "KEMENKES": "Kemenkes"}.get(core, core.capitalize())
+			else:
+				inst = s
+		if inst.contains(" — "):
+			inst = inst.split(" — ")[0].strip_edges()
+		if inst.contains("("):
+			inst = inst.split("(")[0].strip_edges()
+		if inst.length() > 26:
+			var words := inst.split(" ", false)
+			if words.size() > 2:
+				inst = "%s %s" % [words[0], words[1]]
+		if not names.has(inst):
+			names.append(inst)
+	var date_lbl := _short_date(as_of)
+	var joined := ", ".join(names)
+	return "%s (%s)" % [joined, date_lbl] if date_lbl != "" else joined
+
+
+static func _short_date(iso: String) -> String:
+	var p := iso.split("-")
+	if p.size() >= 2 and int(p[1]) >= 1 and int(p[1]) <= 12:
+		return "%s %s" % [MONTHS[int(p[1]) - 1].substr(0, 3), p[0]]
+	return iso
+
+
+## Short readable region scope ("DKI Jakarta", "Kab. Bogor & Kab. Lebak", "Nasional").
+static func short_scope(scope: String, regions: int = 0) -> String:
+	if scope == "national":
+		return "Nasional"
+	if scope == "all":
+		return "Seluruh Indonesia"
+	if scope.begins_with("province:"):
+		var pname := str(ContentDB.province_by_id.get(scope.substr(9), {}).get("name", scope.substr(9)))
+		return _abbr_place(pname)
+	if scope.begins_with("region:"):
+		return _abbr_place(region_name(scope.substr(7)))
+	if scope.begins_with("regions:"):
+		var ids := scope.substr(8).split(",")
+		if ids.size() <= 2:
+			return " & ".join(Array(ids).map(func(id): return _abbr_place(region_name(id))))
+		if ids.size() <= 3:
+			return ", ".join(Array(ids).map(func(id): return _abbr_place(region_name(id))))
+		return "%d wilayah terdampak" % (regions if regions > 0 else ids.size())
+	if scope.begins_with("where:"):
+		return "Wilayah terdampak"
+	return "Nasional" if regions <= 0 else "%d wilayah" % regions
+
+
+static func _abbr_place(s: String) -> String:
+	var out := s.replace("Daerah Khusus Ibukota ", "DKI ").replace("Daerah Istimewa ", "DI ")
+	out = out.replace("Kabupaten ", "Kab. ").replace("Kepulauan ", "Kep. ")
+	return out
+
+
+## Structured plain-Indonesian model for decision cards (matches clean POTENSI MANFAAT / RISIKO layout).
+static func choice_card_data(ch: Dictionary) -> Dictionary:
+	var effects: Array = ch.get("effects", [])
+	var fiscal_now := 0.0
+	var fiscal_later := 0.0
+	var price_hit := 0.0
+	var positives: Array = []
+	var negatives: Array = []
+	var scopes: Array = []
+	var max_delay := 0
+	var dom_var := ""
+	for e in effects:
+		var v := str(e.get("var", ""))
+		var val := float(e.get("value", 0.0))
+		var dur := maxi(1, int(e.get("duration", 1)))
+		var delay := int(e.get("delay", 0))
+		max_delay = maxi(max_delay, delay)
+		var sc := str(e.get("scope", "national"))
+		if sc != "national":
+			var sl := short_scope(sc)
+			if sl != "" and not scopes.has(sl):
+				scopes.append(sl)
+		match v:
+			"fiscal_space":
+				if delay == 0 and dur == 1:
+					fiscal_now += val
+				else:
+					fiscal_later += val * dur
+			"price_pressure":
+				if val > 0.0:
+					price_hit += val
+					_append_unique(negatives, "Harga kebutuhan berisiko naik (+%s%%)." % Fmt.num(val * 100.0, 1))
+				elif val < 0.0:
+					_append_unique(positives, "Menekan lonjakan harga nasional.")
+			"damage":
+				if val < 0.0:
+					dom_var = dom_var if dom_var != "" else "damage"
+					if delay <= 1 and absf(val) >= 12.0:
+						_append_unique(positives, "Pemulihan cepat dipimpin pemerintah pusat.")
+					elif delay >= 2:
+						_append_unique(positives, "Pemulihan bertahap sambil membangun kapasitas daerah.")
+					else:
+						_append_unique(positives, "Mengurangi kerusakan wilayah terdampak.")
+				elif val > 0.0:
+					_append_unique(negatives, "Risiko kerusakan wilayah tetap tinggi.")
+			"flood_protection":
+				if val > 0.0:
+					dom_var = "shield"
+					_append_unique(positives, "Memperkuat tanggul & pengendali banjir jangka panjang.")
+			"fire_prevention":
+				if val > 0.0:
+					dom_var = "leaf"
+					_append_unique(positives, "Mengurangi risiko kebakaran lahan berkelanjutan.")
+			"services":
+				if val > 0.0:
+					dom_var = dom_var if dom_var != "" else "heart"
+					_append_unique(positives, "Memperkuat layanan & kesiapsiagaan daerah.")
+				elif val < 0.0:
+					_append_unique(negatives, "Layanan daerah sempat tertekan.")
+			"welfare", "welfare_base":
+				if val > 0.0:
+					dom_var = dom_var if dom_var != "" else "food"
+					_append_unique(positives, "Menjaga daya beli & kesejahteraan warga.")
+				elif val < 0.0:
+					_append_unique(negatives, "Sebagian warga menanggung beban ekonomi.")
+			"infrastructure":
+				if val > 0.0:
+					dom_var = "economy"
+					_append_unique(positives, "Memperkuat infrastruktur dasar daerah.")
+				elif val < 0.0:
+					_append_unique(negatives, "Proyek infrastruktur lain ikut tertunda.")
+			"environment":
+				if val > 0.0:
+					dom_var = "leaf"
+					_append_unique(positives, "Menjaga kelestarian lingkungan wilayah.")
+				elif val < 0.0:
+					_append_unique(negatives, "Memberi tekanan tambahan pada lingkungan.")
+			"trust":
+				if val > 0.0:
+					_append_unique(positives, "Meningkatkan kepercayaan masyarakat.")
+				elif val < 0.0:
+					_append_unique(negatives, "Kepercayaan publik sempat turun di awal.")
+			"logistics", "food_supply":
+				if val > 0.0:
+					dom_var = "truck"
+					_append_unique(positives, "Memperlancar pasokan & jalur logistik.")
+	if ch.has("enact_policy"):
+		var pol: Dictionary = ContentDB.policies.get(str(ch.enact_policy.get("policy_id", "")), {})
+		if not pol.is_empty():
+			_append_unique(positives, "Mengaktifkan program %s." % str(pol.name))
+	if positives.is_empty():
+		var desc := str(ch.get("description", "")).strip_edges()
+		positives.append(desc if desc != "" else "Menjaga kondisi tetap terkendali.")
+	if fiscal_now <= -6.0 and max_delay <= 3:
+		_append_unique(negatives, "Menyerap anggaran negara cukup besar.")
+	elif fiscal_now < 0.0 and fiscal_now > -6.0 and positives.any(func(p): return str(p).contains("bertahap")):
+		_append_unique(negatives, "Pemulihan lebih lambat di bulan-bulan awal.")
+	elif fiscal_later < -1.0 and fiscal_now == 0.0:
+		_append_unique(negatives, "Membebani anggaran dalam beberapa bulan ke depan.")
+	if max_delay >= 4 and not negatives.any(func(s): return str(s).contains("lama") or str(s).contains("lambat")):
+		_append_unique(negatives, "Manfaat utama baru terasa dalam %d bulan." % max_delay)
+	if negatives.is_empty():
+		if fiscal_now >= 0.0 and effects.size() <= 1:
+			negatives.append("Masalah lapangan belum ditangani secara langsung.")
+		elif fiscal_now < 0.0:
+			negatives.append("Menggunakan cadangan anggaran saat ini.")
+		else:
+			negatives.append("Dampak berjalan bertahap di lapangan.")
+
+	# Cost pill text
+	var cost_text := "Tanpa Biaya"
+	var cost_tone := "muted"
+	var tip_parts: Array = []
+	if fiscal_now < -0.05:
+		cost_text = "Anggaran %s" % Fmt.signed(fiscal_now, 1)
+		cost_tone = "gold"
+		tip_parts.append("Biaya langsung: %s poin ruang fiskal" % Fmt.signed(fiscal_now, 1))
+	elif fiscal_now > 0.05:
+		cost_text = "Hemat +%s" % Fmt.num(fiscal_now, 1)
+		cost_tone = "green"
+		tip_parts.append("Penghematan langsung: +%s poin ruang fiskal" % Fmt.num(fiscal_now, 1))
+	elif fiscal_later < -0.05:
+		cost_text = "Anggaran %s/total" % Fmt.signed(fiscal_later, 1)
+		cost_tone = "gold"
+	elif price_hit >= 0.005:
+		cost_text = "Harga +%s%%" % Fmt.num(price_hit * 100.0, 1)
+		cost_tone = "warn"
+	if absf(fiscal_later) >= 0.05:
+		tip_parts.append("Dampak anggaran lanjutan: %s poin total" % Fmt.signed(fiscal_later, 1))
+	if max_delay > 0:
+		tip_parts.append("Sebagian dampak mulai aktif hingga %d bulan lagi" % max_delay)
+
+	var scope_chip := "Nasional"
+	if not scopes.is_empty():
+		scope_chip = scopes[0] if scopes.size() == 1 else "%s, %s" % [scopes[0], scopes[1]]
+
+	# Icon slot from Figma screen 5 / 6
+	var ic_screen := 5
+	var ic_slot := "imgIkonNews"
+	var text_mix := (str(ch.get("label", "")) + " " + str(ch.get("description", ""))).to_lower()
+	if text_mix.contains("pangan") or text_mix.contains("minyak") or text_mix.contains("tunai") or dom_var == "food":
+		ic_slot = "imgIkonFood"
+	elif text_mix.contains("harga") or text_mix.contains("subsidi") or text_mix.contains("anggaran") or text_mix.contains("tarif"):
+		ic_slot = "imgIkonPrice"
+	elif text_mix.contains("logistik") or text_mix.contains("darurat") or text_mix.contains("evakuasi") or text_mix.contains("air bersih") or dom_var == "truck":
+		ic_slot = "imgIkonTruck"
+	elif dom_var == "leaf" or text_mix.contains("gambut") or text_mix.contains("hutan") or text_mix.contains("lingkungan"):
+		ic_screen = 6; ic_slot = "imgIkonLeaf"
+	elif dom_var == "shield" or text_mix.contains("banjir") or text_mix.contains("tanggul") or text_mix.contains("zona"):
+		ic_screen = 6; ic_slot = "imgIkonShield"
+	elif dom_var == "heart" or text_mix.contains("dokter") or text_mix.contains("puskesmas") or text_mix.contains("warga"):
+		ic_screen = 6; ic_slot = "imgIkonHeart"
+	elif dom_var == "economy" or text_mix.contains("infrastruktur") or text_mix.contains("smelter"):
+		ic_screen = 6; ic_slot = "imgIkonEconomy"
+
+	return {
+		"benefit": " ".join(positives.slice(0, 2)),
+		"risk": " ".join(negatives.slice(0, 2)),
+		"scope_chip": scope_chip,
+		"cost_text": cost_text,
+		"cost_tone": cost_tone,
+		"cost_tooltip": " · ".join(tip_parts) if not tip_parts.is_empty() else "Tidak membebani anggaran saat ini.",
+		"icon_screen": ic_screen,
+		"icon_slot": ic_slot,
+	}
+
+
+static func _append_unique(arr: Array, item: String) -> void:
+	if not arr.has(item):
+		arr.append(item)
+
+
+## Structured clean card model for event log & quarterly report (replaces raw bullet text dumps).
+static func entry_card(entry: Dictionary) -> Dictionary:
+	var kind := str(entry.get("kind", ""))
+	var when := "Bulan %d" % (int(entry.tick) + 1)
+	var rows: Array = []
+	match kind:
+		"case":
+			for e in entry.get("effects", []):
+				rows.append(_clean_effect_row(e))
+			return {"badge": "KRISIS", "badge_key": "danger", "when": when, "title": str(entry.title),
+				"subtitle": "Situasi baru membutuhkan arahan Presiden.", "rows": rows}
+		"decision":
+			for e in entry.get("effects", []):
+				rows.append(_clean_effect_row(e))
+			return {"badge": "KEPUTUSAN", "badge_key": "accent", "when": when, "title": str(entry.title),
+				"subtitle": "Pilihan: " + str(entry.choice_label), "rows": rows}
+		"policy":
+			var sub := "Berlaku di %d wilayah" % int(entry.get("regions", 0))
+			if float(entry.get("upfront_fiscal", 0.0)) > 0.0:
+				sub += " · Biaya awal %s" % Fmt.num(float(entry.get("upfront_fiscal", 0.0)), 1)
+			for e in entry.get("effects", []):
+				rows.append(_clean_effect_row(e))
+			return {"badge": "KEBIJAKAN", "badge_key": "info", "when": when, "title": str(entry.title),
+				"subtitle": sub, "rows": rows}
+		"quarter":
+			var sub := "Ringkasan 3 bulan seluruh wilayah"
+			if int(entry.get("flood_region_months", 0)) > 0:
+				sub += " · %d wilayah terdampak banjir" % int(entry.flood_region_months)
+			for nrow in entry.get("national", []):
+				var k := str(nrow.key)
+				var delta := float(nrow.now) - float(nrow.start)
+				var good := delta < 0.0 if k == "price_pressure" else delta >= 0.0
+				rows.append({
+					"label": "Anggaran Negara" if k == "fiscal_space" else var_label(k),
+					"delta": "%s → %s (%s)" % [national_value(k, float(nrow.start)), national_value(k, float(nrow.now)), national_value(k, delta, true)],
+					"where": "Nasional",
+					"when": "Bulan %d–%d" % [int(entry.from_tick) + 1, int(entry.tick)],
+					"tone": "good" if good else "bad",
+				})
+			for vrow in (entry.get("vars", []) as Array).slice(0, 4):
+				var v := str(vrow.var)
+				var d := float(vrow.national_delta)
+				var good := d < 0.0 if v in ["damage", "price_level", "flood_frequency"] else d >= 0.0
+				var why := "Nasional"
+				var top: Array = vrow.top_causes
+				if not top.is_empty():
+					why = cause_label(str(top[0].cause)).replace(" (model bahaya)", "").replace(" (model)", "")
+					why = why.replace("Penyesuaian sentimen dan kepercayaan", "Dinamika publik").replace("Pemulihan dan logistik", "Pemulihan wilayah")
+				rows.append({
+					"label": var_label(v),
+					"delta": Fmt.signed(d, 2),
+					"where": why,
+					"when": "%d daerah" % int(vrow.regions_moved),
+					"tone": "good" if good else "bad",
+				})
+			return {"badge": "KUARTAL", "badge_key": "real", "when": "Bulan %d–%d" % [int(entry.from_tick) + 1, int(entry.tick)],
+				"title": "Laporan Perkembangan Kuartal", "subtitle": sub, "rows": rows}
+	return {"badge": "INFO", "badge_key": "muted", "when": when, "title": str(entry.get("title", "")), "subtitle": "", "rows": rows}
+
+
+static func _clean_effect_row(e: Dictionary) -> Dictionary:
+	var v := str(e.var)
+	var amount: String
+	match str(e.op):
+		"mul": amount = "×%s" % Fmt.num(float(e.value), 2)
+		"set": amount = "= %s" % Fmt.num(float(e.value), 1)
+		_: amount = national_value(v, float(e.value), true) if NATIONAL_LABELS.has(v) else Fmt.signed(float(e.value), 1)
+	var val := float(e.value)
+	var good := val < 0.0 if v in ["damage", "price_pressure", "price_level", "flood_frequency"] else val >= 0.0
+	var d := int(e.delay_months)
+	var when := "Segera" if d == 0 else "Dalam %d bln" % d
+	if int(e.duration) > 1:
+		when += " · %d bln" % int(e.duration)
+	return {
+		"label": "Anggaran" if v == "fiscal_space" else var_label(v),
+		"delta": amount,
+		"where": short_scope(str(e.scope), int(e.regions)),
+		"when": when,
+		"tone": "good" if good else "bad",
+	}
