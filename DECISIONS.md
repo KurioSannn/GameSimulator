@@ -367,3 +367,75 @@ _Imported (originally D-019). Consistent with the existing .gitignore policy (ra
 - The two follow-up welfare thresholds tuned to the old neutral 55 (CASE-0003-A, CASE-0004-A) are rebased to the province's calibrated start − 1, keeping their meaning.
 - All case golden masters regenerated deliberately. Values change; no case's follow-up sequence changes, and the full-game case schedule is identical.
 **Why:** real data where it exists, and an honest label where it does not. Removing "uncalibrated" labels without data would present design defaults as measurements.
+
+## D-077 — Figma UI follows the existing offline, quarterly and data-label contracts (2026-11-15)
+**Scope:** design/prototype alignment, pending normal human review; no gameplay-model or runtime change.
+**Decision:**
+- Replace the Figma account/login form with an offline start menu and a short gameplay guide.
+- Use monthly chart labels and quarterly turns (3 months), matching the existing simulation contract.
+- Keep existing mockup values explicitly labeled as examples. The complete quarterly report is a fixture for confirmed option B; A/C retain their existing dynamic consequence panel.
+- Preserve seven pre-audit screens in an archive page before changing original frames in place.
+- Reuse the existing palette and font families; add only the local menu-button and simulation-badge foundations needed by this UI correction.
+**Why:** the previous UI implied online authentication and weekly/realtime progression, had an incorrect profile tab, and could misrepresent example outcomes. The correction follows existing project decisions rather than introducing new simulation rules.
+**Evidence:** `research/reports/2026-11-15_FIGMA_UI_AUDIT_REPORT.md` and companion JSON. Static read-back reaction evaluation passed 6/6 branches; interactive playback and Godot integration remain unverified.
+
+## D-078 — One general region-detail view for every map context (2026-11-15)
+**Direction:** the user explicitly requires Detail Wilayah to be general, not specific to Jawa Timur.
+**Decision:**
+- Reuse one Figma main component/overlay for selection from national, case, report and detail maps. Pass region identity, geographic resolution and source context as data.
+- Treat Jawa Timur as an illustrative fixture only. Province, kabupaten/kota and island-group labels retain their resolution; national metrics are not substituted for regional metrics.
+- Reset all selected-region fields on every selection. Missing indicators and provenance remain explicitly unfilled rather than borrowing the previous region's values.
+- Preserve the existing 1920×1080 example frame and archive affected map contexts before edits. No runtime/data-layer change is implied.
+**Evidence:** `research/reports/2026-11-15_REGION_DETAIL_UI_REPORT.md`; 58/58 saved trigger bindings and 6/6 sequential static transition checks passed.
+
+## D-079 — Implement the audited Figma UI with native, state-driven Godot controls (2026-11-15)
+**Authorization:** the user explicitly requested integrating the completed Figma changes into the game.
+**Decision:**
+- Translate the layouts into reusable Godot controls and the existing theme; bundle provided art and OFL fonts for offline use.
+- Treat Figma values, illustrative maps, graphs, currencies and outcomes as prototype fixtures. Use existing simulation variables/units and complete validated GIS meshes.
+- Resolve every selection afresh by canonical ID and explicit scope: kab/kota, province, island group or national. Aggregate simulated indicators using population weights within that scope, falling back explicitly to equal weighting if any population weight is missing.
+- Official facts remain at their recorded resolution. Do not manufacture a group IPM or substitute national values into a region. Expose all nine provenance fields through an offline export of the existing registry; unknown fields remain unknown.
+- Settings and player display name are device preferences, separate from simulation saves. Monthly observations from the most recent quarter are transient UI data; after loading a save without them, show only recorded ledger endpoints.
+- Start at an offline menu. A new mandate during active play first creates a separate save. Keep 2D as default in line with the project contract; retain optional 3D.
+- UI QA writes saves and preferences only into its designated output directory.
+**Evidence:** research/reports/2026-11-15_FIGMA_GODOT_INTEGRATION_REPORT.md and ui_runtime_20261115/flow/qa_ui.json.
+
+## D-080 — Low-poly visual remake preserves canonical geography and simulation (2026-11-19)
+**Authorization:** user explicitly asks for a substantially better low-poly map and research of external assets/code libraries.
+**Decision:**
+- Use the existing full GIS meshes/LOD/picking and simulation inputs. Add a separate reproducible display-art layer; no fabricated elevation, land-cover statistics or settlement footprints.
+- Bundle eight Kenney CC0 GLBs from a pinned GitHub conversion mirror after confirming creator licenses. Keep notices, exact source URLs, checksums, and version.
+- Use build-time SciPy for coastline distance effects and deterministic decorative sampling inside canonical triangles. Runtime stays offline and uses native Godot MultiMesh/shaders.
+- Make the 3D landscape the normal initial map under this user-directed visual change; retain T/2D and every analytical layer. Analytical layers hide decorative props.
+- Respect reduced motion for water, foliage, clouds and selection. Active-case markers reflect real case state, not decorative invented events.
+- Existing source observations, all 514 semantic simulation entities and save format remain unchanged.
+**Evidence:** research/reports/2026-11-19_LOW_POLY_MAP_REMAKE_REPORT.md; map_lowpoly_20261119/final/qa.json; asset manifest and visual source catalog.
+
+## D-081 — Expand decorative assets through one catalog; keep geography and data views authoritative (2026-11-19)
+**Authorization:** user asks for more shaders, clouds, buildings, houses and other low-poly map assets.
+**Decision:**
+- Expand the verified, pinned Kenney selection to 48 models from Nature, Suburban, Commercial and Roads packs. Consume one shared catalog in acquisition, placement and runtime to avoid divergent model lists/sizes.
+- Fit a decorative core inside each canonical region and additional rotated blocks only where their footprint samples fit. These are artistic miniatures, never measured settlements, infrastructure networks or population-density proxies.
+- Separate the 9405 decorative instances into 48 native mesh batches; merge cloud lobes once and instance 36 complete clusters in a separate batch. No simulation node/entity is added.
+- Keep ambient shading out of indicator colors. Reduced motion freezes every added time-based effect. Asset preparation uses Python only at build time; bundled runtime remains offline.
+- Retain original GLB bytes, the canonical meshes, all 514 simulation states and deterministic gameplay inputs. Document creator licenses, mirror revision and checksums.
+**Evidence:** research/reports/2026-11-19_MAP_ASSET_EXPANSION_REPORT.md; research/reports/map_expansion_20261119/final/qa.json.
+
+## D-082 — Realistic ocean waves, layered monsoon clouds, maritime vessels, and multi-district archipelago cities (2026-11-20)
+**Authorization:** user explicitly requests major graphic improvements with richer asset variety/density, more layered clouds, realistic ocean water, and cities approximating real Indonesian urban corridors.
+**Decision:**
+- Expand `art_catalog.json` to 129 curated CC0-1.0 models across 16 groups from two pinned mirrors (`Hidencod/tge-assets` commit `01e09f8f034c6abf1254cd4cd35aaa60ce310b31` and `shorepine/kenney` commit `3694c6879e487c108f55677be7dd2ca75b07cc3b`), isolating packs that reference external `Textures/colormap.png` files into clean subdirectories so original GLB bytes remain unmodified.
+- Overhaul `diorama_water.gdshader` to remove synthetic concentric sine rings, adding analytical multi-directional wave normals, Schlick Fresnel equatorial sky reflection, sun specular glints, domain-warped coastal shelf-to-abyss bathymetry, and broken organic surf foam.
+- Overhaul `diorama_land.gdshader` and bake a display-only `landscape_detail.png` (`urban_glow`, `biome_richness`, `artistic_relief`) strictly disabled in analytical overlay mode (`!landscape`), delivering sculpted mountain spine shading, lush biomes, and urban districts while keeping the canonical GIS mesh flat and selectable at `Y = 0`.
+- Expand procedural placements inside immutable `kabkota_lod1.bin` regions (`27,277` land props with collision-free 9-point `fits()` containment for all settlement footprints, tiered by `kind`, provincial capital, and `pop_total`), add `136` ocean-floating maritime vessels (`DioramaMaritime`), expand clouds (`120` sea-anchored + `64` high-altitude clusters + translucent `CloudVeil` that dissolve at city inspection zoom), and add mid-zoom `Label3D` provincial capital names.
+- All 514 simulation states, save formats, deterministic inputs, analytical indicator colors, and `reduce_motion` freezes remain intact.
+**Evidence:** research/reports/map_expansion_20261120/final/qa.json (17/17 checks, 0 runtime errors, `gl_compatibility`), `tests/run_tests.gd` (152/152 passed), and updated `game/assets/map/kenney/manifest.json` (129 CC0 models, 2 colormaps).
+
+## D-083 — Volumetric-look FBM clouds, altitude fog, neighboring backdrop, safe camera bounds, day/night shaders, and seasonal hazard FX (2026-11-20)
+**Authorization:** user explicitly requests replacing blocky clouds, adding aerial fog, adding surrounding landmasses outside Indonesia, clamping camera zoom/pan to an Indonesia safe zone, adding dawn/noon/dusk/night lighting shaders, and visually representing rainy/dry/fire seasons.
+**Decision:**
+- Replace sphere-lobe clouds with radial FBM feathered soft puff clusters (`diorama_cloud.gdshader`) plus dual directional self-shadowed cloud decks (`diorama_sky_veil.gdshader`) and add altitude-compensated aerial & highland valley fog (`diorama_common.gdshaderinc`).
+- Add immutable Natural Earth 1:50m Public Domain raw source (`data/raw/natural_earth_ne_50m_countries.geojson`, commit `ca96624a56bd078437bca8184e78163e5039ad19`) processed by `build_neighbor_land.py` into `game/data/map/art/neighbor_land.json` (142 non-clickable polygons across 17 surrounding territories) and rendered below Indonesia (`Y = -0.55`) without changing any of the 514 canonical simulation entities or hit testing.
+- Restrict `MapCamera3D` zoom (`140..3200`) and zoom-adaptive archipelago safe-zone pan clamping (`_clamp_target()`) plus 2D `MapCamera` bounds so navigation cannot drift off Indonesia into empty void.
+- Add continuous and selectable Dawn/Noon/Dusk/Night shaders (including illuminated nighttime city ground constellations, lit building/house windows, streetlights, and vessel beacons) alongside seasonal/disaster 3D FX (`DioramaWeatherFX`: rain streaks, flood pulse rings, peatland wildfire flames, rising smoke plumes, and dry savanna shifts) driven cleanly from real simulation calendar month/flood/case state or optional display-only HUD previews (`time_select`, `weather_select`).
+**Evidence:** research/reports/map_expansion_20261120/v2_qa/qa.json (19/19 checks, 0 runtime errors, median 12.68 ms national / 12.62 ms close-up), `tests/run_tests.gd` (153/153 passed), `validate_all.py`, and `--qa-ui`.

@@ -12,8 +12,8 @@ func _ready() -> void:
 func _draw() -> void:
 	var area := Rect2(56, 30, maxf(10, size.x - 96), maxf(10, size.y - 68))
 	var font := get_theme_default_font()
-	var axis_size := roundi(12 * float(UiPreferences.values.text_scale))
-	var val_size := roundi(14 * float(UiPreferences.values.text_scale))
+	var axis_size := UiKit.font_size(14)
+	var val_size := UiKit.font_size(16)
 
 	for n in 5:
 		var y := area.end.y - area.size.y * float(n) / 4.0

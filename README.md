@@ -13,6 +13,9 @@
 
 ## Executive concept
 
+Untuk menjalankan di Windows, klik dua kali **Mainkan NUSANTARA.cmd** di folder proyek. Pilih **Mulai Mandat Baru** atau lanjutkan simpanan dari menu awal. Pengaturan, profil, statistik dan laporan tersedia melalui menu permainan; klik wilayah untuk membuka Detail Wilayah.
+
+
 NUSANTARA is a data-driven 2D governance simulation set in **real Indonesia**. The player controls a **fictional president, Nara Adinata**, and leads Indonesia through a five-year administration. The geographic world, administrative regions, public datasets, cultural context, local wisdom, and historical problem cases are grounded in real Indonesian sources. The future after each player decision is simulated and fictional.
 
 Core fantasy:

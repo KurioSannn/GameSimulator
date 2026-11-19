@@ -53,6 +53,9 @@ static func tag(text: String, color: Color, size: int = 12) -> PanelContainer:
 	p.add_child(l)
 	p.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	p.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	if text.length() > 64:
+		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		p.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	return p
 
 
@@ -157,6 +160,9 @@ static func kv_row(key_text: String, val_text: String, val_color: Color = TEXT, 
 	k.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	r.add_child(k)
 	var v := label(val_text, size, val_color)
+	v.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	v.size_flags_stretch_ratio = 1.3
 	v.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	r.add_child(v)
 	return r
@@ -201,7 +207,7 @@ static func spacer() -> Control:
 	return c
 
 
-## Gentle open animation respecting reduce_motion accessibility preference.
+## Composite button decoration must not intercept the native button's mouse input.
 static func ignore_mouse(node: Control) -> void:
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	for child in node.get_children():
@@ -209,6 +215,7 @@ static func ignore_mouse(node: Control) -> void:
 			ignore_mouse(child)
 
 
+## Gentle open animation respecting reduce_motion accessibility preference.
 static func animate_open(ctrl: Control) -> void:
 	if ctrl == null or not ctrl.is_inside_tree():
 		return

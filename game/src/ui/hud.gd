@@ -104,11 +104,12 @@ func _build_sidebar() -> void:
 		["Anggaran", "imgIkonCoin1", "budget", "Anggaran nasional (B)"],
 		["Statistik", "imgIkonBook", "statistics", "Semua indikator nasional"]]:
 		var action: String = item[2]
-		var button := UiKit.ghost_button(item[0], func():
+		var on_press := func():
 			match action:
 				"policy": policy_pressed.emit()
 				"budget": budget_pressed.emit()
-				_: menu_selected.emit(action), item[3])
+				_: menu_selected.emit(action)
+		var button := UiKit.ghost_button(item[0], on_press, item[3])
 		button.icon = FigmaAssets.texture(1, item[1])
 		button.expand_icon = true
 		button.add_theme_constant_override("icon_max_width", 24)
@@ -126,8 +127,8 @@ func _build_right() -> void:
 	right_col.offset_top = 96
 	right_col.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(right_col)
-	var tools := UiKit.ghost_button("Lapisan & tampilan  ▾", func():
-		map_tools_card.visible = not map_tools_card.visible, "Lapisan data, wilayah, zoom, dan suasana peta")
+	var toggle_tools := func(): map_tools_card.visible = not map_tools_card.visible
+	var tools := UiKit.ghost_button("Lapisan & tampilan  ▾", toggle_tools, "Lapisan data, wilayah, zoom, dan suasana peta")
 	tools.theme_type_variation = "Button"
 	tools.custom_minimum_size.y = 46
 	right_col.add_child(tools)
@@ -181,8 +182,8 @@ func _build_right() -> void:
 	navigation.add_child(mode_btn)
 	map_controls.add_child(navigation)
 	atmosphere_controls = UiKit.vbox(8)
-	var advanced := UiKit.ghost_button("Suasana & informasi peta  ▾", func():
-		atmosphere_controls.visible = not atmosphere_controls.visible)
+	var toggle_adv := func(): atmosphere_controls.visible = not atmosphere_controls.visible
+	var advanced := UiKit.ghost_button("Suasana & informasi peta  ▾", toggle_adv)
 	map_controls.add_child(advanced)
 	map_controls.add_child(atmosphere_controls)
 	season_label = UiKit.label("", 14, UiKit.INFO, true)
@@ -242,9 +243,12 @@ func _build_bottom() -> void:
 	_agenda_sub.clip_text = true
 	text.add_child(_agenda_sub)
 	row.add_child(text)
-	_agenda_btn = UiKit.button("BUKA KEPUTUSAN", func():
-		if _term_over: legacy_pressed.emit()
-		else: decision_pressed.emit(), true)
+	var on_agenda := func():
+		if _term_over:
+			legacy_pressed.emit()
+		else:
+			decision_pressed.emit()
+	_agenda_btn = UiKit.button("BUKA KEPUTUSAN", on_agenda, true)
 	_agenda_btn.custom_minimum_size = Vector2(206, 48)
 	_agenda_btn.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	row.add_child(_agenda_btn)

@@ -69,10 +69,9 @@ static func glass_box(radius: int = 12, pad_x: int = 14, pad_y: int = 10) -> Sty
 static func build() -> Theme:
 	var t := Theme.new()
 	var fonts: Dictionary = tokens().get("fonts", {})
-	var scale := float(UiPreferences.values.text_scale)
 	var body_font: Font = load(str(fonts.get("body_path", "res://assets/fonts/Inter.ttf")))
 	var display_font: Font = load(str(fonts.get("display_path", "res://assets/fonts/LilitaOne-Regular.ttf")))
-	t.default_font_size = roundi(int(fonts.get("size_body", 16)) * scale)
+	t.default_font_size = UiKit.font_size(int(fonts.get("size_body", 16)))
 	if body_font != null:
 		t.default_font = body_font
 
@@ -133,32 +132,32 @@ static func build() -> Theme:
 	t.set_stylebox("panel", "PanelHeader", hdr_box)
 
 	# Buttons
-	var btn_font_size := roundi(17 * scale)
+	var btn_font_size := UiKit.font_size(17)
 	_button(t, "Button", color("panel"), color("text"), Color(), 3, display_font, btn_font_size, 16, 9)
 	t.set_type_variation("ButtonPrimary", "Button")
-	_button(t, "ButtonPrimary", color("primary"), color("primary_text"), color("outline"), 4, display_font, roundi(18 * scale), 18, 10)
+	_button(t, "ButtonPrimary", color("primary"), color("primary_text"), color("outline"), 4, display_font, UiKit.font_size(18), 18, 10)
 	t.set_type_variation("ButtonAccent", "Button")
-	_button(t, "ButtonAccent", color("accent"), color("text"), Color(), 3, display_font, btn_font_size, 16, 9)
+	_button(t, "ButtonAccent", color("panel_deep"), color("title_gold"), color("title_gold"), 1, display_font, btn_font_size, 16, 9)
 	t.set_type_variation("ButtonGhost", "Button")
-	_ghost_button(t, "ButtonGhost", body_font, roundi(15 * scale))
+	_ghost_button(t, "ButtonGhost", body_font, UiKit.font_size(15))
 	t.set_type_variation("ButtonNav", "Button")
-	_ghost_button(t, "ButtonNav", display_font, roundi(15 * scale))
+	_ghost_button(t, "ButtonNav", display_font, UiKit.font_size(15))
 
 	# OptionButton & MenuButton & PopupMenu
-	_button(t, "OptionButton", color("panel_soft"), color("title_gold"), Color(1, 1, 1, 0.18), 1, body_font, roundi(15 * scale), 12, 8)
-	_button(t, "MenuButton", color("panel_soft"), color("text"), Color(1, 1, 1, 0.18), 1, body_font, roundi(15 * scale), 12, 8)
+	_button(t, "OptionButton", color("panel_soft"), color("title_gold"), Color(1, 1, 1, 0.18), 1, body_font, UiKit.font_size(15), 12, 8)
+	_button(t, "MenuButton", color("panel_soft"), color("text"), Color(1, 1, 1, 0.18), 1, body_font, UiKit.font_size(15), 12, 8)
 	t.set_stylebox("panel", "PopupMenu", soft_box(color("panel_deep"), color("border_subtle"), 10, 6, 6, 1))
 	t.set_stylebox("hover", "PopupMenu", soft_box(color("panel"), Color(1, 1, 1, 0.12), 6, 10, 6, 0))
 	t.set_color("font_color", "PopupMenu", color("text"))
 	t.set_color("font_hover_color", "PopupMenu", color("title_gold"))
 	t.set_color("font_separator_color", "PopupMenu", color("text_muted"))
-	t.set_font_size("font_size", "PopupMenu", roundi(14 * scale))
+	t.set_font_size("font_size", "PopupMenu", UiKit.font_size(14))
 
 	# CheckButton
 	t.set_color("font_color", "CheckButton", color("text"))
 	t.set_color("font_hover_color", "CheckButton", color("title_gold"))
 	t.set_color("font_pressed_color", "CheckButton", color("text"))
-	t.set_font_size("font_size", "CheckButton", roundi(14 * scale))
+	t.set_font_size("font_size", "CheckButton", UiKit.font_size(14))
 	t.set_stylebox("normal", "CheckButton", StyleBoxEmpty.new())
 	t.set_stylebox("hover", "CheckButton", StyleBoxEmpty.new())
 	t.set_stylebox("pressed", "CheckButton", StyleBoxEmpty.new())
@@ -178,14 +177,14 @@ static func build() -> Theme:
 	t.set_stylebox("focus", "ButtonChoice", bc_focus)
 	if body_font != null:
 		t.set_font("font", "ButtonChoice", body_font)
-	t.set_font_size("font_size", "ButtonChoice", roundi(15 * scale))
+	t.set_font_size("font_size", "ButtonChoice", UiKit.font_size(15))
 	for ckey in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_hover_pressed_color"]:
 		t.set_color(ckey, "ButtonChoice", color("text"))
 
 	# Tooltips
 	t.set_stylebox("panel", "TooltipPanel", soft_box(Color("0b1633", 0.96), color("border_subtle"), 8, 12, 8, 1))
 	t.set_color("font_color", "TooltipLabel", color("text"))
-	t.set_font_size("font_size", "TooltipLabel", roundi(13 * scale))
+	t.set_font_size("font_size", "TooltipLabel", UiKit.font_size(13))
 
 	return t
 

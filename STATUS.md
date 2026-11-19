@@ -1,8 +1,55 @@
 # STATUS
 
-_Last updated: 2026-10-22 (Claude Code)._ **Submission deadline: 15 Nov 2026 (24 days).**
+_Last updated: 2026-11-20 (ChatGPT/Codex, UI density audit and game UI library research)._ **Submission deadline recorded by the project: 15 Nov 2026.**
 
 ## Current phase
+**UI/text density audit completed; implementation stopped per user direction (2026-11-20)**:
+- Captured 13 current Godot UI states at 1600×900 / 1280×720. Detail city + HUD increases from 49 to 81 text blocks at 1600; at 1280, 45/48 decision-panel text blocks have estimated effective font size below 12 px (audit heuristic, not glyph-height measurement).
+- Main findings: simultaneous information levels, repeated agenda/indicators, competing action emphasis, tiny text despite unused space, and visually stacked modal backgrounds. No significant text-bounds overlap candidates in the sampled states.
+- Creator sources, licenses and original previews reviewed for Themey, Kenney Adventure/Fantasy Borders, and Maaack Game Template. No package installed or selected; no production UI changes or new mockup integration.
+- Isolated audit world hash unchanged. Report: research/reports/2026-11-20_UI_DENSITY_AUDIT_REPORT.md; evidence: research/reports/ui_audit_20261120/inventory.json; sources: research/sources/ui_library_review_2026-11-20.json.
+
+**Expanded map assets and atmosphere implemented (2026-11-19; user follow-up)**:
+- 48 pinned Kenney CC0 models: 12 houses, 12 buildings/towers, 18 nature variants, four road tiles and two lamps. All variants are used, with source URLs, notices and checksums.
+- 9405 decorative props in 48 model batches: 2647 houses, 62 midrises, 98 towers, 1338 road tiles, 564 lamps and 4696 nature props. Each of 514 regions has its own fitted core; block rotation, scale and roof colors vary.
+- 36 cloud clusters in one additional batch; coherent silhouettes, three altitude bands, drift and camera-dependent size. Original shaders add foliage gusts, subtle facade glints, ground/water atmospheric shading, shallow-water caustics and broken coastal foam.
+- Shared catalog drives asset acquisition, reproducible placements and runtime. Full GIS/state coverage, analytical layers, reduced motion and offline runtime retained.
+- Evidence and verification: research/reports/2026-11-19_MAP_ASSET_EXPANSION_REPORT.md; research/reports/map_expansion_20261119/final/qa.json.
+
+**Low-poly map remake implemented (2026-11-19; explicit user request)**:
+- Curated eight Kenney CC0 models from a pinned GitHub mirror; 2298 decorative props in eight MultiMesh batches, island labels, ambient clouds, tree sway and active-case markers.
+- Coastal foam/shallow-water display field built reproducibly with SciPy from the unchanged GIS triangulation. It is artistic decoration, not measured bathymetry or land cover.
+- 3D landscape is the normal starting view; T retains 2D. Analytical layers hide decorative props and retain the simulated indicator values and calibration labels.
+- Camera framing and selection lift refined; all 514 canonical regions remain available. Window QA verifies 3D mouse selection, data context, overlays, reduced motion and unchanged world/RNG.
+- Report and source review: research/reports/2026-11-19_LOW_POLY_MAP_REMAKE_REPORT.md; research/sources/map_visual_research_2026-11-19.json.
+
+**Figma UI integrated into the Godot runtime (2026-11-15)**:
+- Offline start/continue/save menu; profile, statistics, persisted device settings, decisions, quarterly report, and shared Detail Wilayah are functional native Godot controls.
+- Region/province/island-group/national scopes read the current world; official facts retain resolution, units and source metadata. No illustrative Figma statistic is inserted into simulation state.
+- Real GIS geometry and all 514 simulation entities retained, including case/report mini maps.
+- Fonts and artwork bundled locally. Default map is 2D, with existing 3D mode available via T.
+- Windows launcher: Mainkan NUSANTARA.cmd. Source metadata reproducible with scripts/pipelines/game/export_ui_sources.py.
+- Headless regression and real mouse/keyboard/window QA recorded in the integration report.
+
+Report: research/reports/2026-11-15_FIGMA_GODOT_INTEGRATION_REPORT.md; UI evidence: research/reports/ui_runtime_20261115/flow/qa_ui.json.
+
+**General region-detail Figma component complete (2026-11-15; user clarification: every map context)**:
+- One shared Detail Wilayah component with region identity, resolution, indicators, baseline/source metadata and policy context; Jawa Timur is an example instance.
+- 58 map triggers across national, case, report and detail-map contexts reset all 38 selected-region fields. Six sequential read-back transition checks passed.
+- Province, city and island-group examples; missing values stay blank and national report metrics are not copied into regional fields.
+- Four pre-change map-context frames archived. Godot integration and full GIS hit testing remain outside this Figma change.
+
+Report: `research/reports/2026-11-15_REGION_DETAIL_UI_REPORT.md`; evidence: `research/reports/2026-11-15_REGION_DETAIL_UI_EVIDENCE.json`.
+
+**Figma desktop UI audit complete (2026-11-15; design/prototype only)**:
+- Seven NUSANTARA frames corrected in place; originals archived in the same Figma file.
+- Offline start menu, quarterly/monthly labels, profile tab, decision-card consistency, readable captions, and explicit sample-data labels.
+- Navigation connected; complete report fixture restricted to confirmed choice B. Static read-back reaction evaluation: 6/6 branches passed.
+- Existing art, fonts and palette retained; small local button/badge component foundation added.
+- Godot runtime integration, interactive playback, window-resize QA, save/load and settings persistence remain unverified by this audit.
+
+Report: `research/reports/2026-11-15_FIGMA_UI_AUDIT_REPORT.md`; node/action evidence: `research/reports/2026-11-15_FIGMA_UI_AUDIT_EVIDENCE.json`.
+
 **Baseline calibration pass (2026-10-23)**:
 - Population (BPS 2026 projection) and IPM 2024 now come from BPS for all 514 kab/kota (D-076).
 - National indicators are population-weighted.
