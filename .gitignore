@@ -21,6 +21,9 @@ game/export/
 .DS_Store
 __pycache__/
 *.pyc
+.tmp/
+research/reports/ui_runtime_20261115/flow/saves/
+research/reports/ui_runtime_20261115/flow/preferences.cfg
 .venv/
 # Secrets
 .env
