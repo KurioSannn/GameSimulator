@@ -1,8 +1,27 @@
 # STATUS
 
-_Last updated: 2026-11-20 (ChatGPT/Codex, UI density audit and game UI library research)._ **Submission deadline recorded by the project: 15 Nov 2026.**
+_Last updated: 2026-11-20 (ChatGPT/Codex, profile/avatar/spacing fixes)._ **Submission deadline recorded by the project: 15 Nov 2026.**
 
 ## Current phase
+**Profile/avatar/frame-spacing fixes implemented (2026-11-20; user authorized after audit)**:
+- Shared outer inset 36 versus slice 24; banner controls clear their edges, case inner width follows actual frame margins, and disabled buttons retain readable paper styling.
+- Framed, aspect-preserving HUD/profile portraits. One alpha-cropped character stage anchors feet to a soft contact shadow; separate blue ellipse removed from profile composition.
+- Clear player-name field with Save/Cancel/Enter, dirty/success feedback and synchronized empty-name normalization. Repeated profile identity/mandate fields reduced; fonts and map integration retained.
+- 82 final states / 42 screenshots at 720p/1080p and 100%/110% text: zero unclipped button safe-area/viewport candidates. Profile observations 20/20; headless regression 155/155; all 27 cases/eight programs 318/318; native flows/assets 125/125. No window-QA runtime errors. Report: research/reports/2026-11-20_UI_SPACING_PROFILE_FIX_REPORT.md.
+
+**Profile/avatar/frame-spacing audit completed; audit made no production edits (2026-11-20; user requests audit first)**:
+- 82 UI states across 1280×720 / 1920×1080 and 100% / 110% text; 42 screenshots. No unclipped buttons outside panel/window rectangles, but repeated candidates intrude on the conservative decorative-frame safe area.
+- Shared frame inset 20 versus slice 24; HUD identity uses 12 versus 24. Portrait crop is forced to a square; profile character/platform have a measurable gap.
+- Player-name editing already persists locally; discoverability and save feedback are missing. Empty-name normalization does not update the field immediately; avatar editing is not implemented.
+- Fixture saves/preferences isolated; 22/23 production-file SHA-256 unchanged. hud.gd changed elsewhere in the workspace during the audit; findings refer to captured runtime evidence. Findings and proposed priority: research/reports/2026-11-20_UI_SPACING_PROFILE_AUDIT_REPORT.md. No new implementation decision adopted.
+
+**Game UI and concise information flow implemented (2026-11-20; user direction)**:
+- Kenney CC0 paper/metal frames, textured buttons, medallion/hexagon navigation, live-map menu, three resource readouts and one agenda.
+- Two active font families: Bree Serif headings and Alegreya Sans Medium/Bold body/controls/numbers. Explicit body binding prevents engine font fallback; 22-unit minimum on 1440×810 canvas.
+- Region default shows two indicators; full data/provenance remains optional. Decisions show details for the selected option, with separate confirmation. Repeated APBN/simulation notices and technical timing text removed from normal play per user request.
+- Initial map: 49 → 10 text blocks; city detail + HUD: 81 → 19; unselected decision: 48 → 15. Map renderer/data remain outside this UI task.
+- Evidence: research/reports/2026-11-20_UI_IMPLEMENTATION_REPORT.md; ui_implementation_20261120/{final,flow,clarity}. Regression 154/154; extended case/program QA 318/318; mouse/keyboard flow and asset checks 128/128. No runtime errors in either window QA suite.
+
 **UI/text density audit completed; implementation stopped per user direction (2026-11-20)**:
 - Captured 13 current Godot UI states at 1600×900 / 1280×720. Detail city + HUD increases from 49 to 81 text blocks at 1600; at 1280, 45/48 decision-panel text blocks have estimated effective font size below 12 px (audit heuristic, not glyph-height measurement).
 - Main findings: simultaneous information levels, repeated agenda/indicators, competing action emphasis, tiny text despite unused space, and visually stacked modal backgrounds. No significant text-bounds overlap candidates in the sampled states.
