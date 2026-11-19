@@ -1,0 +1,38 @@
+{
+  "schema": "nusantara.art_catalog/2",
+  "meaning": "ARTISTIC_DECORATION; not measured settlement, infrastructure or land cover",
+  "mirrors": {
+    "tge": {
+      "repository": "https://github.com/Hidencod/tge-assets",
+      "commit": "01e09f8f034c6abf1254cd4cd35aaa60ce310b31",
+      "path_template": "packs/{pack}/{name}.glb",
+      "license_path": "LICENSE",
+      "license": "CC0-1.0"
+    },
+    "shorepine": {
+      "repository": "https://github.com/shorepine/kenney",
+      "commit": "3694c6879e487c108f55677be7dd2ca75b07cc3b",
+      "path_template": "3d/{pack}/{name}.glb",
+      "license_path": "LICENSE.txt",
+      "license": "CC0-1.0"
+    }
+  },
+  "groups": {
+    "tree": {"mirror": "tge", "pack": "nature-kit", "height": 22, "footprint": 20, "foliage": true, "models": ["tree-default", "tree-detailed", "tree-oak", "tree-fat", "tree-tall", "tree-plateau", "tree-small", "tree-thin"]},
+    "highland_tree": {"mirror": "tge", "pack": "nature-kit", "height": 28, "footprint": 18, "foliage": true, "models": ["tree-pinedefaulta", "tree-pinetalla-detailed", "tree-pinetallb-detailed", "tree-pinerounda"]},
+    "palm": {"mirror": "tge", "pack": "nature-kit", "height": 27, "footprint": 20, "foliage": true, "models": ["tree-palm", "tree-palmbend", "tree-palmshort", "tree-palmtall", "tree-palmdetailedshort", "tree-palmdetailedtall"]},
+    "rock": {"mirror": "tge", "pack": "nature-kit", "height": 48, "footprint": 55, "foliage": false, "models": ["rock-largea", "rock-largeb", "rock-largec", "rock-larged", "rock-largee", "rock-talla", "rock-tallb", "rock-tallc", "rock-talld", "cliff-large-rock"]},
+    "shrub": {"mirror": "tge", "pack": "nature-kit", "height": 5, "footprint": 11, "foliage": true, "models": ["plant-bush", "plant-bushdetailed", "plant-bushlarge", "plant-bushsmall", "grass-large"]},
+    "crop": {"mirror": "tge", "pack": "nature-kit", "height": 8, "footprint": 12, "foliage": true, "models": ["crops-wheatstageb", "crops-cornstaged", "crops-bamboostageb"]},
+    "house": {"mirror": "tge", "pack": "city-kit-suburban", "height": 12, "footprint": 15, "foliage": false, "models": ["building-type-a", "building-type-b", "building-type-c", "building-type-d", "building-type-e", "building-type-f", "building-type-g", "building-type-h", "building-type-i", "building-type-j", "building-type-k", "building-type-l", "building-type-m", "building-type-n", "building-type-o", "building-type-p", "building-type-q", "building-type-r", "building-type-s", "building-type-t", "building-type-u"]},
+    "midrise": {"mirror": "tge", "pack": "city-kit-commercial", "height": 26, "footprint": 18, "foliage": false, "models": ["building-a", "building-b", "building-c", "building-d", "building-e", "building-f", "building-g", "building-h", "building-i", "building-j", "building-k", "building-l", "building-m", "building-n"]},
+    "urban_block": {"mirror": "tge", "pack": "city-kit-commercial", "height": 24, "footprint": 20, "foliage": false, "models": ["low-detail-building-a", "low-detail-building-b", "low-detail-building-c", "low-detail-building-d", "low-detail-building-e", "low-detail-building-f", "low-detail-building-g", "low-detail-building-h", "low-detail-building-wide-a", "low-detail-building-wide-b"]},
+    "tower": {"mirror": "tge", "pack": "city-kit-commercial", "height": 51, "footprint": 19, "foliage": false, "models": ["building-skyscraper-a", "building-skyscraper-b", "building-skyscraper-c", "building-skyscraper-d", "building-skyscraper-e"]},
+    "industrial": {"mirror": "shorepine", "pack": "city-industrial", "subdir": "industrial", "height": 28, "footprint": 22, "foliage": false, "models": ["building-a", "building-b", "building-c", "building-d", "building-f", "building-h", "building-i", "building-k", "building-m", "building-n", "building-t", "chimney-large", "detail-tank"]},
+    "port_cargo": {"mirror": "shorepine", "pack": "watercraft", "subdir": "watercraft", "height": 10, "footprint": 16, "foliage": false, "models": ["cargo-container-a", "cargo-container-b", "cargo-container-c", "cargo-pile-a", "cargo-pile-b"]},
+    "vessel": {"mirror": "shorepine", "pack": "watercraft", "subdir": "watercraft", "height": 22, "footprint": 26, "foliage": false, "models": ["ship-cargo-a", "ship-cargo-b", "ship-cargo-c", "ship-ocean-liner", "ship-ocean-liner-small", "boat-tug-a", "boat-fishing-small", "boat-sail-a"]},
+    "streetlight": {"mirror": "tge", "pack": "city-kit-roads", "height": 10, "footprint": 4, "foliage": false, "models": ["light-curved", "light-curved-double", "light-square", "traffic-light"]},
+    "road": {"mirror": "tge", "pack": "city-kit-roads", "height": 1, "footprint": 16, "foliage": false, "models": ["road-straight", "road-crossroad", "road-intersection", "road-roundabout", "road-bend", "road-curve", "road-end"]},
+    "vehicle": {"mirror": "tge", "pack": "car-kit", "height": 6, "footprint": 7, "foliage": false, "models": ["sedan", "suv", "taxi", "delivery", "truck", "van"]}
+  }
+}
