@@ -1,0 +1,1742 @@
+{
+  "task": "Panel Detail Wilayah umum pada seluruh konteks peta Figma NUSANTARA",
+  "snapshot_at": "2026-11-15T02:11:34Z",
+  "file_key": "xXZj1Xnoxln1coG2yEO81a",
+  "session_id": "075f18b7-1760-4c4a-ad7d-8e62fcf61bbf",
+  "user_scope": "Digunakan general pada setiap konteks peta; Jawa Timur hanya contoh.",
+  "backup": [
+    {
+      "sourceId": "15:16673",
+      "backupId": "63:16706",
+      "name": "Sebelum panel wilayah umum • Nusantara • Beranda — peta nusantara",
+      "descendants": 277
+    },
+    {
+      "sourceId": "22:16673",
+      "backupId": "63:17036",
+      "name": "Sebelum panel wilayah umum • Nusantara • Peristiwa dan Keputusan",
+      "descendants": 415
+    },
+    {
+      "sourceId": "24:16724",
+      "backupId": "63:17504",
+      "name": "Sebelum panel wilayah umum • Nusantara • Laporan Hasil Kuartal",
+      "descendants": 186
+    },
+    {
+      "sourceId": "57:16693",
+      "backupId": "63:17691",
+      "name": "Sebelum panel wilayah umum • Nusantara • Detail Wilayah — Jawa Timur",
+      "descendants": 378
+    }
+  ],
+  "archive_page": "51:16724",
+  "components": {
+    "main": "65:16837",
+    "metric": "65:16828",
+    "metricProperties": {
+      "label": "Label#65:16",
+      "value": "Nilai#65:17",
+      "delta": "Perubahan#65:18",
+      "unit": "Satuan#65:19"
+    },
+    "field": "65:16834",
+    "fieldProperties": {
+      "label": "Label#65:20",
+      "value": "Isi#65:21"
+    },
+    "properties": {
+      "nama": "nama#65:22",
+      "letak": "letak#65:23",
+      "status": "status#65:24",
+      "catatan_simulasi": "catatan_simulasi#65:25",
+      "status_kasus": "status_kasus#65:26",
+      "judul_kasus": "judul_kasus#65:27",
+      "catatan_kasus": "catatan_kasus#65:28",
+      "catatan_data": "catatan_data#65:29",
+      "target_kebijakan": "target_kebijakan#65:30",
+      "catatan_kebijakan": "catatan_kebijakan#65:31",
+      "ringkasan_acuan": "ringkasan_acuan#68:0",
+      "status_acuan": "status_acuan#68:1"
+    }
+  },
+  "component_library_id": "65:16826",
+  "preview_frame_id": "65:17076",
+  "shared_overlay": {
+    "id": "65:16946",
+    "instance": "65:16948"
+  },
+  "embedded_example_instance_id": "67:17243",
+  "source_overlay_id": "65:17021",
+  "policy_context_overlay_id": "65:17057",
+  "selected_variables": {
+    "nama": "VariableID:65:16911",
+    "letak": "VariableID:65:16912",
+    "status": "VariableID:65:16913",
+    "catatan_simulasi": "VariableID:65:16914",
+    "status_kasus": "VariableID:65:16915",
+    "judul_kasus": "VariableID:65:16916",
+    "catatan_kasus": "VariableID:65:16917",
+    "catatan_data": "VariableID:65:16918",
+    "target_kebijakan": "VariableID:65:16919",
+    "catatan_kebijakan": "VariableID:65:16920",
+    "konteks": "VariableID:65:16921",
+    "id_wilayah": "VariableID:65:16922",
+    "resolusi": "VariableID:65:16923",
+    "sumber_lembaga": "VariableID:65:16924",
+    "sumber_judul": "VariableID:65:16925",
+    "sumber_url": "VariableID:65:16926",
+    "sumber_tanggal": "VariableID:65:16927",
+    "sumber_diambil": "VariableID:65:16928",
+    "sumber_periode": "VariableID:65:16929",
+    "sumber_satuan": "VariableID:65:16930",
+    "sumber_status": "VariableID:65:16931",
+    "kebijakan_petunjuk": "VariableID:65:16932",
+    "nilai_0": "VariableID:65:16933",
+    "delta_0": "VariableID:65:16934",
+    "nilai_1": "VariableID:65:16935",
+    "delta_1": "VariableID:65:16936",
+    "nilai_2": "VariableID:65:16937",
+    "delta_2": "VariableID:65:16938",
+    "nilai_3": "VariableID:65:16939",
+    "delta_3": "VariableID:65:16940",
+    "nilai_4": "VariableID:65:16941",
+    "delta_4": "VariableID:65:16942",
+    "nilai_5": "VariableID:65:16943",
+    "delta_5": "VariableID:65:16944",
+    "kasus_dapat_ditinjau": "VariableID:65:16945",
+    "definisi_perubahan": "VariableID:67:17184",
+    "ringkasan_acuan": "VariableID:68:17119",
+    "status_acuan": "VariableID:68:17120"
+  },
+  "property_contract": {
+    "identity": [
+      "id_wilayah",
+      "nama",
+      "letak",
+      "resolusi",
+      "konteks"
+    ],
+    "simulated_values": "6 nilai dan 6 perubahan, dengan satuan di nested Indicator components",
+    "baseline": [
+      "ringkasan_acuan",
+      "status_acuan",
+      "catatan_data"
+    ],
+    "case": [
+      "judul_kasus",
+      "status_kasus",
+      "catatan_kasus",
+      "kasus_dapat_ditinjau"
+    ],
+    "policy": [
+      "target_kebijakan",
+      "catatan_kebijakan",
+      "kebijakan_petunjuk"
+    ],
+    "provenance": [
+      "sumber_lembaga",
+      "sumber_judul",
+      "sumber_url",
+      "sumber_tanggal",
+      "sumber_diambil",
+      "letak",
+      "sumber_periode",
+      "sumber_satuan",
+      "sumber_status"
+    ],
+    "comparison": "definisi_perubahan mengikuti konteks asal peta"
+  },
+  "region_example_definitions": {
+    "jatim": {
+      "nama": "JAWA TIMUR",
+      "letak": "PROVINSI • PULAU JAWA • INDONESIA",
+      "resolusi": "Provinsi",
+      "id_wilayah": "35",
+      "sample": true,
+      "caseTitle": "Harga pangan tertekan"
+    },
+    "maluku": {
+      "nama": "MALUKU",
+      "letak": "PROVINSI • INDONESIA",
+      "resolusi": "Provinsi",
+      "id_wilayah": "81",
+      "caseTitle": "Energi untuk kepulauan"
+    },
+    "kalimantan": {
+      "nama": "KALIMANTAN",
+      "letak": "KELOMPOK PULAU • INDONESIA",
+      "resolusi": "Kelompok pulau",
+      "id_wilayah": "",
+      "caseTitle": "Hutan & mata pencaharian"
+    },
+    "sulawesi": {
+      "nama": "SULAWESI",
+      "letak": "KELOMPOK PULAU • INDONESIA",
+      "resolusi": "Kelompok pulau",
+      "id_wilayah": ""
+    },
+    "papua": {
+      "nama": "PAPUA",
+      "letak": "KELOMPOK PULAU • INDONESIA",
+      "resolusi": "Kelompok pulau",
+      "id_wilayah": ""
+    },
+    "sumatra": {
+      "nama": "SUMATRA",
+      "letak": "KELOMPOK PULAU • INDONESIA",
+      "resolusi": "Kelompok pulau",
+      "id_wilayah": ""
+    },
+    "jawa": {
+      "nama": "JAWA",
+      "letak": "KELOMPOK PULAU • INDONESIA",
+      "resolusi": "Kelompok pulau",
+      "id_wilayah": ""
+    },
+    "nt": {
+      "nama": "NUSA TENGGARA",
+      "letak": "KELOMPOK PULAU • INDONESIA",
+      "resolusi": "Kelompok pulau",
+      "id_wilayah": ""
+    },
+    "kepmaluku": {
+      "nama": "KEPULAUAN MALUKU",
+      "letak": "KELOMPOK PULAU • INDONESIA",
+      "resolusi": "Kelompok pulau",
+      "id_wilayah": ""
+    }
+  },
+  "static_readback_verification": {
+    "method": "Inspect saved Figma reactions and sequentially evaluate SET_VARIABLE payloads; not interactive playback.",
+    "coverage": [
+      {
+        "id": "15:16673",
+        "targets": 15
+      },
+      {
+        "id": "22:16673",
+        "targets": 19
+      },
+      {
+        "id": "24:16724",
+        "targets": 9
+      },
+      {
+        "id": "57:16693",
+        "targets": 15
+      }
+    ],
+    "all58BindingsPass": true,
+    "everySelectionSets38Fields": true,
+    "map_bindings": [
+      {
+        "id": "15:16765",
+        "region": "sumatra",
+        "context": "Peta nasional",
+        "name": "SUMATRA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16766",
+        "region": "kalimantan",
+        "context": "Peta nasional",
+        "name": "KALIMANTAN",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16767",
+        "region": "sulawesi",
+        "context": "Peta nasional",
+        "name": "SULAWESI",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16768",
+        "region": "papua",
+        "context": "Peta nasional",
+        "name": "PAPUA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16769",
+        "region": "jawa",
+        "context": "Peta nasional",
+        "name": "JAWA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16770",
+        "region": "kepmaluku",
+        "context": "Peta nasional",
+        "name": "KEPULAUAN MALUKU",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16771",
+        "region": "nt",
+        "context": "Peta nasional",
+        "name": "NUSA TENGGARA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16799",
+        "region": "jatim",
+        "context": "Peta nasional",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16805",
+        "region": "jatim",
+        "context": "Peta nasional",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16904",
+        "region": "jatim",
+        "context": "Peta nasional",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16908",
+        "region": "maluku",
+        "context": "Peta nasional",
+        "name": "MALUKU",
+        "scope": "Provinsi",
+        "regionId": "81",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16912",
+        "region": "kalimantan",
+        "context": "Peta nasional",
+        "name": "KALIMANTAN",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16777",
+        "region": "kalimantan",
+        "context": "Peta nasional",
+        "name": "KALIMANTAN",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16783",
+        "region": "maluku",
+        "context": "Peta nasional",
+        "name": "MALUKU",
+        "scope": "Provinsi",
+        "regionId": "81",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "15:16789",
+        "region": "jatim",
+        "context": "Peta nasional",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16765",
+        "region": "sumatra",
+        "context": "Peta kasus",
+        "name": "SUMATRA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16766",
+        "region": "kalimantan",
+        "context": "Peta kasus",
+        "name": "KALIMANTAN",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16767",
+        "region": "sulawesi",
+        "context": "Peta kasus",
+        "name": "SULAWESI",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16768",
+        "region": "papua",
+        "context": "Peta kasus",
+        "name": "PAPUA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16769",
+        "region": "jawa",
+        "context": "Peta kasus",
+        "name": "JAWA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16770",
+        "region": "kepmaluku",
+        "context": "Peta kasus",
+        "name": "KEPULAUAN MALUKU",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16771",
+        "region": "nt",
+        "context": "Peta kasus",
+        "name": "NUSA TENGGARA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16799",
+        "region": "jatim",
+        "context": "Peta kasus",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16805",
+        "region": "jatim",
+        "context": "Peta kasus",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16904",
+        "region": "jatim",
+        "context": "Peta kasus",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16908",
+        "region": "maluku",
+        "context": "Peta kasus",
+        "name": "MALUKU",
+        "scope": "Provinsi",
+        "regionId": "81",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16912",
+        "region": "kalimantan",
+        "context": "Peta kasus",
+        "name": "KALIMANTAN",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:17016",
+        "region": "jatim",
+        "context": "Peta kasus",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16777",
+        "region": "kalimantan",
+        "context": "Peta kasus",
+        "name": "KALIMANTAN",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16783",
+        "region": "maluku",
+        "context": "Peta kasus",
+        "name": "MALUKU",
+        "scope": "Provinsi",
+        "regionId": "81",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:16789",
+        "region": "jatim",
+        "context": "Peta kasus",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:17032",
+        "region": "jatim",
+        "context": "Peta kasus",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:17138",
+        "region": "jatim",
+        "context": "Peta kasus",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "24:16841",
+        "region": "jatim",
+        "context": "Laporan kuartal",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "24:16847",
+        "region": "sulawesi",
+        "context": "Laporan kuartal",
+        "name": "SULAWESI",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "24:16853",
+        "region": "papua",
+        "context": "Laporan kuartal",
+        "name": "PAPUA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16785",
+        "region": "sumatra",
+        "context": "Peta wilayah",
+        "name": "SUMATRA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16786",
+        "region": "kalimantan",
+        "context": "Peta wilayah",
+        "name": "KALIMANTAN",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16787",
+        "region": "sulawesi",
+        "context": "Peta wilayah",
+        "name": "SULAWESI",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16788",
+        "region": "papua",
+        "context": "Peta wilayah",
+        "name": "PAPUA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16789",
+        "region": "jawa",
+        "context": "Peta wilayah",
+        "name": "JAWA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16790",
+        "region": "kepmaluku",
+        "context": "Peta wilayah",
+        "name": "KEPULAUAN MALUKU",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16791",
+        "region": "nt",
+        "context": "Peta wilayah",
+        "name": "NUSA TENGGARA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16819",
+        "region": "jatim",
+        "context": "Peta wilayah",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16825",
+        "region": "jatim",
+        "context": "Peta wilayah",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16924",
+        "region": "jatim",
+        "context": "Peta wilayah",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16928",
+        "region": "maluku",
+        "context": "Peta wilayah",
+        "name": "MALUKU",
+        "scope": "Provinsi",
+        "regionId": "81",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16932",
+        "region": "kalimantan",
+        "context": "Peta wilayah",
+        "name": "KALIMANTAN",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16797",
+        "region": "kalimantan",
+        "context": "Peta wilayah",
+        "name": "KALIMANTAN",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16803",
+        "region": "maluku",
+        "context": "Peta wilayah",
+        "name": "MALUKU",
+        "scope": "Provinsi",
+        "regionId": "81",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "57:16809",
+        "region": "jatim",
+        "context": "Peta wilayah",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "24:16824",
+        "region": "jatim",
+        "context": "Laporan kuartal",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "24:16836",
+        "region": "jatim",
+        "context": "Laporan kuartal",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "24:16828",
+        "region": "sulawesi",
+        "context": "Laporan kuartal",
+        "name": "SULAWESI",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "24:16842",
+        "region": "sulawesi",
+        "context": "Laporan kuartal",
+        "name": "SULAWESI",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "24:16832",
+        "region": "papua",
+        "context": "Laporan kuartal",
+        "name": "PAPUA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "24:16848",
+        "region": "papua",
+        "context": "Laporan kuartal",
+        "name": "PAPUA",
+        "scope": "Kelompok pulau",
+        "regionId": "",
+        "numeric": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "caseEnabled": false,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      },
+      {
+        "id": "22:17131",
+        "region": "jatim",
+        "context": "Peta kasus",
+        "name": "JAWA TIMUR",
+        "scope": "Provinsi",
+        "regionId": "35",
+        "numeric": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "caseEnabled": true,
+        "setCount": 38,
+        "allFieldsReset": true,
+        "resetPass": true,
+        "opensSharedOverlay": true
+      }
+    ],
+    "transitions": [
+      {
+        "nodeId": "15:16789",
+        "name": "JAWA TIMUR",
+        "context": "Peta nasional • JAWA TIMUR",
+        "numbers": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "source": "Belum dimuat • belum diverifikasi",
+        "pass": true
+      },
+      {
+        "nodeId": "15:16783",
+        "name": "MALUKU",
+        "context": "Peta nasional • MALUKU",
+        "numbers": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "source": "Belum dimuat • belum diverifikasi",
+        "pass": true
+      },
+      {
+        "nodeId": "24:16832",
+        "name": "PAPUA",
+        "context": "Laporan kuartal • PAPUA",
+        "numbers": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "source": "Belum dimuat • belum diverifikasi",
+        "pass": true
+      },
+      {
+        "nodeId": "24:16824",
+        "name": "JAWA TIMUR",
+        "context": "Laporan kuartal • JAWA TIMUR",
+        "numbers": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "source": "Belum dimuat • belum diverifikasi",
+        "pass": true
+      },
+      {
+        "nodeId": "22:17032",
+        "name": "JAWA TIMUR",
+        "context": "Peta kasus • JAWA TIMUR",
+        "numbers": [
+          "68 /100",
+          "72%",
+          "61 /100",
+          "74 /100",
+          "64 /100",
+          "106"
+        ],
+        "source": "Belum dimuat • belum diverifikasi",
+        "pass": true
+      },
+      {
+        "nodeId": "57:16797",
+        "name": "KALIMANTAN",
+        "context": "Peta wilayah • KALIMANTAN",
+        "numbers": [
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "source": "Belum dimuat • belum diverifikasi",
+        "pass": true
+      }
+    ],
+    "transitions_pass": true,
+    "instance_reuse": [
+      {
+        "id": "65:16948",
+        "mainComponentId": "65:16837",
+        "pass": true
+      },
+      {
+        "id": "67:17243",
+        "mainComponentId": "65:16837",
+        "pass": true
+      },
+      {
+        "id": "65:17079",
+        "mainComponentId": "65:16837",
+        "pass": true
+      },
+      {
+        "id": "65:17152",
+        "mainComponentId": "65:16837",
+        "pass": true
+      },
+      {
+        "id": "65:17225",
+        "mainComponentId": "65:16837",
+        "pass": true
+      }
+    ],
+    "defaults_contain_jatim": false,
+    "metadata_field_count": 9,
+    "final_text_bounds_exceptions": [],
+    "final_font_families": [
+      "Lilita One",
+      "Inter"
+    ],
+    "font_family_pass": true,
+    "close_coverage": [
+      {
+        "rootId": "65:16837",
+        "closeActionCount": 1,
+        "escapeCloses": false
+      },
+      {
+        "rootId": "65:17021",
+        "closeActionCount": 1,
+        "escapeCloses": true
+      },
+      {
+        "rootId": "65:17057",
+        "closeActionCount": 1,
+        "escapeCloses": true
+      },
+      {
+        "rootId": "65:16946",
+        "closeActionCount": 2,
+        "escapeCloses": true
+      }
+    ],
+    "frames": [
+      {
+        "id": "57:16693",
+        "name": "Nusantara • Detail Wilayah — contoh penggunaan umum",
+        "w": 1920,
+        "h": 1080,
+        "descendants": 370,
+        "counts": {
+          "FRAME": 120,
+          "VECTOR": 86,
+          "RECTANGLE": 28,
+          "TEXT": 119,
+          "ELLIPSE": 2,
+          "INSTANCE": 12,
+          "GROUP": 3
+        }
+      },
+      {
+        "id": "65:17076",
+        "name": "Nusantara • Detail wilayah — keadaan umum",
+        "w": 1986,
+        "h": 993,
+        "descendants": 221,
+        "counts": {
+          "TEXT": 136,
+          "FRAME": 58,
+          "INSTANCE": 27
+        }
+      },
+      {
+        "id": "65:17021",
+        "name": "Nusantara • Data dan sumber wilayah — umum",
+        "w": 960,
+        "h": 668,
+        "descendants": 35,
+        "counts": {
+          "TEXT": 24,
+          "FRAME": 1,
+          "INSTANCE": 10
+        }
+      },
+      {
+        "id": "65:17057",
+        "name": "Nusantara • Kebijakan wilayah — konteks terpilih",
+        "w": 800,
+        "h": 504,
+        "descendants": 10,
+        "counts": {
+          "TEXT": 8,
+          "INSTANCE": 2
+        }
+      },
+      {
+        "id": "10:17163",
+        "name": "Nusantara • Menu awal — luring",
+        "w": 1920,
+        "h": 1080,
+        "descendants": 48,
+        "counts": {
+          "RECTANGLE": 5,
+          "FRAME": 10,
+          "TEXT": 15,
+          "INSTANCE": 4,
+          "VECTOR": 11,
+          "GROUP": 3
+        }
+      }
+    ],
+    "guarded_case_navigation": [
+      {
+        "action": {
+          "type": "SET_VARIABLE",
+          "variableId": "VariableID:22:17049",
+          "variableValue": {
+            "value": true,
+            "type": "BOOLEAN",
+            "resolvedType": "BOOLEAN"
+          }
+        },
+        "actions": [
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:22:17049",
+            "variableValue": {
+              "value": true,
+              "type": "BOOLEAN",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:22:17057",
+            "variableValue": {
+              "value": false,
+              "type": "BOOLEAN",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:22:17059",
+            "variableValue": {
+              "value": false,
+              "type": "BOOLEAN",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "type": "SET_VARIABLE",
+            "variableId": "VariableID:22:17058",
+            "variableValue": {
+              "value": false,
+              "type": "BOOLEAN",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "type": "NODE",
+            "destinationId": "22:16673",
+            "navigation": "NAVIGATE",
+            "transition": null,
+            "resetVideoPosition": false
+          }
+        ],
+        "trigger": {
+          "type": "ON_CLICK"
+        }
+      }
+    ]
+  },
+  "known_limits": [
+    "No Godot script/scene or gameplay data was modified.",
+    "Figma clicks are wired for the existing labels, markers, legends and case-location maps; full per-polygon GIS interaction remains runtime work.",
+    "Only the existing Jawa Timur fixture supplies example indicator numbers; every other example and all regional report indicators remain blank when not provided.",
+    "The complete case options linked by the policy context are the existing Jawa Timur fixture; other regions do not navigate to that case.",
+    "Main components are shared, but prototype state is a selected-region variable collection rather than an authoritative simulation model.",
+    "Only current 1920x1080 composition and provided component examples were visually checked; window resizing and full keyboard traversal were not runtime-tested.",
+    "The connected API rejects empty scopes for BOOLEAN; the visibility state boolean explicitly uses ALL_SCOPES. String content variables use TEXT_CONTENT.",
+    "No new official observations, source URLs, or retrieval dates were fabricated for pending baseline fields."
+  ]
+}

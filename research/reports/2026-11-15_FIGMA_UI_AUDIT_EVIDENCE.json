@@ -1,0 +1,885 @@
+{
+  "task": "Audit dan koreksi UI Figma NUSANTARA",
+  "retrieved_at": "2026-11-15T01:45:47Z",
+  "file_key": "xXZj1Xnoxln1coG2yEO81a",
+  "session_id": "075f18b7-1760-4c4a-ad7d-8e62fcf61bbf",
+  "archive": {
+    "id": "51:16724",
+    "frames": [
+      {
+        "sourceId": "10:17163",
+        "backupId": "51:16725",
+        "name": "Nusantara • Login — gaya referensi",
+        "descendants": 77
+      },
+      {
+        "sourceId": "15:16673",
+        "backupId": "51:16834",
+        "name": "Nusantara • Beranda — peta nusantara",
+        "descendants": 296
+      },
+      {
+        "sourceId": "17:16744",
+        "backupId": "51:17162",
+        "name": "Nusantara • Profil presiden",
+        "descendants": 231
+      },
+      {
+        "sourceId": "18:16748",
+        "backupId": "51:17396",
+        "name": "Nusantara • Statistik pemerintahan",
+        "descendants": 385
+      },
+      {
+        "sourceId": "20:16685",
+        "backupId": "51:17782",
+        "name": "Nusantara • Pengaturan permainan",
+        "descendants": 281
+      },
+      {
+        "sourceId": "22:16673",
+        "backupId": "51:18064",
+        "name": "Nusantara • Peristiwa dan Keputusan",
+        "descendants": 453
+      },
+      {
+        "sourceId": "24:16724",
+        "backupId": "51:18549",
+        "name": "Nusantara • Laporan Hasil Kuartal",
+        "descendants": 186
+      }
+    ]
+  },
+  "components": {
+    "board": "53:16749",
+    "badge": "53:16751",
+    "badgeKey": "Teks#53:0",
+    "buttonSet": "53:16761",
+    "main": "53:16753",
+    "secondary": "53:16757"
+  },
+  "variables": {
+    "panel": "VariableID:53:16728",
+    "panel_deep": "VariableID:53:16730",
+    "primary": "VariableID:53:16732",
+    "primary_text": "VariableID:53:16734",
+    "text": "VariableID:53:16736",
+    "text_muted": "VariableID:53:16738",
+    "accent": "VariableID:53:16740",
+    "outline": "VariableID:53:16742",
+    "gap": "VariableID:53:16743",
+    "pad": "VariableID:53:16744",
+    "radius": "VariableID:53:16745"
+  },
+  "style_ids": [
+    "S:d478a615c699d475a3fac04c61ef09effb61394c,",
+    "S:4d23ccae1ce09f668189cc50e6eb1dcef6c0f8aa,",
+    "S:5cca8134c997ca79a4163c62d05b960798974243,"
+  ],
+  "guide_id": "53:16773",
+  "final_verification": {
+    "textBoundsExceptions": [],
+    "fontFamilies": [
+      "Lilita One",
+      "Inter"
+    ],
+    "fontFamilyPass": true,
+    "images": [
+      {
+        "id": "10:17164",
+        "name": "Dunia Nusantara dan Presiden Nara",
+        "type": "RECTANGLE",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "id": "15:16764",
+        "name": "Vector",
+        "type": "VECTOR",
+        "width": 1411.199951171875,
+        "height": 489.0239562988281
+      },
+      {
+        "id": "15:16809",
+        "name": "Potret Presiden Nara",
+        "type": "FRAME",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "id": "17:16834",
+        "name": "Potret Presiden Nara",
+        "type": "FRAME",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "id": "17:16977",
+        "name": "Nara Adinata • karakter pemain",
+        "type": "RECTANGLE",
+        "width": 543.5213012695312,
+        "height": 859
+      },
+      {
+        "id": "18:16838",
+        "name": "Potret Presiden Nara",
+        "type": "FRAME",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "id": "18:17091",
+        "name": "Nara • rapor statistik",
+        "type": "RECTANGLE",
+        "width": 284,
+        "height": 448.843505859375
+      },
+      {
+        "id": "22:16764",
+        "name": "Vector",
+        "type": "VECTOR",
+        "width": 1862.783935546875,
+        "height": 645.5115966796875
+      },
+      {
+        "id": "22:16809",
+        "name": "Potret Presiden Nara",
+        "type": "FRAME",
+        "width": 80,
+        "height": 80
+      },
+      {
+        "id": "22:17036",
+        "name": "Vector",
+        "type": "VECTOR",
+        "width": 1078,
+        "height": 373.5599670410156
+      },
+      {
+        "id": "22:17045",
+        "name": "Avatar penasihat pemerintah",
+        "type": "FRAME",
+        "width": 104,
+        "height": 104
+      },
+      {
+        "id": "22:17142",
+        "name": "Vector",
+        "type": "VECTOR",
+        "width": 1078,
+        "height": 373.5599670410156
+      },
+      {
+        "id": "24:16728",
+        "name": "Avatar Presiden Nara Adinata",
+        "type": "FRAME",
+        "width": 88,
+        "height": 88
+      },
+      {
+        "id": "24:16822",
+        "name": "Vector",
+        "type": "VECTOR",
+        "width": 489.9999694824219,
+        "height": 169.7999725341797
+      }
+    ],
+    "componentVariantCount": 4,
+    "appliedAssets": {
+      "menuInstances": [
+        {
+          "id": "53:16764",
+          "mainId": "53:16751"
+        },
+        {
+          "id": "53:16767",
+          "mainId": "53:16753"
+        },
+        {
+          "id": "53:16769",
+          "mainId": "53:16757"
+        }
+      ],
+      "badgeInstances": [
+        {
+          "id": "53:16764",
+          "frame": "10:17163"
+        },
+        {
+          "id": "55:16720",
+          "frame": "15:16673"
+        },
+        {
+          "id": "55:16722",
+          "frame": "17:16744"
+        },
+        {
+          "id": "55:16724",
+          "frame": "18:16748"
+        },
+        {
+          "id": "55:16726",
+          "frame": "22:16673"
+        }
+      ]
+    },
+    "archive": {
+      "id": "51:16724",
+      "frames": 7
+    },
+    "frames": [
+      {
+        "id": "10:17163",
+        "name": "Nusantara • Menu awal — luring",
+        "width": 1920,
+        "height": 1080,
+        "counts": {
+          "RECTANGLE": 5,
+          "FRAME": 10,
+          "TEXT": 15,
+          "INSTANCE": 4,
+          "VECTOR": 11,
+          "GROUP": 3
+        }
+      },
+      {
+        "id": "15:16673",
+        "name": "Nusantara • Beranda — peta nusantara",
+        "width": 1920,
+        "height": 1080,
+        "counts": {
+          "FRAME": 98,
+          "VECTOR": 89,
+          "RECTANGLE": 29,
+          "TEXT": 70,
+          "ELLIPSE": 2,
+          "INSTANCE": 3,
+          "GROUP": 7
+        }
+      },
+      {
+        "id": "17:16744",
+        "name": "Nusantara • Profil presiden",
+        "width": 1920,
+        "height": 1080,
+        "counts": {
+          "FRAME": 77,
+          "VECTOR": 64,
+          "RECTANGLE": 24,
+          "TEXT": 51,
+          "ELLIPSE": 16,
+          "INSTANCE": 1
+        }
+      },
+      {
+        "id": "18:16748",
+        "name": "Nusantara • Statistik pemerintahan",
+        "width": 1920,
+        "height": 1080,
+        "counts": {
+          "FRAME": 152,
+          "VECTOR": 77,
+          "RECTANGLE": 81,
+          "GROUP": 1,
+          "TEXT": 69,
+          "INSTANCE": 2,
+          "ELLIPSE": 5
+        }
+      },
+      {
+        "id": "20:16685",
+        "name": "Nusantara • Pengaturan permainan",
+        "width": 1920,
+        "height": 1080,
+        "counts": {
+          "FRAME": 97,
+          "VECTOR": 61,
+          "RECTANGLE": 73,
+          "TEXT": 50
+        }
+      },
+      {
+        "id": "22:16673",
+        "name": "Nusantara • Peristiwa dan Keputusan",
+        "width": 1920,
+        "height": 1080,
+        "counts": {
+          "FRAME": 155,
+          "VECTOR": 112,
+          "RECTANGLE": 31,
+          "TEXT": 124,
+          "ELLIPSE": 2,
+          "INSTANCE": 3,
+          "GROUP": 9
+        }
+      },
+      {
+        "id": "24:16724",
+        "name": "Nusantara • Laporan Hasil Kuartal",
+        "width": 1920,
+        "height": 1080,
+        "counts": {
+          "FRAME": 81,
+          "TEXT": 69,
+          "STAR": 1,
+          "VECTOR": 34,
+          "ELLIPSE": 1
+        }
+      }
+    ]
+  },
+  "branch_checks": {
+    "method": "Static evaluation of read-back Figma reactions, not interactive playback.",
+    "results": [
+      {
+        "name": "A",
+        "report": false,
+        "result": true,
+        "pass": true
+      },
+      {
+        "name": "A belum dikonfirmasi",
+        "pass": true
+      },
+      {
+        "name": "B",
+        "report": true,
+        "pass": true
+      },
+      {
+        "name": "B belum dikonfirmasi",
+        "pass": true
+      },
+      {
+        "name": "C",
+        "report": false,
+        "result": true,
+        "pass": true
+      },
+      {
+        "name": "C belum dikonfirmasi",
+        "pass": true
+      }
+    ]
+  },
+  "quarter_actions": [
+    {
+      "id": "22:16947",
+      "reactions": [
+        {
+          "action": {
+            "type": "CONDITIONAL",
+            "conditionalBlocks": [
+              {
+                "actions": [
+                  {
+                    "type": "SET_VARIABLE",
+                    "variableId": "VariableID:22:17059",
+                    "variableValue": {
+                      "value": false,
+                      "type": "BOOLEAN",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  },
+                  {
+                    "type": "SET_VARIABLE",
+                    "variableId": "VariableID:22:17049",
+                    "variableValue": {
+                      "value": false,
+                      "type": "BOOLEAN",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  },
+                  {
+                    "type": "NODE",
+                    "destinationId": "24:16724",
+                    "navigation": "NAVIGATE",
+                    "transition": null,
+                    "resetVideoPosition": false
+                  }
+                ],
+                "condition": {
+                  "value": {
+                    "expressionArguments": [
+                      {
+                        "value": {
+                          "type": "VARIABLE_ALIAS",
+                          "id": "VariableID:22:17056"
+                        },
+                        "type": "VARIABLE_ALIAS",
+                        "resolvedType": "BOOLEAN"
+                      },
+                      {
+                        "value": {
+                          "type": "VARIABLE_ALIAS",
+                          "id": "VariableID:22:17051"
+                        },
+                        "type": "VARIABLE_ALIAS",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    ],
+                    "expressionFunction": "AND"
+                  },
+                  "type": "EXPRESSION",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "actions": []
+              }
+            ]
+          },
+          "actions": [
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17059",
+                      "variableValue": {
+                        "value": false,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17049",
+                      "variableValue": {
+                        "value": false,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "type": "NODE",
+                      "destinationId": "24:16724",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:22:17056"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:22:17051"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "AND"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17059",
+                      "variableValue": {
+                        "value": false,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17049",
+                      "variableValue": {
+                        "value": false,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17058",
+                      "variableValue": {
+                        "value": true,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:22:17056"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "type": "VARIABLE_ALIAS",
+                                  "id": "VariableID:22:17051"
+                                },
+                                "type": "VARIABLE_ALIAS",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "NOT"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "AND"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17060",
+                      "variableValue": {
+                        "value": "Tetapkan satu keputusan sebelum melanjutkan kuartal.",
+                        "type": "STRING",
+                        "resolvedType": "STRING"
+                      }
+                    },
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17059",
+                      "variableValue": {
+                        "value": true,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:22:17056"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "NOT"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            }
+          ],
+          "trigger": {
+            "type": "ON_CLICK"
+          }
+        }
+      ]
+    },
+    {
+      "id": "22:16948",
+      "reactions": [
+        {
+          "action": {
+            "type": "CONDITIONAL",
+            "conditionalBlocks": [
+              {
+                "actions": [
+                  {
+                    "type": "SET_VARIABLE",
+                    "variableId": "VariableID:22:17059",
+                    "variableValue": {
+                      "value": false,
+                      "type": "BOOLEAN",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  },
+                  {
+                    "type": "SET_VARIABLE",
+                    "variableId": "VariableID:22:17049",
+                    "variableValue": {
+                      "value": false,
+                      "type": "BOOLEAN",
+                      "resolvedType": "BOOLEAN"
+                    }
+                  },
+                  {
+                    "type": "NODE",
+                    "destinationId": "24:16724",
+                    "navigation": "NAVIGATE",
+                    "transition": null,
+                    "resetVideoPosition": false
+                  }
+                ],
+                "condition": {
+                  "value": {
+                    "expressionArguments": [
+                      {
+                        "value": {
+                          "type": "VARIABLE_ALIAS",
+                          "id": "VariableID:22:17056"
+                        },
+                        "type": "VARIABLE_ALIAS",
+                        "resolvedType": "BOOLEAN"
+                      },
+                      {
+                        "value": {
+                          "type": "VARIABLE_ALIAS",
+                          "id": "VariableID:22:17051"
+                        },
+                        "type": "VARIABLE_ALIAS",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    ],
+                    "expressionFunction": "AND"
+                  },
+                  "type": "EXPRESSION",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "actions": []
+              }
+            ]
+          },
+          "actions": [
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17059",
+                      "variableValue": {
+                        "value": false,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17049",
+                      "variableValue": {
+                        "value": false,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "type": "NODE",
+                      "destinationId": "24:16724",
+                      "navigation": "NAVIGATE",
+                      "transition": null,
+                      "resetVideoPosition": false
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:22:17056"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:22:17051"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "AND"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17059",
+                      "variableValue": {
+                        "value": false,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17049",
+                      "variableValue": {
+                        "value": false,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    },
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17058",
+                      "variableValue": {
+                        "value": true,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:22:17056"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "type": "VARIABLE_ALIAS",
+                                  "id": "VariableID:22:17051"
+                                },
+                                "type": "VARIABLE_ALIAS",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "NOT"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "AND"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            },
+            {
+              "type": "CONDITIONAL",
+              "conditionalBlocks": [
+                {
+                  "actions": [
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17060",
+                      "variableValue": {
+                        "value": "Tetapkan satu keputusan sebelum melanjutkan kuartal.",
+                        "type": "STRING",
+                        "resolvedType": "STRING"
+                      }
+                    },
+                    {
+                      "type": "SET_VARIABLE",
+                      "variableId": "VariableID:22:17059",
+                      "variableValue": {
+                        "value": true,
+                        "type": "BOOLEAN",
+                        "resolvedType": "BOOLEAN"
+                      }
+                    }
+                  ],
+                  "condition": {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:22:17056"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "NOT"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                },
+                {
+                  "actions": []
+                }
+              ]
+            }
+          ],
+          "trigger": {
+            "type": "ON_CLICK"
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Godot runtime not modified or tested in this Figma-only task.",
+    "Settings controls and save/load persistence are not implemented by this prototype.",
+    "Existing coarse map art is not district-level geographic data.",
+    "setCodeSyntax is unsupported by the connected Figma API; scopes and aliases are present, code syntax was skipped."
+  ]
+}
