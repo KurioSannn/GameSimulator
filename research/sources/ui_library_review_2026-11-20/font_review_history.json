@@ -1,0 +1,38 @@
+{
+  "inactive_fonts": [
+    {
+      "source_institution": "Google Fonts / respective font authors",
+      "title": "Bungee-Regular.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/ofl/bungee/Bungee-Regular.ttf",
+      "publication_update_date": null,
+      "retrieval_timestamp": "2026-11-19T18:39:21.442450+00:00",
+      "geographic_resolution": "Not applicable; font",
+      "reference_period": "cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "unit": "Original TTF binary",
+      "source_status": "Official Google Fonts repository; binary signature and OFL notice verified",
+      "sha256": "c4f5361ce120af3e6b9156d0bf379fa19cda2ea0cd18ac01fd99596c6bf66e3f",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "Bungee-OFL.txt",
+      "role": "Reviewed earlier typography; inactive after user feedback",
+      "active": false,
+      "cached_file": "research/sources/ui_library_review_2026-11-20/raw/fonts/Bungee-Regular.ttf"
+    },
+    {
+      "source_institution": "Google Fonts / respective font authors",
+      "title": "ChakraPetch-SemiBold.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/ofl/chakrapetch/ChakraPetch-SemiBold.ttf",
+      "publication_update_date": null,
+      "retrieval_timestamp": "2026-11-19T18:39:23.979589+00:00",
+      "geographic_resolution": "Not applicable; font",
+      "reference_period": "cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "unit": "Original TTF binary",
+      "source_status": "Official Google Fonts repository; binary signature and OFL notice verified",
+      "sha256": "45264de3204ddbd5fb3e14a2402acd5c630d16650ae5fc221d2c52da46a6734b",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "ChakraPetch-OFL.txt",
+      "role": "Reviewed earlier typography; inactive after user feedback",
+      "active": false,
+      "cached_file": "research/sources/ui_library_review_2026-11-20/raw/fonts/ChakraPetch-SemiBold.ttf"
+    }
+  ]
+}
