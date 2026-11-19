@@ -1,0 +1,94 @@
+{
+  "batches": 48,
+  "checks": [
+    {
+      "label": "all canonical regions remain in 3D",
+      "ok": true
+    },
+    {
+      "label": "all generated decorative props render",
+      "ok": true
+    },
+    {
+      "label": "48 model variants render as mesh batches",
+      "ok": true
+    },
+    {
+      "label": "36 varied cloud clusters render",
+      "ok": true
+    },
+    {
+      "label": "pending case creates a location marker",
+      "ok": true
+    },
+    {
+      "label": "3D camera picking returns canonical Surabaya",
+      "ok": true
+    },
+    {
+      "label": "3D selection opens the matching data context",
+      "ok": true
+    },
+    {
+      "label": "actual mouse click selects the 3D region",
+      "ok": true
+    },
+    {
+      "label": "reduced motion freezes water",
+      "ok": true
+    },
+    {
+      "label": "reduced motion freezes cloud clusters and ground shadows",
+      "ok": true
+    },
+    {
+      "label": "reduced motion freezes vegetation and building effects",
+      "ok": true
+    },
+    {
+      "label": "analytical layers hide decorative props",
+      "ok": true
+    },
+    {
+      "label": "layer menu matches displayed data",
+      "ok": true
+    },
+    {
+      "label": "2D cartographic mode remains available",
+      "ok": true
+    },
+    {
+      "label": "rendering, picking and overlays leave world/RNG unchanged",
+      "ok": true
+    }
+  ],
+  "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "frame_median_ms": 10.034,
+  "frame_p95_ms": 11.299,
+  "passed": false,
+  "props": 9751,
+  "renderer": "gl_compatibility",
+  "runtime_errors": [
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true.",
+    "Condition \"f.is_null()\" is true."
+  ],
+  "window": "(1600, 900)"
+}

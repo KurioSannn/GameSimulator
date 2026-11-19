@@ -1,0 +1,91 @@
+{
+  "batches": 48,
+  "checks": [
+    {
+      "label": "all canonical regions remain in 3D",
+      "ok": true
+    },
+    {
+      "label": "all generated decorative props render",
+      "ok": true
+    },
+    {
+      "label": "48 model variants render as mesh batches",
+      "ok": true
+    },
+    {
+      "label": "36 varied cloud clusters render",
+      "ok": true
+    },
+    {
+      "label": "pending case creates a location marker",
+      "ok": true
+    },
+    {
+      "label": "3D camera picking returns canonical Surabaya",
+      "ok": true
+    },
+    {
+      "label": "3D selection opens the matching data context",
+      "ok": true
+    },
+    {
+      "label": "actual mouse click selects the 3D region",
+      "ok": true
+    },
+    {
+      "label": "all prop batches follow the selected region lift",
+      "ok": true
+    },
+    {
+      "label": "reduced motion freezes water",
+      "ok": true
+    },
+    {
+      "label": "reduced motion freezes cloud clusters and ground shadows",
+      "ok": true
+    },
+    {
+      "label": "reduced motion freezes vegetation and building effects",
+      "ok": true
+    },
+    {
+      "label": "analytical layers hide decorative props",
+      "ok": true
+    },
+    {
+      "label": "layer menu matches displayed data",
+      "ok": true
+    },
+    {
+      "label": "2D cartographic mode remains available",
+      "ok": true
+    },
+    {
+      "label": "rendering, picking and overlays leave world/RNG unchanged",
+      "ok": true
+    }
+  ],
+  "close_frame_median_ms": 6.538,
+  "close_frame_p95_ms": 7.967,
+  "cloud_clusters": 36,
+  "counts": {
+    "house": 2647.0,
+    "midrise": 62.0,
+    "palm": 640.0,
+    "road": 1338.0,
+    "rock": 198.0,
+    "shrub": 1336.0,
+    "streetlight": 564.0,
+    "tower": 98.0,
+    "tree": 2522.0
+  },
+  "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "frame_median_ms": 4.394,
+  "frame_p95_ms": 5.275,
+  "passed": true,
+  "props": 9405,
+  "renderer": "gl_compatibility",
+  "runtime_errors": [],
+  "window": "(1600, 900)"
+}
