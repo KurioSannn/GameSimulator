@@ -9,7 +9,7 @@ const ZOOM_STEP := 1.15
 const KEY_PAN_SPEED := 900.0
 
 var min_zoom := 0.2
-var max_zoom := 40.0
+var max_zoom := 28.0
 var map_bounds := Rect2()
 var _dragging := false
 
@@ -17,7 +17,7 @@ var _dragging := false
 func fit(rect: Rect2, viewport_size: Vector2) -> void:
 	map_bounds = rect
 	var z := minf(viewport_size.x / rect.size.x, viewport_size.y / rect.size.y) * 0.95
-	min_zoom = z * 0.8
+	min_zoom = z * 0.92
 	zoom = Vector2(z, z)
 	position = rect.get_center()
 	view_changed.emit()
@@ -27,6 +27,7 @@ func focus_rect(rect: Rect2, viewport_size: Vector2) -> void:
 	var z := clampf(minf(viewport_size.x / rect.size.x, viewport_size.y / rect.size.y) * 0.5, min_zoom, max_zoom)
 	zoom = Vector2(z, z)
 	position = rect.get_center()
+	_clamp()
 	view_changed.emit()
 
 
@@ -44,7 +45,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		_clamp()
 		view_changed.emit()
 	elif event is InputEventMagnifyGesture:  # trackpads on laptops
-		_zoom_at((event as InputEventMagnifyGesture).factor, get_viewport().get_mouse_position())
+		var mag := event as InputEventMagnifyGesture
+		var pos := mag.position if mag.position != Vector2.ZERO else get_viewport().get_mouse_position()
+		_zoom_at(mag.factor, pos.clamp(Vector2.ZERO, get_viewport_rect().size))
 	elif event is InputEventPanGesture:
 		position += (event as InputEventPanGesture).delta * 20.0 / zoom.x
 		_clamp()
@@ -64,8 +67,8 @@ func _process(delta: float) -> void:
 	# cover the arrow keys (regression: QA checklist 2026-10-22). Ctrl/Cmd+S is manual save, not pan.
 	if not (Input.is_key_pressed(KEY_CTRL) or Input.is_key_pressed(KEY_META)):
 		dir += Vector2(
-			float(Input.is_physical_key_pressed(KEY_D)) - float(Input.is_physical_key_pressed(KEY_A)),
-			float(Input.is_physical_key_pressed(KEY_S)) - float(Input.is_physical_key_pressed(KEY_W)))
+			float(Input.is_physical_key_pressed(int(UiPreferences.values.pan_right))) - float(Input.is_physical_key_pressed(int(UiPreferences.values.pan_left))),
+			float(Input.is_physical_key_pressed(int(UiPreferences.values.pan_down))) - float(Input.is_physical_key_pressed(int(UiPreferences.values.pan_up))))
 	dir = dir.clamp(-Vector2.ONE, Vector2.ONE)
 	if dir != Vector2.ZERO and get_viewport().gui_get_focus_owner() == null:
 		position += dir * KEY_PAN_SPEED * delta / zoom.x
@@ -86,4 +89,9 @@ func _zoom_at(factor: float, screen_pos: Vector2) -> void:
 
 func _clamp() -> void:
 	if map_bounds.size != Vector2.ZERO:
-		position = position.clamp(map_bounds.position, map_bounds.end)
+		var safe := map_bounds.grow(40.0)
+		var half := get_viewport_rect().size / maxf(zoom.x, 0.01) * 0.35
+		var center := safe.get_center()
+		var lo := Vector2(minf(safe.position.x + half.x, center.x), minf(safe.position.y + half.y, center.y))
+		var hi := Vector2(maxf(safe.end.x - half.x, center.x), maxf(safe.end.y - half.y, center.y))
+		position = position.clamp(lo, hi)
