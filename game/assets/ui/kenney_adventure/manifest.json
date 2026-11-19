@@ -1,0 +1,139 @@
+{
+  "source_institution": "Kenney",
+  "title": "UI Pack - Adventure",
+  "license": "CC0-1.0",
+  "version": "1.1 per archive License.txt; creator HTML listing still reports 1.0",
+  "url": "https://kenney.nl/assets/ui-pack-adventure",
+  "publication_update_date": "2024-08-13 (archive creation date)",
+  "creator_distribution_url": "https://opengameart.org/content/ui-pack-adventure",
+  "download_url": "https://opengameart.org/sites/default/files/kenney_ui-pack-adventure.zip",
+  "retrieval_timestamp": "2026-11-19T18:23:31.814863+00:00",
+  "geographic_resolution": "Not applicable; UI art",
+  "reference_period": "Archive version 1.1",
+  "unit": "Original double-resolution PNG sprite",
+  "source_status": "Creator distribution and bundled CC0 notice verified",
+  "archive_sha256": "982e8ab66842509ee9214f9c2038e594cbe029f19d1dc177fecaad3b41a67ed3",
+  "files": [
+    {
+      "file": "panel_brown_corners_a.png",
+      "archive_entry": "PNG/Double/panel_brown_corners_a.png",
+      "sha256": "9f897ce868fe35af019a9f200c06f174bb79af0b36f5c532ae25c575f18c9241"
+    },
+    {
+      "file": "panel_brown.png",
+      "archive_entry": "PNG/Double/panel_brown.png",
+      "sha256": "e5bcda84c20a4d2f44082a9ab8094c959b339cfaffa21e67fcb6b4b6a7f09d36"
+    },
+    {
+      "file": "panel_grey_bolts_detail_a.png",
+      "archive_entry": "PNG/Double/panel_grey_bolts_detail_a.png",
+      "sha256": "edb9ed212acd34e94c3c5bf646921c4357cc3899c87caeb0afa88a9a7c03941e"
+    },
+    {
+      "file": "panel_grey_bolts_dark.png",
+      "archive_entry": "PNG/Double/panel_grey_bolts_dark.png",
+      "sha256": "50d68ac7c4a8420b946425a597ded41c03c9609c3f080a1618ecc7305605475c"
+    },
+    {
+      "file": "panel_border_brown_detail.png",
+      "archive_entry": "PNG/Double/panel_border_brown_detail.png",
+      "sha256": "c1b15362df6e16038a97ba6f873d29529083a11ed4099f9db3132241437af9d5"
+    },
+    {
+      "file": "button_brown.png",
+      "archive_entry": "PNG/Double/button_brown.png",
+      "sha256": "777b61044bc1d4502895c14e32966f21c98009f5579f94308779974087b3b48e"
+    },
+    {
+      "file": "button_grey.png",
+      "archive_entry": "PNG/Double/button_grey.png",
+      "sha256": "4e7eade4b31d0a064e911a9fd35e7e0e82534527aed5c642eb6d7c4dd9f76847"
+    },
+    {
+      "file": "button_red.png",
+      "archive_entry": "PNG/Double/button_red.png",
+      "sha256": "3c6a713d8460767ab060387f452296e5656e20fa275f48fc976eae8c9bf82295"
+    },
+    {
+      "file": "round_brown.png",
+      "archive_entry": "PNG/Double/round_brown.png",
+      "sha256": "d418543a4da683eb9322f8ee0f2856103ef07fdb9a25a38124fdc308e7433341"
+    },
+    {
+      "file": "round_brown_dark.png",
+      "archive_entry": "PNG/Double/round_brown_dark.png",
+      "sha256": "2655330979915ec0517fc91429085e346f53ecbd1a25ed0c8dfe3ad30ea64343"
+    },
+    {
+      "file": "round_grey_dark.png",
+      "archive_entry": "PNG/Double/round_grey_dark.png",
+      "sha256": "87720c433c2a33f88abb2e35c9d18efe724ce011332da0df6d6c97e216774a36"
+    },
+    {
+      "file": "hexagon_brown.png",
+      "archive_entry": "PNG/Double/hexagon_brown.png",
+      "sha256": "e24b67a96f6fade07e22626d714523c29146d73fe1a84d12a5b96e80f3ffe06c"
+    },
+    {
+      "file": "hexagon_brown_dark.png",
+      "archive_entry": "PNG/Double/hexagon_brown_dark.png",
+      "sha256": "f11dc77b7f6c67194eb16294a0a629fb54dcfe713ebbd26bd7aa4bca22a8d2e5"
+    },
+    {
+      "file": "hexagon_grey_dark.png",
+      "archive_entry": "PNG/Double/hexagon_grey_dark.png",
+      "sha256": "4274e7a7d8087f64d149d8de6b3bdbf50393a91a19eb835fe43de2171e232b31"
+    },
+    {
+      "file": "banner_hanging.png",
+      "archive_entry": "PNG/Double/banner_hanging.png",
+      "sha256": "b736f04cd3bbe7e3d33338b3b13ee4eca4887ffaca160e58a91fd5432d4d91fe"
+    },
+    {
+      "file": "minimap_icon_exclamation_red.png",
+      "archive_entry": "PNG/Double/minimap_icon_exclamation_red.png",
+      "sha256": "3c0c7fe76a55038c01d020f06ba5546ed790bd022a9b7c10255cfad68fc351a5"
+    },
+    {
+      "file": "minimap_icon_star_yellow.png",
+      "archive_entry": "PNG/Double/minimap_icon_star_yellow.png",
+      "sha256": "a5c1a3ccc796c07d5e225cb14af90850396cc58fd9ddf5efd93f0bd689914166"
+    },
+    {
+      "file": "minimap_icon_jewel_yellow.png",
+      "archive_entry": "PNG/Double/minimap_icon_jewel_yellow.png",
+      "sha256": "882e85259e27194bd188cf2ef411c9a2ad70ce1fe7107b3fa13c7d93e222c799"
+    },
+    {
+      "file": "minimap_compass_toon_n.png",
+      "archive_entry": "PNG/Double/minimap_compass_toon_n.png",
+      "sha256": "f4d63f6cca29d733c900f03f7eff63c2ca2e56b545953c6efaf1f86f627dc38e"
+    },
+    {
+      "file": "minimap_arrow_a.png",
+      "archive_entry": "PNG/Double/minimap_arrow_a.png",
+      "sha256": "85b6c4134c55228e86dda0ec0df1e8fa8260a42727c253244008492697e62bdf"
+    },
+    {
+      "file": "progress_red_border.png",
+      "archive_entry": "PNG/Double/progress_red_border.png",
+      "sha256": "0094386f69ef90e3262bc2de49ba68215d66ef48d709eb6d51217c34ef6fc031"
+    },
+    {
+      "file": "progress_transparent.png",
+      "archive_entry": "PNG/Double/progress_transparent.png",
+      "sha256": "7451396adadb7cfac6a3e1eff1be900ddeef42e45b4bd139d6a502a7998f157a"
+    },
+    {
+      "file": "checkbox_beige_checked.png",
+      "archive_entry": "PNG/Double/checkbox_beige_checked.png",
+      "sha256": "93fbd9b343bcba8d86e3241d67d417f9894a7d4696bf63f79f38c7b3f867c2d2"
+    },
+    {
+      "file": "checkbox_beige_empty.png",
+      "archive_entry": "PNG/Double/checkbox_beige_empty.png",
+      "sha256": "ac4b6e65a4baaea9411b42884ad9886b82548d42e224dbeb82aeec2cc6276bac"
+    }
+  ],
+  "usage": "Native Godot nine-slice frames, game buttons and HUD decorations; original bytes retained."
+}
