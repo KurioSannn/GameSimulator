@@ -62,13 +62,27 @@ def build() -> None:
     y0 -= 240.0
     x1 += 240.0
     y1 += 240.0
-    width, height = 3072, 1344
+    width, height = 4096, 1792
     dx, dy = (x1 - x0) / (width - 1), (y1 - y0) / (height - 1)
 
     image = Image.new("L", (width, height))
     draw = ImageDraw.Draw(image)
     for points in tri:
         draw.polygon([((x - x0) / dx, (y - y0) / dy) for x, y in points], fill=255)
+    # Union higher-detail LOD2/LOD3 silhouettes onto the visual coast_field so zoomed-in capes
+    # never evaluate mask == 0 (which made sharp peninsulas turn solid brown sand).
+    for lod_name in ("kabkota_lod2", "kabkota_lod3"):
+        lod_json = ROOT / f"game/data/map/v2/{lod_name}.json"
+        lod_bin = ROOT / f"game/data/map/v2/{lod_name}.bin"
+        if lod_json.exists() and lod_bin.exists():
+            l_meta = json.loads(lod_json.read_text(encoding="utf-8"))
+            l_raw = lod_bin.read_bytes()
+            l_pos_s = l_meta["bin"]["sections"]["positions"]
+            l_tri_s = l_meta["bin"]["sections"]["triangles"]
+            l_xy = np.frombuffer(l_raw, dtype="<f4", count=l_pos_s["count"] * 2, offset=l_pos_s["offset"]).reshape(-1, 2)
+            l_idx = np.frombuffer(l_raw, dtype="<i4", count=l_tri_s["count"], offset=l_tri_s["offset"]).reshape(-1, 3)
+            for points in l_xy[l_idx]:
+                draw.polygon([((float(x) - x0) / dx, (float(y) - y0) / dy) for x, y in points], fill=255)
     mask = np.asarray(image) > 0
     inside = distance_transform_edt(mask, sampling=(dy, dx))
     outside = distance_transform_edt(~mask, sampling=(dy, dx))
@@ -458,16 +472,17 @@ def build() -> None:
     nb[flip] = 1.0 - nb[flip]
     samples = points[:, 0] + na * (points[:, 1] - points[:, 0]) + nb * (points[:, 2] - points[:, 0])
 
+    region_nature_counts: Counter[int] = Counter()
     nature_count = 0
     for n, (x, y) in enumerate(samples):
-        if nature_count >= 16500:
+        if nature_count >= 17200:
             break
         region = int(uv[indices[chosen[n], 0], 0])
         if region >= 514:
             continue
         px, py = world_to_px(float(x), float(y))
         clearance = float(inside[py, px])
-        if clearance < 3.0:
+        if clearance < 1.8:
             continue
         u_dens = float(urban_glow[py, px])
         if u_dens > 0.32:
@@ -485,7 +500,7 @@ def build() -> None:
             rad = float(catalog[kind]["footprint"]) * sz * 0.35
         elif clearance < 14.0 and rng.random() < 0.55:
             kind = "palm"
-            sz = float(rng.uniform(0.14, 0.25))
+            sz = float(rng.uniform(0.14, 0.24))
             rad = float(catalog[kind]["footprint"]) * sz * 0.33
         elif biome < 0.58 and clearance > 7.0 and u_dens < 0.18 and rng.random() < 0.18:
             kind = "crop"
@@ -510,6 +525,57 @@ def build() -> None:
         add(kind, region, rx, rz, sz, float(rng.random() * np.pi * 2.0), role="decoration")
         occupy(rx, rz, rad)
         nature_count += 1
+        region_nature_counts[region] += 1
+
+    # Stratified per-region flora guarantee so outer & tiny islands (Anambas, Sangihe, Maluku, NTT) never look barren
+    for region in range(len(registry["regions"])):
+        r_tri, r_lo, r_hi = region_geom[region]
+        allowed = np.flatnonzero(region_for_tri == region)
+        if not len(allowed):
+            continue
+        reg_areas = areas[allowed]
+        total_reg_area = float(reg_areas.sum())
+        min_flora = min(14, max(4, int(round(np.sqrt(total_reg_area) * 1.15))))
+        if region_nature_counts[region] >= min_flora:
+            continue
+        reg_cum = np.cumsum(reg_areas)
+        n_cand = 96
+        picks = np.searchsorted(reg_cum, rng.random(n_cand) * reg_cum[-1])
+        pts = r_tri[picks]
+        sa = rng.random((n_cand, 1))
+        sb = rng.random((n_cand, 1))
+        fl = sa + sb > 1.0
+        sa[fl] = 1.0 - sa[fl]
+        sb[fl] = 1.0 - sb[fl]
+        reg_samples = pts[:, 0] + sa * (pts[:, 1] - pts[:, 0]) + sb * (pts[:, 2] - pts[:, 0])
+        for sx, sz_pos in reg_samples:
+            if region_nature_counts[region] >= min_flora:
+                break
+            px, py = world_to_px(float(sx), float(sz_pos))
+            clearance = float(inside[py, px])
+            if clearance < 0.45 or float(urban_glow[py, px]) > 0.36:
+                continue
+            small_mul = 0.65 if clearance < 1.8 else 0.90
+            if clearance < 9.0 and rng.random() < 0.62:
+                kind = "palm"
+                sz = float(rng.uniform(0.10, 0.20) * small_mul)
+            elif rng.random() < 0.24:
+                kind = "shrub"
+                sz = float(rng.uniform(0.14, 0.26) * small_mul)
+            else:
+                kind = "tree"
+                sz = float(rng.uniform(0.11, 0.22) * small_mul)
+            rad = float(catalog[kind]["footprint"]) * sz * 0.28
+            rx = round(float(sx), 3)
+            rz = round(float(sz_pos), 3)
+            if not can_place(rx, rz, rad):
+                continue
+            if not fits_boxes(np.array([rx, rz]) + micro_cross, r_tri, r_lo, r_hi):
+                continue
+            add(kind, region, rx, rz, sz, float(rng.random() * np.pi * 2.0), role="decoration")
+            occupy(rx, rz, rad)
+            nature_count += 1
+            region_nature_counts[region] += 1
 
     # Offshore Vessels along Indonesia sea lanes & major port approaches (outside land polygons!)
     vessels: list[dict] = []
@@ -527,9 +593,9 @@ def build() -> None:
         vz = float(rng.uniform(y0 + 140.0, y1 - 140.0))
         px, py = world_to_px(vx, vz)
         sea_dist = float(outside[py, px])
-        if sea_dist < 8.5 or sea_dist > 110.0:
+        if sea_dist < 10.5 or sea_dist > 110.0:
             continue
-        if any((vx - sx) ** 2 + (vz - sz) ** 2 < 42.0 ** 2 for sx, sz in vessel_pts):
+        if any((vx - sx) ** 2 + (vz - sz) ** 2 < 44.0 ** 2 for sx, sz in vessel_pts):
             continue
         near_port = bool(len(coastal_hub_xy) and np.min(np.sum((coastal_hub_xy - [vx, vz]) ** 2, axis=1)) < 120.0 ** 2)
         if near_port and sea_dist < 42.0:
@@ -546,6 +612,37 @@ def build() -> None:
         gz = float(grad_out_y[py, px])
         coast_heading = float(np.arctan2(gx, gz) + (np.pi * 0.5 if len(vessels) % 2 == 0 else -np.pi * 0.5))
         heading = coast_heading + float(rng.uniform(-0.35, 0.35))
+
+        # Fit safe verified sea-lane patrol loop around (vx, vz) so moving ships never clip islands
+        fwd_x, fwd_z = float(np.sin(heading)), float(np.cos(heading))
+        right_x, right_z = fwd_z, -fwd_x
+        cruise_a, cruise_b = 0.0, 0.0
+        for scale_try in (1.0, 0.75, 0.55, 0.38, 0.24):
+            a_try = min(46.0, sea_dist * 0.72) * scale_try
+            b_try = min(18.0, sea_dist * 0.34) * scale_try
+            if a_try < 4.5:
+                continue
+            phis = np.linspace(0.0, 2.0 * np.pi, 16, endpoint=False)
+            xs_chk = vx + np.cos(phis) * a_try * fwd_x + np.sin(phis) * b_try * right_x
+            zs_chk = vz + np.cos(phis) * a_try * fwd_z + np.sin(phis) * b_try * right_z
+            if np.any((xs_chk < x0 + 60.0) | (xs_chk > x1 - 60.0) | (zs_chk < y0 + 60.0) | (zs_chk > y1 - 60.0)):
+                continue
+            ok_sea = True
+            for lx, lz in zip(xs_chk, zs_chk):
+                lpx, lpy = world_to_px(float(lx), float(lz))
+                if float(outside[lpy, lpx]) < 4.5:
+                    ok_sea = False
+                    break
+            if ok_sea:
+                cruise_a = round(a_try, 2)
+                cruise_b = round(b_try, 2)
+                break
+
+        knot_speed = float(rng.uniform(2.0, 3.6)) if variant in cargo_variants else float(rng.uniform(1.4, 2.6))
+        omega = float(np.clip(knot_speed / max(cruise_a, 12.0), 0.045, 0.14)) if cruise_a > 0.0 else 0.0
+        if len(vessels) % 2 == 1:
+            omega = -omega
+
         vessels.append({
             "x": round(vx, 3),
             "z": round(vz, 3),
@@ -554,6 +651,9 @@ def build() -> None:
             "rotation": round(heading, 4),
             "size": round(v_size, 3),
             "phase": round(float(rng.uniform(0.0, np.pi * 2.0)), 3),
+            "cruise_a": cruise_a,
+            "cruise_b": cruise_b,
+            "speed": round(omega, 4),
         })
         vessel_pts.append((vx, vz))
 
