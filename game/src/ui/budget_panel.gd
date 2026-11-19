@@ -13,13 +13,13 @@ var _ledger_vals: Dictionary = {}
 
 
 func _ready() -> void:
-	custom_minimum_size = Vector2(680, 0)
-	add_theme_stylebox_override("panel", StitchTheme.box(StitchTheme.color("surface"), StitchTheme.color("outline"), 4, 14, 20, 18))
+	custom_minimum_size = Vector2(840, 720)
+	add_theme_stylebox_override("panel", GameSkin.frame())
 	var box := UiKit.vbox(14)
 	add_child(box)
 
 	box.add_child(UiKit.modal_header(
-		"KEUANGAN NEGARA",
+		"",
 		"ANGGARAN NASIONAL",
 		func(): visible = false,
 		"",
@@ -29,13 +29,14 @@ func _ready() -> void:
 	))
 
 	var cfg: Dictionary = ContentDB.budget
-	if str(cfg.get("pool_status", "")) == "REAL_OFFICIAL":
-		box.add_child(UiKit.tag("NYATA · APBN %s: %s" % [cfg.pool_reference_period, Fmt.rupiah(float(cfg.pool_rp))], UiKit.REAL))
-	else:
-		var bt := UiKit.tag("ⓘ Mode simulasi · APBN 2026 belum terkalibrasi", UiKit.INFO, 11)
-		bt.tooltip_text = "Porsi dasar sektor masih netral dalam poin simulasi."
-		bt.mouse_filter = Control.MOUSE_FILTER_STOP
-		box.add_child(bt)
+	var root_box := box
+	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	root_box.add_child(scroll)
+	box = UiKit.vbox(12)
+	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(box)
 
 	# Spending level card
 	var lvl_card := PanelContainer.new()
@@ -48,7 +49,7 @@ func _ready() -> void:
 	ltitle.tooltip_text = "Efek per bulan: Infrastruktur -> infrastruktur; Kebencanaan -> proteksi banjir + pemulihan; Layanan -> layanan publik; Pangan -> kapasitas pangan."
 	ltitle.mouse_filter = Control.MOUSE_FILTER_STOP
 	ltop.add_child(ltitle)
-	_level_label = UiKit.title("100%", 20, UiKit.ACCENT)
+	_level_label = UiKit.number("100%", 22, UiKit.ACCENT)
 	ltop.add_child(_level_label)
 	lv.add_child(ltop)
 	lv.add_child(UiKit.label("100% = belanja standar. Melebihi 100% mengurangi cadangan anggaran tiap bulan.", 13, UiKit.MUTED, true))
@@ -113,7 +114,7 @@ func _ready() -> void:
 		var cell := UiKit.vbox(2)
 		cell.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		cell.add_child(UiKit.label(spec[1], 12, UiKit.MUTED))
-		var vlbl := UiKit.title("0,0", 18)
+		var vlbl := UiKit.number("0,0", 22)
 		cell.add_child(vlbl)
 		_ledger_vals[spec[0]] = vlbl
 		lgrid.add_child(cell)
@@ -130,11 +131,12 @@ func _ready() -> void:
 	var apply := UiKit.button("TERAPKAN ANGGARAN", _apply, true)
 	apply.custom_minimum_size = Vector2(220, 46)
 	foot.add_child(apply)
-	box.add_child(foot)
+	root_box.add_child(foot)
 	visible = false
 
 
 func open() -> void:
+	custom_minimum_size.y = minf(get_viewport_rect().size.y - 48.0, 720.0)
 	var n: Dictionary = Game.world.national
 	_level.value = float(n.get("budget_level", 1.0))
 	for sid in _spins:
