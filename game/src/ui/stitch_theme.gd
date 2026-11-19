@@ -70,7 +70,7 @@ static func build() -> Theme:
 	var t := Theme.new()
 	var fonts: Dictionary = tokens().get("fonts", {})
 	var body_font: Font = load(str(fonts.get("body_path", "res://assets/fonts/Inter.ttf")))
-	var display_font: Font = load(str(fonts.get("display_path", "res://assets/fonts/LilitaOne-Regular.ttf")))
+	var display_font: Font = load(str(fonts.get("strong_path", "res://assets/fonts/AlegreyaSans-Bold.ttf")))
 	t.default_font_size = UiKit.font_size(int(fonts.get("size_body", 16)))
 	if body_font != null:
 		t.default_font = body_font
@@ -78,6 +78,8 @@ static func build() -> Theme:
 	# Text & basic widgets
 	for cls in ["Label", "RichTextLabel", "CheckButton", "CheckBox", "OptionButton", "LineEdit"]:
 		t.set_color("font_color", cls, color("text"))
+		t.set_font("font", cls, body_font)
+	t.set_font("normal_font", "RichTextLabel", body_font)
 	t.set_color("font_placeholder_color", "LineEdit", color("text_muted"))
 	t.set_stylebox("normal", "LineEdit", soft_box(color("panel_soft"), Color(1, 1, 1, 0.16), 8, 12, 8))
 	t.set_stylebox("focus", "LineEdit", soft_box(color("panel_deep"), color("title_gold"), 8, 12, 8, 2))
@@ -186,6 +188,7 @@ static func build() -> Theme:
 	t.set_color("font_color", "TooltipLabel", color("text"))
 	t.set_font_size("font_size", "TooltipLabel", UiKit.font_size(13))
 
+	GameSkin.apply(t)
 	return t
 
 
@@ -194,7 +197,7 @@ static func _button(t: Theme, type: String, fill: Color, text: Color, edge: Colo
 	t.set_stylebox("normal", type, box(fill, edge, depth, 9, pad_x, pad_y))
 	t.set_stylebox("hover", type, box(fill.lightened(0.10), edge, depth, 9, pad_x, pad_y))
 	t.set_stylebox("pressed", type, box(fill.darkened(0.15), edge, maxi(0, depth - 2), 9, pad_x, pad_y))
-	t.set_stylebox("disabled", type, soft_box(fill.darkened(0.45), Color(1, 1, 1, 0.08), 9, pad_x, pad_y, 1))
+	t.set_stylebox("disabled", type, soft_box(color("panel_deep"), Color(1, 1, 1, 0.08), 9, pad_x, pad_y, 1))
 	var focus := soft_box(Color(0, 0, 0, 0), Color.WHITE, 9, pad_x, pad_y, 3)
 	t.set_stylebox("focus", type, focus)
 	if font != null:
@@ -202,7 +205,7 @@ static func _button(t: Theme, type: String, fill: Color, text: Color, edge: Colo
 	t.set_font_size("font_size", type, font_size)
 	for ckey in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color", "font_hover_pressed_color"]:
 		t.set_color(ckey, type, text)
-	t.set_color("font_disabled_color", type, text.darkened(0.42))
+	t.set_color("font_disabled_color", type, color("text_muted").darkened(0.2))
 
 
 static func _ghost_button(t: Theme, type: String, font: Font, font_size: int) -> void:

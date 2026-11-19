@@ -17,7 +17,7 @@ func _draw() -> void:
 
 	for n in 5:
 		var y := area.end.y - area.size.y * float(n) / 4.0
-		draw_line(Vector2(area.position.x, y), Vector2(area.end.x, y), Color(1, 1, 1, 0.12), 1.0)
+		draw_line(Vector2(area.position.x, y), Vector2(area.end.x, y), Color(UiKit.MUTED, 0.25), 1.0)
 		draw_string(font, Vector2(4, y + 4), "%d%%" % (n * 25), HORIZONTAL_ALIGNMENT_RIGHT, 44, axis_size, UiKit.MUTED)
 
 	if points.is_empty():
@@ -56,7 +56,7 @@ func _draw() -> void:
 		var tw := font.get_string_size(txt, HORIZONTAL_ALIGNMENT_LEFT, -1, val_size).x
 		var lx := clampf(pt.x - tw * 0.5, area.position.x + 4.0, area.end.x - tw - 4.0)
 		var ly := pt.y - 12.0 if pt.y > area.position.y + 22.0 else pt.y + 20.0
-		draw_string(font, Vector2(lx, ly), txt, HORIZONTAL_ALIGNMENT_LEFT, -1, val_size, Color.WHITE)
+		draw_string(font, Vector2(lx, ly), txt, HORIZONTAL_ALIGNMENT_LEFT, -1, val_size, UiKit.TEXT)
 
 		var tick_txt := "Bln %d" % int(points[i].tick)
 		var tkw := font.get_string_size(tick_txt, HORIZONTAL_ALIGNMENT_LEFT, -1, axis_size).x
