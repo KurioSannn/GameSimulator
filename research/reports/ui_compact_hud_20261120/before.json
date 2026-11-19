@@ -1,0 +1,9 @@
+{
+  "game/src/ui/hud.gd": "1408421438d7491d42d8a9500a951b1c9df98c928105bc64e798b31851cef1c0",
+  "game/src/ui/ui_kit.gd": "ffd97a8cd4de653dfe2645a331bdecebed5de764de0994ec05b665098edd06a3",
+  "game/src/ui/game_skin.gd": "ec62db56a21f18a5aaa2d4d6ed0090916854d573f91c95f8ceb60ba302e77659",
+  "game/src/app/main.gd": "ee8ecad52f99182a951ec81ffc9eda42bdad7b778982335899bbd69eb8d611d5",
+  "game/src/ui/desktop_screens.gd": "d1d206c211ce1fe88fd148cbe38e7a38f564d912a52e406b9d7e257a5beeb1f3",
+  "game/src/ui/player_name_editor.gd": "6b232a0d30ddba3572607a732d211f7857f115be2b8437a95414ea30f5ace981",
+  "game/src/ui/case_modal.gd": "f2cec7096c05ca137d59b6b7b9c75ad297dda70869a450cb32f319eaddc0984c"
+}
