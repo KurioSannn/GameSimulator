@@ -22,6 +22,7 @@ const PROVINCE_BORDER_COLOR := Color(0.05, 0.08, 0.12, 0.95)
 const SELECT_COLOR := Color(1.0, 0.88, 0.18)
 const HOVER_COLOR := Color(0.85, 0.95, 1.0)
 const SKIRT_DEPTH := -28.0
+const SEA_LEVEL_Y := -0.85
 
 const HOVER_LIFT := 3.0
 const DEFAULT_SELECTED_LIFT := 18.0
@@ -43,7 +44,7 @@ var _env: WorldEnvironment
 var _mat_fill: ShaderMaterial
 var _mat_border: StandardMaterial3D
 var _mat_province: StandardMaterial3D
-var _mat_skirt: StandardMaterial3D
+var _mat_skirt: ShaderMaterial
 var _mat_highlight_select: StandardMaterial3D
 var _mat_highlight_hover: StandardMaterial3D
 var _mat_elevated_wall: StandardMaterial3D
@@ -72,7 +73,10 @@ var _selected := ""
 var _hovered := ""
 var landscape := true
 var _props: DioramaProps
+var _neighbor_props: DioramaProps
+var _roads: DioramaRoads
 var _maritime: DioramaMaritime
+var _aviation: DioramaAviation
 var _atmosphere: DioramaAtmosphere
 var _weather_fx: DioramaWeatherFX
 var _neighbor_mesh: MeshInstance3D
@@ -82,14 +86,19 @@ var _art_config: Dictionary = {}
 var _case_pins: Array[Node3D] = []
 var _case_signature := ""
 var _labels: Array[Label3D] = []
+var _province_labels: Array[Label3D] = []
 var _city_labels: Array[Label3D] = []
 
 var time_mode := "auto"       # "auto" | "pagi" | "siang" | "sore" | "malam"
-var weather_mode := "sim"     # "sim" | "hujan" | "kemarau" | "kebakaran"
+var weather_mode := "sim"     # "sim" | "hujan" | "kemarau" | "kebakaran" | "bencana"
 var day_time := 0.44          # 0.0/1.0 midnight, 0.23 dawn, 0.48 noon, 0.77 sunset
 var _sim_month := 1
 var _sim_flood_ids: Array = ["31.71", "31.74", "32.01"]
 var _sim_fire_ids: Array = []
+var _sim_traffic_ids: Array = ["31.71", "31.73", "31.74", "32.73", "35.78", "12.71"]
+var _sim_quake_ids: Array = []
+var _sim_traffic_level := 0.28
+var _sim_quake_level := 0.0
 var _last_atmo_sig := ""
 
 
@@ -115,10 +124,18 @@ func setup(mv2d: MapView) -> void:
 	_props.name = "DekorasiLowPoly"
 	add_child(_props)
 	_props.build(_art_config.props)
+	_roads = DioramaRoads.new()
+	_roads.name = "JaringanJalanIndonesia"
+	add_child(_roads)
+	_roads.build()
 	_maritime = DioramaMaritime.new()
 	_maritime.name = "DekorasiMaritim"
 	add_child(_maritime)
-	_maritime.build(_art_config.get("vessels", []))
+	_maritime.build(_art_config.get("vessels", []), SEA_LEVEL_Y)
+	_aviation = DioramaAviation.new()
+	_aviation.name = "DekorasiPenerbangan"
+	add_child(_aviation)
+	_aviation.build(_art_config, region_ids)
 	_atmosphere = DioramaAtmosphere.new()
 	add_child(_atmosphere)
 	_atmosphere.build(_art_config)
@@ -127,6 +144,7 @@ func setup(mv2d: MapView) -> void:
 	add_child(_weather_fx)
 	_weather_fx.build(_art_config, region_ids)
 	_build_island_labels()
+	_build_province_labels()
 	_build_city_labels()
 	_apply_atmosphere(true)
 	# Build 3D meshes for whatever LODs are already loaded
@@ -154,13 +172,9 @@ func _init_materials() -> void:
 	_mat_province.albedo_color = Color(0.18, 0.32, 0.21, 0.6)
 	_mat_province.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	
-	# Tabletop skirt material (dark basalt cliff)
-	_mat_skirt = StandardMaterial3D.new()
-	_mat_skirt.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
-	_mat_skirt.diffuse_mode = BaseMaterial3D.DIFFUSE_BURLEY
-	_mat_skirt.albedo_color = Color("987d53")
-	_mat_skirt.metallic = 0.0
-	_mat_skirt.roughness = 1.0
+	# Seamless shoreline-to-reef sloped coastal skirt blending into ocean plane
+	_mat_skirt = ShaderMaterial.new()
+	_mat_skirt.shader = load("res://src/map/diorama_skirt.gdshader")
 	
 	# Extruded side walls (chiseled stone cliff with vertical AO vertex colors)
 	_mat_elevated_wall = StandardMaterial3D.new()
@@ -226,7 +240,7 @@ func _build_ocean() -> void:
 	plane.subdivide_width = 48
 	plane.subdivide_depth = 48
 	_ocean_mesh.mesh = plane
-	_ocean_mesh.position = Vector3(0.0, -4.0, 0.0)
+	_ocean_mesh.position = Vector3(0.0, SEA_LEVEL_Y, 0.0)
 	
 	var ocean_mat := ShaderMaterial.new()
 	ocean_mat.shader = load("res://src/map/diorama_water.gdshader")
@@ -245,8 +259,8 @@ func _build_neighbor_land() -> void:
 	var verts := PackedVector3Array()
 	var normals := PackedVector3Array()
 	var indices := PackedInt32Array()
-	var top_y := -0.55
-	var bot_y := -24.0
+	var top_y := -0.22
+	var bot_y := SEA_LEVEL_Y - 0.60
 	for ring in rings:
 		var flat: Array = ring.get("points", [])
 		if flat.size() < 6:
@@ -290,12 +304,23 @@ func _build_neighbor_land() -> void:
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	_mat_neighbor = ShaderMaterial.new()
 	_mat_neighbor.shader = load("res://src/map/diorama_neighbor.gdshader")
+	if FileAccess.file_exists("res://data/map/art/neighbor_field.png") and data.has("field_bounds"):
+		var nf := load("res://data/map/art/neighbor_field.png")
+		var fb: Array = data.field_bounds
+		_mat_neighbor.set_shader_parameter("neighbor_field", nf)
+		_mat_neighbor.set_shader_parameter("neighbor_bounds", Vector4(float(fb[0]), float(fb[1]), float(fb[2]), float(fb[3])))
 	_neighbor_mesh = MeshInstance3D.new()
 	_neighbor_mesh.name = "NeighborLandBackdrop"
 	_neighbor_mesh.mesh = mesh
 	_neighbor_mesh.material_override = _mat_neighbor
 	_neighbor_mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(_neighbor_mesh)
+	var neighbor_props: Array = data.get("props", [])
+	if not neighbor_props.is_empty():
+		_neighbor_props = DioramaProps.new()
+		_neighbor_props.name = "DekorasiTetangga"
+		add_child(_neighbor_props)
+		_neighbor_props.build(neighbor_props, top_y + 0.04)
 
 
 func _build_elevated_nodes() -> void:
@@ -389,7 +414,7 @@ func set_active_lod(lod_name: String) -> void:
 	for k in _border_instances:
 		_border_instances[k].visible = (k == lod_name)
 	for k in _skirt_instances:
-		_skirt_instances[k].visible = (k == lod_name)
+		_skirt_instances[k].visible = landscape and (k == lod_name)
 	
 	# Refresh elevated meshes with current LOD detail
 	if _selected != "":
@@ -724,9 +749,15 @@ func _process(delta: float) -> void:
 		_atmosphere.set_reduced_motion(reduced)
 	if _maritime != null:
 		_maritime.set_reduced_motion(reduced)
+	if _aviation != null:
+		_aviation.set_reduced_motion(reduced)
+	if _roads != null:
+		_roads.set_reduced_motion(reduced)
 	if _props != null:
 		_props.sync(_map_view_2d.region_ids.find(_selected), _selected_lift,
 			_map_view_2d.region_ids.find(_hovered), _hover_lift, reduced, landscape)
+	if _neighbor_props != null:
+		_neighbor_props.sync(-1, 0.0, -1, 0.0, reduced, landscape)
 	_water_material.set_shader_parameter("motion", 0.0 if reduced else 1.0)
 	_mat_fill.set_shader_parameter("motion", 0.0 if reduced else 1.0)
 	if _mat_neighbor != null:
@@ -778,6 +809,42 @@ func sync_climate_from_world(world: SimWorld) -> void:
 	if fires.is_empty() and _sim_month in [8, 9, 10] and weather_mode == "sim":
 		fires = ["62.03", "62.11", "14.05"]
 	_sim_fire_ids = fires
+
+	# Urban congestion (kota macet) from low logistics & active transport disruption
+	var traffics: Array = []
+	var log_arr: PackedFloat64Array = world.vars.get("logistics", PackedFloat64Array())
+	var max_deficit := 0.0
+	for i in mini(log_arr.size(), region_ids.size()):
+		if log_arr[i] < 48.0:
+			traffics.append(region_ids[i])
+			max_deficit = maxf(max_deficit, (48.0 - log_arr[i]) / 48.0)
+			if traffics.size() >= 18:
+				break
+	if traffics.is_empty():
+		traffics = ["31.71", "31.73", "31.74", "32.73", "35.78", "12.71"]
+		_sim_traffic_level = 0.34
+	else:
+		_sim_traffic_level = clampf(0.45 + max_deficit, 0.45, 0.95)
+	_sim_traffic_ids = traffics
+
+	# Earthquake / regional disasters from active seismic crisis or acute damage
+	var quakes: Array = []
+	for cid in ["CASE-0002", "CASE-0002-C", "CASE-0002-R"]:
+		if world.case_state.get(cid, {}).get("status", "") == CaseEngine.STATUS_ACTIVE:
+			for qid in ["72.71", "72.03", "72.10"]:
+				quakes.append(qid)
+			break
+	var dmg_arr: PackedFloat64Array = world.vars.get("damage", PackedFloat64Array())
+	var peak_dmg := 0.0
+	for i in mini(dmg_arr.size(), region_ids.size()):
+		if dmg_arr[i] >= 22.0 and not (region_ids[i] in floods) and not (region_ids[i] in fires):
+			if not (region_ids[i] in quakes):
+				quakes.append(region_ids[i])
+			peak_dmg = maxf(peak_dmg, dmg_arr[i])
+			if quakes.size() >= 12:
+				break
+	_sim_quake_ids = quakes
+	_sim_quake_level = 0.0 if quakes.is_empty() else clampf(maxf(0.68, peak_dmg / 60.0), 0.55, 1.0)
 	_apply_atmosphere(true)
 
 
@@ -787,12 +854,17 @@ func current_climate_state() -> Dictionary:
 	var fire_f := 0.0
 	var smoke_f := 0.0
 	var flood_f := 0.0
+	var traffic_f := _sim_traffic_level
+	var quake_f := _sim_quake_level
 	var flood_list: Array = _sim_flood_ids
 	var fire_list: Array = _sim_fire_ids
+	var traffic_list: Array = _sim_traffic_ids
+	var quake_list: Array = _sim_quake_ids
 	match weather_mode:
 		"hujan":
 			rain_f = 1.0
-			flood_f = 0.90
+			flood_f = 0.95
+			traffic_f = maxf(traffic_f, 0.55)
 			if flood_list.is_empty():
 				flood_list = ["31.71", "31.74", "32.01", "35.78", "33.74", "16.71", "63.71"]
 		"kemarau":
@@ -806,6 +878,15 @@ func current_climate_state() -> Dictionary:
 			fire_f = 1.0
 			smoke_f = 0.92
 			fire_list = ["62.03", "62.11", "62.01", "62.71", "14.04", "14.05", "16.02", "16.06", "61.06"]
+		"bencana":
+			rain_f = 0.35
+			flood_f = 0.85
+			traffic_f = 1.0
+			quake_f = 1.0
+			smoke_f = 0.32
+			flood_list = ["31.71", "31.74", "32.01", "33.74", "16.71"]
+			traffic_list = ["31.71", "31.72", "31.73", "31.74", "32.73", "32.75", "35.78", "12.71", "73.71", "33.74"]
+			quake_list = ["72.71", "72.03", "72.10", "32.03", "52.08", "11.71"]
 		_:
 			# Map real Indonesia monsoon seasonality from calendar month
 			if _sim_month in [12, 1, 2]:
@@ -825,7 +906,9 @@ func current_climate_state() -> Dictionary:
 	return {
 		"rain": rain_f, "drought": drought_f, "fire": fire_f,
 		"smoke": smoke_f, "flood": flood_f,
+		"traffic": traffic_f, "quake": quake_f,
 		"flood_ids": flood_list, "fire_ids": fire_list,
+		"traffic_ids": traffic_list, "quake_ids": quake_list,
 	}
 
 
@@ -915,20 +998,26 @@ func _apply_atmosphere(force: bool) -> void:
 		_env.environment.fog_light_color = fog_col
 		_env.environment.fog_density = fog_dens * 0.14 if landscape else 0.0
 
-	for mat in [_mat_fill, _water_material, _mat_neighbor]:
+	for mat in [_mat_fill, _water_material, _mat_neighbor, _mat_skirt]:
 		if mat == null:
 			continue
 		for k in shader_params:
 			mat.set_shader_parameter(k, shader_params[k])
 	if _props != null:
 		_props.sync_atmosphere(shader_params)
+	if _neighbor_props != null:
+		_neighbor_props.sync_atmosphere(shader_params)
+	if _roads != null:
+		_roads.sync_atmosphere(shader_params)
 	if _maritime != null:
 		_maritime.sync_atmosphere(shader_params)
+	if _aviation != null:
+		_aviation.sync_atmosphere(shader_params)
 	if _atmosphere != null:
 		_atmosphere.sync_atmosphere(shader_params)
 	if _weather_fx != null:
-		_weather_fx.update_hazards(cli.flood_ids, cli.fire_ids)
-		_weather_fx.sync(rain_f, cli.flood, cli.fire, reduced, landscape, fog_col, fog_dens)
+		_weather_fx.update_hazards(cli.flood_ids, cli.fire_ids, cli.traffic_ids, cli.quake_ids)
+		_weather_fx.sync(rain_f, cli.flood, cli.fire, reduced, landscape, fog_col, fog_dens, cli.traffic, cli.quake)
 
 
 func set_landscape(on: bool) -> void:
@@ -936,10 +1025,20 @@ func set_landscape(on: bool) -> void:
 	_mat_fill.set_shader_parameter("landscape", on)
 	if _mat_neighbor != null:
 		_mat_neighbor.set_shader_parameter("landscape", on)
+	if _mat_skirt != null:
+		_mat_skirt.set_shader_parameter("landscape", on)
+	for k in _skirt_instances:
+		_skirt_instances[k].visible = on and (k == active_lod)
 	if _props != null:
 		_props.visible = on
+	if _neighbor_props != null:
+		_neighbor_props.visible = on
+	if _roads != null:
+		_roads.visible = on
 	if _maritime != null:
 		_maritime.visible = on
+	if _aviation != null:
+		_aviation.visible = on
 	if _atmosphere != null:
 		_atmosphere.visible = on
 	if _weather_fx != null:
@@ -965,7 +1064,9 @@ func _build_island_labels() -> void:
 		label.pixel_size = 0.85
 		var point := MapView.project_lonlat(spec[1], spec[2])
 		label.position = Vector3(point.x, 90, point.y)
-		label.visibility_range_begin = 1900.0
+		label.visibility_range_begin = 1850.0
+		label.visibility_range_begin_margin = 160.0
+		label.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
 		add_child(label)
 		_labels.append(label)
 	var font_res := load("res://assets/fonts/LilitaOne-Regular.ttf")
@@ -989,20 +1090,93 @@ func _build_island_labels() -> void:
 		_labels.append(nlabel)
 
 
+func _build_province_labels() -> void:
+	var short_names := {
+		"19": "KEP. BANGKA BELITUNG",
+		"21": "KEP. RIAU",
+		"31": "DKI JAKARTA",
+		"34": "DI YOGYAKARTA",
+	}
+	var label_nudges := {
+		"16": Vector2(-34.0, 14.0), # West of Palembang
+		"31": Vector2(0.0, -16.0),  # North of Jakarta
+		"32": Vector2(18.0, 18.0),  # South-east of Bandung
+		"34": Vector2(0.0, 16.0),   # South of Yogyakarta & Jawa Tengah
+		"51": Vector2(0.0, -10.0),  # North of Denpasar
+	}
+	var cores := {}
+	for prop in _art_config.get("props", []):
+		if str(prop.get("role", "")).ends_with("_core"):
+			var idx := int(prop.region)
+			if idx >= 0 and idx < region_ids.size():
+				cores[region_ids[idx]] = Vector2(float(prop.x), float(prop.z))
+
+	var weighted_sum := {} # prov_id -> Vector2
+	var weight_tot := {}   # prov_id -> float
+	for r in ContentDB.regions:
+		var rid := str(r.region_id)
+		var pid := str(r.get("parent_region_id", ""))
+		if pid == "" or not cores.has(rid):
+			continue
+		var w := 1.0
+		for fact in r.get("facts", []):
+			if str(fact.get("id", "")) == "area_km2" and fact.get("value") != null:
+				w = maxf(float(fact.value), 1.0)
+				break
+		var pt: Vector2 = cores[rid]
+		weighted_sum[pid] = (weighted_sum.get(pid, Vector2.ZERO) as Vector2) + pt * w
+		weight_tot[pid] = float(weight_tot.get(pid, 0.0)) + w
+
+	var font_res := load("res://assets/fonts/LilitaOne-Regular.ttf")
+	for prov in ContentDB.provinces:
+		var pid := str(prov.region_id)
+		var pt := Vector2.ZERO
+		if weight_tot.has(pid) and float(weight_tot[pid]) > 0.0:
+			pt = (weighted_sum[pid] as Vector2) / float(weight_tot[pid])
+		elif _map_view_2d != null:
+			pt = _map_view_2d.province_rect(pid).get_center()
+		if label_nudges.has(pid):
+			pt += label_nudges[pid] as Vector2
+
+		var label := Label3D.new()
+		label.text = str(short_names.get(pid, str(prov.name).to_upper()))
+		label.font = font_res
+		label.font_size = 27
+		label.outline_size = 7
+		label.outline_modulate = Color("142b28")
+		label.modulate = Color("ffe39c")
+		label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		label.no_depth_test = true
+		label.pixel_size = 0.54
+		label.position = Vector3(pt.x, 38.0, pt.y)
+		label.visibility_range_begin = 680.0
+		label.visibility_range_begin_margin = 90.0
+		label.visibility_range_end = 1950.0
+		label.visibility_range_end_margin = 160.0
+		label.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
+		add_child(label)
+		_province_labels.append(label)
+
+
 func _build_city_labels() -> void:
 	var major := {
 		"11.71": "Banda Aceh", "12.71": "Medan", "13.71": "Padang", "14.71": "Pekanbaru",
-		"15.71": "Jambi", "16.71": "Palembang", "18.71": "Bandar Lampung", "21.71": "Batam",
+		"15.71": "Jambi", "16.71": "Palembang", "17.71": "Bengkulu", "18.71": "Bandar Lampung",
+		"19.71": "Pangkalpinang", "21.71": "Batam", "21.72": "Tanjungpinang",
 		"31.71": "Jakarta", "32.73": "Bandung", "33.74": "Semarang", "34.71": "Yogyakarta",
-		"35.78": "Surabaya", "51.71": "Denpasar", "52.71": "Mataram", "53.71": "Kupang",
+		"35.78": "Surabaya", "36.73": "Serang",
+		"51.71": "Denpasar", "52.71": "Mataram", "53.71": "Kupang",
 		"61.71": "Pontianak", "62.71": "Palangkaraya", "63.71": "Banjarmasin",
-		"64.71": "Balikpapan", "64.72": "Samarinda", "71.71": "Manado", "72.71": "Palu",
-		"73.71": "Makassar", "74.71": "Kendari", "81.71": "Ambon", "82.71": "Ternate",
-		"91.71": "Jayapura", "92.71": "Sorong",
+		"64.71": "Balikpapan", "64.72": "Samarinda", "65.01": "Tanjung Selor",
+		"71.71": "Manado", "72.71": "Palu", "73.71": "Makassar", "74.71": "Kendari",
+		"75.71": "Gorontalo", "76.02": "Mamuju",
+		"81.71": "Ambon", "82.71": "Ternate",
+		"91.71": "Jayapura", "92.02": "Manokwari", "93.01": "Merauke",
+		"94.01": "Nabire", "95.01": "Wamena", "96.71": "Sorong",
 	}
 	var anchors := {}
 	for prop in _art_config.get("props", []):
-		if str(prop.get("role", "")) == "city_core":
+		if str(prop.get("role", "")).ends_with("_core"):
 			var idx := int(prop.region)
 			if idx >= 0 and idx < region_ids.size():
 				var rid := region_ids[idx]
@@ -1012,18 +1186,21 @@ func _build_city_labels() -> void:
 	for rid in anchors:
 		var pt: Vector2 = anchors[rid]
 		var label := Label3D.new()
-		label.text = major[rid]
+		label.text = str(major[rid])
 		label.font = font_res
-		label.font_size = 22
-		label.outline_size = 6
+		label.font_size = 21
+		label.outline_size = 5
 		label.outline_modulate = Color("132630")
 		label.modulate = Color("f7f9fa")
 		label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		label.no_depth_test = true
-		label.pixel_size = 0.48
+		label.pixel_size = 0.44
 		label.position = Vector3(pt.x, 22.0, pt.y)
-		label.visibility_range_begin = 260.0
-		label.visibility_range_end = 1850.0
+		label.visibility_range_begin = 140.0
+		label.visibility_range_begin_margin = 40.0
+		label.visibility_range_end = 740.0
+		label.visibility_range_end_margin = 100.0
+		label.visibility_range_fade_mode = GeometryInstance3D.VISIBILITY_RANGE_FADE_SELF
 		add_child(label)
 		_city_labels.append(label)
 
@@ -1097,13 +1274,13 @@ func _build_lod_meshes(name: String, l: MapLod) -> void:
 	add_child(fill_inst)
 	_fill_instances[name] = fill_inst
 	
-	# 2. Border Lines (elevated slightly at Y=0.5)
+	# 2. Border Lines (flush on surface at Y=0.04 so lines never hover above capes)
 	var border_mesh := ArrayMesh.new()
 	var b_verts := PackedVector3Array()
 	b_verts.resize(l.positions.size())
 	for i in l.positions.size():
 		var p := l.positions[i]
-		b_verts[i] = Vector3(p.x, 0.5, p.y)
+		b_verts[i] = Vector3(p.x, 0.04, p.y)
 	
 	var border_arrays := []
 	border_arrays.resize(Mesh.ARRAY_MAX)
@@ -1112,12 +1289,12 @@ func _build_lod_meshes(name: String, l: MapLod) -> void:
 	border_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_LINES, border_arrays)
 	border_mesh.surface_set_material(0, _mat_border)
 	
-	# Province outlines (elevated at Y=0.8)
+	# Province outlines (flush at Y=0.06)
 	var prov_verts := PackedVector3Array()
 	prov_verts.resize(l.province_positions.size())
 	for i in l.province_positions.size():
 		var p := l.province_positions[i]
-		prov_verts[i] = Vector3(p.x, 0.8, p.y)
+		prov_verts[i] = Vector3(p.x, 0.06, p.y)
 	
 	var prov_arrays := []
 	prov_arrays.resize(Mesh.ARRAY_MAX)
@@ -1132,47 +1309,71 @@ func _build_lod_meshes(name: String, l: MapLod) -> void:
 	add_child(border_inst)
 	_border_instances[name] = border_inst
 	
-	# 3. Island Skirts (tabletop relief edge dropped to ocean)
+	# 3. Island Skirts (sloped sand-to-reef berm melting every island & islet smoothly into water)
 	var skirt_mesh := ArrayMesh.new()
 	var sk_verts := PackedVector3Array()
 	var sk_norms := PackedVector3Array()
 	var sk_idx := PackedInt32Array()
-	
+	var skirt_y := SEA_LEVEL_Y - 0.50
+
 	for rid in l.rings:
 		for ring in l.rings[rid]:
 			var n: int = ring.size()
 			if n < 3:
 				continue
 			var box := Rect2(ring[0], Vector2.ZERO)
-			for pt in ring:
+			var area2 := 0.0
+			for k in n:
+				var pt: Vector2 = ring[k]
+				var nxt: Vector2 = ring[(k + 1) % n]
 				box = box.expand(pt)
+				area2 += pt.x * nxt.y - nxt.x * pt.y
 			var ring_span := maxf(box.size.x, box.size.y)
-			if ring_span < 2.0:
-				continue
-			var skirt_h := clampf(ring_span * 0.9, 4.0, absf(SKIRT_DEPTH))
-			var skirt_y := -4.0
+			var flare := clampf(ring_span * 0.12, 0.25, 1.35)
+			var out_sign := 1.0 if area2 >= 0.0 else -1.0
+
+			var edge_normals: Array[Vector2] = []
+			edge_normals.resize(n)
 			for k in n:
 				var p1: Vector2 = ring[k]
 				var p2: Vector2 = ring[(k + 1) % n]
-				var edge_dir := (p2 - p1).normalized()
-				var normal := Vector3(-edge_dir.y, 0.0, edge_dir.x)
-				
+				var d := p2 - p1
+				if d.length_squared() > 1e-10:
+					d = d.normalized()
+					edge_normals[k] = Vector2(d.y, -d.x) * out_sign
+				else:
+					edge_normals[k] = Vector2.ZERO
+
+			var vert_normals: Array[Vector2] = []
+			vert_normals.resize(n)
+			for k in n:
+				var en := edge_normals[(k - 1 + n) % n] + edge_normals[k]
+				vert_normals[k] = en.normalized() if en.length_squared() > 1e-8 else edge_normals[k]
+
+			for k in n:
+				var p1: Vector2 = ring[k]
+				var p2: Vector2 = ring[(k + 1) % n]
+				var n1 := vert_normals[k]
+				var n2 := vert_normals[(k + 1) % n]
+				var en := edge_normals[k]
+				var sloped_n := Vector3(en.x * 0.72, 0.69, en.y * 0.72).normalized()
+
 				var v0 := sk_verts.size()
-				sk_verts.append(Vector3(p1.x, 0.0, p1.y))
-				sk_verts.append(Vector3(p1.x, skirt_y, p1.y))
-				sk_verts.append(Vector3(p2.x, skirt_y, p2.y))
-				sk_verts.append(Vector3(p2.x, 0.0, p2.y))
-				
+				sk_verts.append(Vector3(p1.x, 0.01, p1.y))
+				sk_verts.append(Vector3(p1.x + n1.x * flare, skirt_y, p1.y + n1.y * flare))
+				sk_verts.append(Vector3(p2.x + n2.x * flare, skirt_y, p2.y + n2.y * flare))
+				sk_verts.append(Vector3(p2.x, 0.01, p2.y))
+
 				for _vi in 4:
-					sk_norms.append(normal)
-				
+					sk_norms.append(sloped_n)
+
 				sk_idx.append(v0)
 				sk_idx.append(v0 + 1)
 				sk_idx.append(v0 + 2)
 				sk_idx.append(v0)
 				sk_idx.append(v0 + 2)
 				sk_idx.append(v0 + 3)
-	
+
 	if not sk_verts.is_empty():
 		var skirt_arrays := []
 		skirt_arrays.resize(Mesh.ARRAY_MAX)
@@ -1180,10 +1381,11 @@ func _build_lod_meshes(name: String, l: MapLod) -> void:
 		skirt_arrays[Mesh.ARRAY_NORMAL] = sk_norms
 		skirt_arrays[Mesh.ARRAY_INDEX] = sk_idx
 		skirt_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, skirt_arrays)
-		
+
 		var skirt_inst := MeshInstance3D.new()
 		skirt_inst.name = "IslandSkirts_" + name
 		skirt_inst.mesh = skirt_mesh
 		skirt_inst.material_override = _mat_skirt
+		skirt_inst.visible = landscape and (name == active_lod)
 		add_child(skirt_inst)
 		_skirt_instances[name] = skirt_inst
