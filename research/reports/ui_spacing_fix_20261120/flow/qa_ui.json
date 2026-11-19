@@ -1,0 +1,1120 @@
+{
+  "assets": [
+    {
+      "path": "res://assets/ui/figma/6_IkonCoin_85d48.svg",
+      "rect": "[P: (122.0, 337.0), S: (22.0, 23.0)]",
+      "screen": 6,
+      "shot": "case_selected_1280",
+      "slot": "imgIkonCoin"
+    },
+    {
+      "path": "res://assets/ui/figma/6_IkonCoin_85d48.svg",
+      "rect": "[P: (122.0, 459.0), S: (22.0, 23.0)]",
+      "screen": 6,
+      "shot": "case_selected_1280",
+      "slot": "imgIkonCoin"
+    },
+    {
+      "path": "res://assets/ui/figma/6_IkonCoin_85d48.svg",
+      "rect": "[P: (122.0, 581.0), S: (22.0, 23.0)]",
+      "screen": 6,
+      "shot": "case_selected_1280",
+      "slot": "imgIkonCoin"
+    },
+    {
+      "path": "res://assets/ui/figma/1_PotretPresidenNara_ede4f.jpg",
+      "rect": "[P: (44.0, 42.0), S: (40.0, 40.0)]",
+      "screen": 1,
+      "shot": "group_1280",
+      "slot": "imgPotretPresidenNara"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonHeart_01c17.svg",
+      "rect": "[P: (918.0, 50.0), S: (24.0, 24.0)]",
+      "screen": 3,
+      "shot": "group_1280",
+      "slot": "imgIkonHeart"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonTrust_cb3e2.svg",
+      "rect": "[P: (1054.0, 50.0), S: (24.0, 24.0)]",
+      "screen": 3,
+      "shot": "group_1280",
+      "slot": "imgIkonTrust"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonCoin_3587d.svg",
+      "rect": "[P: (1190.0, 50.0), S: (24.0, 24.0)]",
+      "screen": 3,
+      "shot": "group_1280",
+      "slot": "imgIkonCoin"
+    },
+    {
+      "path": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+      "rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+      "screen": 4,
+      "shot": "profile_1280",
+      "slot": "imgRiakSamudra"
+    },
+    {
+      "path": "res://assets/ui/figma/2_MedaliMandatPertama_fdc19.svg",
+      "rect": "[P: (70.0, 408.0), S: (100.0, 100.0)]",
+      "screen": 2,
+      "shot": "profile_1280",
+      "slot": "imgMedaliMandatPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_TepiMedaliMandatPertama_5db9b.svg",
+      "rect": "[P: (79.0, 417.0), S: (82.0, 82.0)]",
+      "screen": 2,
+      "shot": "profile_1280",
+      "slot": "imgTepiMedaliMandatPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_IkonStar_6d45e.svg",
+      "rect": "[P: (94.0, 432.0), S: (52.0, 52.0)]",
+      "screen": 2,
+      "shot": "profile_1280",
+      "slot": "imgIkonStar"
+    },
+    {
+      "path": "res://assets/ui/figma/2_MedaliKenaliNusantara_41afc.svg",
+      "rect": "[P: (238.0, 408.0), S: (100.0, 100.0)]",
+      "screen": 2,
+      "shot": "profile_1280",
+      "slot": "imgMedaliKenaliNusantara"
+    },
+    {
+      "path": "res://assets/ui/figma/2_TepiMedaliKenaliNusantara_35c0d.svg",
+      "rect": "[P: (247.0, 417.0), S: (82.0, 82.0)]",
+      "screen": 2,
+      "shot": "profile_1280",
+      "slot": "imgTepiMedaliKenaliNusantara"
+    },
+    {
+      "path": "res://assets/ui/figma/2_IkonCompass_aca1c.svg",
+      "rect": "[P: (262.0, 432.0), S: (52.0, 52.0)]",
+      "screen": 2,
+      "shot": "profile_1280",
+      "slot": "imgIkonCompass"
+    },
+    {
+      "path": "res://assets/ui/figma/2_MedaliSolusiPertama_77113.svg",
+      "rect": "[P: (406.0, 421.0), S: (100.0, 100.0)]",
+      "screen": 2,
+      "shot": "profile_1280",
+      "slot": "imgMedaliSolusiPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_TepiMedaliSolusiPertama_9b0d9.svg",
+      "rect": "[P: (415.0, 430.0), S: (82.0, 82.0)]",
+      "screen": 2,
+      "shot": "profile_1280",
+      "slot": "imgTepiMedaliSolusiPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_IkonStar_6d45e.svg",
+      "rect": "[P: (430.0, 445.0), S: (52.0, 52.0)]",
+      "screen": 2,
+      "shot": "profile_1280",
+      "slot": "imgIkonStar"
+    },
+    {
+      "path": "res://assets/ui/figma/2_NaraAdinataKarakterPemain_e7034.png",
+      "rect": "[P: (613.348, 99.0), S: (342.304, 563.0)]",
+      "screen": 2,
+      "shot": "profile_1280",
+      "slot": "imgNaraAdinataKarakterPemain"
+    },
+    {
+      "path": "res://assets/ui/figma/2_PotretPresidenNara_ede4f.jpg",
+      "rect": "[P: (1039.0, 153.0), S: (56.0, 56.0)]",
+      "screen": 2,
+      "shot": "profile_1280",
+      "slot": "imgPotretPresidenNara"
+    },
+    {
+      "path": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+      "rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+      "screen": 4,
+      "shot": "statistics_1280",
+      "slot": "imgRiakSamudra"
+    },
+    {
+      "path": "res://assets/ui/figma/3_NaraRaporStatistik_e7034.png",
+      "rect": "[P: (1146.0, 209.0), S: (252.0, 230.0)]",
+      "screen": 3,
+      "shot": "statistics_1280",
+      "slot": "imgNaraRaporStatistik"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonCoin_3587d.svg",
+      "rect": "[P: (42.0, 722.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "statistics_1280",
+      "slot": "imgIkonCoin"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonEconomy_95a74.svg",
+      "rect": "[P: (274.0, 722.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "statistics_1280",
+      "slot": "imgIkonEconomy"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonHeart_01c17.svg",
+      "rect": "[P: (506.0, 722.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "statistics_1280",
+      "slot": "imgIkonHeart"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonTrust_cb3e2.svg",
+      "rect": "[P: (738.0, 722.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "statistics_1280",
+      "slot": "imgIkonTrust"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonShield_6bbe1.svg",
+      "rect": "[P: (971.0, 722.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "statistics_1280",
+      "slot": "imgIkonShield"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonLeaf_e73c5.svg",
+      "rect": "[P: (1203.0, 722.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "statistics_1280",
+      "slot": "imgIkonLeaf"
+    },
+    {
+      "path": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+      "rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+      "screen": 4,
+      "shot": "settings_1280",
+      "slot": "imgRiakSamudra"
+    },
+    {
+      "path": "res://assets/ui/figma/4_IkonSpeaker_18429.svg",
+      "rect": "[P: (42.0, 101.0), S: (22.0, 23.0)]",
+      "screen": 4,
+      "shot": "settings_1280",
+      "slot": "imgIkonSpeaker"
+    },
+    {
+      "path": "res://assets/ui/figma/4_IkonScreen_bbc32.svg",
+      "rect": "[P: (743.0, 101.0), S: (22.0, 23.0)]",
+      "screen": 4,
+      "shot": "settings_1280",
+      "slot": "imgIkonScreen"
+    },
+    {
+      "path": "res://assets/ui/figma/4_IkonKeyboard_f4f20.svg",
+      "rect": "[P: (42.0, 431.0), S: (22.0, 23.0)]",
+      "screen": 4,
+      "shot": "settings_1280",
+      "slot": "imgIkonKeyboard"
+    },
+    {
+      "path": "res://assets/ui/figma/4_IkonEye_ccd74.svg",
+      "rect": "[P: (743.0, 431.0), S: (22.0, 23.0)]",
+      "screen": 4,
+      "shot": "settings_1280",
+      "slot": "imgIkonEye"
+    },
+    {
+      "path": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+      "rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+      "screen": 4,
+      "shot": "report_1280",
+      "slot": "imgRiakSamudra"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonCoin_3587d.svg",
+      "rect": "[P: (42.0, 138.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "report_1280",
+      "slot": "imgIkonCoin"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonEconomy_95a74.svg",
+      "rect": "[P: (274.0, 138.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "report_1280",
+      "slot": "imgIkonEconomy"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonHeart_01c17.svg",
+      "rect": "[P: (506.0, 138.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "report_1280",
+      "slot": "imgIkonHeart"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonTrust_cb3e2.svg",
+      "rect": "[P: (738.0, 138.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "report_1280",
+      "slot": "imgIkonTrust"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonShield_6bbe1.svg",
+      "rect": "[P: (971.0, 138.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "report_1280",
+      "slot": "imgIkonShield"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonLeaf_e73c5.svg",
+      "rect": "[P: (1203.0, 138.0), S: (20.0, 23.0)]",
+      "screen": 3,
+      "shot": "report_1280",
+      "slot": "imgIkonLeaf"
+    },
+    {
+      "path": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+      "rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+      "screen": 4,
+      "shot": "profile_110",
+      "slot": "imgRiakSamudra"
+    },
+    {
+      "path": "res://assets/ui/figma/2_MedaliMandatPertama_fdc19.svg",
+      "rect": "[P: (70.0, 422.0), S: (100.0, 100.0)]",
+      "screen": 2,
+      "shot": "profile_110",
+      "slot": "imgMedaliMandatPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_TepiMedaliMandatPertama_5db9b.svg",
+      "rect": "[P: (79.0, 431.0), S: (82.0, 82.0)]",
+      "screen": 2,
+      "shot": "profile_110",
+      "slot": "imgTepiMedaliMandatPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_IkonStar_6d45e.svg",
+      "rect": "[P: (94.0, 446.0), S: (52.0, 52.0)]",
+      "screen": 2,
+      "shot": "profile_110",
+      "slot": "imgIkonStar"
+    },
+    {
+      "path": "res://assets/ui/figma/2_MedaliKenaliNusantara_41afc.svg",
+      "rect": "[P: (238.0, 422.0), S: (100.0, 100.0)]",
+      "screen": 2,
+      "shot": "profile_110",
+      "slot": "imgMedaliKenaliNusantara"
+    },
+    {
+      "path": "res://assets/ui/figma/2_TepiMedaliKenaliNusantara_35c0d.svg",
+      "rect": "[P: (247.0, 431.0), S: (82.0, 82.0)]",
+      "screen": 2,
+      "shot": "profile_110",
+      "slot": "imgTepiMedaliKenaliNusantara"
+    },
+    {
+      "path": "res://assets/ui/figma/2_IkonCompass_aca1c.svg",
+      "rect": "[P: (262.0, 446.0), S: (52.0, 52.0)]",
+      "screen": 2,
+      "shot": "profile_110",
+      "slot": "imgIkonCompass"
+    },
+    {
+      "path": "res://assets/ui/figma/2_MedaliSolusiPertama_77113.svg",
+      "rect": "[P: (406.0, 422.0), S: (100.0, 100.0)]",
+      "screen": 2,
+      "shot": "profile_110",
+      "slot": "imgMedaliSolusiPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_TepiMedaliSolusiPertama_9b0d9.svg",
+      "rect": "[P: (415.0, 431.0), S: (82.0, 82.0)]",
+      "screen": 2,
+      "shot": "profile_110",
+      "slot": "imgTepiMedaliSolusiPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_IkonStar_6d45e.svg",
+      "rect": "[P: (430.0, 446.0), S: (52.0, 52.0)]",
+      "screen": 2,
+      "shot": "profile_110",
+      "slot": "imgIkonStar"
+    },
+    {
+      "path": "res://assets/ui/figma/2_NaraAdinataKarakterPemain_e7034.png",
+      "rect": "[P: (615.172, 99.0), S: (338.656, 557.0)]",
+      "screen": 2,
+      "shot": "profile_110",
+      "slot": "imgNaraAdinataKarakterPemain"
+    },
+    {
+      "path": "res://assets/ui/figma/2_PotretPresidenNara_ede4f.jpg",
+      "rect": "[P: (1039.0, 156.0), S: (56.0, 56.0)]",
+      "screen": 2,
+      "shot": "profile_110",
+      "slot": "imgPotretPresidenNara"
+    },
+    {
+      "path": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+      "rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+      "screen": 4,
+      "shot": "statistics_110",
+      "slot": "imgRiakSamudra"
+    },
+    {
+      "path": "res://assets/ui/figma/3_NaraRaporStatistik_e7034.png",
+      "rect": "[P: (1146.0, 243.0), S: (252.0, 230.0)]",
+      "screen": 3,
+      "shot": "statistics_110",
+      "slot": "imgNaraRaporStatistik"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonCoin_3587d.svg",
+      "rect": "[P: (42.0, 769.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "statistics_110",
+      "slot": "imgIkonCoin"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonEconomy_95a74.svg",
+      "rect": "[P: (274.0, 769.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "statistics_110",
+      "slot": "imgIkonEconomy"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonHeart_01c17.svg",
+      "rect": "[P: (506.0, 769.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "statistics_110",
+      "slot": "imgIkonHeart"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonTrust_cb3e2.svg",
+      "rect": "[P: (738.0, 769.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "statistics_110",
+      "slot": "imgIkonTrust"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonShield_6bbe1.svg",
+      "rect": "[P: (971.0, 769.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "statistics_110",
+      "slot": "imgIkonShield"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonLeaf_e73c5.svg",
+      "rect": "[P: (1203.0, 769.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "statistics_110",
+      "slot": "imgIkonLeaf"
+    },
+    {
+      "path": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+      "rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+      "screen": 4,
+      "shot": "settings_110",
+      "slot": "imgRiakSamudra"
+    },
+    {
+      "path": "res://assets/ui/figma/4_IkonSpeaker_18429.svg",
+      "rect": "[P: (42.0, 101.0), S: (22.0, 25.0)]",
+      "screen": 4,
+      "shot": "settings_110",
+      "slot": "imgIkonSpeaker"
+    },
+    {
+      "path": "res://assets/ui/figma/4_IkonScreen_bbc32.svg",
+      "rect": "[P: (743.0, 101.0), S: (22.0, 25.0)]",
+      "screen": 4,
+      "shot": "settings_110",
+      "slot": "imgIkonScreen"
+    },
+    {
+      "path": "res://assets/ui/figma/4_IkonKeyboard_f4f20.svg",
+      "rect": "[P: (42.0, 430.0), S: (22.0, 25.0)]",
+      "screen": 4,
+      "shot": "settings_110",
+      "slot": "imgIkonKeyboard"
+    },
+    {
+      "path": "res://assets/ui/figma/4_IkonEye_ccd74.svg",
+      "rect": "[P: (743.0, 430.0), S: (22.0, 25.0)]",
+      "screen": 4,
+      "shot": "settings_110",
+      "slot": "imgIkonEye"
+    },
+    {
+      "path": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+      "rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+      "screen": 4,
+      "shot": "report_110",
+      "slot": "imgRiakSamudra"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonCoin_3587d.svg",
+      "rect": "[P: (42.0, 140.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "report_110",
+      "slot": "imgIkonCoin"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonEconomy_95a74.svg",
+      "rect": "[P: (274.0, 140.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "report_110",
+      "slot": "imgIkonEconomy"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonHeart_01c17.svg",
+      "rect": "[P: (506.0, 140.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "report_110",
+      "slot": "imgIkonHeart"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonTrust_cb3e2.svg",
+      "rect": "[P: (738.0, 140.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "report_110",
+      "slot": "imgIkonTrust"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonShield_6bbe1.svg",
+      "rect": "[P: (971.0, 140.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "report_110",
+      "slot": "imgIkonShield"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonLeaf_e73c5.svg",
+      "rect": "[P: (1203.0, 140.0), S: (20.0, 25.0)]",
+      "screen": 3,
+      "shot": "report_110",
+      "slot": "imgIkonLeaf"
+    },
+    {
+      "path": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+      "rect": "[P: (0.0, 0.0), S: (1440.0, 810.0)]",
+      "screen": 4,
+      "shot": "profile_1920",
+      "slot": "imgRiakSamudra"
+    },
+    {
+      "path": "res://assets/ui/figma/2_MedaliMandatPertama_fdc19.svg",
+      "rect": "[P: (70.0, 408.0), S: (100.0, 100.0)]",
+      "screen": 2,
+      "shot": "profile_1920",
+      "slot": "imgMedaliMandatPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_TepiMedaliMandatPertama_5db9b.svg",
+      "rect": "[P: (79.0, 417.0), S: (82.0, 82.0)]",
+      "screen": 2,
+      "shot": "profile_1920",
+      "slot": "imgTepiMedaliMandatPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_IkonStar_6d45e.svg",
+      "rect": "[P: (94.0, 432.0), S: (52.0, 52.0)]",
+      "screen": 2,
+      "shot": "profile_1920",
+      "slot": "imgIkonStar"
+    },
+    {
+      "path": "res://assets/ui/figma/2_MedaliKenaliNusantara_41afc.svg",
+      "rect": "[P: (238.0, 408.0), S: (100.0, 100.0)]",
+      "screen": 2,
+      "shot": "profile_1920",
+      "slot": "imgMedaliKenaliNusantara"
+    },
+    {
+      "path": "res://assets/ui/figma/2_TepiMedaliKenaliNusantara_35c0d.svg",
+      "rect": "[P: (247.0, 417.0), S: (82.0, 82.0)]",
+      "screen": 2,
+      "shot": "profile_1920",
+      "slot": "imgTepiMedaliKenaliNusantara"
+    },
+    {
+      "path": "res://assets/ui/figma/2_IkonCompass_aca1c.svg",
+      "rect": "[P: (262.0, 432.0), S: (52.0, 52.0)]",
+      "screen": 2,
+      "shot": "profile_1920",
+      "slot": "imgIkonCompass"
+    },
+    {
+      "path": "res://assets/ui/figma/2_MedaliSolusiPertama_77113.svg",
+      "rect": "[P: (406.0, 421.0), S: (100.0, 100.0)]",
+      "screen": 2,
+      "shot": "profile_1920",
+      "slot": "imgMedaliSolusiPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_TepiMedaliSolusiPertama_9b0d9.svg",
+      "rect": "[P: (415.0, 430.0), S: (82.0, 82.0)]",
+      "screen": 2,
+      "shot": "profile_1920",
+      "slot": "imgTepiMedaliSolusiPertama"
+    },
+    {
+      "path": "res://assets/ui/figma/2_IkonStar_6d45e.svg",
+      "rect": "[P: (430.0, 445.0), S: (52.0, 52.0)]",
+      "screen": 2,
+      "shot": "profile_1920",
+      "slot": "imgIkonStar"
+    },
+    {
+      "path": "res://assets/ui/figma/2_NaraAdinataKarakterPemain_e7034.png",
+      "rect": "[P: (613.348, 99.0), S: (342.304, 563.0)]",
+      "screen": 2,
+      "shot": "profile_1920",
+      "slot": "imgNaraAdinataKarakterPemain"
+    },
+    {
+      "path": "res://assets/ui/figma/2_PotretPresidenNara_ede4f.jpg",
+      "rect": "[P: (1039.0, 153.0), S: (56.0, 56.0)]",
+      "screen": 2,
+      "shot": "profile_1920",
+      "slot": "imgPotretPresidenNara"
+    },
+    {
+      "path": "res://assets/ui/figma/1_PotretPresidenNara_ede4f.jpg",
+      "rect": "[P: (44.0, 42.0), S: (40.0, 40.0)]",
+      "screen": 1,
+      "shot": "province_1920",
+      "slot": "imgPotretPresidenNara"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonHeart_01c17.svg",
+      "rect": "[P: (830.0, 50.0), S: (24.0, 24.0)]",
+      "screen": 3,
+      "shot": "province_1920",
+      "slot": "imgIkonHeart"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonTrust_cb3e2.svg",
+      "rect": "[P: (1020.0, 50.0), S: (24.0, 24.0)]",
+      "screen": 3,
+      "shot": "province_1920",
+      "slot": "imgIkonTrust"
+    },
+    {
+      "path": "res://assets/ui/figma/3_IkonCoin_3587d.svg",
+      "rect": "[P: (1181.0, 50.0), S: (24.0, 24.0)]",
+      "screen": 3,
+      "shot": "province_1920",
+      "slot": "imgIkonCoin"
+    }
+  ],
+  "checks": [
+    {
+      "label": "menu blocks map navigation",
+      "ok": true
+    },
+    {
+      "label": "new mandate opens the pending case",
+      "ok": true
+    },
+    {
+      "label": "selection alone does not decide",
+      "ok": true
+    },
+    {
+      "label": "selected option enables confirmation",
+      "ok": true
+    },
+    {
+      "label": "selected option reveals benefits and risks before confirmation",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCoin",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCoin",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCoin",
+      "ok": true
+    },
+    {
+      "label": "Enter confirms the selected decision",
+      "ok": true
+    },
+    {
+      "label": "decision does not advance time",
+      "ok": true
+    },
+    {
+      "label": "district selection reads its own identity",
+      "ok": true
+    },
+    {
+      "label": "source button opens provenance dialog",
+      "ok": true
+    },
+    {
+      "label": "provenance metadata is visible",
+      "ok": true
+    },
+    {
+      "label": "source dialog closes",
+      "ok": true
+    },
+    {
+      "label": "context reset [\"province\", \"35\"]",
+      "ok": true
+    },
+    {
+      "label": "aggregate context does not masquerade as district",
+      "ok": true
+    },
+    {
+      "label": "context reset [\"island_group\", \"sulawesi\"]",
+      "ok": true
+    },
+    {
+      "label": "aggregate context does not masquerade as district",
+      "ok": true
+    },
+    {
+      "label": "context reset [\"province\", \"91\"]",
+      "ok": true
+    },
+    {
+      "label": "aggregate context does not masquerade as district",
+      "ok": true
+    },
+    {
+      "label": "context reset [\"kabkota\", \"11.01\"]",
+      "ok": true
+    },
+    {
+      "label": "group does not borrow provincial official facts",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgPotretPresidenNara",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonHeart",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonTrust",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCoin",
+      "ok": true
+    },
+    {
+      "label": "policy retains selected resolution",
+      "ok": true
+    },
+    {
+      "label": "budget dialog is above modal shade",
+      "ok": true
+    },
+    {
+      "label": "budget close button receives mouse input",
+      "ok": true
+    },
+    {
+      "label": "quarter produces three real monthly observations",
+      "ok": true
+    },
+    {
+      "label": "save succeeds in isolated directory",
+      "ok": true
+    },
+    {
+      "label": "save/load preserves exact simulation state",
+      "ok": true
+    },
+    {
+      "label": "loaded save does not fabricate missing monthly history",
+      "ok": true
+    },
+    {
+      "label": "profile primary controls fit at 1280×720",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgRiakSamudra",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgMedaliMandatPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgTepiMedaliMandatPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonStar",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgMedaliKenaliNusantara",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgTepiMedaliKenaliNusantara",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCompass",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgMedaliSolusiPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgTepiMedaliSolusiPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonStar",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgNaraAdinataKarakterPemain",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgPotretPresidenNara",
+      "ok": true
+    },
+    {
+      "label": "statistics primary controls fit at 1280×720",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgRiakSamudra",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgNaraRaporStatistik",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCoin",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonEconomy",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonHeart",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonTrust",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonShield",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonLeaf",
+      "ok": true
+    },
+    {
+      "label": "settings primary controls fit at 1280×720",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgRiakSamudra",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonSpeaker",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonScreen",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonKeyboard",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonEye",
+      "ok": true
+    },
+    {
+      "label": "report primary controls fit at 1280×720",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgRiakSamudra",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCoin",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonEconomy",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonHeart",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonTrust",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonShield",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonLeaf",
+      "ok": true
+    },
+    {
+      "label": "reading all screens does not change simulation or RNG",
+      "ok": true
+    },
+    {
+      "label": "settings component is available",
+      "ok": true
+    },
+    {
+      "label": "preferences persist independently of saves",
+      "ok": true
+    },
+    {
+      "label": "master volume applies to actual audio bus",
+      "ok": true
+    },
+    {
+      "label": "profile primary controls fit at 110% text",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgRiakSamudra",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgMedaliMandatPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgTepiMedaliMandatPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonStar",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgMedaliKenaliNusantara",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgTepiMedaliKenaliNusantara",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCompass",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgMedaliSolusiPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgTepiMedaliSolusiPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonStar",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgNaraAdinataKarakterPemain",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgPotretPresidenNara",
+      "ok": true
+    },
+    {
+      "label": "statistics primary controls fit at 110% text",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgRiakSamudra",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgNaraRaporStatistik",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCoin",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonEconomy",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonHeart",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonTrust",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonShield",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonLeaf",
+      "ok": true
+    },
+    {
+      "label": "settings primary controls fit at 110% text",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgRiakSamudra",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonSpeaker",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonScreen",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonKeyboard",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonEye",
+      "ok": true
+    },
+    {
+      "label": "report primary controls fit at 110% text",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgRiakSamudra",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCoin",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonEconomy",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonHeart",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonTrust",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonShield",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonLeaf",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgRiakSamudra",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgMedaliMandatPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgTepiMedaliMandatPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonStar",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgMedaliKenaliNusantara",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgTepiMedaliKenaliNusantara",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCompass",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgMedaliSolusiPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgTepiMedaliSolusiPertama",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonStar",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgNaraAdinataKarakterPemain",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgPotretPresidenNara",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgPotretPresidenNara",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonHeart",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonTrust",
+      "ok": true
+    },
+    {
+      "label": "visible local asset imgIkonCoin",
+      "ok": true
+    }
+  ],
+  "last_window": "(1920, 1080)",
+  "passed": true,
+  "preferences_path": "D:/GameSimulator/research/reports/ui_spacing_fix_20261120/flow/preferences.cfg",
+  "runtime_errors": [],
+  "save_dir": "D:/GameSimulator/research/reports/ui_spacing_fix_20261120/flow/saves"
+}
