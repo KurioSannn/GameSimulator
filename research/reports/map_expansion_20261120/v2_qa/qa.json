@@ -1,0 +1,113 @@
+{
+  "batches": 155,
+  "checks": [
+    {
+      "label": "all canonical regions remain in 3D",
+      "ok": true
+    },
+    {
+      "label": "all generated decorative props render",
+      "ok": true
+    },
+    {
+      "label": "121 land model variants render as mesh batches",
+      "ok": true
+    },
+    {
+      "label": "136 maritime vessels across 8 watercraft models render",
+      "ok": true
+    },
+    {
+      "label": "184 varied cloud clusters render",
+      "ok": true
+    },
+    {
+      "label": "neighbor backdrop and seasonal weather FX built",
+      "ok": true
+    },
+    {
+      "label": "camera zoom bounds and archipelago safe zone clamp pan targets",
+      "ok": true
+    },
+    {
+      "label": "pending case creates a location marker",
+      "ok": true
+    },
+    {
+      "label": "3D camera picking returns canonical Surabaya",
+      "ok": true
+    },
+    {
+      "label": "3D selection opens the matching data context",
+      "ok": true
+    },
+    {
+      "label": "actual mouse click selects the 3D region",
+      "ok": true
+    },
+    {
+      "label": "all prop batches follow the selected region lift",
+      "ok": true
+    },
+    {
+      "label": "reduced motion freezes water",
+      "ok": true
+    },
+    {
+      "label": "reduced motion freezes cloud clusters, sky veil and ground shadows",
+      "ok": true
+    },
+    {
+      "label": "reduced motion freezes vegetation, buildings, vessels, cirrus and weather FX",
+      "ok": true
+    },
+    {
+      "label": "analytical layers hide decorative land, maritime and weather props",
+      "ok": true
+    },
+    {
+      "label": "layer menu matches displayed data",
+      "ok": true
+    },
+    {
+      "label": "2D cartographic mode remains available",
+      "ok": true
+    },
+    {
+      "label": "rendering, picking and overlays leave world/RNG unchanged",
+      "ok": true
+    }
+  ],
+  "close_frame_median_ms": 12.386,
+  "close_frame_p95_ms": 13.135,
+  "cloud_clusters": 120,
+  "counts": {
+    "crop": 313.0,
+    "highland_tree": 5739.0,
+    "house": 5304.0,
+    "industrial": 188.0,
+    "midrise": 492.0,
+    "palm": 2168.0,
+    "port_cargo": 57.0,
+    "road": 1940.0,
+    "rock": 1013.0,
+    "shrub": 1199.0,
+    "streetlight": 468.0,
+    "tower": 145.0,
+    "tree": 6068.0,
+    "urban_block": 649.0,
+    "vehicle": 1534.0,
+    "vessel": 136.0
+  },
+  "device": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "frame_median_ms": 12.246,
+  "frame_p95_ms": 13.146,
+  "high_cloud_clusters": 64,
+  "maritime_batches": 14,
+  "passed": true,
+  "props": 27277,
+  "renderer": "gl_compatibility",
+  "runtime_errors": [],
+  "vessels": 136,
+  "window": "(1600, 900)"
+}
