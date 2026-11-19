@@ -5,6 +5,7 @@ uniform sampler2D palette : source_color, filter_linear;
 uniform bool use_palette = false;
 uniform vec4 tint : source_color = vec4(1.0);
 uniform bool foliage = false;
+uniform bool is_vehicle = false;
 uniform float motion = 1.0;
 uniform int selected_region = -1;
 uniform float selected_lift = 0.0;
@@ -30,6 +31,13 @@ void vertex() {
 		VERTEX.z += cos(TIME * 0.65 + phase) * max(VERTEX.y, 0.0) * 0.012 * gust * motion;
 	}
 	vec4 world = MODEL_MATRIX * vec4(VERTEX, 1.0);
+	if (is_vehicle) {
+		float v_phase = INSTANCE_CUSTOM.g * 6.283;
+		float v_spd = mix(1.1, 2.2, INSTANCE_CUSTOM.b);
+		vec3 fwd = normalize(vec3(MODEL_MATRIX[2].x, 0.0, MODEL_MATRIX[2].z));
+		float cruise = sin(TIME * v_spd + v_phase) * 0.95 * motion;
+		world.xyz += fwd * cruise;
+	}
 	world.y += lift;
 	world_position = world.xyz;
 	variation = INSTANCE_CUSTOM.b;

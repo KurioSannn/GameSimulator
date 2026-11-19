@@ -9,7 +9,7 @@ var _last_state := ""
 var catalog: Dictionary
 
 
-func build(records: Array) -> void:
+func build(records: Array, base_y: float = 0.4) -> void:
 	catalog = JSON.parse_string(FileAccess.get_file_as_string("res://data/map/art_catalog.json")).groups
 	var groups := {}
 	for record in records:
@@ -34,7 +34,7 @@ func build(records: Array) -> void:
 			first = false
 		var list: Array = groups[model_key]
 		for item in meshes:
-			_batch(item, bounds, list, model_key)
+			_batch(item, bounds, list, model_key, base_y)
 		prop_count += list.size()
 		scene.free()
 
@@ -50,7 +50,7 @@ func _collect(node: Node, parent: Transform3D, result: Array) -> void:
 		_collect(child, local, result)
 
 
-func _batch(item: Dictionary, bounds: AABB, records: Array, model_key: String) -> void:
+func _batch(item: Dictionary, bounds: AABB, records: Array, model_key: String, base_y: float = 0.4) -> void:
 	var source: Mesh = item.mesh
 	var kind: String = records[0].kind
 	var spec: Dictionary = catalog[kind]
@@ -91,6 +91,7 @@ func _batch(item: Dictionary, bounds: AABB, records: Array, model_key: String) -
 			material.set_shader_parameter("tint", color)
 		if not building:
 			material.set_shader_parameter("foliage", bool(spec.foliage))
+			material.set_shader_parameter("is_vehicle", kind == "vehicle")
 		mesh.surface_set_material(surface, material)
 		materials.append(material)
 	var multimesh := MultiMesh.new()
@@ -106,7 +107,7 @@ func _batch(item: Dictionary, bounds: AABB, records: Array, model_key: String) -
 		var scale_factor := minf(height_scale, footprint_scale) * float(r.size)
 		var basis := Basis(Vector3.UP, float(r.rotation)).scaled(Vector3.ONE * scale_factor)
 		var center := Vector3(bounds.get_center().x, bounds.position.y, bounds.get_center().z)
-		var root := Transform3D(basis, Vector3(r.x, 0.4, r.z) - basis * center)
+		var root := Transform3D(basis, Vector3(r.x, base_y, r.z) - basis * center)
 		multimesh.set_instance_transform(n, root * (item.transform as Transform3D))
 		multimesh.set_instance_custom_data(n, Color(float(r.region) / 1024.0, float(n % 37) / 37.0, float(n % 11) / 11.0, 1))
 	var batch := MultiMeshInstance3D.new()
