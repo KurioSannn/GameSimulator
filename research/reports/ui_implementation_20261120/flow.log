@@ -1,0 +1,132 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 581.86 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3050 6GB Laptop GPU
+
+map loaded in 65 ms (514 regions, lod1)
+UI QA PASS: menu blocks map navigation
+UI QA PASS: new mandate opens the pending case
+UI QA PASS: selection alone does not decide
+UI QA PASS: selected option enables confirmation
+UI QA PASS: selected option reveals benefits and risks before confirmation
+UI QA PASS: visible local asset imgIkonCoin
+UI QA PASS: visible local asset imgIkonCoin
+UI QA PASS: visible local asset imgIkonCoin
+UI QA PASS: Enter confirms the selected decision
+UI QA PASS: decision does not advance time
+UI QA PASS: district selection reads its own identity
+UI QA PASS: source button opens provenance dialog
+UI QA PASS: provenance metadata is visible
+UI QA PASS: source dialog closes
+UI QA PASS: context reset ["province", "35"]
+UI QA PASS: aggregate context does not masquerade as district
+UI QA PASS: context reset ["island_group", "sulawesi"]
+UI QA PASS: aggregate context does not masquerade as district
+UI QA PASS: context reset ["province", "91"]
+UI QA PASS: aggregate context does not masquerade as district
+UI QA PASS: context reset ["kabkota", "11.01"]
+UI QA PASS: group does not borrow provincial official facts
+UI QA PASS: visible local asset imgPotretPresidenNara
+UI QA PASS: visible local asset imgIkonHeart
+UI QA PASS: visible local asset imgIkonTrust
+UI QA PASS: visible local asset imgIkonCoin
+UI QA PASS: policy retains selected resolution
+UI QA PASS: budget dialog is above modal shade
+UI QA PASS: budget close button receives mouse input
+UI QA PASS: quarter produces three real monthly observations
+UI QA PASS: save succeeds in isolated directory
+UI QA PASS: save/load preserves exact simulation state
+UI QA PASS: loaded save does not fabricate missing monthly history
+UI QA PASS: profile primary controls fit at 1280×720
+UI QA PASS: visible local asset imgRiakSamudra
+UI QA PASS: visible local asset imgMedaliMandatPertama
+UI QA PASS: visible local asset imgTepiMedaliMandatPertama
+UI QA PASS: visible local asset imgIkonStar
+UI QA PASS: visible local asset imgMedaliKenaliNusantara
+UI QA PASS: visible local asset imgTepiMedaliKenaliNusantara
+UI QA PASS: visible local asset imgIkonCompass
+UI QA PASS: visible local asset imgMedaliSolusiPertama
+UI QA PASS: visible local asset imgTepiMedaliSolusiPertama
+UI QA PASS: visible local asset imgIkonStar
+UI QA PASS: visible local asset imgNaraAdinataKarakterPemain
+UI QA PASS: visible local asset imgPermukaanPanggung
+UI QA PASS: visible local asset imgPotretPresidenNara
+UI QA PASS: statistics primary controls fit at 1280×720
+UI QA PASS: visible local asset imgRiakSamudra
+UI QA PASS: visible local asset imgNaraRaporStatistik
+UI QA PASS: visible local asset imgIkonCoin
+UI QA PASS: visible local asset imgIkonEconomy
+UI QA PASS: visible local asset imgIkonHeart
+UI QA PASS: visible local asset imgIkonTrust
+UI QA PASS: visible local asset imgIkonShield
+UI QA PASS: visible local asset imgIkonLeaf
+UI QA PASS: settings primary controls fit at 1280×720
+UI QA PASS: visible local asset imgRiakSamudra
+UI QA PASS: visible local asset imgIkonSpeaker
+UI QA PASS: visible local asset imgIkonScreen
+UI QA PASS: visible local asset imgIkonKeyboard
+UI QA PASS: visible local asset imgIkonEye
+UI QA PASS: report primary controls fit at 1280×720
+UI QA PASS: visible local asset imgRiakSamudra
+UI QA PASS: visible local asset imgIkonCoin
+UI QA PASS: visible local asset imgIkonEconomy
+UI QA PASS: visible local asset imgIkonHeart
+UI QA PASS: visible local asset imgIkonTrust
+UI QA PASS: visible local asset imgIkonShield
+UI QA PASS: visible local asset imgIkonLeaf
+UI QA PASS: reading all screens does not change simulation or RNG
+UI QA PASS: settings component is available
+UI QA PASS: preferences persist independently of saves
+UI QA PASS: master volume applies to actual audio bus
+UI QA PASS: profile primary controls fit at 110% text
+UI QA PASS: visible local asset imgRiakSamudra
+UI QA PASS: visible local asset imgMedaliMandatPertama
+UI QA PASS: visible local asset imgTepiMedaliMandatPertama
+UI QA PASS: visible local asset imgIkonStar
+UI QA PASS: visible local asset imgMedaliKenaliNusantara
+UI QA PASS: visible local asset imgTepiMedaliKenaliNusantara
+UI QA PASS: visible local asset imgIkonCompass
+UI QA PASS: visible local asset imgMedaliSolusiPertama
+UI QA PASS: visible local asset imgTepiMedaliSolusiPertama
+UI QA PASS: visible local asset imgIkonStar
+UI QA PASS: visible local asset imgNaraAdinataKarakterPemain
+UI QA PASS: visible local asset imgPermukaanPanggung
+UI QA PASS: visible local asset imgPotretPresidenNara
+UI QA PASS: statistics primary controls fit at 110% text
+UI QA PASS: visible local asset imgRiakSamudra
+UI QA PASS: visible local asset imgNaraRaporStatistik
+UI QA PASS: visible local asset imgIkonCoin
+UI QA PASS: visible local asset imgIkonEconomy
+UI QA PASS: visible local asset imgIkonHeart
+UI QA PASS: visible local asset imgIkonTrust
+UI QA PASS: visible local asset imgIkonShield
+UI QA PASS: visible local asset imgIkonLeaf
+UI QA PASS: settings primary controls fit at 110% text
+UI QA PASS: visible local asset imgRiakSamudra
+UI QA PASS: visible local asset imgIkonSpeaker
+UI QA PASS: visible local asset imgIkonScreen
+UI QA PASS: visible local asset imgIkonKeyboard
+UI QA PASS: visible local asset imgIkonEye
+UI QA PASS: report primary controls fit at 110% text
+UI QA PASS: visible local asset imgRiakSamudra
+UI QA PASS: visible local asset imgIkonCoin
+UI QA PASS: visible local asset imgIkonEconomy
+UI QA PASS: visible local asset imgIkonHeart
+UI QA PASS: visible local asset imgIkonTrust
+UI QA PASS: visible local asset imgIkonShield
+UI QA PASS: visible local asset imgIkonLeaf
+UI QA PASS: visible local asset imgRiakSamudra
+UI QA PASS: visible local asset imgMedaliMandatPertama
+UI QA PASS: visible local asset imgTepiMedaliMandatPertama
+UI QA PASS: visible local asset imgIkonStar
+UI QA PASS: visible local asset imgMedaliKenaliNusantara
+UI QA PASS: visible local asset imgTepiMedaliKenaliNusantara
+UI QA PASS: visible local asset imgIkonCompass
+UI QA PASS: visible local asset imgMedaliSolusiPertama
+UI QA PASS: visible local asset imgTepiMedaliSolusiPertama
+UI QA PASS: visible local asset imgIkonStar
+UI QA PASS: visible local asset imgNaraAdinataKarakterPemain
+UI QA PASS: visible local asset imgPermukaanPanggung
+UI QA PASS: visible local asset imgPotretPresidenNara
+UI QA PASS: visible local asset imgPotretPresidenNara
+UI QA PASS: visible local asset imgIkonHeart
+UI QA PASS: visible local asset imgIkonTrust
+UI QA PASS: visible local asset imgIkonCoin
