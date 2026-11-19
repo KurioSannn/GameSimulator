@@ -1,0 +1,214 @@
+{
+  "sha": "cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+  "node_id": "C_kwDOAdQSTdoAKGNjNTY2MWQ0M2NkNGY5YWFkNTU2NzAzM2E4ZTE1Y2EyOGRjMzVjODY",
+  "commit": {
+    "author": {
+      "name": "Emma Marichal",
+      "email": "64773544+emmamarichal@users.noreply.github.com",
+      "date": "2026-11-19T09:25:04Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-11-19T09:25:04Z"
+    },
+    "message": "Merge pull request #11419 from TheVicky1/fix-designer-profile-urls\n\ncatalog/designers: fix broken and dead URLs in bio.html (#11377, #11378, #11387, #11394)",
+    "tree": {
+      "sha": "4db28fa5a4716f80e0bf27cfd0cfb7c9ad0a3200",
+      "url": "https://api.github.com/repos/google/fonts/git/trees/4db28fa5a4716f80e0bf27cfd0cfb7c9ad0a3200"
+    },
+    "url": "https://api.github.com/repos/google/fonts/git/commits/cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq/sBwCRC1aQ7uu5UhlAAAVkYQAEZ/wFRqRHy28o0w09hY4gJy\n/34QGqL5pXAFeVB/Oti5HofWRybdIATELbNhlXZXd+YbW5mMw1zFnJNArPCbyeqK\niXMgMTvthSkA6NJWeaHpE/FyKD2D/oIFH+Ka9UftotXUzzuqQ7HQtMoDX7CnUIUM\nHi9ooI/Y5YzrjVj4gRwTPC8P0VsnHy3W53J6Huh2qseQSkkxocJ4H8T6kjwtfHCC\nzoXWYOve11UlxnR4VCTEdFrSrmI+Dtz6GMqEId4lAWK6EJLIDtnOXDHkyiwKsCGu\nkob646plxq4qoGSB7G8AP+34GW29h2BwK4JGJ91grgnEBICBLx+wAK1XkadPUP0B\nYwjnM6tzzZvtJIeTtf/nFVPnnPDzaZbQ+YZJcnZ1Az9jaXhk3cN5EWUoQPIwkx3O\nD0IyMNe8H0kRw427b4oZK0wHa+iJVw7x5pMTECjbb/s6/xCzv/aVNbVZg2dI2MCx\n4AObf0vi1Jj4eeyu9LT4nmkGQb9/gFpFgR3fYNKYhE4S4GjSY0XlFmdGVd7aOjOF\n1bjhLjuiTknDiGZSsvOCR6ovwl6oOvo1UXCyxylULchupeaElL55xwlbJXJof6Pg\nm0Ml9h1hmoE0mvC4uHL9c26QoSbbyY/v5kMD93elj+nefvYlWya/B265fPwnCalS\nNS6S5yZz+sesCHnlffiv\n=IvMf\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 4db28fa5a4716f80e0bf27cfd0cfb7c9ad0a3200\nparent 5bd87dfc525c8a0d1d8529d3684716e00c3fc59a\nparent 657196923a6af01367af1608a728211fa2566fc7\nauthor Emma Marichal <64773544+emmamarichal@users.noreply.github.com> 1795080304 +0100\ncommitter GitHub <noreply@github.com> 1795080304 +0100\n\nMerge pull request #11419 from TheVicky1/fix-designer-profile-urls\n\ncatalog/designers: fix broken and dead URLs in bio.html (#11377, #11378, #11387, #11394)",
+      "verified_at": "2026-11-19T09:25:05Z"
+    }
+  },
+  "url": "https://api.github.com/repos/google/fonts/commits/cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+  "html_url": "https://github.com/google/fonts/commit/cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+  "comments_url": "https://api.github.com/repos/google/fonts/commits/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/comments",
+  "author": {
+    "login": "emmamarichal",
+    "id": 64773544,
+    "node_id": "MDQ6VXNlcjY0NzczNTQ0",
+    "avatar_url": "https://avatars.githubusercontent.com/u/64773544?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/emmamarichal",
+    "html_url": "https://github.com/emmamarichal",
+    "followers_url": "https://api.github.com/users/emmamarichal/followers",
+    "following_url": "https://api.github.com/users/emmamarichal/following{/other_user}",
+    "gists_url": "https://api.github.com/users/emmamarichal/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/emmamarichal/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/emmamarichal/subscriptions",
+    "organizations_url": "https://api.github.com/users/emmamarichal/orgs",
+    "repos_url": "https://api.github.com/users/emmamarichal/repos",
+    "events_url": "https://api.github.com/users/emmamarichal/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/emmamarichal/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "5bd87dfc525c8a0d1d8529d3684716e00c3fc59a",
+      "url": "https://api.github.com/repos/google/fonts/commits/5bd87dfc525c8a0d1d8529d3684716e00c3fc59a",
+      "html_url": "https://github.com/google/fonts/commit/5bd87dfc525c8a0d1d8529d3684716e00c3fc59a"
+    },
+    {
+      "sha": "657196923a6af01367af1608a728211fa2566fc7",
+      "url": "https://api.github.com/repos/google/fonts/commits/657196923a6af01367af1608a728211fa2566fc7",
+      "html_url": "https://github.com/google/fonts/commit/657196923a6af01367af1608a728211fa2566fc7"
+    }
+  ],
+  "stats": {
+    "total": 24,
+    "additions": 12,
+    "deletions": 12
+  },
+  "files": [
+    {
+      "sha": "c89fe812e12af654f18cd7413a65e4fe07427f6e",
+      "filename": "catalog/designers/afrotype/bio.html",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/google/fonts/blob/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fafrotype%2Fbio.html",
+      "raw_url": "https://github.com/google/fonts/raw/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fafrotype%2Fbio.html",
+      "contents_url": "https://api.github.com/repos/google/fonts/contents/catalog%2Fdesigners%2Fafrotype%2Fbio.html?ref=cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "patch": "@@ -1,2 +1,2 @@\n <p>Based in Lagos, Nigeria, Afrotype, founded by Seyi Olusanya, intends to subvert cliches around African graphic design and identity by creating typefaces that are grounded in African history and culture. </p>\n-<p><a href=\"https://twitter.com/useafrotype\" target=\"_blank\">Twitter</a> | <a href=\"https://www.afrotype.com\" target=\"_blank\">afrotype.com</a></p>\n\\ No newline at end of file\n+<p><a href=\"https://twitter.com/useafrotype\" target=\"_blank\">Twitter</a> | <a href=\"https://ogbeniseyi.com\" target=\"_blank\">ogbeniseyi.com</a></p>\n\\ No newline at end of file"
+    },
+    {
+      "sha": "7fd44418673d58d2ff446013e1a21da681ba75d8",
+      "filename": "catalog/designers/aniawielunska/bio.html",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/google/fonts/blob/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Faniawielunska%2Fbio.html",
+      "raw_url": "https://github.com/google/fonts/raw/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Faniawielunska%2Fbio.html",
+      "contents_url": "https://api.github.com/repos/google/fonts/contents/catalog%2Fdesigners%2Faniawielunska%2Fbio.html?ref=cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "patch": "@@ -1,2 +1,2 @@\n <p>Ania Wieluńska is a graphic and type designer. She is a PhD student and head of the typedesign studio at the Academy of Fine Arts in Warsaw. She is a laureate of the TDC Beatrice Warde scholarship, funded by Monotype (NYC). She is the author of \"Lazarus\" and co-author of \"Bona Nova\" and \"Półtawski Nowy\" typefaces.</p>\n-<p><a href=\"https://capitalics.wtf/en/designer/ania-wielunska\" target=\"_blank\">Homepage</a></p>\n\\ No newline at end of file\n+<p><a href=\"https://capitalics.wtf\" target=\"_blank\">Capitalics</a></p>"
+    },
+    {
+      "sha": "dea1d769f9b0f95fd6365c1bb85ff139f339c30d",
+      "filename": "catalog/designers/anrt/bio.html",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/google/fonts/blob/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fanrt%2Fbio.html",
+      "raw_url": "https://github.com/google/fonts/raw/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fanrt%2Fbio.html",
+      "contents_url": "https://api.github.com/repos/google/fonts/contents/catalog%2Fdesigners%2Fanrt%2Fbio.html?ref=cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "patch": "@@ -1,2 +1,2 @@\n <p>The ANRT (Atelier national de recherche typographique) is a postgraduate research course in type design and typography based in Nancy, France</p>\n-<p><a href=\"https://anrt-nancy.fr/en/presentation-en/\" target=\"_blank\">anrt-nancy.fr</a> | <a href=\"https://www.instagram.com/anrt_type/\" target=\"_blank\">Instagram</a></p>\n+<p><a href=\"https://anrt-nancy.fr/en/\" target=\"_blank\">anrt-nancy.fr</a> | <a href=\"https://www.instagram.com/anrt_type/\" target=\"_blank\">Instagram</a></p>"
+    },
+    {
+      "sha": "8b198521d7a0dc30305217cac254fc61fef410fc",
+      "filename": "catalog/designers/ethancohen/bio.html",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/google/fonts/blob/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fethancohen%2Fbio.html",
+      "raw_url": "https://github.com/google/fonts/raw/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fethancohen%2Fbio.html",
+      "contents_url": "https://api.github.com/repos/google/fonts/contents/catalog%2Fdesigners%2Fethancohen%2Fbio.html?ref=cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "patch": "@@ -1,2 +1,2 @@\n <p>Ethan Cohen is a type designer and business manager from New York City currently living in Berlin and working at Dinamo. He has a masters degree in TypeMedia from the Royal Academy of Art in The Hague and attended the Type@Cooper Extended Program. Before joining Dinamo he worked at The Type Founders, LucasFonts, and Mucca Design, and released some of his own typefaces through Future Fonts. Before moving to Europe he spent many years handling contracts and IP at a record label during the day and playing guitar and banjo in bands at night.</p>\n-<p><a href=\"https://www.ethancohenstudio.com\" target=\"_blank\">ethancohenstudio.com</a></p>\n+<p><a href=\"https://www.futurefonts.com/ethan-cohen\" target=\"_blank\">futurefonts.com/ethan-cohen</a></p>"
+    },
+    {
+      "sha": "9e26401c93aef1d77ec0901a5ecf051b46a6e5bb",
+      "filename": "catalog/designers/fionaross/bio.html",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/google/fonts/blob/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Ffionaross%2Fbio.html",
+      "raw_url": "https://github.com/google/fonts/raw/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Ffionaross%2Fbio.html",
+      "contents_url": "https://api.github.com/repos/google/fonts/contents/catalog%2Fdesigners%2Ffionaross%2Fbio.html?ref=cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "patch": "@@ -3,5 +3,5 @@\n </p>\n \n <p>\n-<a href=\"http://www.reading.ac.uk/typography/about/Staff_list/f-g-e-ross.aspx\" target=\"_blank\">Academic Profile</a>\n+<a href=\"https://www.reading.ac.uk/typography/staff/professor-fiona-ross\" target=\"_blank\">Academic Profile</a>\n </p>"
+    },
+    {
+      "sha": "1591cc51e816312682a92d7610483a5a10f3b89f",
+      "filename": "catalog/designers/mateuszmachalski/bio.html",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/google/fonts/blob/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fmateuszmachalski%2Fbio.html",
+      "raw_url": "https://github.com/google/fonts/raw/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fmateuszmachalski%2Fbio.html",
+      "contents_url": "https://api.github.com/repos/google/fonts/contents/catalog%2Fdesigners%2Fmateuszmachalski%2Fbio.html?ref=cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "patch": "@@ -1,2 +1,2 @@\n <p>Mateusz Machalski, PhD, studied at the Academy of Fine Arts in Warsaw (PhD in Typeface Design 2020, MA in Graphic Design 2014). He works at the Faculty of Graphics in the Studio of Multimedia Artistic Creation at his <i>alma mater</i>. He is a member of the board of the Association of Applied Graphic Designers in Poland.</p>\n-<p><a href=\"https://capitalics.wtf/pl/designer/mateusz-machalski\" target=\"_blank\">Homepage</a></p>\n\\ No newline at end of file\n+<p><a href=\"https://capitalics.wtf\" target=\"_blank\">Capitalics</a></p>"
+    },
+    {
+      "sha": "fcb4bd60724c15946288590584076ebc898a2a20",
+      "filename": "catalog/designers/przemyslawhoffer/bio.html",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/google/fonts/blob/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fprzemyslawhoffer%2Fbio.html",
+      "raw_url": "https://github.com/google/fonts/raw/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fprzemyslawhoffer%2Fbio.html",
+      "contents_url": "https://api.github.com/repos/google/fonts/contents/catalog%2Fdesigners%2Fprzemyslawhoffer%2Fbio.html?ref=cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "patch": "@@ -1,2 +1,2 @@\n <p>Przemysław Hoffer graduated the Academy of Fine Arts in Katowice. He is a designer and initiator of graphic design and arts exhibitions and events. He co-founded the Distort Visual Collective, which focuses on the use of classical typography based on metal typesetting and printing art. He collaborates with the Book Arts Museum in Lodz since 2011.</p>\n-<p><a href=\"https://capitalics.wtf/en/designer/przemyslaw-hoffer\" target=\"_blank\">Homepage</a></p>\n\\ No newline at end of file\n+<p><a href=\"https://capitalics.wtf\" target=\"_blank\">Capitalics</a></p>"
+    },
+    {
+      "sha": "3479607f646fd6e1364d270a006336ed6d145d0d",
+      "filename": "catalog/designers/superunion/bio.html",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/google/fonts/blob/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fsuperunion%2Fbio.html",
+      "raw_url": "https://github.com/google/fonts/raw/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fsuperunion%2Fbio.html",
+      "contents_url": "https://api.github.com/repos/google/fonts/contents/catalog%2Fdesigners%2Fsuperunion%2Fbio.html?ref=cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "patch": "@@ -1,2 +1,2 @@\n-<p>Superunion is a revolutionary creative company, with expertise in strategy, design, communications, and brand management. Superunion works with clients that include some of the world’s most iconic brands, alongside technology unicorns, ambitious start-ups and inspiring not-for-profits. Superunion believes in the power of ideas to create positive, meaningful change.</p>\n-<p><a href=\"https://www.superunion.com\" target=\"_blank\">superunion.com</a></p>\n+<p>Superunion was a revolutionary creative company, with expertise in strategy, design, communications, and brand management. In 2023, Superunion merged with Design Bridge to form Design Bridge and Partners.</p>\n+<p><a href=\"https://www.designbridge.com/\" target=\"_blank\">designbridge.com</a></p>"
+    },
+    {
+      "sha": "410664ed31284e78d288a40445914a470025a34b",
+      "filename": "catalog/designers/tinaanderson/bio.html",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/google/fonts/blob/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Ftinaanderson%2Fbio.html",
+      "raw_url": "https://github.com/google/fonts/raw/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Ftinaanderson%2Fbio.html",
+      "contents_url": "https://api.github.com/repos/google/fonts/contents/catalog%2Fdesigners%2Ftinaanderson%2Fbio.html?ref=cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "patch": "@@ -1,2 +1,2 @@\n <p>Tina Anderson is a software engineer and type designer based in Australia. She has primarily worked as a freelance programmer involved with various business applications and became interested in educational app development for Little Australian Schoolies as her grandchildren came of school age.</p>\n-<p><a href=\"https://www.auschoolhandwritingfonts.com/\" target=\"_blank\">auschoolhandwritingfonts.com</a></p>\n+<p><a href=\"https://github.com/MezMerrit/AU-School-Handwriting-Fonts\" target=\"_blank\">GitHub</a></p>"
+    },
+    {
+      "sha": "7d9760ccadad77d2e81fff17dc6767d9becd234f",
+      "filename": "catalog/designers/yanekiontef/bio.html",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/google/fonts/blob/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fyanekiontef%2Fbio.html",
+      "raw_url": "https://github.com/google/fonts/raw/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/catalog%2Fdesigners%2Fyanekiontef%2Fbio.html",
+      "contents_url": "https://api.github.com/repos/google/fonts/contents/catalog%2Fdesigners%2Fyanekiontef%2Fbio.html?ref=cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "patch": "@@ -1,2 +1,2 @@\n-<p>Yanek is a typeface designer and typographer‭. ‬Born in the USSR‭, ‬he emigrated to Israel at the age of 16‭ ‬and studied graphic design at Bezalel Academy of Arts and Design. ‬He has worked in London and Tel Aviv‭, and taught typography‭ ‬and type design at the Bezalel Academy ‬and at Shenkar College of Engineering and Design. ‬An award-winning type designer‭, Yanek runs Fontef, his own foundry specializing in Hebrew type design. He designed the FF Cartonnage‭, ‬Hadasah Friedlaender,‭ ‬and Mandatory type families‭. ‬His interest in <a href=\"http://www.fontef.com/photolog\" target=\"_blank\">found typography</a> and <a href=\"https://bicyclog.wordpress.com/\" target=\"_blank\">bicycle culture</a>‭ is documented online‭.</p>\n-<p><a href=\"http://github.com/fontef\" target=\"_blank\">GitHub‭</a> | <a href=\"https://twitter.com/YanekIontef\" target=\"_blank\">Twitter</a></p>\n+<p>Yanek is a typeface designer and typographer‭. ‬Born in the USSR‭, ‬he emigrated to Israel at the age of 16‭ ‬and studied graphic design at Bezalel Academy of Arts and Design. ‬He has worked in London and Tel Aviv‭, and taught typography‭ ‬and type design at the Bezalel Academy ‬and at Shenkar College of Engineering and Design. ‬An award-winning type designer‭, Yanek runs Fontef, his own foundry specializing in Hebrew type design. He designed the FF Cartonnage‭, ‬Hadasah Friedlaender,‭ ‬and Mandatory type families‭. ‬His interest in found typography and <a href=\"https://bicyclog.wordpress.com/\" target=\"_blank\">bicycle culture</a>‭ is documented online‭.</p>\n+<p><a href=\"https://github.com/fontef\" target=\"_blank\">GitHub‭</a> | <a href=\"https://twitter.com/YanekIontef\" target=\"_blank\">Twitter</a></p>"
+    }
+  ]
+}
