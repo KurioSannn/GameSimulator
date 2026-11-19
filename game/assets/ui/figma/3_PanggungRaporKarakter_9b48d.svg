@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="334" height="39" viewBox="0 0 334 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Panggung rapor karakter">
+<ellipse cx="167" cy="19.5" rx="167" ry="19.5" fill="#182A56"/>
+<mask id="stroke0_0_33" fill="white">
+<path d="M334 19.5C334 30.2696 259.232 39 167 39C74.7684 39 0 30.2696 0 19.5C0 8.73045 74.7684 0 167 0C259.232 0 334 8.73045 334 19.5Z"/>
+</mask>
+<ellipse cx="167" cy="19.5" rx="167" ry="19.5" stroke-width="6" stroke="#5A9DDD" mask="url(#stroke0_0_33)"/>
+</g>
+</svg>
