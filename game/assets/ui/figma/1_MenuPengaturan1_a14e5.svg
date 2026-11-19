@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="72" height="36.9558" viewBox="0 0 72 36.9558" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 190">
+<mask id="mask0_0_312" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="72" height="37">
+<path id="Rectangle 46" d="M2.86541 1.92324C2.95429 0.836602 3.86212 0 4.95238 0H69.7278C70.9516 0 71.9145 1.04495 71.8148 2.26464L69.1346 35.0325C69.0457 36.1192 68.1379 36.9558 67.0476 36.9558H2.2722C1.04843 36.9558 0.0854692 35.9108 0.185231 34.6911L2.86541 1.92324Z" fill="#343B50"/>
+</mask>
+<g mask="url(#mask0_0_312)">
+<rect id="Rectangle 99" x="-2.39856" y="-7.98536" width="80.9267" height="10.749" fill="#5E5576"/>
+<rect id="Rectangle 100" x="-2.35159" y="33.3044" width="80.9267" height="10.749" fill="#272C3D"/>
+<path id="Vector 89" d="M74.2873 9.24502L65.4262 -0.363283H74.2873V9.24502Z" fill="#766C92"/>
+</g>
+</g>
+</svg>

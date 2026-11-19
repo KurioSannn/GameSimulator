@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="90" height="22" viewBox="0 0 90 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="stroke0_0_300" fill="white">
+<path d="M90 11C90 17.0751 69.8528 22 45 22C20.1472 22 0 17.0751 0 11C0 4.92487 20.1472 0 45 0C69.8528 0 90 4.92487 90 11Z"/>
+</mask>
+<ellipse id="Lingkar lokasi terpilih" cx="45" cy="11" rx="45" ry="11" stroke-width="6" stroke="white" mask="url(#stroke0_0_300)"/>
+</svg>

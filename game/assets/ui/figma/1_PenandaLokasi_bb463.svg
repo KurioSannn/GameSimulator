@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="72" height="96" viewBox="0 0 72 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Penanda lokasi" clip-path="url(#clip0_0_321)">
+<path id="Vector" d="M36 93L9 52C5.92247 47.1621 4.20135 41.5862 4.01661 35.8554C3.83188 30.1246 5.19032 24.4495 7.94988 19.4234C10.7094 14.3974 14.7687 10.2051 19.7033 7.28508C24.6378 4.36502 30.2662 2.82444 36 2.82444C41.7338 2.82444 47.3622 4.36502 52.2967 7.28508C57.2313 10.2051 61.2906 14.3974 64.0501 19.4234C66.8097 24.4495 68.1681 30.1246 67.9834 35.8554C67.7987 41.5862 66.0775 47.1621 63 52L36 93Z" fill="#9871ED" stroke-width="4" stroke="#101A35"/>
+<path id="Vector_2" opacity="0.45" d="M14 23C15.8535 19.676 18.4415 16.8191 21.5667 14.647C24.6919 12.4749 28.2717 11.045 32.0333 10.4663C35.7949 9.88761 39.639 10.1754 43.2725 11.3076C46.906 12.4399 50.233 14.3869 53 17" stroke-width="4" stroke-linecap="round" stroke="white"/>
+<path id="Vector_3" d="M36 54C46.4934 54 55 45.4934 55 35C55 24.5066 46.4934 16 36 16C25.5066 16 17 24.5066 17 35C17 45.4934 25.5066 54 36 54Z" fill="#FFF6BF" stroke-width="3" stroke="#101A35"/>
+</g>
+<defs>
+<clipPath id="clip0_0_321">
+<rect width="72" height="96" fill="white"/>
+</clipPath>
+</defs>
+</svg>
