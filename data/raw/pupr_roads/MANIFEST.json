@@ -1,0 +1,44 @@
+{
+  "schema": "nusantara.raw_manifest/1",
+  "retrieved_at": "2026-11-19T20:09:17+00:00",
+  "datasets": [
+    {
+      "source_id": "SRC-PUPR-JALAN-NASIONAL",
+      "institution": "Kementerian Pekerjaan Umum — Direktorat Jenderal Bina Marga (SIGI-PU)",
+      "title": "Jaringan Jalan Nasional Indonesia (ast_bm_jalan_nasional_iri)",
+      "url": "https://sigi.pu.go.id/serverpu/rest/services/Hosted/ast_bm_jalan_nasional_iri/FeatureServer/0",
+      "publication_date": "2025-06-24",
+      "retrieved_at": "2026-11-19T20:09:13+00:00",
+      "geographic_resolution": "ruas jalan nasional seluruh Indonesia (polyline WGS84 / EPSG:4326)",
+      "reference_period": "2025",
+      "unit": "koordinat EPSG:4326 (derajat); panjang ruas (km); mantap_psn (%)",
+      "status": "verified_ingested",
+      "license_or_terms": "Public ArcGIS Feature Service hosted by Kementerian Pekerjaan Umum (SIGI-PU / Pusdatin); attribution retained.",
+      "feature_count": 3184,
+      "raw_file": "jalan_nasional_bina_marga.geojson",
+      "raw_sha256": "67d4c49d5f1c29db02bd42e7dbf45b34c7b0002ee225b64256b75e8c7a909154",
+      "raw_bytes": 128523331,
+      "meta_file": "service_metadata_jalan_nasional.json",
+      "meta_sha256": "69a7e717608affc03b251de1f5ffb7065f53ae8e7cd95e7b6b400c02037bf59c"
+    },
+    {
+      "source_id": "SRC-PUPR-BPJT-TOL-OPERASI",
+      "institution": "Kementerian Pekerjaan Umum — Badan Pengatur Jalan Tol (BPJT / SIGI-PU)",
+      "title": "Jaringan Jalan Tol Operasi Indonesia (ast_bpjt_tol_operasi_v2)",
+      "url": "https://sigi.pu.go.id/serverpu/rest/services/Hosted/ast_bpjt_tol_operasi_v2/FeatureServer/0",
+      "publication_date": "2025-06-19",
+      "retrieved_at": "2026-11-19T20:09:17+00:00",
+      "geographic_resolution": "ruas jalan tol operasional seluruh Indonesia (polyline WGS84 / EPSG:4326)",
+      "reference_period": "2025",
+      "unit": "koordinat EPSG:4326 (derajat); SHAPE__Length (meter pada proyeksi Indonesia LCC)",
+      "status": "verified_ingested",
+      "license_or_terms": "Public ArcGIS Feature Service hosted by Kementerian Pekerjaan Umum (SIGI-PU / Pusdatin); attribution retained.",
+      "feature_count": 146,
+      "raw_file": "jalan_tol_bpjt_operasi.geojson",
+      "raw_sha256": "d29d419d0f0b7fa90f25f2af5d87c8d9ab798224c1fbe0ef2d7b0ff8f070dd3e",
+      "raw_bytes": 3146270,
+      "meta_file": "service_metadata_jalan_tol.json",
+      "meta_sha256": "0fe0d9d21f33a80f65be2224420916a10acece161596e38e52e86c58b2f6178c"
+    }
+  ]
+}
