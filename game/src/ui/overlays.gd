@@ -3,6 +3,7 @@ extends RefCounted
 ## Thematic map overlays. Each maps a regional variable to a colour ramp with a readable legend.
 
 const DEFS := [
+	{"id": "landscape", "label": "Bentang Nusantara", "var": "", "ramp": "landscape"},
 	{"id": "sentiment", "label": "Sentimen", "var": "sentiment", "min": 20.0, "max": 80.0, "ramp": "diverging"},
 	{"id": "welfare", "label": "Kesejahteraan", "var": "welfare", "min": 30.0, "max": 80.0, "ramp": "sequential"},
 	{"id": "price", "label": "Tingkat Harga", "var": "price_level", "min": 80.0, "max": 160.0, "ramp": "heat"},
