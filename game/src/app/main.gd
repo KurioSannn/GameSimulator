@@ -41,6 +41,7 @@ var _log_box: VBoxContainer
 var _left_down := false
 var _left_down_pos := Vector2.ZERO
 var _is_panning := false
+var _audio_accum := 0.0
 
 
 const FIGMA_ICONS := {
@@ -465,6 +466,7 @@ func _handle_map_click(screen_pos: Vector2, is_double_click: bool) -> void:
 	region_panel.show_region(id)
 	_clear_map_focus()
 	if id != "":
+		GameAudio.play_ui("select")
 		screens.visited[id] = true
 	if policy_panel.visible:
 		policy_panel.context = {}
@@ -678,6 +680,7 @@ func _toggle_log() -> void:
 func _next_quarter() -> void:
 	if case_modal.visible or _next_btn.disabled:
 		return
+	GameAudio.play_ui("confirm")
 	Game.advance_quarter()
 	var msg := "Kuartal selesai."
 	_toast_msg(msg)
@@ -691,6 +694,7 @@ func _on_case_presented(id: String) -> void:
 	_focus_case(id)  # the map behind the modal shows where the case happens
 	if screens == null or not screens.visible or screens.active_screen != "menu":
 		case_modal.present(id)
+		GameAudio.play_ui("alert")
 	_refresh_all()
 
 
@@ -900,6 +904,24 @@ func _sync_interaction() -> void:
 				UiKit.trap_focus.call_deferred(surface)
 	elif not blocked:
 		_clear_map_focus()
+	_sync_world_audio()
+
+
+func _process(delta: float) -> void:
+	_audio_accum += delta
+	if _audio_accum < 0.12:
+		return
+	_audio_accum = 0.0
+	_sync_world_audio()
+
+
+func _sync_world_audio() -> void:
+	if map_view_3d == null or camera_3d == null or screens == null:
+		return
+	var modal := (case_modal != null and case_modal.visible) or (policy_panel != null and policy_panel.visible) or (budget_panel != null and budget_panel.visible) or (sources_dialog != null and sources_dialog.visible)
+	var world_visible := _mode_3d and not screens.visible
+	var cli := map_view_3d.current_climate_state() if world_visible else {}
+	GameAudio.update_world_ambience(world_visible, map_view_3d.landscape, modal, camera_3d.distance, map_view_3d.day_time, cli)
 
 
 func _clear_map_focus() -> void:

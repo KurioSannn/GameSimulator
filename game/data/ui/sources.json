@@ -1,6 +1,6 @@
 {
   "schema": "nusantara.ui_sources/1",
-  "registry_sha256": "d39e849f7187aa8d1c42baed4a2d85300cb6cd6ee3d7044dd26c1108fc39269c",
+  "registry_sha256": "5318994b684fbde480780b42bd995714f1722e23f0efc992f30beea9ae8c2b5f",
   "sources": {
     "SRC-BIG-ADM-KABKOTA": {
       "source_id": "SRC-BIG-ADM-KABKOTA",
@@ -220,6 +220,45 @@
       "unit": "koordinat EPSG:4326 (derajat); SHAPE__Length (meter)",
       "status": "verified_ingested",
       "license_or_terms": "Public ArcGIS Feature Service hosted by Kementerian Pekerjaan Umum (SIGI-PU / Pusdatin); attribution retained."
+    },
+    "SRC-KENNEY-INTERFACE-SOUNDS": {
+      "source_id": "SRC-KENNEY-INTERFACE-SOUNDS",
+      "institution": "Kenney.nl (mirrored by Calinou/kenney-interface-sounds)",
+      "title": "Kenney Interface Sounds (10 UI SFX .wav files: click_003, select_002, confirmation_002, open_002, close_002, back_002, switch_003, tick_001, error_003, bong_001)",
+      "url": "https://github.com/Calinou/kenney-interface-sounds/tree/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds",
+      "publication_date": "pinned commit 4596a49eaf5a533948d49a47467f606bcdea70ff",
+      "retrieved_at": "2026-11-20",
+      "geographic_resolution": "N/A (global UI SFX)",
+      "reference_period": "2026",
+      "unit": "16-bit PCM WAV",
+      "status": "verified_ingested",
+      "license_or_terms": "CC0-1.0 (Creative Commons Zero Universal Public Domain Dedication; LICENSE.txt archived alongside assets)."
+    },
+    "SRC-OGA-CC0-NATURE-HAZARD-SFX": {
+      "source_id": "SRC-OGA-CC0-NATURE-HAZARD-SFX",
+      "institution": "OpenGameArt.org Contributors (isaiah658, jasinski, CC0 community authors)",
+      "title": "CC0 Nature, Maritime Wave, Weather & Hazard Ambience Loops (birds_tropical, ocean_waves, rain_storm, flood_water, fire_crackling, wind_breeze, city_traffic, quake_rumble)",
+      "url": "https://opengameart.org/",
+      "publication_date": "various (individually tracked with exact direct URLs & SHA-256 in game/assets/audio/MANIFEST.json)",
+      "retrieved_at": "2026-11-20",
+      "geographic_resolution": "N/A (environmental/disaster ambience)",
+      "reference_period": "2026",
+      "unit": "Ogg Vorbis",
+      "status": "verified_ingested",
+      "license_or_terms": "CC0-1.0 (Public Domain; every file verified against its OpenGameArt content page before download)."
+    },
+    "SRC-COMMONS-CC0-SHIP-HORN": {
+      "source_id": "SRC-COMMONS-CC0-SHIP-HORN",
+      "institution": "Wikimedia Commons",
+      "title": "Cruise ship Albatros ship horn.ogg",
+      "url": "https://commons.wikimedia.org/wiki/File:Cruise_ship_Albatros_ship_horn.ogg",
+      "publication_date": "archived on Wikimedia Commons",
+      "retrieved_at": "2026-11-20",
+      "geographic_resolution": "N/A (maritime ambient SFX)",
+      "reference_period": "2026",
+      "unit": "Ogg Vorbis",
+      "status": "verified_ingested",
+      "license_or_terms": "CC0-1.0 (Creative Commons Zero Universal Public Domain Dedication per Wikimedia Commons file page)."
     }
   }
 }

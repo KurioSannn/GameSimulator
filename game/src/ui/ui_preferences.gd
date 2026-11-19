@@ -33,7 +33,7 @@ static func write(next_values: Dictionary) -> Error:
 	return err
 
 
-static func apply(viewport: Viewport) -> void:
+static func apply_audio_values(source: Dictionary) -> void:
 	for pair in [["Master", "volume"], ["Musik", "music"], ["Efek", "effects"], ["Dialog", "dialog"]]:
 		var index := AudioServer.get_bus_index(pair[0])
 		if index < 0:
@@ -41,8 +41,13 @@ static func apply(viewport: Viewport) -> void:
 			index = AudioServer.bus_count - 1
 			AudioServer.set_bus_name(index, pair[0])
 			AudioServer.set_bus_send(index, "Master")
-		AudioServer.set_bus_volume_db(index, linear_to_db(maxf(0.0001, float(values[pair[1]]) / 100.0)))
-		AudioServer.set_bus_mute(index, float(values[pair[1]]) == 0.0)
+		var val := clampf(float(source.get(pair[1], DEFAULTS[pair[1]])), 0.0, 100.0)
+		AudioServer.set_bus_volume_db(index, linear_to_db(maxf(0.0001, val / 100.0)))
+		AudioServer.set_bus_mute(index, val == 0.0)
+
+
+static func apply(viewport: Viewport) -> void:
+	apply_audio_values(values)
 	viewport.msaa_3d = [Viewport.MSAA_DISABLED, Viewport.MSAA_2X, Viewport.MSAA_4X][int(values.antialiasing)]
 	if DisplayServer.get_name() != "headless":
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if int(values.window_mode) == 0 else DisplayServer.WINDOW_MODE_WINDOWED)

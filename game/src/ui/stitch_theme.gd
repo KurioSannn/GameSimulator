@@ -113,11 +113,11 @@ static func build() -> Theme:
 		t.set_stylebox("grabber_pressed", sb, sb_grab_hl)
 
 	# Sliders
-	var sl_bg := soft_box(Color("0b1736"), Color(1, 1, 1, 0.14), 99, 0, 4, 1)
-	var sl_fill := soft_box(color("accent"), Color(0, 0, 0, 0), 99, 0, 4, 0)
+	var sl_bg := soft_box(Color("1f2633"), Color("6c5234"), 99, 0, 7, 1)
+	var sl_fill := soft_box(Color("c98b32"), Color(0, 0, 0, 0), 99, 0, 7, 0)
 	t.set_stylebox("slider", "HSlider", sl_bg)
 	t.set_stylebox("grabber_area", "HSlider", sl_fill)
-	t.set_stylebox("grabber_area_highlight", "HSlider", soft_box(color("title_gold"), Color(0, 0, 0, 0), 99, 0, 4, 0))
+	t.set_stylebox("grabber_area_highlight", "HSlider", soft_box(color("title_gold"), Color(0, 0, 0, 0), 99, 0, 7, 0))
 
 	# Panels
 	t.set_stylebox("panel", "PanelContainer", box(color("surface"), color("outline"), 4, 12, 18, 16))

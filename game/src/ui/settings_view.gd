@@ -8,12 +8,21 @@ var pending: Dictionary
 var _binding := ""
 var _binding_button: Button
 var _grid: GridContainer
+var _committed := false
+var _previewed := false
+var _pre_mute_volume := 80.0
 
 
 func _ready() -> void:
 	pending = UiPreferences.values.duplicate(true)
+	_pre_mute_volume = float(pending.get("volume", 80.0)) if float(pending.get("volume", 80.0)) > 0.0 else 80.0
 	add_theme_constant_override("separation", 14)
 	_build()
+
+
+func _exit_tree() -> void:
+	if _previewed and not _committed:
+		UiPreferences.apply_audio_values(UiPreferences.values)
 
 
 func _section(title: String, icon: String) -> VBoxContainer:
@@ -43,7 +52,10 @@ func _build() -> void:
 	add_child(_grid)
 
 	var audio := _section("AUDIO", "imgIkonSpeaker")
-	for spec in [["VOLUME UTAMA", "volume"], ["MUSIK", "music"], ["EFEK SUARA", "effects"], ["DIALOG", "dialog"]]:
+	var sliders: Dictionary = {}
+	var value_labels: Dictionary = {}
+	var mute_btn := UiKit.ghost_button("", func(): pass, "Bisukan atau nyalakan seluruh suara sementara")
+	for spec in [["VOLUME UTAMA", "volume"], ["MUSIK (BGM)", "music"], ["EFEK & ALAM", "effects"], ["DIALOG", "dialog"]]:
 		var row := UiKit.hbox(12)
 		var label := UiKit.label(spec[0], 15, UiKit.TEXT)
 		label.custom_minimum_size.x = 170
@@ -51,18 +63,63 @@ func _build() -> void:
 		var slider := HSlider.new()
 		slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		slider.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		slider.custom_minimum_size.y = 24
 		slider.min_value = 0
 		slider.max_value = 100
 		slider.step = 1
 		slider.value = float(pending[spec[1]])
+		slider.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 		row.add_child(slider)
 		var value := UiKit.title(Fmt.num(slider.value, 0) + "%", 17, UiKit.ACCENT)
 		value.custom_minimum_size.x = 58
 		value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		row.add_child(value)
 		var key: String = spec[1]
-		slider.value_changed.connect(func(v): pending[key] = v; value.text = Fmt.num(v, 0) + "%")
+		sliders[key] = slider
+		value_labels[key] = value
+		slider.value_changed.connect(func(v):
+			pending[key] = v
+			value.text = Fmt.num(v, 0) + "%"
+			if key == "volume" and v > 0.0:
+				_pre_mute_volume = v
+			mute_btn.text = "NYALAKAN" if float(pending.volume) <= 0.0 else "BISUKAN"
+			_previewed = true
+			UiPreferences.apply_audio_values(pending))
+		if key == "effects":
+			slider.drag_ended.connect(func(changed: bool):
+				if changed:
+					GameAudio.play_ui("confirm", 0.0))
 		audio.add_child(row)
+
+	var audio_bar := UiKit.hbox(10)
+	var bgm_status := UiKit.label("BGM: " + GameAudio.get_active_bgm_label(), 12, UiKit.MUTED, true)
+	bgm_status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	audio_bar.add_child(bgm_status)
+	mute_btn.text = "NYALAKAN" if float(pending.volume) <= 0.0 else "BISUKAN"
+	mute_btn.custom_minimum_size = Vector2(106, 34)
+	mute_btn.pressed.connect(func():
+		var master_slider := sliders.get("volume") as HSlider
+		if float(pending.volume) <= 0.0:
+			pending.volume = _pre_mute_volume if _pre_mute_volume > 0.0 else 80.0
+		else:
+			_pre_mute_volume = float(pending.volume)
+			pending.volume = 0.0
+		if master_slider != null:
+			master_slider.value = float(pending.volume)
+		var v_lbl := value_labels.get("volume") as Label
+		if v_lbl != null:
+			v_lbl.text = Fmt.num(float(pending.volume), 0) + "%"
+		mute_btn.text = "NYALAKAN" if float(pending.volume) <= 0.0 else "BISUKAN"
+		_previewed = true
+		UiPreferences.apply_audio_values(pending))
+	audio_bar.add_child(mute_btn)
+	var test_btn := UiKit.ghost_button("TES SUARA", func():
+		_previewed = true
+		UiPreferences.apply_audio_values(pending)
+		GameAudio.play_ui("confirm", 0.0), "Putar contoh efek suara pada volume saat ini")
+	test_btn.custom_minimum_size = Vector2(106, 34)
+	audio_bar.add_child(test_btn)
+	audio.add_child(audio_bar)
 
 	var display := _section("TAMPILAN DAN BAHASA", "imgIkonScreen")
 	_option(display, "MODE LAYAR", "window_mode", ["Layar penuh", "Jendela"])
@@ -131,7 +188,10 @@ func _build() -> void:
 	reset_btn.custom_minimum_size.y = 44
 	foot.add_child(reset_btn)
 	foot.add_child(UiKit.spacer())
-	var cancel_btn := UiKit.ghost_button("BATAL", func(): cancelled.emit())
+	var cancel_btn := UiKit.ghost_button("BATAL", func():
+		if _previewed:
+			UiPreferences.apply_audio_values(UiPreferences.values)
+		cancelled.emit())
 	cancel_btn.custom_minimum_size = Vector2(110, 44)
 	foot.add_child(cancel_btn)
 	var save_btn := UiKit.button("SIMPAN PENGATURAN", _save, true)
@@ -157,8 +217,10 @@ func _option(body: VBoxContainer, label: String, key: String, items: Array) -> v
 
 
 func _save() -> void:
+	_committed = true
 	var err := UiPreferences.write(pending)
 	if err != OK:
+		_committed = false
 		add_child(UiKit.label("Gagal menyimpan pengaturan: " + error_string(err), 15, UiKit.WARN))
 		return
 	UiPreferences.apply(get_viewport())

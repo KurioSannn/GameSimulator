@@ -1,0 +1,215 @@
+{
+  "schema": "nusantara.audio_assets/1",
+  "license_summary": "All packaged audio assets are verified CC0-1.0 (Public Domain).",
+  "assets": [
+    {
+      "file": "ui/click_003.wav",
+      "category": "ui",
+      "role": "General button press click",
+      "creator": "Kenney",
+      "license": "CC0-1.0",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/click_003.wav",
+      "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
+      "bytes": 1742,
+      "sha256": "b035afe3fe08b0fd3517c612bdfd362799bffe762d2cbf8f09e6a50322067358"
+    },
+    {
+      "file": "ui/select_002.wav",
+      "category": "ui",
+      "role": "Region, tab, dropdown, and option card selection",
+      "creator": "Kenney",
+      "license": "CC0-1.0",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/select_002.wav",
+      "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
+      "bytes": 11086,
+      "sha256": "9f15b5f93716a3ff8842cff73ef932e81beac2d19972066f690154c1f9322f2b"
+    },
+    {
+      "file": "ui/confirmation_002.wav",
+      "category": "ui",
+      "role": "Decision confirmation and quarter advance",
+      "creator": "Kenney",
+      "license": "CC0-1.0",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/confirmation_002.wav",
+      "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
+      "bytes": 49614,
+      "sha256": "b23339f3fdcd9f54520ca73caa3a9ae93ecfb3675acdaf1468990feb5d55d5fa"
+    },
+    {
+      "file": "ui/open_002.wav",
+      "category": "ui",
+      "role": "Open dialog or drawer",
+      "creator": "Kenney",
+      "license": "CC0-1.0",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/open_002.wav",
+      "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
+      "bytes": 27982,
+      "sha256": "fe6f58e1915885e4aa887a14f0e660476e0ab0b2345bda968dffdb1cd5873710"
+    },
+    {
+      "file": "ui/close_002.wav",
+      "category": "ui",
+      "role": "Close dialog or dismiss panel",
+      "creator": "Kenney",
+      "license": "CC0-1.0",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/close_002.wav",
+      "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
+      "bytes": 28878,
+      "sha256": "f22922e05f6ae75d7bed5b5ebf01c9fbb2c9f5d85333a2c0f750f7649b3c3169"
+    },
+    {
+      "file": "ui/back_002.wav",
+      "category": "ui",
+      "role": "Back / cancel action",
+      "creator": "Kenney",
+      "license": "CC0-1.0",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/back_002.wav",
+      "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
+      "bytes": 8142,
+      "sha256": "45f1c9df0db7af4c55166bad72568dcbd6e729ee362ce470b88d9deee51a5e5c"
+    },
+    {
+      "file": "ui/switch_003.wav",
+      "category": "ui",
+      "role": "Toggle checkbutton or map layer/weather switch",
+      "creator": "Kenney",
+      "license": "CC0-1.0",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/switch_003.wav",
+      "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
+      "bytes": 88910,
+      "sha256": "f57fcbc345d84d0b8d1bb22c10505b336a131700fe7a9c26da5ae2f39b27683a"
+    },
+    {
+      "file": "ui/tick_001.wav",
+      "category": "ui",
+      "role": "Subtle control focus / slider tick",
+      "creator": "Kenney",
+      "license": "CC0-1.0",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/tick_001.wav",
+      "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
+      "bytes": 4046,
+      "sha256": "fee217e21731da4be1f0347fd2632296259b8bfdca343c936fe60dc64bce280e"
+    },
+    {
+      "file": "ui/error_003.wav",
+      "category": "ui",
+      "role": "Validation warning or disabled action",
+      "creator": "Kenney",
+      "license": "CC0-1.0",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/error_003.wav",
+      "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
+      "bytes": 98126,
+      "sha256": "350375a1a4adb8fe6f7b4cd775cdbb9a3015e2473b31a0e6fad9e3b3a1e8a9fd"
+    },
+    {
+      "file": "ui/bong_001.wav",
+      "category": "ui",
+      "role": "Urgent case / event notification chime",
+      "creator": "Kenney",
+      "license": "CC0-1.0",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/bong_001.wav",
+      "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
+      "bytes": 11726,
+      "sha256": "f5d5f83b13edc5321352c2ba57972d1400151e3f27f1c18fcda07d261358511a"
+    },
+    {
+      "file": "ambient/birds_tropical.ogg",
+      "category": "ambient",
+      "role": "Tropical birdsong over vegetated islands",
+      "creator": "isaiah658 (OpenGameArt)",
+      "license": "CC0-1.0",
+      "url": "https://opengameart.org/sites/default/files/birds-isaiah658_0.ogg",
+      "source_page": "https://opengameart.org/content/ambient-bird-sounds",
+      "bytes": 544669,
+      "sha256": "359e4e3f9da9d75aac64cede511c7e3ef8b461f9d9f8c230f8f80e44c4b3e35f"
+    },
+    {
+      "file": "ambient/ocean_waves.ogg",
+      "category": "ambient",
+      "role": "Archipelagic ocean waves & coastal surf",
+      "creator": "jasinski (OpenGameArt)",
+      "license": "CC0-1.0",
+      "url": "https://opengameart.org/sites/default/files/jasinski-wave-prev.ogg",
+      "source_page": "https://opengameart.org/content/beach-ocean-waves",
+      "bytes": 163241,
+      "sha256": "7f2069b19449a8eabbd9d738c2d5cb07e718db5481f41bdf1347d4d713141c81"
+    },
+    {
+      "file": "ambient/rain_storm.ogg",
+      "category": "ambient",
+      "role": "Monsoon tropical rain & distant thunder",
+      "creator": "OpenGameArt contributor",
+      "license": "CC0-1.0",
+      "url": "https://opengameart.org/sites/default/files/rain-thunder_0.ogg",
+      "source_page": "https://opengameart.org/content/rain-long-thunder",
+      "bytes": 875624,
+      "sha256": "9499fd1aefa3b5d8ba3764ea46d15c00ab449be7e19c029290a1f52228f1434c"
+    },
+    {
+      "file": "ambient/flood_water.ogg",
+      "category": "ambient",
+      "role": "Rushing urban floodwater surge",
+      "creator": "OpenGameArt contributor",
+      "license": "CC0-1.0",
+      "url": "https://opengameart.org/sites/default/files/audio_preview/rain-gutter-loop_0.mp3.ogg",
+      "source_page": "https://opengameart.org/content/rain-gutter-loop",
+      "bytes": 772478,
+      "sha256": "6f875cc6a84de879ca5ac692a5099afa6e20b6cce4c9bfe2a42bf629423cf7ca"
+    },
+    {
+      "file": "ambient/fire_crackling.ogg",
+      "category": "ambient",
+      "role": "Peatland & forest wildfire crackling",
+      "creator": "OpenGameArt contributor",
+      "license": "CC0-1.0",
+      "url": "https://opengameart.org/sites/default/files/fire-1_0.ogg",
+      "source_page": "https://opengameart.org/content/fire-crackling",
+      "bytes": 22784,
+      "sha256": "f922929805bc6afdf0a35727fa3998033db544c1b6f62ed3aeab94341ed6ddeb"
+    },
+    {
+      "file": "ambient/wind_breeze.ogg",
+      "category": "ambient",
+      "role": "High-altitude monsoon / dry season breeze",
+      "creator": "OpenGameArt contributor",
+      "license": "CC0-1.0",
+      "url": "https://opengameart.org/sites/default/files/wind%20woosh%20loop_0.ogg",
+      "source_page": "https://opengameart.org/content/wind-whoosh-loop",
+      "bytes": 251584,
+      "sha256": "0cfdbd3f21ed449689a9024264edf267d0037a6495813a7010827672ec191dac"
+    },
+    {
+      "file": "ambient/city_traffic.ogg",
+      "category": "ambient",
+      "role": "Urban arterial traffic / Kota Macet hum",
+      "creator": "OpenGameArt contributor",
+      "license": "CC0-1.0",
+      "url": "https://opengameart.org/sites/default/files/gatve%20Varniu_3.ogg",
+      "source_page": "https://opengameart.org/content/high-traffic-road-sounds",
+      "bytes": 558092,
+      "sha256": "1c7ce49677ade7ebc4c7f3bd58657a730b892713382d197ea96a2c0f4ead0c51"
+    },
+    {
+      "file": "ambient/quake_rumble.ogg",
+      "category": "ambient",
+      "role": "Seismic tremor / geological disaster rumble",
+      "creator": "OpenGameArt contributor",
+      "license": "CC0-1.0",
+      "url": "https://opengameart.org/sites/default/files/audio_preview/rumble.mp3.ogg",
+      "source_page": "https://opengameart.org/content/rumble-fx",
+      "bytes": 250159,
+      "sha256": "2c796de2fcd3834153b79fe1d4f5558b1cb4be6139dc4057ded9c25c69a0b3e8"
+    },
+    {
+      "file": "ambient/ship_horn.ogg",
+      "category": "ambient",
+      "role": "Maritime cargo/passenger vessel horn near straits & ports",
+      "creator": "Wikimedia Commons contributor",
+      "license": "CC0-1.0",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Cruise_ship_Albatros_ship_horn.ogg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Cruise_ship_Albatros_ship_horn.ogg",
+      "bytes": 449732,
+      "sha256": "63f21ca4f80d37e9503f7568d92f32593bba306eef084513ae1250304cd16198"
+    }
+  ]
+}

@@ -12,6 +12,7 @@ config/features=PackedStringArray("4.7")
 
 ContentDB="*res://src/data/content_db.gd"
 Game="*res://src/app/game.gd"
+GameAudio="*res://src/audio/game_audio.gd"
 
 [display]
 
