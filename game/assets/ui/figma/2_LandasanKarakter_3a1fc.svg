@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="477" height="81" viewBox="0 0 477 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Landasan karakter">
+<ellipse cx="238.5" cy="40.5" rx="238.5" ry="40.5" fill="#172951"/>
+<mask id="stroke0_0_16" fill="white">
+<path d="M477 40.5C477 62.8675 370.22 81 238.5 81C106.78 81 0 62.8675 0 40.5C0 18.1325 106.78 0 238.5 0C370.22 0 477 18.1325 477 40.5Z"/>
+</mask>
+<ellipse cx="238.5" cy="40.5" rx="238.5" ry="40.5" stroke-width="6" stroke="#111B35" mask="url(#stroke0_0_16)"/>
+</g>
+</svg>
