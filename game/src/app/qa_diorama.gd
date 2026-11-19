@@ -17,7 +17,7 @@ class ErrorLog extends Logger:
 
 func run() -> void:
 	OS.add_logger(_errors)
-	get_tree().create_timer(60).timeout.connect(func(): get_tree().quit(2))
+	get_tree().create_timer(90).timeout.connect(func(): get_tree().quit(2))
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	main.case_modal.hide()
 	main.get_window().mode = Window.MODE_WINDOWED
@@ -34,7 +34,13 @@ func run() -> void:
 	_check(main.map_view_3d._props.model_count == 121 and main.map_view_3d._props.batches.size() >= 121, "121 land model variants render as mesh batches")
 	_check(main.map_view_3d._maritime.vessel_count == 136 and main.map_view_3d._maritime.model_count == 8, "136 maritime vessels across 8 watercraft models render")
 	_check(main.map_view_3d._atmosphere.cluster_count == 120 and main.map_view_3d._atmosphere.high_cluster_count == 64, "184 varied cloud clusters render")
-	_check(main.map_view_3d._neighbor_mesh != null and main.map_view_3d._weather_fx != null, "neighbor backdrop and seasonal weather FX built")
+	_check(main.map_view_3d._neighbor_mesh != null and main.map_view_3d._neighbor_props != null and main.map_view_3d._neighbor_props.prop_count >= 1500 and main.map_view_3d._weather_fx != null, "neighbor backdrop, neighbor trees and seasonal/disaster weather FX built")
+	_check(main.map_view_3d._roads != null and main.map_view_3d._roads.national_line_count >= 3000 and main.map_view_3d._roads.toll_line_count >= 140,
+		"official Indonesian Jalan Nasional and Jalan Tol ribbons render in 3D")
+	_check(main.map_view_3d._aviation != null and main.map_view_3d._aviation.plane_count >= 30,
+		"Indonesian domestic commercial aircraft and contrails render in 3D")
+	_check(main.map_view_3d._province_labels.size() == 38,
+		"all 38 official Indonesian province labels render on regional zoom")
 	# Camera safe zone & zoom clamp verification
 	main.camera_3d.target = Vector3(20000.0, 0.0, -20000.0)
 	main.camera_3d._clamp_target()
@@ -113,12 +119,46 @@ func run() -> void:
 		and main.map_view_3d._atmosphere.veil_material.get_shader_parameter("motion") == 0.0,
 		"reduced motion freezes cloud clusters, sky veil and ground shadows")
 	_check(main.map_view_3d._props.materials.all(func(m): return m.get_shader_parameter("motion") == 0.0)
+		and (main.map_view_3d._neighbor_props == null or main.map_view_3d._neighbor_props.materials.all(func(m): return m.get_shader_parameter("motion") == 0.0))
+		and (main.map_view_3d._roads == null or main.map_view_3d._roads.materials.all(func(m): return m.get_shader_parameter("motion") == 0.0))
+		and (main.map_view_3d._aviation == null or main.map_view_3d._aviation.materials.all(func(m): return m.get_shader_parameter("motion") == 0.0))
 		and main.map_view_3d._maritime.materials.all(func(m): return m.get_shader_parameter("motion") == 0.0)
 		and main.map_view_3d._weather_fx.materials.all(func(m): return m.get_shader_parameter("motion") == 0.0)
 		and main.map_view_3d._atmosphere.cirrus_material.get_shader_parameter("motion") == 0.0,
-		"reduced motion freezes vegetation, buildings, vessels, cirrus and weather FX")
-	# Visual captures across Time-of-Day & Season/Hazard modes
+		"reduced motion freezes vegetation, neighbor trees, roads, buildings, vessels, wakes, cirrus and weather FX")
+	# Visual captures across Time-of-Day, Coastlines, Neighbors & Hazard modes
 	UiPreferences.values.reduce_motion = false
+	main.map_view_3d.set_time_mode("siang")
+	main.map_view_3d.set_weather_mode("sim")
+	main.camera_3d.target = Vector3(-120.0, 0.0, -340.0) # Northern frontier: Sabah, Malaysia, Brunei, Philippines, Anambas/Sangihe
+	main.camera_3d.distance = 1120.0
+	main.camera_3d._apply_transform()
+	main.camera_3d.view_changed.emit()
+	await _frames(10)
+	await _shot("09_northern_neighbors")
+
+	# Close-up of small island coast + surrounding water/ships (Kepulauan Anambas 21.05 or Sangihe 71.03)
+	var island_anchor := Vector2(-1170.0, -300.0)
+	for prop in config.props:
+		if str(prop.role).ends_with("_core") and main.map_view.region_ids[int(prop.region)] == "21.05":
+			island_anchor = Vector2(prop.x, prop.z)
+			break
+	main.camera_3d.target = Vector3(island_anchor.x, 0.0, island_anchor.y)
+	main.camera_3d.distance = 165.0
+	main.camera_3d._apply_transform()
+	main.camera_3d.view_changed.emit()
+	await _frames(12)
+	await _shot("10_small_islands_closeup")
+
+	main.map_view_3d.set_time_mode("siang")
+	main.map_view_3d.set_weather_mode("bencana")
+	main._view_province("31")
+	main.camera_3d.distance = 520.0
+	main.camera_3d._apply_transform()
+	main.camera_3d.view_changed.emit()
+	await _frames(12)
+	await _shot("11_bencana_macet")
+
 	main.map_view_3d.set_time_mode("sore")
 	main.map_view_3d.set_weather_mode("kebakaran")
 	main.camera_3d.target = Vector3(-420.0, 0.0, 120.0) # Kalimantan Tengah & Jawa overview
@@ -148,8 +188,8 @@ func run() -> void:
 	await _frames(4)
 	main._set_overlay(Overlays.DEFS[2])
 	await _frames(5)
-	_check(not main.map_view_3d._props.visible and not main.map_view_3d._maritime.visible and not main.map_view_3d._weather_fx.visible and not main.map_view_3d.landscape,
-		"analytical layers hide decorative land, maritime and weather props")
+	_check(not main.map_view_3d._props.visible and (main.map_view_3d._neighbor_props == null or not main.map_view_3d._neighbor_props.visible) and (main.map_view_3d._roads == null or not main.map_view_3d._roads.visible) and (main.map_view_3d._aviation == null or not main.map_view_3d._aviation.visible) and not main.map_view_3d._maritime.visible and not main.map_view_3d._weather_fx.visible and not main.map_view_3d.landscape,
+		"analytical layers hide decorative land, neighbor, road, aviation, maritime and weather props")
 	_check(main.hud.layer_select.selected == 2, "layer menu matches displayed data")
 	await _shot("04_analytical")
 	main.region_panel.show_region("")

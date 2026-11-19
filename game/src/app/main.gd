@@ -221,6 +221,7 @@ func _debug_automation() -> void:
 
 
 func _build_ui() -> void:
+	get_window().min_size = Vector2i(1280, 720)
 	_ui = CanvasLayer.new()
 	add_child(_ui)
 	var root := Control.new()
@@ -263,37 +264,27 @@ func _build_ui() -> void:
 	hud.weather_mode_selected.connect(func(mode: String):
 		if map_view_3d:
 			map_view_3d.set_weather_mode(mode))
-	# Names exactly which starting values are still neutral defaults (none -> no warning).
-	var uncal: Array = ContentDB.uncalibrated_variables()
-	if not uncal.is_empty():
-		var warn := PanelContainer.new()
-		warn.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("0d1b3f", 0.94), Color(UiKit.INFO, 0.35), 8, 10, 5, 1))
-		warn.tooltip_text = "Data awal netral (mode simulasi) untuk: %s. Penduduk dan IPM memakai data resmi BPS." % ", ".join(uncal.map(func(v): return ChangeText.var_label(str(v))))
-		warn.mouse_filter = Control.MOUSE_FILTER_STOP
-		var wl := UiKit.label("ⓘ %d data awal mode simulasi" % uncal.size(), 11, UiKit.MUTED)
-		wl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		warn.add_child(wl)
-		hud.add_map_note(warn)
-
 	# Region panel (docked cleanly in the middle-right zone, strictly above the bottom dock).
 	region_panel = RegionPanel.new()
-	region_panel.set_anchors_preset(Control.PRESET_RIGHT_WIDE)
+	region_panel.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	region_panel.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 	region_panel.offset_left = -446
-	region_panel.offset_top = 96
+	region_panel.offset_top = 112
 	region_panel.offset_right = -16
-	region_panel.offset_bottom = -112
+	region_panel.offset_bottom = 112
 	_map_chrome.add_child(region_panel)
 	region_panel.province_view_requested.connect(_view_province)
 	region_panel.sources_requested.connect(func(model): sources_dialog.open(model))
 	region_panel.policy_requested.connect(_open_policy_context)
 	region_panel.case_requested.connect(func(id): case_modal.present(id))
 	region_panel.visibility_changed.connect(func():
-		hud.right_col.visible = not region_panel.visible)
+		hud.right_col.visible = not region_panel.visible
+		if _tooltip != null: _tooltip.hide())
 
 	# Hover tooltip placeholder moved after _log_panel below so hover cards never draw beneath logs.
 	_toast_panel = PanelContainer.new()
 	_toast_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_toast_panel.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("0d1b3f", 0.96), UiKit.ACCENT, 10, 18, 9, 1))
+	_toast_panel.add_theme_stylebox_override("panel", GameSkin.frame("panel_brown", 16, 16))
 	_toast_panel.set_anchors_preset(Control.PRESET_CENTER_TOP)
 	_toast_panel.grow_horizontal = Control.GROW_DIRECTION_BOTH
 	_toast_panel.offset_top = 92
@@ -344,11 +335,13 @@ func _build_ui() -> void:
 
 	_tooltip = PanelContainer.new()
 	_tooltip.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_tooltip.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("0b1633", 0.96), StitchTheme.color("border_subtle"), 8, 12, 8, 1))
+	_tooltip.add_theme_stylebox_override("panel", GameSkin.frame("panel_brown", 14, 16))
 	_tooltip_label = UiKit.label("", 13)
 	_tooltip.add_child(_tooltip_label)
 	_tooltip.visible = false
 	_map_chrome.add_child(_tooltip)
+	region_panel.mouse_entered.connect(func(): _tooltip.hide())
+	_log_panel.mouse_entered.connect(func(): _tooltip.hide())
 
 	# Modal shade + centered modal containers (must sit above docks and map tooltips).
 	_modal_shade = ColorRect.new()
@@ -499,8 +492,9 @@ func _update_tooltip(id: String, screen_pos: Vector2) -> void:
 	_tooltip.reset_size()
 	var vp := get_viewport().get_visible_rect().size
 	var pos := screen_pos + Vector2(18, 18)
-	pos.x = clampf(pos.x, 12.0, maxf(12.0, vp.x - _tooltip.size.x - 12.0))
-	pos.y = clampf(pos.y, 12.0, maxf(12.0, vp.y - _tooltip.size.y - 12.0))
+	var right_edge := region_panel.position.x - 12.0 if region_panel.visible else vp.x - 12.0
+	pos.x = clampf(pos.x, 110.0, maxf(110.0, right_edge - _tooltip.size.x))
+	pos.y = clampf(pos.y, 98.0, maxf(98.0, vp.y - 112.0 - _tooltip.size.y))
 	_tooltip.position = pos
 	_tooltip.visible = true
 
@@ -555,7 +549,7 @@ func _recolor() -> void:
 			var col := Overlays.change_color(d[i], scale)
 			return Overlays.uncalibrated(col) if uncal[i] == 1 else col)
 		_legend.text = "Tren %s (Bln %d–%d): Biru turun · Oranye naik" % [_overlay.label, int(w.ledger.start_tick) + 1, w.tick]
-		_legend.tooltip_text = "Skala warna ±%s (simulasi).%s" % [Fmt.num(scale, 1), hatch]
+		_legend.tooltip_text = "Skala warna ±%s %s" % [Fmt.num(scale, 1), hatch]
 		if map_view_3d:
 			map_view_3d.sync_colors()
 		return
@@ -565,7 +559,7 @@ func _recolor() -> void:
 		var col := Overlays.color(_overlay, arr[i])
 		return Overlays.uncalibrated(col) if uncal[i] == 1 else col)
 	_legend.text = "%s: %s (rendah) → %s (tinggi)" % [_overlay.label, Fmt.num(_overlay.min, 0), Fmt.num(_overlay.max, 0)]
-	_legend.tooltip_text = "Nilai simulasi permainan.%s" % hatch
+	_legend.tooltip_text = "Indikator wilayah.%s" % hatch
 	if map_view_3d:
 		map_view_3d.sync_colors()
 
@@ -585,33 +579,36 @@ func _refresh_all() -> void:
 		var box := PanelContainer.new()
 		box.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 		box.set_meta("indicator_key", key)
-		box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		var outer := UiKit.hbox(8)
+		box.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+		var outer := UiKit.hbox(6)
 		outer.alignment = BoxContainer.ALIGNMENT_CENTER
 		box.add_child(outer)
-		var ic := FigmaAssets.picture(3, FIGMA_ICONS[key], Vector2(24, 24))
+		var ic := FigmaAssets.picture(3, FIGMA_ICONS[key], Vector2(20, 20))
 		ic.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		outer.add_child(ic)
 		var col := UiKit.vbox(1)
 		col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		col.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		outer.add_child(col)
-		col.add_child(UiKit.subheader(str(spec[0]), UiKit.MUTED, 11))
 		var row := UiKit.hbox(6)
 		var suffix := "%" if key == "trust" else " / 100" if key in ["welfare", "sentiment", "environment"] else ""
-		row.add_child(UiKit.title(Fmt.num(val, 1) + suffix, 19))
+		var readout := UiKit.number(Fmt.num(val, 1) + suffix, 20)
+		UiKit.hud_type(readout, 20)
+		row.add_child(readout)
 		if has_q:
 			var prev: float = float(w.ledger.get("fiscal_space_start", val)) if key == "fiscal_space" else w.weighted_mean_of(w.ledger.start[key])
 			var diff := val - prev
 			if absf(diff) >= 0.05:
 				var good := diff < 0.0 if key == "price_level" else diff > 0.0
 				var dcol := UiKit.SUCCESS if good else UiKit.DANGER
-				row.add_child(UiKit.label("%s %s" % ["▲" if diff > 0.0 else "▼", Fmt.num(absf(diff), 1)], 11, dcol))
+				var delta := UiKit.label("%s %s" % ["▲" if diff > 0.0 else "▼", Fmt.num(absf(diff), 1)], 18, dcol)
+				UiKit.hud_type(delta, 18)
+				row.add_child(delta)
 		col.add_child(row)
 		if key == "fiscal_space":
-			box.tooltip_text = "Ruang fiskal / anggaran nasional (indeks simulasi). ▲▼ = perubahan kuartal terakhir."
+			box.tooltip_text = "Anggaran nasional (poin). Perubahan kuartal terakhir."
 		else:
-			box.tooltip_text = "Kondisi nasional (%s). ▲▼ = perubahan kuartal terakhir." % ChangeText.weighting_label(w.national_weighting())
+			box.tooltip_text = "%s · %s. Perubahan kuartal terakhir." % [spec[0], ChangeText.weighting_label(w.national_weighting())]
 		box.mouse_filter = Control.MOUSE_FILTER_STOP
 		_indicators.add_child(box)
 	_weighting_label.text = "Bobot penduduk" if w.national_weighting() == "population" else "Bobot setara 514 wilayah"
@@ -681,15 +678,8 @@ func _toggle_log() -> void:
 func _next_quarter() -> void:
 	if case_modal.visible or _next_btn.disabled:
 		return
-	var t0 := Time.get_ticks_usec()
 	Game.advance_quarter()
-	var msg := "Kuartal selesai · 3 bulan disimulasikan untuk %d wilayah (%.1f ms)" % [Game.world.region_count(), (Time.get_ticks_usec() - t0) / 1000.0]
-	var entries: Array = Game.world.event_log
-	if not entries.is_empty() and str(entries[-1].kind) == "quarter":
-		var changed := 0
-		for vrow in entries[-1].vars:
-			changed = maxi(changed, int(vrow.regions_moved))
-		msg += " · %d wilayah berubah · Catatan (L) · Perubahan (C)" % changed
+	var msg := "Kuartal selesai."
 	_toast_msg(msg)
 	_refresh_all()
 	if not Array(OS.get_cmdline_user_args()).any(func(a): return a.begins_with("--screenshot=") or a.begins_with("--qa-") or a.begins_with("--map-bench=")):
@@ -810,7 +800,7 @@ func _toggle_3d_mode() -> void:
 		if _mode_btn:
 			_mode_btn.text = "2D (T)"
 		_on_view_changed()
-		_toast_msg("Mode Diorama 3D aktif · Klik kiri seret · Klik kanan putar · Scroll zoom")
+		_toast_msg("Peta 3D")
 	else:
 		map_view_3d.visible = false
 		camera_3d.current = false
@@ -820,7 +810,7 @@ func _toggle_3d_mode() -> void:
 		if _mode_btn:
 			_mode_btn.text = "3D (T)"
 		_on_view_changed()
-		_toast_msg("Mode Peta Datar 2D aktif")
+		_toast_msg("Peta 2D")
 	_sync_interaction()
 
 
