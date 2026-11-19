@@ -4,6 +4,8 @@ extends Node3D
 ## Pure visual layer reacting to simulation month/cases/hotspots or preview overrides; zero sim state.
 const MAX_FLOOD_MARKERS := 64
 const MAX_FIRE_CLUSTERS := 72
+const MAX_TRAFFIC_MARKERS := 48
+const MAX_QUAKE_MARKERS := 24
 const RAIN_STREAK_COUNT := 560
 
 var materials: Array[ShaderMaterial] = []
@@ -11,11 +13,15 @@ var _rain_mat: ShaderMaterial
 var _flood_mat: ShaderMaterial
 var _fire_mat: ShaderMaterial
 var _smoke_mat: ShaderMaterial
+var _traffic_mat: ShaderMaterial
+var _quake_mat: ShaderMaterial
 
 var _rain_mm: MultiMesh
 var _flood_mm: MultiMesh
 var _fire_mm: MultiMesh
 var _smoke_mm: MultiMesh
+var _traffic_mm: MultiMesh
+var _quake_mm: MultiMesh
 
 var _region_anchors: Dictionary = {}  # region_id -> Vector2(x, z)
 var _last_sig := ""
@@ -31,6 +37,7 @@ func build(art_config: Dictionary, region_ids: PackedStringArray) -> void:
 	_build_rain_batch(art_config.get("field_bounds", [-2540.0, -847.0, 5080.0, 2188.0]))
 	_build_flood_batch()
 	_build_fire_and_smoke_batches()
+	_build_traffic_and_quake_batches()
 
 
 func _build_crossed_vertical_quad(w: float, h: float) -> ArrayMesh:
@@ -92,8 +99,8 @@ func _build_rain_batch(bounds: Array) -> void:
 
 
 func _build_flood_batch() -> void:
-	var mesh := _build_flat_card(24.0, 24.0)
-	var b := _make_batch(mesh, MAX_FLOOD_MARKERS, 1, 80.0)
+	var mesh := _build_flat_card(44.0, 44.0)
+	var b := _make_batch(mesh, MAX_FLOOD_MARKERS, 1, 90.0)
 	_flood_mat = b.mat
 	_flood_mm = b.mm
 	_flood_mm.visible_instance_count = 0
@@ -118,8 +125,27 @@ func _build_fire_and_smoke_batches() -> void:
 	_smoke_mm.visible_instance_count = 0
 
 
-func update_hazards(flood_ids: Array, fire_ids: Array) -> void:
-	var sig := "%s|%s" % [",".join(PackedStringArray(flood_ids)), ",".join(PackedStringArray(fire_ids))]
+func _build_traffic_and_quake_batches() -> void:
+	var t_mesh := _build_flat_card(48.0, 48.0)
+	var tb := _make_batch(t_mesh, MAX_TRAFFIC_MARKERS, 4, 90.0)
+	_traffic_mat = tb.mat
+	_traffic_mm = tb.mm
+	_traffic_mm.visible_instance_count = 0
+
+	var q_mesh := _build_flat_card(74.0, 74.0)
+	var qb := _make_batch(q_mesh, MAX_QUAKE_MARKERS, 5, 110.0)
+	_quake_mat = qb.mat
+	_quake_mm = qb.mm
+	_quake_mm.visible_instance_count = 0
+
+
+func update_hazards(flood_ids: Array, fire_ids: Array, traffic_ids: Array = [], quake_ids: Array = []) -> void:
+	var sig := "%s|%s|%s|%s" % [
+		",".join(PackedStringArray(flood_ids)),
+		",".join(PackedStringArray(fire_ids)),
+		",".join(PackedStringArray(traffic_ids)),
+		",".join(PackedStringArray(quake_ids)),
+	]
 	if sig == _last_sig:
 		return
 	_last_sig = sig
@@ -130,7 +156,7 @@ func update_hazards(flood_ids: Array, fire_ids: Array) -> void:
 			break
 		if _region_anchors.has(rid):
 			var p: Vector2 = _region_anchors[rid]
-			_flood_mm.set_instance_transform(f_idx, Transform3D(Basis.IDENTITY, Vector3(p.x, 1.0, p.y)))
+			_flood_mm.set_instance_transform(f_idx, Transform3D(Basis.IDENTITY, Vector3(p.x, 0.72, p.y)))
 			_flood_mm.set_instance_custom_data(f_idx, Color(0.0, float(f_idx % 13) / 13.0, 1.0, 1.0))
 			f_idx += 1
 	_flood_mm.visible_instance_count = f_idx
@@ -159,8 +185,31 @@ func update_hazards(flood_ids: Array, fire_ids: Array) -> void:
 	_fire_mm.visible_instance_count = c_idx
 	_smoke_mm.visible_instance_count = c_idx
 
+	var t_idx := 0
+	for rid in traffic_ids:
+		if t_idx >= MAX_TRAFFIC_MARKERS:
+			break
+		if _region_anchors.has(rid):
+			var p: Vector2 = _region_anchors[rid]
+			var rot := (float(t_idx) * 0.45)
+			_traffic_mm.set_instance_transform(t_idx, Transform3D(Basis(Vector3.UP, rot), Vector3(p.x, 0.76, p.y)))
+			_traffic_mm.set_instance_custom_data(t_idx, Color(0.0, float(t_idx % 9) / 9.0, 1.0, 1.0))
+			t_idx += 1
+	_traffic_mm.visible_instance_count = t_idx
 
-func sync(rain_intensity: float, flood_intensity: float, fire_intensity: float, reduced: bool, landscape: bool, fog_col: Color, fog_dens: float) -> void:
+	var q_idx := 0
+	for rid in quake_ids:
+		if q_idx >= MAX_QUAKE_MARKERS:
+			break
+		if _region_anchors.has(rid):
+			var p: Vector2 = _region_anchors[rid]
+			_quake_mm.set_instance_transform(q_idx, Transform3D(Basis.IDENTITY, Vector3(p.x, 0.82, p.y)))
+			_quake_mm.set_instance_custom_data(q_idx, Color(0.0, float(q_idx % 7) / 7.0, 1.0, 1.0))
+			q_idx += 1
+	_quake_mm.visible_instance_count = q_idx
+
+
+func sync(rain_intensity: float, flood_intensity: float, fire_intensity: float, reduced: bool, landscape: bool, fog_col: Color, fog_dens: float, traffic_intensity: float = 0.0, quake_intensity: float = 0.0) -> void:
 	visible = landscape
 	var m := 0.0 if reduced else 1.0
 	for mat in materials:
@@ -171,3 +220,5 @@ func sync(rain_intensity: float, flood_intensity: float, fire_intensity: float, 
 	_flood_mat.set_shader_parameter("intensity", flood_intensity)
 	_fire_mat.set_shader_parameter("intensity", fire_intensity)
 	_smoke_mat.set_shader_parameter("intensity", fire_intensity)
+	_traffic_mat.set_shader_parameter("intensity", traffic_intensity)
+	_quake_mat.set_shader_parameter("intensity", quake_intensity)
