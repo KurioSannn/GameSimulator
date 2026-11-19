@@ -1,0 +1,57 @@
+{
+  "revision": "cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+  "fonts": [
+    {
+      "source_institution": "Google Fonts / respective font authors",
+      "title": "AlegreyaSans-Medium.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/ofl/alegreyasans/AlegreyaSans-Medium.ttf",
+      "publication_update_date": null,
+      "retrieval_timestamp": "2026-11-19T18:39:22.345678+00:00",
+      "geographic_resolution": "Not applicable; font",
+      "reference_period": "cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "unit": "Original TTF binary",
+      "source_status": "Official Google Fonts repository; binary signature and OFL notice verified",
+      "sha256": "4b89fe7804fd1485ec2757795a53ffdb66e1206dd56f844c2d72b3c944815b43",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "AlegreyaSans-OFL.txt",
+      "role": "body",
+      "active": true
+    },
+    {
+      "source_institution": "Google Fonts / respective font authors",
+      "title": "AlegreyaSans-Bold.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/ofl/alegreyasans/AlegreyaSans-Bold.ttf",
+      "publication_update_date": null,
+      "retrieval_timestamp": "2026-11-19T18:39:23.538512+00:00",
+      "geographic_resolution": "Not applicable; font",
+      "reference_period": "cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "unit": "Original TTF binary",
+      "source_status": "Official Google Fonts repository; binary signature and OFL notice verified",
+      "sha256": "a3055a1893759bdbd7504bb22abc583769e7974c49353176eac0b03792c9fb8e",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "AlegreyaSans-OFL.txt",
+      "role": "controls, small headings and resource numbers",
+      "active": true
+    },
+    {
+      "source_institution": "Google Fonts / respective font authors",
+      "title": "BreeSerif-Regular.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/ofl/breeserif/BreeSerif-Regular.ttf",
+      "publication_update_date": null,
+      "retrieval_timestamp": "2026-11-19T18:53:46.577447+00:00",
+      "geographic_resolution": "Not applicable; font",
+      "reference_period": "cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "unit": "Original TTF binary",
+      "source_status": "Official Google Fonts repository; binary signature and OFL notice verified",
+      "sha256": "fd080582d70112ef479ba4ddd72407f9a4fcbcec4caa7d29de259b13eeb5f431",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "BreeSerif-OFL.txt",
+      "role": "major headings",
+      "active": true
+    }
+  ],
+  "active_families": [
+    "Bree Serif",
+    "Alegreya Sans"
+  ]
+}
