@@ -3,20 +3,20 @@ extends RefCounted
 ## Shared native controls and clean layout helpers for the NUSANTARA desktop interface.
 
 # Palette constants stay synced with data/ui/stitch_tokens.json (verified by tests/test_ui_theme.gd).
-const BG := Color("133b7a")
-const PANEL := Color("283f83")
-const PANEL_LIGHT := Color("283f83")
-const PANEL_SOFT := Color("13244c")
-const TEXT := Color("ffffff")
-const MUTED := Color("c3cff0")
-const ACCENT := Color("ffdc45")
-const REAL := Color("6fbf8e")
-const SIM := Color("7fa8d9")
-const INFO := Color("7fa8d9")
-const FICTION := Color("c69bd6")
-const WARN := Color("e08a5a")
-const SUCCESS := Color("5fd494")
-const DANGER := Color("ee613f")
+const BG := Color("a79473")
+const PANEL := Color("dfcfaa")
+const PANEL_LIGHT := Color("f1e0bb")
+const PANEL_SOFT := Color("f6e9cb")
+const TEXT := Color("302e28")
+const MUTED := Color("6b604c")
+const ACCENT := Color("78451f")
+const REAL := Color("367453")
+const SIM := Color("3f6878")
+const INFO := Color("3f6878")
+const FICTION := Color("76526b")
+const WARN := Color("a64c2b")
+const SUCCESS := Color("367453")
+const DANGER := Color("aa3c2c")
 
 
 static func panel_style(color: Color = PANEL, radius: int = 10, pad: int = 14) -> StyleBoxFlat:
@@ -27,15 +27,16 @@ static func make_theme() -> Theme:
 	return StitchTheme.build()
 
 
-## 1440x810 desktop canvas: even at 1280x720 the smallest UI text stays above 14 output pixels.
+## 1440x810 desktop canvas: minimum text is about 19.6 output pixels at 1280x720.
 static func font_size(size: int) -> int:
-	return roundi(maxi(16, size) * float(UiPreferences.values.text_scale))
+	return roundi(maxi(22, size) * float(UiPreferences.values.text_scale))
 
 
 static func label(text: String, size: int = 15, color: Color = TEXT, wrap: bool = false) -> Label:
 	var l := Label.new()
 	l.text = text
 	l.set_meta("base_font_size", size)
+	l.add_theme_font_override("font", load(str(StitchTheme.tokens().fonts.body_path)))
 	l.add_theme_font_size_override("font_size", font_size(size))
 	l.add_theme_color_override("font_color", color)
 	if wrap:
@@ -49,7 +50,7 @@ static func tag(text: String, color: Color, size: int = 12) -> PanelContainer:
 	var s := StitchTheme.soft_box(Color(color, 0.16), Color(color, 0.45), 6, 9, 4, 1)
 	p.add_theme_stylebox_override("panel", s)
 	var l := label(text, size, color.lightened(0.22))
-	l.add_theme_font_override("font", load("res://assets/fonts/Inter.ttf"))
+	l.add_theme_font_override("font", load(str(StitchTheme.tokens().fonts.body_path)))
 	p.add_child(l)
 	p.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	p.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -77,23 +78,25 @@ static func clear(node: Node) -> void:
 		c.queue_free()
 
 
-## Display heading using Lilita One with restrained outline so headings stay crisp, never heavy.
+## Bree Serif for major titles; Alegreya Sans Bold for small headings and option names.
 static func title(text: String, size: int = 20, color: Color = TEXT) -> Label:
 	var l := label(text, size, color)
-	l.add_theme_font_override("font", load("res://assets/fonts/LilitaOne-Regular.ttf"))
-	if size >= 18:
-		l.add_theme_constant_override("outline_size", clampi(size / 12, 1, 3))
-		l.add_theme_color_override("font_outline_color", StitchTheme.color("outline"))
-	else:
-		l.add_theme_constant_override("outline_size", 1)
-		l.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.55))
+	var font_path: String = StitchTheme.tokens().fonts.display_path if size >= 24 else StitchTheme.tokens().fonts.strong_path
+	l.add_theme_font_override("font", load(font_path))
+	l.add_theme_constant_override("outline_size", 0)
 	return l
 
 
-## Clean sans-serif uppercase/structured micro-subheader for inside cards (no noisy outline).
+## Bold numeric readouts share the main family; hierarchy comes from size and weight.
+static func number(text: String, size: int = 22, color: Color = TEXT) -> Label:
+	var value := label(text, size, color)
+	value.add_theme_font_override("font", load(str(StitchTheme.tokens().fonts.number_path)))
+	return value
+
+
 static func subheader(text: String, color: Color = MUTED, size: int = 12) -> Label:
 	var l := label(text.to_upper(), size, color)
-	l.add_theme_font_override("font", load("res://assets/fonts/Inter.ttf"))
+	l.add_theme_font_override("font", load(str(StitchTheme.tokens().fonts.strong_path)))
 	l.add_theme_constant_override("outline_size", 0)
 	return l
 
@@ -132,7 +135,8 @@ static func ghost_button(text: String, action: Callable, tooltip: String = "") -
 static func heading(text: String) -> PanelContainer:
 	var p := PanelContainer.new()
 	p.theme_type_variation = "PanelHeader"
-	var t := title(text, 22)
+	var t := title(text, 22, Color("fff4d2"))
+	t.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	p.add_child(t)
 	return p
@@ -177,8 +181,9 @@ static func modal_header(eyebrow: String, title_text: String, on_close: Callable
 	bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var col := vbox(2)
 	if eyebrow != "":
-		col.add_child(subheader(eyebrow, ACCENT, 11))
-	var t := title(title_text, 24)
+		col.add_child(subheader(eyebrow, Color("fff4d2"), 11))
+	var t := title(title_text, 32, Color("fff4d2"))
+	t.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	col.add_child(t)
 	bar.add_child(col)
@@ -228,10 +233,18 @@ static func animate_open(ctrl: Control) -> void:
 
 
 static func rescale(node: Node) -> void:
-	if node is Control and node.has_meta("base_font_size"):
+	if node is Control and node.has_meta("hud_font_size"):
+		hud_type(node, int(node.get_meta("hud_font_size")))
+	elif node is Control and node.has_meta("base_font_size"):
 		node.add_theme_font_size_override("font_size", font_size(int(node.get_meta("base_font_size"))))
 	for child in node.get_children():
 		rescale(child)
+
+
+## Compact map readouts have their own role, retaining the user's text-scale setting.
+static func hud_type(control: Control, size: int = 20) -> void:
+	control.set_meta("hud_font_size", size)
+	control.add_theme_font_size_override("font_size", roundi(maxi(18, size) * float(UiPreferences.values.text_scale)))
 
 
 static func trap_focus(surface: Control) -> void:
