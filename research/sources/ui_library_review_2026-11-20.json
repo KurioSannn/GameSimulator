@@ -1,0 +1,87 @@
+{
+  "schema": "nusantara.visual_source_review/1",
+  "review_date": "2026-11-20",
+  "review_timezone": "Asia/Bangkok",
+  "purpose": "Audit-only review of native Godot UI libraries and game UI art; no package adopted or installed. Not a statistical dataset.",
+  "capture_manifest": "research/sources/ui_library_review_2026-11-20/capture.json",
+  "sources": [
+    {
+      "source_institution": "Wadlo / Themey contributors",
+      "title": "Themey — Clashy and Spacey Godot themes",
+      "url": "https://github.com/wadlo/Themey",
+      "publication_update_date": "2025-02-09T02:36:03Z (captured commit date, not original release date)",
+      "retrieval_timestamp": "2026-11-19T17:47:19.124097+00:00",
+      "geographic_resolution": "Not applicable; UI theme",
+      "reference_period": "commit 678c5574b3a9274437c0c1e0ac15395056b5fc5f",
+      "unit": "Godot .tres theme and companion image files",
+      "source_status": "Pinned commit metadata, README, MIT license, image license and Spacey demo screenshot cached; Clashy preview failed TLS certificate verification; not installed or runtime-tested",
+      "license": {
+        "non_image_files": "MIT",
+        "graphics": "CC0 except Material icons",
+        "material_icons": "Apache-2.0 per README; exception folder named src/material in README and MaterialIcons in IMAGES_LICENSE; verify individual file notices before future import"
+      },
+      "publisher_claims": "Godot 4.x; themes include .tres and required images. Clashy is 3D-styled vector UI; Spacey has a slight sci-fi style.",
+      "assessment": "Native Godot comparison candidate only. Clashy screenshot was not available for visual review. No compatibility claim inferred beyond publisher README.",
+      "local_evidence": "research/sources/ui_library_review_2026-11-20/raw/themey-README.md"
+    },
+    {
+      "source_institution": "Kenney",
+      "title": "UI Pack - Adventure",
+      "url": "https://kenney.nl/assets/ui-pack-adventure",
+      "publication_update_date": "2024 (version 1.0; exact date not stated in captured listing)",
+      "retrieval_timestamp": "2026-11-19T17:47:25.706451+00:00",
+      "geographic_resolution": "Not applicable; UI art pack",
+      "reference_period": "Version 1.0 listing reviewed 2026-11-20 Asia/Bangkok",
+      "unit": "Listed file; not archive-verified sprite count",
+      "source_status": "Creator listing and official sample preview cached and visually reviewed; archive not acquired or installed",
+      "license": "CC0-1.0 per creator listing",
+      "listed_file_count": 130,
+      "assessment": "Original preview shows paper/blueprint panels and framed buttons. Art candidate requiring Godot style/layout work, not a functional UI framework.",
+      "local_evidence": "research/sources/ui_library_review_2026-11-20/raw/ui-pack-adventure.html"
+    },
+    {
+      "source_institution": "Kenney",
+      "title": "Fantasy UI Borders",
+      "url": "https://kenney.nl/assets/fantasy-ui-borders",
+      "publication_update_date": "2023 (version 1.0; exact date not stated in captured listing)",
+      "retrieval_timestamp": "2026-11-19T17:47:28.432498+00:00",
+      "geographic_resolution": "Not applicable; decorative UI art",
+      "reference_period": "Version 1.0 listing reviewed 2026-11-20 Asia/Bangkok",
+      "unit": "Listed file; not archive-verified sprite count",
+      "source_status": "Creator listing and official sample preview cached and visually reviewed; archive not acquired or installed",
+      "license": "CC0-1.0 per creator listing",
+      "listed_file_count": 140,
+      "assessment": "Border reference only. Fantasy/pixel styling and extra ornament may not suit the government strategy setting; no final visual choice made.",
+      "local_evidence": "research/sources/ui_library_review_2026-11-20/raw/fantasy-ui-borders.html"
+    },
+    {
+      "source_institution": "Maaack / Godot Game Template contributors",
+      "title": "Godot Game Template",
+      "url": "https://github.com/Maaack/Godot-Game-Template",
+      "publication_update_date": null,
+      "retrieval_timestamp": "2026-11-19T17:52:14Z",
+      "retrieval_timestamp_note": "Observed completion time of source review; web tool did not expose exact request timestamp. Subsequent license recheck recorded in conversation.",
+      "geographic_resolution": "Not applicable; Godot menu/template code",
+      "reference_period": "main README reviewed 2026-11-20 Asia/Bangkok; no pinned local snapshot obtained",
+      "unit": "Godot template/plugin",
+      "source_status": "Repository README and LICENSE.txt inspected with web tool; local commit API capture failed TLS certificate verification; not installed or runtime-tested",
+      "license": "MIT (https://raw.githubusercontent.com/Maaack/Godot-Game-Template/main/LICENSE.txt)",
+      "publisher_claims": "Main/options/pause menus, credits and scene loader; README states Godot 4.7, compatible with 4.4+.",
+      "assessment": "Functional menu reference, not an art identity solution. Existing project already implements menus, saving and preferences; wholesale replacement is not recommended by this audit."
+    },
+    {
+      "source_institution": "Microsoft Game Dev",
+      "title": "XBOX Accessibility Guideline 101: Text display",
+      "url": "https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/101",
+      "publication_update_date": null,
+      "retrieval_timestamp": "2026-11-19T17:52:14Z",
+      "retrieval_timestamp_note": "Observed completion time of source review; web tool did not expose exact request timestamp.",
+      "geographic_resolution": "Not applicable; game accessibility guidance",
+      "reference_period": "Official guidance reviewed 2026-11-20 Asia/Bangkok",
+      "unit": "Text display guidance; screenshot glyph-height measurement differs from theme font size",
+      "source_status": "Official documentation read through web tool; contextual guidance only, no certification performed",
+      "license": "Documentation referenced by link; no illustrations or extended source text bundled",
+      "assessment": "Supports reviewing text readability and user configuration. The audit's <12 px threshold is an internal heuristic and is not presented as an XAG requirement."
+    }
+  ]
+}
