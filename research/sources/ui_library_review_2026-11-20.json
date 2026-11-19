@@ -2,7 +2,7 @@
   "schema": "nusantara.visual_source_review/1",
   "review_date": "2026-11-20",
   "review_timezone": "Asia/Bangkok",
-  "purpose": "Audit-only review of native Godot UI libraries and game UI art; no package adopted or installed. Not a statistical dataset.",
+  "purpose": "UI library source review and subsequent user-authorized native Godot implementation; not a statistical dataset.",
   "capture_manifest": "research/sources/ui_library_review_2026-11-20/capture.json",
   "sources": [
     {
@@ -33,11 +33,12 @@
       "geographic_resolution": "Not applicable; UI art pack",
       "reference_period": "Version 1.0 listing reviewed 2026-11-20 Asia/Bangkok",
       "unit": "Listed file; not archive-verified sprite count",
-      "source_status": "Creator listing and official sample preview cached and visually reviewed; archive not acquired or installed",
+      "source_status": "Creator listing/preview cached; later creator-distributed 1.1 ZIP acquired and 24 original double-resolution PNGs bundled with CC0 notice and checksums",
       "license": "CC0-1.0 per creator listing",
       "listed_file_count": 130,
       "assessment": "Original preview shows paper/blueprint panels and framed buttons. Art candidate requiring Godot style/layout work, not a functional UI framework.",
-      "local_evidence": "research/sources/ui_library_review_2026-11-20/raw/ui-pack-adventure.html"
+      "local_evidence": "research/sources/ui_library_review_2026-11-20/raw/ui-pack-adventure.html",
+      "implementation_manifest": "game/assets/ui/kenney_adventure/manifest.json"
     },
     {
       "source_institution": "Kenney",
@@ -82,6 +83,65 @@
       "source_status": "Official documentation read through web tool; contextual guidance only, no certification performed",
       "license": "Documentation referenced by link; no illustrations or extended source text bundled",
       "assessment": "Supports reviewing text readability and user configuration. The audit's <12 px threshold is an internal heuristic and is not presented as an XAG requirement."
+    },
+    {
+      "source_institution": "Google Fonts / respective font authors",
+      "title": "AlegreyaSans-Medium.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/ofl/alegreyasans/AlegreyaSans-Medium.ttf",
+      "publication_update_date": null,
+      "retrieval_timestamp": "2026-11-19T18:39:22.345678+00:00",
+      "geographic_resolution": "Not applicable; font",
+      "reference_period": "cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "unit": "Original TTF binary",
+      "source_status": "Official Google Fonts repository; binary signature and OFL notice verified",
+      "sha256": "4b89fe7804fd1485ec2757795a53ffdb66e1206dd56f844c2d72b3c944815b43",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "AlegreyaSans-OFL.txt",
+      "role": "body",
+      "active": true
+    },
+    {
+      "source_institution": "Google Fonts / respective font authors",
+      "title": "AlegreyaSans-Bold.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/ofl/alegreyasans/AlegreyaSans-Bold.ttf",
+      "publication_update_date": null,
+      "retrieval_timestamp": "2026-11-19T18:39:23.538512+00:00",
+      "geographic_resolution": "Not applicable; font",
+      "reference_period": "cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "unit": "Original TTF binary",
+      "source_status": "Official Google Fonts repository; binary signature and OFL notice verified",
+      "sha256": "a3055a1893759bdbd7504bb22abc583769e7974c49353176eac0b03792c9fb8e",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "AlegreyaSans-OFL.txt",
+      "role": "controls, small headings and resource numbers",
+      "active": true
+    },
+    {
+      "source_institution": "Google Fonts / respective font authors",
+      "title": "BreeSerif-Regular.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/cc5661d43cd4f9aad5567033a8e15ca28dc35c86/ofl/breeserif/BreeSerif-Regular.ttf",
+      "publication_update_date": null,
+      "retrieval_timestamp": "2026-11-19T18:53:46.577447+00:00",
+      "geographic_resolution": "Not applicable; font",
+      "reference_period": "cc5661d43cd4f9aad5567033a8e15ca28dc35c86",
+      "unit": "Original TTF binary",
+      "source_status": "Official Google Fonts repository; binary signature and OFL notice verified",
+      "sha256": "fd080582d70112ef479ba4ddd72407f9a4fcbcec4caa7d29de259b13eeb5f431",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "BreeSerif-OFL.txt",
+      "role": "major headings",
+      "active": true
     }
-  ]
+  ],
+  "implementation": {
+    "date": "2026-11-20",
+    "report": "research/reports/2026-11-20_UI_IMPLEMENTATION_REPORT.md",
+    "art_manifest": "game/assets/ui/kenney_adventure/manifest.json",
+    "font_manifest": "game/assets/fonts/game_ui_manifest.json",
+    "active_font_families": [
+      "Bree Serif",
+      "Alegreya Sans"
+    ],
+    "runtime": "Native Godot; no third-party menu framework installed"
+  }
 }
