@@ -298,6 +298,42 @@
    "status": "verified_ingested",
    "raw_path": "data/raw/bps/tables/bps_tbl413_ipm_metode_baru.html",
    "pipeline": "scripts/pipelines/bps/ingest_bps_table_pages.py"
+  },
+  {
+   "source_id": "SRC-PUPR-JALAN-NASIONAL",
+   "institution": "Kementerian Pekerjaan Umum — Direktorat Jenderal Bina Marga (SIGI-PU)",
+   "title": "Jaringan Jalan Nasional Indonesia (ast_bm_jalan_nasional_iri)",
+   "source_type": "official",
+   "access_method": "gis",
+   "url": "https://sigi.pu.go.id/serverpu/rest/services/Hosted/ast_bm_jalan_nasional_iri/FeatureServer/0",
+   "publication_date": "2025-06-24",
+   "retrieved_at": "2026-11-19",
+   "reference_period": "2025",
+   "geographic_resolution": "ruas jalan nasional seluruh Indonesia (3.184 fitur polyline WGS84 / EPSG:4326)",
+   "unit": "koordinat EPSG:4326 (derajat); panjang ruas (km); mantap_psn (%)",
+   "methodology_summary": "Official Bina Marga national road polyline dataset queried via public ArcGIS REST FeatureServer (outSR=4326, paginated). Raw GeoJSON archived unmodified; projected to map equirectangular units and simplified via Ramer-Douglas-Peucker (0.11 wu) for offline rendering.",
+   "license_or_terms": "Public ArcGIS Feature Service hosted by Kementerian Pekerjaan Umum (SIGI-PU / Pusdatin); attribution retained.",
+   "status": "verified_ingested",
+   "raw_path": "data/raw/pupr_roads/jalan_nasional_bina_marga.geojson",
+   "pipeline": "scripts/pipelines/game/fetch_indonesia_roads.py"
+  },
+  {
+   "source_id": "SRC-PUPR-BPJT-TOL-OPERASI",
+   "institution": "Kementerian Pekerjaan Umum — Badan Pengatur Jalan Tol (BPJT / SIGI-PU)",
+   "title": "Jaringan Jalan Tol Operasi Indonesia (ast_bpjt_tol_operasi_v2)",
+   "source_type": "official",
+   "access_method": "gis",
+   "url": "https://sigi.pu.go.id/serverpu/rest/services/Hosted/ast_bpjt_tol_operasi_v2/FeatureServer/0",
+   "publication_date": "2025-06-19",
+   "retrieved_at": "2026-11-19",
+   "reference_period": "2025",
+   "geographic_resolution": "ruas jalan tol operasional seluruh Indonesia (146 fitur polyline WGS84 / EPSG:4326)",
+   "unit": "koordinat EPSG:4326 (derajat); SHAPE__Length (meter)",
+   "methodology_summary": "Official BPJT operational toll road polyline dataset queried via public ArcGIS REST FeatureServer (outSR=4326). Raw GeoJSON archived unmodified; projected and simplified (0.05 wu) for offline rendering.",
+   "license_or_terms": "Public ArcGIS Feature Service hosted by Kementerian Pekerjaan Umum (SIGI-PU / Pusdatin); attribution retained.",
+   "status": "verified_ingested",
+   "raw_path": "data/raw/pupr_roads/jalan_tol_bpjt_operasi.geojson",
+   "pipeline": "scripts/pipelines/game/fetch_indonesia_roads.py"
   }
  ]
 }
