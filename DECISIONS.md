@@ -439,3 +439,24 @@ _Imported (originally D-019). Consistent with the existing .gitignore policy (ra
 - Restrict `MapCamera3D` zoom (`140..3200`) and zoom-adaptive archipelago safe-zone pan clamping (`_clamp_target()`) plus 2D `MapCamera` bounds so navigation cannot drift off Indonesia into empty void.
 - Add continuous and selectable Dawn/Noon/Dusk/Night shaders (including illuminated nighttime city ground constellations, lit building/house windows, streetlights, and vessel beacons) alongside seasonal/disaster 3D FX (`DioramaWeatherFX`: rain streaks, flood pulse rings, peatland wildfire flames, rising smoke plumes, and dry savanna shifts) driven cleanly from real simulation calendar month/flood/case state or optional display-only HUD previews (`time_select`, `weather_select`).
 **Evidence:** research/reports/map_expansion_20261120/v2_qa/qa.json (19/19 checks, 0 runtime errors, median 12.68 ms national / 12.62 ms close-up), `tests/run_tests.gd` (153/153 passed), `validate_all.py`, and `--qa-ui`.
+
+## D-084 — Native game UI with concise defaults and two font families (2026-11-20)
+**Authorization:** user requests implementing the UI audit, assigns map content to another agent, then explicitly asks for game elements, removal of APBN/simulation notices from normal play, larger consistent fonts, and less simultaneous data.
+**Decision:**
+- Reuse native Godot input, focus, save/settings and geographic context systems. Apply original Kenney Adventure CC0 sprites through nine-slice styles; retain provenance, licenses and checksums.
+- Use Bree Serif for major headings and Alegreya Sans Medium/Bold for body, controls and numbers. Bind body fonts explicitly; 22-unit minimum on a 1440×810 desktop canvas. Keep the Windows minimum at 1280×720.
+- Default map HUD shows three resources and one agenda. Default region detail shows welfare/trust; complete indicators, activity, administrative identity, causes and source metadata remain optional and available for every geographic scope.
+- Decision cards show options and costs first. Show full benefits, risks and target scope for the selected choice before the separate confirmation step. Derive the short introduction from existing case narration and retain full facts, sources and follow-up context behind Laporan lengkap.
+- Remove repeated APBN/simulation disclaimers and technical timing/hints from normal play per explicit user direction. Preserve underlying source classes, units, official facts, missing-data flags and simulation rules.
+- Hide background chrome during modal tasks. Preserve selected region/tab when closing a dialog, and preserve the other agent's time/weather signal integration.
+- Do not modify map renderer source, canonical geography, authoritative world/RNG or save format in this UI task.
+**Evidence:** research/reports/2026-11-20_UI_IMPLEMENTATION_REPORT.md and research/reports/ui_implementation_20261120/.
+
+## D-085 — Shared frame safe area, grounded portrait, and explicit player-name editing (2026-11-20)
+**Authorization:** user approves implementation of the profile/avatar/spacing audit with “gas ganti”.
+**Decision:**
+- Give shared outer paper/metal frames a 36-unit content inset against their 24-unit slice. Derive case inner width from the actual style margin; keep selected choice frames consistent with their normal geometry.
+- Reuse original portrait art through aspect-preserving atlas crops and a shared framed avatar helper. Ground the full figure with a single resize-aware stage and native contact shadow, using visible alpha bounds rather than independent VBox children.
+- Keep player-name edits in device UI preferences. Provide explicit editable styling, dirty/success feedback, Save/Cancel and Enter; synchronize normalized empty names into the field. Nara Adinata remains the fixed fictional character.
+- Reduce duplicated profile readouts and retain D-084 fonts, existing assets, all geographic contexts and the other map work. No avatar upload/selection or new art is added in this change.
+**Evidence:** research/reports/2026-11-20_UI_SPACING_PROFILE_FIX_REPORT.md and research/reports/ui_spacing_fix_20261120/.
