@@ -1,6 +1,6 @@
 {
   "schema": "nusantara.ui_sources/1",
-  "registry_sha256": "29d06a5104cd995206d43ab8884fd103a0ca17ae3921fccce65698103f9ae6a8",
+  "registry_sha256": "d39e849f7187aa8d1c42baed4a2d85300cb6cd6ee3d7044dd26c1108fc39269c",
   "sources": {
     "SRC-BIG-ADM-KABKOTA": {
       "source_id": "SRC-BIG-ADM-KABKOTA",
@@ -194,6 +194,32 @@
       "unit": "indeks (0-100)",
       "status": "verified_ingested",
       "license_or_terms": "Public BPS statistics table; cite BPS as source. Terms of reuse not separately verified."
+    },
+    "SRC-PUPR-JALAN-NASIONAL": {
+      "source_id": "SRC-PUPR-JALAN-NASIONAL",
+      "institution": "Kementerian Pekerjaan Umum — Direktorat Jenderal Bina Marga (SIGI-PU)",
+      "title": "Jaringan Jalan Nasional Indonesia (ast_bm_jalan_nasional_iri)",
+      "url": "https://sigi.pu.go.id/serverpu/rest/services/Hosted/ast_bm_jalan_nasional_iri/FeatureServer/0",
+      "publication_date": "2025-06-24",
+      "retrieved_at": "2026-11-19",
+      "geographic_resolution": "ruas jalan nasional seluruh Indonesia (3.184 fitur polyline WGS84 / EPSG:4326)",
+      "reference_period": "2025",
+      "unit": "koordinat EPSG:4326 (derajat); panjang ruas (km); mantap_psn (%)",
+      "status": "verified_ingested",
+      "license_or_terms": "Public ArcGIS Feature Service hosted by Kementerian Pekerjaan Umum (SIGI-PU / Pusdatin); attribution retained."
+    },
+    "SRC-PUPR-BPJT-TOL-OPERASI": {
+      "source_id": "SRC-PUPR-BPJT-TOL-OPERASI",
+      "institution": "Kementerian Pekerjaan Umum — Badan Pengatur Jalan Tol (BPJT / SIGI-PU)",
+      "title": "Jaringan Jalan Tol Operasi Indonesia (ast_bpjt_tol_operasi_v2)",
+      "url": "https://sigi.pu.go.id/serverpu/rest/services/Hosted/ast_bpjt_tol_operasi_v2/FeatureServer/0",
+      "publication_date": "2025-06-19",
+      "retrieved_at": "2026-11-19",
+      "geographic_resolution": "ruas jalan tol operasional seluruh Indonesia (146 fitur polyline WGS84 / EPSG:4326)",
+      "reference_period": "2025",
+      "unit": "koordinat EPSG:4326 (derajat); SHAPE__Length (meter)",
+      "status": "verified_ingested",
+      "license_or_terms": "Public ArcGIS Feature Service hosted by Kementerian Pekerjaan Umum (SIGI-PU / Pusdatin); attribution retained."
     }
   }
 }

@@ -2,34 +2,47 @@
   "_meta": {
     "source": "Google Stitch export 'Game Simulator' (7 PNG screens: Beranda, Peristiwa dan Keputusan, Statistik pemerintahan, Laporan Hasil Kuartal, Profil presiden, Pengaturan permainan, Login) refined for desktop clarity and low visual clutter.",
     "sampled": "2026-11-11",
-    "refined": "2026-11-19",
+    "refined": "2026-11-20",
     "how_to_update": "Edit values here; StitchTheme builds the Godot Theme from this file at startup. No Godot code change is needed for palette, outline, radius or depth changes.",
-    "font": "Figma audited design: Lilita One for headings/buttons, Inter for body. Bundled under SIL OFL; see assets/fonts/*-OFL.txt.",
+    "font": "Bree Serif for major headings; Alegreya Sans Medium/Bold for body, controls, small headings and numbers. Two active font families; SIL OFL.",
     "figma_file": "xXZj1Xnoxln1coG2yEO81a",
-    "runtime_integration": "2026-11-15; preserve real GIS geometry and live simulation values instead of prototype fixtures."
+    "runtime_integration": "2026-11-15; preserve real GIS geometry and live simulation values instead of prototype fixtures.",
+    "direction": "User-directed tactile game UI using original Kenney Adventure CC0 sprites, concise map HUD, and optional data inspection."
   },
   "colors": {
-    "bg": "#133b7a",
+    "bg": "#a79473",
     "sea": "#39a1c6",
-    "surface": "#162958",
-    "panel": "#283f83",
-    "panel_deep": "#0c1836",
-    "panel_soft": "#101e43",
-    "panel_glass": "#0d1b3ff2",
-    "outline": "#080e27",
-    "border_subtle": "#3e5ca6",
-    "primary": "#ffc928",
+    "surface": "#f1e0bb",
+    "panel": "#dfcfaa",
+    "panel_deep": "#cdb98d",
+    "panel_soft": "#f6e9cb",
+    "panel_glass": "#f4e6c9ff",
+    "outline": "#694927",
+    "border_subtle": "#a4885c",
+    "primary": "#dfad45",
     "primary_shadow": "#a6552d",
-    "primary_text": "#080e27",
-    "accent": "#7650d7",
-    "danger": "#ee613f",
-    "title_gold": "#ffdc45",
-    "text": "#ffffff",
-    "text_muted": "#c3cff0",
-    "success": "#5fd494",
-    "warning": "#f0a448",
-    "info": "#7ab8ff"
+    "primary_text": "#30291f",
+    "accent": "#96703e",
+    "danger": "#aa3c2c",
+    "title_gold": "#78451f",
+    "text": "#302e28",
+    "text_muted": "#6b604c",
+    "success": "#367453",
+    "warning": "#a64c2b",
+    "info": "#3f6878"
   },
-  "shape": { "radius": 10, "outline_width": 2, "depth": 4, "pad": 14 },
-  "fonts": { "display_path": "res://assets/fonts/LilitaOne-Regular.ttf", "body_path": "res://assets/fonts/Inter.ttf", "size_body": 16, "size_title": 28 }
+  "shape": {
+    "radius": 10,
+    "outline_width": 2,
+    "depth": 4,
+    "pad": 14
+  },
+  "fonts": {
+    "display_path": "res://assets/fonts/BreeSerif-Regular.ttf",
+    "body_path": "res://assets/fonts/AlegreyaSans-Medium.ttf",
+    "size_body": 22,
+    "size_title": 30,
+    "strong_path": "res://assets/fonts/AlegreyaSans-Bold.ttf",
+    "number_path": "res://assets/fonts/AlegreyaSans-Bold.ttf"
+  }
 }
