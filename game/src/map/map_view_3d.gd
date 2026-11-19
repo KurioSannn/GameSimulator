@@ -1,7 +1,7 @@
 class_name MapView3D
 extends Node3D
 ## 3D Tabletop Diorama map of Indonesia for NUSANTARA.
-## Inspired by Clash of Clans / Civ VI diorama tabletop aesthetics.
+## Original low-poly presentation with CC0 props and complete canonical GIS meshes.
 ## Uses the exact same packaged geography v2 LOD meshes (D-058) as MapView.
 ## Renders:
 ## - 3D Land Meshes: Base tabletop projection on XZ plane (Y=0) with region lookup shader.
@@ -23,8 +23,8 @@ const SELECT_COLOR := Color(1.0, 0.88, 0.18)
 const HOVER_COLOR := Color(0.85, 0.95, 1.0)
 const SKIRT_DEPTH := -28.0
 
-const HOVER_LIFT := 10.0
-const DEFAULT_SELECTED_LIFT := 55.0
+const HOVER_LIFT := 3.0
+const DEFAULT_SELECTED_LIFT := 18.0
 const ELEVATION_DURATION := 0.35
 const ELEVATION_DOWN_DURATION := 0.22
 
@@ -70,6 +70,27 @@ var _hover_tween: Tween
 
 var _selected := ""
 var _hovered := ""
+var landscape := true
+var _props: DioramaProps
+var _maritime: DioramaMaritime
+var _atmosphere: DioramaAtmosphere
+var _weather_fx: DioramaWeatherFX
+var _neighbor_mesh: MeshInstance3D
+var _mat_neighbor: ShaderMaterial
+var _water_material: ShaderMaterial
+var _art_config: Dictionary = {}
+var _case_pins: Array[Node3D] = []
+var _case_signature := ""
+var _labels: Array[Label3D] = []
+var _city_labels: Array[Label3D] = []
+
+var time_mode := "auto"       # "auto" | "pagi" | "siang" | "sore" | "malam"
+var weather_mode := "sim"     # "sim" | "hujan" | "kemarau" | "kebakaran"
+var day_time := 0.44          # 0.0/1.0 midnight, 0.23 dawn, 0.48 noon, 0.77 sunset
+var _sim_month := 1
+var _sim_flood_ids: Array = ["31.71", "31.74", "32.01"]
+var _sim_fire_ids: Array = []
+var _last_atmo_sig := ""
 
 
 func setup(mv2d: MapView) -> void:
@@ -79,7 +100,35 @@ func setup(mv2d: MapView) -> void:
 	_init_materials()
 	_init_environment()
 	_build_ocean()
+	_build_neighbor_land()
 	_build_elevated_nodes()
+	_art_config = JSON.parse_string(FileAccess.get_file_as_string("res://data/map/art/diorama.json"))
+	var field := load("res://data/map/art/coast_field.png")
+	var detail_field := load("res://data/map/art/landscape_detail.png")
+	var extent := Vector4(_art_config.field_bounds[0], _art_config.field_bounds[1], _art_config.field_bounds[2], _art_config.field_bounds[3])
+	for material in [_mat_fill, _water_material]:
+		material.set_shader_parameter("coast_field", field)
+		material.set_shader_parameter("field_bounds", extent)
+	if detail_field != null:
+		_mat_fill.set_shader_parameter("detail_field", detail_field)
+	_props = DioramaProps.new()
+	_props.name = "DekorasiLowPoly"
+	add_child(_props)
+	_props.build(_art_config.props)
+	_maritime = DioramaMaritime.new()
+	_maritime.name = "DekorasiMaritim"
+	add_child(_maritime)
+	_maritime.build(_art_config.get("vessels", []))
+	_atmosphere = DioramaAtmosphere.new()
+	add_child(_atmosphere)
+	_atmosphere.build(_art_config)
+	_weather_fx = DioramaWeatherFX.new()
+	_weather_fx.name = "EfekMusim"
+	add_child(_weather_fx)
+	_weather_fx.build(_art_config, region_ids)
+	_build_island_labels()
+	_build_city_labels()
+	_apply_atmosphere(true)
 	# Build 3D meshes for whatever LODs are already loaded
 	for lod_name in MapView.LOD_NAMES:
 		if mv2d.is_loaded(lod_name):
@@ -90,27 +139,28 @@ func setup(mv2d: MapView) -> void:
 func _init_materials() -> void:
 	# Land fill shader material
 	_mat_fill = ShaderMaterial.new()
-	_mat_fill.shader = load("res://src/map/map_fill_3d.gdshader")
+	_mat_fill.shader = load("res://src/map/diorama_land.gdshader")
 	if _map_view_2d and _map_view_2d._colors_tex:
 		_mat_fill.set_shader_parameter("region_colors", _map_view_2d._colors_tex)
 	
 	# Border line materials
 	_mat_border = StandardMaterial3D.new()
 	_mat_border.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	_mat_border.albedo_color = BORDER_COLOR
+	_mat_border.albedo_color = Color(0.15, 0.30, 0.18, 0.20)
 	_mat_border.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	
 	_mat_province = StandardMaterial3D.new()
 	_mat_province.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	_mat_province.albedo_color = PROVINCE_BORDER_COLOR
+	_mat_province.albedo_color = Color(0.18, 0.32, 0.21, 0.6)
+	_mat_province.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	
 	# Tabletop skirt material (dark basalt cliff)
 	_mat_skirt = StandardMaterial3D.new()
 	_mat_skirt.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
 	_mat_skirt.diffuse_mode = BaseMaterial3D.DIFFUSE_BURLEY
-	_mat_skirt.albedo_color = Color(0.20, 0.24, 0.29)
-	_mat_skirt.metallic = 0.15
-	_mat_skirt.roughness = 0.75
+	_mat_skirt.albedo_color = Color("987d53")
+	_mat_skirt.metallic = 0.0
+	_mat_skirt.roughness = 1.0
 	
 	# Extruded side walls (chiseled stone cliff with vertical AO vertex colors)
 	_mat_elevated_wall = StandardMaterial3D.new()
@@ -138,9 +188,9 @@ func _init_environment() -> void:
 	# Directional Sun Light (isometric angle with soft shadows)
 	_sun = DirectionalLight3D.new()
 	_sun.name = "SunLight"
-	_sun.rotation_degrees = Vector3(-42.0, 40.0, 0.0)
-	_sun.light_color = Color(1.0, 0.98, 0.93)
-	_sun.light_energy = 1.40
+	_sun.rotation_degrees = Vector3(-48.0, -28.0, 0.0)
+	_sun.light_color = Color("fff0d2")
+	_sun.light_energy = 0.95
 	_sun.shadow_enabled = true
 	_sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS
 	_sun.directional_shadow_max_distance = 18000.0
@@ -152,12 +202,16 @@ func _init_environment() -> void:
 	_env.name = "WorldEnvironment"
 	var env := Environment.new()
 	env.background_mode = Environment.BG_COLOR
-	env.background_color = Color("0d1720")
+	env.background_color = Color("4785a8")
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color(0.50, 0.60, 0.72)
-	env.ambient_light_energy = 0.85
-	env.tonemap_mode = Environment.TONE_MAPPER_ACES
-	env.glow_enabled = true
+	env.ambient_light_color = Color("b7d6d9")
+	env.ambient_light_energy = 0.65
+	env.fog_enabled = true
+	env.fog_mode = Environment.FOG_MODE_EXPONENTIAL
+	env.fog_density = 0.00018
+	env.fog_light_color = Color("6bb0ce")
+	env.tonemap_mode = Environment.TONE_MAPPER_LINEAR
+	env.glow_enabled = false
 	env.glow_intensity = 0.35
 	env.glow_bloom = 0.12
 	_env.environment = env
@@ -172,12 +226,76 @@ func _build_ocean() -> void:
 	plane.subdivide_width = 48
 	plane.subdivide_depth = 48
 	_ocean_mesh.mesh = plane
-	_ocean_mesh.position = Vector3(0.0, -25.0, 0.0)
+	_ocean_mesh.position = Vector3(0.0, -4.0, 0.0)
 	
 	var ocean_mat := ShaderMaterial.new()
-	ocean_mat.shader = load("res://src/map/map_water_3d.gdshader")
+	ocean_mat.shader = load("res://src/map/diorama_water.gdshader")
+	_water_material = ocean_mat
 	_ocean_mesh.material_override = ocean_mat
 	add_child(_ocean_mesh)
+
+
+func _build_neighbor_land() -> void:
+	if not FileAccess.file_exists("res://data/map/art/neighbor_land.json"):
+		return
+	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/map/art/neighbor_land.json"))
+	if not (data is Dictionary):
+		return
+	var rings: Array = data.get("rings", [])
+	var verts := PackedVector3Array()
+	var normals := PackedVector3Array()
+	var indices := PackedInt32Array()
+	var top_y := -0.55
+	var bot_y := -24.0
+	for ring in rings:
+		var flat: Array = ring.get("points", [])
+		if flat.size() < 6:
+			continue
+		var poly := PackedVector2Array()
+		poly.resize(flat.size() / 2)
+		for i in poly.size():
+			poly[i] = Vector2(float(flat[i * 2]), float(flat[i * 2 + 1]))
+		var tris := Geometry2D.triangulate_polygon(poly)
+		if tris.is_empty():
+			continue
+		var base := verts.size()
+		for p in poly:
+			verts.append(Vector3(p.x, top_y, p.y))
+			normals.append(Vector3.UP)
+		for t in tris:
+			indices.append(base + t)
+		# Add extruded coastal cliff skirt along perimeter so foreign landmasses match diorama relief depth
+		var n := poly.size()
+		for i in n:
+			var a := poly[i]
+			var b := poly[(i + 1) % n]
+			var d := Vector2(b.x - a.x, b.y - a.y).normalized()
+			var wn := Vector3(d.y, 0.0, -d.x)
+			var wbase := verts.size()
+			verts.append(Vector3(a.x, top_y, a.y))
+			verts.append(Vector3(b.x, top_y, b.y))
+			verts.append(Vector3(b.x, bot_y, b.y))
+			verts.append(Vector3(a.x, bot_y, a.y))
+			for _k in 4:
+				normals.append(wn)
+			indices.append_array([wbase, wbase + 1, wbase + 2, wbase, wbase + 2, wbase + 3])
+	if verts.is_empty():
+		return
+	var arrays := []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = verts
+	arrays[Mesh.ARRAY_NORMAL] = normals
+	arrays[Mesh.ARRAY_INDEX] = indices
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	_mat_neighbor = ShaderMaterial.new()
+	_mat_neighbor.shader = load("res://src/map/diorama_neighbor.gdshader")
+	_neighbor_mesh = MeshInstance3D.new()
+	_neighbor_mesh.name = "NeighborLandBackdrop"
+	_neighbor_mesh.mesh = mesh
+	_neighbor_mesh.material_override = _mat_neighbor
+	_neighbor_mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(_neighbor_mesh)
 
 
 func _build_elevated_nodes() -> void:
@@ -295,6 +413,15 @@ func set_selected(id: String) -> void:
 		_selected_tween.kill()
 	
 	_selected = id
+	if bool(UiPreferences.values.reduce_motion):
+		_selected_root.visible = id != ""
+		if id != "":
+			_rebuild_selected_mesh(id)
+		_apply_selected_lift(_target_selected_lift if id != "" else 0.0)
+		set_hovered("")
+		if id != "":
+			region_clicked.emit(id)
+		return
 	if id == "":
 		_selected_tween = create_tween()
 		_selected_tween.tween_method(_apply_selected_lift, _selected_lift, 0.0, ELEVATION_DOWN_DURATION).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
@@ -305,7 +432,7 @@ func set_selected(id: String) -> void:
 		var start_lift := _selected_lift if _selected_lift > 0.0 else (_hover_lift if id == _hovered else 0.0)
 		_apply_selected_lift(start_lift)
 		_selected_tween = create_tween()
-		# Clash of Clans bouncy spring pop-up effect:
+		# Gentle spring selection; this never changes the simulation.
 		_selected_tween.tween_method(_apply_selected_lift, start_lift, _target_selected_lift, ELEVATION_DURATION).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		region_clicked.emit(id)
 	
@@ -319,6 +446,12 @@ func set_hovered(id: String) -> void:
 		return
 	_hovered = id
 	region_hovered.emit(id)
+	if bool(UiPreferences.values.reduce_motion):
+		_hover_root.visible = id != "" and id != _selected
+		if _hover_root.visible:
+			_rebuild_hover_mesh(id)
+		_apply_hover_lift(HOVER_LIFT if _hover_root.visible else 0.0)
+		return
 	
 	if _hover_tween and _hover_tween.is_valid():
 		_hover_tween.kill()
@@ -378,7 +511,7 @@ func _rebuild_selected_mesh(id: String) -> void:
 		var box: Rect2 = l.bbox[id]
 		_sel_center = box.get_center()
 		var rad := maxf(box.size.x, box.size.y) * 0.5
-		_target_selected_lift = clampf(rad * 0.85, 45.0, 95.0)
+		_target_selected_lift = clampf(rad * 0.3, 8.0, 28.0)
 		if _sel_light:
 			_sel_light.omni_range = maxf(rad * 2.8, 120.0)
 
@@ -584,10 +717,354 @@ func sync_colors() -> void:
 
 
 func _process(delta: float) -> void:
-	if _selected_root and _selected_root.visible and _sel_beacon:
+	var reduced := bool(UiPreferences.values.reduce_motion)
+	if not reduced and time_mode == "auto":
+		day_time = fmod(day_time + delta / 96.0, 1.0)
+	if _atmosphere != null:
+		_atmosphere.set_reduced_motion(reduced)
+	if _maritime != null:
+		_maritime.set_reduced_motion(reduced)
+	if _props != null:
+		_props.sync(_map_view_2d.region_ids.find(_selected), _selected_lift,
+			_map_view_2d.region_ids.find(_hovered), _hover_lift, reduced, landscape)
+	_water_material.set_shader_parameter("motion", 0.0 if reduced else 1.0)
+	_mat_fill.set_shader_parameter("motion", 0.0 if reduced else 1.0)
+	if _mat_neighbor != null:
+		_mat_neighbor.set_shader_parameter("motion", 0.0 if reduced else 1.0)
+	_apply_atmosphere(false)
+	if not reduced and _selected_root and _selected_root.visible and _sel_beacon:
 		_sel_beacon.rotate_y(delta * 2.2)
 		var bob := sin(Time.get_ticks_msec() * 0.004) * 2.2
 		_sel_beacon.position.y = _selected_lift + 14.0 + bob
+	for pin in _case_pins:
+		pin.position.y = 65.0 + (sin(Time.get_ticks_msec() * 0.0018) * 5.0 if not reduced else 0.0)
+
+
+func set_time_mode(mode: String) -> void:
+	time_mode = mode
+	match mode:
+		"pagi": day_time = 0.23
+		"siang": day_time = 0.48
+		"sore": day_time = 0.77
+		"malam": day_time = 0.02
+	_apply_atmosphere(true)
+
+
+func set_weather_mode(mode: String) -> void:
+	weather_mode = mode
+	_apply_atmosphere(true)
+
+
+func sync_climate_from_world(world: SimWorld) -> void:
+	if world == null:
+		return
+	_sim_month = world.month()
+	var floods: Array = []
+	var evs: PackedFloat64Array = world.vars.get("flood_events_last", PackedFloat64Array())
+	for i in evs.size():
+		if evs[i] > 0.0 and i < region_ids.size():
+			floods.append(region_ids[i])
+	if floods.is_empty():
+		for cid in ["CASE-0001", "CASE-0001-R"]:
+			if world.case_state.get(cid, {}).get("status", "") == CaseEngine.STATUS_ACTIVE:
+				for rid in ["31.71", "31.74", "32.01", "36.02"]:
+					floods.append(rid)
+	_sim_flood_ids = floods
+	var fires: Array = []
+	for cid in ["CASE-0004", "CASE-0004-C", "CASE-0004-R"]:
+		if world.case_state.get(cid, {}).get("status", "") == CaseEngine.STATUS_ACTIVE:
+			fires = ["62.03", "62.11", "62.01", "62.71", "14.04", "16.02"]
+			break
+	if fires.is_empty() and _sim_month in [8, 9, 10] and weather_mode == "sim":
+		fires = ["62.03", "62.11", "14.05"]
+	_sim_fire_ids = fires
+	_apply_atmosphere(true)
+
+
+func current_climate_state() -> Dictionary:
+	var rain_f := 0.0
+	var drought_f := 0.0
+	var fire_f := 0.0
+	var smoke_f := 0.0
+	var flood_f := 0.0
+	var flood_list: Array = _sim_flood_ids
+	var fire_list: Array = _sim_fire_ids
+	match weather_mode:
+		"hujan":
+			rain_f = 1.0
+			flood_f = 0.90
+			if flood_list.is_empty():
+				flood_list = ["31.71", "31.74", "32.01", "35.78", "33.74", "16.71", "63.71"]
+		"kemarau":
+			drought_f = 1.0
+			fire_f = 0.25
+			smoke_f = 0.14
+			if fire_list.is_empty():
+				fire_list = ["62.03", "16.02"]
+		"kebakaran":
+			drought_f = 0.85
+			fire_f = 1.0
+			smoke_f = 0.92
+			fire_list = ["62.03", "62.11", "62.01", "62.71", "14.04", "14.05", "16.02", "16.06", "61.06"]
+		_:
+			# Map real Indonesia monsoon seasonality from calendar month
+			if _sim_month in [12, 1, 2]:
+				rain_f = 0.85
+				flood_f = 0.85 if not flood_list.is_empty() else 0.0
+			elif _sim_month in [3, 11]:
+				rain_f = 0.45
+				flood_f = 0.65 if not flood_list.is_empty() else 0.0
+			elif _sim_month in [6, 7, 8, 9]:
+				drought_f = 0.85
+				fire_f = 0.85 if not fire_list.is_empty() else 0.0
+				smoke_f = 0.65 if not fire_list.is_empty() else 0.0
+			elif _sim_month == 10:
+				drought_f = 0.45
+				fire_f = 0.85 if not fire_list.is_empty() else 0.0
+				smoke_f = 0.70 if not fire_list.is_empty() else 0.0
+	return {
+		"rain": rain_f, "drought": drought_f, "fire": fire_f,
+		"smoke": smoke_f, "flood": flood_f,
+		"flood_ids": flood_list, "fire_ids": fire_list,
+	}
+
+
+func _sample_day_palette(phase: float) -> Dictionary:
+	var keys := [
+		{"t": 0.00, "dir": Vector3(-0.32, 0.62, -0.58), "sun": Color("7d9ad4"), "amb": Color("1a2d4c"), "hor": Color("132844"), "zen": Color("071326"), "fog": Color("0d1c33"), "night": 1.0},
+		{"t": 0.23, "dir": Vector3(0.84, 0.34, 0.22), "sun": Color("ffc582"), "amb": Color("6a86a1"), "hor": Color("b8ccd1"), "zen": Color("477da8"), "fog": Color("9cb7bd"), "night": 0.05},
+		{"t": 0.48, "dir": Vector3(-0.36, 0.88, 0.28), "sun": Color("fff9ec"), "amb": Color("82b1ce"), "hor": Color("ade0f5"), "zen": Color("3d8ad1"), "fog": Color("6cb0cf"), "night": 0.0},
+		{"t": 0.77, "dir": Vector3(-0.86, 0.26, 0.22), "sun": Color("ff9b57"), "amb": Color("69577d"), "hor": Color("df9b7a"), "zen": Color("39588c"), "fog": Color("a67c70"), "night": 0.08},
+		{"t": 1.00, "dir": Vector3(-0.32, 0.62, -0.58), "sun": Color("7d9ad4"), "amb": Color("1a2d4c"), "hor": Color("132844"), "zen": Color("071326"), "fog": Color("0d1c33"), "night": 1.0},
+	]
+	var p := clampf(phase, 0.0, 1.0)
+	for i in keys.size() - 1:
+		var a: Dictionary = keys[i]
+		var b: Dictionary = keys[i + 1]
+		if p >= float(a.t) and p <= float(b.t):
+			var u := (p - float(a.t)) / maxf(float(b.t) - float(a.t), 1e-4)
+			return {
+				"sun_dir": (a.dir as Vector3).lerp(b.dir, u).normalized(),
+				"sun_color": (a.sun as Color).lerp(b.sun, u),
+				"ambient_color": (a.amb as Color).lerp(b.amb, u),
+				"sky_horizon": (a.hor as Color).lerp(b.hor, u),
+				"sky_zenith": (a.zen as Color).lerp(b.zen, u),
+				"fog_color": (a.fog as Color).lerp(b.fog, u),
+				"night_factor": lerpf(float(a.night), float(b.night), u),
+			}
+	return {}
+
+
+func _apply_atmosphere(force: bool) -> void:
+	var reduced := bool(UiPreferences.values.reduce_motion)
+	var cli := current_climate_state()
+	var quantized_phase := int(round(day_time * 360.0))
+	var sig := "%d/%s/%.2f/%.2f/%.2f/%s/%s" % [quantized_phase, weather_mode, cli.rain, cli.drought, cli.fire, str(landscape), str(reduced)]
+	if not force and sig == _last_atmo_sig:
+		return
+	_last_atmo_sig = sig
+
+	var pal := _sample_day_palette(day_time)
+	var rain_f: float = cli.rain
+	var drought_f: float = cli.drought
+	var smoke_f: float = cli.smoke
+	var sun_col: Color = pal.sun_color
+	var amb_col: Color = pal.ambient_color
+	var sky_hor: Color = pal.sky_horizon
+	var sky_zen: Color = pal.sky_zenith
+	var fog_col: Color = pal.fog_color
+
+	# Blend seasonal & wildfire atmospheric conditions cleanly into sky/fog
+	if rain_f > 0.01:
+		var rain_fog := Color("50697d").lerp(Color("162133"), float(pal.night_factor))
+		fog_col = fog_col.lerp(rain_fog, rain_f * 0.62)
+		sky_hor = sky_hor.lerp(rain_fog, rain_f * 0.55)
+		sky_zen = sky_zen.lerp(Color("35495c"), rain_f * 0.55)
+		sun_col = sun_col.lerp(Color("b6c8d6"), rain_f * 0.48)
+	if drought_f > 0.01:
+		fog_col = fog_col.lerp(Color("9dc6db"), drought_f * 0.20 * (1.0 - float(pal.night_factor)))
+		sun_col = sun_col.lerp(Color("ffefcb"), drought_f * 0.25)
+	if smoke_f > 0.01:
+		var smoke_tint := Color("a87749").lerp(Color("3a291b"), float(pal.night_factor))
+		fog_col = fog_col.lerp(smoke_tint, smoke_f * 0.68)
+		sky_hor = sky_hor.lerp(smoke_tint, smoke_f * 0.55)
+		sun_col = sun_col.lerp(Color("ff9f54"), smoke_f * 0.45)
+
+	var fog_dens := 0.00024 + rain_f * 0.00014 + smoke_f * 0.00020 + (1.0 - clampf((pal.sun_dir as Vector3).y, 0.0, 1.0)) * 0.00008
+	var shader_params := {
+		"sun_dir": pal.sun_dir,
+		"sun_color": sun_col,
+		"ambient_color": amb_col,
+		"sky_horizon": sky_hor,
+		"sky_zenith": sky_zen,
+		"fog_color": fog_col,
+		"fog_density": fog_dens,
+		"night_factor": pal.night_factor,
+		"rain_factor": rain_f,
+		"drought_factor": drought_f,
+		"smoke_factor": smoke_f,
+	}
+
+	if _sun != null:
+		_sun.light_color = sun_col
+		_sun.light_energy = lerpf(0.95, 0.35, float(pal.night_factor)) * (1.0 - rain_f * 0.30)
+	if _env != null and _env.environment != null:
+		_env.environment.background_color = fog_col if landscape else Color("164559")
+		# Custom altitude-aware aerial fog lives inside diorama shaders; keep Environment fog ultra-light so orbital national map stays vivid
+		_env.environment.fog_enabled = landscape
+		_env.environment.fog_light_color = fog_col
+		_env.environment.fog_density = fog_dens * 0.14 if landscape else 0.0
+
+	for mat in [_mat_fill, _water_material, _mat_neighbor]:
+		if mat == null:
+			continue
+		for k in shader_params:
+			mat.set_shader_parameter(k, shader_params[k])
+	if _props != null:
+		_props.sync_atmosphere(shader_params)
+	if _maritime != null:
+		_maritime.sync_atmosphere(shader_params)
+	if _atmosphere != null:
+		_atmosphere.sync_atmosphere(shader_params)
+	if _weather_fx != null:
+		_weather_fx.update_hazards(cli.flood_ids, cli.fire_ids)
+		_weather_fx.sync(rain_f, cli.flood, cli.fire, reduced, landscape, fog_col, fog_dens)
+
+
+func set_landscape(on: bool) -> void:
+	landscape = on
+	_mat_fill.set_shader_parameter("landscape", on)
+	if _mat_neighbor != null:
+		_mat_neighbor.set_shader_parameter("landscape", on)
+	if _props != null:
+		_props.visible = on
+	if _maritime != null:
+		_maritime.visible = on
+	if _atmosphere != null:
+		_atmosphere.visible = on
+	if _weather_fx != null:
+		_weather_fx.visible = on
+	for label in _city_labels:
+		label.visible = on
+	_apply_atmosphere(true)
+
+
+func _build_island_labels() -> void:
+	for spec in [["SUMATRA", 101.3, -1.0], ["JAWA", 110.4, -8.4], ["KALIMANTAN", 114.0, 0.1],
+			["SULAWESI", 122.3, -2.0], ["BALI · NUSA TENGGARA", 119.8, -9.6],
+			["MALUKU", 128.5, -5.0], ["PAPUA", 136.9, -4.1]]:
+		var label := Label3D.new()
+		label.text = spec[0]
+		label.font = load("res://assets/fonts/LilitaOne-Regular.ttf")
+		label.font_size = 50
+		label.outline_size = 10
+		label.outline_modulate = Color("173e45")
+		label.modulate = Color("fff3cf")
+		label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		label.no_depth_test = true
+		label.pixel_size = 0.85
+		var point := MapView.project_lonlat(spec[1], spec[2])
+		label.position = Vector3(point.x, 90, point.y)
+		label.visibility_range_begin = 1900.0
+		add_child(label)
+		_labels.append(label)
+	var font_res := load("res://assets/fonts/LilitaOne-Regular.ttf")
+	for spec in [["MALAYSIA", 102.2, 4.0], ["SERAWAK / SABAH", 115.6, 4.3], ["BRUNEI", 114.7, 5.2],
+			["SINGAPURA", 103.8, 1.4], ["TIMOR-LESTE", 126.0, -8.8], ["PAPUA NUGINI", 145.5, -5.8],
+			["FILIPINA", 124.2, 8.2], ["AUSTRALIA", 132.5, -14.2]]:
+		var nlabel := Label3D.new()
+		nlabel.text = spec[0]
+		nlabel.font = font_res
+		nlabel.font_size = 34
+		nlabel.outline_size = 7
+		nlabel.outline_modulate = Color("102229")
+		nlabel.modulate = Color(0.68, 0.77, 0.78, 0.78)
+		nlabel.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		nlabel.no_depth_test = true
+		nlabel.pixel_size = 0.75
+		var pt := MapView.project_lonlat(spec[1], spec[2])
+		nlabel.position = Vector3(pt.x, 68, pt.y)
+		nlabel.visibility_range_begin = 1850.0
+		add_child(nlabel)
+		_labels.append(nlabel)
+
+
+func _build_city_labels() -> void:
+	var major := {
+		"11.71": "Banda Aceh", "12.71": "Medan", "13.71": "Padang", "14.71": "Pekanbaru",
+		"15.71": "Jambi", "16.71": "Palembang", "18.71": "Bandar Lampung", "21.71": "Batam",
+		"31.71": "Jakarta", "32.73": "Bandung", "33.74": "Semarang", "34.71": "Yogyakarta",
+		"35.78": "Surabaya", "51.71": "Denpasar", "52.71": "Mataram", "53.71": "Kupang",
+		"61.71": "Pontianak", "62.71": "Palangkaraya", "63.71": "Banjarmasin",
+		"64.71": "Balikpapan", "64.72": "Samarinda", "71.71": "Manado", "72.71": "Palu",
+		"73.71": "Makassar", "74.71": "Kendari", "81.71": "Ambon", "82.71": "Ternate",
+		"91.71": "Jayapura", "92.71": "Sorong",
+	}
+	var anchors := {}
+	for prop in _art_config.get("props", []):
+		if str(prop.get("role", "")) == "city_core":
+			var idx := int(prop.region)
+			if idx >= 0 and idx < region_ids.size():
+				var rid := region_ids[idx]
+				if major.has(rid):
+					anchors[rid] = Vector2(float(prop.x), float(prop.z))
+	var font_res := load("res://assets/fonts/LilitaOne-Regular.ttf")
+	for rid in anchors:
+		var pt: Vector2 = anchors[rid]
+		var label := Label3D.new()
+		label.text = major[rid]
+		label.font = font_res
+		label.font_size = 22
+		label.outline_size = 6
+		label.outline_modulate = Color("132630")
+		label.modulate = Color("f7f9fa")
+		label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		label.no_depth_test = true
+		label.pixel_size = 0.48
+		label.position = Vector3(pt.x, 22.0, pt.y)
+		label.visibility_range_begin = 260.0
+		label.visibility_range_end = 1850.0
+		add_child(label)
+		_city_labels.append(label)
+
+
+func sync_cases(records: Dictionary, states: Dictionary) -> void:
+	var active: Array = []
+	for id in states:
+		if states[id].get("status", "") == CaseEngine.STATUS_ACTIVE:
+			active.append(id)
+	active.sort()
+	var signature := ",".join(active)
+	if signature == _case_signature:
+		return
+	_case_signature = signature
+	for pin in _case_pins:
+		pin.queue_free()
+	_case_pins.clear()
+	var lod: MapLod = _map_view_2d.lod("lod1")
+	for id in active:
+		var focus: Array = records.get(id, {}).get("focus_regions", [])
+		if focus.is_empty():
+			continue
+		var rid := str(focus[0])
+		if not lod.index_of.has(rid):
+			continue
+		var info: Dictionary = lod.meta.regions[lod.index_of[rid]]
+		var best := 0.0
+		var point := Vector2.ZERO
+		for n in range(int(info.t[0]), int(info.t[0]) + int(info.t[1]), 3):
+			var a: Vector2 = lod.positions[lod.triangles[n]]
+			var b: Vector2 = lod.positions[lod.triangles[n + 1]]
+			var c: Vector2 = lod.positions[lod.triangles[n + 2]]
+			var area := absf((b - a).cross(c - a))
+			if area > best:
+				best = area
+				point = (a + b + c) / 3.0
+		var pin := _build_beacon_pin()
+		pin.position = Vector3(point.x, 65.0, point.y)
+		pin.scale = Vector3.ONE * 2.3
+		add_child(pin)
+		_case_pins.append(pin)
 
 
 func _build_lod_meshes(name: String, l: MapLod) -> void:
@@ -673,7 +1150,7 @@ func _build_lod_meshes(name: String, l: MapLod) -> void:
 			if ring_span < 2.0:
 				continue
 			var skirt_h := clampf(ring_span * 0.9, 4.0, absf(SKIRT_DEPTH))
-			var skirt_y := -skirt_h
+			var skirt_y := -4.0
 			for k in n:
 				var p1: Vector2 = ring[k]
 				var p2: Vector2 = ring[(k + 1) % n]
