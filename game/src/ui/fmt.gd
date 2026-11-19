@@ -44,6 +44,8 @@ static func calib_tag(status: String) -> String:
 
 
 static func period(world: SimWorld) -> String:
+	if world.is_term_over():
+		return "Masa jabatan selesai · 20 kuartal"
 	var month := world.tick % 12 + 1
 	return "Tahun %d · Kuartal %d · Bulan %d" % [world.year_index() + 1, world.quarter_index() % 4 + 1, month]
 
