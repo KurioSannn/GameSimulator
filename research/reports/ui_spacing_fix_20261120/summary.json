@@ -1,0 +1,1117 @@
+{
+  "states": 82,
+  "screenshots": 42,
+  "feature_observations": [
+    {
+      "label": "isolated Q2 fixture decision succeeds",
+      "ok": true
+    },
+    {
+      "label": "fixture save stays in audit-only directory",
+      "ok": true
+    },
+    {
+      "label": "profile_1280_100 feet stay anchored",
+      "ok": true
+    },
+    {
+      "label": "profile_1280_110 feet stay anchored",
+      "ok": true
+    },
+    {
+      "label": "profile_1920_100 feet stay anchored",
+      "ok": true
+    },
+    {
+      "label": "profile_1920_110 feet stay anchored",
+      "ok": true
+    },
+    {
+      "label": "player name remains editable with 30-character limit",
+      "ok": true
+    },
+    {
+      "label": "unchanged name has no pending save/cancel action",
+      "ok": true
+    },
+    {
+      "label": "name change exposes dirty state",
+      "ok": true
+    },
+    {
+      "label": "native save persists name with success feedback",
+      "ok": true
+    },
+    {
+      "label": "saved name disables redundant actions",
+      "ok": true
+    },
+    {
+      "label": "profile_name_saved_1600 feet stay anchored",
+      "ok": true
+    },
+    {
+      "label": "saved name survives reopening profile",
+      "ok": true
+    },
+    {
+      "label": "empty name normalizes in storage and field together",
+      "ok": true
+    },
+    {
+      "label": "native Enter saves name without advancing the game",
+      "ok": true
+    },
+    {
+      "label": "saved name trims leading/trailing whitespace",
+      "ok": true
+    },
+    {
+      "label": "cancel restores saved identity",
+      "ok": true
+    },
+    {
+      "label": "profile_name_dirty_1600 feet stay anchored",
+      "ok": true
+    },
+    {
+      "label": "player name never renames the fictional president",
+      "ok": true
+    },
+    {
+      "label": "UI inspection/name edits preserve world serialization after fixture creation",
+      "ok": true
+    }
+  ],
+  "runtime_errors": [],
+  "world_unchanged": true,
+  "safe_area_candidates_total": 0,
+  "outside_panel_total": 0,
+  "outside_viewport_total": 0,
+  "summaries": [
+    {
+      "state": "hud_1280_100",
+      "visible_buttons": 8,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "profile_1280_100",
+      "visible_buttons": 6,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "statistics_1280_100",
+      "visible_buttons": 5,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "settings_1280_100",
+      "visible_buttons": 13,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "report_1280_100",
+      "visible_buttons": 6,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "help_1280_100",
+      "visible_buttons": 2,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "saves_1280_100",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "new_1280_100",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "legacy_1280_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "menu_1280_100",
+      "visible_buttons": 4,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0001_1280_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0001_selected_1280_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0006_1280_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0006_selected_1280_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0008_1280_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0008_selected_1280_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "budget_1280_100",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "policy_1280_100",
+      "visible_buttons": 9,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 1
+    },
+    {
+      "state": "region_1280_100",
+      "visible_buttons": 5,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "sources_1280_100",
+      "visible_buttons": 1,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "hud_1280_110",
+      "visible_buttons": 8,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "profile_1280_110",
+      "visible_buttons": 6,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "statistics_1280_110",
+      "visible_buttons": 5,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "settings_1280_110",
+      "visible_buttons": 13,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "report_1280_110",
+      "visible_buttons": 6,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "help_1280_110",
+      "visible_buttons": 2,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "saves_1280_110",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "new_1280_110",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "legacy_1280_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "menu_1280_110",
+      "visible_buttons": 4,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0001_1280_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0001_selected_1280_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0006_1280_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0006_selected_1280_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0008_1280_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0008_selected_1280_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "budget_1280_110",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "policy_1280_110",
+      "visible_buttons": 8,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 1
+    },
+    {
+      "state": "region_1280_110",
+      "visible_buttons": 5,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "sources_1280_110",
+      "visible_buttons": 1,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "hud_1920_100",
+      "visible_buttons": 8,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "profile_1920_100",
+      "visible_buttons": 6,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "statistics_1920_100",
+      "visible_buttons": 5,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "settings_1920_100",
+      "visible_buttons": 13,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "report_1920_100",
+      "visible_buttons": 6,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "help_1920_100",
+      "visible_buttons": 2,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "saves_1920_100",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "new_1920_100",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "legacy_1920_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "menu_1920_100",
+      "visible_buttons": 4,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0001_1920_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0001_selected_1920_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0006_1920_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0006_selected_1920_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0008_1920_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0008_selected_1920_100",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "budget_1920_100",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "policy_1920_100",
+      "visible_buttons": 9,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 1
+    },
+    {
+      "state": "region_1920_100",
+      "visible_buttons": 5,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "sources_1920_100",
+      "visible_buttons": 1,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "hud_1920_110",
+      "visible_buttons": 8,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "profile_1920_110",
+      "visible_buttons": 6,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "statistics_1920_110",
+      "visible_buttons": 5,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "settings_1920_110",
+      "visible_buttons": 13,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "report_1920_110",
+      "visible_buttons": 6,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "help_1920_110",
+      "visible_buttons": 2,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "saves_1920_110",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "new_1920_110",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "legacy_1920_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "menu_1920_110",
+      "visible_buttons": 4,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0001_1920_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0001_selected_1920_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0006_1920_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0006_selected_1920_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0008_1920_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "CASE-0008_selected_1920_110",
+      "visible_buttons": 7,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "budget_1920_110",
+      "visible_buttons": 3,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "policy_1920_110",
+      "visible_buttons": 8,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 1
+    },
+    {
+      "state": "region_1920_110",
+      "visible_buttons": 5,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "sources_1920_110",
+      "visible_buttons": 1,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "profile_name_saved_1600",
+      "visible_buttons": 6,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    },
+    {
+      "state": "profile_name_dirty_1600",
+      "visible_buttons": 6,
+      "safe_area_candidates": 0,
+      "outside_panel": 0,
+      "outside_viewport": 0,
+      "clipped_scroll_entries": 0
+    }
+  ],
+  "comparison_1280_100": [
+    {
+      "state": "hud_1280_100",
+      "before_candidates": 3,
+      "after_candidates": 0
+    },
+    {
+      "state": "profile_1280_100",
+      "before_candidates": 0,
+      "after_candidates": 0
+    },
+    {
+      "state": "statistics_1280_100",
+      "before_candidates": 0,
+      "after_candidates": 0
+    },
+    {
+      "state": "settings_1280_100",
+      "before_candidates": 0,
+      "after_candidates": 0
+    },
+    {
+      "state": "report_1280_100",
+      "before_candidates": 0,
+      "after_candidates": 0
+    },
+    {
+      "state": "help_1280_100",
+      "before_candidates": 0,
+      "after_candidates": 0
+    },
+    {
+      "state": "saves_1280_100",
+      "before_candidates": 0,
+      "after_candidates": 0
+    },
+    {
+      "state": "new_1280_100",
+      "before_candidates": 0,
+      "after_candidates": 0
+    },
+    {
+      "state": "legacy_1280_100",
+      "before_candidates": 0,
+      "after_candidates": 0
+    },
+    {
+      "state": "menu_1280_100",
+      "before_candidates": 0,
+      "after_candidates": 0
+    },
+    {
+      "state": "CASE-0001_1280_100",
+      "before_candidates": 7,
+      "after_candidates": 0
+    },
+    {
+      "state": "CASE-0001_selected_1280_100",
+      "before_candidates": 7,
+      "after_candidates": 0
+    },
+    {
+      "state": "CASE-0006_1280_100",
+      "before_candidates": 7,
+      "after_candidates": 0
+    },
+    {
+      "state": "CASE-0006_selected_1280_100",
+      "before_candidates": 7,
+      "after_candidates": 0
+    },
+    {
+      "state": "CASE-0008_1280_100",
+      "before_candidates": 7,
+      "after_candidates": 0
+    },
+    {
+      "state": "CASE-0008_selected_1280_100",
+      "before_candidates": 7,
+      "after_candidates": 0
+    },
+    {
+      "state": "budget_1280_100",
+      "before_candidates": 3,
+      "after_candidates": 0
+    },
+    {
+      "state": "policy_1280_100",
+      "before_candidates": 1,
+      "after_candidates": 0
+    },
+    {
+      "state": "region_1280_100",
+      "before_candidates": 4,
+      "after_candidates": 0
+    },
+    {
+      "state": "sources_1280_100",
+      "before_candidates": 1,
+      "after_candidates": 0
+    }
+  ],
+  "grounding": [
+    {
+      "state": "profile_1280_100",
+      "art_rect": [
+        45.3479919433594,
+        10.0,
+        342.304016113281,
+        563.0
+      ],
+      "contact_y": 573.0,
+      "shadow_rect": [
+        98.4051055908203,
+        563.807006835938,
+        188.267211914063,
+        12.3859996795654
+      ]
+    },
+    {
+      "state": "profile_1280_110",
+      "art_rect": [
+        47.1719970703125,
+        10.0,
+        338.656005859375,
+        557.0
+      ],
+      "contact_y": 567.0,
+      "shadow_rect": [
+        99.6636810302734,
+        557.872985839844,
+        186.260803222656,
+        12.253999710083
+      ]
+    },
+    {
+      "state": "profile_1920_100",
+      "art_rect": [
+        45.3479919433594,
+        10.0,
+        342.304016113281,
+        563.0
+      ],
+      "contact_y": 573.0,
+      "shadow_rect": [
+        98.4051055908203,
+        563.807006835938,
+        188.267211914063,
+        12.3859996795654
+      ]
+    },
+    {
+      "state": "profile_1920_110",
+      "art_rect": [
+        47.1719970703125,
+        10.0,
+        338.656005859375,
+        557.0
+      ],
+      "contact_y": 567.0,
+      "shadow_rect": [
+        99.6636810302734,
+        557.872985839844,
+        186.260803222656,
+        12.253999710083
+      ]
+    },
+    {
+      "state": "profile_name_saved_1600",
+      "art_rect": [
+        45.3479919433594,
+        10.0,
+        342.304016113281,
+        563.0
+      ],
+      "contact_y": 573.0,
+      "shadow_rect": [
+        98.4051055908203,
+        563.807006835938,
+        188.267211914063,
+        12.3859996795654
+      ]
+    },
+    {
+      "state": "profile_name_dirty_1600",
+      "art_rect": [
+        45.3479919433594,
+        10.0,
+        342.304016113281,
+        563.0
+      ],
+      "contact_y": 573.0,
+      "shadow_rect": [
+        98.4051055908203,
+        563.807006835938,
+        188.267211914063,
+        12.3859996795654
+      ]
+    }
+  ],
+  "avatars": [
+    {
+      "state": "hud_1280_100",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        44.0,
+        42.0,
+        40.0,
+        40.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "profile_1280_100",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        1039.0,
+        153.0,
+        56.0,
+        56.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "legacy_1280_100",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        746.0,
+        390.0,
+        84.0,
+        84.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "hud_1280_110",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        44.0,
+        42.0,
+        40.0,
+        40.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "profile_1280_110",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        1039.0,
+        156.0,
+        56.0,
+        56.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "legacy_1280_110",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        746.0,
+        402.0,
+        84.0,
+        84.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "hud_1920_100",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        44.0,
+        42.0,
+        40.0,
+        40.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "profile_1920_100",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        1039.0,
+        153.0,
+        56.0,
+        56.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "legacy_1920_100",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        746.0,
+        390.0,
+        84.0,
+        84.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "hud_1920_110",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        44.0,
+        42.0,
+        40.0,
+        40.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "profile_1920_110",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        1039.0,
+        156.0,
+        56.0,
+        56.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "legacy_1920_110",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        746.0,
+        402.0,
+        84.0,
+        84.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "profile_name_saved_1600",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        1039.0,
+        153.0,
+        56.0,
+        56.0
+      ],
+      "stretch_mode": 5
+    },
+    {
+      "state": "profile_name_dirty_1600",
+      "crop_size": "(276.0, 276.0)",
+      "destination": [
+        1039.0,
+        153.0,
+        56.0,
+        56.0
+      ],
+      "stretch_mode": 5
+    }
+  ],
+  "production_files_changed": [
+    "game/src/ui/case_modal.gd",
+    "game/src/ui/desktop_screens.gd",
+    "game/src/ui/figma_assets.gd",
+    "game/src/ui/game_skin.gd",
+    "game/src/ui/hud.gd"
+  ],
+  "new_production_files": [
+    "game/src/ui/player_name_editor.gd",
+    "game/src/ui/president_portrait.gd"
+  ],
+  "method_note": "Nine-slice safe rectangle is a conservative proxy. Naturally clipped scroll entries are excluded. Stage contact is a runtime alpha-crop geometry check, complemented by screenshot inspection."
+}
