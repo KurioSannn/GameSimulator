@@ -1,16 +1,23 @@
 {
   "_meta": {
-    "source": "Google Stitch export 'Game Simulator' (7 PNG screens: Beranda, Peristiwa dan Keputusan, Statistik pemerintahan, Laporan Hasil Kuartal, Profil presiden, Pengaturan permainan, Login). Export contained screenshots only (no HTML/CSS), so values are sampled from pixels, not read from code.",
+    "source": "Google Stitch export 'Game Simulator' (7 PNG screens: Beranda, Peristiwa dan Keputusan, Statistik pemerintahan, Laporan Hasil Kuartal, Profil presiden, Pengaturan permainan, Login) refined for desktop clarity and low visual clutter.",
     "sampled": "2026-11-11",
+    "refined": "2026-11-19",
     "how_to_update": "Edit values here; StitchTheme builds the Godot Theme from this file at startup. No Godot code change is needed for palette, outline, radius or depth changes.",
-    "font": "Display font not identifiable from screenshots and not supplied. Put the licensed .ttf/.otf in res://assets/fonts/ and set fonts.display_path / fonts.body_path. Empty = Godot default."
+    "font": "Figma audited design: Lilita One for headings/buttons, Inter for body. Bundled under SIL OFL; see assets/fonts/*-OFL.txt.",
+    "figma_file": "xXZj1Xnoxln1coG2yEO81a",
+    "runtime_integration": "2026-11-15; preserve real GIS geometry and live simulation values instead of prototype fixtures."
   },
   "colors": {
     "bg": "#133b7a",
     "sea": "#39a1c6",
+    "surface": "#162958",
     "panel": "#283f83",
-    "panel_deep": "#15294f",
+    "panel_deep": "#0c1836",
+    "panel_soft": "#101e43",
+    "panel_glass": "#0d1b3ff2",
     "outline": "#080e27",
+    "border_subtle": "#3e5ca6",
     "primary": "#ffc928",
     "primary_shadow": "#a6552d",
     "primary_text": "#080e27",
@@ -18,8 +25,11 @@
     "danger": "#ee613f",
     "title_gold": "#ffdc45",
     "text": "#ffffff",
-    "text_muted": "#b9c4e8"
+    "text_muted": "#c3cff0",
+    "success": "#5fd494",
+    "warning": "#f0a448",
+    "info": "#7ab8ff"
   },
-  "shape": { "radius": 6, "outline_width": 3, "depth": 5, "pad": 10 },
-  "fonts": { "display_path": "", "body_path": "", "size_body": 16, "size_title": 28 }
+  "shape": { "radius": 10, "outline_width": 2, "depth": 4, "pad": 14 },
+  "fonts": { "display_path": "res://assets/fonts/LilitaOne-Regular.ttf", "body_path": "res://assets/fonts/Inter.ttf", "size_body": 16, "size_title": 28 }
 }
