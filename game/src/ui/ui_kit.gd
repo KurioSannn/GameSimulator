@@ -1,52 +1,58 @@
 class_name UiKit
 extends RefCounted
-## Prototype styling helpers. Final visuals (Cleo/Figma) should replace these via a Theme resource.
+## Shared native controls and clean layout helpers for the NUSANTARA desktop interface.
 
-# Palette mirrors data/ui/stitch_tokens.json (checked by tests/test_ui_theme.gd).
+# Palette constants stay synced with data/ui/stitch_tokens.json (verified by tests/test_ui_theme.gd).
 const BG := Color("133b7a")
 const PANEL := Color("283f83")
 const PANEL_LIGHT := Color("283f83")
+const PANEL_SOFT := Color("13244c")
 const TEXT := Color("ffffff")
-const MUTED := Color("b9c4e8")
+const MUTED := Color("c3cff0")
 const ACCENT := Color("ffdc45")
 const REAL := Color("6fbf8e")
 const SIM := Color("7fa8d9")
+const INFO := Color("7fa8d9")
 const FICTION := Color("c69bd6")
 const WARN := Color("e08a5a")
+const SUCCESS := Color("5fd494")
+const DANGER := Color("ee613f")
 
 
-static func panel_style(color: Color = PANEL, radius: int = 8, pad: int = 14) -> StyleBoxFlat:
-	var s := StyleBoxFlat.new()
-	s.bg_color = color
-	s.set_corner_radius_all(radius)
-	s.set_content_margin_all(pad)
-	s.border_color = Color(1, 1, 1, 0.06)
-	s.set_border_width_all(1)
-	return s
+static func panel_style(color: Color = PANEL, radius: int = 10, pad: int = 14) -> StyleBoxFlat:
+	return StitchTheme.soft_box(color, Color(1, 1, 1, 0.12), radius, pad, pad, 1)
 
 
 static func make_theme() -> Theme:
 	return StitchTheme.build()
 
 
-static func label(text: String, size: int = 16, color: Color = TEXT, wrap: bool = false) -> Label:
+## 1440x810 desktop canvas: even at 1280x720 the smallest UI text stays above 14 output pixels.
+static func font_size(size: int) -> int:
+	return roundi(maxi(16, size) * float(UiPreferences.values.text_scale))
+
+
+static func label(text: String, size: int = 15, color: Color = TEXT, wrap: bool = false) -> Label:
 	var l := Label.new()
 	l.text = text
-	l.add_theme_font_size_override("font_size", size)
+	l.set_meta("base_font_size", size)
+	l.add_theme_font_size_override("font_size", font_size(size))
 	l.add_theme_color_override("font_color", color)
 	if wrap:
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	return l
 
 
-## Small pill tag used to label fact classes (NYATA / SIMULASI / FIKSI / BELUM TERKALIBRASI).
-static func tag(text: String, color: Color) -> PanelContainer:
+## Clean readable pill badge (fact class, status, warnings).
+static func tag(text: String, color: Color, size: int = 12) -> PanelContainer:
 	var p := PanelContainer.new()
-	var s := panel_style(Color(color, 0.18), 4, 4)
-	s.border_color = Color(color, 0.7)
+	var s := StitchTheme.soft_box(Color(color, 0.16), Color(color, 0.45), 6, 9, 4, 1)
 	p.add_theme_stylebox_override("panel", s)
-	p.add_child(label(text, 11, color))
+	var l := label(text, size, color.lightened(0.22))
+	l.add_theme_font_override("font", load("res://assets/fonts/Inter.ttf"))
+	p.add_child(l)
 	p.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	p.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	return p
 
 
@@ -68,15 +74,24 @@ static func clear(node: Node) -> void:
 		c.queue_free()
 
 
-## Outlined, heavy "sticker" title label (Stitch headings). Uses a bold system font until the team supplies one.
+## Display heading using Lilita One with restrained outline so headings stay crisp, never heavy.
 static func title(text: String, size: int = 20, color: Color = TEXT) -> Label:
 	var l := label(text, size, color)
-	var f := SystemFont.new()
-	f.font_names = PackedStringArray(["Arial Rounded MT Bold", "Arial Black", "Impact", "Helvetica Neue"])
-	f.font_weight = 800
-	l.add_theme_font_override("font", f)
-	l.add_theme_constant_override("outline_size", maxi(2, size / 6))
-	l.add_theme_color_override("font_outline_color", StitchTheme.color("outline"))
+	l.add_theme_font_override("font", load("res://assets/fonts/LilitaOne-Regular.ttf"))
+	if size >= 18:
+		l.add_theme_constant_override("outline_size", clampi(size / 12, 1, 3))
+		l.add_theme_color_override("font_outline_color", StitchTheme.color("outline"))
+	else:
+		l.add_theme_constant_override("outline_size", 1)
+		l.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.55))
+	return l
+
+
+## Clean sans-serif uppercase/structured micro-subheader for inside cards (no noisy outline).
+static func subheader(text: String, color: Color = MUTED, size: int = 12) -> Label:
+	var l := label(text.to_upper(), size, color)
+	l.add_theme_font_override("font", load("res://assets/fonts/Inter.ttf"))
+	l.add_theme_constant_override("outline_size", 0)
 	return l
 
 
@@ -88,3 +103,137 @@ static func icon(path: String, min_size: Vector2) -> TextureRect:
 	r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	r.custom_minimum_size = min_size
 	return r
+
+
+static func button(text: String, action: Callable, primary: bool = false) -> Button:
+	var b := Button.new()
+	b.text = text
+	b.theme_type_variation = "ButtonPrimary" if primary else "Button"
+	b.custom_minimum_size.y = 44
+	b.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	b.pressed.connect(action)
+	return b
+
+
+static func ghost_button(text: String, action: Callable, tooltip: String = "") -> Button:
+	var b := Button.new()
+	b.text = text
+	b.theme_type_variation = "ButtonGhost"
+	b.custom_minimum_size.y = 38
+	b.tooltip_text = tooltip
+	b.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	b.pressed.connect(action)
+	return b
+
+
+static func heading(text: String) -> PanelContainer:
+	var p := PanelContainer.new()
+	p.theme_type_variation = "PanelHeader"
+	var t := title(text, 22)
+	t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	p.add_child(t)
+	return p
+
+
+## Clean typographic section divider with header + optional right subheader caption.
+static func section_bar(title_text: String, subtitle_text: String = "", accent_color: Color = ACCENT) -> VBoxContainer:
+	var v := vbox(5)
+	var row := hbox(8)
+	var t := title(title_text, 16, accent_color)
+	t.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(t)
+	if subtitle_text != "":
+		var sub := label(subtitle_text, 12, MUTED)
+		row.add_child(sub)
+	v.add_child(row)
+	v.add_child(HSeparator.new())
+	return v
+
+
+## Crisp two-column key-value row with aligned tabular value on the right.
+static func kv_row(key_text: String, val_text: String, val_color: Color = TEXT, size: int = 14) -> HBoxContainer:
+	var r := hbox(12)
+	var k := label(key_text, size, MUTED, true)
+	k.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	r.add_child(k)
+	var v := label(val_text, size, val_color)
+	v.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	r.add_child(v)
+	return r
+
+
+## Reusable modal top bar: eyebrow + title + optional urgent badge + close button.
+static func modal_header(eyebrow: String, title_text: String, on_close: Callable,
+		badge_text: String = "", badge_color: Color = DANGER, close_text: String = "✕", close_tip: String = "Tutup (Esc)") -> HBoxContainer:
+	var row := hbox(12)
+	var bar := PanelContainer.new()
+	bar.theme_type_variation = "PanelHeader"
+	bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var col := vbox(2)
+	if eyebrow != "":
+		col.add_child(subheader(eyebrow, ACCENT, 11))
+	var t := title(title_text, 24)
+	t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	col.add_child(t)
+	bar.add_child(col)
+	row.add_child(bar)
+	if badge_text != "":
+		var b := tag(badge_text, badge_color, 13)
+		b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		row.add_child(b)
+	var close := Button.new()
+	close.text = close_text
+	close.theme_type_variation = "ButtonGhost"
+	close.custom_minimum_size = Vector2(44, 44)
+	close.tooltip_text = close_tip
+	close.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	close.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	close.pressed.connect(on_close)
+	row.add_child(close)
+	return row
+
+
+static func spacer() -> Control:
+	var c := Control.new()
+	c.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	c.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	c.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	return c
+
+
+## Gentle open animation respecting reduce_motion accessibility preference.
+static func ignore_mouse(node: Control) -> void:
+	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for child in node.get_children():
+		if child is Control:
+			ignore_mouse(child)
+
+
+static func animate_open(ctrl: Control) -> void:
+	if ctrl == null or not ctrl.is_inside_tree():
+		return
+	if bool(UiPreferences.values.reduce_motion):
+		ctrl.modulate.a = 1.0
+		return
+	ctrl.modulate.a = 0.0
+	var tw := ctrl.create_tween()
+	tw.tween_property(ctrl, "modulate:a", 1.0, 0.10).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+
+static func rescale(node: Node) -> void:
+	if node is Control and node.has_meta("base_font_size"):
+		node.add_theme_font_size_override("font_size", font_size(int(node.get_meta("base_font_size"))))
+	for child in node.get_children():
+		rescale(child)
+
+
+static func trap_focus(surface: Control) -> void:
+	var focusable: Array[Control] = []
+	for control in surface.find_children("*", "Control", true, false):
+		if control.is_visible_in_tree() and control.focus_mode != Control.FOCUS_NONE and not (control is BaseButton and control.disabled):
+			focusable.append(control)
+	for i in focusable.size():
+		focusable[i].focus_next = focusable[i].get_path_to(focusable[(i + 1) % focusable.size()])
+		focusable[i].focus_previous = focusable[i].get_path_to(focusable[(i - 1 + focusable.size()) % focusable.size()])
+	if not focusable.is_empty():
+		focusable[0].grab_focus()
