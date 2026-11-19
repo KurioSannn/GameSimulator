@@ -129,7 +129,7 @@ func _back() -> void:
 func _background() -> void:
 	var image := TextureRect.new()
 	var gradient := Gradient.new()
-	gradient.colors = PackedColorArray([Color("267ba8"), Color("133b7a"), Color("0e1e44")])
+	gradient.colors = PackedColorArray([Color("efe2c5"), Color("d3bd97"), Color("a18a66")])
 	gradient.offsets = PackedFloat32Array([0.0, 0.58, 1.0])
 	var texture := GradientTexture2D.new()
 	texture.gradient = gradient
@@ -144,20 +144,15 @@ func _background() -> void:
 	var waves := FigmaAssets.picture(4, "imgRiakSamudra", Vector2.ZERO)
 	waves.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	waves.stretch_mode = TextureRect.STRETCH_SCALE
-	waves.modulate.a = 0.35
+	waves.modulate.a = 0.06
 	_surface.add_child(waves)
 
 
 func _menu() -> void:
-	var art := FigmaAssets.picture(0, "imgDuniaNusantaraDanPresidenNara", Vector2.ZERO)
-	art.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	_surface.add_child(art)
-
 	var shade := TextureRect.new()
 	var gradient := Gradient.new()
 	gradient.offsets = PackedFloat32Array([0.0, 0.46, 0.64, 1.0])
-	gradient.colors = PackedColorArray([Color(0, 0, 0, 0), Color(0, 0, 0, 0.08), Color("162a61", 0.92), Color("0d1c42", 0.98)])
+	gradient.colors = PackedColorArray([Color("182a30", 0.20), Color("182a30", 0.08), Color("182a30", 0.12), Color("182a30", 0.35)])
 	var texture := GradientTexture2D.new()
 	texture.gradient = gradient
 	shade.texture = texture
@@ -168,15 +163,15 @@ func _menu() -> void:
 	# Top-left Brand Lockup
 	var brand := UiKit.vbox(8)
 	brand.position = Vector2(48, 36)
-	brand.add_child(UiKit.title("NUSANTARA", 64, UiKit.ACCENT))
+	brand.add_child(UiKit.title("NUSANTARA", 64, Color("ffe9a7")))
 	var ribbon := PanelContainer.new()
 	ribbon.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("ed4b39"), StitchTheme.color("outline"), 8, 14, 6, 2))
 	ribbon.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-	var subtitle := UiKit.title("MANDAT KEPEMIMPINAN", 22)
+	var subtitle := UiKit.title("MANDAT KEPEMIMPINAN", 22, Color("fff4d2"))
 	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	ribbon.add_child(subtitle)
 	brand.add_child(ribbon)
-	brand.add_child(UiKit.title("Bangun negeri. Tentukan warisanmu.", 18))
+	brand.add_child(UiKit.title("Bangun negeri. Tentukan warisanmu.", 18, Color("fff4d2")))
 	_surface.add_child(brand)
 
 	# Top-right utility pills (clean inline row)
@@ -186,14 +181,6 @@ func _menu() -> void:
 	top_right.offset_top = 28
 	top_right.offset_right = -32
 	_surface.add_child(top_right)
-
-	var lang_pill := PanelContainer.new()
-	lang_pill.theme_type_variation = "PanelDock"
-	var lh := UiKit.hbox(8)
-	lh.add_child(FigmaAssets.picture(0, "imgIkonGlobe", Vector2(20, 20)))
-	lh.add_child(UiKit.label("BAHASA INDONESIA", 13, UiKit.TEXT))
-	lang_pill.add_child(lh)
-	top_right.add_child(lang_pill)
 
 	var settings := UiKit.ghost_button("PENGATURAN", func(): _origin = "menu"; open("settings"), "Buka pengaturan audio, layar, dan kontrol")
 	settings.icon = FigmaAssets.texture(0, "imgGroup465")
@@ -205,35 +192,18 @@ func _menu() -> void:
 	panel.theme_type_variation = "PanelDock"
 	panel.anchor_left = 0.60
 	panel.anchor_right = 0.955
-	panel.anchor_top = 0.16
-	panel.anchor_bottom = 0.84
-	var style := StitchTheme.box(StitchTheme.color("surface"), StitchTheme.color("outline"), 4, 14, 28, 24)
+	panel.anchor_top = 0.52
+	panel.anchor_bottom = 0.52
+	panel.grow_vertical = Control.GROW_DIRECTION_BOTH
+	var style := GameSkin.frame()
 	panel.add_theme_stylebox_override("panel", style)
 	_surface.add_child(panel)
 
 	var body := UiKit.vbox(14)
 	body.alignment = BoxContainer.ALIGNMENT_CENTER
 	panel.add_child(body)
-	var mhead := UiKit.vbox(2)
-	var meyebrow := UiKit.subheader("SIMULASI PRESIDEN RI", UiKit.ACCENT, 11)
-	meyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	var mtitle := UiKit.title("MULAI PEMERINTAHAN", 24, UiKit.TEXT)
-	mtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	mhead.add_child(meyebrow)
-	mhead.add_child(mtitle)
-	body.add_child(mhead)
-
-	var description := UiKit.label("Pimpin Indonesia sebagai Nara Adinata.\nSetiap keputusan membentuk warisanmu.", 16, UiKit.TEXT, true)
-	description.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	body.add_child(description)
-
-	var pills := UiKit.hbox(8)
-	pills.alignment = BoxContainer.ALIGNMENT_CENTER
-	pills.add_child(UiKit.tag("BERMAIN LURING", UiKit.REAL, 11))
-	pills.add_child(UiKit.tag("5 TAHUN · 20 KUARTAL", UiKit.ACCENT, 11))
-	body.add_child(pills)
-
-	body.add_child(HSeparator.new())
+	var heading := UiKit.heading("PEMERINTAHANMU")
+	body.add_child(heading)
 
 	var begin := UiKit.button("MULAI MANDAT BARU", func():
 		_origin = "menu"
@@ -257,41 +227,6 @@ func _menu() -> void:
 	var help_btn := UiKit.button("CARA BERMAIN", func(): _origin = "menu"; open("help"))
 	help_btn.custom_minimum_size.y = 46
 	body.add_child(help_btn)
-
-	var hint := UiKit.label("Satu giliran menjalankan 3 bulan simulasi.\nProgres tersimpan lokal di perangkatmu.", 13, UiKit.MUTED, true)
-	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	body.add_child(hint)
-
-	# Bottom-left Bantuan & Nameplate
-	var help := UiKit.ghost_button("BANTUAN", func(): _origin = "menu"; open("help"))
-	help.icon = FigmaAssets.texture(0, "imgIkonHelp")
-	help.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	help.offset_left = 48
-	help.offset_bottom = -32
-	help.grow_vertical = Control.GROW_DIRECTION_BEGIN
-	help.custom_minimum_size = Vector2(150, 44)
-	_surface.add_child(help)
-
-	var np := PanelContainer.new()
-	np.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("0f1e44", 0.92), StitchTheme.color("accent"), 99, 20, 6, 1))
-	np.anchor_left = 0.37
-	np.anchor_right = 0.53
-	np.anchor_top = 0.905
-	np.anchor_bottom = 0.96
-	var nlbl := UiKit.title("NARA ADINATA", 16, UiKit.ACCENT)
-	nlbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	np.add_child(nlbl)
-	_surface.add_child(np)
-
-	var note := UiKit.label("Indonesia nyata · Keputusan dan dampaknya disimulasikan.", 12, UiKit.MUTED, true)
-	note.anchor_left = 0.60
-	note.anchor_right = 0.955
-	note.anchor_top = 0.87
-	note.anchor_bottom = 0.96
-	note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_surface.add_child(note)
-	_focus_first.call_deferred()
-
 
 func _start_new() -> void:
 	visited.clear()
@@ -367,7 +302,7 @@ func _help() -> void:
 	left.get_parent().size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	for text in [
 		"1. Mulai mandat baru atau lanjutkan simpanan lokal.",
-		"2. Pilih wilayah di peta untuk membaca kondisi simulasi dan data acuannya.",
+		"2. Pilih wilayah di peta untuk membaca kondisi dan data acuannya.",
 		"3. Baca kasus, pilih satu opsi, lalu tekan Tetapkan Keputusan.",
 		"4. Atur anggaran (B) dan kebijakan (P) sesuai cakupan wilayah.",
 		"5. Lanjutkan Kuartal menjalankan 3 bulan untuk seluruh 514 kabupaten/kota.",
@@ -375,7 +310,6 @@ func _help() -> void:
 	]:
 		left.add_child(UiKit.label(text, 15, UiKit.TEXT, true))
 	left.add_child(UiKit.spacer())
-	left.add_child(UiKit.tag("Data acuan bersumber resmi · Narasi fiksi · Hasil permainan simulasi", UiKit.SIM, 12))
 
 	var right := _card("KONTROL & PINTASAN KEYBOARD", cols)
 	right.get_parent().size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -418,12 +352,12 @@ func _profile() -> void:
 
 	var left := UiKit.vbox(14)
 	left.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	left.size_flags_stretch_ratio = 1.25
+	left.size_flags_stretch_ratio = 1.2
 	row.add_child(left)
 
 	var mandate := _card("PERJALANAN MANDAT", left)
 	mandate.add_child(UiKit.title("TAHUN %d DARI 5 TAHUN" % mini(Game.world.year_index() + 1, 5), 28, UiKit.ACCENT))
-	mandate.add_child(UiKit.label("Setiap pilihan membentuk warisanmu.", 14, UiKit.MUTED))
+	mandate.add_child(UiKit.label("Kuartal %d · %d kasus aktif" % [Game.world.quarter_index() % 4 + 1, Game.cases.active_cases(Game.world).size()], 22, UiKit.MUTED))
 	var years := UiKit.hbox(10)
 	var cur_y := mini(Game.world.year_index(), 4)
 	for y in 5:
@@ -445,9 +379,7 @@ func _profile() -> void:
 	bar.custom_minimum_size.y = 12
 	mandate.add_child(bar)
 
-	var status := _card("MANDAT SAAT INI", left)
-	status.add_child(UiKit.title("KEPERCAYAAN %s%%" % Fmt.num(Game.world.national_mean("trust"), 1), 24))
-	status.add_child(UiKit.label("%d kasus aktif · %d wilayah ditinjau sesi ini" % [Game.cases.active_cases(Game.world).size(), visited.size()], 14, UiKit.MUTED, true))
+	mandate.add_child(UiKit.kv_row("Kepercayaan rakyat", "%s%%" % Fmt.num(Game.world.national_mean("trust"), 1), UiKit.SUCCESS, 22))
 
 	var badges := _card("LENCANA PENCAPAIAN", left)
 	var badges_row := UiKit.hbox(12)
@@ -460,7 +392,7 @@ func _profile() -> void:
 		["Solusi pertama", "imgMedaliSolusiPertama", decisions > 0, "imgTepiMedaliSolusiPertama", "imgIkonLock"],
 	]:
 		var tile := PanelContainer.new()
-		tile.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("0e1b3d"), Color(1, 1, 1, 0.10), 8, 8, 8, 1))
+		tile.add_theme_stylebox_override("panel", StitchTheme.soft_box(UiKit.PANEL_SOFT, Color(1, 1, 1, 0.10), 8, 8, 8, 1))
 		tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		var badge := UiKit.vbox(4)
 		badge.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -479,18 +411,21 @@ func _profile() -> void:
 		badges_row.add_child(tile)
 	badges.add_child(badges_row)
 
-	# Center stage
-	var stage := UiKit.vbox(6)
+	# Character and contact shadow resize together from one feet anchor.
+	var stage := UiKit.vbox(12)
 	stage.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	stage.alignment = BoxContainer.ALIGNMENT_CENTER
-	var portrait := FigmaAssets.picture(2, "imgNaraAdinataKarakterPemain", Vector2(280, 380))
-	portrait.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	stage.add_child(portrait)
-	stage.add_child(FigmaAssets.picture(2, "imgPermukaanPanggung", Vector2(280, 26)))
+	stage.add_child(PresidentPortrait.new())
 	var nameplate := PanelContainer.new()
-	nameplate.add_theme_stylebox_override("panel", StitchTheme.soft_box(StitchTheme.color("panel"), StitchTheme.color("accent"), 99, 20, 6, 1))
-	nameplate.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	nameplate.add_child(UiKit.title("PRESIDEN NARA ADINATA", 16, UiKit.ACCENT))
+	nameplate.add_theme_stylebox_override("panel", GameSkin.frame("panel_brown", 18, 12))
+	var identity := UiKit.vbox(4)
+	var character_name := UiKit.title("NARA ADINATA", 28, UiKit.ACCENT)
+	character_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	identity.add_child(character_name)
+	var role := UiKit.label("Presiden Republik Indonesia", 22, UiKit.MUTED, true)
+	role.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	identity.add_child(role)
+	nameplate.add_child(identity)
 	stage.add_child(nameplate)
 	row.add_child(stage)
 
@@ -499,37 +434,9 @@ func _profile() -> void:
 	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	right.size_flags_stretch_ratio = 0.9
 	row.add_child(right)
-	var profile := _card("PROFIL PEMAIN", right)
-	var av_row := UiKit.hbox(12)
-	av_row.add_child(FigmaAssets.portrait(2, Vector2(64, 64)))
-	var av_info := UiKit.vbox(4)
-	av_info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	av_info.add_child(UiKit.label("NAMA PEMAIN", 12, UiKit.MUTED))
-	var name_edit := LineEdit.new()
-	name_edit.text = str(UiPreferences.values.player_name)
-	name_edit.max_length = 30
-	av_info.add_child(name_edit)
-	av_row.add_child(av_info)
-	profile.add_child(av_row)
+	var profile := _card("IDENTITAS PEMAIN", right)
+	profile.add_child(PlayerNameEditor.new())
 
-	var save_name := UiKit.button("SIMPAN NAMA PEMAIN", func():
-		var next := UiPreferences.values.duplicate(true)
-		next.player_name = name_edit.text.strip_edges() if name_edit.text.strip_edges() != "" else "Pemain"
-		var err := UiPreferences.write(next)
-		if err != OK:
-			profile.add_child(UiKit.label(error_string(err), 14, UiKit.WARN)), true)
-	save_name.custom_minimum_size.y = 42
-	profile.add_child(save_name)
-	profile.add_child(HSeparator.new())
-	for pair in [
-		["Karakter", "Nara Adinata"],
-		["Jabatan", "Presiden Republik Indonesia"],
-		["Masa Bakti", "Tahun %d dari 5" % mini(Game.world.year_index() + 1, 5)],
-		["Waktu", Fmt.period(Game.world)],
-	]:
-		profile.add_child(UiKit.kv_row(pair[0], pair[1], UiKit.TEXT, 14))
-
-	_content.add_child(UiKit.label("SIMULASI · indikator permainan bukan statistik resmi Indonesia.", 12, UiKit.MUTED))
 
 
 func _statistics() -> void:
@@ -546,14 +453,9 @@ func _statistics() -> void:
 	support.get_parent().size_flags_vertical = Control.SIZE_EXPAND_FILL
 	var sup_head := UiKit.hbox(10)
 	var sup_titles := UiKit.vbox(2)
-	sup_titles.add_child(UiKit.subheader("TREN KEPERCAYAAN PER KUARTAL", UiKit.INFO, 11))
-	sup_titles.add_child(UiKit.title(Fmt.num(Game.world.national_mean("trust"), 1) + "% KEPERCAYAAN PUBLIK", 24, UiKit.ACCENT))
+	sup_titles.add_child(UiKit.title("Riwayat kepercayaan publik", 24))
 	sup_head.add_child(sup_titles)
 	sup_head.add_child(UiKit.spacer())
-	var rec_tag := UiKit.tag("Data tercatat", UiKit.SIM, 11)
-	rec_tag.tooltip_text = "Simpanan lama hanya menampilkan titik awal & akhir kuartal; bulan di antaranya tidak direka."
-	rec_tag.mouse_filter = Control.MOUSE_FILTER_STOP
-	sup_head.add_child(rec_tag)
 	support.add_child(sup_head)
 
 	var chart := TrustChart.new()
@@ -566,23 +468,8 @@ func _statistics() -> void:
 		chart.points.append({"tick": Game.world.tick, "value": Game.world.national_mean("trust")})
 	support.add_child(chart)
 
-	var conditions := _card("KONDISI NASIONAL", left)
-	for metric in ["welfare", "sentiment", "environment"]:
-		var val := Game.world.national_mean(metric)
-		var mrow := UiKit.hbox(10)
-		var lbl := UiKit.label(ChangeText.var_label(metric), 14, UiKit.TEXT)
-		lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		mrow.add_child(lbl)
-		mrow.add_child(UiKit.title("%s / 100" % Fmt.num(val, 1), 15, UiKit.ACCENT))
-		conditions.add_child(mrow)
-		var bar := ProgressBar.new()
-		bar.value = val
-		bar.show_percentage = false
-		bar.custom_minimum_size.y = 10
-		conditions.add_child(bar)
-
 	var right := UiKit.vbox(12)
-	right.custom_minimum_size.x = 320
+	right.custom_minimum_size.x = 280
 	columns.add_child(right)
 	var report := _card("RAPOR MANDAT", right)
 	report.get_parent().size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -629,14 +516,14 @@ func _indicator_row(parent: Node, comparison: bool) -> void:
 			var good := diff < 0.0 if key == "price_level" else diff >= 0.0
 			var dcol := UiKit.MUTED if absf(diff) < 0.05 else (UiKit.SUCCESS if good else UiKit.DANGER)
 			var val_row := UiKit.hbox(6)
-			val_row.add_child(UiKit.title(Fmt.num(current, 1), 22, UiKit.ACCENT))
+			val_row.add_child(UiKit.number(Fmt.num(current, 1), 24, UiKit.ACCENT))
 			val_row.add_child(UiKit.spacer())
 			val_row.add_child(UiKit.label("Δ " + Fmt.signed(diff, 1), 13, dcol))
 			body.add_child(val_row)
 			body.add_child(UiKit.label("Sebelumnya: %s" % Fmt.num(previous, 1), 11, UiKit.MUTED))
 		else:
-			body.add_child(UiKit.title(Fmt.num(current, 1), 22, UiKit.ACCENT))
-			body.add_child(UiKit.label("persen" if key == "trust" else "indeks model" if key in ["price_level", "fiscal_space"] else "skala 0–100", 11, UiKit.MUTED))
+			body.add_child(UiKit.number(Fmt.num(current, 1), 24, UiKit.ACCENT))
+			body.add_child(UiKit.label("%" if key == "trust" else "indeks" if key == "price_level" else "poin" if key == "fiscal_space" else "/ 100", 11, UiKit.MUTED))
 		row.add_child(card)
 
 
@@ -649,20 +536,16 @@ func _report() -> void:
 		empty.add_child(back)
 		return
 
-	var qhead := PanelContainer.new()
-	qhead.theme_type_variation = "PanelHeader"
-	var qh := UiKit.hbox(12)
-	var qt := UiKit.vbox(2)
-	qt.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	qt.add_child(UiKit.subheader("RINGKASAN KUARTAL SELESAI", UiKit.ACCENT, 11))
-	qt.add_child(UiKit.title("TAHUN %d · KUARTAL %d (3 BULAN SIMULASI)" % [
-		mini(int(Game.world.ledger.start_tick) / 12 + 1, 5),
-		int(Game.world.ledger.start_tick) / 3 % 4 + 1,
-	], 20))
-	qh.add_child(qt)
-	qh.add_child(UiKit.tag("MODE SIMULASI", UiKit.INFO, 11))
-	qhead.add_child(qh)
-	_content.add_child(qhead)
+	var report_root := _content
+	var report_scroll := ScrollContainer.new()
+	report_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	report_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	report_root.add_child(report_scroll)
+	_content = UiKit.vbox(14)
+	_content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	report_scroll.add_child(_content)
+	_content.add_child(UiKit.title("Tahun %d ? Kuartal %d" % [
+		mini(int(Game.world.ledger.start_tick) / 12 + 1, 5), int(Game.world.ledger.start_tick) / 3 % 4 + 1], 22))
 	_indicator_row(_content, true)
 
 	var row := UiKit.hbox(14)
@@ -701,7 +584,7 @@ func _report() -> void:
 		if int(event.get("tick", 0)) >= int(Game.world.ledger.start_tick):
 			var ev := ChangeText.entry_card(event)
 			var ec := PanelContainer.new()
-			ec.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("0d193b"), Color(1, 1, 1, 0.09), 8, 12, 9, 1))
+			ec.add_theme_stylebox_override("panel", StitchTheme.soft_box(UiKit.PANEL_SOFT, Color(1, 1, 1, 0.09), 8, 12, 9, 1))
 			var ecv := UiKit.vbox(6)
 			ec.add_child(ecv)
 			var eh := UiKit.hbox(8)
@@ -748,12 +631,12 @@ func _report() -> void:
 	var stat_btn := UiKit.ghost_button("TINJAU STATISTIK", func(): open("statistics"))
 	stat_btn.custom_minimum_size = Vector2(200, 44)
 	foot.add_child(stat_btn)
-	foot.add_child(UiKit.label("Angka di atas adalah hasil simulasi permainan.", 12, UiKit.MUTED))
 	foot.add_child(UiKit.spacer())
 	var back_btn := UiKit.button("KEMBALI KE PETA", close_screen, true)
 	back_btn.custom_minimum_size = Vector2(220, 44)
 	foot.add_child(back_btn)
-	_content.add_child(foot)
+	report_root.add_child(foot)
+	_content = report_root
 
 
 func _legacy() -> void:
@@ -762,10 +645,9 @@ func _legacy() -> void:
 	var lh := UiKit.hbox(12)
 	var lt := UiKit.vbox(2)
 	lt.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	lt.add_child(UiKit.subheader("RAPOR AKHIR MASA JABATAN", UiKit.ACCENT, 11))
-	lt.add_child(UiKit.title("PEMERINTAHAN PRESIDEN NARA ADINATA", 20))
+	lt.add_child(UiKit.subheader("RAPOR AKHIR MASA JABATAN", Color("fff4d2"), 11))
+	lt.add_child(UiKit.title("PEMERINTAHAN PRESIDEN NARA ADINATA", 20, Color("fff4d2")))
 	lh.add_child(lt)
-	lh.add_child(UiKit.tag("HASIL SIMULASI", UiKit.INFO, 11))
 	lhead.add_child(lh)
 	_content.add_child(lhead)
 	_indicator_row(_content, false)
@@ -799,11 +681,11 @@ func _legacy() -> void:
 	var right := _card("CATATAN PENUTUP", row)
 	right.get_parent().size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var adv := UiKit.hbox(14)
-	var portrait := FigmaAssets.portrait(2, Vector2(84, 84))
+	var portrait := FigmaAssets.avatar(2, Vector2(84, 84))
 	portrait.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	adv.add_child(portrait)
 	var qbox := PanelContainer.new()
-	qbox.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("0d193b"), Color(1, 1, 1, 0.10), 8, 14, 12, 1))
+	qbox.add_theme_stylebox_override("panel", StitchTheme.soft_box(UiKit.PANEL_SOFT, Color(1, 1, 1, 0.10), 8, 14, 12, 1))
 	qbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var quote := UiKit.label(
 		"“Kepemimpinan berarti memilih pengorbanan mana yang paling sanggup dipikul bersama oleh seluruh wilayah Nusantara.”",

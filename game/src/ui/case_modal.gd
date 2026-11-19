@@ -1,382 +1,314 @@
 class_name CaseModal
 extends PanelContainer
-## Clean, scannable decision modal: unified header, crisis facts + map preview | advisor quote,
-## structured composite choice cards (no text-wall jumping), and clear select-then-confirm footer.
-## Real context (sourced, dated) -> fictional briefing -> simulated choices stay visibly labeled (docs/27).
-
+## Select then confirm. Facts/fiction/provenance remain distinct and available on demand.
 signal decided(case_id: String, choice_id: String)
 signal region_data_requested(region_id: String)
-
 var _body: VBoxContainer
 var _scroll: ScrollContainer
 var _header_slot: VBoxContainer
+var _footer: HBoxContainer
 var _confirm: Button
 var case_id := ""
 var _selected := ""
-var _cards: Array = []  # [[choice_id, Button, badge_Control]]
+var _cards: Array = []
 var _selection_summary: Label
+var _selection_detail: VBoxContainer
+var _context_details: VBoxContainer
+var _facts_preview: VBoxContainer
 var map_lod: MapLod
 
-
 func _ready() -> void:
-	add_theme_stylebox_override("panel", StitchTheme.box(StitchTheme.color("surface"), StitchTheme.color("outline"), 4, 14, 20, 18))
-	var root := UiKit.vbox(12)
-	add_child(root)
-
+	add_theme_stylebox_override("panel", GameSkin.frame())
+	var content := UiKit.vbox(14)
+	add_child(content)
 	_header_slot = UiKit.vbox(0)
-	root.add_child(_header_slot)
-
+	_header_slot.minimum_size_changed.connect(func(): if visible: _fit.call_deferred())
+	content.add_child(_header_slot)
 	_scroll = ScrollContainer.new()
 	_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	root.add_child(_scroll)
-	_body = UiKit.vbox(12)
+	content.add_child(_scroll)
+	_body = UiKit.vbox(14)
 	_body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_scroll.add_child(_body)
-
-	root.add_child(HSeparator.new())
-	var foot := UiKit.hbox(14)
-	var data := UiKit.ghost_button("LIHAT DATA WILAYAH", _view_data, "Tutup sementara dan buka detail wilayah kasus")
-	data.custom_minimum_size = Vector2(200, 48)
-	foot.add_child(data)
-	_selection_summary = UiKit.label("Pilih satu opsi sebelum menetapkan keputusan.", 14, UiKit.MUTED, true)
+	_body.minimum_size_changed.connect(func(): if visible: _fit.call_deferred())
+	content.add_child(HSeparator.new())
+	_footer = UiKit.hbox(14)
+	content.add_child(_footer)
+	var data := UiKit.ghost_button("Data Wilayah", _view_data, "Buka detail wilayah kasus")
+	data.custom_minimum_size = Vector2(160, 46)
+	_footer.add_child(data)
+	_selection_summary = UiKit.label("Pilih opsi 1–3, lalu tetapkan keputusan.", 16, UiKit.MUTED, true)
 	_selection_summary.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	foot.add_child(_selection_summary)
-	_confirm = Button.new()
-	_confirm.text = "TETAPKAN KEPUTUSAN"
-	_confirm.theme_type_variation = "ButtonPrimary"
-	_confirm.custom_minimum_size = Vector2(300, 50)
-	_confirm.add_theme_font_size_override("font_size", 18)
-	_confirm.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	_confirm.pressed.connect(_confirm_choice)
-	foot.add_child(_confirm)
-	root.add_child(foot)
-	visible = false
-
+	_footer.add_child(_selection_summary)
+	_confirm = UiKit.button("Tetapkan keputusan", _confirm_choice, true)
+	_confirm.custom_minimum_size = Vector2(268, 48)
+	_footer.add_child(_confirm)
+	hide()
 
 func present(id: String) -> void:
 	case_id = id
 	_selected = ""
 	_cards.clear()
-	var c: Dictionary = ContentDB.cases[id]
+	var current: Dictionary = ContentDB.cases[id]
 	UiKit.clear(_header_slot)
 	UiKit.clear(_body)
+	_header_slot.add_child(UiKit.modal_header("", str(current.title), close_modal))
 
-	var eyebrow := "KEPUTUSAN PRESIDEN · " + str(c.get("location_label", "")).to_upper()
-	_header_slot.add_child(UiKit.modal_header(
-		eyebrow,
-		str(c.title).to_upper(),
-		close_modal,
-		"MENDESAK!",
-		StitchTheme.color("danger"),
-		"✕",
-		"Tutup sementara tanpa memutuskan (Esc)."
-	))
+	# Prominent Situation Briefing Card so the player immediately reads the core problem clearly
+	var brief_card := PanelContainer.new()
+	var brief_style := StitchTheme.soft_box(Color("fbf1da"), Color("b64926"), 6, 18, 10, 1)
+	brief_style.border_width_left = 6
+	brief_style.border_width_top = 1
+	brief_style.border_width_right = 1
+	brief_style.border_width_bottom = 1
+	brief_card.add_theme_stylebox_override("panel", brief_style)
+	var brief_col := UiKit.vbox(4)
+	brief_card.add_child(brief_col)
 
-	# Upper two-column context: Crisis Report | Advisor Briefing
-	var cols := UiKit.hbox(12)
-	_body.add_child(cols)
+	var brief_top := UiKit.hbox(12)
+	var loc := str(current.get("location_label", "")).strip_edges()
+	var eyebrow_txt := ("SITUASI KRISIS · " + loc.to_upper()) if loc != "" else "SITUASI KRISIS"
+	var eyebrow := UiKit.subheader(eyebrow_txt, UiKit.WARN, 16)
+	eyebrow.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	eyebrow.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	brief_top.add_child(eyebrow)
 
-	var report := _card()
-	report.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	report.size_flags_stretch_ratio = 1.45
-	var rv: VBoxContainer = report.get_child(0)
-	var rhead := UiKit.hbox(8)
-	var rtitle := UiKit.title("LAPORAN SITUASI", 17)
-	rtitle.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	rhead.add_child(rtitle)
-	var real: Dictionary = c.get("real_context", {})
-	if not real.get("lines", []).is_empty():
-		var fbadge := UiKit.tag("FAKTA NYATA", UiKit.REAL, 11)
-		fbadge.tooltip_text = "Berdasarkan berita & data resmi tercatat."
-		fbadge.mouse_filter = Control.MOUSE_FILTER_STOP
-		rhead.add_child(fbadge)
-	rv.add_child(rhead)
-	rv.add_child(UiKit.subheader("RINGKASAN KEJADIAN", UiKit.INFO, 11))
+	_context_details = UiKit.vbox(12)
+	var more := UiKit.ghost_button("Laporan lengkap  ▾", func():
+		_context_details.visible = not _context_details.visible
+		_fit.call_deferred())
+	more.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	brief_top.add_child(more)
+	brief_col.add_child(brief_top)
 
-	var report_row := UiKit.hbox(12)
-	rv.add_child(report_row)
-	var facts_scroll := ScrollContainer.new()
-	facts_scroll.custom_minimum_size = Vector2(0, 206)
-	facts_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	facts_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	report_row.add_child(facts_scroll)
-	var flist := UiKit.vbox(10)
-	flist.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	facts_scroll.add_child(flist)
+	_facts_preview = UiKit.vbox(4)
+	_facts_preview.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var intro := UiKit.title(_player_intro(current), 24, UiKit.TEXT)
+	intro.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	intro.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_facts_preview.add_child(intro)
+	brief_col.add_child(_facts_preview)
 
-	if not real.get("lines", []).is_empty():
-		for line in real.lines:
-			var item := UiKit.vbox(3)
-			item.add_child(UiKit.label("• " + str(line.text), 14, UiKit.TEXT, true))
-			var src_lbl := UiKit.label("Sumber: " + ChangeText.clean_source_names(line.source_refs, str(line.as_of)), 12, UiKit.MUTED, true)
-			src_lbl.tooltip_text = "ID sumber: %s (per %s)" % [", ".join(line.source_refs), line.as_of]
-			src_lbl.mouse_filter = Control.MOUSE_FILTER_STOP
-			item.add_child(src_lbl)
-			flist.add_child(item)
-	var simctx: Dictionary = c.get("simulated_context", {})
-	if not simctx.is_empty():
-		flist.add_child(UiKit.tag("KONSEKUENSI LANJUTAN · SIMULASI", UiKit.SIM, 11))
-		flist.add_child(UiKit.label(str(simctx.text), 14, UiKit.MUTED, true))
-	var trig: Dictionary = c.get("trigger", {})
-	if str(trig.get("type", "")) == "follow_up":
-		flist.add_child(UiKit.subheader("ALASAN MUNCUL", UiKit.INFO, 11))
-		for line in ChangeText.describe_conditions(Game.world, trig.get("conditions", {})):
-			flist.add_child(UiKit.label(str(line), 13, UiKit.MUTED, true))
+	brief_col.add_child(_context_details)
+	_build_context(current)
+	_context_details.hide()
+	_body.add_child(brief_card)
 
-	if map_lod != null and not c.get("focus_regions", []).is_empty():
-		var map_frame := PanelContainer.new()
-		map_frame.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("163d66"), Color(1, 1, 1, 0.16), 8, 2, 2, 1))
-		var preview := MapPreview.new()
-		preview.lod = map_lod
-		preview.focus_ids = c.focus_regions
-		preview.custom_minimum_size = Vector2(215, 190)
-		preview.selected.connect(func(rid): hide(); region_data_requested.emit(rid))
-		map_frame.add_child(preview)
-		report_row.add_child(map_frame)
-	cols.add_child(report)
-
-	var adv := _card()
-	adv.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var av: VBoxContainer = adv.get_child(0)
-	var b: Dictionary = c.get("briefing", {})
-	var ahead := UiKit.hbox(8)
-	var stitle := UiKit.title(str(b.get("speaker", "PENASIHAT")).to_upper(), 17)
-	stitle.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	ahead.add_child(stitle)
-	var ftag := UiKit.tag("FIKSI", UiKit.FICTION, 11)
-	ftag.tooltip_text = "Dialog penasihat merupakan narasi fiksi permainan."
-	ftag.mouse_filter = Control.MOUSE_FILTER_STOP
-	ahead.add_child(ftag)
-	av.add_child(ahead)
-	av.add_child(UiKit.subheader("ARAHAN PENASIHAT", UiKit.FICTION, 11))
-
-	var ah := UiKit.hbox(12)
-	var pframe := PanelContainer.new()
-	pframe.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("1d3269"), Color(1, 1, 1, 0.18), 10, 4, 4, 1))
-	pframe.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	var pic := FigmaAssets.picture(5, "imgAvatarPenasihatPemerintah", Vector2(88, 88))
-	pframe.add_child(pic)
-	ah.add_child(pframe)
-
-	var qbox := PanelContainer.new()
-	qbox.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("0d193b"), Color(1, 1, 1, 0.10), 10, 14, 12, 1))
-	qbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var q := UiKit.label("“" + str(b.get("text", "")) + "”", 14, UiKit.TEXT, true)
-	qbox.add_child(q)
-	ah.add_child(qbox)
-	av.add_child(ah)
-	cols.add_child(adv)
-
-	# Choices section header
-	var ch_head := UiKit.hbox(10)
-	ch_head.add_child(UiKit.title("TENTUKAN KEBIJAKAN", 18, UiKit.ACCENT))
-	var sim_badge := UiKit.tag("SIMULASI", UiKit.SIM, 11)
-	sim_badge.tooltip_text = "Efek dihitung simulasi (bukan sejarah). Pintasan: tekan angka 1–%d lalu Enter." % c.choices.size()
-	sim_badge.mouse_filter = Control.MOUSE_FILTER_STOP
-	ch_head.add_child(sim_badge)
-	ch_head.add_child(UiKit.spacer())
-	ch_head.add_child(UiKit.label("Pilih satu langkah penanganan:", 13, UiKit.MUTED))
-	_body.add_child(ch_head)
-
-	# Composite structured choice cards
-	var row := UiKit.hbox(12)
-	_body.add_child(row)
+	var columns := UiKit.hbox(16)
+	_body.add_child(columns)
+	var choices := UiKit.vbox(8)
+	choices.custom_minimum_size.x = 460
+	choices.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	choices.add_child(UiKit.subheader("PILIH KEBIJAKAN (TEKAN 1–3)", UiKit.MUTED, 15))
+	columns.add_child(choices)
+	var detail := _card()
+	detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	detail.size_flags_stretch_ratio = 1.35
+	_selection_detail = detail.get_child(0)
+	columns.add_child(detail)
 	var group := ButtonGroup.new()
-	var n := 1
-	for ch in c.choices:
-		var btn := _build_choice_card(n, ch, group)
-		row.add_child(btn)
-		n += 1
-
-	visible = true
+	var number := 1
+	for choice in current.choices:
+		choices.add_child(_build_choice_card(number, choice, group))
+		number += 1
+	_show_selection()
+	show()
 	_update_confirm()
 	_scroll.scroll_vertical = 0
 	_fit.call_deferred()
 	UiKit.animate_open(self)
 
 
-func _build_choice_card(num: int, ch: Dictionary, group: ButtonGroup) -> Button:
-	var data := ChangeText.choice_card_data(ch)
-	var letter := char(64 + num)  # A, B, C...
-	var btn := Button.new()
-	btn.theme_type_variation = "ButtonChoice"
-	btn.toggle_mode = true
-	btn.button_group = group
-	btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	btn.custom_minimum_size = Vector2(0, 248)
-	btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	btn.tooltip_text = "Tekan %d untuk memilih · %s" % [num, str(data.cost_tooltip)]
+func _player_intro(current: Dictionary) -> String:
+	var narrative := str(current.get("simulated_context", {}).get("text", current.get("briefing", {}).get("text", ""))).strip_edges()
+	if narrative.begins_with("Pak Presiden, kasus ini diangkat"):
+		var end := narrative.find(". ")
+		if end >= 0:
+			narrative = narrative.substr(end + 2).strip_edges()
+	narrative = narrative.trim_prefix("Dalam simulasi kita, ")
+	var parts := narrative.split(". ")
+	var out := parts[0].strip_edges()
+	if parts.size() > 1 and out.length() < 95:
+		var second := parts[1].strip_edges()
+		if second != "" and (out.length() + second.length()) < 220:
+			out = out + ". " + second
+	if out != "":
+		out = out[0].to_upper() + out.substr(1)
+	return out if out.ends_with(".") else out + "."
 
+
+func _show_selection() -> void:
+	UiKit.clear(_selection_detail)
+	if _selected == "":
+		_selection_detail.add_child(UiKit.title("Wilayah Terdampak", 26))
+		_selection_detail.add_child(UiKit.label("Klik salah satu opsi di kiri (atau tekan 1–3) untuk melihat manfaat, risiko, dan jangkauannya.", 18, UiKit.MUTED, true))
+		var current: Dictionary = ContentDB.cases[case_id]
+		if map_lod != null and not current.get("focus_regions", []).is_empty():
+			var preview := MapPreview.new()
+			preview.lod = map_lod
+			preview.focus_ids = current.focus_regions
+			preview.custom_minimum_size = Vector2(0, 210)
+			preview.size_flags_vertical = Control.SIZE_EXPAND_FILL
+			preview.selected.connect(func(region): hide(); region_data_requested.emit(region))
+			_selection_detail.add_child(preview)
+		return
+	for choice in ContentDB.cases[case_id].choices:
+		if str(choice.choice_id) != _selected:
+			continue
+		var data := ChangeText.choice_card_data(choice)
+		var heading := UiKit.title(str(choice.label), 26)
+		heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		_selection_detail.add_child(heading)
+		_selection_detail.add_child(HSeparator.new())
+		var ben_box := _tint_box(UiKit.SUCCESS)
+		var ben_col: VBoxContainer = ben_box.get_child(0)
+		ben_col.add_child(UiKit.title("Manfaat", 20, UiKit.SUCCESS))
+		ben_col.add_child(UiKit.label(str(data.benefit), 20, UiKit.TEXT, true))
+		_selection_detail.add_child(ben_box)
+		var risk_box := _tint_box(UiKit.WARN)
+		var risk_col: VBoxContainer = risk_box.get_child(0)
+		risk_col.add_child(UiKit.title("Risiko", 20, UiKit.WARN))
+		risk_col.add_child(UiKit.label(str(data.risk), 20, UiKit.TEXT, true))
+		_selection_detail.add_child(risk_box)
+		_selection_detail.add_child(UiKit.spacer())
+		_selection_detail.add_child(UiKit.label(str(data.scope_chip), 18, UiKit.MUTED, true))
+	_fit.call_deferred()
+
+
+func _tint_box(accent: Color) -> PanelContainer:
+	var p := PanelContainer.new()
+	var s := StitchTheme.soft_box(Color(accent, 0.09), Color(accent, 0.36), 6, 14, 10, 1)
+	s.border_width_left = 4
+	p.add_theme_stylebox_override("panel", s)
+	p.add_child(UiKit.vbox(4))
+	return p
+
+
+func _build_context(current: Dictionary) -> void:
+	var real: Dictionary = current.get("real_context", {})
+	if not real.get("lines", []).is_empty():
+		_context_details.add_child(UiKit.subheader("FAKTA SEJARAH", UiKit.REAL, 14))
+		for fact in real.lines:
+			_context_details.add_child(UiKit.label("• " + str(fact.text), 16, UiKit.TEXT, true))
+			var source := UiKit.label("Sumber: " + ChangeText.clean_source_names(fact.source_refs, str(fact.as_of)), 14, UiKit.MUTED, true)
+			source.tooltip_text = "ID sumber: " + ", ".join(fact.source_refs)
+			_context_details.add_child(source)
+	var simulated: Dictionary = current.get("simulated_context", {})
+	if not simulated.is_empty():
+		_context_details.add_child(UiKit.label(str(simulated.text), 16, UiKit.TEXT, true))
+	var trigger: Dictionary = current.get("trigger", {})
+	if str(trigger.get("type", "")) == "follow_up":
+		_context_details.add_child(UiKit.title("Alasan kasus muncul", 18))
+		for line in ChangeText.describe_conditions(Game.world, trigger.get("conditions", {})):
+			_context_details.add_child(UiKit.label(str(line), 16, UiKit.TEXT, true))
+	var advisor: Dictionary = current.get("briefing", {})
+	_context_details.add_child(HSeparator.new())
+	_context_details.add_child(UiKit.label(str(advisor.get("speaker", "Penasihat")) + " · DIALOG FIKSI", 14, UiKit.FICTION, true))
+	_context_details.add_child(UiKit.label("“" + str(advisor.get("text", "")) + "”", 16, UiKit.TEXT, true))
+func _build_choice_card(number: int, choice: Dictionary, group: ButtonGroup) -> Button:
+	var data := ChangeText.choice_card_data(choice)
+	var button := Button.new()
+	button.theme_type_variation = "ButtonChoice"
+	button.toggle_mode = true
+	button.button_group = group
+	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	button.custom_minimum_size = Vector2(0, 86)
+	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	button.tooltip_text = str(data.cost_tooltip)
 	var margin := MarginContainer.new()
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	for side in ["left", "right"]:
-		margin.add_theme_constant_override("margin_" + side, 15)
-	margin.add_theme_constant_override("margin_top", 8)
-	margin.add_theme_constant_override("margin_bottom", 14)
-	btn.add_child(margin)
-
-	var v := UiKit.vbox(6)
-	v.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	margin.add_child(v)
-
-	# Top selected indicator bar (constant height so layout never shifts on select)
-	var sel_row := UiKit.hbox(6)
-	sel_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var s_spacer := UiKit.spacer()
-	s_spacer.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	sel_row.add_child(s_spacer)
-	var sel_badge := PanelContainer.new()
-	sel_badge.add_theme_stylebox_override("panel", StitchTheme.soft_box(StitchTheme.color("primary"), StitchTheme.color("outline"), 6, 8, 2, 1))
-	sel_badge.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var sel_lbl := UiKit.label("✓ TERPILIH", 11, StitchTheme.color("primary_text"))
-	sel_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	sel_badge.add_child(sel_lbl)
-	sel_badge.modulate.a = 0.0
-	sel_row.add_child(sel_badge)
-	v.add_child(sel_row)
-
-	# Card header: Icon + "A. TITLE" + [1] keycap
-	var top := UiKit.hbox(10)
-	top.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var ic_wrap := PanelContainer.new()
-	ic_wrap.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("1c3575"), Color(1, 1, 1, 0.14), 8, 5, 5, 1))
-	ic_wrap.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	ic_wrap.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	ic_wrap.add_child(FigmaAssets.picture(int(data.icon_screen), str(data.icon_slot), Vector2(24, 24)))
-	top.add_child(ic_wrap)
-
-	var lbl := UiKit.title("%s. %s" % [letter, str(ch.label).to_upper()], 15, UiKit.TEXT)
-	lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	top.add_child(lbl)
-
-	var num_pill := PanelContainer.new()
-	num_pill.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("0a1430"), Color(1, 1, 1, 0.22), 6, 8, 3, 1))
-	num_pill.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	num_pill.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var nl := UiKit.label(str(num), 12, UiKit.MUTED)
-	nl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	num_pill.add_child(nl)
-	top.add_child(num_pill)
-	v.add_child(top)
-
-	# Structured Header + Subheader blocks: POTENSI MANFAAT & RISIKO
-	var body_box := UiKit.vbox(6)
-	body_box.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	body_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	v.add_child(body_box)
-
-	var ben_hdr := UiKit.subheader("POTENSI MANFAAT", UiKit.SUCCESS, 11)
-	ben_hdr.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	body_box.add_child(ben_hdr)
-	var ben_txt := UiKit.label(str(data.benefit), 14, Color("f0f5ff"), true)
-	ben_txt.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	body_box.add_child(ben_txt)
-
-	var risk_hdr := UiKit.subheader("RISIKO", UiKit.WARN, 11)
-	risk_hdr.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	body_box.add_child(risk_hdr)
-	var risk_txt := UiKit.label(str(data.risk), 13, UiKit.MUTED, true)
-	risk_txt.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	body_box.add_child(risk_txt)
-
-	var sep := HSeparator.new()
-	sep.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	v.add_child(sep)
-
-	# Footer row: Target chip + Coin Cost badge
-	var foot := UiKit.hbox(8)
-	foot.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var scope_lbl := UiKit.label(str(data.scope_chip), 12, UiKit.MUTED)
-	scope_lbl.clip_text = true
-	scope_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	scope_lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	foot.add_child(scope_lbl)
-
-	var cost_col := UiKit.ACCENT
-	match str(data.cost_tone):
-		"green": cost_col = UiKit.SUCCESS
-		"warn": cost_col = UiKit.WARN
-		"muted": cost_col = UiKit.MUTED
-	var cost_pill := PanelContainer.new()
-	cost_pill.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color(cost_col, 0.14), Color(cost_col, 0.40), 7, 9, 4, 1))
-	cost_pill.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var chbox := UiKit.hbox(5)
-	chbox.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	chbox.add_child(FigmaAssets.picture(6, "imgIkonCoin", Vector2(16, 16)))
-	var clbl := UiKit.title(str(data.cost_text), 14, cost_col)
-	clbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	chbox.add_child(clbl)
-	cost_pill.add_child(chbox)
-	foot.add_child(cost_pill)
-	v.add_child(foot)
-
-	var cid: String = ch.choice_id
-	btn.pressed.connect(func(): _select(cid))
-	_cards.append([cid, btn, sel_badge])
-	return btn
+	for side in ["left", "right", "top", "bottom"]:
+		margin.add_theme_constant_override("margin_" + side, 22 if side in ["left", "right"] else 12)
+	button.add_child(margin)
+	var body := UiKit.vbox(4)
+	margin.add_child(body)
+	var head := UiKit.hbox(8)
+	var title := UiKit.title("%d. %s" % [number, str(choice.label)], 21)
+	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	head.add_child(title)
+	var selected := UiKit.label("✓", 21, UiKit.ACCENT)
+	selected.modulate.a = 0.0
+	head.add_child(selected)
+	body.add_child(head)
+	var cost_row := UiKit.hbox(8)
+	cost_row.add_child(FigmaAssets.picture(6, "imgIkonCoin", Vector2(20, 20)))
+	var cost := UiKit.number(str(data.cost_text).trim_prefix("Anggaran "), 20, UiKit.ACCENT)
+	cost.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	cost.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	cost.set_meta("choice_cost_value", true)
+	cost_row.add_child(cost)
+	body.add_child(cost_row)
+	UiKit.ignore_mouse(margin)
+	margin.minimum_size_changed.connect(func():
+		var height := maxf(86.0, margin.get_combined_minimum_size().y)
+		if not is_equal_approx(button.custom_minimum_size.y, height):
+			button.custom_minimum_size.y = height)
+	var id: String = choice.choice_id
+	button.pressed.connect(func(): _select(id))
+	_cards.append([id, button, selected])
+	return button
 
 
 func _card() -> PanelContainer:
-	var p := PanelContainer.new()
-	p.theme_type_variation = "PanelCard"
-	p.add_child(UiKit.vbox(8))
-	return p
-
+	var panel := PanelContainer.new()
+	panel.theme_type_variation = "PanelCard"
+	panel.add_child(UiKit.vbox(8))
+	return panel
 
 func _select(choice_id: String) -> void:
 	_selected = choice_id
 	for entry in _cards:
-		var is_sel: bool = entry[0] == choice_id
-		entry[1].button_pressed = is_sel
-		entry[2].modulate.a = 1.0 if is_sel else 0.0
+		var selected: bool = entry[0] == choice_id
+		entry[1].button_pressed = selected
+		entry[2].modulate.a = 1.0 if selected else 0.0
+	_show_selection()
 	_update_confirm()
-
 
 func _update_confirm() -> void:
 	_confirm.disabled = _selected == ""
-	_selection_summary.text = "Pilih satu opsi sebelum menetapkan keputusan."
-	_selection_summary.add_theme_color_override("font_color", UiKit.MUTED)
+	_selection_summary.text = "Pilih opsi 1–3 untuk melihat detail sebelum menetapkan."
 	if _selected != "":
 		for choice in ContentDB.cases[case_id].choices:
 			if choice.choice_id == _selected:
-				var data := ChangeText.choice_card_data(choice)
-				_selection_summary.text = "%s · %s (klik Tetapkan atau tekan Enter)" % [choice.label, data.cost_text]
-				_selection_summary.add_theme_color_override("font_color", UiKit.TEXT)
-	_confirm.tooltip_text = "Pilih satu kebijakan dulu (tombol 1–%d)." % _cards.size() if _selected == "" else "Tetapkan keputusan (Enter)"
-
+				_selection_summary.text = "Opsi %s terpilih — tekan Enter untuk menetapkan." % _selected.to_upper()
+	_confirm.tooltip_text = "Pilih satu opsi terlebih dahulu." if _selected == "" else "Tetapkan pilihan (Enter)"
 
 func _confirm_choice() -> void:
 	if _selected != "":
 		_choose(_selected)
 
-
 func close_modal() -> void:
-	visible = false
-
+	hide()
 
 func _view_data() -> void:
-	var c: Dictionary = ContentDB.cases[case_id]
-	visible = false
-	if not c.get("focus_regions", []).is_empty():
-		region_data_requested.emit(str(c.focus_regions[0]))
+	var current: Dictionary = ContentDB.cases[case_id]
+	hide()
+	if not current.get("focus_regions", []).is_empty():
+		region_data_requested.emit(str(current.focus_regions[0]))
 
-
-## Responsive modal sizing so margins stay clear at both 1280x720 and 1920x1080.
 func _fit() -> void:
-	var vp := get_viewport_rect().size
-	var w := minf(vp.x - 80.0, 1340.0)
-	custom_minimum_size = Vector2(w, 0)
-	var cap := maxf(260.0, vp.y - 220.0)
-	_scroll.custom_minimum_size = Vector2(w - 40.0, minf(_body.get_combined_minimum_size().y, cap))
-
+	if not visible:
+		return
+	var viewport := get_viewport_rect().size
+	var width := minf(viewport.x - 48.0, 1320.0)
+	custom_minimum_size.x = width
+	var content: VBoxContainer = get_child(0)
+	var reserved: float = get_theme_stylebox("panel").get_minimum_size().y
+	var count := 0
+	for child in content.get_children():
+		if child is Control and child.visible:
+			count += 1
+			if child != _scroll:
+				reserved += child.get_combined_minimum_size().y
+	reserved += content.get_theme_constant("separation") * maxi(0, count - 1)
+	var cap := maxf(120.0, viewport.y - 48.0 - reserved)
+	var inner_width := width - get_theme_stylebox("panel").get_minimum_size().x
+	_scroll.custom_minimum_size = Vector2(inner_width, minf(_body.get_combined_minimum_size().y, cap))
 
 func _choose(choice_id: String) -> void:
-	visible = false
+	hide()
 	decided.emit(case_id, choice_id)
-
 
 func _input(event: InputEvent) -> void:
 	if not visible or not event is InputEventKey or not event.pressed:
@@ -384,20 +316,19 @@ func _input(event: InputEvent) -> void:
 	var focus := get_viewport().gui_get_focus_owner()
 	if focus != null and not is_ancestor_of(focus):
 		return
-	var k := (event as InputEventKey).keycode
-	if k >= KEY_1 and k <= KEY_9:
-		var idx := k - KEY_1
-		var chs: Array = ContentDB.cases[case_id].choices
-		if idx < chs.size():
+	var key := (event as InputEventKey).keycode
+	if key >= KEY_1 and key <= KEY_9:
+		var index := key - KEY_1
+		var choices: Array = ContentDB.cases[case_id].choices
+		if index < choices.size():
 			get_viewport().set_input_as_handled()
-			_select(chs[idx].choice_id)
-	elif k == KEY_ENTER or k == KEY_KP_ENTER:
+			_select(choices[index].choice_id)
+	elif key in [KEY_ENTER, KEY_KP_ENTER]:
 		get_viewport().set_input_as_handled()
 		_confirm_choice()
-	elif k == KEY_ESCAPE:
+	elif key == KEY_ESCAPE:
 		get_viewport().set_input_as_handled()
 		close_modal()
-
 
 ## Explicit resource cost of a choice (from its fiscal_space effects), e.g. "Biaya: −8 ruang fiskal".
 static func _cost_line(ch: Dictionary) -> String:
