@@ -15,11 +15,16 @@ uniform float rain_factor = 0.0;
 uniform float drought_factor = 0.0;
 varying vec3 world_position;
 
-vec2 wave_grad(vec2 p, vec2 dir, float freq, float phase, float warp) {
-	float angle = dot(p, dir) * freq + phase + warp;
-	float c = cos(angle);
-	float steep = 1.0 + 0.30 * sin(angle);
-	return dir * (c * freq * steep);
+float water_height(vec2 p, float t, float chop_fade, float micro_fade) {
+	// Rotated dual-domain organic FBM swells (zero periodic straight/diagonal stripes at close zoom)
+	vec2 p1 = vec2(p.x * 0.78 - p.y * 0.62, p.x * 0.62 + p.y * 0.78);
+	vec2 p2 = vec2(p.x * 0.36 + p.y * 0.93, -p.x * 0.93 + p.y * 0.36);
+	float warp_x = art_noise(p * 0.018 + vec2(t * 0.022, -t * 0.016)) * 2.4;
+	float warp_y = art_noise(p * 0.018 + vec2(-t * 0.017, t * 0.023) + vec2(11.3, 7.1)) * 2.4;
+	float w_swell = art_fbm3(p1 * 0.044 + vec2(warp_x + t * 0.062, warp_y - t * 0.036));
+	float w_chop = chop_fade > 0.01 ? art_fbm3(p2 * 0.112 + vec2(-t * 0.088 + warp_y * 0.5, t * 0.058)) * chop_fade : 0.0;
+	float w_micro = micro_fade > 0.01 ? art_noise(p * 0.29 + vec2(t * 0.15, -t * 0.12)) * micro_fade : 0.0;
+	return w_swell * 0.52 + w_chop * 0.34 + w_micro * 0.16;
 }
 
 float sample_edge_smooth(vec2 uv, bool close_view) {
@@ -27,7 +32,7 @@ float sample_edge_smooth(vec2 uv, bool close_view) {
 	if (!close_view || c > 8.0) {
 		return c;
 	}
-	vec2 texel = vec2(1.4 / 3072.0, 1.4 / 1344.0);
+	vec2 texel = vec2(1.25) / vec2(textureSize(coast_field, 0));
 	float s1 = texture(coast_field, clamp(uv + vec2(texel.x, 0.0), vec2(0.0), vec2(1.0))).g * 180.0;
 	float s2 = texture(coast_field, clamp(uv - vec2(texel.x, 0.0), vec2(0.0), vec2(1.0))).g * 180.0;
 	float s3 = texture(coast_field, clamp(uv + vec2(0.0, texel.y), vec2(0.0), vec2(1.0))).g * 180.0;
@@ -46,8 +51,8 @@ void fragment() {
 	float edge = in_bounds ? sample_edge_smooth(field_uv, cam_dist < 850.0) : 180.0;
 
 	float t = TIME * motion;
-	float chop_fade = 1.0 - smoothstep(750.0, 2600.0, cam_dist);
-	float micro_fade = 1.0 - smoothstep(280.0, 1200.0, cam_dist);
+	float chop_fade = 1.0 - smoothstep(650.0, 2400.0, cam_dist);
+	float micro_fade = 1.0 - smoothstep(260.0, 1100.0, cam_dist);
 
 	float shelf_warp = (art_fbm(world_position.xz * 0.022 + vec2(4.2, -7.1)) - 0.5) * 9.5;
 	float warped_edge = max(0.0, edge + shelf_warp * smoothstep(2.0, 18.0, edge));
@@ -66,20 +71,16 @@ void fragment() {
 	water_col *= mix(1.0, 0.34, night_factor);
 
 	float surf_calm = mix(0.45, 1.0, smoothstep(0.5, 10.0, edge));
-	float wave_amp = mix(1.0, 1.38, rain_factor);
-	float swell_warp = art_noise(world_position.xz * 0.011 + vec2(t * 0.012, -t * 0.008)) * 3.4;
-	vec2 g = vec2(0.0);
-	g += wave_grad(world_position.xz, normalize(vec2(0.86, 0.51)), 0.068, t * 0.92 * wave_amp, swell_warp) * 0.34;
-	g += wave_grad(world_position.xz, normalize(vec2(-0.48, 0.88)), 0.095, -t * 0.78 * wave_amp, swell_warp * 0.8) * 0.28;
-	if (chop_fade > 0.01) {
-		g += wave_grad(world_position.xz, normalize(vec2(0.71, -0.70)), 0.165, t * 1.35 * wave_amp, swell_warp * 0.5) * (0.26 * chop_fade);
-	}
-	if (micro_fade > 0.01) {
-		g += wave_grad(world_position.xz, normalize(vec2(-0.91, -0.41)), 0.31, -t * 1.85 * wave_amp, 0.0) * (0.17 * micro_fade);
-	}
+	float wave_amp = mix(1.0, 1.42, rain_factor);
+	float eps = mix(0.85, 1.65, clamp(cam_dist / 1600.0, 0.0, 1.0));
+	float hx_pos = water_height(world_position.xz + vec2(eps, 0.0), t, chop_fade, micro_fade);
+	float hx_neg = water_height(world_position.xz - vec2(eps, 0.0), t, chop_fade, micro_fade);
+	float hz_pos = water_height(world_position.xz + vec2(0.0, eps), t, chop_fade, micro_fade);
+	float hz_neg = water_height(world_position.xz - vec2(0.0, eps), t, chop_fade, micro_fade);
+	vec2 g = vec2(hx_pos - hx_neg, hz_pos - hz_neg) / (2.0 * eps);
 	g *= surf_calm * wave_amp;
 
-	vec3 N = normalize(vec3(-g.x * 3.2, 1.0, -g.y * 3.2));
+	vec3 N = normalize(vec3(-g.x * 2.2, 1.0, -g.y * 2.2));
 	vec3 V = normalize(CAMERA_POSITION_WORLD - world_position);
 	vec3 L = normalize(sun_dir);
 	vec3 H = normalize(L + V);
