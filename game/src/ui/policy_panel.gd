@@ -6,6 +6,8 @@ extends PanelContainer
 var _list: VBoxContainer
 var _detail: VBoxContainer
 var _status: VBoxContainer
+var _status_card: PanelContainer
+var _actions: VBoxContainer
 var _selected := ""
 var _target_type := "national"
 var region_id := ""
@@ -13,23 +15,19 @@ var context: Dictionary = {}
 
 
 func _ready() -> void:
-	add_theme_stylebox_override("panel", StitchTheme.box(StitchTheme.color("surface"), StitchTheme.color("outline"), 4, 14, 20, 18))
+	add_theme_stylebox_override("panel", GameSkin.frame())
 	var root := UiKit.vbox(12)
 	add_child(root)
 
 	root.add_child(UiKit.modal_header(
-		"KEBIJAKAN PEMERINTAH",
-		"PROGRAM & PRIORITAS WILAYAH",
+		"",
+		"PROGRAM PEMERINTAH",
 		func(): visible = false,
 		"",
 		UiKit.WARN,
 		"✕",
 		"Tutup panel kebijakan (Esc / P)"
 	))
-	var sim_note := UiKit.tag("ⓘ Mode simulasi · pilih program dan tentukan sasarannya", UiKit.INFO, 11)
-	sim_note.tooltip_text = "Besaran dampak dihitung oleh model simulasi permainan."
-	sim_note.mouse_filter = Control.MOUSE_FILTER_STOP
-	root.add_child(sim_note)
 
 	var cols := UiKit.hbox(14)
 	cols.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -38,7 +36,7 @@ func _ready() -> void:
 	# Left sidebar list inside soft card
 	var list_card := PanelContainer.new()
 	list_card.theme_type_variation = "PanelCard"
-	list_card.custom_minimum_size = Vector2(310, 0)
+	list_card.custom_minimum_size = Vector2(280, 0)
 	var ls := ScrollContainer.new()
 	ls.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	ls.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -52,17 +50,22 @@ func _ready() -> void:
 	var detail_card := PanelContainer.new()
 	detail_card.theme_type_variation = "PanelCard"
 	detail_card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var detail_body := UiKit.vbox(12)
+	detail_card.add_child(detail_body)
 	var ds := ScrollContainer.new()
 	ds.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	ds.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	detail_card.add_child(ds)
+	detail_body.add_child(ds)
 	_detail = UiKit.vbox(10)
 	_detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	ds.add_child(_detail)
+	_actions = UiKit.vbox(8)
+	detail_body.add_child(_actions)
 	cols.add_child(detail_card)
 
 	# Bottom compact active policies strip
 	var status_card := PanelContainer.new()
+	_status_card = status_card
 	status_card.theme_type_variation = "PanelCard"
 	var sv := UiKit.vbox(6)
 	status_card.add_child(sv)
@@ -80,7 +83,7 @@ func _ready() -> void:
 
 func open() -> void:
 	var vp := get_viewport_rect().size
-	custom_minimum_size = Vector2(minf(vp.x - 80.0, 1080.0), minf(vp.y - 80.0, 680.0))
+	custom_minimum_size = Vector2(minf(vp.x - 64.0, 1240.0), minf(vp.y - 64.0, 704.0))
 	refresh()
 	visible = true
 	UiKit.animate_open(self)
@@ -126,17 +129,23 @@ func _target() -> Dictionary:
 
 func _show_detail() -> void:
 	UiKit.clear(_detail)
+	UiKit.clear(_actions)
 	if _selected == "":
 		_detail.add_child(UiKit.label("Pilih kebijakan di daftar sebelah kiri.", 15, UiKit.MUTED))
 		return
 	var p: Dictionary = ContentDB.policies[_selected]
 	_detail.add_child(UiKit.subheader("DETAIL PROGRAM", UiKit.INFO, 11))
-	_detail.add_child(UiKit.title(str(p.name).to_upper(), 22, UiKit.ACCENT))
+	var program_name := UiKit.title(str(p.name), 24)
+	program_name.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_detail.add_child(program_name)
 	_detail.add_child(UiKit.label(str(p.description), 14, UiKit.TEXT, true))
 
 	# Clean KPI strip for Cost & Timeline (plain Indonesian, zero cryptic codes)
 	var c: Dictionary = p.cost
-	var kpis := UiKit.hbox(8)
+	var kpis := GridContainer.new()
+	kpis.columns = 2
+	kpis.add_theme_constant_override("h_separation", 8)
+	kpis.add_theme_constant_override("v_separation", 8)
 	var upfront_txt := "%s poin" % Fmt.num(float(c.upfront_fiscal), 1) if float(c.upfront_fiscal) > 0.0 else "Gratis"
 	for spec in [
 		["BIAYA AWAL", upfront_txt, UiKit.ACCENT],
@@ -145,7 +154,7 @@ func _show_detail() -> void:
 		["MASA BERLAKU", "%d bulan" % int(p.duration_months), UiKit.SUCCESS],
 	]:
 		var cell := PanelContainer.new()
-		cell.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("0d193b"), Color(1, 1, 1, 0.10), 8, 12, 8, 1))
+		cell.add_theme_stylebox_override("panel", StitchTheme.soft_box(UiKit.PANEL_SOFT, Color(1, 1, 1, 0.10), 8, 12, 8, 1))
 		cell.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		var cv := UiKit.vbox(3)
 		cv.add_child(UiKit.subheader(spec[0], UiKit.MUTED, 10))
@@ -154,12 +163,10 @@ func _show_detail() -> void:
 		kpis.add_child(cell)
 	_detail.add_child(kpis)
 
-	if p.has("target_filter"):
-		_detail.add_child(UiKit.label("Syarat daerah: " + str(p.target_filter), 12, UiKit.MUTED, true))
 	if not p.get("mutually_exclusive", []).is_empty():
 		_detail.add_child(UiKit.label("Tidak dapat dijalankan bersama: " + ", ".join(p.mutually_exclusive.map(func(x): return ContentDB.policies.get(x, {}).get("name", x))), 12, UiKit.WARN, true))
 
-	var eff_sec := UiKit.section_bar("MANFAAT & DAMPAK", "Simulasi ±%s%%" % Fmt.num(float(p.uncertainty.magnitude) * 100.0, 0), UiKit.ACCENT)
+	var eff_sec := UiKit.section_bar("DAMPAK", "±%s%%" % Fmt.num(float(p.uncertainty.magnitude) * 100.0, 0), UiKit.ACCENT)
 	eff_sec.tooltip_text = "Variasi hasil acak di lapangan berkisar ±%s%%." % Fmt.num(float(p.uncertainty.magnitude) * 100.0, 0)
 	_detail.add_child(eff_sec)
 	var dim_names := {
@@ -198,19 +205,27 @@ func _show_detail() -> void:
 	opt.item_selected.connect(func(ix): _target_type = types[ix]; _show_detail())
 	trow.add_child(opt)
 	var n := Game.session.policies.resolve_target(Game.world, p, _target()).size()
-	trow.add_child(UiKit.tag("%d wilayah memenuhi syarat" % n, UiKit.INFO if n > 0 else UiKit.WARN, 11))
-	trow.add_child(UiKit.spacer())
+	opt.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_actions.add_child(HSeparator.new())
+	_actions.add_child(trow)
+	var target := _target()
+	var target_name := "Indonesia"
+	match str(target.get("type", "national")):
+		"province": target_name = str(ContentDB.province_by_id.get(str(target.get("id", "")), {}).get("name", "Provinsi terpilih"))
+		"kabkota": target_name = str(ContentDB.region_by_id.get(str(target.get("id", "")), {}).get("name", "Kab/kota terpilih"))
+		"island_group": target_name = str(RegionViewModel.ISLANDS.get(str(target.get("id", "")), "Kawasan terpilih"))
+	_actions.add_child(UiKit.label("%s · %d wilayah memenuhi syarat" % [target_name, n], 14, UiKit.INFO if n > 0 else UiKit.WARN, true))
 	var reason := Game.session.policies.can_enact(Game.world, _selected, _target())
 	var go := UiKit.button("TETAPKAN KEBIJAKAN", _confirm, true)
 	go.custom_minimum_size = Vector2(220, 44)
 	go.disabled = reason != ""
-	trow.add_child(go)
-	_detail.add_child(trow)
+	go.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
 	if region_id == "" and context.is_empty():
-		_detail.add_child(UiKit.label("Tip: Klik suatu wilayah di peta untuk menargetkan tingkat provinsi, kab/kota, atau kelompok pulau.", 12, UiKit.MUTED, true))
+		_actions.add_child(UiKit.label("Pilih wilayah di peta untuk sasaran provinsi, kab/kota, atau kawasan.", 14, UiKit.MUTED, true))
 	if reason != "":
-		_detail.add_child(UiKit.tag(reason, UiKit.WARN, 12))
+		_actions.add_child(UiKit.label(reason, 14, UiKit.WARN, true))
+	_actions.add_child(go)
 
 
 func _confirm() -> void:
@@ -223,6 +238,7 @@ func _confirm() -> void:
 func _show_status() -> void:
 	UiKit.clear(_status)
 	var w: SimWorld = Game.world
+	_status_card.visible = not w.policy_state.is_empty()
 	if w.policy_state.is_empty():
 		_status.add_child(UiKit.label("Belum ada kebijakan yang ditetapkan.", 13, UiKit.MUTED))
 		return
