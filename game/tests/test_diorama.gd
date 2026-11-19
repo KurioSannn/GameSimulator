@@ -104,10 +104,28 @@ func test_distance_field_contract_and_clouds_are_separate_from_simulation() -> v
 func test_neighbor_backdrop_and_camera_safe_zone() -> void:
 	var npath := "res://data/map/art/neighbor_land.json"
 	t.check(FileAccess.file_exists(npath), "non-canonical neighboring landmasses backdrop packaged")
+	t.check(FileAccess.file_exists("res://data/map/art/neighbor_field.png"), "neighbor terrain field packaged")
 	var ndata: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(npath))
 	t.check(str(ndata.get("schema", "")) == "nusantara.neighbor_land/1", "neighbor backdrop schema verified")
 	t.check(ndata.get("rings", []).size() > 100 and ndata.get("countries", []).has("Malaysia") and ndata.get("countries", []).has("Papua New Guinea"),
 		"surrounding countries surround Indonesia without polluting 514 simulation regions")
+	t.check(ndata.get("props", []).size() >= 1500, "neighboring territories populated with textured relief and flora")
+
+	var cfg := _config()
+	var per_region_props := {}
+	for prop in cfg.props:
+		var ridx := int(prop.region)
+		per_region_props[ridx] = int(per_region_props.get(ridx, 0)) + 1
+	var barren := 0
+	for ridx in 514:
+		if int(per_region_props.get(ridx, 0)) < 2:
+			barren += 1
+	t.check(barren == 0, "all 514 canonical Indonesian regions have interior settlement/flora props (%d barren)" % barren)
+	var moving_vessels := 0
+	for v in cfg.get("vessels", []):
+		if float(v.get("cruise_a", 0.0)) > 0.0 and absf(float(v.get("speed", 0.0))) > 0.0:
+			moving_vessels += 1
+	t.check(moving_vessels >= 80, "maritime vessels carry sea-lane cruise vectors (%d moving)" % moving_vessels)
 
 	var cam := MapCamera3D.new()
 	var rect := Rect2(-2300.6, -607.7, 4600.4, 1708.4)
@@ -127,3 +145,21 @@ func test_neighbor_backdrop_and_camera_safe_zone() -> void:
 	t.check(cam.target.x >= rect.position.x - 30.0 and cam.target.x <= rect.end.x + 30.0 and cam.target.z >= rect.position.y - 30.0 and cam.target.z <= rect.end.y + 30.0,
 		"3D pan safe zone locks camera target inside Indonesian archipelago")
 	cam.free()
+
+
+func test_real_indonesia_road_network_offline_integrity() -> void:
+	var meta_path := "res://data/map/art/indonesia_roads.json"
+	var bin_path := "res://data/map/art/indonesia_roads.bin"
+	t.check(FileAccess.file_exists(meta_path) and FileAccess.file_exists(bin_path), "official Indonesia road network assets are packaged offline")
+	var meta: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(meta_path))
+	t.check(str(meta.get("schema", "")) == "nusantara.roads/1", "road asset schema matches nusantara.roads/1")
+	t.check(str(meta.bin.sha256) == FileAccess.get_sha256(bin_path), "road binary SHA-256 matches metadata")
+	t.check(int(meta.stats.national_polylines) >= 3000 and float(meta.stats.national_km_approx) > 40000.0,
+		"official Bina Marga Jalan Nasional covers >40,000 km across Indonesia")
+	t.check(int(meta.stats.toll_polylines) >= 140 and float(meta.stats.toll_km_approx) > 3000.0,
+		"official BPJT operational Jalan Tol network is packaged")
+	var roads := DioramaRoads.new()
+	t.check(roads.build(), "DioramaRoads builds 3D highway ribbon meshes cleanly")
+	t.check(roads.national_line_count == int(meta.stats.national_polylines) and roads.toll_line_count == int(meta.stats.toll_polylines),
+		"DioramaRoads line counts match packaged binary metadata")
+	roads.free()
