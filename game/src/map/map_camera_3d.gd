@@ -12,7 +12,7 @@ signal view_changed
 const ZOOM_STEP := 1.15
 const KEY_PAN_SPEED := 950.0
 const MIN_DIST := 140.0
-const HARD_MAX_DIST := 3200.0
+const HARD_MAX_DIST := 2500.0
 
 var target := Vector3.ZERO
 var distance := 2600.0
@@ -46,8 +46,8 @@ func fit(rect: Rect2, viewport_size: Vector2) -> void:
 	var max_dim := maxf(rect.size.x, rect.size.y)
 	var fov_rad := deg_to_rad(fov)
 	var aspect := viewport_size.x / maxf(viewport_size.y, 1.0)
-	var fit_dist := clampf((max_dim * 0.72) / (tan(fov_rad * 0.5) * aspect), MIN_DIST, HARD_MAX_DIST)
-	max_distance = clampf(fit_dist * 1.12, 2200.0, HARD_MAX_DIST)
+	var fit_dist := clampf((max_dim * 0.66) / (tan(fov_rad * 0.5) * aspect), MIN_DIST, HARD_MAX_DIST)
+	max_distance = clampf(fit_dist * 1.04, 1950.0, HARD_MAX_DIST)
 	distance = clampf(fit_dist, min_distance, max_distance)
 	pitch = 52.0
 	yaw = -6.0
@@ -202,20 +202,26 @@ func _zoom_step(factor: float, screen_pos: Vector2) -> void:
 	view_changed.emit()
 
 
-## Adaptive safe-zone pan clamping: keeps camera anchored inside Indonesian archipelago islands
-## at close zoom, and progressively centers toward Nusantara overview when zoomed out so oceans stay out of empty bounds.
+## Adaptive safe-zone pan & tilt clamping: keeps camera anchored inside Indonesian archipelago islands
+## at close zoom, and progressively centers & raises pitch when zoomed out so northern/outer horizons never leak.
 func _clamp_target() -> void:
 	if map_bounds.size == Vector2.ZERO:
 		return
 	var span := maxf(max_distance - min_distance, 1.0)
 	var zoom_ratio := clampf((distance - min_distance) / span, 0.0, 1.0)
-	var safe_t := pow(zoom_ratio, 1.25)
-	var inset_x := lerpf(-25.0, map_bounds.size.x * 0.36, safe_t)
-	var inset_z := lerpf(-25.0, map_bounds.size.y * 0.32, safe_t)
+	# Prevent shallow horizontal gazing over the northern map rim when zoomed far out
+	var eff_min_pitch := lerpf(min_pitch, 50.0, pow(zoom_ratio, 1.15))
+	pitch = clampf(pitch, eff_min_pitch, max_pitch)
+
+	var safe_t := pow(zoom_ratio, 1.10)
+	var inset_x := lerpf(-15.0, map_bounds.size.x * 0.38, safe_t)
+	# Asymmetric north/south inset compensates for camera's oblique northward viewing frustum
+	var inset_north := lerpf(0.0, map_bounds.size.y * 0.48, pow(zoom_ratio, 0.85))
+	var inset_south := lerpf(-10.0, map_bounds.size.y * 0.36, safe_t)
 	var min_x := map_bounds.position.x + inset_x
 	var max_x := map_bounds.end.x - inset_x
-	var min_z := map_bounds.position.y + inset_z
-	var max_z := map_bounds.end.y - inset_z
+	var min_z := map_bounds.position.y + inset_north
+	var max_z := map_bounds.end.y - inset_south
 	var cx := map_bounds.get_center().x
 	var cz := map_bounds.get_center().y
 	if min_x > max_x:

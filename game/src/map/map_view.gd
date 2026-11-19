@@ -31,6 +31,8 @@ const UNITS_PER_DEG := 100.0
 const DISPUTED_COLOR := Color(0.78, 0.78, 0.76)
 const BORDER_COLOR := Color(0.16, 0.2, 0.26, 0.55)
 const PROVINCE_BORDER_COLOR := Color(0.08, 0.1, 0.14, 0.9)
+const ROAD_NATIONAL_COLOR := Color(0.90, 0.78, 0.48, 0.62)
+const ROAD_TOLL_COLOR := Color(1.0, 0.58, 0.14, 0.90)
 const SELECT_COLOR := Color(1.0, 0.84, 0.2)
 const HOVER_COLOR := Color(1, 1, 1, 0.9)
 
@@ -45,6 +47,8 @@ var _lods: Dictionary = {}              # lod name -> MapLod
 var _fill: Dictionary = {}              # lod name -> ArrayMesh (triangles, UV = region index)
 var _borders: Dictionary = {}           # lod name -> ArrayMesh (kab/kota outlines, lines)
 var _province: Dictionary = {}          # lod name -> ArrayMesh (province outlines, lines)
+var _road_national: ArrayMesh
+var _road_toll: ArrayMesh
 var _colors := Image.create(1, 1, false, Image.FORMAT_RGBA8)
 var _colors_tex: ImageTexture
 var _lines_node := _MapLines.new()
@@ -113,6 +117,7 @@ func load_map(base_dir: String = BASE_DIR) -> String:
 		_highlight_node.view = self
 		add_child(_lines_node)
 		add_child(_highlight_node)
+	_load_road_overlay()
 	_set_active("lod1", "awal (seluruh Indonesia)")
 	load_ms = (Time.get_ticks_usec() - t0) / 1000.0
 	return ""
@@ -280,6 +285,43 @@ static func _mesh(prim: int, verts: PackedVector2Array, idx: PackedInt32Array, u
 	return m
 
 
+func _load_road_overlay() -> void:
+	if _road_national != null:
+		return
+	var meta_path := "res://data/map/art/indonesia_roads.json"
+	var bin_path := "res://data/map/art/indonesia_roads.bin"
+	if not FileAccess.file_exists(meta_path) or not FileAccess.file_exists(bin_path):
+		return
+	var meta: Variant = JSON.parse_string(FileAccess.get_file_as_string(meta_path))
+	if not (meta is Dictionary):
+		return
+	var raw := FileAccess.get_file_as_bytes(bin_path)
+	if raw.is_empty():
+		return
+	var sections: Dictionary = meta.get("bin", {}).get("sections", {})
+	_road_national = _build_road_lines_2d(raw, sections["national_positions"], sections["national_ranges"])
+	_road_toll = _build_road_lines_2d(raw, sections["toll_positions"], sections["toll_ranges"])
+
+
+static func _build_road_lines_2d(raw: PackedByteArray, pos_sec: Dictionary, rng_sec: Dictionary) -> ArrayMesh:
+	var pos := raw.slice(int(pos_sec.offset), int(pos_sec.offset) + int(pos_sec.bytes)).to_float32_array()
+	var rng := raw.slice(int(rng_sec.offset), int(rng_sec.offset) + int(rng_sec.bytes)).to_int32_array()
+	var pt_count := pos.size() / 2
+	var verts := PackedVector2Array()
+	verts.resize(pt_count)
+	for i in pt_count:
+		verts[i] = Vector2(pos[i * 2], pos[i * 2 + 1])
+	var idx := PackedInt32Array()
+	var line_count := rng.size() / 2
+	for li in line_count:
+		var start_i := rng[li * 2]
+		var cnt := rng[li * 2 + 1]
+		for k in cnt - 1:
+			idx.append(start_i + k)
+			idx.append(start_i + k + 1)
+	return _mesh(Mesh.PRIMITIVE_LINES, verts, idx)
+
+
 ## Borders (no fill shader; children do not inherit the parent's material).
 class _MapLines extends Node2D:
 	var view: MapView
@@ -290,6 +332,10 @@ class _MapLines extends Node2D:
 			return
 		draw_mesh(meshes[0], null, Transform2D(), BORDER_COLOR)
 		draw_mesh(meshes[1], null, Transform2D(), PROVINCE_BORDER_COLOR)
+		if view._road_national != null:
+			draw_mesh(view._road_national, null, Transform2D(), ROAD_NATIONAL_COLOR)
+		if view._road_toll != null:
+			draw_mesh(view._road_toll, null, Transform2D(), ROAD_TOLL_COLOR)
 
 
 ## Hover and selection outlines: every ring (all islands and holes) of the region in the active LOD.
