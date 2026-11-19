@@ -1,0 +1,1282 @@
+{
+  "case_count": 27,
+  "checks": [
+    {
+      "label": "live-map menu retains new-mandate action",
+      "ok": true
+    },
+    {
+      "label": "native map-tools button opens the tool card",
+      "ok": true
+    },
+    {
+      "label": "optional time/weather controls remain reachable",
+      "ok": true
+    },
+    {
+      "label": "UI previews reach the existing map time/weather integration",
+      "ok": true
+    },
+    {
+      "label": "region identity reset [\"kabkota\", \"35.78\"]",
+      "ok": true
+    },
+    {
+      "label": "new region context resets the visible tab [\"kabkota\", \"35.78\"]",
+      "ok": true
+    },
+    {
+      "label": "activity tab receives mouse input [\"kabkota\", \"35.78\"]",
+      "ok": true
+    },
+    {
+      "label": "data tab receives mouse input [\"kabkota\", \"35.78\"]",
+      "ok": true
+    },
+    {
+      "label": "region identity reset [\"province\", \"35\"]",
+      "ok": true
+    },
+    {
+      "label": "new region context resets the visible tab [\"province\", \"35\"]",
+      "ok": true
+    },
+    {
+      "label": "activity tab receives mouse input [\"province\", \"35\"]",
+      "ok": true
+    },
+    {
+      "label": "data tab receives mouse input [\"province\", \"35\"]",
+      "ok": true
+    },
+    {
+      "label": "region identity reset [\"island_group\", \"sulawesi\"]",
+      "ok": true
+    },
+    {
+      "label": "new region context resets the visible tab [\"island_group\", \"sulawesi\"]",
+      "ok": true
+    },
+    {
+      "label": "activity tab receives mouse input [\"island_group\", \"sulawesi\"]",
+      "ok": true
+    },
+    {
+      "label": "data tab receives mouse input [\"island_group\", \"sulawesi\"]",
+      "ok": true
+    },
+    {
+      "label": "region identity reset [\"national\", \"ID\"]",
+      "ok": true
+    },
+    {
+      "label": "new region context resets the visible tab [\"national\", \"ID\"]",
+      "ok": true
+    },
+    {
+      "label": "activity tab receives mouse input [\"national\", \"ID\"]",
+      "ok": true
+    },
+    {
+      "label": "data tab receives mouse input [\"national\", \"ID\"]",
+      "ok": true
+    },
+    {
+      "label": "region identity reset [\"province\", \"91\"]",
+      "ok": true
+    },
+    {
+      "label": "new region context resets the visible tab [\"province\", \"91\"]",
+      "ok": true
+    },
+    {
+      "label": "activity tab receives mouse input [\"province\", \"91\"]",
+      "ok": true
+    },
+    {
+      "label": "data tab receives mouse input [\"province\", \"91\"]",
+      "ok": true
+    },
+    {
+      "label": "region identity reset [\"kabkota\", \"11.01\"]",
+      "ok": true
+    },
+    {
+      "label": "new region context resets the visible tab [\"kabkota\", \"11.01\"]",
+      "ok": true
+    },
+    {
+      "label": "activity tab receives mouse input [\"kabkota\", \"11.01\"]",
+      "ok": true
+    },
+    {
+      "label": "data tab receives mouse input [\"kabkota\", \"11.01\"]",
+      "ok": true
+    },
+    {
+      "label": "case hides underlying HUD and drawers",
+      "ok": true
+    },
+    {
+      "label": "full report replaces the preview without repeating it",
+      "ok": true
+    },
+    {
+      "label": "closing case restores the map UI",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-A modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-A choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-A selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-A selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-A selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-B modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-B choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-B selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-B selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-C modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-C choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-C selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-C selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-C selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-R modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-R choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-R selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-R selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-R selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001 modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001 choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001 selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001 selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001 selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-B modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-B choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-B selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-B selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-B selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-C modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-C choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-C selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-C selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-C selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002 modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002 choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002 selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002 selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002 selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-A modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-A choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-A selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-A selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-A selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-B modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-B choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-B selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-B selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-B selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-C modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-C choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-C selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-C selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-C selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003 modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003 choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003 selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003 selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003 selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-A modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-A choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-A selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-A selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-A selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-C modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-C choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-C selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-C selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-C selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-R modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-R choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-R selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-R selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-R selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004 modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004 choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004 selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004 selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004 selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-A modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-A choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-A selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-A selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-A selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-C modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-C choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-C selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-C selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-C selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005 modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005 choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005 selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005 selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005 selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006-R modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006-R choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006-R selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006-R selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006-R selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006 modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006 choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006 selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006 selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006 selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-A modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-A choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-A selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-A selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-A selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-B modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-B choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-B selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-B selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-B selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007 modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007 choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007 selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007 selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007 selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-A modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-A choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-A selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-A selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-A selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-B modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-B choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-B selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-B selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-B selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008 modal/confirmation fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008 choice labels stay inside their card at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008 selected a fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008 selected b fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008 selected c fits at 100%",
+      "ok": true
+    },
+    {
+      "label": "POL-INFRA-JALAN program and enact action fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "POL-KEBENCANAAN-API-ADAT program and enact action fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "POL-KEBENCANAAN-DRAINASE program and enact action fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "POL-KEBENCANAAN-RESTORASI-GAMBUT program and enact action fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "POL-LAYANAN-DAERAH program and enact action fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "POL-LAYANAN-PUSAT program and enact action fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "POL-PANGAN-IRIGASI program and enact action fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "POL-SOSIAL-BLT program and enact action fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "budget and pinned apply action fit at 100%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-A modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-A choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-A selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-A selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-A selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-B modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-B choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-B selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-B selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-C modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-C choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-C selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-C selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-C selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-R modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-R choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-R selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-R selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001-R selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001 modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001 choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001 selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001 selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0001 selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-B modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-B choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-B selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-B selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-B selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-C modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-C choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-C selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-C selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002-C selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002 modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002 choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002 selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002 selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0002 selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-A modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-A choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-A selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-A selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-A selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-B modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-B choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-B selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-B selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-B selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-C modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-C choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-C selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-C selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003-C selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003 modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003 choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003 selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003 selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0003 selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-A modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-A choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-A selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-A selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-A selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-C modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-C choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-C selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-C selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-C selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-R modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-R choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-R selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-R selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004-R selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004 modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004 choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004 selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004 selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0004 selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-A modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-A choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-A selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-A selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-A selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-C modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-C choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-C selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-C selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005-C selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005 modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005 choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005 selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005 selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0005 selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006-R modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006-R choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006-R selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006-R selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006-R selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006 modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006 choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006 selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006 selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0006 selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-A modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-A choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-A selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-A selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-A selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-B modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-B choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-B selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-B selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007-B selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007 modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007 choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007 selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007 selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0007 selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-A modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-A choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-A selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-A selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-A selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-B modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-B choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-B selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-B selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008-B selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008 modal/confirmation fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008 choice labels stay inside their card at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008 selected a fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008 selected b fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "CASE-0008 selected c fits at 110%",
+      "ok": true
+    },
+    {
+      "label": "POL-INFRA-JALAN program and enact action fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "POL-KEBENCANAAN-API-ADAT program and enact action fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "POL-KEBENCANAAN-DRAINASE program and enact action fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "POL-KEBENCANAAN-RESTORASI-GAMBUT program and enact action fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "POL-LAYANAN-DAERAH program and enact action fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "POL-LAYANAN-PUSAT program and enact action fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "POL-PANGAN-IRIGASI program and enact action fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "POL-SOSIAL-BLT program and enact action fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "budget and pinned apply action fit at 110%",
+      "ok": true
+    },
+    {
+      "label": "all UI reads and display previews preserve exact world/RNG serialization",
+      "ok": true
+    }
+  ],
+  "passed": true,
+  "policy_count": 8,
+  "runtime_errors": [],
+  "world_after": "c91dc1edffe9454c5efa017eb44a61997eadde513776c4f2ec692bee788ad5ab",
+  "world_before": "c91dc1edffe9454c5efa017eb44a61997eadde513776c4f2ec692bee788ad5ab"
+}
