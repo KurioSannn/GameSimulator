@@ -14,20 +14,30 @@ var _model: Dictionary = {}
 var region_id := ""
 var context_kind := "kabkota"
 var context_id := ""
+var _tab := "kondisi"
+var _tab_buttons: Dictionary = {}
+var _details_open := false
+var _heading: Label
+var _source_button: Button
+var _root: VBoxContainer
 
 
 func _ready() -> void:
-	custom_minimum_size = Vector2(476, 0)
+	custom_minimum_size = Vector2(430, 0)
 	clip_contents = true
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("0d1b3f", 0.96), Color(1, 1, 1, 0.16), 12, 16, 14, 1))
+	add_theme_stylebox_override("panel", GameSkin.frame())
 	var root := UiKit.vbox(10)
+	_root = root
 	add_child(root)
 
 	var header := PanelContainer.new()
 	header.theme_type_variation = "PanelHeader"
 	var row := UiKit.hbox(8)
-	var title := UiKit.title("DETAIL WILAYAH", 20)
+	var title := UiKit.title("Wilayah", 28, Color("fff4d2"))
+	_heading = title
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(title)
 	var close := UiKit.ghost_button("×", func(): show_region(""), "Tutup panel wilayah (Esc)")
@@ -35,24 +45,36 @@ func _ready() -> void:
 	row.add_child(close)
 	header.add_child(row)
 	root.add_child(header)
+	var tabs := UiKit.hbox(6)
+	for item in [["Kondisi", "kondisi"], ["Aktivitas", "aktivitas"], ["Data", "data"]]:
+		var id: String = item[1]
+		var tab := UiKit.ghost_button(item[0], func(): _tab = id; _scroll.scroll_vertical = 0; refresh())
+		tab.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		tabs.add_child(tab)
+		_tab_buttons[id] = tab
+	root.add_child(tabs)
 
 	_scroll = ScrollContainer.new()
 	_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	root.add_child(_scroll)
 	_body = UiKit.vbox(10)
+	_body.minimum_size_changed.connect(func(): if visible: _fit_body.call_deferred())
 	_body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_scroll.add_child(_body)
 
 	root.add_child(HSeparator.new())
 	var foot := UiKit.hbox(10)
-	var data := UiKit.ghost_button("DATA DAN SUMBER", func(): sources_requested.emit(_model), "Lihat data resmi & sumber")
+	var data := UiKit.ghost_button("Sumber", func(): sources_requested.emit(_model), "Lihat data resmi & sumber")
+	_source_button = data
 	data.custom_minimum_size.y = 42
 	data.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	foot.add_child(data)
-	var policy := UiKit.button("ATUR KEBIJAKAN", func(): policy_requested.emit(context_kind, context_id), true)
+	var policy := UiKit.button("Kebijakan", func(): policy_requested.emit(context_kind, context_id))
 	policy.custom_minimum_size.y = 42
 	policy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	data.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	policy.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	foot.add_child(policy)
 	root.add_child(foot)
 	hide()
@@ -73,6 +95,9 @@ func show_region(id: String) -> void:
 
 
 func show_context(kind: String, id: String) -> void:
+	if kind != context_kind or id != context_id:
+		_tab = "kondisi"
+		_details_open = false
 	context_kind = kind
 	context_id = id
 	region_id = id if kind == "kabkota" else ""
@@ -88,119 +113,123 @@ func refresh() -> void:
 	if context_id == "" or not is_inside_tree():
 		return
 	UiKit.clear(_body)
-	var w: SimWorld = Game.world
-	_model = RegionViewModel.build(w, context_kind, context_id, ContentDB.regions, ContentDB.provinces,
+	var world: SimWorld = Game.world
+	_model = RegionViewModel.build(world, context_kind, context_id, ContentDB.regions, ContentDB.provinces,
 		ContentDB.baseline, ContentDB.cases, ContentDB.policies)
-
-	var title := UiKit.title(str(_model.name), 28, UiKit.ACCENT)
-	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_body.add_child(title)
-	_body.add_child(UiKit.label(str(_model.resolution), 13, UiKit.MUTED, true))
-
+	for id in _tab_buttons:
+		_tab_buttons[id].theme_type_variation = "ButtonAccent" if id == _tab else "ButtonGhost"
+	_heading.text = str(_model.name)
+	_source_button.visible = _tab == "data"
 	if not _model.valid:
-		_body.add_child(UiKit.label("Data wilayah tidak ditemukan. Pilih kembali dari peta.", 15, UiKit.WARN, true))
+		_body.add_child(UiKit.label("Data wilayah tidak ditemukan. Pilih kembali dari peta.", 16, UiKit.WARN, true))
 		return
-
-	var record: Dictionary = _model.record
-	if context_kind == "kabkota":
+	if context_kind == "kabkota" and _tab == "data":
+		var record: Dictionary = _model.record
 		var parent: Dictionary = ContentDB.province_by_id.get(str(record.get("parent_region_id", "")), {})
 		var parent_id := str(parent.get("region_id", ""))
-		var pbtn := UiKit.ghost_button("Lihat Provinsi " + str(parent.get("name", "")),
+		var parent_button := UiKit.ghost_button("↗ " + str(parent.get("name", "")),
 			func(): province_view_requested.emit(parent_id); show_context("province", parent_id),
-			"Pusatkan peta ke seluruh provinsi induk")
-		pbtn.custom_minimum_size.y = 34
-		pbtn.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-		_body.add_child(pbtn)
+			"Lihat provinsi induk")
+		parent_button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+		_body.add_child(parent_button)
+	match _tab:
+		"aktivitas":
+			_show_activity()
+		"data":
+			_show_official_data()
+		_:
+			_show_conditions(world)
+	_fit_body.call_deferred()
 
-	if context_kind in ["kabkota", "province"]:
-		_body.add_child(UiKit.label("Kode Kemendagri %s · Kode BPS %s" % [context_id, record.get("kode_bps", "Belum tercatat")], 12, UiKit.MUTED, true))
 
-	var weighting := "Wilayah tunggal" if context_kind == "kabkota" else ("Bobot penduduk" if _model.weighting == "population" else "Setara 514 wilayah")
-	var cond_sec := UiKit.section_bar("KONDISI WILAYAH", weighting, UiKit.ACCENT)
-	cond_sec.tooltip_text = "Nilai permainan (bukan statistik resmi). Harga 100 = awal mandat; ± = perubahan kuartal terakhir. " + ChangeText.weighting_label(_model.weighting)
-	cond_sec.mouse_filter = Control.MOUSE_FILTER_STOP
-	_body.add_child(cond_sec)
+func _fit_body() -> void:
+	if not visible:
+		return
+	var reserved := get_theme_stylebox("panel").get_minimum_size().y
+	var count := 0
+	for child in _root.get_children():
+		if child is Control and child.visible:
+			count += 1
+			if child != _scroll:
+				reserved += child.get_combined_minimum_size().y
+	reserved += _root.get_theme_constant("separation") * maxi(0, count - 1)
+	_scroll.custom_minimum_size.y = minf(_body.get_combined_minimum_size().y, maxf(100, get_viewport_rect().size.y - 224 - reserved))
+	reset_size()
 
-	var grid := GridContainer.new()
-	grid.columns = 3
-	grid.add_theme_constant_override("h_separation", 8)
-	grid.add_theme_constant_override("v_separation", 8)
+
+func _show_conditions(world: SimWorld) -> void:
+	var group := PanelContainer.new()
+	group.theme_type_variation = "PanelCard"
+	var rows := UiKit.vbox(7)
+	group.add_child(rows)
 	for metric in _model.metrics:
-		grid.add_child(_metric_card(metric))
-	_body.add_child(grid)
+		if str(metric.key) in ["welfare", "trust"]:
+			rows.add_child(_metric_card(metric))
+	_body.add_child(group)
 
-	_add_summary("PERISTIWA AKTIF", int(_model.cases.size()), "Belum ada kasus aktif di wilayah ini.",
-		_model.cases.map(func(c): return str(c.title)))
-	if not _model.cases.is_empty():
-		var cid: String = _model.cases[0].id
-		var open_btn := UiKit.button("BUKA KEPUTUSAN", func(): case_requested.emit(cid), true)
-		open_btn.custom_minimum_size.y = 40
-		_body.add_child(open_btn)
 
-	var fact_lines: Array = []
-	for fact in _model.facts:
-		if str(fact.id) in ["pop_total", "ipm"]:
-			fact_lines.append("%s: %s (%s)" % [fact.label, Fmt.unit_value(float(fact.value), str(fact.unit)), fact.period])
-	_add_summary("DATA RESMI WILAYAH", int(_model.facts.size()), "Data resmi tingkat ini belum tersedia.", fact_lines)
+func _show_explanations(world: SimWorld) -> void:
+	if context_kind != "kabkota":
+		return
+	var toggle := UiKit.ghost_button("Sembunyikan rincian  ▴" if _details_open else "Rincian & penyebab  ▾",
+		func(): _details_open = not _details_open; refresh())
+	_body.add_child(toggle)
+	if _details_open:
+		var index: int = world.region_index[context_id]
+		var sentiment := Game.sim.sentiment_state(world.get_v("sentiment", index))
+		_body.add_child(UiKit.title("Sentimen warga: " + str(sentiment.label), 18))
+		_body.add_child(UiKit.label(explain_sentiment(Game.sim.sentiment_components(world, index)), 16, UiKit.TEXT, true))
+		_add_changes(world, index)
+		_add_scheduled(world, index)
+		_add_national_drivers(world)
+		_add_full_state(world, index)
 
-	var policy_lines: Array = []
+
+func _show_activity() -> void:
+	if _model.cases.is_empty() and _model.policies.is_empty():
+		_body.add_child(UiKit.label("Belum ada peristiwa atau kebijakan aktif di wilayah ini.", 16, UiKit.MUTED, true))
+	for current in _model.cases:
+		var id: String = current.id
+		var open := UiKit.button(str(current.title), func(): case_requested.emit(id))
+		open.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		_body.add_child(open)
+	if not _model.policies.is_empty():
+		_body.add_child(UiKit.title("Kebijakan berjalan", 18))
 	for policy in _model.policies:
-		policy_lines.append("%s (%s)" % [policy.name, "Sedang dibangun" if policy.status == "implementing" else "Aktif"])
-	_add_summary("KEBIJAKAN BERJALAN", int(_model.policies.size()),
-		"Belum ada kebijakan khusus untuk wilayah ini.", policy_lines)
+		_body.add_child(UiKit.label("%s · %s" % [policy.name, "Sedang dibangun" if policy.status == "implementing" else "Aktif"], 16, UiKit.TEXT, true))
 
-	if "UNCALIBRATED" in _model.baseline_flags:
-		var u_tag := UiKit.tag("ⓘ Mode simulasi: sebagian data awal netral · cek Sumber", UiKit.INFO, 11)
-		u_tag.tooltip_text = "Buka Data dan Sumber di bawah untuk melihat rincian data awal & referensi resmi."
-		u_tag.mouse_filter = Control.MOUSE_FILTER_STOP
-		_body.add_child(u_tag)
 
-	if context_kind == "kabkota":
-		var detail := UiKit.vbox(8)
-		detail.hide()
-		var toggle_btn := UiKit.ghost_button("LIHAT RINCIAN & PENYEBAB ▾", func(): detail.visible = not detail.visible)
-		toggle_btn.custom_minimum_size.y = 38
-		_body.add_child(toggle_btn)
-		_body.add_child(detail)
-		var summary_body := _body
-		_body = detail
-		var i: int = w.region_index[context_id]
-		var sentiment := Game.sim.sentiment_state(w.get_v("sentiment", i))
-		_body.add_child(UiKit.title("Sentimen Warga: " + str(sentiment.label), 17, UiKit.ACCENT))
-		_body.add_child(UiKit.label(explain_sentiment(Game.sim.sentiment_components(w, i)), 14, UiKit.TEXT, true))
-		_add_changes(w, i)
-		_add_scheduled(w, i)
-		_add_national_drivers(w)
-		_add_full_state(w, i)
-		_body = summary_body
+func _show_official_data() -> void:
+	_body.add_child(UiKit.title("Indikator lengkap", 24))
+	for metric in _model.metrics:
+		_body.add_child(_metric_card(metric))
+	var record: Dictionary = _model.record
+	if context_kind in ["kabkota", "province"]:
+		_body.add_child(UiKit.label("Kemendagri %s · BPS %s" % [context_id, record.get("kode_bps", "Belum tercatat")], 14, UiKit.MUTED, true))
+	_body.add_child(UiKit.title("Data resmi wilayah", 18, UiKit.REAL))
+	if _model.facts.is_empty():
+		_body.add_child(UiKit.label("Data resmi pada resolusi ini belum tersedia.", 16, UiKit.MUTED, true))
+	for fact in _model.facts:
+		_body.add_child(UiKit.label("%s: %s (%s)" % [fact.label, Fmt.unit_value(float(fact.value), str(fact.unit)), fact.period], 16, UiKit.TEXT, true))
+	_body.add_child(UiKit.label("Buka Data dan Sumber untuk institusi, periode, resolusi, dan asal setiap nilai.", 14, UiKit.MUTED, true))
+	_show_explanations(Game.world)
 
 
 func _metric_card(metric: Dictionary) -> Control:
-	var panel := PanelContainer.new()
-	panel.theme_type_variation = "PanelCard"
-	panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var body := UiKit.vbox(3)
-	panel.add_child(body)
-	body.add_child(UiKit.subheader(str(metric.label), UiKit.MUTED, 10))
-	var row := UiKit.hbox(4)
+	var row := UiKit.hbox(8)
+	var name_label := UiKit.label(str(metric.label).capitalize(), 14, UiKit.MUTED, true)
+	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(name_label)
 	var value := "—" if metric.value == null else Fmt.num(float(metric.value), 1)
-	row.add_child(UiKit.title(value, 21))
-	row.add_child(UiKit.spacer())
-	if metric.delta == null:
-		row.add_child(UiKit.label("—", 12, UiKit.MUTED))
-	else:
-		var dv := float(metric.delta)
-		var is_price := str(metric.key) == "price_level"
-		var dcol := UiKit.MUTED
-		if absf(dv) >= 0.05:
-			var good := dv < 0.0 if is_price else dv > 0.0
-			dcol = UiKit.SUCCESS if good else UiKit.DANGER
-		row.add_child(UiKit.label(Fmt.signed(dv, 1), 12, dcol))
-	body.add_child(row)
-	var unit_short := str(metric.unit).replace("skala ", "").replace("indeks model", "indeks").replace("persen", "%")
-	body.add_child(UiKit.label(unit_short, 11, UiKit.MUTED))
-	panel.tooltip_text = "Sumber awal: " + ", ".join(metric.baseline_flags)
-	return panel
+	var unit := "/ 100" if str(metric.unit).begins_with("skala ") else str(metric.unit).replace("indeks model", "indeks").replace("persen", "%")
+	row.add_child(UiKit.number(value + " " + unit, 20))
+	if metric.delta != null and absf(float(metric.delta)) >= 0.05:
+		var delta := float(metric.delta)
+		var good := delta < 0.0 if str(metric.key) == "price_level" else delta > 0.0
+		row.add_child(UiKit.label(Fmt.signed(delta, 1), 14, UiKit.SUCCESS if good else UiKit.DANGER))
+	row.tooltip_text = "Satuan: " + str(metric.unit) + ". Sumber awal: " + ", ".join(metric.baseline_flags) + ". Perubahan dari kuartal terakhir."
+	row.mouse_filter = Control.MOUSE_FILTER_STOP
+	return row
 
 
 func _add_summary(title: String, count: int, empty: String, lines: Array) -> void:
