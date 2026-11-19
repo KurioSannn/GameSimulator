@@ -1,0 +1,737 @@
+{
+  "checks": [
+    {
+      "label": "isolated Q2 fixture decision succeeds",
+      "ok": true
+    },
+    {
+      "label": "fixture save stays in audit-only directory",
+      "ok": true
+    },
+    {
+      "label": "player name remains editable with 30-character limit",
+      "ok": true
+    },
+    {
+      "label": "unchanged name has no pending save/cancel action",
+      "ok": true
+    },
+    {
+      "label": "name change exposes dirty state",
+      "ok": true
+    },
+    {
+      "label": "native save persists name with success feedback",
+      "ok": true
+    },
+    {
+      "label": "saved name disables redundant actions",
+      "ok": true
+    },
+    {
+      "label": "profile_name_saved_1600 feet stay anchored",
+      "ok": true
+    },
+    {
+      "label": "saved name survives reopening profile",
+      "ok": true
+    },
+    {
+      "label": "empty name normalizes in storage and field together",
+      "ok": true
+    },
+    {
+      "label": "native Enter saves name without advancing the game",
+      "ok": true
+    },
+    {
+      "label": "saved name trims leading/trailing whitespace",
+      "ok": true
+    },
+    {
+      "label": "cancel restores saved identity",
+      "ok": true
+    },
+    {
+      "label": "profile_name_dirty_1600 feet stay anchored",
+      "ok": true
+    },
+    {
+      "label": "player name never renames the fictional president",
+      "ok": true
+    },
+    {
+      "label": "UI inspection/name edits preserve world serialization after fixture creation",
+      "ok": true
+    }
+  ],
+  "fixture_actions": [
+    "decide CASE-0001 b in isolated process",
+    "advance one quarter in isolated process"
+  ],
+  "method": "Visible button rectangles versus nearest textured-panel slice-safe rectangle. Slice margins are a conservative visual-safe-area proxy, not measured painted-edge contours. Clipped scroll children are classified separately. Logical coordinates convert by window/viewport scale.",
+  "runtime_errors": [],
+  "shots": [
+    {
+      "buttons": [
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@627/@Button@621",
+          "rect": [
+            28.0,
+            20.0,
+            56.0,
+            55.0
+          ],
+          "text": "",
+          "visible_rect": [
+            28.0,
+            20.0,
+            56.0,
+            55.0
+          ]
+        },
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@627/@Button@624",
+          "rect": [
+            940.0,
+            20.0,
+            148.0,
+            55.0
+          ],
+          "text": "PROFIL",
+          "visible_rect": [
+            940.0,
+            20.0,
+            148.0,
+            55.0
+          ]
+        },
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@627/@Button@625",
+          "rect": [
+            1102.0,
+            20.0,
+            148.0,
+            55.0
+          ],
+          "text": "STATISTIK",
+          "visible_rect": [
+            1102.0,
+            20.0,
+            148.0,
+            55.0
+          ]
+        },
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@627/@Button@626",
+          "rect": [
+            1264.0,
+            20.0,
+            148.0,
+            55.0
+          ],
+          "text": "LAPORAN",
+          "visible_rect": [
+            1264.0,
+            20.0,
+            148.0,
+            55.0
+          ]
+        },
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@691/@PanelContainer@697/@VBoxContainer@692/@VBoxContainer@703/@HBoxContainer@702/SimpanNama",
+          "rect": [
+            1035.0,
+            232.0,
+            265.0,
+            44.0
+          ],
+          "text": "SIMPAN NAMA",
+          "visible_rect": [
+            1035.0,
+            232.0,
+            265.0,
+            44.0
+          ]
+        },
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@691/@PanelContainer@697/@VBoxContainer@692/@VBoxContainer@703/@HBoxContainer@702/BatalNama",
+          "rect": [
+            1310.0,
+            232.0,
+            88.0,
+            44.0
+          ],
+          "text": "BATAL",
+          "visible_rect": [
+            1310.0,
+            232.0,
+            88.0,
+            44.0
+          ]
+        }
+      ],
+      "frames": [
+        {
+          "content_margins": [
+            18.0,
+            18.0,
+            18.0,
+            18.0
+          ],
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@690/@PanelContainer@689",
+          "rect": [
+            568.0,
+            688.0,
+            433.0,
+            102.0
+          ],
+          "slice_margins": [
+            12.0,
+            12.0,
+            12.0,
+            12.0
+          ],
+          "texture": "res://assets/ui/kenney_adventure/panel_brown.png"
+        }
+      ],
+      "name": "profile_name_saved_1600",
+      "output_scale": 1.11111111111111,
+      "screenshot": true,
+      "stages": [
+        {
+          "art_rect": [
+            45.3479919433594,
+            10.0,
+            342.304016113281,
+            563.0
+          ],
+          "contact_y": 573.0,
+          "shadow_rect": [
+            98.4051055908203,
+            563.807006835938,
+            188.267211914063,
+            12.3859996795654
+          ]
+        }
+      ],
+      "text_scale": 1.0,
+      "textures": [
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@TextureRect@617",
+          "rect": [
+            0.0,
+            0.0,
+            1440.0,
+            810.0
+          ],
+          "stretch_mode": 0,
+          "texture": "",
+          "texture_size": "(64.0, 64.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@TextureRect@618",
+          "rect": [
+            0.0,
+            0.0,
+            1440.0,
+            810.0
+          ],
+          "slot": "imgRiakSamudra",
+          "stretch_mode": 0,
+          "texture": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+          "texture_size": "(52.0, 14.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@629/@PanelContainer@658/@VBoxContainer@653/@HBoxContainer@683/@PanelContainer@666/@VBoxContainer@659/@Control@663/@TextureRect@660",
+          "rect": [
+            70.0,
+            408.0,
+            100.0,
+            100.0
+          ],
+          "slot": "imgMedaliMandatPertama",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_MedaliMandatPertama_fdc19.svg",
+          "texture_size": "(100.0, 100.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@629/@PanelContainer@658/@VBoxContainer@653/@HBoxContainer@683/@PanelContainer@666/@VBoxContainer@659/@Control@663/@TextureRect@661",
+          "rect": [
+            79.0,
+            417.0,
+            82.0,
+            82.0
+          ],
+          "slot": "imgTepiMedaliMandatPertama",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_TepiMedaliMandatPertama_5db9b.svg",
+          "texture_size": "(82.0, 82.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@629/@PanelContainer@658/@VBoxContainer@653/@HBoxContainer@683/@PanelContainer@666/@VBoxContainer@659/@Control@663/@TextureRect@662",
+          "rect": [
+            94.0,
+            432.0,
+            52.0,
+            52.0
+          ],
+          "slot": "imgIkonStar",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_IkonStar_6d45e.svg",
+          "texture_size": "(52.0, 52.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@629/@PanelContainer@658/@VBoxContainer@653/@HBoxContainer@683/@PanelContainer@674/@VBoxContainer@667/@Control@671/@TextureRect@668",
+          "rect": [
+            238.0,
+            408.0,
+            100.0,
+            100.0
+          ],
+          "slot": "imgMedaliKenaliNusantara",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_MedaliKenaliNusantara_41afc.svg",
+          "texture_size": "(100.0, 100.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@629/@PanelContainer@658/@VBoxContainer@653/@HBoxContainer@683/@PanelContainer@674/@VBoxContainer@667/@Control@671/@TextureRect@669",
+          "rect": [
+            247.0,
+            417.0,
+            82.0,
+            82.0
+          ],
+          "slot": "imgTepiMedaliKenaliNusantara",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_TepiMedaliKenaliNusantara_35c0d.svg",
+          "texture_size": "(82.0, 82.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@629/@PanelContainer@658/@VBoxContainer@653/@HBoxContainer@683/@PanelContainer@674/@VBoxContainer@667/@Control@671/@TextureRect@670",
+          "rect": [
+            262.0,
+            432.0,
+            52.0,
+            52.0
+          ],
+          "slot": "imgIkonCompass",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_IkonCompass_aca1c.svg",
+          "texture_size": "(52.0, 52.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@629/@PanelContainer@658/@VBoxContainer@653/@HBoxContainer@683/@PanelContainer@682/@VBoxContainer@675/@Control@679/@TextureRect@676",
+          "rect": [
+            406.0,
+            421.0,
+            100.0,
+            100.0
+          ],
+          "slot": "imgMedaliSolusiPertama",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_MedaliSolusiPertama_77113.svg",
+          "texture_size": "(100.0, 100.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@629/@PanelContainer@658/@VBoxContainer@653/@HBoxContainer@683/@PanelContainer@682/@VBoxContainer@675/@Control@679/@TextureRect@677",
+          "rect": [
+            415.0,
+            430.0,
+            82.0,
+            82.0
+          ],
+          "slot": "imgTepiMedaliSolusiPertama",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_TepiMedaliSolusiPertama_9b0d9.svg",
+          "texture_size": "(82.0, 82.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@629/@PanelContainer@658/@VBoxContainer@653/@HBoxContainer@683/@PanelContainer@682/@VBoxContainer@675/@Control@679/@TextureRect@678",
+          "rect": [
+            430.0,
+            445.0,
+            52.0,
+            52.0
+          ],
+          "slot": "imgIkonStar",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_IkonStar_6d45e.svg",
+          "texture_size": "(52.0, 52.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@690/@Control@685/@TextureRect@684",
+          "rect": [
+            613.348022460938,
+            99.0,
+            342.304016113281,
+            563.0
+          ],
+          "slot": "imgNaraAdinataKarakterPemain",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_NaraAdinataKarakterPemain_e7034.png",
+          "texture_size": "(456.0, 750.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@616/@MarginContainer@619/@VBoxContainer@620/@HBoxContainer@628/@VBoxContainer@691/@PanelContainer@697/@VBoxContainer@692/@VBoxContainer@703/@HBoxContainer@701/AvatarPresiden/@TextureRect@698",
+          "rect": [
+            1039.0,
+            153.0,
+            56.0,
+            56.0
+          ],
+          "slot": "imgPotretPresidenNara",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_PotretPresidenNara_ede4f.jpg",
+          "texture_size": "(276.0, 276.0)"
+        }
+      ],
+      "viewport": "(1440.0, 810.0)",
+      "window": "(1600, 900)"
+    },
+    {
+      "buttons": [
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@804/@Button@798",
+          "rect": [
+            28.0,
+            20.0,
+            56.0,
+            55.0
+          ],
+          "text": "",
+          "visible_rect": [
+            28.0,
+            20.0,
+            56.0,
+            55.0
+          ]
+        },
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@804/@Button@801",
+          "rect": [
+            940.0,
+            20.0,
+            148.0,
+            55.0
+          ],
+          "text": "PROFIL",
+          "visible_rect": [
+            940.0,
+            20.0,
+            148.0,
+            55.0
+          ]
+        },
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@804/@Button@802",
+          "rect": [
+            1102.0,
+            20.0,
+            148.0,
+            55.0
+          ],
+          "text": "STATISTIK",
+          "visible_rect": [
+            1102.0,
+            20.0,
+            148.0,
+            55.0
+          ]
+        },
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@804/@Button@803",
+          "rect": [
+            1264.0,
+            20.0,
+            148.0,
+            55.0
+          ],
+          "text": "LAPORAN",
+          "visible_rect": [
+            1264.0,
+            20.0,
+            148.0,
+            55.0
+          ]
+        },
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@868/@PanelContainer@874/@VBoxContainer@869/@VBoxContainer@880/@HBoxContainer@879/SimpanNama",
+          "rect": [
+            1035.0,
+            232.0,
+            265.0,
+            44.0
+          ],
+          "text": "SIMPAN NAMA",
+          "visible_rect": [
+            1035.0,
+            232.0,
+            265.0,
+            44.0
+          ]
+        },
+        {
+          "outside_viewport": false,
+          "partially_clipped": false,
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@868/@PanelContainer@874/@VBoxContainer@869/@VBoxContainer@880/@HBoxContainer@879/BatalNama",
+          "rect": [
+            1310.0,
+            232.0,
+            88.0,
+            44.0
+          ],
+          "text": "BATAL",
+          "visible_rect": [
+            1310.0,
+            232.0,
+            88.0,
+            44.0
+          ]
+        }
+      ],
+      "frames": [
+        {
+          "content_margins": [
+            18.0,
+            18.0,
+            18.0,
+            18.0
+          ],
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@867/@PanelContainer@866",
+          "rect": [
+            568.0,
+            688.0,
+            433.0,
+            102.0
+          ],
+          "slice_margins": [
+            12.0,
+            12.0,
+            12.0,
+            12.0
+          ],
+          "texture": "res://assets/ui/kenney_adventure/panel_brown.png"
+        }
+      ],
+      "name": "profile_name_dirty_1600",
+      "output_scale": 1.11111111111111,
+      "screenshot": true,
+      "stages": [
+        {
+          "art_rect": [
+            45.3479919433594,
+            10.0,
+            342.304016113281,
+            563.0
+          ],
+          "contact_y": 573.0,
+          "shadow_rect": [
+            98.4051055908203,
+            563.807006835938,
+            188.267211914063,
+            12.3859996795654
+          ]
+        }
+      ],
+      "text_scale": 1.0,
+      "textures": [
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@TextureRect@794",
+          "rect": [
+            0.0,
+            0.0,
+            1440.0,
+            810.0
+          ],
+          "stretch_mode": 0,
+          "texture": "",
+          "texture_size": "(64.0, 64.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@TextureRect@795",
+          "rect": [
+            0.0,
+            0.0,
+            1440.0,
+            810.0
+          ],
+          "slot": "imgRiakSamudra",
+          "stretch_mode": 0,
+          "texture": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+          "texture_size": "(52.0, 14.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@806/@PanelContainer@835/@VBoxContainer@830/@HBoxContainer@860/@PanelContainer@843/@VBoxContainer@836/@Control@840/@TextureRect@837",
+          "rect": [
+            70.0,
+            408.0,
+            100.0,
+            100.0
+          ],
+          "slot": "imgMedaliMandatPertama",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_MedaliMandatPertama_fdc19.svg",
+          "texture_size": "(100.0, 100.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@806/@PanelContainer@835/@VBoxContainer@830/@HBoxContainer@860/@PanelContainer@843/@VBoxContainer@836/@Control@840/@TextureRect@838",
+          "rect": [
+            79.0,
+            417.0,
+            82.0,
+            82.0
+          ],
+          "slot": "imgTepiMedaliMandatPertama",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_TepiMedaliMandatPertama_5db9b.svg",
+          "texture_size": "(82.0, 82.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@806/@PanelContainer@835/@VBoxContainer@830/@HBoxContainer@860/@PanelContainer@843/@VBoxContainer@836/@Control@840/@TextureRect@839",
+          "rect": [
+            94.0,
+            432.0,
+            52.0,
+            52.0
+          ],
+          "slot": "imgIkonStar",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_IkonStar_6d45e.svg",
+          "texture_size": "(52.0, 52.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@806/@PanelContainer@835/@VBoxContainer@830/@HBoxContainer@860/@PanelContainer@851/@VBoxContainer@844/@Control@848/@TextureRect@845",
+          "rect": [
+            238.0,
+            408.0,
+            100.0,
+            100.0
+          ],
+          "slot": "imgMedaliKenaliNusantara",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_MedaliKenaliNusantara_41afc.svg",
+          "texture_size": "(100.0, 100.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@806/@PanelContainer@835/@VBoxContainer@830/@HBoxContainer@860/@PanelContainer@851/@VBoxContainer@844/@Control@848/@TextureRect@846",
+          "rect": [
+            247.0,
+            417.0,
+            82.0,
+            82.0
+          ],
+          "slot": "imgTepiMedaliKenaliNusantara",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_TepiMedaliKenaliNusantara_35c0d.svg",
+          "texture_size": "(82.0, 82.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@806/@PanelContainer@835/@VBoxContainer@830/@HBoxContainer@860/@PanelContainer@851/@VBoxContainer@844/@Control@848/@TextureRect@847",
+          "rect": [
+            262.0,
+            432.0,
+            52.0,
+            52.0
+          ],
+          "slot": "imgIkonCompass",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_IkonCompass_aca1c.svg",
+          "texture_size": "(52.0, 52.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@806/@PanelContainer@835/@VBoxContainer@830/@HBoxContainer@860/@PanelContainer@859/@VBoxContainer@852/@Control@856/@TextureRect@853",
+          "rect": [
+            406.0,
+            421.0,
+            100.0,
+            100.0
+          ],
+          "slot": "imgMedaliSolusiPertama",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_MedaliSolusiPertama_77113.svg",
+          "texture_size": "(100.0, 100.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@806/@PanelContainer@835/@VBoxContainer@830/@HBoxContainer@860/@PanelContainer@859/@VBoxContainer@852/@Control@856/@TextureRect@854",
+          "rect": [
+            415.0,
+            430.0,
+            82.0,
+            82.0
+          ],
+          "slot": "imgTepiMedaliSolusiPertama",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_TepiMedaliSolusiPertama_9b0d9.svg",
+          "texture_size": "(82.0, 82.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@806/@PanelContainer@835/@VBoxContainer@830/@HBoxContainer@860/@PanelContainer@859/@VBoxContainer@852/@Control@856/@TextureRect@855",
+          "rect": [
+            430.0,
+            445.0,
+            52.0,
+            52.0
+          ],
+          "slot": "imgIkonStar",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_IkonStar_6d45e.svg",
+          "texture_size": "(52.0, 52.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@867/@Control@862/@TextureRect@861",
+          "rect": [
+            613.348022460938,
+            99.0,
+            342.304016113281,
+            563.0
+          ],
+          "slot": "imgNaraAdinataKarakterPemain",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_NaraAdinataKarakterPemain_e7034.png",
+          "texture_size": "(456.0, 750.0)"
+        },
+        {
+          "path": "/root/Main/@CanvasLayer@272/@Control@273/@Control@531/@Control@793/@MarginContainer@796/@VBoxContainer@797/@HBoxContainer@805/@VBoxContainer@868/@PanelContainer@874/@VBoxContainer@869/@VBoxContainer@880/@HBoxContainer@878/AvatarPresiden/@TextureRect@875",
+          "rect": [
+            1039.0,
+            153.0,
+            56.0,
+            56.0
+          ],
+          "slot": "imgPotretPresidenNara",
+          "stretch_mode": 5,
+          "texture": "res://assets/ui/figma/2_PotretPresidenNara_ede4f.jpg",
+          "texture_size": "(276.0, 276.0)"
+        }
+      ],
+      "viewport": "(1440.0, 810.0)",
+      "window": "(1600, 900)"
+    }
+  ],
+  "world_after": "ec42d312d3630e9f62d1b4ec6766c585eb21d80be3725d9ba42b500d310dd2cf",
+  "world_before": "ec42d312d3630e9f62d1b4ec6766c585eb21d80be3725d9ba42b500d310dd2cf",
+  "world_unchanged_after_fixture": true
+}
