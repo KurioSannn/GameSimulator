@@ -40,7 +40,7 @@ void fragment() {
 		float biome = det.g;
 		float relief = det.b;
 
-		vec2 step_uv = vec2(2.2 / 3072.0, 2.2 / 1344.0);
+		vec2 step_uv = vec2(2.2) / vec2(textureSize(detail_field, 0));
 		float h_l = texture(detail_field, clamp(field_uv - vec2(step_uv.x, 0.0), vec2(0.0), vec2(1.0))).b;
 		float h_r = texture(detail_field, clamp(field_uv + vec2(step_uv.x, 0.0), vec2(0.0), vec2(1.0))).b;
 		float h_u = texture(detail_field, clamp(field_uv - vec2(0.0, step_uv.y), vec2(0.0), vec2(1.0))).b;
@@ -76,7 +76,7 @@ void fragment() {
 		ground = mix(ground, volcanic_crest, smoothstep(0.72, 0.95, relief));
 		ground *= mix(0.89, 1.11, mix(grain, micro_grain, 0.35));
 
-		float shore_blend = smoothstep(0.015, 0.13 + grain * 0.05, inland);
+		float shore_blend = smoothstep(0.006, 0.048 + grain * 0.022, inland);
 		ground = mix(beach, ground, shore_blend);
 
 		float grid_hint = step(0.84, fract(world_position.x * 0.35)) + step(0.84, fract(world_position.z * 0.35));
