@@ -37,17 +37,34 @@ static func portrait(screen: int, geometry: Vector2) -> TextureRect:
 	# The image fill crop returned by Figma (not an edited or rasterized replacement).
 	var origin := Vector2(0.2899, 0.0811) if screen == 2 else Vector2(0.30, 0.05)
 	crop.region = Rect2(origin * tex.get_size(), Vector2(0.22, 0.36) * tex.get_size())
+	# Center-crop to the destination aspect instead of stretching the face.
+	var region := crop.region
+	var aspect := geometry.x / geometry.y
+	var crop_size := Vector2(minf(region.size.x, region.size.y * aspect), minf(region.size.y, region.size.x / aspect))
+	crop.region = Rect2(region.position + (region.size - crop_size) * 0.5, crop_size)
 	var r := TextureRect.new()
 	r.texture = crop
 	r.set_meta("figma_screen", screen)
 	r.set_meta("figma_slot", slot)
 	r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	r.stretch_mode = TextureRect.STRETCH_SCALE
+	r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	r.custom_minimum_size = geometry
 	r.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	r.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	r.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return r
+
+
+static func avatar(screen: int, geometry: Vector2) -> PanelContainer:
+	var holder := PanelContainer.new()
+	holder.name = "AvatarPresiden"
+	holder.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("d7bd87"), UiKit.ACCENT, 4, 4, 4, 2))
+	holder.custom_minimum_size = geometry + Vector2(8, 8)
+	holder.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	holder.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	holder.add_child(portrait(screen, geometry))
+	return holder
 
 
 static func badge(base: String, rim: String, symbol: String) -> Control:
