@@ -30,14 +30,14 @@ KENNEY_BASE = f"https://raw.githubusercontent.com/Calinou/kenney-interface-sound
 UI_FILES = [
     ("click_003.wav", "General button press click"),
     ("select_002.wav", "Region, tab, dropdown, and option card selection"),
-    ("confirmation_002.wav", "Decision confirmation and quarter advance"),
-    ("open_002.wav", "Open dialog or drawer"),
-    ("close_002.wav", "Close dialog or dismiss panel"),
+    ("select_007.wav", "Crisp primary button & quarter advance confirm click"),
+    ("open_001.wav", "Subtle dialog or drawer open"),
+    ("close_001.wav", "Subtle dialog or panel close"),
     ("back_002.wav", "Back / cancel action"),
-    ("switch_003.wav", "Toggle checkbutton or map layer/weather switch"),
+    ("toggle_004.wav", "Crisp toggle switch / layer change"),
     ("tick_001.wav", "Subtle control focus / slider tick"),
-    ("error_003.wav", "Validation warning or disabled action"),
-    ("bong_001.wav", "Urgent case / event notification chime"),
+    ("error_008.wav", "Short validation warning or disabled action"),
+    ("tick_004.wav", "Subtle notification tap for incoming cases"),
 ]
 
 AMBIENT_FILES = [

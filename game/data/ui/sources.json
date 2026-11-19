@@ -1,6 +1,6 @@
 {
   "schema": "nusantara.ui_sources/1",
-  "registry_sha256": "5318994b684fbde480780b42bd995714f1722e23f0efc992f30beea9ae8c2b5f",
+  "registry_sha256": "09872d2f075df81c336828d0ebb3a5b485e60b9ac9bb749083cd571979494d52",
   "sources": {
     "SRC-BIG-ADM-KABKOTA": {
       "source_id": "SRC-BIG-ADM-KABKOTA",
@@ -224,7 +224,7 @@
     "SRC-KENNEY-INTERFACE-SOUNDS": {
       "source_id": "SRC-KENNEY-INTERFACE-SOUNDS",
       "institution": "Kenney.nl (mirrored by Calinou/kenney-interface-sounds)",
-      "title": "Kenney Interface Sounds (10 UI SFX .wav files: click_003, select_002, confirmation_002, open_002, close_002, back_002, switch_003, tick_001, error_003, bong_001)",
+      "title": "Kenney Interface Sounds (10 UI SFX .wav files: click_003, select_002, select_007, open_001, close_001, back_002, toggle_004, tick_001, error_008, tick_004)",
       "url": "https://github.com/Calinou/kenney-interface-sounds/tree/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds",
       "publication_date": "pinned commit 4596a49eaf5a533948d49a47467f606bcdea70ff",
       "retrieved_at": "2026-11-20",

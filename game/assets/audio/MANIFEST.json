@@ -25,37 +25,37 @@
       "sha256": "9f15b5f93716a3ff8842cff73ef932e81beac2d19972066f690154c1f9322f2b"
     },
     {
-      "file": "ui/confirmation_002.wav",
+      "file": "ui/select_007.wav",
       "category": "ui",
-      "role": "Decision confirmation and quarter advance",
+      "role": "Crisp primary button & quarter advance confirm click",
       "creator": "Kenney",
       "license": "CC0-1.0",
-      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/confirmation_002.wav",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/select_007.wav",
       "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
-      "bytes": 49614,
-      "sha256": "b23339f3fdcd9f54520ca73caa3a9ae93ecfb3675acdaf1468990feb5d55d5fa"
+      "bytes": 5326,
+      "sha256": "ccf5a313a22f5bb5e3d5a84a4943b39892218440a59211eb12b24b433109f4f0"
     },
     {
-      "file": "ui/open_002.wav",
+      "file": "ui/open_001.wav",
       "category": "ui",
-      "role": "Open dialog or drawer",
+      "role": "Subtle dialog or drawer open",
       "creator": "Kenney",
       "license": "CC0-1.0",
-      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/open_002.wav",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/open_001.wav",
       "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
-      "bytes": 27982,
-      "sha256": "fe6f58e1915885e4aa887a14f0e660476e0ab0b2345bda968dffdb1cd5873710"
+      "bytes": 13134,
+      "sha256": "c69aab75d09d98363934c68cda0e9d050973eb5c3ab9987ce8fd5d336a8f7fbd"
     },
     {
-      "file": "ui/close_002.wav",
+      "file": "ui/close_001.wav",
       "category": "ui",
-      "role": "Close dialog or dismiss panel",
+      "role": "Subtle dialog or panel close",
       "creator": "Kenney",
       "license": "CC0-1.0",
-      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/close_002.wav",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/close_001.wav",
       "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
-      "bytes": 28878,
-      "sha256": "f22922e05f6ae75d7bed5b5ebf01c9fbb2c9f5d85333a2c0f750f7649b3c3169"
+      "bytes": 13134,
+      "sha256": "423ae3dd2981045649bed82653e43f9770c2baad6da7582d004f9161ef9b0439"
     },
     {
       "file": "ui/back_002.wav",
@@ -69,15 +69,15 @@
       "sha256": "45f1c9df0db7af4c55166bad72568dcbd6e729ee362ce470b88d9deee51a5e5c"
     },
     {
-      "file": "ui/switch_003.wav",
+      "file": "ui/toggle_004.wav",
       "category": "ui",
-      "role": "Toggle checkbutton or map layer/weather switch",
+      "role": "Crisp toggle switch / layer change",
       "creator": "Kenney",
       "license": "CC0-1.0",
-      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/switch_003.wav",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/toggle_004.wav",
       "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
-      "bytes": 88910,
-      "sha256": "f57fcbc345d84d0b8d1bb22c10505b336a131700fe7a9c26da5ae2f39b27683a"
+      "bytes": 6606,
+      "sha256": "954c38c86d1c9b5cff871ff0702ceed06a087b45d1e3b8735b9003ad510dd036"
     },
     {
       "file": "ui/tick_001.wav",
@@ -91,26 +91,26 @@
       "sha256": "fee217e21731da4be1f0347fd2632296259b8bfdca343c936fe60dc64bce280e"
     },
     {
-      "file": "ui/error_003.wav",
+      "file": "ui/error_008.wav",
       "category": "ui",
-      "role": "Validation warning or disabled action",
+      "role": "Short validation warning or disabled action",
       "creator": "Kenney",
       "license": "CC0-1.0",
-      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/error_003.wav",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/error_008.wav",
       "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
-      "bytes": 98126,
-      "sha256": "350375a1a4adb8fe6f7b4cd775cdbb9a3015e2473b31a0e6fad9e3b3a1e8a9fd"
+      "bytes": 12366,
+      "sha256": "4b744634a2a860a5ec584fc5d8a73489756255297028509cc98c4c4dba18120c"
     },
     {
-      "file": "ui/bong_001.wav",
+      "file": "ui/tick_004.wav",
       "category": "ui",
-      "role": "Urgent case / event notification chime",
+      "role": "Subtle notification tap for incoming cases",
       "creator": "Kenney",
       "license": "CC0-1.0",
-      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/bong_001.wav",
+      "url": "https://raw.githubusercontent.com/Calinou/kenney-interface-sounds/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds/tick_004.wav",
       "commit": "4596a49eaf5a533948d49a47467f606bcdea70ff",
-      "bytes": 11726,
-      "sha256": "f5d5f83b13edc5321352c2ba57972d1400151e3f27f1c18fcda07d261358511a"
+      "bytes": 4942,
+      "sha256": "7cf0ab362d64d3cc2d25a89528662ed21abd5c67a425dc0f4d1013871a481bdd"
     },
     {
       "file": "ambient/birds_tropical.ogg",

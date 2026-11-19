@@ -338,7 +338,7 @@
   {
    "source_id": "SRC-KENNEY-INTERFACE-SOUNDS",
    "institution": "Kenney.nl (mirrored by Calinou/kenney-interface-sounds)",
-   "title": "Kenney Interface Sounds (10 UI SFX .wav files: click_003, select_002, confirmation_002, open_002, close_002, back_002, switch_003, tick_001, error_003, bong_001)",
+   "title": "Kenney Interface Sounds (10 UI SFX .wav files: click_003, select_002, select_007, open_001, close_001, back_002, toggle_004, tick_001, error_008, tick_004)",
    "source_type": "community",
    "access_method": "web",
    "url": "https://github.com/Calinou/kenney-interface-sounds/tree/4596a49eaf5a533948d49a47467f606bcdea70ff/addons/kenney_interface_sounds",

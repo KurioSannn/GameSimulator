@@ -9,14 +9,14 @@ const MANIFEST_PATH := "res://assets/audio/MANIFEST.json"
 const UI_PATHS := {
 	"click": "res://assets/audio/ui/click_003.wav",
 	"select": "res://assets/audio/ui/select_002.wav",
-	"confirm": "res://assets/audio/ui/confirmation_002.wav",
-	"open": "res://assets/audio/ui/open_002.wav",
-	"close": "res://assets/audio/ui/close_002.wav",
+	"confirm": "res://assets/audio/ui/select_007.wav",
+	"open": "res://assets/audio/ui/open_001.wav",
+	"close": "res://assets/audio/ui/close_001.wav",
 	"back": "res://assets/audio/ui/back_002.wav",
-	"switch": "res://assets/audio/ui/switch_003.wav",
+	"switch": "res://assets/audio/ui/toggle_004.wav",
 	"tick": "res://assets/audio/ui/tick_001.wav",
-	"error": "res://assets/audio/ui/error_003.wav",
-	"alert": "res://assets/audio/ui/bong_001.wav",
+	"error": "res://assets/audio/ui/error_008.wav",
+	"alert": "res://assets/audio/ui/tick_004.wav",
 }
 
 const AMBIENT_PATHS := {
@@ -458,19 +458,19 @@ func _classify_button_sound(btn: BaseButton) -> String:
 func _ui_gain_db(kind: String) -> float:
 	match kind:
 		"confirm":
-			return -4.5
+			return -7.5
 		"alert":
-			return -4.0
+			return -7.5
 		"error":
-			return -5.0
+			return -8.0
 		"tick":
-			return -10.5
+			return -11.5
 		"switch", "select":
-			return -6.5
+			return -8.5
 		"open", "close", "back":
-			return -7.0
+			return -9.5
 		_:
-			return -6.0
+			return -8.5
 
 
 func _weight_to_db(weight: float, min_db: float, max_db: float, modal_att: float) -> float:
