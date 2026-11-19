@@ -21,6 +21,7 @@ var cases: Dictionary = {}       # case_id -> case record
 var policies: Dictionary = {}    # policy_id -> policy record
 var policy_categories: Array = []
 var source_institutions: Dictionary = {}   # source_id -> institution (for REAL fact labels)
+var sources: Dictionary = {}  # offline provenance, exported from the existing research registry
 var load_errors: PackedStringArray = []
 
 
@@ -34,6 +35,7 @@ func load_all() -> void:
 	regions = reg.get("regions", [])
 	provinces = reg.get("provinces", [])
 	source_institutions = reg.get("source_institutions", {})
+	sources = _read_json("res://data/ui/sources.json").get("sources", {})
 	region_by_id.clear()
 	province_by_id.clear()
 	for r in regions:

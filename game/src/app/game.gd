@@ -19,6 +19,7 @@ var cases: CaseEngine:
 	get: return session.cases
 var saves := SaveService.new()
 var autosave_counter := 0
+var last_quarter_reports: Array = []  # read-only UI observations; never consulted by the simulation
 
 
 func _ready() -> void:
@@ -31,6 +32,7 @@ func _make_session(seed_value: int) -> Session:
 
 
 func new_game(seed_value: int) -> void:
+	last_quarter_reports = []
 	session = _make_session(seed_value)
 	world_replaced.emit()
 	present_next_case()
@@ -59,6 +61,7 @@ func advance_quarter() -> Array:
 	var reports := session.advance_quarter()
 	if reports.is_empty():
 		return reports
+	last_quarter_reports = reports.duplicate(true)
 	for r in reports:
 		month_advanced.emit(r)
 	autosave_counter += 1
@@ -106,6 +109,7 @@ func load_from(slot_id: String) -> String:
 	if err != "":
 		return err
 	session = fresh
+	last_quarter_reports = []
 	world_replaced.emit()
 	var pend := pending_case()
 	if pend != "":
