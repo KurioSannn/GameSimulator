@@ -1,0 +1,1446 @@
+{
+  "figma_file": "xXZj1Xnoxln1coG2yEO81a",
+  "export_date": "2026-11-15",
+  "assets": [
+    {
+      "screen": 0,
+      "slot": "imgDuniaNusantaraDanPresidenNara",
+      "path": "res://assets/ui/figma/0_DuniaNusantaraDanPresidenNara_ede4f.jpg",
+      "sha256": "890b24eb81fab29762b8198d512d58cd98047fc232463cbe34f2cc0931848022",
+      "bytes": 114382,
+      "format": "JPEG",
+      "dimensions": [
+        1376,
+        768
+      ]
+    },
+    {
+      "screen": 0,
+      "slot": "imgIkonGlobe",
+      "path": "res://assets/ui/figma/0_IkonGlobe_2b191.svg",
+      "sha256": "9574a085305cfcfed8ec9c72d9f46db107a7abc04e9d7d522205c12d034c7b24",
+      "bytes": 814,
+      "format": "SVG",
+      "dimensions": {
+        "width": "30",
+        "height": "30"
+      }
+    },
+    {
+      "screen": 0,
+      "slot": "imgIkonHelp",
+      "path": "res://assets/ui/figma/0_IkonHelp_561a7.svg",
+      "sha256": "e9d2ed91d0e861d021b1325996e4abf490c7f5c0455b6a62ba307050eb99b79d",
+      "bytes": 775,
+      "format": "SVG",
+      "dimensions": {
+        "width": "30",
+        "height": "30"
+      }
+    },
+    {
+      "screen": 0,
+      "slot": "imgMenuPengaturanGayaReferensi",
+      "path": "res://assets/ui/figma/0_MenuPengaturanGayaReferensi_de8ca.svg",
+      "sha256": "40bdbbef963bcc85466dc960ac80f1ad3b25aed858a6a829d1620827376d7ce1",
+      "bytes": 1844,
+      "format": "SVG",
+      "dimensions": {
+        "width": "104.976",
+        "height": "60.5658"
+      }
+    },
+    {
+      "screen": 0,
+      "slot": "imgMenuPengaturanGayaReferensi1",
+      "path": "res://assets/ui/figma/0_MenuPengaturanGayaReferensi1_00ca0.svg",
+      "sha256": "c052673884817da548e2b884e2bbdb174d781a96aef676fb519417f34eaf1edb",
+      "bytes": 944,
+      "format": "SVG",
+      "dimensions": {
+        "width": "101.779",
+        "height": "52.2408"
+      }
+    },
+    {
+      "screen": 0,
+      "slot": "imgGroup465",
+      "path": "res://assets/ui/figma/0_Group465_3d693.svg",
+      "sha256": "dc1448e3ded28369238cce1852cdfc7cc73d2591e5b7562d22b1f304fd8e2ec3",
+      "bytes": 5142,
+      "format": "SVG",
+      "dimensions": {
+        "width": "37.7613",
+        "height": "30.5349"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgVector",
+      "path": "res://assets/ui/figma/1_Vector_f9816.png",
+      "sha256": "3cf2dd692f327bd6f5fbf700df9542a0a2f3e5af9aeddf7afeb0f136eea11f4d",
+      "bytes": 988842,
+      "format": "PNG",
+      "dimensions": [
+        2827,
+        983
+      ]
+    },
+    {
+      "screen": 1,
+      "slot": "imgPotretPresidenNara",
+      "path": "res://assets/ui/figma/1_PotretPresidenNara_ede4f.jpg",
+      "sha256": "890b24eb81fab29762b8198d512d58cd98047fc232463cbe34f2cc0931848022",
+      "bytes": 114382,
+      "format": "JPEG",
+      "dimensions": [
+        1376,
+        768
+      ]
+    },
+    {
+      "screen": 1,
+      "slot": "imgRiakSamudra",
+      "path": "res://assets/ui/figma/1_RiakSamudra_9a926.svg",
+      "sha256": "293765f7eb1351897f8fb0d42abf5c1081ba8e8b07934e23b61ba850befb3d49",
+      "bytes": 408,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "14"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgKetebalanDaratan",
+      "path": "res://assets/ui/figma/1_KetebalanDaratan_9f75a.svg",
+      "sha256": "a4bc1337d58a6ab0b4c07ab5e0ca5b98ce417e3dcd0a0e1586c2a069bd76432e",
+      "bytes": 4198,
+      "format": "SVG",
+      "dimensions": {
+        "width": "1440",
+        "height": "633.6"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgLingkarLokasiTerpilih",
+      "path": "res://assets/ui/figma/1_LingkarLokasiTerpilih_b2d86.svg",
+      "sha256": "eaa2c08beb264b221828b192cd37df323547436623e84310367aecebc11e1f59",
+      "bytes": 485,
+      "format": "SVG",
+      "dimensions": {
+        "width": "118",
+        "height": "34"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgLingkarLokasiTerpilih1",
+      "path": "res://assets/ui/figma/1_LingkarLokasiTerpilih1_b52bf.svg",
+      "sha256": "fcbf09c1c5a9350eb577380cd1810b5f4d2455933b73f9860012b66500cd9eba",
+      "bytes": 477,
+      "format": "SVG",
+      "dimensions": {
+        "width": "90",
+        "height": "22"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgPenandaLokasi",
+      "path": "res://assets/ui/figma/1_PenandaLokasi_bb463.svg",
+      "sha256": "39db2e6cc13100fe00374d4e439c9eb4a01fccc78fc6b5911c97564eaa4de742",
+      "bytes": 1266,
+      "format": "SVG",
+      "dimensions": {
+        "width": "72",
+        "height": "96"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgPenandaLokasi1",
+      "path": "res://assets/ui/figma/1_PenandaLokasi1_c11eb.svg",
+      "sha256": "328c557e843ae5b6cdb2229ef8057e653c3e8d0d576920e176c5ef3a77e03e39",
+      "bytes": 1266,
+      "format": "SVG",
+      "dimensions": {
+        "width": "72",
+        "height": "96"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonCoin",
+      "path": "res://assets/ui/figma/1_IkonCoin_a79b5.svg",
+      "sha256": "02ffcd67b33d4d0ad80740add6216b56138c251661b27d204e55029d917670bd",
+      "bytes": 1213,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36",
+        "height": "36"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonEconomy",
+      "path": "res://assets/ui/figma/1_IkonEconomy_57d57.svg",
+      "sha256": "097a9497ca3ebc0befae12b51a88cfc079fc0e1fc6adc1ae61470e2d1d6c78ec",
+      "bytes": 549,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36",
+        "height": "36"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonHeart",
+      "path": "res://assets/ui/figma/1_IkonHeart_2a33d.svg",
+      "sha256": "b8032ce6fb7ae93f7768abebc59ae31309ec03fe4fe7696e2e15055d6ca742a9",
+      "bytes": 896,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36",
+        "height": "36"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonTrust",
+      "path": "res://assets/ui/figma/1_IkonTrust_9a409.svg",
+      "sha256": "470c45cc93e83bef1fd365f8cb3c36765539b5dfcc88d14d0b0cd4bb27985ec1",
+      "bytes": 417,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36",
+        "height": "36"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonShield",
+      "path": "res://assets/ui/figma/1_IkonShield_3848d.svg",
+      "sha256": "bf609d8d04472689ff5f096a1eb5aa33deef2b629b1ca4a1d65d0083b58f267c",
+      "bytes": 521,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36",
+        "height": "36"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonLeaf",
+      "path": "res://assets/ui/figma/1_IkonLeaf_9dc75.svg",
+      "sha256": "b1ddaee7cb62bc55c88d1185a0395e3bd2684646d19fa2f9ade37a1915c00202",
+      "bytes": 527,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36",
+        "height": "36"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgMenuPengaturan",
+      "path": "res://assets/ui/figma/1_MenuPengaturan_08e83.svg",
+      "sha256": "fff62e8cbf192afe99ca19e7322b7472654b12024b87da8469e3fb927a6863d6",
+      "bytes": 1885,
+      "format": "SVG",
+      "dimensions": {
+        "width": "74.2614",
+        "height": "42.845"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgMenuPengaturan1",
+      "path": "res://assets/ui/figma/1_MenuPengaturan1_a14e5.svg",
+      "sha256": "4954e04793451670f5fdef879256835612b03f0a2162224b8ca04f24328baa45",
+      "bytes": 939,
+      "format": "SVG",
+      "dimensions": {
+        "width": "72",
+        "height": "36.9558"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgGroup465",
+      "path": "res://assets/ui/figma/1_Group465_7b563.svg",
+      "sha256": "cb1ffbb32baa67d00a2f81f95214af867e8de2883d306d7d17a7f8ea6d8f7884",
+      "bytes": 5204,
+      "format": "SVG",
+      "dimensions": {
+        "width": "26.7128",
+        "height": "21.6007"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonCouncil",
+      "path": "res://assets/ui/figma/1_IkonCouncil_92a95.svg",
+      "sha256": "a66b6f8956b2892da944b7620ecf85e58710290ab46d41603bf1e3eeb53989d3",
+      "bytes": 1783,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "52"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonScroll",
+      "path": "res://assets/ui/figma/1_IkonScroll_6cf68.svg",
+      "sha256": "2ac511e0e92de4b62a5dd83f68b442e13ba30c676f316cefb0093962be257cc5",
+      "bytes": 774,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "52"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonCoin1",
+      "path": "res://assets/ui/figma/1_IkonCoin1_287b6.svg",
+      "sha256": "424875dc0476109875924235c73816773948da3b8fcdb271b959a3d25777a12a",
+      "bytes": 1359,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "52"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonBook",
+      "path": "res://assets/ui/figma/1_IkonBook_e84c0.svg",
+      "sha256": "8da4574d630f6f47e81158f10b8f443dc76a8d7552530c0300740cca2ac8e111",
+      "bytes": 632,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "52"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonFlag",
+      "path": "res://assets/ui/figma/1_IkonFlag_b219b.svg",
+      "sha256": "b8167dc5e860a252360b66ac8c36c503e7ecb144cf02aa9ad0fff17d01a8bf6a",
+      "bytes": 561,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "52"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonPlus",
+      "path": "res://assets/ui/figma/1_IkonPlus_4a793.svg",
+      "sha256": "55b8d8b1e0c38fc3a79222529f680c6aaa6bab4aa6a01305c002532517c777ac",
+      "bytes": 362,
+      "format": "SVG",
+      "dimensions": {
+        "width": "27",
+        "height": "27"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgIkonMinus",
+      "path": "res://assets/ui/figma/1_IkonMinus_2ed7b.svg",
+      "sha256": "bc1d3b7f74ca9999ba6812a88d5b8d029978db2c3f3028a82d8ebfe2dc15020d",
+      "bytes": 319,
+      "format": "SVG",
+      "dimensions": {
+        "width": "27",
+        "height": "27"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgRectangle44",
+      "path": "res://assets/ui/figma/1_Rectangle44_97b00.svg",
+      "sha256": "6bde32e9e66d2fbf02033a6913e2e979e91e0719426d448c8a27dbe94cdd253a",
+      "bytes": 1862,
+      "format": "SVG",
+      "dimensions": {
+        "width": "456.693",
+        "height": "160.175"
+      }
+    },
+    {
+      "screen": 1,
+      "slot": "imgGroup205",
+      "path": "res://assets/ui/figma/1_Group205_17d3a.svg",
+      "sha256": "1046a945382e22d0d4b0648165bb06d835e79c459261eb08957fc0c8b9479ced",
+      "bytes": 925,
+      "format": "SVG",
+      "dimensions": {
+        "width": "450",
+        "height": "144.381"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgPotretPresidenNara",
+      "path": "res://assets/ui/figma/2_PotretPresidenNara_ede4f.jpg",
+      "sha256": "890b24eb81fab29762b8198d512d58cd98047fc232463cbe34f2cc0931848022",
+      "bytes": 114382,
+      "format": "JPEG",
+      "dimensions": [
+        1376,
+        768
+      ]
+    },
+    {
+      "screen": 2,
+      "slot": "imgNaraAdinataKarakterPemain",
+      "path": "res://assets/ui/figma/2_NaraAdinataKarakterPemain_e7034.png",
+      "sha256": "f67275c7a0f5922716038ec0f320050a8b726194425825dab55c626c43217e34",
+      "bytes": 293857,
+      "format": "PNG",
+      "dimensions": [
+        500,
+        790
+      ]
+    },
+    {
+      "screen": 2,
+      "slot": "imgRiakSamudra",
+      "path": "res://assets/ui/figma/2_RiakSamudra_9a926.svg",
+      "sha256": "293765f7eb1351897f8fb0d42abf5c1081ba8e8b07934e23b61ba850befb3d49",
+      "bytes": 408,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "14"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonEdit",
+      "path": "res://assets/ui/figma/2_IkonEdit_e247f.svg",
+      "sha256": "f7d670ade8e35492d9f41dfd221e8f009558819575f893fc20d51a44566a660c",
+      "bytes": 549,
+      "format": "SVG",
+      "dimensions": {
+        "width": "22",
+        "height": "22"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgTahun1",
+      "path": "res://assets/ui/figma/2_Tahun1_a8c75.svg",
+      "sha256": "1eedec9787701dabecbbf3b9659493a34256ebdbcd07c63a6914b94ede1e0ab0",
+      "bytes": 270,
+      "format": "SVG",
+      "dimensions": {
+        "width": "54",
+        "height": "54"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgTahun2",
+      "path": "res://assets/ui/figma/2_Tahun2_50132.svg",
+      "sha256": "741af5278797f93bca4d3ce6a3d3a39c9482caab2e669cc8afe500b98c86c623",
+      "bytes": 270,
+      "format": "SVG",
+      "dimensions": {
+        "width": "54",
+        "height": "54"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonTrust",
+      "path": "res://assets/ui/figma/2_IkonTrust_8a016.svg",
+      "sha256": "8191b04090b827b64dc3f39d92d6979ea6a829ccd3005134eb77cb015155bb20",
+      "bytes": 509,
+      "format": "SVG",
+      "dimensions": {
+        "width": "35",
+        "height": "35"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonAlert",
+      "path": "res://assets/ui/figma/2_IkonAlert_e8ccf.svg",
+      "sha256": "a84552c224cc6bb99cd6ef3d5582b6ce5f78d926272c44b9ca182aa801260eb2",
+      "bytes": 522,
+      "format": "SVG",
+      "dimensions": {
+        "width": "35",
+        "height": "35"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonEye",
+      "path": "res://assets/ui/figma/2_IkonEye_d6c11.svg",
+      "sha256": "17dd3d62aec10b5ea8e9c9ba9f4540b1a0bd22837246593c108f2805150fe6ea",
+      "bytes": 797,
+      "format": "SVG",
+      "dimensions": {
+        "width": "35",
+        "height": "35"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgMedaliMandatPertama",
+      "path": "res://assets/ui/figma/2_MedaliMandatPertama_fdc19.svg",
+      "sha256": "9aff1539acd3b9880a22a313083b2002bb4bc482eb0995359adf4eb3a129f43b",
+      "bytes": 288,
+      "format": "SVG",
+      "dimensions": {
+        "width": "100",
+        "height": "100"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgTepiMedaliMandatPertama",
+      "path": "res://assets/ui/figma/2_TepiMedaliMandatPertama_5db9b.svg",
+      "sha256": "95c41799f2ad5364e915dcce1c6047448d8e3755e3b0c38cc147ca69aeabe96d",
+      "bytes": 289,
+      "format": "SVG",
+      "dimensions": {
+        "width": "82",
+        "height": "82"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonStar",
+      "path": "res://assets/ui/figma/2_IkonStar_6d45e.svg",
+      "sha256": "5c23e9c13f7b7f52902a962f76873fa56152e6dd3e36b49604bbd1c737b45d82",
+      "bytes": 610,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "52"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgMedaliKenaliNusantara",
+      "path": "res://assets/ui/figma/2_MedaliKenaliNusantara_41afc.svg",
+      "sha256": "e3dd7b2da1e56e0ce4a4620f80f55d5dcca1a34df3f03c51a93128c568ea4aac",
+      "bytes": 290,
+      "format": "SVG",
+      "dimensions": {
+        "width": "100",
+        "height": "100"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgTepiMedaliKenaliNusantara",
+      "path": "res://assets/ui/figma/2_TepiMedaliKenaliNusantara_35c0d.svg",
+      "sha256": "363e1054f9f674dbd59d3083d349bdd04f0bc255d196e70fe6a699d08b2378d5",
+      "bytes": 291,
+      "format": "SVG",
+      "dimensions": {
+        "width": "82",
+        "height": "82"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonCompass",
+      "path": "res://assets/ui/figma/2_IkonCompass_aca1c.svg",
+      "sha256": "2b4174c4315c2e4946418d4d9c20de2e0e931bd66e7fc6403c1529e360f2a1c3",
+      "bytes": 871,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "52"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgMedaliSolusiPertama",
+      "path": "res://assets/ui/figma/2_MedaliSolusiPertama_77113.svg",
+      "sha256": "da2bedeac1714f03a228ab86ae532e28d7525c5550ef31ec818cd685f97e1bac",
+      "bytes": 288,
+      "format": "SVG",
+      "dimensions": {
+        "width": "100",
+        "height": "100"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgTepiMedaliSolusiPertama",
+      "path": "res://assets/ui/figma/2_TepiMedaliSolusiPertama_9b0d9.svg",
+      "sha256": "c707870255105da3cd032e29309cb5f27a5225af190040811a740700e647b8ba",
+      "bytes": 289,
+      "format": "SVG",
+      "dimensions": {
+        "width": "82",
+        "height": "82"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonLock",
+      "path": "res://assets/ui/figma/2_IkonLock_d46f1.svg",
+      "sha256": "b2718d3397940ee0981c1bb72809be5372e437e79bc3c6fd67454f8643df860e",
+      "bytes": 959,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "52"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgSorotanKarakter",
+      "path": "res://assets/ui/figma/2_SorotanKarakter_3bc1d.svg",
+      "sha256": "8e03c7703df224ddf3c02b7dd6f6744753e516e3cd878684f362889250f3e263",
+      "bytes": 547,
+      "format": "SVG",
+      "dimensions": {
+        "width": "630",
+        "height": "630"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgLingkarPanggung",
+      "path": "res://assets/ui/figma/2_LingkarPanggung_4ff08.svg",
+      "sha256": "4fe741bfbc752e5932286efdf1b610f35cb3ac068044c40aa4ef9b8fde75a17d",
+      "bytes": 286,
+      "format": "SVG",
+      "dimensions": {
+        "width": "526",
+        "height": "526"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgLandasanKarakter",
+      "path": "res://assets/ui/figma/2_LandasanKarakter_3a1fc.svg",
+      "sha256": "5a65641e2235bc4937c389088f59ae4b89a5d3b9422990f594a8a8969c856fd0",
+      "bytes": 572,
+      "format": "SVG",
+      "dimensions": {
+        "width": "477",
+        "height": "81"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgPermukaanPanggung",
+      "path": "res://assets/ui/figma/2_PermukaanPanggung_bfc4c.svg",
+      "sha256": "31803d5ed1502f7fe564839992d3a45afbf19ad14377c192d4d0e6b46f5dc9e8",
+      "bytes": 573,
+      "format": "SVG",
+      "dimensions": {
+        "width": "477",
+        "height": "81"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgKilauPanggung",
+      "path": "res://assets/ui/figma/2_KilauPanggung_d0302.svg",
+      "sha256": "b776dbbf8cc6478bc4e43129607722f55d198af2b9462c77b5be0e9119077cda",
+      "bytes": 259,
+      "format": "SVG",
+      "dimensions": {
+        "width": "392",
+        "height": "49"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonStar1",
+      "path": "res://assets/ui/figma/2_IkonStar1_9b913.svg",
+      "sha256": "348d7755887adefd74166671095374997bec0f655fa24ba472228f2637d784a9",
+      "bytes": 411,
+      "format": "SVG",
+      "dimensions": {
+        "width": "24",
+        "height": "24"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonStar2",
+      "path": "res://assets/ui/figma/2_IkonStar2_a9217.svg",
+      "sha256": "5c98fbc81ba6a7445fa8e27d30132ad769c8d0801cb53408e18babfbb99c4947",
+      "bytes": 569,
+      "format": "SVG",
+      "dimensions": {
+        "width": "18",
+        "height": "18"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonStar3",
+      "path": "res://assets/ui/figma/2_IkonStar3_de1af.svg",
+      "sha256": "18bf3a4f9675304bd4893f3805ec857f6e2686da3c9631fdf0b1ed70dc1f5f90",
+      "bytes": 615,
+      "format": "SVG",
+      "dimensions": {
+        "width": "19",
+        "height": "19"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonStar4",
+      "path": "res://assets/ui/figma/2_IkonStar4_d6378.svg",
+      "sha256": "b32fdf95a21d1da15947f10b6488411b9ab96051cd8538783b23ecb900e5f6ef",
+      "bytes": 484,
+      "format": "SVG",
+      "dimensions": {
+        "width": "25",
+        "height": "25"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonEdit1",
+      "path": "res://assets/ui/figma/2_IkonEdit1_490ca.svg",
+      "sha256": "9fcaaa9721c82d1927540ba90e5fc180a79ce392048f84eb36f627ab0bc09ff8",
+      "bytes": 551,
+      "format": "SVG",
+      "dimensions": {
+        "width": "35",
+        "height": "35"
+      }
+    },
+    {
+      "screen": 2,
+      "slot": "imgIkonBack",
+      "path": "res://assets/ui/figma/2_IkonBack_09c0e.svg",
+      "sha256": "662ac5165a95b273e90e4736aca065b88647fabce16626bc89d97bc2f4b8a0d2",
+      "bytes": 333,
+      "format": "SVG",
+      "dimensions": {
+        "width": "35",
+        "height": "35"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgNaraRaporStatistik",
+      "path": "res://assets/ui/figma/3_NaraRaporStatistik_e7034.png",
+      "sha256": "f67275c7a0f5922716038ec0f320050a8b726194425825dab55c626c43217e34",
+      "bytes": 293857,
+      "format": "PNG",
+      "dimensions": [
+        500,
+        790
+      ]
+    },
+    {
+      "screen": 3,
+      "slot": "imgRiakSamudra",
+      "path": "res://assets/ui/figma/3_RiakSamudra_9a926.svg",
+      "sha256": "293765f7eb1351897f8fb0d42abf5c1081ba8e8b07934e23b61ba850befb3d49",
+      "bytes": 408,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "14"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgIkonCoin",
+      "path": "res://assets/ui/figma/3_IkonCoin_3587d.svg",
+      "sha256": "0ab0bcd2f6c1e3792f80109c6fe5def3227c9f4f44d950b1126e292701ff18d5",
+      "bytes": 1584,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36.0392",
+        "height": "36.0392"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgIkonEconomy",
+      "path": "res://assets/ui/figma/3_IkonEconomy_95a74.svg",
+      "sha256": "32a19bae1c5b3cd7110ceb039363a2f80771dd99be994f63d6a962ec932ceb04",
+      "bytes": 666,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36.0392",
+        "height": "36.0392"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgIkonHeart",
+      "path": "res://assets/ui/figma/3_IkonHeart_01c17.svg",
+      "sha256": "afa49a20657e3ab0c25e3ea0fa54a9773f8ebcfcffa16a73f81e91a6d9a0e32d",
+      "bytes": 995,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36.0392",
+        "height": "36.0392"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgIkonTrust",
+      "path": "res://assets/ui/figma/3_IkonTrust_cb3e2.svg",
+      "sha256": "2a7b630d337a23aafb83a145f5ae442c2db2d1e2909e9f6f041813d6c2001d43",
+      "bytes": 543,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36.0392",
+        "height": "36.0392"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgIkonShield",
+      "path": "res://assets/ui/figma/3_IkonShield_6bbe1.svg",
+      "sha256": "3f6078199dd1fd915b8303c4758ae7011676a4d3a69cbcce61010f32b6de0650",
+      "bytes": 666,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36.0392",
+        "height": "36.0392"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgIkonLeaf",
+      "path": "res://assets/ui/figma/3_IkonLeaf_e73c5.svg",
+      "sha256": "a0d763b4036a4ed7c298ba2d63c87b3bede405532bb9d916ca75b164d39c0001",
+      "bytes": 681,
+      "format": "SVG",
+      "dimensions": {
+        "width": "36.0392",
+        "height": "36.0392"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgIkonBack",
+      "path": "res://assets/ui/figma/3_IkonBack_09c0e.svg",
+      "sha256": "662ac5165a95b273e90e4736aca065b88647fabce16626bc89d97bc2f4b8a0d2",
+      "bytes": 333,
+      "format": "SVG",
+      "dimensions": {
+        "width": "35",
+        "height": "35"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgAreaDukunganRakyat",
+      "path": "res://assets/ui/figma/3_AreaDukunganRakyat_aea7e.svg",
+      "sha256": "7923f0caa09874707f2e25a7b6f7ff6da5fab63ed95e32f71252c72ab00583e8",
+      "bytes": 529,
+      "format": "SVG",
+      "dimensions": {
+        "width": "812",
+        "height": "165"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgTren747572Persen",
+      "path": "res://assets/ui/figma/3_Tren747572Persen_4dafc.svg",
+      "sha256": "ef6be0b016e66b639b18e0da26b625e0639ffc1ef4e4c7ea6cbc0fa685d59eca",
+      "bytes": 321,
+      "format": "SVG",
+      "dimensions": {
+        "width": "818",
+        "height": "12.6"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgPekan174Persen",
+      "path": "res://assets/ui/figma/3_Pekan174Persen_ba225.svg",
+      "sha256": "74a309a56645f637b312997408d4948277fe8d58bb0d08c7f84925f9dce8d04c",
+      "bytes": 294,
+      "format": "SVG",
+      "dimensions": {
+        "width": "16",
+        "height": "16"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgPekan372Persen",
+      "path": "res://assets/ui/figma/3_Pekan372Persen_26b73.svg",
+      "sha256": "7c16e1ee46f2a6888773a372c5d3602f72cf841675e6186cf2c6eb93ac1fa705",
+      "bytes": 298,
+      "format": "SVG",
+      "dimensions": {
+        "width": "20",
+        "height": "20"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgIkonEconomy1",
+      "path": "res://assets/ui/figma/3_IkonEconomy1_990b3.svg",
+      "sha256": "51f3b3de6fcc3bf9d03a8dd1362821a5ad506d99f51478bf6eeecd475208cbfc",
+      "bytes": 608,
+      "format": "SVG",
+      "dimensions": {
+        "width": "62",
+        "height": "62"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgIkonHeart1",
+      "path": "res://assets/ui/figma/3_IkonHeart1_98fd3.svg",
+      "sha256": "646357907f161bc731bff0acbec9e846ad0399dfa2ed38411f5765b7f36ac94b",
+      "bytes": 934,
+      "format": "SVG",
+      "dimensions": {
+        "width": "34",
+        "height": "34"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgIkonShield1",
+      "path": "res://assets/ui/figma/3_IkonShield1_b28f2.svg",
+      "sha256": "d754fe987148a3dc505eb6126707f4137985d6db774ce95ceb82f369965e9ace",
+      "bytes": 577,
+      "format": "SVG",
+      "dimensions": {
+        "width": "34",
+        "height": "34"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgIkonLeaf1",
+      "path": "res://assets/ui/figma/3_IkonLeaf1_023b9.svg",
+      "sha256": "23bdd7e7b06fcb9c27678ade5538e73a81538f9cb47607d3f149ce66187a7816",
+      "bytes": 643,
+      "format": "SVG",
+      "dimensions": {
+        "width": "34",
+        "height": "34"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgSorotanRaporKarakter",
+      "path": "res://assets/ui/figma/3_SorotanRaporKarakter_2e951.svg",
+      "sha256": "9d2945096498c8411ea26d940022f19aad43af1ef14c38262aae04f5b5689ede",
+      "bytes": 553,
+      "format": "SVG",
+      "dimensions": {
+        "width": "412",
+        "height": "412"
+      }
+    },
+    {
+      "screen": 3,
+      "slot": "imgPanggungRaporKarakter",
+      "path": "res://assets/ui/figma/3_PanggungRaporKarakter_9b48d.svg",
+      "sha256": "15e2b92a4e3dffda1391293942a24741cc31ec7c313cc25514c060ea0f73fe3c",
+      "bytes": 570,
+      "format": "SVG",
+      "dimensions": {
+        "width": "334",
+        "height": "39"
+      }
+    },
+    {
+      "screen": 4,
+      "slot": "imgRiakSamudra",
+      "path": "res://assets/ui/figma/4_RiakSamudra_9a926.svg",
+      "sha256": "293765f7eb1351897f8fb0d42abf5c1081ba8e8b07934e23b61ba850befb3d49",
+      "bytes": 408,
+      "format": "SVG",
+      "dimensions": {
+        "width": "52",
+        "height": "14"
+      }
+    },
+    {
+      "screen": 4,
+      "slot": "imgIkonBack",
+      "path": "res://assets/ui/figma/4_IkonBack_09c0e.svg",
+      "sha256": "662ac5165a95b273e90e4736aca065b88647fabce16626bc89d97bc2f4b8a0d2",
+      "bytes": 333,
+      "format": "SVG",
+      "dimensions": {
+        "width": "35",
+        "height": "35"
+      }
+    },
+    {
+      "screen": 4,
+      "slot": "imgIkonHelp",
+      "path": "res://assets/ui/figma/4_IkonHelp_8c2b6.svg",
+      "sha256": "d560111322f332ca443a6228ea6416ac7ed48bde4fbf2e7db95c5b21cc71e302",
+      "bytes": 873,
+      "format": "SVG",
+      "dimensions": {
+        "width": "31",
+        "height": "31"
+      }
+    },
+    {
+      "screen": 4,
+      "slot": "imgIkonSpeaker",
+      "path": "res://assets/ui/figma/4_IkonSpeaker_18429.svg",
+      "sha256": "59b220029c1d9d4493a62c0bb2c461c68a97506b88c2c519e6c648caaab09a54",
+      "bytes": 720,
+      "format": "SVG",
+      "dimensions": {
+        "width": "29",
+        "height": "29"
+      }
+    },
+    {
+      "screen": 4,
+      "slot": "imgIkonScreen",
+      "path": "res://assets/ui/figma/4_IkonScreen_bbc32.svg",
+      "sha256": "eac46e89ad769e9e82be12c29d4ccbee4715be000874260e0b84839343afe728",
+      "bytes": 720,
+      "format": "SVG",
+      "dimensions": {
+        "width": "29",
+        "height": "29"
+      }
+    },
+    {
+      "screen": 4,
+      "slot": "imgIkonDown",
+      "path": "res://assets/ui/figma/4_IkonDown_ad861.svg",
+      "sha256": "057c2760e6f4ab3771ca4cf921257697a7f557ba0b9c4a384de5efaf71ead7dd",
+      "bytes": 338,
+      "format": "SVG",
+      "dimensions": {
+        "width": "22",
+        "height": "22"
+      }
+    },
+    {
+      "screen": 4,
+      "slot": "imgIkonKeyboard",
+      "path": "res://assets/ui/figma/4_IkonKeyboard_f4f20.svg",
+      "sha256": "f47b6a061d89b56310ca14b1d9d803164c10b6c41be787e80a37dd0bf95e3bc3",
+      "bytes": 845,
+      "format": "SVG",
+      "dimensions": {
+        "width": "29",
+        "height": "29"
+      }
+    },
+    {
+      "screen": 4,
+      "slot": "imgIkonEye",
+      "path": "res://assets/ui/figma/4_IkonEye_ccd74.svg",
+      "sha256": "6ac36e7a1a1f40b7ed31c3c9704c3c4dd0fb63be21596fda9468e4cf340d7250",
+      "bytes": 816,
+      "format": "SVG",
+      "dimensions": {
+        "width": "29",
+        "height": "29"
+      }
+    },
+    {
+      "screen": 4,
+      "slot": "imgIkonDown1",
+      "path": "res://assets/ui/figma/4_IkonDown1_2b88f.svg",
+      "sha256": "9ae9cb0a6196e675d3d4a18136983b425b3cd5093f98aca7b6db7c0377bbb020",
+      "bytes": 336,
+      "format": "SVG",
+      "dimensions": {
+        "width": "20",
+        "height": "20"
+      }
+    },
+    {
+      "screen": 4,
+      "slot": "imgIkonCross",
+      "path": "res://assets/ui/figma/4_IkonCross_f4d53.svg",
+      "sha256": "f4f4b395f6e305f50876d4c1560ae56647287d874eb44b10653df85fa5040b1b",
+      "bytes": 364,
+      "format": "SVG",
+      "dimensions": {
+        "width": "22",
+        "height": "22"
+      }
+    },
+    {
+      "screen": 4,
+      "slot": "imgIkonSave",
+      "path": "res://assets/ui/figma/4_IkonSave_1a6e9.svg",
+      "sha256": "9d46353b89cd8c46b686e32925191a985d1eb6b7b30340417c9ca45d377ee737",
+      "bytes": 586,
+      "format": "SVG",
+      "dimensions": {
+        "width": "31",
+        "height": "31"
+      }
+    },
+    {
+      "screen": 5,
+      "slot": "imgVector",
+      "path": "res://assets/ui/figma/5_Vector_274ce.png",
+      "sha256": "d3db20245525892a89f46eca5d7d6ff9801559460c87284bbcaa8c746f6b6bf6",
+      "bytes": 677588,
+      "format": "PNG",
+      "dimensions": [
+        2160,
+        751
+      ]
+    },
+    {
+      "screen": 5,
+      "slot": "imgAvatarPenasihatPemerintah",
+      "path": "res://assets/ui/figma/5_AvatarPenasihatPemerintah_c2bae.jpg",
+      "sha256": "459a645f8a274da85ce1561fe6b1c58f6e3816311c05bba534835d092cb80887",
+      "bytes": 109396,
+      "format": "JPEG",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "screen": 5,
+      "slot": "imgGroup1075",
+      "path": "res://assets/ui/figma/5_Group1075_2bd75.svg",
+      "sha256": "c85e4c876f75e08771bce4349b95a2ef86ee951771fa75f8ee0fca31214239d6",
+      "bytes": 1108,
+      "format": "SVG",
+      "dimensions": {
+        "width": "24.3375",
+        "height": "33.9625"
+      }
+    },
+    {
+      "screen": 5,
+      "slot": "imgIkonClose",
+      "path": "res://assets/ui/figma/5_IkonClose_c2df9.svg",
+      "sha256": "94961765193881694719936557c87f2ee1f09697cfcaad11f2daa5dc1aca7f5e",
+      "bytes": 408,
+      "format": "SVG",
+      "dimensions": {
+        "width": "25",
+        "height": "25"
+      }
+    },
+    {
+      "screen": 5,
+      "slot": "imgIkonNews",
+      "path": "res://assets/ui/figma/5_IkonNews_14b88.svg",
+      "sha256": "26eaac899d9d232013086b4e3cd17527f3c118cab086d4f05b1be2d3aed0cc67",
+      "bytes": 604,
+      "format": "SVG",
+      "dimensions": {
+        "width": "40",
+        "height": "40"
+      }
+    },
+    {
+      "screen": 5,
+      "slot": "imgIkonFood",
+      "path": "res://assets/ui/figma/5_IkonFood_ff4e5.svg",
+      "sha256": "68a4cc9f648c92cfbcb33c8518cbfaa807258bc309d5433dbbfc4b5ecc59d0f1",
+      "bytes": 720,
+      "format": "SVG",
+      "dimensions": {
+        "width": "43",
+        "height": "43"
+      }
+    },
+    {
+      "screen": 5,
+      "slot": "imgIkonTruck",
+      "path": "res://assets/ui/figma/5_IkonTruck_43201.svg",
+      "sha256": "d6f5741ddda4bd7dee12282509199f024594b587105a97ff0cb892bf07280b2d",
+      "bytes": 1323,
+      "format": "SVG",
+      "dimensions": {
+        "width": "43",
+        "height": "43"
+      }
+    },
+    {
+      "screen": 5,
+      "slot": "imgIkonCheck",
+      "path": "res://assets/ui/figma/5_IkonCheck_db279.svg",
+      "sha256": "3c568a92cb82b8d15ebdb9d8f861f7f2bfba4ff8556e6f257bd718f6b50801ab",
+      "bytes": 345,
+      "format": "SVG",
+      "dimensions": {
+        "width": "20",
+        "height": "20"
+      }
+    },
+    {
+      "screen": 5,
+      "slot": "imgIkonPrice",
+      "path": "res://assets/ui/figma/5_IkonPrice_3368d.svg",
+      "sha256": "ea839db929212eb7bfc029d8ea2f3da02bee27e465f5858fa1b0e9291e724fad",
+      "bytes": 861,
+      "format": "SVG",
+      "dimensions": {
+        "width": "43",
+        "height": "43"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgAvatarPresidenNaraAdinata",
+      "path": "res://assets/ui/figma/6_AvatarPresidenNaraAdinata_ede4f.jpg",
+      "sha256": "890b24eb81fab29762b8198d512d58cd98047fc232463cbe34f2cc0931848022",
+      "bytes": 114382,
+      "format": "JPEG",
+      "dimensions": [
+        1376,
+        768
+      ]
+    },
+    {
+      "screen": 6,
+      "slot": "imgVector",
+      "path": "res://assets/ui/figma/6_Vector_0d776.png",
+      "sha256": "7ae783659b4ee09e745e1568c11d3d7f1e051591bfac2fa70b315bd981f08c82",
+      "bytes": 184130,
+      "format": "PNG",
+      "dimensions": [
+        983,
+        343
+      ]
+    },
+    {
+      "screen": 6,
+      "slot": "imgLencanaKuartalSelesai",
+      "path": "res://assets/ui/figma/6_LencanaKuartalSelesai_4af53.svg",
+      "sha256": "177f5113fd22d01a6940e741a2a4ecf7472967f2ab16458f26a7b0ce53d035c0",
+      "bytes": 1470,
+      "format": "SVG",
+      "dimensions": {
+        "width": "86.5461",
+        "height": "87.3103"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgTandaKuartalTuntas",
+      "path": "res://assets/ui/figma/6_TandaKuartalTuntas_a7d57.svg",
+      "sha256": "ba9be56a3661616e9a74b13664a9660ca6f104994ef22c992ee45cf36873dcf3",
+      "bytes": 334,
+      "format": "SVG",
+      "dimensions": {
+        "width": "45",
+        "height": "45"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgIkonCoin",
+      "path": "res://assets/ui/figma/6_IkonCoin_85d48.svg",
+      "sha256": "196b3990d9cfb8dca2a71356253d5d1db49e287581ca79a93a05d310414b1f8d",
+      "bytes": 1266,
+      "format": "SVG",
+      "dimensions": {
+        "width": "30",
+        "height": "30"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgSebelumKeSesudah",
+      "path": "res://assets/ui/figma/6_SebelumKeSesudah_ea600.svg",
+      "sha256": "7d6084bb9aaa64c814be64bf87073477b5e81e923dd060fc8888c3d5e038bdd7",
+      "bytes": 339,
+      "format": "SVG",
+      "dimensions": {
+        "width": "20",
+        "height": "20"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgIkonEconomy",
+      "path": "res://assets/ui/figma/6_IkonEconomy_bd7a7.svg",
+      "sha256": "921270fbdb57d4f5c8e057ca5604fc3ac03ceb75d2303de92f3fd92f9662470b",
+      "bytes": 573,
+      "format": "SVG",
+      "dimensions": {
+        "width": "30",
+        "height": "30"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgIkonHeart",
+      "path": "res://assets/ui/figma/6_IkonHeart_18bec.svg",
+      "sha256": "91fe37cd96fcaaf91d7d5327fdf7a28cfe98e9fdb08a72e59a6dfa05d5931cdb",
+      "bytes": 911,
+      "format": "SVG",
+      "dimensions": {
+        "width": "30",
+        "height": "30"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgIkonTrust",
+      "path": "res://assets/ui/figma/6_IkonTrust_dce62.svg",
+      "sha256": "9027875a6d45a566d94ff441edd8c9cf28c9cc1a29d90dc227b92b4cbe32b17e",
+      "bytes": 442,
+      "format": "SVG",
+      "dimensions": {
+        "width": "30",
+        "height": "30"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgIkonShield",
+      "path": "res://assets/ui/figma/6_IkonShield_71b29.svg",
+      "sha256": "f13216cbcbb528fd2e37758d9550c4c3a7d5c9a58707aa6b9bfa4650067ae005",
+      "bytes": 547,
+      "format": "SVG",
+      "dimensions": {
+        "width": "30",
+        "height": "30"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgIkonLeaf",
+      "path": "res://assets/ui/figma/6_IkonLeaf_6e1e9.svg",
+      "sha256": "ff8ad10d142eec64f0bd9d8f461ca833acc823b1e9ebd2975da07c3967456286",
+      "bytes": 555,
+      "format": "SVG",
+      "dimensions": {
+        "width": "30",
+        "height": "30"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgSorotanPerubahanBesarJawaTimur",
+      "path": "res://assets/ui/figma/6_SorotanPerubahanBesarJawaTimur_e92ce.svg",
+      "sha256": "ff830c15783cddc886c67f63de7681e8a024b24cabdf5179a7b1e0908fe03a46",
+      "bytes": 496,
+      "format": "SVG",
+      "dimensions": {
+        "width": "55",
+        "height": "24"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgBentukKategoriDampak",
+      "path": "res://assets/ui/figma/6_BentukKategoriDampak_c1fa7.svg",
+      "sha256": "c97a1664a329cd2264261141409559a20d8433c1da3cabcfd8a22243b777eadc",
+      "bytes": 503,
+      "format": "SVG",
+      "dimensions": {
+        "width": "29",
+        "height": "29"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgBentukKategoriDampak1",
+      "path": "res://assets/ui/figma/6_BentukKategoriDampak1_0ad1e.svg",
+      "sha256": "8648e0f587706f9e7a3f5d2e110d4ca3274f02b996e7f21889de953ef854e950",
+      "bytes": 631,
+      "format": "SVG",
+      "dimensions": {
+        "width": "27",
+        "height": "27"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgBentukKategoriDampak2",
+      "path": "res://assets/ui/figma/6_BentukKategoriDampak2_aa575.svg",
+      "sha256": "276fe97839ac72b89d4ca63f04738775ec0003ccc7a49ee80103e07d38d0e20a",
+      "bytes": 488,
+      "format": "SVG",
+      "dimensions": {
+        "width": "29",
+        "height": "29"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgBentukKategoriDampak3",
+      "path": "res://assets/ui/figma/6_BentukKategoriDampak3_27965.svg",
+      "sha256": "4ab2870ec3feb1206f98faa952cd1743dcffcc2bd91dcc70fd2bac10469bd9af",
+      "bytes": 506,
+      "format": "SVG",
+      "dimensions": {
+        "width": "27",
+        "height": "27"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgBentukKategoriDampak4",
+      "path": "res://assets/ui/figma/6_BentukKategoriDampak4_00378.svg",
+      "sha256": "d2006da2d60b61b320923acb1c99dcb7804518ff7ea3ade4339314ec42308521",
+      "bytes": 489,
+      "format": "SVG",
+      "dimensions": {
+        "width": "27",
+        "height": "27"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgIkonTruck",
+      "path": "res://assets/ui/figma/6_IkonTruck_4e1a8.svg",
+      "sha256": "1a798537d7cd93e2b2b6498b791cce78619691bdacf29e75f2dd3136a10c1198",
+      "bytes": 1316,
+      "format": "SVG",
+      "dimensions": {
+        "width": "29",
+        "height": "29"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgIkonPrice",
+      "path": "res://assets/ui/figma/6_IkonPrice_9f990.svg",
+      "sha256": "6bd96c114a2ced85e9ebc34132dc31c38c7e4a258ec15761065acc958dd9910d",
+      "bytes": 855,
+      "format": "SVG",
+      "dimensions": {
+        "width": "29",
+        "height": "29"
+      }
+    },
+    {
+      "screen": 6,
+      "slot": "imgIkonTrust1",
+      "path": "res://assets/ui/figma/6_IkonTrust1_cb45a.svg",
+      "sha256": "81e1347c720994a28930bdff7ecbb56b84b6914edd12c4905128d8f6d296b515",
+      "bytes": 509,
+      "format": "SVG",
+      "dimensions": {
+        "width": "29",
+        "height": "29"
+      }
+    }
+  ]
+}

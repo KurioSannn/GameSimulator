@@ -1,0 +1,602 @@
+[
+  {
+    "screen": 0,
+    "slot": "imgDuniaNusantaraDanPresidenNara",
+    "path": "res://assets/ui/figma/0_DuniaNusantaraDanPresidenNara_ede4f.jpg"
+  },
+  {
+    "screen": 0,
+    "slot": "imgIkonGlobe",
+    "path": "res://assets/ui/figma/0_IkonGlobe_2b191.svg"
+  },
+  {
+    "screen": 0,
+    "slot": "imgIkonHelp",
+    "path": "res://assets/ui/figma/0_IkonHelp_561a7.svg"
+  },
+  {
+    "screen": 0,
+    "slot": "imgMenuPengaturanGayaReferensi",
+    "path": "res://assets/ui/figma/0_MenuPengaturanGayaReferensi_de8ca.svg"
+  },
+  {
+    "screen": 0,
+    "slot": "imgMenuPengaturanGayaReferensi1",
+    "path": "res://assets/ui/figma/0_MenuPengaturanGayaReferensi1_00ca0.svg"
+  },
+  {
+    "screen": 0,
+    "slot": "imgGroup465",
+    "path": "res://assets/ui/figma/0_Group465_3d693.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgVector",
+    "path": "res://assets/ui/figma/1_Vector_f9816.png"
+  },
+  {
+    "screen": 1,
+    "slot": "imgPotretPresidenNara",
+    "path": "res://assets/ui/figma/1_PotretPresidenNara_ede4f.jpg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgRiakSamudra",
+    "path": "res://assets/ui/figma/1_RiakSamudra_9a926.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgKetebalanDaratan",
+    "path": "res://assets/ui/figma/1_KetebalanDaratan_9f75a.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgLingkarLokasiTerpilih",
+    "path": "res://assets/ui/figma/1_LingkarLokasiTerpilih_b2d86.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgLingkarLokasiTerpilih1",
+    "path": "res://assets/ui/figma/1_LingkarLokasiTerpilih1_b52bf.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgPenandaLokasi",
+    "path": "res://assets/ui/figma/1_PenandaLokasi_bb463.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgPenandaLokasi1",
+    "path": "res://assets/ui/figma/1_PenandaLokasi1_c11eb.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonCoin",
+    "path": "res://assets/ui/figma/1_IkonCoin_a79b5.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonEconomy",
+    "path": "res://assets/ui/figma/1_IkonEconomy_57d57.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonHeart",
+    "path": "res://assets/ui/figma/1_IkonHeart_2a33d.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonTrust",
+    "path": "res://assets/ui/figma/1_IkonTrust_9a409.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonShield",
+    "path": "res://assets/ui/figma/1_IkonShield_3848d.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonLeaf",
+    "path": "res://assets/ui/figma/1_IkonLeaf_9dc75.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgMenuPengaturan",
+    "path": "res://assets/ui/figma/1_MenuPengaturan_08e83.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgMenuPengaturan1",
+    "path": "res://assets/ui/figma/1_MenuPengaturan1_a14e5.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgGroup465",
+    "path": "res://assets/ui/figma/1_Group465_7b563.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonCouncil",
+    "path": "res://assets/ui/figma/1_IkonCouncil_92a95.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonScroll",
+    "path": "res://assets/ui/figma/1_IkonScroll_6cf68.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonCoin1",
+    "path": "res://assets/ui/figma/1_IkonCoin1_287b6.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonBook",
+    "path": "res://assets/ui/figma/1_IkonBook_e84c0.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonFlag",
+    "path": "res://assets/ui/figma/1_IkonFlag_b219b.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonPlus",
+    "path": "res://assets/ui/figma/1_IkonPlus_4a793.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgIkonMinus",
+    "path": "res://assets/ui/figma/1_IkonMinus_2ed7b.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgRectangle44",
+    "path": "res://assets/ui/figma/1_Rectangle44_97b00.svg"
+  },
+  {
+    "screen": 1,
+    "slot": "imgGroup205",
+    "path": "res://assets/ui/figma/1_Group205_17d3a.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgPotretPresidenNara",
+    "path": "res://assets/ui/figma/2_PotretPresidenNara_ede4f.jpg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgNaraAdinataKarakterPemain",
+    "path": "res://assets/ui/figma/2_NaraAdinataKarakterPemain_e7034.png"
+  },
+  {
+    "screen": 2,
+    "slot": "imgRiakSamudra",
+    "path": "res://assets/ui/figma/2_RiakSamudra_9a926.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonEdit",
+    "path": "res://assets/ui/figma/2_IkonEdit_e247f.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgTahun1",
+    "path": "res://assets/ui/figma/2_Tahun1_a8c75.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgTahun2",
+    "path": "res://assets/ui/figma/2_Tahun2_50132.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonTrust",
+    "path": "res://assets/ui/figma/2_IkonTrust_8a016.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonAlert",
+    "path": "res://assets/ui/figma/2_IkonAlert_e8ccf.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonEye",
+    "path": "res://assets/ui/figma/2_IkonEye_d6c11.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgMedaliMandatPertama",
+    "path": "res://assets/ui/figma/2_MedaliMandatPertama_fdc19.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgTepiMedaliMandatPertama",
+    "path": "res://assets/ui/figma/2_TepiMedaliMandatPertama_5db9b.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonStar",
+    "path": "res://assets/ui/figma/2_IkonStar_6d45e.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgMedaliKenaliNusantara",
+    "path": "res://assets/ui/figma/2_MedaliKenaliNusantara_41afc.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgTepiMedaliKenaliNusantara",
+    "path": "res://assets/ui/figma/2_TepiMedaliKenaliNusantara_35c0d.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonCompass",
+    "path": "res://assets/ui/figma/2_IkonCompass_aca1c.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgMedaliSolusiPertama",
+    "path": "res://assets/ui/figma/2_MedaliSolusiPertama_77113.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgTepiMedaliSolusiPertama",
+    "path": "res://assets/ui/figma/2_TepiMedaliSolusiPertama_9b0d9.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonLock",
+    "path": "res://assets/ui/figma/2_IkonLock_d46f1.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgSorotanKarakter",
+    "path": "res://assets/ui/figma/2_SorotanKarakter_3bc1d.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgLingkarPanggung",
+    "path": "res://assets/ui/figma/2_LingkarPanggung_4ff08.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgLandasanKarakter",
+    "path": "res://assets/ui/figma/2_LandasanKarakter_3a1fc.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgPermukaanPanggung",
+    "path": "res://assets/ui/figma/2_PermukaanPanggung_bfc4c.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgKilauPanggung",
+    "path": "res://assets/ui/figma/2_KilauPanggung_d0302.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonStar1",
+    "path": "res://assets/ui/figma/2_IkonStar1_9b913.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonStar2",
+    "path": "res://assets/ui/figma/2_IkonStar2_a9217.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonStar3",
+    "path": "res://assets/ui/figma/2_IkonStar3_de1af.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonStar4",
+    "path": "res://assets/ui/figma/2_IkonStar4_d6378.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonEdit1",
+    "path": "res://assets/ui/figma/2_IkonEdit1_490ca.svg"
+  },
+  {
+    "screen": 2,
+    "slot": "imgIkonBack",
+    "path": "res://assets/ui/figma/2_IkonBack_09c0e.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgNaraRaporStatistik",
+    "path": "res://assets/ui/figma/3_NaraRaporStatistik_e7034.png"
+  },
+  {
+    "screen": 3,
+    "slot": "imgRiakSamudra",
+    "path": "res://assets/ui/figma/3_RiakSamudra_9a926.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgIkonCoin",
+    "path": "res://assets/ui/figma/3_IkonCoin_3587d.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgIkonEconomy",
+    "path": "res://assets/ui/figma/3_IkonEconomy_95a74.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgIkonHeart",
+    "path": "res://assets/ui/figma/3_IkonHeart_01c17.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgIkonTrust",
+    "path": "res://assets/ui/figma/3_IkonTrust_cb3e2.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgIkonShield",
+    "path": "res://assets/ui/figma/3_IkonShield_6bbe1.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgIkonLeaf",
+    "path": "res://assets/ui/figma/3_IkonLeaf_e73c5.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgIkonBack",
+    "path": "res://assets/ui/figma/3_IkonBack_09c0e.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgAreaDukunganRakyat",
+    "path": "res://assets/ui/figma/3_AreaDukunganRakyat_aea7e.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgTren747572Persen",
+    "path": "res://assets/ui/figma/3_Tren747572Persen_4dafc.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgPekan174Persen",
+    "path": "res://assets/ui/figma/3_Pekan174Persen_ba225.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgPekan372Persen",
+    "path": "res://assets/ui/figma/3_Pekan372Persen_26b73.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgIkonEconomy1",
+    "path": "res://assets/ui/figma/3_IkonEconomy1_990b3.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgIkonHeart1",
+    "path": "res://assets/ui/figma/3_IkonHeart1_98fd3.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgIkonShield1",
+    "path": "res://assets/ui/figma/3_IkonShield1_b28f2.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgIkonLeaf1",
+    "path": "res://assets/ui/figma/3_IkonLeaf1_023b9.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgSorotanRaporKarakter",
+    "path": "res://assets/ui/figma/3_SorotanRaporKarakter_2e951.svg"
+  },
+  {
+    "screen": 3,
+    "slot": "imgPanggungRaporKarakter",
+    "path": "res://assets/ui/figma/3_PanggungRaporKarakter_9b48d.svg"
+  },
+  {
+    "screen": 4,
+    "slot": "imgRiakSamudra",
+    "path": "res://assets/ui/figma/4_RiakSamudra_9a926.svg"
+  },
+  {
+    "screen": 4,
+    "slot": "imgIkonBack",
+    "path": "res://assets/ui/figma/4_IkonBack_09c0e.svg"
+  },
+  {
+    "screen": 4,
+    "slot": "imgIkonHelp",
+    "path": "res://assets/ui/figma/4_IkonHelp_8c2b6.svg"
+  },
+  {
+    "screen": 4,
+    "slot": "imgIkonSpeaker",
+    "path": "res://assets/ui/figma/4_IkonSpeaker_18429.svg"
+  },
+  {
+    "screen": 4,
+    "slot": "imgIkonScreen",
+    "path": "res://assets/ui/figma/4_IkonScreen_bbc32.svg"
+  },
+  {
+    "screen": 4,
+    "slot": "imgIkonDown",
+    "path": "res://assets/ui/figma/4_IkonDown_ad861.svg"
+  },
+  {
+    "screen": 4,
+    "slot": "imgIkonKeyboard",
+    "path": "res://assets/ui/figma/4_IkonKeyboard_f4f20.svg"
+  },
+  {
+    "screen": 4,
+    "slot": "imgIkonEye",
+    "path": "res://assets/ui/figma/4_IkonEye_ccd74.svg"
+  },
+  {
+    "screen": 4,
+    "slot": "imgIkonDown1",
+    "path": "res://assets/ui/figma/4_IkonDown1_2b88f.svg"
+  },
+  {
+    "screen": 4,
+    "slot": "imgIkonCross",
+    "path": "res://assets/ui/figma/4_IkonCross_f4d53.svg"
+  },
+  {
+    "screen": 4,
+    "slot": "imgIkonSave",
+    "path": "res://assets/ui/figma/4_IkonSave_1a6e9.svg"
+  },
+  {
+    "screen": 5,
+    "slot": "imgVector",
+    "path": "res://assets/ui/figma/5_Vector_274ce.png"
+  },
+  {
+    "screen": 5,
+    "slot": "imgAvatarPenasihatPemerintah",
+    "path": "res://assets/ui/figma/5_AvatarPenasihatPemerintah_c2bae.jpg"
+  },
+  {
+    "screen": 5,
+    "slot": "imgGroup1075",
+    "path": "res://assets/ui/figma/5_Group1075_2bd75.svg"
+  },
+  {
+    "screen": 5,
+    "slot": "imgIkonClose",
+    "path": "res://assets/ui/figma/5_IkonClose_c2df9.svg"
+  },
+  {
+    "screen": 5,
+    "slot": "imgIkonNews",
+    "path": "res://assets/ui/figma/5_IkonNews_14b88.svg"
+  },
+  {
+    "screen": 5,
+    "slot": "imgIkonFood",
+    "path": "res://assets/ui/figma/5_IkonFood_ff4e5.svg"
+  },
+  {
+    "screen": 5,
+    "slot": "imgIkonTruck",
+    "path": "res://assets/ui/figma/5_IkonTruck_43201.svg"
+  },
+  {
+    "screen": 5,
+    "slot": "imgIkonCheck",
+    "path": "res://assets/ui/figma/5_IkonCheck_db279.svg"
+  },
+  {
+    "screen": 5,
+    "slot": "imgIkonPrice",
+    "path": "res://assets/ui/figma/5_IkonPrice_3368d.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgAvatarPresidenNaraAdinata",
+    "path": "res://assets/ui/figma/6_AvatarPresidenNaraAdinata_ede4f.jpg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgVector",
+    "path": "res://assets/ui/figma/6_Vector_0d776.png"
+  },
+  {
+    "screen": 6,
+    "slot": "imgLencanaKuartalSelesai",
+    "path": "res://assets/ui/figma/6_LencanaKuartalSelesai_4af53.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgTandaKuartalTuntas",
+    "path": "res://assets/ui/figma/6_TandaKuartalTuntas_a7d57.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgIkonCoin",
+    "path": "res://assets/ui/figma/6_IkonCoin_85d48.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgSebelumKeSesudah",
+    "path": "res://assets/ui/figma/6_SebelumKeSesudah_ea600.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgIkonEconomy",
+    "path": "res://assets/ui/figma/6_IkonEconomy_bd7a7.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgIkonHeart",
+    "path": "res://assets/ui/figma/6_IkonHeart_18bec.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgIkonTrust",
+    "path": "res://assets/ui/figma/6_IkonTrust_dce62.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgIkonShield",
+    "path": "res://assets/ui/figma/6_IkonShield_71b29.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgIkonLeaf",
+    "path": "res://assets/ui/figma/6_IkonLeaf_6e1e9.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgSorotanPerubahanBesarJawaTimur",
+    "path": "res://assets/ui/figma/6_SorotanPerubahanBesarJawaTimur_e92ce.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgBentukKategoriDampak",
+    "path": "res://assets/ui/figma/6_BentukKategoriDampak_c1fa7.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgBentukKategoriDampak1",
+    "path": "res://assets/ui/figma/6_BentukKategoriDampak1_0ad1e.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgBentukKategoriDampak2",
+    "path": "res://assets/ui/figma/6_BentukKategoriDampak2_aa575.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgBentukKategoriDampak3",
+    "path": "res://assets/ui/figma/6_BentukKategoriDampak3_27965.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgBentukKategoriDampak4",
+    "path": "res://assets/ui/figma/6_BentukKategoriDampak4_00378.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgIkonTruck",
+    "path": "res://assets/ui/figma/6_IkonTruck_4e1a8.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgIkonPrice",
+    "path": "res://assets/ui/figma/6_IkonPrice_9f990.svg"
+  },
+  {
+    "screen": 6,
+    "slot": "imgIkonTrust1",
+    "path": "res://assets/ui/figma/6_IkonTrust1_cb45a.svg"
+  }
+]
