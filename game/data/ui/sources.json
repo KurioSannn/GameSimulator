@@ -1,0 +1,199 @@
+{
+  "schema": "nusantara.ui_sources/1",
+  "registry_sha256": "29d06a5104cd995206d43ab8884fd103a0ca17ae3921fccce65698103f9ae6a8",
+  "sources": {
+    "SRC-BIG-ADM-KABKOTA": {
+      "source_id": "SRC-BIG-ADM-KABKOTA",
+      "institution": "Badan Informasi Geospasial (BIG)",
+      "title": "Wilayah Administrasi Kabupaten/Kota (Feature Service), geodatabase batas wilayah administrasi kab/kota edisi September 2023",
+      "url": "https://geoservices.big.go.id/rbi/rest/services/Hosted/Wilayah_Administrasi_Kabupaten__Kota/FeatureServer/0",
+      "publication_date": "2023-09 (edition; service description notes later updates incl. April 2025 segment changes — verify)",
+      "retrieved_at": "2026-10-05",
+      "geographic_resolution": "kabupaten/kota polygons (548 features; 514 coded kab/kota + uncoded/disputed areas)",
+      "reference_period": "boundary edition 2023-09",
+      "unit": "geometry EPSG:4326; luaswh area field (unit assumed km2 — VERIFY against BIG field definition)",
+      "status": "verified_ingested",
+      "license_or_terms": "Not stated on service; BIG data generally public. TODO: record BIG terms of use before release."
+    },
+    "SRC-KEMENDAGRI-KODE-2025": {
+      "source_id": "SRC-KEMENDAGRI-KODE-2025",
+      "institution": "Kementerian Dalam Negeri (Ditjen Bina Adwil)",
+      "title": "Kepmendagri No. 300.2.2-2138 Tahun 2025 tentang Pemberian dan Pemutakhiran Kode, Data Wilayah Administrasi Pemerintahan, dan Pulau (amended by Kepmendagri 300.2.2-2430 Tahun 2025, 23 Jun 2025, per secondary source)",
+      "url": null,
+      "geographic_resolution": "provinsi → desa/kelurahan",
+      "reference_period": "2025",
+      "status": "candidate"
+    },
+    "SRC-BNPB-IRBI-2024": {
+      "source_id": "SRC-BNPB-IRBI-2024",
+      "institution": "Badan Nasional Penanggulangan Bencana (BNPB)",
+      "title": "Buku Indeks Risiko Bencana Indonesia (IRBI) Tahun 2024",
+      "url": "https://inarisk.bnpb.go.id/pdf/BUKU%20IRBI%202024.pdf",
+      "publication_date": "2024 edition (exact publication date to be read from the book's colophon)",
+      "retrieved_at": "2026-10-06",
+      "geographic_resolution": "kabupaten/kota",
+      "reference_period": "2024",
+      "unit": "skor indeks risiko (multi-hazard total; per-hazard scores, flood max 36)",
+      "status": "verified_ingested",
+      "license_or_terms": "Official public publication; terms not stated in the PDF text parsed. TODO verify before release."
+    },
+    "SRC-BNPB-CKAN": {
+      "source_id": "SRC-BNPB-CKAN",
+      "institution": "BNPB — Pusat Data Informasi dan Komunikasi Kebencanaan (Pusdatinkom)",
+      "title": "Satu Data Bencana Indonesia, CKAN portal: 'Kompilasi Data Jumlah dan Dampak Kejadian Bencana 2024' (kab/kota tables)",
+      "url": "https://data.bnpb.go.id/api/3/action/package_show?id=kompilasi-data-jumlah-dan-dampak-kejadian-bencana-2024",
+      "retrieved_at": "2026-10-06",
+      "geographic_resolution": "kabupaten/kota",
+      "reference_period": "2024",
+      "status": "verified_ingested",
+      "license_or_terms": "ODbL (per CKAN metadata)"
+    },
+    "SRC-KEMENDAGRI-KODE-2025-SECONDARY": {
+      "source_id": "SRC-KEMENDAGRI-KODE-2025-SECONDARY",
+      "institution": "cahyadsn/wilayah (community GitHub repository, MIT)",
+      "title": "wilayah_level_1_2.sql — transcription 'sesuai Kepmendagri No 300.2.2-2138 Tahun 2025' (file last edit 2026-05-11)",
+      "url": "https://raw.githubusercontent.com/cahyadsn/wilayah/master/db/wilayah_level_1_2.sql",
+      "retrieved_at": "2026-10-05",
+      "status": "secondary_crosscheck",
+      "license_or_terms": "MIT"
+    },
+    "SRC-BPS-WEBAPI": {
+      "source_id": "SRC-BPS-WEBAPI",
+      "institution": "Badan Pusat Statistik",
+      "title": "BPS WebAPI (static/dynamic tables: population, PDRB, IPM, poverty, labor, etc.)",
+      "url": "https://webapi.bps.go.id/developer/",
+      "status": "blocked_credential"
+    },
+    "SRC-DJPK": {
+      "source_id": "SRC-DJPK",
+      "institution": "Kementerian Keuangan — DJPK",
+      "title": "Data APBD / TKD portal",
+      "url": "https://djpk.kemenkeu.go.id/",
+      "status": "unreachable"
+    },
+    "SRC-BNPB-DIBI": {
+      "source_id": "SRC-BNPB-DIBI",
+      "institution": "BNPB",
+      "title": "Data Informasi Bencana Indonesia (DIBI)",
+      "url": "https://dibi.bnpb.go.id/",
+      "status": "verified_reachable"
+    },
+    "SRC-BNPB-GIS": {
+      "source_id": "SRC-BNPB-GIS",
+      "institution": "BNPB",
+      "title": "GIS BNPB",
+      "url": "https://gis.bnpb.go.id/",
+      "status": "verified_reachable"
+    },
+    "SRC-BNPB-INARISK": {
+      "source_id": "SRC-BNPB-INARISK",
+      "institution": "BNPB",
+      "title": "InaRISK (hazard/risk indices)",
+      "url": "https://inarisk.bnpb.go.id/",
+      "status": "verified_reachable"
+    },
+    "SRC-BMKG": {
+      "source_id": "SRC-BMKG",
+      "institution": "BMKG",
+      "title": "BMKG portal / data online",
+      "url": "https://www.bmkg.go.id/",
+      "status": "verified_reachable"
+    },
+    "SRC-SDI": {
+      "source_id": "SRC-SDI",
+      "institution": "Satu Data Indonesia",
+      "title": "data.go.id portal",
+      "url": "https://data.go.id/",
+      "status": "verified_reachable"
+    },
+    "SRC-ESDM-GEOPORTAL": {
+      "source_id": "SRC-ESDM-GEOPORTAL",
+      "institution": "Kementerian ESDM",
+      "title": "Geoportal ESDM (One Map ESDM)",
+      "url": "https://geoportal.esdm.go.id/",
+      "status": "verified_reachable"
+    },
+    "SRC-ESDM-MOMI": {
+      "source_id": "SRC-ESDM-MOMI",
+      "institution": "Kementerian ESDM — Ditjen Minerba",
+      "title": "MOMI (Minerba One Map Indonesia)",
+      "url": "https://momi.minerba.esdm.go.id/",
+      "status": "verified_reachable"
+    },
+    "SRC-BIG-TANAHAIR": {
+      "source_id": "SRC-BIG-TANAHAIR",
+      "institution": "BIG",
+      "title": "Ina-Geoportal (tanahair.indonesia.go.id)",
+      "url": "https://tanahair.indonesia.go.id/",
+      "status": "verified_reachable"
+    },
+    "SRC-KEMENDAGRI-DUKCAPIL": {
+      "source_id": "SRC-KEMENDAGRI-DUKCAPIL",
+      "institution": "Kemendagri — Dukcapil",
+      "title": "Data kependudukan (DKB)",
+      "url": "https://dukcapil.kemendagri.go.id/",
+      "status": "verified_reachable"
+    },
+    "SRC-KKP-STAT": {
+      "source_id": "SRC-KKP-STAT",
+      "institution": "Kementerian Kelautan dan Perikanan",
+      "title": "Statistik KKP",
+      "url": "https://statistik.kkp.go.id/",
+      "status": "unreachable"
+    },
+    "SRC-KLHK-SIGAP": {
+      "source_id": "SRC-KLHK-SIGAP",
+      "institution": "Kementerian Kehutanan / LH",
+      "title": "SIGAP (forest/land cover)",
+      "url": "https://sigap.menlhk.go.id/",
+      "status": "unreachable"
+    },
+    "SRC-KEMENDIKDASMEN-DAPODIK": {
+      "source_id": "SRC-KEMENDIKDASMEN-DAPODIK",
+      "institution": "Kemendikdasmen",
+      "title": "Data Pokok Pendidikan",
+      "url": "https://dapo.kemendikdasmen.go.id/",
+      "status": "verified_reachable"
+    },
+    "SRC-WBTB": {
+      "source_id": "SRC-WBTB",
+      "institution": "Kementerian Kebudayaan",
+      "title": "Warisan Budaya Takbenda Indonesia",
+      "url": "https://warisanbudaya.kemdikbud.go.id/",
+      "status": "unreachable"
+    },
+    "SRC-BADAN-BAHASA-PETA": {
+      "source_id": "SRC-BADAN-BAHASA-PETA",
+      "institution": "Badan Pengembangan dan Pembinaan Bahasa",
+      "title": "Peta Bahasa",
+      "url": "https://petabahasa.kemdikbud.go.id/",
+      "status": "unreachable"
+    },
+    "SRC-BPS-TBL-2790-PENDUDUK-KABKOTA": {
+      "source_id": "SRC-BPS-TBL-2790-PENDUDUK-KABKOTA",
+      "institution": "Badan Pusat Statistik",
+      "title": "Jumlah Penduduk menurut Kabupaten/Kota dan Kelompok Umur (tabel dinamis var 2790)",
+      "url": "https://www.bps.go.id/id/statistics-table/2/Mjc5MCMy/-jumlah-penduduk-menurut-kabupaten-kota-dan-kelompok-umur.html",
+      "publication_date": "table last updated 2026-08-28",
+      "retrieved_at": "2026-10-23",
+      "geographic_resolution": "kabupaten/kota (+ provinsi)",
+      "reference_period": "2026 (projection)",
+      "unit": "jiwa",
+      "status": "verified_ingested",
+      "license_or_terms": "Public BPS statistics table; cite BPS as source. Terms of reuse not separately verified."
+    },
+    "SRC-BPS-TBL-413-IPM": {
+      "source_id": "SRC-BPS-TBL-413-IPM",
+      "institution": "Badan Pusat Statistik",
+      "title": "[Metode Baru] Indeks Pembangunan Manusia (tabel dinamis var 413)",
+      "url": "https://www.bps.go.id/id/statistics-table/2/NDEzIzI=/-metode-baru-indeks-pembangunan-manusia.html",
+      "publication_date": "table last updated 2025-05-15",
+      "retrieved_at": "2026-10-23",
+      "geographic_resolution": "kabupaten/kota (+ provinsi)",
+      "reference_period": "2024",
+      "unit": "indeks (0-100)",
+      "status": "verified_ingested",
+      "license_or_terms": "Public BPS statistics table; cite BPS as source. Terms of reuse not separately verified."
+    }
+  }
+}
