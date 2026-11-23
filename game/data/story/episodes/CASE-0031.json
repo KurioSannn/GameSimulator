@@ -1,0 +1,207 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0031",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "banjir_bandang",
+ "locals": {
+  "pak_kasmin": {
+   "name": "Pak Kasmin",
+   "role": "Petani padi, Karanganyar Demak",
+   "color": "6a6a2a",
+   "initials": "K"
+  },
+  "mbak_ninik": {
+   "name": "Mbak Ninik",
+   "role": "Pedagang di jalur Pantura, Demak",
+   "color": "7a4a7a",
+   "initials": "N"
+  }
+ },
+ "agenda": {
+  "hook": "Tanggul Sungai Wulan jebol, ditambal, lalu jebol lagi. Puluhan ribu warga Demak mengungsi dua kali dalam dua bulan.",
+  "if_postponed": "Tanggul Sungai Wulan hanya ditambal darurat. Warga menunggu musim hujan berikutnya dengan cemas."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Februari, tanggul Sungai Wulan jebol. Sebulan kemudian, di titik yang hampir sama, jebol lagi.",
+   "bg": "banjir_bandang"
+  },
+  {
+   "s": "pak_kasmin",
+   "e": "sedih",
+   "t": "Padi saya tinggal sebulan lagi panen. Dua kali terendam, habis semua."
+  },
+  {
+   "s": "mbak_ninik",
+   "e": "kecewa",
+   "t": "Jalur Pantura tergenang, truk tidak lewat. Warung saya tutup berminggu-minggu."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Tambalan darurat tidak kuat menahan air sederas itu, Pak. Sungainya juga terlalu sempit untuk banjir sebesar ini.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Menambal itu murah dan cepat. Membangun ulang dengan benar itu mahal dan lama. Kita sudah melihat akibat yang murah."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Saya tidak mau warga Demak mengungsi untuk ketiga kalinya."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Menutup tanggul secepatnya dan memompa genangan.",
+   "helps": "Warga yang ingin cepat pulang.",
+   "burden": "Risiko jebol lagi tetap tinggi.",
+   "now": "Kerusakan pulih dua bulan.",
+   "later": "Tidak ada perlindungan baru."
+  },
+  "b": {
+   "intent": "Membangun tanggul permanen dan menormalisasi Sungai Wulan.",
+   "helps": "Warga Demak dan Kudus untuk tahun-tahun berikutnya.",
+   "burden": "Anggaran; warga yang terganggu pembangunan.",
+   "now": "Kepercayaan turun sedikit.",
+   "later": "Perlindungan banjir naik besar setelah enam bulan."
+  },
+  "c": {
+   "intent": "Membantu petani dan pedagang bangkit.",
+   "helps": "Petani dan pedagang yang kehilangan panen dan dagangan.",
+   "burden": "Tanggul tetap rapuh.",
+   "now": "Kesejahteraan naik tiga bulan.",
+   "later": "Risiko banjir tidak berubah."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Karung pasir, ekskavator amfibi, dan pompa besar bekerja siang malam.",
+    "bg": "banjir_bandang"
+   },
+   {
+    "s": "pak_kasmin",
+    "e": "netral",
+    "t": "Air sudah surut, Pak. Saya mulai membersihkan sawah. Tapi tanggul itu, saya tidak percaya lagi."
+   },
+   {
+    "s": "yosef",
+    "e": "cemas",
+    "t": "Kita tutup lubangnya. Belum menutup masalahnya.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tanggul lama dibongkar dan diganti konstruksi permanen. Alat berat mulai memperlebar Sungai Wulan.",
+    "bg": "kota"
+   },
+   {
+    "s": "mbak_ninik",
+    "e": "berpikir",
+    "t": "Jalan sempat ditutup untuk alat berat. Pelanggan berkurang. Tapi kalau ini berarti tidak banjir lagi, saya sabar."
+   },
+   {
+    "s": "bayu",
+    "e": "cemas",
+    "t": "Ini salah satu belanja infrastruktur terbesar kita tahun ini, Pak.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Benih padi, pakan, dan modal usaha dibagikan di balai-balai desa.",
+    "bg": "desa"
+   },
+   {
+    "s": "pak_kasmin",
+    "e": "berpikir",
+    "t": "Saya bisa tanam lagi musim ini. Semoga tanggulnya kuat sampai panen."
+   },
+   {
+    "s": "mbak_ninik",
+    "e": "senyum",
+    "t": "Modal kecil ini cukup untuk buka warung lagi."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "hujan",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "flood_protection",
+        "op": ">",
+        "value": 6
+       },
+       "beats": [
+        {
+         "s": "pak_kasmin",
+         "e": "senyum",
+         "t": "Musim hujan sudah lewat dan tanggul baru itu menahan semuanya. Saya panen penuh tahun ini, Pak.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_kasmin",
+         "e": "cemas",
+         "t": "Musim hujan datang lagi. Setiap malam saya berjaga di tanggul bersama tetangga.",
+         "bg": "banjir_bandang"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Tanggul Sungai Wulan ditambal seadanya oleh daerah.",
+   "bg": "banjir_bandang"
+  },
+  {
+   "s": "pak_kasmin",
+   "e": "sedih",
+   "t": "Kami menanam sambil berdoa."
+  }
+ ],
+ "journal": {
+  "a": "Tanggul Sungai Wulan ditambal darurat dan genangan Demak dipompa.",
+  "b": "Tanggul Sungai Wulan dibangun permanen dan sungainya dinormalisasi.",
+  "c": "Petani dan pedagang Demak dibantu bangkit setelah banjir dua kali."
+ },
+ "promises": {
+  "b": {
+   "text": "Tanggul Sungai Wulan tidak jebol lagi pada musim hujan berikutnya.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "flood_protection",
+    "op": ">",
+    "value": 6
+   }
+  }
+ }
+}

@@ -1,0 +1,222 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0030",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "banjir_bandang",
+ "locals": {
+  "uni_ros": {
+   "name": "Uni Ros",
+   "role": "Pemilik rumah makan, Lembah Anai",
+   "color": "8a3a2a",
+   "initials": "R"
+  },
+  "da_ipul": {
+   "name": "Da Ipul",
+   "role": "Relawan SAR nagari, Agam",
+   "color": "3a6a5a",
+   "initials": "I"
+  }
+ },
+ "agenda": {
+  "hook": "Hujan lebat di hulu Marapi membawa lahar dingin ke lembah-lembah Sumatera Barat. Desa dan jalan raya tertimbun.",
+  "if_postponed": "Material lahar dibersihkan seadanya. Sungai-sungai berhulu Marapi tetap tanpa penahan."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Malam Minggu di lembah-lembah Sumatera Barat. Hujan deras sejak magrib.",
+   "bg": "banjir_bandang"
+  },
+  {
+   "s": "da_ipul",
+   "e": "sedih",
+   "t": "Suaranya seperti truk berjalan di sungai, Pak. Batu sebesar rumah ikut turun. Kami cari korban sampai pagi."
+  },
+  {
+   "s": "uni_ros",
+   "e": "sedih",
+   "t": "Rumah makan saya di tepi jalan Lembah Anai. Separuhnya hilang dibawa air."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Material letusan Marapi tertumpuk di lereng. Setiap hujan besar, ia bisa turun lagi.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Kita bisa membersihkan dan menahan hujan dengan modifikasi cuaca, memindahkan rumah, atau membangun penahan di sungai."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Selama gunung itu masih menumpuk pasir di atas, lembah ini tidak aman. Kita harus memilih cara hidup berdampingan dengannya."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Membersihkan material lahar dan mengurangi hujan di hulu.",
+   "helps": "Warga dan pengguna jalan: cepat kembali normal.",
+   "burden": "Risiko lahar berikutnya tetap.",
+   "now": "Kerusakan pulih tiga bulan, kepercayaan naik.",
+   "later": "Tidak ada penahan baru."
+  },
+  "b": {
+   "intent": "Merelokasi rumah dari jalur lahar.",
+   "helps": "Keselamatan warga lembah sungai.",
+   "burden": "Warga yang tanahnya di lembah; anggaran.",
+   "now": "Kepercayaan turun.",
+   "later": "Infrastruktur dan kesejahteraan struktural naik setelah sembilan bulan sampai setahun."
+  },
+  "c": {
+   "intent": "Membangun sabo dam dan peringatan dini lahar.",
+   "helps": "Desa-desa di sungai berhulu Marapi.",
+   "burden": "Kerusakan sekarang pulih seperti biasa; anggaran.",
+   "now": "Biaya besar.",
+   "later": "Perlindungan banjir naik setelah enam bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Alat berat bekerja siang malam. Pesawat modifikasi cuaca terbang di atas lereng Marapi.",
+    "bg": "banjir_bandang"
+   },
+   {
+    "s": "uni_ros",
+    "e": "lega",
+    "t": "Jalannya sudah terbuka. Pelanggan mulai lewat lagi."
+   },
+   {
+    "s": "da_ipul",
+    "e": "cemas",
+    "t": "Kami bersihkan sungainya. Tapi pasir di atas masih banyak, Pak."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Rumah-rumah di jalur lahar didata untuk dipindahkan ke lahan yang lebih tinggi.",
+    "bg": "desa"
+   },
+   {
+    "s": "uni_ros",
+    "e": "sedih",
+    "t": "Rumah makan saya sudah tiga generasi di sini. Pindah berarti mulai dari nol."
+   },
+   {
+    "s": "sekar",
+    "e": "serius",
+    "t": "Ini menyangkut tanah ulayat dan nagari juga, Pak. Harus dibicarakan dengan cara mereka.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Sabo dam mulai dibangun di sungai-sungai berhulu Marapi. Sirene dipasang di surau dan balai nagari.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "da_ipul",
+    "e": "senyum",
+    "t": "Kalau sirene bunyi, kami tahu harus lari ke mana. Itu lebih dari yang kami punya kemarin."
+   },
+   {
+    "s": "uni_ros",
+    "e": "kecewa",
+    "t": "Bagus untuk nanti. Rumah makan saya tetap harus saya bangun sendiri sekarang.",
+    "bg": "banjir_bandang"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "hujan",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "flood_protection",
+        "op": ">",
+        "value": 4
+       },
+       "beats": [
+        {
+         "s": "da_ipul",
+         "e": "senyum",
+         "t": "Hujan besar bulan lalu, sirene berbunyi dan semua orang naik. Lahar tertahan di sabo dam.",
+         "bg": "pegunungan"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "uni_ros",
+         "e": "senyum",
+         "t": "Saya buka rumah makan baru di atas bukit. Pemandangannya bagus, dan saya bisa tidur saat hujan.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "da_ipul",
+         "e": "cemas",
+         "t": "Musim hujan lagi, Pak. Kami berjaga setiap malam di tepi sungai.",
+         "bg": "banjir_bandang"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Material lahar dibersihkan seadanya. Sungai-sungai berhulu Marapi tetap terbuka.",
+   "bg": "banjir_bandang"
+  },
+  {
+   "s": "da_ipul",
+   "e": "sedih",
+   "t": "Setiap hujan, kami berjaga. Hanya itu yang bisa kami lakukan."
+  }
+ ],
+ "journal": {
+  "a": "Material lahar Marapi dibersihkan dan modifikasi cuaca dijalankan.",
+  "b": "Rumah di jalur lahar Marapi direlokasi ke tempat lebih tinggi.",
+  "c": "Sabo dam dan peringatan dini lahar dibangun di sungai berhulu Marapi."
+ },
+ "promises": {
+  "c": {
+   "text": "Sungai berhulu Marapi punya sabo dam dan sirene peringatan lahar.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "flood_protection",
+    "op": ">",
+    "value": 4
+   }
+  }
+ }
+}

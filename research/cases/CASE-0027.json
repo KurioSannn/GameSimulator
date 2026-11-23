@@ -1,0 +1,99 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0027",
+ "title": "Gempa M6,2 Mamuju dan Majene, Sulawesi Barat, 15 Januari 2021",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_earthquake",
+ "subcategories": [
+  "earthquake",
+  "displacement",
+  "public_buildings",
+  "road_access"
+ ],
+ "start_date": "2021-01-15",
+ "end_date": "2021-01-28",
+ "decision_as_of": "2021-01-18",
+ "island": "sulawesi",
+ "provinces": [
+  "76"
+ ],
+ "regency_city_documented": [
+  "76.02",
+  "76.05"
+ ],
+ "geographic_resolution": "Kab. Mamuju dan Kab. Majene, Sulawesi Barat",
+ "real_facts": [
+  {
+   "fact": "Gempa M6,2 terjadi pada Jumat 15 Januari 2021 pukul 01.28 WIB, berpusat 6 km timur laut Majene. Pagi itu Hotel Maleo dan Kantor Gubernur Sulawesi Barat rusak berat, listrik padam, dan longsor di tiga titik memutus jalan poros Majene sampai Mamuju.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SULBAR-2021-01-15"
+   ],
+   "as_of": "2021-01-15"
+  },
+  {
+   "fact": "Per 18 Januari 2021, BNPB mencatat 84 orang meninggal (73 di Mamuju, 11 di Majene), 253 luka berat dan 679 luka ringan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SULBAR-2021-01-18"
+   ],
+   "as_of": "2021-01-18"
+  },
+  {
+   "fact": "Pada tanggal yang sama tercatat 19.435 warga mengungsi: 15.014 di Mamuju dan 4.421 di Majene.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SULBAR-2021-01-18"
+   ],
+   "as_of": "2021-01-18"
+  }
+ ],
+ "information_available_at_decision": "18 Januari 2021: pengungsi tersebar, listrik dan jalan poros terganggu, kantor gubernur rusak berat.",
+ "trigger": [
+  "Gempa M6,2 Mamuju dan Majene, Sulawesi Barat, 15 Januari 2021"
+ ],
+ "root_causes_note": "Kota dan permukiman pesisir di jalur sesar aktif dengan banyak bangunan yang tidak tahan gempa.",
+ "stakeholders": [
+  "BNPB dan BPBD Sulbar",
+  "Pemprov Sulawesi Barat",
+  "warga Mamuju dan Majene",
+  "PLN",
+  "TNI dan Polri"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-SULBAR-2021-01-15",
+   "institution": "BNPB",
+   "title": "[Update] Kerusakan Bangunan dan Dampak Korban Akibat Gempa Kuat M6,2",
+   "url": "https://bnpb.go.id/berita/-update-kerusakan-bangunan-dan-dampak-korban-akibat-gempa-kuat-m6-2",
+   "publication_date": "2021-01-15",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Mamuju, Kab. Majene",
+   "reference_period": "2021-01-15 06.00 WIB",
+   "unit": ""
+  },
+  {
+   "source_id": "SRC-BNPB-SULBAR-2021-01-18",
+   "institution": "BNPB",
+   "title": "[Update] Sebanyak 84 Orang Meninggal Akibat Gempa M6,2 di Sulawesi Barat",
+   "url": "https://bnpb.go.id/berita/-update-sebanyak-84-orang-meninggal-akibat-gempa-m6-2-di-sulawesi-barat",
+   "publication_date": "2021-01-18",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Mamuju, Kab. Majene",
+   "reference_period": "2021-01-18 14.00 WIB",
+   "unit": "orang"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka korban final 2021 dari rekap tahunan BNPB tidak dibaca langsung dalam batch ini."
+ ],
+ "todo_to_validate": [
+  "Rekap akhir korban dan rumah rusak (BNPB 2021)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0027.json",
+ "game_adaptation_notes": "Pulihkan layanan pemerintahan dan listrik (cepat) vs bangun ulang rumah warga (mahal) vs audit gedung publik tahan gempa (pencegahan).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

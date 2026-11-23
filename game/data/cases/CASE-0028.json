@@ -1,0 +1,224 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0028",
+ "research_ref": "research/cases/CASE-0028.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Banjir di Tanah Banjar",
+ "location_label": "Tanah Laut, Banjar, Hulu Sungai Tengah, Balangan, Kota Banjarbaru (Kalimantan Selatan)",
+ "focus_regions": [
+  "63.01",
+  "63.03",
+  "63.07",
+  "63.11",
+  "63.72"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 13
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0028"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:63.01",
+   "var": "damage",
+   "op": "add",
+   "value": 8.0
+  },
+  {
+   "scope": "region:63.11",
+   "var": "damage",
+   "op": "add",
+   "value": 7.0
+  },
+  {
+   "scope": "region:63.03",
+   "var": "damage",
+   "op": "add",
+   "value": 7.0
+  },
+  {
+   "scope": "region:63.07",
+   "var": "damage",
+   "op": "add",
+   "value": 6.0
+  },
+  {
+   "scope": "region:63.72",
+   "var": "damage",
+   "op": "add",
+   "value": 3.0
+  },
+  {
+   "scope": "regions:63.01,63.03,63.07,63.11,63.72",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Banjir yang dimulai Selasa 12 Januari 2021 melanda 10 kabupaten/kota di Kalimantan Selatan; per 17 Januari tercatat 24.379 rumah terendam dan 39.549 warga mengungsi.",
+    "source_refs": [
+     "SRC-BNPB-KALSEL-2021-01-17"
+    ],
+    "as_of": "2021-01-17"
+   },
+   {
+    "text": "Pengungsi terbanyak di Balangan (17.501 jiwa), Tanah Laut (13.062), dan Banjar (11.269); di Hulu Sungai Tengah 64.400 jiwa terdampak. Korban meninggal 15 orang, terbanyak di Tanah Laut (7).",
+    "source_refs": [
+     "SRC-BNPB-KALSEL-2021-01-17"
+    ],
+    "as_of": "2021-01-17"
+   },
+   {
+    "text": "Pemprov Kalimantan Selatan menetapkan status tanggap darurat banjir pada 14 Januari 2021; tim reaksi cepat BNPB tiba di Banjarmasin pada 16 Januari untuk kaji cepat di daerah terdampak.",
+    "source_refs": [
+     "SRC-BNPB-KALSEL-TRC-2021-01-17"
+    ],
+    "as_of": "2021-01-17"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Sungai-sungai di Kalimantan Selatan meluap bersamaan. Puluhan ribu warga mengungsi dari rumah panggungnya."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): damage ordered by BNPB displacement and deaths (Tanah Laut, Balangan, Banjar, HST, Banjarbaru). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "flood -> damage & welfare; relief -> damage recovery; upstream watershed review -> environment + flood_protection later at a trust/income cost; city flood works -> flood_protection + infrastructure",
+  "immediate": "a: fiscal -3, damage -2/month x3, trust +1; b: fiscal -2, trust -0.5, welfare_base -0.3 (licence reviews); c: fiscal -4",
+  "delayed": "b: environment +5 and flood_protection +4 after 12 months; c: flood_protection +7 and infrastructure +2 after 6 months",
+  "regional": "five most affected regencies/cities",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Bantuan darurat besar-besaran",
+   "description": "Perahu, dapur umum, dan bantuan pangan untuk seluruh daerah yang terendam. Menolong cepat, hulu sungai tetap sama.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "regions:63.01,63.03,63.07,63.11,63.72",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "duration": 3
+    },
+    {
+     "scope": "regions:63.01,63.03,63.07,63.11,63.72",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "kalsel2021_response": "relief"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Evaluasi izin lahan dan pulihkan hulu",
+   "description": "Izin pembukaan lahan di hulu diperiksa ulang dan daerah aliran sungai direhabilitasi. Menyentuh akar masalah, memicu perlawanan, hasilnya lama.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:63.01,63.03,63.07,63.11,63.72",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:63.01,63.03,63.07,63.11,63.72",
+     "var": "welfare_base",
+     "op": "add",
+     "value": -0.3
+    },
+    {
+     "scope": "regions:63.01,63.03,63.07,63.11,63.72",
+     "var": "environment",
+     "op": "add",
+     "value": 5.0,
+     "delay": 12
+    },
+    {
+     "scope": "regions:63.01,63.03,63.07,63.11,63.72",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 4.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "kalsel2021_response": "upstream_review"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Tanggul dan pompa di kota-kota",
+   "description": "Tanggul sungai dan rumah pompa dibangun di kota dan kecamatan padat. Cepat melindungi permukiman, air dari hulu tetap datang.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.0
+    },
+    {
+     "scope": "regions:63.01,63.03,63.07,63.11,63.72",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 7.0,
+     "delay": 6
+    },
+    {
+     "scope": "regions:63.01,63.03,63.07,63.11,63.72",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "kalsel2021_response": "city_flood_works"
+   }
+  }
+ ]
+}

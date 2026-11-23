@@ -1,0 +1,222 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0029",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "pelabuhan",
+ "locals": {
+  "om_yance": {
+   "name": "Om Yance",
+   "role": "Kepala lingkungan, Tagulandang",
+   "color": "3a5a7a",
+   "initials": "Y"
+  },
+  "tante_lusi": {
+   "name": "Tante Lusi",
+   "role": "Guru SD, Pulau Ruang",
+   "color": "8a4a5a",
+   "initials": "L"
+  }
+ },
+ "agenda": {
+  "hook": "Gunung Ruang meletus dan menghujani pulau-pulau di sekitarnya dengan batu. Ribuan warga Tagulandang harus menyeberang laut.",
+  "if_postponed": "Evakuasi Tagulandang berjalan lambat dengan kapal seadanya."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Malam hari, Gunung Ruang memuntahkan api. Batu-batu kecil berjatuhan di atap rumah di seberang selat.",
+   "bg": "gunung_api"
+  },
+  {
+   "s": "tante_lusi",
+   "e": "cemas",
+   "t": "Di Pulau Ruang kami hanya punya laut sebagai jalan keluar. Malam itu semua orang lari ke dermaga.",
+   "bg": "pelabuhan"
+  },
+  {
+   "s": "om_yance",
+   "e": "serius",
+   "t": "Tagulandang juga kena, Pak. Ribuan orang di dalam radius bahaya. Kapalnya tidak cukup."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Kapal TNI, kapal penumpang, kapal Basarnas. Kita memindahkan satu pulau, Pak.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "sekar",
+   "e": "berpikir",
+   "t": "Pertanyaan berikutnya lebih berat: apakah mereka boleh pulang?"
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Pulau itu rumah mereka. Gunung itu juga tidak akan pergi."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Mengungsikan sementara dan memulangkan saat aman.",
+   "helps": "Warga yang ingin tetap tinggal di pulau leluhurnya.",
+   "burden": "Keselamatan di letusan berikutnya.",
+   "now": "Kerusakan pulih tiga bulan, kepercayaan naik.",
+   "later": "Risiko berulang."
+  },
+  "b": {
+   "intent": "Memindahkan warga zona bahaya secara permanen.",
+   "helps": "Keselamatan warga jangka panjang.",
+   "burden": "Warga yang harus meninggalkan pulau dan lautnya; anggaran.",
+   "now": "Kepercayaan turun.",
+   "later": "Infrastruktur dan kesejahteraan struktural naik setelah sembilan bulan sampai setahun."
+  },
+  "c": {
+   "intent": "Menyiagakan kapal, dermaga, dan pemantauan gunung.",
+   "helps": "Warga pulau: bisa pergi dan kembali dengan cepat.",
+   "burden": "Risiko tetap ada.",
+   "now": "Biaya sedang.",
+   "later": "Infrastruktur dan layanan naik setelah enam bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Pengungsi ditampung di Manado dan pulau-pulau sekitar sambil menunggu gunung tenang.",
+    "bg": "pelabuhan"
+   },
+   {
+    "s": "om_yance",
+    "e": "netral",
+    "t": "Kami akan pulang, Pak. Kami selalu pulang."
+   },
+   {
+    "s": "yosef",
+    "e": "cemas",
+    "t": "Saya mengerti. Saya hanya berharap kita masih punya kapal yang cukup saat mereka harus pergi lagi.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Lahan baru di daratan disiapkan. Hunian tetap akan dibangun untuk warga zona bahaya.",
+    "bg": "desa"
+   },
+   {
+    "s": "tante_lusi",
+    "e": "sedih",
+    "t": "Murid-murid saya akan sekolah di tempat baru. Saya tidak tahu bagaimana menjelaskan kepada mereka bahwa pulau kami tidak bisa ditinggali lagi."
+   },
+   {
+    "s": "sekar",
+    "e": "serius",
+    "t": "Ini keputusan yang akan diingat bergenerasi, Pak. Caranya harus sangat hati-hati.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Dermaga diperpanjang, kapal evakuasi disiagakan, dan pos pemantauan gunung diperkuat.",
+    "bg": "pelabuhan"
+   },
+   {
+    "s": "om_yance",
+    "e": "senyum",
+    "t": "Kalau gunung bangun lagi, sekarang kami tahu kapal mana yang menjemput dan di mana."
+   },
+   {
+    "s": "tante_lusi",
+    "e": "netral",
+    "t": "Kami tetap tinggal di bawah gunung. Tapi kami tidak lagi menunggu tanpa rencana."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "pulau",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "case_choice": "CASE-0029",
+        "choice": "b"
+       },
+       "beats": [
+        {
+         "s": "tante_lusi",
+         "e": "netral",
+         "t": "Sekolah di tempat baru sudah berjalan, Pak. Anak-anak masih menggambar laut dan gunung setiap hari.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "om_yance",
+         "e": "senyum",
+         "t": "Gunung batuk lagi bulan lalu. Dalam sehari semua orang sudah di kapal. Tidak ada yang tertinggal.",
+         "bg": "pelabuhan"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "om_yance",
+         "e": "berpikir",
+         "t": "Kami sudah pulang, Pak. Setiap malam kami masih menoleh ke arah gunung.",
+         "bg": "pelabuhan"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Evakuasi Tagulandang berjalan dengan kapal yang ada. Ada yang menunggu di dermaga berhari-hari.",
+   "bg": "pelabuhan"
+  },
+  {
+   "s": "om_yance",
+   "e": "sedih",
+   "t": "Kami merasa sendirian di tengah laut."
+  }
+ ],
+ "journal": {
+  "a": "Warga Sitaro diungsikan sementara dan pulang saat Gunung Ruang tenang.",
+  "b": "Warga zona bahaya Gunung Ruang direlokasi permanen.",
+  "c": "Kesiapsiagaan pulau dan jalur laut di Sitaro diperkuat."
+ },
+ "promises": {
+  "b": {
+   "text": "Warga zona bahaya Gunung Ruang tinggal di hunian tetap yang aman.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 3
+   }
+  }
+ }
+}

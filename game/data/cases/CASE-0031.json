@@ -1,0 +1,202 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0031",
+ "research_ref": "research/cases/CASE-0031.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Tanggul Wulan Jebol Dua Kali",
+ "location_label": "Kab. Demak dan Kab. Kudus, Jawa Tengah",
+ "focus_regions": [
+  "33.21",
+  "33.19"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 2
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0031"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:33.21",
+   "var": "damage",
+   "op": "add",
+   "value": 11.0
+  },
+  {
+   "scope": "region:33.19",
+   "var": "damage",
+   "op": "add",
+   "value": 3.0
+  },
+  {
+   "scope": "regions:33.21,33.19",
+   "var": "welfare",
+   "op": "add",
+   "value": -2.0
+  },
+  {
+   "scope": "regions:33.21,33.19",
+   "var": "services",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Tanggul Sungai Wulan di Demak jebol akibat hujan lebat 3 sampai 5 Februari 2024. Kementerian PUPR menurunkan ekskavator dan ekskavator amfibi, menyiapkan 12 pompa berkapasitas 5 m3/detik, dan merencanakan normalisasi Sungai Wulan sepanjang 22 km pada 2024 sampai 2026.",
+    "source_refs": [
+     "SRC-PU-DEMAK-2024-02-12"
+    ],
+    "as_of": "2024-02-12"
+   },
+   {
+    "text": "Setelah hujan lebat 13 Maret 2024, enam tanggul jebol dan tanggul Sungai Wulan di perbatasan Demak dan Kudus jebol lagi pada 17 Maret. Sebanyak 89 desa di 11 kecamatan terendam 30 sampai 80 cm; 93.149 jiwa terdampak dan 22.725 mengungsi.",
+    "source_refs": [
+     "SRC-BNPB-DEMAK-2024-03-18"
+    ],
+    "as_of": "2024-03-18"
+   },
+   {
+    "text": "Pada Desember 2024, tanggul yang jebol dua kali itu telah diperkuat dengan konstruksi yang dinilai Kepala BNPB sangat baik.",
+    "source_refs": [
+     "SRC-BNPB-DEMAK-2024-12-20"
+    ],
+    "as_of": "2024-12-20"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Tanggul Sungai Wulan jebol, ditambal, lalu jebol lagi. Puluhan ribu warga Demak mengungsi dua kali dalam dua bulan."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Demak damage 11 (89 villages, 93,149 affected) > Kudus 3. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "levee failure -> damage & welfare; emergency patch -> damage recovery now; permanent levee + normalisation -> flood_protection + infrastructure later; livelihood -> welfare",
+  "immediate": "a: fiscal -2, damage -2/month x2, trust +0.5; b: fiscal -5, trust -0.5; c: fiscal -2.5, welfare +1/month x3, trust +0.5",
+  "delayed": "b: flood_protection +12 and infrastructure +3 after 6 months",
+  "regional": "Demak, Kudus",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Tambal darurat dan pompa",
+   "description": "Tanggul ditutup secepatnya dengan konstruksi darurat dan pompa mengeringkan desa. Cepat, tetapi tanggul tambalan bisa jebol lagi.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:33.21,33.19",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "duration": 2
+    },
+    {
+     "scope": "regions:33.21,33.19",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "demak2024_response": "emergency_patch"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Perkuat permanen dan normalisasi sungai",
+   "description": "Tanggul dibangun ulang dengan konstruksi permanen dan Sungai Wulan diperlebar. Mahal dan lama, tetapi mengubah risiko untuk tahun-tahun berikutnya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "regions:33.21,33.19",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:33.21,33.19",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 12.0,
+     "delay": 6
+    },
+    {
+     "scope": "regions:33.21,33.19",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "demak2024_response": "permanent_levee"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Bantu petani dan warga bangkit",
+   "description": "Bantuan benih, pakan, dan modal usaha bagi petani dan pedagang yang sawah dan dagangannya terendam dua kali. Menolong dapur, tanggul tetap seperti adanya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "regions:33.21,33.19",
+     "var": "welfare",
+     "op": "add",
+     "value": 1.0,
+     "duration": 3
+    },
+    {
+     "scope": "regions:33.21,33.19",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "demak2024_response": "livelihood"
+   }
+  }
+ ]
+}

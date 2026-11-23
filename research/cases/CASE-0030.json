@@ -1,0 +1,102 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0030",
+ "title": "Banjir lahar dingin dan longsor di sekitar Gunung Marapi, Sumatera Barat, Mei 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_lahar",
+ "subcategories": [
+  "lahar_flood",
+  "landslide",
+  "relocation",
+  "weather_modification"
+ ],
+ "start_date": "2024-05-11",
+ "end_date": "2024-05-14",
+ "decision_as_of": "2024-05-14",
+ "island": "sumatera",
+ "provinces": [
+  "13"
+ ],
+ "regency_city_documented": [
+  "13.06",
+  "13.04",
+  "13.05",
+  "13.74"
+ ],
+ "geographic_resolution": "Agam, Tanah Datar, Padang Pariaman, Kota Padang Panjang (Sumatera Barat)",
+ "real_facts": [
+  {
+   "fact": "Banjir bandang lahar dingin melanda Sumatera Barat pada Sabtu malam 11 Mei 2024, dipicu hujan berintensitas tinggi di hulu Gunung Marapi; Agam, Tanah Datar, Padang Panjang, dan Padang Pariaman terdampak paling parah.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SUMBAR-2024-05-13"
+   ],
+   "as_of": "2024-05-13"
+  },
+  {
+   "fact": "Hingga 12 Mei pukul 21.00 WIB tercatat 37 orang meninggal; dari 35 yang teridentifikasi, 19 di Agam, 9 di Tanah Datar, 2 di Padang Panjang, dan 7 di Padang Pariaman.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SUMBAR-2024-05-13"
+   ],
+   "as_of": "2024-05-13"
+  },
+  {
+   "fact": "Per 14 Mei pukul 18.35 WIB, korban meninggal menjadi 58 orang dan 35 hilang, dengan 1.543 KK terdampak; BNPB menyiapkan operasi modifikasi cuaca hingga opsi relokasi rumah warga terdampak.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SUMBAR-2024-05-15"
+   ],
+   "as_of": "2024-05-15"
+  }
+ ],
+ "information_available_at_decision": "14 Mei 2024: pencarian korban masih berlangsung, alat berat membersihkan material lahar, dan hujan di hulu Marapi masih berpotensi memicu banjir susulan.",
+ "trigger": [
+  "Banjir lahar dingin dan longsor di sekitar Gunung Marapi, Sumatera Barat, Mei 2024"
+ ],
+ "root_causes_note": "Material erupsi Marapi yang menumpuk di lereng terbawa hujan lebat ke permukiman di lembah sungai.",
+ "stakeholders": [
+  "BNPB dan BPBD Sumbar",
+  "PVMBG",
+  "Pemkab Agam dan Tanah Datar",
+  "warga lembah sungai",
+  "pengguna jalan Padang sampai Bukittinggi"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-SUMBAR-2024-05-13",
+   "institution": "BNPB",
+   "title": "[UPDATE] Banjir Lahar Dingin Sumatra Barat, Total Korban Meninggal 37 Orang",
+   "url": "https://bnpb.go.id/berita/update-banjir-lahar-dingin-sumatra-barat-total-korban-meninggal-37-orang",
+   "publication_date": "2024-05-13",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Agam, Tanah Datar, Padang Panjang, Padang Pariaman",
+   "reference_period": "2024-05-12 21.00 WIB",
+   "unit": "orang"
+  },
+  {
+   "source_id": "SRC-BNPB-SUMBAR-2024-05-15",
+   "institution": "BNPB",
+   "title": "[UPDATE] Banjir Lahar Dingin dan Tanah Longsor Sumatra Barat: Pemerintah Siapkan TMC Hingga Opsi Relokasi Rumah Untuk Warga Terdampak",
+   "url": "https://www.bnpb.go.id/berita/update-banjir-lahar-dingin-dan-tanah-longsor-sumatra-barat-pemerintah-siapkan-tmc-hingga-opsi-relokasi-rumah-untuk-warga-terdampak",
+   "publication_date": "2024-05-15",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Agam, Tanah Datar",
+   "reference_period": "2024-05-14 18.35 WIB",
+   "unit": "orang; KK"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka korban akhir (data akhir Mei) tidak dibaca langsung dari sumber resmi dalam batch ini."
+ ],
+ "todo_to_validate": [
+  "Data akhir korban dan rumah rusak (BNPB)",
+  "Rencana pemasangan sistem peringatan dini lahar"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0030.json",
+ "game_adaptation_notes": "Pembersihan dan modifikasi cuaca (cepat) vs relokasi dari jalur lahar (aman, berat) vs sabo dam dan peringatan dini di sungai berhulu Marapi (pencegahan).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

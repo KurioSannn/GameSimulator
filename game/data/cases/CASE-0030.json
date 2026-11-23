@@ -1,0 +1,217 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0030",
+ "research_ref": "research/cases/CASE-0030.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Lahar Turun dari Marapi",
+ "location_label": "Agam, Tanah Datar, Padang Pariaman, Kota Padang Panjang (Sumatera Barat)",
+ "focus_regions": [
+  "13.06",
+  "13.04",
+  "13.05",
+  "13.74"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 28
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0030"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:13.06",
+   "var": "damage",
+   "op": "add",
+   "value": 10.0
+  },
+  {
+   "scope": "region:13.04",
+   "var": "damage",
+   "op": "add",
+   "value": 8.0
+  },
+  {
+   "scope": "region:13.05",
+   "var": "damage",
+   "op": "add",
+   "value": 5.0
+  },
+  {
+   "scope": "region:13.74",
+   "var": "damage",
+   "op": "add",
+   "value": 3.0
+  },
+  {
+   "scope": "regions:13.06,13.04,13.05,13.74",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "regions:13.06,13.04,13.05,13.74",
+   "var": "services",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Banjir bandang lahar dingin melanda Sumatera Barat pada Sabtu malam 11 Mei 2024, dipicu hujan berintensitas tinggi di hulu Gunung Marapi; Agam, Tanah Datar, Padang Panjang, dan Padang Pariaman terdampak paling parah.",
+    "source_refs": [
+     "SRC-BNPB-SUMBAR-2024-05-13"
+    ],
+    "as_of": "2024-05-13"
+   },
+   {
+    "text": "Hingga 12 Mei pukul 21.00 WIB tercatat 37 orang meninggal; dari 35 yang teridentifikasi, 19 di Agam, 9 di Tanah Datar, 2 di Padang Panjang, dan 7 di Padang Pariaman.",
+    "source_refs": [
+     "SRC-BNPB-SUMBAR-2024-05-13"
+    ],
+    "as_of": "2024-05-13"
+   },
+   {
+    "text": "Per 14 Mei pukul 18.35 WIB, korban meninggal menjadi 58 orang dan 35 hilang, dengan 1.543 KK terdampak; BNPB menyiapkan operasi modifikasi cuaca hingga opsi relokasi rumah warga terdampak.",
+    "source_refs": [
+     "SRC-BNPB-SUMBAR-2024-05-15"
+    ],
+    "as_of": "2024-05-15"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Hujan lebat di hulu Marapi membawa lahar dingin ke lembah-lembah Sumatera Barat. Desa dan jalan raya tertimbun."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): damage ordered by BNPB identified deaths on 12 May (Agam 19 > Tanah Datar 9 > Padang Pariaman 7 > Padang Panjang 2). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "lahar flood -> damage & services; clean-up + weather modification -> damage recovery; relocation -> infrastructure + welfare_base later at a trust cost; sabo dams + warning -> flood_protection + infrastructure",
+  "immediate": "a: fiscal -2.5, damage -2/month x3, trust +1; b: fiscal -4.5, trust -1; c: fiscal -3.5",
+  "delayed": "b: infrastructure +5 after 9 months, welfare_base +0.8 after 12; c: flood_protection +8 and infrastructure +2 after 6 months",
+  "regional": "four regencies/cities",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Bersihkan material dan modifikasi cuaca",
+   "description": "Alat berat membersihkan lahar dari permukiman dan jalan, sementara operasi modifikasi cuaca mengurangi hujan di hulu. Cepat, risiko lahar tetap.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "regions:13.06,13.04,13.05,13.74",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "duration": 3
+    },
+    {
+     "scope": "regions:13.06,13.04,13.05,13.74",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "marapi2024_response": "cleanup_tmc"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Relokasi dari jalur lahar",
+   "description": "Rumah di bantaran sungai yang dilewati lahar dipindahkan ke tempat yang lebih tinggi. Paling aman, berat bagi warga yang tanahnya di lembah.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.5
+    },
+    {
+     "scope": "regions:13.06,13.04,13.05,13.74",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "regions:13.06,13.04,13.05,13.74",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 5.0,
+     "delay": 9
+    },
+    {
+     "scope": "regions:13.06,13.04,13.05,13.74",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.8,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "marapi2024_response": "relocation"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Sabo dam dan peringatan dini lahar",
+   "description": "Bendungan penahan sedimen di sungai berhulu Marapi dan sirene peringatan lahar di desa-desa. Mencegah banjir berikutnya, tidak memulihkan yang sudah rusak.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.5
+    },
+    {
+     "scope": "regions:13.06,13.04,13.05,13.74",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 8.0,
+     "delay": 6
+    },
+    {
+     "scope": "regions:13.06,13.04,13.05,13.74",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "marapi2024_response": "sabo_warning"
+   }
+  }
+ ]
+}

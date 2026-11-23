@@ -1,0 +1,196 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0029",
+ "research_ref": "research/cases/CASE-0029.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Pulau yang Harus Ditinggalkan",
+ "location_label": "Kab. Kepulauan Siau Tagulandang Biaro (Sitaro), Sulawesi Utara",
+ "focus_regions": [
+  "71.09"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 51
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0029"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:71.09",
+   "var": "damage",
+   "op": "add",
+   "value": 9.0
+  },
+  {
+   "scope": "region:71.09",
+   "var": "services",
+   "op": "add",
+   "value": -3.0
+  },
+  {
+   "scope": "region:71.09",
+   "var": "welfare",
+   "op": "add",
+   "value": -2.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "PVMBG menaikkan status Gunung Ruang ke level tertinggi (Awas) pada 17 April 2024 pukul 21.00 WITA, setelah erupsi eksplosif dengan kolom abu 2.000 sampai 3.000 meter; hujan abu, kerikil, dan batu mencapai permukiman.",
+    "source_refs": [
+     "SRC-BNPB-RUANG-2024-04-18"
+    ],
+    "as_of": "2024-04-18"
+   },
+   {
+    "text": "Sebanyak 828 warga dievakuasi pada tahap awal.",
+    "source_refs": [
+     "SRC-BNPB-RUANG-2024-04-18"
+    ],
+    "as_of": "2024-04-18"
+   },
+   {
+    "text": "Pada 2 Mei 2024, pemerintah mengupayakan evakuasi 9.083 warga Pulau Tagulandang dalam radius 7 km dari pusat erupsi sesuai rekomendasi PVMBG; 3.364 sudah dievakuasi dan 5.719 dalam proses, menggunakan beberapa kapal termasuk kapal TNI AL.",
+    "source_refs": [
+     "SRC-BNPB-RUANG-2024-05-03"
+    ],
+    "as_of": "2024-05-03"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Gunung Ruang meletus dan menghujani pulau-pulau di sekitarnya dengan batu. Ribuan warga Tagulandang harus menyeberang laut."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Sitaro damage 9, services -3 (evacuation of 9,083 islanders), welfare -2. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "eruption -> damage & services; temporary evacuation -> services/damage recovery; permanent relocation -> welfare_base + infrastructure later at a trust cost; island preparedness -> infrastructure + services",
+  "immediate": "a: fiscal -2.5, damage -1.5/month x3, trust +1; b: fiscal -5, trust -1.5; c: fiscal -2",
+  "delayed": "b: infrastructure +6 after 9 months, welfare_base +1 after 12 months; c: infrastructure +3 and services +1.5 after 6 months",
+  "regional": "Kab. Sitaro",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Evakuasi sementara, pulang saat aman",
+   "description": "Warga diungsikan dengan kapal dan dibantu selama gunung aktif, lalu kembali ke pulau saat status turun. Menjaga kampung, risiko datang lagi.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "region:71.09",
+     "var": "damage",
+     "op": "add",
+     "value": -1.5,
+     "duration": 3
+    },
+    {
+     "scope": "region:71.09",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "ruang2024_response": "temporary"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Relokasi permanen ke tempat aman",
+   "description": "Warga dari zona bahaya dipindahkan permanen ke lahan baru di daratan yang aman, dengan hunian tetap. Paling aman, berarti meninggalkan pulau leluhur.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "region:71.09",
+     "var": "trust",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "region:71.09",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 6.0,
+     "delay": 9
+    },
+    {
+     "scope": "region:71.09",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 1.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "ruang2024_response": "relocation"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Kesiapsiagaan pulau dan jalur laut",
+   "description": "Pemantauan gunung diperketat, kapal evakuasi disiagakan, dan dermaga diperkuat agar warga bisa pergi dan kembali dengan cepat.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:71.09",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    },
+    {
+     "scope": "region:71.09",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "ruang2024_response": "preparedness"
+   }
+  }
+ ]
+}

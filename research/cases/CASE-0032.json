@@ -1,0 +1,111 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0032",
+ "title": "Erupsi Gunung Lewotobi Laki-laki dan rencana relokasi warga Flores Timur, November 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_volcanic",
+ "subcategories": [
+  "volcanic_eruption",
+  "relocation",
+  "evacuation",
+  "water_supply"
+ ],
+ "start_date": "2024-11-03",
+ "end_date": "2024-11-07",
+ "decision_as_of": "2024-11-07",
+ "island": "bali_nusa_tenggara",
+ "provinces": [
+  "53"
+ ],
+ "regency_city_documented": [
+  "53.06"
+ ],
+ "geographic_resolution": "Kab. Flores Timur, Nusa Tenggara Timur",
+ "real_facts": [
+  {
+   "fact": "Gunung Lewotobi Laki-laki meletus Minggu dini hari 3 November 2024. Per 4 November, Basarnas memutakhirkan korban meninggal menjadi 10 orang; rumah penduduk dalam radius 7 km rusak dan hujan abu turun di desa-desa sekitar.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-LEWOTOBI-2024-11-04"
+   ],
+   "as_of": "2024-11-04"
+  },
+  {
+   "fact": "Badan Geologi meminta warga dievakuasi ke luar radius 7 km dari kawah dan lokasi pengungsian berada lebih dari 7 km dari puncak; desa terdampak meliputi Pululera, Nawakwote, Hokingjaya, Klatanlo, Boru, dan Borukedang (Wulanggitang) serta Duli Pali (Ile Bura). Kebutuhan air bersih pengungsi perlu segera dipenuhi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-ESDM-LEWOTOBI-2024-11-04"
+   ],
+   "as_of": "2024-11-04"
+  },
+  {
+   "fact": "Kepala BNPB menyatakan warga di dalam radius 7 km tidak boleh kembali walaupun berada di luar zona bahaya, sehingga pemerintah menyiapkan relokasi dan mendorong rehabilitasi dimulai tanpa menunggu masa tanggap darurat selesai; Desa Klatanlo berjarak 4 km dari puncak.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-LEWOTOBI-2024-11-07"
+   ],
+   "as_of": "2024-11-07"
+  }
+ ],
+ "information_available_at_decision": "7 November 2024: ribuan warga di pengungsian; pemerintah menyatakan mereka tidak bisa kembali dan mulai mensurvei lokasi relokasi.",
+ "trigger": [
+  "Erupsi Gunung Lewotobi Laki-laki dan rencana relokasi warga Flores Timur, November 2024"
+ ],
+ "root_causes_note": "Desa-desa yang tumbuh di kaki gunung api aktif, dalam radius jangkauan lontaran material.",
+ "stakeholders": [
+  "BNPB dan BPBD Flores Timur",
+  "Badan Geologi/PVMBG",
+  "warga Wulanggitang dan Ile Bura",
+  "gereja dan tokoh adat",
+  "Pemkab Flores Timur"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-LEWOTOBI-2024-11-04",
+   "institution": "BNPB",
+   "title": "[UPDATE] 10 Meninggal Dunia Akibat Erupsi Gunung Lewotobi Laki-laki",
+   "url": "https://bnpb.go.id/berita/update-10-meninggal-dunia-akibat-erupsi-gunung-lewotobi-laki-laki",
+   "publication_date": "2024-11-04",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Flores Timur",
+   "reference_period": "2024-11-04 11.51 WITA",
+   "unit": "orang"
+  },
+  {
+   "source_id": "SRC-ESDM-LEWOTOBI-2024-11-04",
+   "institution": "Kementerian ESDM (Badan Geologi)",
+   "title": "G. Lewotobi Erupsi, Badan Geologi Rekomendasi Evakuasi Masyarakat dalam Radius 7 Km dari Kawah (Siaran Pers 621.Pers/04/SJI/2024)",
+   "url": "https://www.esdm.go.id/id/media-center/arsip-berita/g-lewotobi-erupsi-badan-geologi-rekomendasi-evakuasi-masyarakat-dalam-radius-7-km-dari-kawah",
+   "publication_date": "2024-11-04",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kec. Wulanggitang, Ile Bura",
+   "reference_period": "2024-11-04",
+   "unit": "km"
+  },
+  {
+   "source_id": "SRC-BNPB-LEWOTOBI-2024-11-07",
+   "institution": "BNPB",
+   "title": "[UPDATE] Erupsi Gunungapi Lewotobi Laki-laki: Pemerintah Percepat Relokasi Warga",
+   "url": "https://www.bnpb.go.id/index.php/berita/update-erupsi-gunungapi-lewotobi-laki-laki-pemerintah-percepat-relokasi-warga",
+   "publication_date": "2024-11-07",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Desa Klatanlo, Kab. Flores Timur",
+   "reference_period": "2024-11-07",
+   "unit": ""
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka korban akhir (9 di sebagian sumber) tidak dibaca langsung; game memakai data BNPB 4 November.",
+  "Jumlah hunian tetap akhir tidak diverifikasi."
+ ],
+ "todo_to_validate": [
+  "Data hunian tetap dan relokasi mandiri (BNPB 2025)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0032.json",
+ "game_adaptation_notes": "Relokasi terpusat ke kawasan baru (tertata, lambat) vs relokasi mandiri dengan dana (cepat, tersebar) vs pengungsian yang layak dan air bersih sambil menunggu (menolong sekarang, menunda keputusan).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

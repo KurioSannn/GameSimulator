@@ -1,0 +1,103 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0028",
+ "title": "Banjir besar Kalimantan Selatan, Januari 2021",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_flood",
+ "subcategories": [
+  "riverine_flood",
+  "watershed",
+  "displacement",
+  "land_use"
+ ],
+ "start_date": "2021-01-12",
+ "end_date": "2021-01-17",
+ "decision_as_of": "2021-01-17",
+ "island": "kalimantan",
+ "provinces": [
+  "63"
+ ],
+ "regency_city_documented": [
+  "63.01",
+  "63.03",
+  "63.07",
+  "63.11",
+  "63.72"
+ ],
+ "geographic_resolution": "Tanah Laut, Banjar, Hulu Sungai Tengah, Balangan, Kota Banjarbaru (Kalimantan Selatan)",
+ "real_facts": [
+  {
+   "fact": "Banjir yang dimulai Selasa 12 Januari 2021 melanda 10 kabupaten/kota di Kalimantan Selatan; per 17 Januari tercatat 24.379 rumah terendam dan 39.549 warga mengungsi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-KALSEL-2021-01-17"
+   ],
+   "as_of": "2021-01-17"
+  },
+  {
+   "fact": "Pengungsi terbanyak di Balangan (17.501 jiwa), Tanah Laut (13.062), dan Banjar (11.269); di Hulu Sungai Tengah 64.400 jiwa terdampak. Korban meninggal 15 orang, terbanyak di Tanah Laut (7).",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-KALSEL-2021-01-17"
+   ],
+   "as_of": "2021-01-17"
+  },
+  {
+   "fact": "Pemprov Kalimantan Selatan menetapkan status tanggap darurat banjir pada 14 Januari 2021; tim reaksi cepat BNPB tiba di Banjarmasin pada 16 Januari untuk kaji cepat di daerah terdampak.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-KALSEL-TRC-2021-01-17"
+   ],
+   "as_of": "2021-01-17"
+  }
+ ],
+ "information_available_at_decision": "17 Januari 2021: puluhan ribu warga mengungsi di sepuluh daerah; air belum surut; penyebab di hulu diperdebatkan publik.",
+ "trigger": [
+  "Banjir besar Kalimantan Selatan, Januari 2021"
+ ],
+ "root_causes_note": "Curah hujan tinggi pada daerah aliran sungai yang tutupan lahannya berubah (penyebab spesifik tidak diverifikasi dalam batch ini).",
+ "stakeholders": [
+  "BNPB dan BPBD Kalsel",
+  "Pemprov Kalimantan Selatan",
+  "warga bantaran sungai",
+  "petani",
+  "pemegang izin lahan di hulu"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-KALSEL-2021-01-17",
+   "institution": "BNPB",
+   "title": "[Update] 10 Kabupaten/Kota Terdampak Banjir di Kalimantan Selatan",
+   "url": "https://bnpb.go.id/berita/-update-10-kabupaten-kota-terdampak-banjir-di-kalimantan-selatan",
+   "publication_date": "2021-01-17",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "kabupaten/kota",
+   "reference_period": "2021-01-17 14.00 WIB",
+   "unit": "rumah; jiwa"
+  },
+  {
+   "source_id": "SRC-BNPB-KALSEL-TRC-2021-01-17",
+   "institution": "BNPB",
+   "title": "BNPB Kerahkan Personil TRC dalam Mendukung Penanganan Banjir Kalimantan Selatan",
+   "url": "https://bnpb.go.id/berita/bnpb-kerahkan-personil-trc-dalam-mendukung-penanganan-banjir-kalimatan-selatan",
+   "publication_date": "2021-01-17",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Provinsi Kalimantan Selatan",
+   "reference_period": "2021-01-16",
+   "unit": ""
+  }
+ ],
+ "rejected_or_unverified": [
+  "Klaim tentang penyebab tambang dan perkebunan di hulu tidak diverifikasi dari sumber resmi dalam batch ini; tidak dicantumkan sebagai fakta.",
+  "Angka pengungsi 16 Januari (112.709) berbeda dari 17 Januari; game memakai data 17 Januari."
+ ],
+ "todo_to_validate": [
+  "Kajian resmi penyebab banjir Kalsel 2021 (KLHK)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0028.json",
+ "game_adaptation_notes": "Bantuan darurat (cepat) vs evaluasi izin dan pemulihan DAS hulu (lambat, konflik kepentingan) vs tanggul dan pompa di kota (cepat melindungi, tidak menyentuh hulu).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

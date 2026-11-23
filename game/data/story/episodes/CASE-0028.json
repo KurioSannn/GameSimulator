@@ -1,0 +1,220 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0028",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "banjir_bandang",
+ "locals": {
+  "acil_imah": {
+   "name": "Acil Imah",
+   "role": "Pedagang pasar terapung, Banjar",
+   "color": "8a5a2a",
+   "initials": "I"
+  },
+  "pak_hasbi": {
+   "name": "Pak Hasbi",
+   "role": "Petani karet, Balangan",
+   "color": "4a6a3a",
+   "initials": "H"
+  }
+ },
+ "agenda": {
+  "hook": "Sungai-sungai di Kalimantan Selatan meluap bersamaan. Puluhan ribu warga mengungsi dari rumah panggungnya.",
+  "if_postponed": "Banjir Kalsel surut dengan sendirinya. Hulu sungai tidak disentuh."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Orang Banjar terbiasa hidup bersama sungai. Tapi kali ini airnya naik melewati lantai rumah panggung.",
+   "bg": "banjir_bandang"
+  },
+  {
+   "s": "acil_imah",
+   "e": "sedih",
+   "t": "Seumur hidup saya di tepi sungai, belum pernah airnya setinggi ini. Jukung saya hanyut."
+  },
+  {
+   "s": "pak_hasbi",
+   "e": "cemas",
+   "t": "Kebun karet saya terendam seminggu. Getahnya tidak bisa disadap.",
+   "bg": "kebun"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Sepuluh daerah terdampak sekaligus, Pak. Pertanyaan yang mulai muncul: kenapa airnya sebanyak ini?",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "sekar",
+   "e": "berpikir",
+   "t": "Publik menunjuk ke hulu, ke lahan yang dibuka. Kalau kita menyentuh izin, kita akan berhadapan dengan banyak kepentingan."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Saya ingin warga kering hari ini. Dan saya ingin tahu kenapa mereka basah."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Mengirim bantuan darurat ke semua daerah terendam.",
+   "helps": "Warga yang mengungsi sekarang.",
+   "burden": "Hulu sungai tidak berubah.",
+   "now": "Kerusakan pulih tiga bulan, kepercayaan naik.",
+   "later": "Banjir berikutnya sama besarnya."
+  },
+  "b": {
+   "intent": "Memeriksa ulang izin lahan dan memulihkan hulu sungai.",
+   "helps": "Warga hilir untuk jangka panjang.",
+   "burden": "Pemegang izin dan pekerjanya; anggaran.",
+   "now": "Kepercayaan dan kesejahteraan struktural turun sedikit.",
+   "later": "Lingkungan dan perlindungan banjir naik setelah setahun."
+  },
+  "c": {
+   "intent": "Membangun tanggul dan pompa di kota-kota.",
+   "helps": "Permukiman padat di hilir.",
+   "burden": "Anggaran; hulu tetap sama.",
+   "now": "Biaya besar.",
+   "later": "Perlindungan banjir naik setelah enam bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Perahu karet dan dapur umum menyusuri kampung-kampung yang terendam.",
+    "bg": "banjir_bandang"
+   },
+   {
+    "s": "acil_imah",
+    "e": "lega",
+    "t": "Bantuan datang ke depan rumah dengan perahu. Kami bisa makan hangat."
+   },
+   {
+    "s": "yosef",
+    "e": "berpikir",
+    "t": "Air akan surut. Pertanyaan tentang hulu belum terjawab.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tim gabungan turun ke hulu memeriksa izin pembukaan lahan satu per satu.",
+    "bg": "hutan"
+   },
+   {
+    "s": "pak_hasbi",
+    "e": "cemas",
+    "t": "Kami petani kecil berharap ini adil. Jangan kebun karet kami yang disalahkan.",
+    "bg": "kebun"
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "t": "Beberapa perusahaan mulai bersuara keras di media, Pak.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tanggul dan rumah pompa mulai dibangun di kota-kota dan kecamatan padat.",
+    "bg": "kota"
+   },
+   {
+    "s": "acil_imah",
+    "e": "netral",
+    "t": "Tanggul itu bagus untuk kota. Pasar terapung kami tetap di sungai, Pak.",
+    "bg": "banjir_bandang"
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Mahal, dan hanya melindungi tempat tanggul berdiri.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "musim",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "flood_protection",
+        "op": ">",
+        "value": 3
+       },
+       "beats": [
+        {
+         "s": "acil_imah",
+         "e": "senyum",
+         "t": "Musim hujan kemarin, air naik tapi tidak masuk rumah. Pertama kali dalam beberapa tahun.",
+         "bg": "pasar"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_hasbi",
+         "e": "kecewa",
+         "t": "Hujan datang lagi, dan kami kembali mengangkat barang ke loteng, Pak.",
+         "bg": "banjir_bandang"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Banjir Kalimantan Selatan surut dengan sendirinya. Tidak ada yang naik ke hulu.",
+   "bg": "banjir_bandang"
+  },
+  {
+   "s": "acil_imah",
+   "e": "kecewa",
+   "t": "Kami membersihkan lumpur sendiri. Tahun depan, mungkin lagi."
+  }
+ ],
+ "journal": {
+  "a": "Bantuan darurat besar dikirim saat banjir Kalimantan Selatan 2021.",
+  "b": "Izin lahan di hulu sungai Kalimantan Selatan dievaluasi dan DAS dipulihkan.",
+  "c": "Tanggul dan pompa dibangun di kota-kota Kalimantan Selatan."
+ },
+ "promises": {
+  "b": {
+   "text": "Hulu sungai di Kalimantan Selatan pulih dan banjir di hilir berkurang.",
+   "due_quarters": 5,
+   "check": {
+    "delta": "environment",
+    "op": ">",
+    "value": 2
+   }
+  },
+  "c": {
+   "text": "Kota-kota di Kalimantan Selatan terlindungi tanggul dan pompa sebelum musim hujan berikutnya.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "flood_protection",
+    "op": ">",
+    "value": 3
+   }
+  }
+ }
+}

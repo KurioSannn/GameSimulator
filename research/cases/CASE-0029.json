@@ -1,0 +1,98 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0029",
+ "title": "Erupsi Gunung Ruang dan evakuasi Pulau Tagulandang, April sampai Mei 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_volcanic",
+ "subcategories": [
+  "volcanic_eruption",
+  "island_evacuation",
+  "relocation",
+  "sea_logistics"
+ ],
+ "start_date": "2024-04-16",
+ "end_date": "2024-05-03",
+ "decision_as_of": "2024-05-02",
+ "island": "sulawesi",
+ "provinces": [
+  "71"
+ ],
+ "regency_city_documented": [
+  "71.09"
+ ],
+ "geographic_resolution": "Kab. Kepulauan Siau Tagulandang Biaro (Sitaro), Sulawesi Utara",
+ "real_facts": [
+  {
+   "fact": "PVMBG menaikkan status Gunung Ruang ke level tertinggi (Awas) pada 17 April 2024 pukul 21.00 WITA, setelah erupsi eksplosif dengan kolom abu 2.000 sampai 3.000 meter; hujan abu, kerikil, dan batu mencapai permukiman.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-RUANG-2024-04-18"
+   ],
+   "as_of": "2024-04-18"
+  },
+  {
+   "fact": "Sebanyak 828 warga dievakuasi pada tahap awal.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-RUANG-2024-04-18"
+   ],
+   "as_of": "2024-04-18"
+  },
+  {
+   "fact": "Pada 2 Mei 2024, pemerintah mengupayakan evakuasi 9.083 warga Pulau Tagulandang dalam radius 7 km dari pusat erupsi sesuai rekomendasi PVMBG; 3.364 sudah dievakuasi dan 5.719 dalam proses, menggunakan beberapa kapal termasuk kapal TNI AL.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-RUANG-2024-05-03"
+   ],
+   "as_of": "2024-05-03"
+  }
+ ],
+ "information_available_at_decision": "2 Mei 2024: ribuan warga Tagulandang masih menunggu kapal evakuasi; gunung masih aktif; pertanyaan tentang kembali atau pindah permanen belum dijawab.",
+ "trigger": [
+  "Erupsi Gunung Ruang dan evakuasi Pulau Tagulandang, April sampai Mei 2024"
+ ],
+ "root_causes_note": "Pulau-pulau kecil berpenghuni di dekat gunung api aktif, tanpa jalur evakuasi darat.",
+ "stakeholders": [
+  "BNPB dan BPBD Sitaro",
+  "PVMBG",
+  "TNI AL dan Basarnas",
+  "warga Pulau Ruang dan Tagulandang",
+  "Pemprov Sulawesi Utara"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-RUANG-2024-04-18",
+   "institution": "BNPB",
+   "title": "Gunungapi Ruang Naik Level Awas, Sebanyak 828 Warga Dievakuasi",
+   "url": "https://bnpb.go.id/berita/gunungapi-ruang-naik-level-awas-sebanyak-828-warga-dievakuasi",
+   "publication_date": "2024-04-18",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Sitaro",
+   "reference_period": "2024-04-16/17",
+   "unit": ""
+  },
+  {
+   "source_id": "SRC-BNPB-RUANG-2024-05-03",
+   "institution": "BNPB",
+   "title": "Erupsi Gunungapi Ruang, Pemerintah Terus Upayakan Evakuasi Sembilan Ribu Warga",
+   "url": "https://www.bnpb.go.id/berita/erupsi-gunungapi-ruang-pemerintah-terus-upayakan-evakuasi-sembilan-ribu-warga",
+   "publication_date": "2024-05-03",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Pulau Tagulandang",
+   "reference_period": "2024-05-02",
+   "unit": "jiwa"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Lokasi relokasi permanen dan besaran dana tunggu hanya dari ringkasan pencarian; tidak dicantumkan sebagai fakta."
+ ],
+ "todo_to_validate": [
+  "Keputusan resmi relokasi warga Pulau Ruang (BNPB/Pemprov Sulut)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0029.json",
+ "game_adaptation_notes": "Evakuasi sementara dan kembali (cepat, risiko berulang) vs relokasi permanen ke daratan lain (aman, kehilangan kampung) vs kesiapsiagaan pulau (pemantauan, jalur laut).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

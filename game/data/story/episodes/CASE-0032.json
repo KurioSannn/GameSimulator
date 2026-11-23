@@ -1,0 +1,223 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0032",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "gunung_api",
+ "locals": {
+  "mama_veronika": {
+   "name": "Mama Veronika",
+   "role": "Petani kemiri, Klatanlo",
+   "color": "7a4a3a",
+   "initials": "V"
+  },
+  "pater_dominikus": {
+   "name": "Pak Dominikus",
+   "role": "Guru agama dan koordinator posko, Konga",
+   "color": "4a4a7a",
+   "initials": "D"
+  }
+ },
+ "agenda": {
+  "hook": "Lewotobi Laki-laki meletus di tengah malam. Desa-desa di kakinya tidak bisa lagi ditinggali.",
+  "if_postponed": "Pengungsi Lewotobi menunggu di posko tanpa kepastian tempat tinggal baru."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Dini hari di Flores Timur. Batu pijar jatuh ke atap-atap rumah di kaki gunung.",
+   "bg": "gunung_api"
+  },
+  {
+   "s": "mama_veronika",
+   "e": "sedih",
+   "t": "Kami lari dalam gelap. Rumah tetangga terbakar. Kebun kemiri kami tertutup abu."
+  },
+  {
+   "s": "pater_dominikus",
+   "e": "cemas",
+   "t": "Posko kami penuh. Yang paling kurang air bersih, Pak. Lalu pertanyaan, kapan pulang.",
+   "bg": "desa"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Para ahli gunung api bilang desa-desa itu terlalu dekat. Mereka tidak bisa kembali.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "sekar",
+   "e": "berpikir",
+   "t": "Memberi tahu orang bahwa mereka tidak bisa pulang ke rumahnya sendiri adalah kabar paling berat, Pak."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Kalau kita harus menyampaikannya, kita juga harus menunjukkan ke mana mereka bisa pergi."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Membangun kawasan relokasi baru yang tertata.",
+   "helps": "Warga dalam radius bahaya, untuk jangka panjang.",
+   "burden": "Warga yang menunggu lama di pengungsian; anggaran.",
+   "now": "Kepercayaan turun.",
+   "later": "Infrastruktur dan kesejahteraan struktural naik setelah sembilan bulan sampai setahun."
+  },
+  "b": {
+   "intent": "Memberi dana agar keluarga pindah sendiri ke tempat aman.",
+   "helps": "Keluarga yang punya kerabat atau lahan lain.",
+   "burden": "Penataan permukiman sulit dikendalikan.",
+   "now": "Pemulihan dan kesejahteraan naik tiga bulan.",
+   "later": "Tidak ada kawasan baru."
+  },
+  "c": {
+   "intent": "Menjamin pengungsian layak dan air bersih dulu.",
+   "helps": "Pengungsi: hidup lebih layak selama menunggu.",
+   "burden": "Keputusan tempat tinggal baru tertunda.",
+   "now": "Layanan naik tiga bulan, kepercayaan naik.",
+   "later": "Belum ada relokasi."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Lahan di luar radius bahaya disurvei. Rencana kawasan dengan sekolah, sumur, dan kebun disusun.",
+    "bg": "desa"
+   },
+   {
+    "s": "mama_veronika",
+    "e": "kecewa",
+    "t": "Rumah baru katanya setahun lagi. Setahun di tenda itu lama, Pak."
+   },
+   {
+    "s": "pater_dominikus",
+    "e": "berpikir",
+    "t": "Kalau benar jadi, anak-anak kami akan besar di tempat yang aman.",
+    "bg": "desa"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Dana relokasi dibagikan. Banyak keluarga pindah ke rumah kerabat di desa-desa lain.",
+    "bg": "desa"
+   },
+   {
+    "s": "mama_veronika",
+    "e": "netral",
+    "t": "Kami pindah ke rumah adik saya di desa sebelah. Sempit, tapi kami bersama."
+   },
+   {
+    "s": "yosef",
+    "e": "berpikir",
+    "t": "Cepat, tapi warga tersebar ke mana-mana. Kampungnya pelan-pelan hilang.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tangki air, toilet, dan tenda sekolah dikirim ke posko-posko pengungsian.",
+    "bg": "desa"
+   },
+   {
+    "s": "pater_dominikus",
+    "e": "lega",
+    "t": "Untuk pertama kalinya sejak letusan, anak-anak belajar lagi dan semua orang bisa mandi."
+   },
+   {
+    "s": "sekar",
+    "e": "netral",
+    "t": "Mereka lebih tenang, Pak. Tapi pertanyaan kapan dan ke mana pindah belum kita jawab.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "rumah",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 3
+       },
+       "beats": [
+        {
+         "s": "mama_veronika",
+         "e": "senyum",
+         "t": "Kami sudah menempati rumah baru, Pak. Kebun kemiri baru juga mulai kami tanam.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {
+        "case_choice": "CASE-0032",
+        "choice": "b"
+       },
+       "beats": [
+        {
+         "s": "pater_dominikus",
+         "e": "netral",
+         "t": "Keluarga-keluarga sudah menetap di berbagai desa. Kami masih berkumpul setiap Minggu, walau harus berjalan jauh.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "mama_veronika",
+         "e": "kecewa",
+         "t": "Kami masih di pengungsian, Pak. Musim tanam sudah lewat.",
+         "bg": "desa"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Pengungsi Lewotobi menunggu di posko. Keputusan tentang tempat tinggal baru terus ditunda.",
+   "bg": "desa"
+  },
+  {
+   "s": "pater_dominikus",
+   "e": "sedih",
+   "t": "Kami menunggu dengan sabar. Kesabaran juga ada batasnya."
+  }
+ ],
+ "journal": {
+  "a": "Kawasan relokasi baru dibangun bagi warga kaki Lewotobi Laki-laki.",
+  "b": "Warga kaki Lewotobi menerima dana relokasi mandiri.",
+  "c": "Pengungsian layak dan air bersih dijamin bagi warga terdampak Lewotobi."
+ },
+ "promises": {
+  "a": {
+   "text": "Warga dari kaki Lewotobi Laki-laki menempati kawasan relokasi yang aman.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 3
+   }
+  }
+ }
+}

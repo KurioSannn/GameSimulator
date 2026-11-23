@@ -1,0 +1,196 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0032",
+ "research_ref": "research/cases/CASE-0032.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Letusan di Kaki Lewotobi",
+ "location_label": "Kab. Flores Timur, Nusa Tenggara Timur",
+ "focus_regions": [
+  "53.06"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 57
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0032"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:53.06",
+   "var": "damage",
+   "op": "add",
+   "value": 9.0
+  },
+  {
+   "scope": "region:53.06",
+   "var": "services",
+   "op": "add",
+   "value": -2.5
+  },
+  {
+   "scope": "region:53.06",
+   "var": "welfare",
+   "op": "add",
+   "value": -2.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Gunung Lewotobi Laki-laki meletus Minggu dini hari 3 November 2024. Per 4 November, Basarnas memutakhirkan korban meninggal menjadi 10 orang; rumah penduduk dalam radius 7 km rusak dan hujan abu turun di desa-desa sekitar.",
+    "source_refs": [
+     "SRC-BNPB-LEWOTOBI-2024-11-04"
+    ],
+    "as_of": "2024-11-04"
+   },
+   {
+    "text": "Badan Geologi meminta warga dievakuasi ke luar radius 7 km dari kawah dan lokasi pengungsian berada lebih dari 7 km dari puncak; desa terdampak meliputi Pululera, Nawakwote, Hokingjaya, Klatanlo, Boru, dan Borukedang (Wulanggitang) serta Duli Pali (Ile Bura). Kebutuhan air bersih pengungsi perlu segera dipenuhi.",
+    "source_refs": [
+     "SRC-ESDM-LEWOTOBI-2024-11-04"
+    ],
+    "as_of": "2024-11-04"
+   },
+   {
+    "text": "Kepala BNPB menyatakan warga di dalam radius 7 km tidak boleh kembali walaupun berada di luar zona bahaya, sehingga pemerintah menyiapkan relokasi dan mendorong rehabilitasi dimulai tanpa menunggu masa tanggap darurat selesai; Desa Klatanlo berjarak 4 km dari puncak.",
+    "source_refs": [
+     "SRC-BNPB-LEWOTOBI-2024-11-07"
+    ],
+    "as_of": "2024-11-07"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Lewotobi Laki-laki meletus di tengah malam. Desa-desa di kakinya tidak bisa lagi ditinggali."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Flores Timur damage 9, services -2.5 (evacuation beyond 7 km, water needs), welfare -2. Design values; Flores Timur also appears in CASE-0025 (different event)."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "eruption -> damage, services, welfare; planned relocation -> infrastructure + welfare_base later at a trust cost; self-relocation grant -> welfare + damage recovery; shelter + water -> services now",
+  "immediate": "a: fiscal -5, trust -1; b: fiscal -3, damage -1.5/month x3, welfare +0.6/month x3; c: fiscal -2, services +1.5/month x3, trust +1",
+  "delayed": "a: infrastructure +6 after 9 months, welfare_base +1 after 12",
+  "regional": "Kab. Flores Timur",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Bangun kawasan relokasi baru",
+   "description": "Pemerintah membangun permukiman baru yang tertata, lengkap dengan air, sekolah, dan lahan garapan, di luar radius bahaya. Paling rapi, paling lama ditunggu.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "region:53.06",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "region:53.06",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 6.0,
+     "delay": 9
+    },
+    {
+     "scope": "region:53.06",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 1.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "lewotobi2024_response": "planned_relocation"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Dana relokasi mandiri",
+   "description": "Keluarga menerima dana untuk pindah sendiri ke tempat aman pilihannya, misalnya ke kerabat di desa lain. Cepat dan menghormati pilihan, sulit ditata.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "region:53.06",
+     "var": "damage",
+     "op": "add",
+     "value": -1.5,
+     "duration": 3
+    },
+    {
+     "scope": "region:53.06",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.6,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "lewotobi2024_response": "self_relocation"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Pengungsian layak dan air bersih dulu",
+   "description": "Fokus pada tenda yang layak, air bersih, sekolah darurat, dan layanan kesehatan bagi pengungsi, sambil keputusan relokasi dimatangkan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:53.06",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "duration": 3
+    },
+    {
+     "scope": "region:53.06",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "lewotobi2024_response": "shelter_water"
+   }
+  }
+ ]
+}

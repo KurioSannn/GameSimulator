@@ -1,0 +1,226 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0027",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "kota_gelap",
+ "locals": {
+  "pak_rahman": {
+   "name": "Pak Rahman",
+   "role": "Nelayan, Majene",
+   "color": "2a6a7a",
+   "initials": "R"
+  },
+  "bu_asni": {
+   "name": "Bu Asni",
+   "role": "Perawat RSUD, Mamuju",
+   "color": "7a4a6a",
+   "initials": "A"
+  }
+ },
+ "agenda": {
+  "hook": "Gempa kuat di tengah malam merobohkan bangunan di Mamuju dan Majene. Puluhan ribu warga tidur di tenda.",
+  "if_postponed": "Pemulihan Sulawesi Barat berjalan dengan kemampuan daerah sendiri."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Pukul dua dini hari di pesisir Sulawesi Barat. Gempa membangunkan semua orang sekaligus.",
+   "bg": "kota_gelap"
+  },
+  {
+   "s": "bu_asni",
+   "e": "cemas",
+   "t": "Rumah sakit kami retak di mana-mana. Pasien kami rawat di halaman, di bawah terpal."
+  },
+  {
+   "s": "pak_rahman",
+   "e": "sedih",
+   "t": "Jalan ke Mamuju tertutup longsor. Kami di Majene merasa terputus dari dunia.",
+   "bg": "pesisir_rusak"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Kantor gubernur sendiri rusak berat, Pak. Listrik padam. Pemerintahan daerah lumpuh di hari-hari pertama.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Kita bisa mulai dari listrik dan jalan, dari rumah warga, atau dari memastikan gedung publik tidak runtuh lagi."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Orang-orang ini butuh atap dan butuh pemerintah yang bisa bekerja. Urutannya yang harus kita pilih."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Memulihkan listrik, jalan, dan pusat pemerintahan.",
+   "helps": "Semua warga: bantuan dan layanan bisa bergerak.",
+   "burden": "Keluarga yang menunggu rumahnya dibangun.",
+   "now": "Layanan publik naik tiga bulan.",
+   "later": "Rumah warga pulih seperti biasa."
+  },
+  "b": {
+   "intent": "Membangun rumah dan hunian sementara warga.",
+   "helps": "Keluarga pengungsi.",
+   "burden": "Layanan publik pulih lebih lambat; anggaran.",
+   "now": "Kerusakan pulih tiga bulan, kesejahteraan naik.",
+   "later": "Tidak ada perubahan pada ketahanan gedung."
+  },
+  "c": {
+   "intent": "Mengaudit dan memperkuat gedung publik.",
+   "helps": "Pasien, murid, dan pegawai di gempa berikutnya.",
+   "burden": "Warga yang menunggu bantuan sekarang.",
+   "now": "Kepercayaan turun sedikit.",
+   "later": "Infrastruktur dan layanan naik setelah sembilan bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Genset, tiang listrik baru, dan alat berat dikirim. Jalan poros dibuka dalam hitungan hari.",
+    "bg": "kota"
+   },
+   {
+    "s": "bu_asni",
+    "e": "lega",
+    "t": "Listrik kembali ke rumah sakit. Kami bisa mengoperasi lagi di dalam gedung yang aman."
+   },
+   {
+    "s": "pak_rahman",
+    "e": "netral",
+    "t": "Jalan sudah terbuka. Rumah saya masih retak, tapi setidaknya bantuan bisa lewat.",
+    "bg": "pesisir_rusak"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Hunian sementara berdiri di lapangan-lapangan kota. Bantuan pembangunan rumah mulai disalurkan.",
+    "bg": "desa"
+   },
+   {
+    "s": "pak_rahman",
+    "e": "senyum",
+    "t": "Keluarga saya pindah dari tenda ke hunian sementara. Anak-anak tidak kedinginan lagi."
+   },
+   {
+    "s": "bu_asni",
+    "e": "cemas",
+    "t": "Rumah sakit masih di bawah terpal minggu ini. Kami bertahan.",
+    "bg": "rumah_sakit"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tim ahli bangunan memeriksa sekolah dan rumah sakit satu per satu.",
+    "bg": "kota"
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "t": "Warga bertanya kenapa kita sibuk memeriksa gedung sementara mereka masih di tenda.",
+    "bg": "ruang_rapat"
+   },
+   {
+    "s": "bu_asni",
+    "e": "berpikir",
+    "t": "Kalau rumah sakit kami nanti benar-benar tahan gempa, saya akan berterima kasih. Sekarang saya hanya lelah.",
+    "bg": "rumah_sakit"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "pulih",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "bu_asni",
+         "e": "senyum",
+         "t": "Gedung rumah sakit kami sudah diperkuat. Gempa kecil bulan lalu, tidak ada satu pun dinding retak.",
+         "bg": "rumah_sakit"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "damage",
+        "op": "<",
+        "value": -6
+       },
+       "beats": [
+        {
+         "s": "pak_rahman",
+         "e": "senyum",
+         "t": "Kampung kami sudah berdiri lagi, Pak. Perahu kembali melaut.",
+         "bg": "pesisir"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_rahman",
+         "e": "kecewa",
+         "t": "Masih banyak tenda di Majene, Pak. Kami menunggu.",
+         "bg": "pesisir_rusak"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Sulawesi Barat memulihkan diri dengan kemampuan sendiri. Bantuan dari pusat datang terputus-putus.",
+   "bg": "kota_gelap"
+  },
+  {
+   "s": "bu_asni",
+   "e": "sedih",
+   "t": "Kami merawat pasien di halaman berminggu-minggu.",
+   "bg": "rumah_sakit"
+  }
+ ],
+ "journal": {
+  "a": "Listrik, jalan poros, dan pusat pemerintahan Sulawesi Barat dipulihkan lebih dulu setelah gempa.",
+  "b": "Rumah dan hunian sementara warga Mamuju dan Majene dibangun lebih dulu.",
+  "c": "Gedung publik di Sulawesi Barat diaudit dan diperkuat agar tahan gempa."
+ },
+ "promises": {
+  "c": {
+   "text": "Sekolah dan rumah sakit di Mamuju dan Majene tahan gempa.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 2
+   }
+  }
+ }
+}

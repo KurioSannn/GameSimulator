@@ -1,0 +1,203 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0027",
+ "research_ref": "research/cases/CASE-0027.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Malam Gempa di Sulawesi Barat",
+ "location_label": "Kab. Mamuju dan Kab. Majene, Sulawesi Barat",
+ "focus_regions": [
+  "76.02",
+  "76.05"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 36
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0027"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:76.02",
+   "var": "damage",
+   "op": "add",
+   "value": 12.0
+  },
+  {
+   "scope": "region:76.05",
+   "var": "damage",
+   "op": "add",
+   "value": 5.0
+  },
+  {
+   "scope": "regions:76.02,76.05",
+   "var": "services",
+   "op": "add",
+   "value": -3.0
+  },
+  {
+   "scope": "regions:76.02,76.05",
+   "var": "welfare",
+   "op": "add",
+   "value": -2.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Gempa M6,2 terjadi pada Jumat 15 Januari 2021 pukul 01.28 WIB, berpusat 6 km timur laut Majene. Pagi itu Hotel Maleo dan Kantor Gubernur Sulawesi Barat rusak berat, listrik padam, dan longsor di tiga titik memutus jalan poros Majene sampai Mamuju.",
+    "source_refs": [
+     "SRC-BNPB-SULBAR-2021-01-15"
+    ],
+    "as_of": "2021-01-15"
+   },
+   {
+    "text": "Per 18 Januari 2021, BNPB mencatat 84 orang meninggal (73 di Mamuju, 11 di Majene), 253 luka berat dan 679 luka ringan.",
+    "source_refs": [
+     "SRC-BNPB-SULBAR-2021-01-18"
+    ],
+    "as_of": "2021-01-18"
+   },
+   {
+    "text": "Pada tanggal yang sama tercatat 19.435 warga mengungsi: 15.014 di Mamuju dan 4.421 di Majene.",
+    "source_refs": [
+     "SRC-BNPB-SULBAR-2021-01-18"
+    ],
+    "as_of": "2021-01-18"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Gempa kuat di tengah malam merobohkan bangunan di Mamuju dan Majene. Puluhan ribu warga tidur di tenda."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Mamuju damage 12 > Majene 5 (73 vs 11 deaths per BNPB), services -3 (power, governor office, road), welfare -2. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "earthquake -> damage & services; restore services -> services now; rebuild homes -> damage recovery + welfare; seismic audit -> infrastructure later",
+  "immediate": "a: fiscal -2, services +2/month x3, trust +0.5; b: fiscal -4, damage -2/month x3, welfare +0.5/month x3; c: fiscal -3, trust -0.5",
+  "delayed": "c: infrastructure +5 after 9 months, services +1 after 9 months",
+  "regional": "Mamuju, Majene",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Pulihkan listrik, jalan, dan kantor pemerintahan",
+   "description": "Prioritas pada jaringan listrik, jalan poros, dan pusat layanan agar pemerintahan dan bantuan bisa bergerak. Cepat terasa, rumah warga menunggu.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:76.02,76.05",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "duration": 3
+    },
+    {
+     "scope": "regions:76.02,76.05",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "sulbar2021_response": "services_first"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Bangun ulang rumah warga lebih dulu",
+   "description": "Bantuan pembangunan rumah dan hunian sementara bagi keluarga pengungsi. Menolong keluarga langsung, layanan publik pulih lebih lambat.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.0
+    },
+    {
+     "scope": "regions:76.02,76.05",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "duration": 3
+    },
+    {
+     "scope": "regions:76.02,76.05",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.5,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "sulbar2021_response": "homes_first"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Audit dan perkuat gedung publik",
+   "description": "Semua sekolah, rumah sakit, dan kantor di kota pesisir Sulbar diperiksa dan diperkuat agar tahan gempa. Mencegah runtuh berikutnya, tidak terlihat sekarang.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "regions:76.02,76.05",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:76.02,76.05",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 5.0,
+     "delay": 9
+    },
+    {
+     "scope": "regions:76.02,76.05",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "delay": 9
+    }
+   ],
+   "memory": {
+    "sulbar2021_response": "seismic_audit"
+   }
+  }
+ ]
+}

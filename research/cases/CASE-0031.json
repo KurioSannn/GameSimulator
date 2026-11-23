@@ -1,0 +1,111 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0031",
+ "title": "Jebolnya tanggul Sungai Wulan dan banjir Demak, Februari sampai Maret 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_flood",
+ "subcategories": [
+  "levee_failure",
+  "riverine_flood",
+  "flood_infrastructure",
+  "pumping"
+ ],
+ "start_date": "2024-02-05",
+ "end_date": "2024-03-18",
+ "decision_as_of": "2024-03-18",
+ "island": "jawa",
+ "provinces": [
+  "33"
+ ],
+ "regency_city_documented": [
+  "33.21",
+  "33.19"
+ ],
+ "geographic_resolution": "Kab. Demak dan Kab. Kudus, Jawa Tengah",
+ "real_facts": [
+  {
+   "fact": "Tanggul Sungai Wulan di Demak jebol akibat hujan lebat 3 sampai 5 Februari 2024. Kementerian PUPR menurunkan ekskavator dan ekskavator amfibi, menyiapkan 12 pompa berkapasitas 5 m3/detik, dan merencanakan normalisasi Sungai Wulan sepanjang 22 km pada 2024 sampai 2026.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-PU-DEMAK-2024-02-12"
+   ],
+   "as_of": "2024-02-12"
+  },
+  {
+   "fact": "Setelah hujan lebat 13 Maret 2024, enam tanggul jebol dan tanggul Sungai Wulan di perbatasan Demak dan Kudus jebol lagi pada 17 Maret. Sebanyak 89 desa di 11 kecamatan terendam 30 sampai 80 cm; 93.149 jiwa terdampak dan 22.725 mengungsi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-DEMAK-2024-03-18"
+   ],
+   "as_of": "2024-03-18"
+  },
+  {
+   "fact": "Pada Desember 2024, tanggul yang jebol dua kali itu telah diperkuat dengan konstruksi yang dinilai Kepala BNPB sangat baik.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-DEMAK-2024-12-20"
+   ],
+   "as_of": "2024-12-20"
+  }
+ ],
+ "information_available_at_decision": "18 Maret 2024: tanggul yang baru diperbaiki darurat jebol lagi; puluhan ribu warga mengungsi untuk kedua kalinya dalam dua bulan.",
+ "trigger": [
+  "Jebolnya tanggul Sungai Wulan dan banjir Demak, Februari sampai Maret 2024"
+ ],
+ "root_causes_note": "Tanggul tua dan kapasitas sungai yang tidak memadai untuk debit banjir besar di dataran rendah pesisir utara Jawa.",
+ "stakeholders": [
+  "Kementerian PUPR (BBWS Pemali Juana)",
+  "BNPB dan BPBD Demak",
+  "Pemkab Demak dan Kudus",
+  "petani dan warga dataran rendah",
+  "pengguna jalur Pantura"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-PU-DEMAK-2024-02-12",
+   "institution": "Kementerian PUPR",
+   "title": "Menteri Basuki Targetkan Perbaikan Darurat Tanggul Sungai Wulan di Demak Selesai Dalam Tiga Hari",
+   "url": "https://pu.go.id/berita/menteri-basuki-targetkan-perbaikan-darurat-tanggul-sungai-wulan-di-demak-selesai-dalam-tiga-hari",
+   "publication_date": "2024-02-12",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Demak, Kab. Kudus",
+   "reference_period": "2024-02-03/12",
+   "unit": "unit; m3/detik; km"
+  },
+  {
+   "source_id": "SRC-BNPB-DEMAK-2024-03-18",
+   "institution": "BNPB",
+   "title": "Enam Tanggul Jebol, 11 Kecamatan di Kabupaten Demak Terendam Banjir",
+   "url": "https://bnpb.go.id/berita/enam-tanggul-jebol-11-kecamatan-di-kabupaten-demak-terendam-banjir",
+   "publication_date": "2024-03-18",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Demak (89 desa, 11 kecamatan)",
+   "reference_period": "2024-03-18",
+   "unit": "jiwa"
+  },
+  {
+   "source_id": "SRC-BNPB-DEMAK-2024-12-20",
+   "institution": "BNPB",
+   "title": "Kepala BNPB Tinjau Kondisi Tanggul Sungai Wulan di Demak",
+   "url": "https://bnpb.go.id/berita/kepala-bnpb-tinjau-kondisi-tanggul-sungai-wulan-di-demak",
+   "publication_date": "2024-12-20",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "tanggul Sungai Wulan",
+   "reference_period": "2024-12-19",
+   "unit": ""
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka pengungsi lain di pemberitaan tidak dipakai; game memakai data BNPB 18 Maret."
+ ],
+ "todo_to_validate": [
+  "Progres normalisasi Sungai Wulan 2025 (BBWS Pemali Juana)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0031.json",
+ "game_adaptation_notes": "Tambal darurat dan pompa (cepat, bisa jebol lagi) vs perkuat permanen dan normalisasi sungai (mahal, lama) vs bantuan penghidupan petani dan warga (langsung, tidak mencegah).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}
