@@ -85,6 +85,13 @@ def main() -> int:
         for pr in problems:
             print(f"FAIL policy {pid}: {pr}")
         bad += len(problems)
+    # Narrative coverage of the 50 top-level cases (content-level checks, scripts/story/coverage.py).
+    import subprocess, sys
+    cov = subprocess.run([sys.executable, str(ROOT / "scripts/story/coverage.py"), "--strict"], capture_output=True, text=True)
+    print(cov.stdout.strip().splitlines()[0] if cov.stdout.strip() else cov.stderr.strip())
+    if cov.returncode != 0:
+        print("FAIL story coverage: " + cov.stdout.strip())
+        bad += 1
     print(f"\n{'OK' if bad == 0 else f'{bad} violation(s)'}")
     return 0 if bad == 0 else 1
 

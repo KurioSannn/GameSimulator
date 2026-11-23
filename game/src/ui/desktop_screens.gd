@@ -717,7 +717,18 @@ func _legacy() -> void:
 	left.add_child(HSeparator.new())
 	left.add_child(UiKit.label(str(arch.get("legacy", "")), 16, UiKit.TEXT, true))
 	var f: Dictionary = ev.get("features", {})
-	left.add_child(UiKit.label("%d keputusan besar diambil langsung. %d persoalan ditangani tanpa arahan Presiden." % [int(f.get("decided", 0)), int(f.get("unattended", 0))], 14, UiKit.MUTED, true))
+	left.add_child(UiKit.label("%d keputusan besar diambil langsung." % int(f.get("decided", 0)), 14, UiKit.MUTED, true))
+	var oc := Campaign.outcome_counts(w)
+	for k in [Campaign.OUTCOME_DELEGATED, Campaign.OUTCOME_COVERED, Campaign.OUTCOME_DISPLACED, Campaign.OUTCOME_LAPSED, Campaign.OUTCOME_MISSED_CRITICAL]:
+		if int(oc.get(k, 0)) > 0:
+			var bad: bool = k == Campaign.OUTCOME_MISSED_CRITICAL or k == Campaign.OUTCOME_LAPSED
+			left.add_child(UiKit.kv_row(str(Campaign.OUTCOME_LABELS[k]), str(oc[k]), UiKit.DANGER if bad else UiKit.MUTED, 14))
+	var retro := EndingStory.retrospective(Game.session)
+	left.add_child(HSeparator.new())
+	left.add_child(UiKit.subheader("PALING MEMBAIK", UiKit.SUCCESS, 12))
+	left.add_child(UiKit.label(EndingStory._names(retro.best), 15, UiKit.TEXT, true))
+	left.add_child(UiKit.subheader("MASIH BERJUANG", UiKit.DANGER, 12))
+	left.add_child(UiKit.label(EndingStory._names(retro.worst), 15, UiKit.TEXT, true))
 
 	var mid := _card("JANJI PEMERINTAH", row)
 	mid.get_parent().size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -757,6 +768,7 @@ func _legacy() -> void:
 	foot.add_child(UiKit.spacer())
 	var back := UiKit.ghost_button("KEMBALI KE PETA", close_screen)
 	foot.add_child(back)
+	foot.add_child(UiKit.ghost_button("KUMPULAN KISAH", func(): open("library")))
 	var new_btn := UiKit.button("MULAI PEMERINTAHAN BARU", func(): _origin = "map"; open("new"), true)
 	new_btn.custom_minimum_size = Vector2(260, 44)
 	foot.add_child(new_btn)

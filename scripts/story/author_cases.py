@@ -113,6 +113,7 @@ CASES.append(dict(
                    B("dr_fikri", "Tempat tidur tambahan sangat menolong. Kami tidak lagi merawat pasien di lorong.", "lega"),
                    B("bu_sri", "Asapnya memang terlihat. Tapi besok pagi jentiknya masih ada di bak tetangga.", "berpikir", "kota")],
              "c": [B("narasi", "Tim peneliti dan dinas kesehatan memetakan kota-kota yang paling sering dilanda dengue.", bg="ruang_rapat"),
+                   B("bu_sri", "Anak tetangga saya masih dirawat, Pak. Penelitian itu untuk tahun depan, kan?", "cemas", "kota"),
                    B("sekar", "Musim ini orang akan bertanya kenapa kita bicara riset saat anak-anak dirawat.", "cemas"),
                    B("yosef", "Kalau berhasil, lonjakan seperti ini tidak lagi datang setiap tiga tahun. Kalau gagal, kita kehilangan satu musim.", "serius")]},
   callbacks=[{"id": "musim", "after_quarters": 3, "beats": [PICK(

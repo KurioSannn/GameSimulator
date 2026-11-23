@@ -1197,9 +1197,17 @@ func _play_ending() -> void:
 	var cfg: Dictionary = ContentDB.story.get("endings", {})
 	var arch: Dictionary = cfg.get("archetypes", {}).get(str(ev.id), {})
 	Narrative.ensure(Game.world)["ending"] = ev
-	var beats: Array = Narrative.resolve(Game.world, arch.get("beats", []), {})
+	# Legacy sequence from actual state (address, map overview, regional voices, cabinet), then the
+	# archetype scene and the closing. The map is framed on all of Indonesia for the overview.
+	var beats: Array = EndingStory.build_beats(Game.session, ev)
+	beats.append({"s": "narasi", "bg": "senja", "t": "Sejarah kelak mengenang lima tahun ini sebagai %s: %s." % [str(arch.get("title", "")).capitalize(), str(arch.get("subtitle", "")).to_lower()]})
+	beats.append_array(Narrative.resolve(Game.world, arch.get("beats", []), {}))
 	beats.append_array(Narrative.resolve(Game.world, cfg.get("closing", []), {}))
-	_play_beats(beats, {"bg": "senja"}, _after_ending, {"title": str(arch.get("title", "Akhir Masa Bakti")), "skippable": true, "resume": "ending"})
+	if _mode_3d and camera_3d:
+		camera_3d.fit(map_view.bounds, get_viewport().get_visible_rect().size)
+	elif camera:
+		camera.fit(map_view.bounds, get_viewport().get_visible_rect().size)
+	_play_beats(beats, {"bg": "istana_siang"}, _after_ending, {"title": "Akhir Masa Bakti", "skippable": true, "resume": "ending"})
 
 
 func _after_ending() -> void:

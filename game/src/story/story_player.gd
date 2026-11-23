@@ -225,7 +225,9 @@ func _next() -> void:
 	if b.has("bg"):
 		_backdrop.set_kind(str(b.bg))
 	var who := str(b.get("s", "narasi"))
-	var c: Dictionary = ContentDB.character(who, _ctx.get("case_record", {}))
+	# A beat may name its own case (legacy sequence: locals from several episodes in one scene).
+	var rec: Dictionary = ContentDB.cases.get(str(b.case), {}) if b.has("case") else _ctx.get("case_record", {})
+	var c: Dictionary = ContentDB.character(who, rec)
 	var narrator := who == "narasi" or str(c.get("name", "")) == ""
 	_name_plate.visible = not narrator
 	_name.text = str(c.get("name", ""))

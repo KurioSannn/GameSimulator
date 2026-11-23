@@ -273,6 +273,27 @@ func test_strong_route_reaches_warisan_besar_and_misses_no_crisis() -> void:
 	t.check(ev.id == "warisan_besar", "strong route reaches Warisan Besar (got %s)" % ev.id)
 
 
+func test_legacy_sequence_is_built_from_the_term() -> void:
+	var s := _play_campaign("c")
+	var ev := EndingEvaluator.evaluate(s, ContentDB.story.endings)
+	var beats := EndingStory.build_beats(s, ev)
+	var r := EndingStory.retrospective(s)
+	t.check((r.best as Array).size() == 2 and (r.worst as Array).size() == 2, "best and struggling provinces named")
+	t.check(not str(r.best[0].name).begins_with("provinsi "), "province names resolved")
+	t.check((r.defining as Array).size() == 3, "three defining decisions")
+	var speakers := beats.map(func(b): return str(b.s))
+	for who in ["nara", "bayu", "sekar", "yosef", "laras"]:
+		t.check(who in speakers, "legacy sequence includes %s" % who)
+	t.check(beats.any(func(b): return str(b.get("bg", "")) == "peta"), "map overview of Indonesia")
+	var local_lines := beats.filter(func(b): return b.has("case"))
+	t.check(local_lines.size() >= 1, "a regional character returns")
+	for b in local_lines:
+		var ch := ContentDB.character(str(b.s), ContentDB.cases[str(b.case)])
+		t.check(str(ch.get("name", "")) != "" and str(ch.get("portrait", "")) != "", "returning local %s has name and portrait" % b.s)
+	for b in beats:
+		t.check(not str(b.t).contains("\u2014"), "no em dash in legacy text")
+
+
 func test_active_prioritisation_is_not_neglect() -> void:
 	# Taking an item every quarter (always the first) leaves many items lapsed by displacement, but is
 	# never classified as abandoning the agenda (D-093).

@@ -4,58 +4,213 @@
  "fact_class": "FICTIONAL",
  "background": "kota_gelap",
  "locals": {
-  "mbak_dinda": {"name": "Mbak Dinda", "role": "Penumpang kereta komuter, Tangerang", "color": "5a4a8a", "initials": "D"},
-  "pak_hasan": {"name": "Pak Hasan", "role": "Pemilik usaha laundry, Bogor", "color": "4a7a6a", "initials": "H"}
+  "mbak_dinda": {
+   "name": "Mbak Dinda",
+   "role": "Penumpang kereta komuter, Tangerang",
+   "color": "5a4a8a",
+   "initials": "D"
+  },
+  "pak_hasan": {
+   "name": "Pak Hasan",
+   "role": "Pemilik usaha laundry, Bogor",
+   "color": "4a7a6a",
+   "initials": "H"
+  }
  },
  "agenda": {
   "hook": "Listrik padam total di sebagian besar barat Jawa sejak siang. Kereta berhenti, sinyal hilang, air tidak mengalir.",
   "if_postponed": "Pemadaman ditangani sebagai urusan teknis PLN. Warga tidak mendapat penjelasan dan jaringan tetap rapuh."
  },
  "opening": [
-  {"s": "narasi", "bg": "kota_gelap", "t": "Minggu siang. Lampu lalu lintas mati serentak. Kereta berhenti di tengah rel."},
-  {"s": "mbak_dinda", "e": "cemas", "t": "Kami terkunci di gerbong hampir dua jam. Pendingin mati, ponsel tidak ada sinyal. Ada ibu-ibu yang pingsan."},
-  {"s": "pak_hasan", "e": "kecewa", "t": "Mesin cuci saya berhenti semua. Pesanan pelanggan menumpuk. Sehari tanpa listrik, sehari tanpa penghasilan."},
-  {"s": "bayu", "e": "serius", "bg": "ruang_rapat", "t": "Gangguan di jalur transmisi besar di Jawa Tengah, Pak. Pasokan dari timur ke barat terputus. Pembangkitnya harus dinyalakan dari dingin, jadi lambat."},
-  {"s": "sekar", "e": "marah", "t": "Warga marah, Pak. Bukan hanya karena gelap, tapi karena tidak ada yang menjelaskan apa yang terjadi."},
-  {"s": "yosef", "e": "berpikir", "t": "Satu jalur putus, separuh Jawa gelap. Itu artinya jaringan kita terlalu bergantung pada satu jalan."},
-  {"s": "nara", "e": "serius", "t": "Saya ingin dua hal. Warga mendapat jawaban, dan ini tidak terulang."}
+  {
+   "s": "narasi",
+   "bg": "kota_gelap",
+   "t": "Minggu siang. Lampu lalu lintas mati serentak. Kereta berhenti di tengah rel."
+  },
+  {
+   "s": "mbak_dinda",
+   "e": "cemas",
+   "t": "Kami terkunci di gerbong hampir dua jam. Pendingin mati, ponsel tidak ada sinyal. Ada ibu-ibu yang pingsan."
+  },
+  {
+   "s": "pak_hasan",
+   "e": "kecewa",
+   "t": "Mesin cuci saya berhenti semua. Pesanan pelanggan menumpuk. Sehari tanpa listrik, sehari tanpa penghasilan."
+  },
+  {
+   "s": "bayu",
+   "e": "serius",
+   "bg": "ruang_rapat",
+   "t": "Gangguan di jalur transmisi besar di Jawa Tengah, Pak. Pasokan dari timur ke barat terputus. Pembangkitnya harus dinyalakan dari dingin, jadi lambat."
+  },
+  {
+   "s": "sekar",
+   "e": "marah",
+   "t": "Warga marah, Pak. Bukan hanya karena gelap, tapi karena tidak ada yang menjelaskan apa yang terjadi."
+  },
+  {
+   "s": "yosef",
+   "e": "berpikir",
+   "t": "Satu jalur putus, separuh Jawa gelap. Itu artinya jaringan kita terlalu bergantung pada satu jalan."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Saya ingin dua hal. Warga mendapat jawaban, dan ini tidak terulang."
+  }
  ],
  "choices": {
-  "a": {"intent": "Memberi kompensasi pelanggan dan permintaan maaf terbuka.", "helps": "Pelanggan yang terdampak: kemarahan cepat mereda.", "burden": "Anggaran; penyebab teknis tidak berubah.", "now": "Kepercayaan naik di DKI Jakarta, Jawa Barat, dan Banten.", "later": "Jaringan tetap serapuh sebelumnya."},
-  "b": {"intent": "Mengaudit jalur transmisi dan mewajibkan sertifikasi gardu.", "helps": "Keandalan listrik di Jawa, dengan biaya kecil.", "burden": "Warga tidak merasakan apa-apa sekarang.", "now": "Kepercayaan sedikit turun.", "later": "Infrastruktur membaik setelah sekitar enam bulan, termasuk di Jawa Tengah."},
-  "c": {"intent": "Membangun jalur transmisi kedua dan pembangkit cadangan.", "helps": "Seluruh barat Jawa untuk jangka panjang.", "burden": "Anggaran: sangat mahal.", "now": "Belum ada perubahan.", "later": "Infrastruktur dan layanan naik besar setelah sekitar setahun."}
+  "a": {
+   "intent": "Memberi kompensasi pelanggan dan permintaan maaf terbuka.",
+   "helps": "Pelanggan yang terdampak: kemarahan cepat mereda.",
+   "burden": "Anggaran; penyebab teknis tidak berubah.",
+   "now": "Kepercayaan naik di DKI Jakarta, Jawa Barat, dan Banten.",
+   "later": "Jaringan tetap serapuh sebelumnya."
+  },
+  "b": {
+   "intent": "Mengaudit jalur transmisi dan mewajibkan sertifikasi gardu.",
+   "helps": "Keandalan listrik di Jawa, dengan biaya kecil.",
+   "burden": "Warga tidak merasakan apa-apa sekarang.",
+   "now": "Kepercayaan sedikit turun.",
+   "later": "Infrastruktur membaik setelah sekitar enam bulan, termasuk di Jawa Tengah."
+  },
+  "c": {
+   "intent": "Membangun jalur transmisi kedua dan pembangkit cadangan.",
+   "helps": "Seluruh barat Jawa untuk jangka panjang.",
+   "burden": "Anggaran: sangat mahal.",
+   "now": "Belum ada perubahan.",
+   "later": "Infrastruktur dan layanan naik besar setelah sekitar setahun."
+  }
  },
  "reactions": {
   "a": [
-   {"s": "narasi", "bg": "kota", "t": "Pemerintah mengumumkan potongan tagihan bagi pelanggan terdampak. Pimpinan perusahaan listrik meminta maaf di depan kamera."},
-   {"s": "pak_hasan", "e": "netral", "t": "Potongannya tidak menutup kerugian saya. Tapi setidaknya ada yang mengakui."},
-   {"s": "yosef", "e": "cemas", "bg": "ruang_rapat", "t": "Warga lebih tenang. Tapi jalurnya masih satu. Kalau putus lagi, kita kembali ke sini."}
+   {
+    "s": "narasi",
+    "bg": "kota",
+    "t": "Pemerintah mengumumkan potongan tagihan bagi pelanggan terdampak. Pimpinan perusahaan listrik meminta maaf di depan kamera."
+   },
+   {
+    "s": "pak_hasan",
+    "e": "netral",
+    "t": "Potongannya tidak menutup kerugian saya. Tapi setidaknya ada yang mengakui."
+   },
+   {
+    "s": "yosef",
+    "e": "cemas",
+    "bg": "ruang_rapat",
+    "t": "Warga lebih tenang. Tapi jalurnya masih satu. Kalau putus lagi, kita kembali ke sini."
+   }
   ],
   "b": [
-   {"s": "narasi", "bg": "kota", "t": "Tim audit menyusuri jalur transmisi. Pohon yang terlalu dekat kabel ditebang, setelan pengaman diperiksa ulang, gardu tanpa sertifikat dihentikan."},
-   {"s": "sekar", "e": "cemas", "bg": "ruang_rapat", "t": "Bagi warga, ini terdengar seperti alasan teknis. Mereka ingin melihat sesuatu yang lebih nyata."},
-   {"s": "bayu", "e": "senyum", "t": "Murah dan masuk akal. Kadang perbaikan terbaik memang yang paling membosankan."}
+   {
+    "s": "narasi",
+    "bg": "kota",
+    "t": "Tim audit menyusuri jalur transmisi. Pohon yang terlalu dekat kabel ditebang, setelan pengaman diperiksa ulang, gardu tanpa sertifikat dihentikan."
+   },
+   {
+    "s": "mbak_dinda",
+    "e": "kecewa",
+    "t": "Jadi tidak ada ganti rugi? Kemarin kereta saya berhenti dua jam di tengah jalan, Pak."
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "bg": "ruang_rapat",
+    "t": "Bagi warga, ini terdengar seperti alasan teknis. Mereka ingin melihat sesuatu yang lebih nyata."
+   },
+   {
+    "s": "bayu",
+    "e": "senyum",
+    "t": "Murah dan masuk akal. Kadang perbaikan terbaik memang yang paling membosankan."
+   }
   ],
   "c": [
-   {"s": "narasi", "bg": "kota", "t": "Rencana jalur transmisi kedua dan pembangkit cadangan di barat Jawa diumumkan. Pembebasan lahan dimulai."},
-   {"s": "mbak_dinda", "e": "netral", "t": "Kedengarannya bagus. Tapi saya tetap membawa senter di tas sekarang."},
-   {"s": "bayu", "e": "cemas", "bg": "ruang_rapat", "t": "Ini salah satu belanja terbesar kita, Pak. Hasilnya baru terlihat tahun depan."}
+   {
+    "s": "narasi",
+    "bg": "kota",
+    "t": "Rencana jalur transmisi kedua dan pembangkit cadangan di barat Jawa diumumkan. Pembebasan lahan dimulai."
+   },
+   {
+    "s": "mbak_dinda",
+    "e": "netral",
+    "t": "Kedengarannya bagus. Tapi saya tetap membawa senter di tas sekarang."
+   },
+   {
+    "s": "bayu",
+    "e": "cemas",
+    "bg": "ruang_rapat",
+    "t": "Ini salah satu belanja terbesar kita, Pak. Hasilnya baru terlihat tahun depan."
+   }
   ]
  },
  "callbacks": [
-  {"id": "jaringan", "after_quarters": 4, "choices": ["b", "c"], "beats": [
-   {"pick": [
-    {"if": {"delta": "infrastructure", "op": ">", "value": 2}, "beats": [{"s": "pak_hasan", "e": "senyum", "bg": "kota", "t": "Sudah setahun tidak ada padam besar, Pak. Saya berani menerima pesanan besar lagi."}]},
-    {"if": {}, "beats": [{"s": "pak_hasan", "e": "kecewa", "bg": "kota_gelap", "t": "Lampu masih sering berkedip, Pak. Saya membeli genset sendiri."}]}
-   ]}
-  ]},
-  {"id": "ingatan", "after_quarters": 3, "choices": ["a"], "beats": [
-   {"s": "mbak_dinda", "e": "netral", "bg": "kota", "t": "Orang sudah lupa soal padam itu, Pak. Tapi kalau terjadi lagi, mereka akan ingat semuanya sekaligus."}
-  ]}
+  {
+   "id": "jaringan",
+   "after_quarters": 4,
+   "choices": [
+    "b",
+    "c"
+   ],
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "pak_hasan",
+         "e": "senyum",
+         "bg": "kota",
+         "t": "Sudah setahun tidak ada padam besar, Pak. Saya berani menerima pesanan besar lagi."
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_hasan",
+         "e": "kecewa",
+         "bg": "kota_gelap",
+         "t": "Lampu masih sering berkedip, Pak. Saya membeli genset sendiri."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ingatan",
+   "after_quarters": 3,
+   "choices": [
+    "a"
+   ],
+   "beats": [
+    {
+     "s": "mbak_dinda",
+     "e": "netral",
+     "bg": "kota",
+     "t": "Orang sudah lupa soal padam itu, Pak. Tapi kalau terjadi lagi, mereka akan ingat semuanya sekaligus."
+    }
+   ]
+  }
  ],
  "unattended": [
-  {"s": "narasi", "bg": "kota_gelap", "t": "Pemadaman dianggap urusan teknis. Tidak ada penjelasan dari Istana."},
-  {"s": "mbak_dinda", "e": "kecewa", "t": "Kami terjebak berjam-jam, dan tidak ada yang bilang apa-apa."}
+  {
+   "s": "narasi",
+   "bg": "kota_gelap",
+   "t": "Pemadaman dianggap urusan teknis. Tidak ada penjelasan dari Istana."
+  },
+  {
+   "s": "mbak_dinda",
+   "e": "kecewa",
+   "t": "Kami terjebak berjam-jam, dan tidak ada yang bilang apa-apa."
+  }
  ],
  "journal": {
   "a": "Pelanggan terdampak padam total Jawa-Bali menerima kompensasi. Kemarahan mereda, jaringan tetap rapuh.",
@@ -63,6 +218,14 @@
   "c": "Jalur transmisi kedua dan pembangkit cadangan dibangun di barat Jawa. Sangat mahal, manfaatnya tahun depan."
  },
  "promises": {
-  "c": {"text": "Barat Jawa punya jalur listrik cadangan sehingga satu gangguan tidak lagi memadamkan semuanya.", "due_quarters": 5, "check": {"delta": "infrastructure", "op": ">", "value": 4}}
+  "c": {
+   "text": "Barat Jawa punya jalur listrik cadangan sehingga satu gangguan tidak lagi memadamkan semuanya.",
+   "due_quarters": 5,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 4
+   }
+  }
  }
 }
