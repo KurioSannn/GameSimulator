@@ -1,0 +1,51 @@
+{
+ "schema": "nusantara.story_scene/1",
+ "fact_class": "FICTIONAL",
+ "id": "prolog",
+ "title": "Pagi Pertama",
+ "beats": [
+  {"s": "narasi", "bg": "istana_pagi", "t": "Pagi pertama di Istana terasa berbeda."},
+  {"s": "narasi", "t": "Di luar, kota mulai bergerak seperti biasa. Pedagang membuka lapak, bus pertama lewat, anak-anak berangkat sekolah."},
+  {"s": "narasi", "t": "Namun di ruang kerja Presiden, sebuah peta besar Indonesia sudah terbentang di atas meja."},
+  {"s": "laras", "e": "senyum", "bg": "ruang_kerja", "t": "Selamat pagi, Pak Presiden. Saya Laras, sekretaris Bapak. Mulai hari ini, semua agenda lewat meja saya dulu."},
+  {"s": "nara", "e": "netral", "t": "Selamat pagi, Laras. Kita mulai dari mana?"},
+  {"s": "laras", "e": "netral", "t": "Dari tumpukan ini, Pak. Laporan dari berbagai daerah sudah masuk sejak subuh."},
+  {"s": "narasi", "t": "Ada kota yang bersiap menghadapi banjir. Desa yang menunggu aliran air bersih. Sekolah yang kekurangan guru. Keluarga yang berharap keadaan segera membaik."},
+  {"s": "nara", "e": "berpikir", "t": "Semuanya terasa mendesak."},
+  {"s": "laras", "e": "cemas", "t": "Memang, Pak. Tapi tidak semuanya bisa diselesaikan dalam sehari. Anggaran terbatas, waktu terbatas, dan setiap pilihan ada harganya."},
+  {"s": "nara", "e": "serius", "t": "Kalau begitu, kita mulai dengan mendengar. Ceritakan apa yang sedang terjadi di daerah."},
+  {"s": "laras", "e": "senyum", "t": "Tim inti Bapak sudah menunggu di ruang rapat."},
+
+  {"s": "bayu", "e": "netral", "bg": "ruang_rapat", "t": "Bayu Hartono, urusan keuangan. Tugas saya mengingatkan Bapak bahwa setiap rupiah hanya bisa dibelanjakan sekali."},
+  {"s": "bayu", "e": "senyum", "t": "Saya akan sering terdengar menyebalkan. Artinya saya sedang bekerja."},
+  {"s": "yosef", "e": "netral", "t": "Yosef Latumahina, pembangunan daerah. Saya baru pulang dari lapangan, Pak. Masalah di Jakarta tidak sama dengan masalah di pulau kecil yang kapalnya datang seminggu sekali."},
+  {"s": "sekar", "e": "netral", "t": "Sekar Anindita, komunikasi publik. Saya yang membaca apa kata warga. Kepercayaan itu lambat naik, tapi cepat sekali turun."},
+  {"s": "nara", "e": "berpikir", "t": "Baik. Lalu apa sebenarnya yang kita kejar selama lima tahun ini?"},
+
+  {"s": "laras", "e": "netral", "t": "Ada empat hal yang akan selalu kami laporkan kepada Bapak. Kami menyebutnya Tujuan Masa Bakti."},
+  {"s": "yosef", "e": "netral", "t": "Pertama, kesejahteraan warga. Apakah hidup orang di daerah benar-benar membaik."},
+  {"s": "sekar", "e": "netral", "t": "Kedua, kepercayaan publik. Apakah warga masih yakin pemerintahnya mendengar."},
+  {"s": "yosef", "e": "netral", "t": "Ketiga, pelayanan publik. Puskesmas, sekolah, jalan, air bersih, listrik. Hal-hal yang terasa setiap hari."},
+  {"s": "bayu", "e": "serius", "t": "Keempat, kesehatan fiskal. Kemampuan negara membiayai semua itu tanpa membebani masa depan."},
+  {"s": "nara", "e": "berpikir", "t": "Keempatnya penting. Dan pasti sering saling tarik."},
+  {"s": "bayu", "e": "senyum", "t": "Selamat datang di pekerjaan ini, Pak."},
+  {"s": "laras", "e": "netral", "t": "Sebelum kita mulai, Pak. Kalau harus memilih satu, apa yang paling ingin Bapak jaga?",
+   "options": [
+    {"t": "Kesejahteraan warga", "set": {"prioritas_awal": "welfare"},
+     "reply": [{"s": "yosef", "e": "senyum", "t": "Kalau begitu kita akan sering ke daerah, Pak. Saya siapkan sepatu yang nyaman."}]},
+    {"t": "Kepercayaan publik", "set": {"prioritas_awal": "trust"},
+     "reply": [{"s": "sekar", "e": "senyum", "t": "Itu berarti kita harus jujur juga saat kabarnya buruk, Pak. Saya pegang janji itu."}]},
+    {"t": "Pelayanan publik", "set": {"prioritas_awal": "services"},
+     "reply": [{"s": "yosef", "e": "netral", "t": "Pelayanan itu soal yang tetap ada setelah kamera pergi, Pak. Puskesmas yang buka, guru yang datang."}]},
+    {"t": "Kesehatan fiskal", "set": {"prioritas_awal": "fiscal"},
+     "reply": [{"s": "bayu", "e": "senyum", "t": "Akhirnya ada yang mengerti saya. Tapi saya juga akan bilang kalau Bapak terlalu pelit, Pak."}]}
+   ]},
+  {"s": "nara", "e": "serius", "t": "Kita catat itu. Tapi saya tidak mau mengorbankan tiga hal lainnya begitu saja."},
+
+  {"s": "laras", "e": "netral", "bg": "peta", "t": "Lima tahun itu dua puluh kuartal, Pak. Setiap kuartal, beberapa masalah akan masuk ke agenda Bapak."},
+  {"s": "laras", "e": "netral", "t": "Bapak memilih satu untuk ditangani langsung. Yang lain menunggu. Kalau terlalu lama menunggu, daerahnya akan merasakan."},
+  {"s": "bayu", "e": "netral", "t": "Dan hasil keputusan tidak selalu langsung terlihat. Ada yang terasa minggu depan, ada yang baru terasa setahun kemudian."},
+  {"s": "yosef", "e": "netral", "t": "Peta ini bukan hiasan, Pak. Lima ratus empat belas kabupaten dan kota, masing-masing dengan kondisinya sendiri. Coba lihat sendiri."},
+  {"s": "nara", "e": "yakin", "t": "Tunjukkan."}
+ ]
+}

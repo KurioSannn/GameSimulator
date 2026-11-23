@@ -1,0 +1,9 @@
+{
+ "schema": "nusantara.credits/1",
+ "sections": [
+  {"title": "Tim NUSANTARA", "lines": ["Galih: sutradara permainan, integrasi teknis, pemrograman", "Ananda: desain karakter dan visual", "Cleo: desain antarmuka, visual, dan aset"]},
+  {"title": "Bantuan AI", "lines": ["Claude Code: rekayasa, riset data, dan penulisan konten berbantuan AI", "ChatGPT: riset, strategi desain, dokumentasi", "Penggunaan AI dicatat sesuai panduan kompetisi."]},
+  {"title": "Data dan aset terbuka", "lines": ["Batas wilayah: Badan Informasi Geospasial dan Kemendagri", "Statistik: Badan Pusat Statistik dan kementerian terkait", "Model 3D dan elemen antarmuka: Kenney (CC0)", "Huruf: Google Fonts (SIL Open Font License)", "Audio: aset CC0 (lihat assets/audio/MANIFEST.json)"]},
+  {"title": "Catatan", "lines": ["Presiden Nara Adinata dan seluruh tokoh penasihat adalah fiktif.", "Peristiwa diangkat dari kejadian nyata. Keputusan dan hasilnya di permainan adalah simulasi."]}
+ ]
+}

@@ -1,0 +1,92 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0004-C",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0004",
+ "background": "asap",
+ "locals": {
+  "pak_ilham": {
+   "name": "Pak Ilham",
+   "role": "Petani ladang, Kabupaten Kapuas",
+   "color": "6a4a2a",
+   "initials": "I"
+  },
+  "bu_rina": {
+   "name": "Bu Rina",
+   "role": "Perawat puskesmas, Palangka Raya",
+   "color": "4a6a8a",
+   "initials": "R"
+  }
+ },
+ "agenda": {
+  "hook": "Api menjalar dari ladang di Kapuas. Aturan bersama mulai longgar ditaati.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "pak_ilham",
+   "e": "cemas",
+   "t": "Ada ladang yang dibakar tanpa musyawarah, Pak. Apinya lepas ke lahan tetangga.",
+   "bg": "asap"
+  },
+  {
+   "s": "sekar",
+   "e": "netral",
+   "t": "Pengkritik bilang ini bukti cara adat tidak bisa diandalkan.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "yosef",
+   "e": "berpikir",
+   "t": "Aturannya ada. Yang melemah adalah kepercayaan dan pengawasannya."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Kita perkuat yang menjaga aturan, atau kita kembali ke larangan?"
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Lembaga adat setempat didampingi untuk mengawasi dan menyelesaikan pelanggaran."
+   },
+   {
+    "s": "pak_ilham",
+    "e": "netral",
+    "t": "Yang melanggar sudah membayar tanggung jawabnya. Orang-orang mulai patuh lagi."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Izin pembakaran dicabut. Semua pembakaran dilarang lagi."
+   },
+   {
+    "s": "pak_ilham",
+    "e": "kecewa",
+    "t": "Satu orang yang salah, semua yang menanggung."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Pemilik lahan yang terbakar menerima ganti rugi."
+   },
+   {
+    "s": "pak_ilham",
+    "e": "netral",
+    "t": "Tetangga kami terbantu. Tapi apinya bisa lepas lagi tahun depan."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Lembaga adat di Kapuas didukung menegakkan aturan pembakaran.",
+  "b": "Izin pembakaran di Kapuas dicabut.",
+  "c": "Pemilik lahan yang terbakar di Kapuas menerima ganti rugi."
+ }
+}

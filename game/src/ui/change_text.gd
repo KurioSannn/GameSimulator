@@ -545,6 +545,9 @@ static func entry_card(entry: Dictionary) -> Dictionary:
 				rows.append(_clean_effect_row(e))
 			return {"badge": "KRISIS", "badge_key": "danger", "when": when, "title": str(entry.title),
 				"subtitle": "Situasi baru membutuhkan arahan Presiden.", "rows": rows}
+		"agenda":
+			return {"badge": "AGENDA", "badge_key": "info", "when": when, "title": str(entry.title),
+				"subtitle": "Masuk ke agenda Presiden. Bisa ditangani kuartal ini atau berikutnya.", "rows": rows}
 		"decision":
 			for e in entry.get("effects", []):
 				rows.append(_clean_effect_row(e))

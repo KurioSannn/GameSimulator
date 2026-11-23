@@ -4,6 +4,8 @@ extends Camera2D
 ## Main) or middle/right-drag pan, WASD/arrow pan, +/- zoom, Home to fit. Device mapping: MapNavInput. Uses _unhandled_input so GUI panels consume their own events first.
 
 signal view_changed
+## "pan" or "zoom" when the player navigates (tutorial listens; no gameplay effect).
+signal navigated(kind: String)
 
 const ZOOM_STEP := 1.15
 const KEY_PAN_SPEED := 900.0
@@ -51,12 +53,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 ## Moves the view by a screen-pixel delta (positive y = look further south).
 func nav_pan(view_delta: Vector2) -> void:
+	navigated.emit("pan")
 	position += view_delta / zoom.x
 	_clamp()
 	view_changed.emit()
 
 
 func nav_zoom(zoom_in: float, at: Vector2) -> void:
+	navigated.emit("zoom")
 	if zoom_in > 0.0:
 		_zoom_at(zoom_in, at)
 
@@ -73,6 +77,7 @@ func _process(delta: float) -> void:
 			float(Input.is_physical_key_pressed(int(UiPreferences.values.pan_down))) - float(Input.is_physical_key_pressed(int(UiPreferences.values.pan_up))))
 	dir = dir.clamp(-Vector2.ONE, Vector2.ONE)
 	if dir != Vector2.ZERO and get_viewport().gui_get_focus_owner() == null:
+		navigated.emit("pan")
 		position += dir * KEY_PAN_SPEED * delta / zoom.x
 		_clamp()
 		view_changed.emit()

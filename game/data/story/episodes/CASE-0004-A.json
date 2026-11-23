@@ -1,0 +1,87 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0004-A",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0004",
+ "background": "ladang",
+ "locals": {
+  "pak_ilham": {
+   "name": "Pak Ilham",
+   "role": "Petani ladang, Kabupaten Kapuas",
+   "color": "6a4a2a",
+   "initials": "I"
+  },
+  "bu_rina": {
+   "name": "Bu Rina",
+   "role": "Perawat puskesmas, Palangka Raya",
+   "color": "4a6a8a",
+   "initials": "R"
+  }
+ },
+ "agenda": {
+  "hook": "Petani ladang di Kalimantan Tengah kehilangan mata pencaharian setelah larangan total membakar.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "pak_ilham",
+   "e": "sedih",
+   "t": "Sudah satu musim kami tidak membuka ladang, Pak. Lumbung kosong.",
+   "bg": "ladang"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Larangan menekan api. Tapi kesejahteraan petani kecil di Kalimantan Tengah turun.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Kita menutup satu jalan. Sekarang kita harus membuka jalan lain."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Petani menerima alat dan pendampingan penyiapan lahan tanpa bakar."
+   },
+   {
+    "s": "pak_ilham",
+    "e": "netral",
+    "t": "Lebih lambat dari api, tapi bisa. Anak-anak muda mulai belajar."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Pembakaran terbatas dan berkelompok diizinkan sesuai aturan yang tercatat."
+   },
+   {
+    "s": "pak_ilham",
+    "e": "senyum",
+    "t": "Kami kembali musyawarah sebelum membuka lahan. Seperti dulu."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Larangan dipertahankan tanpa program tambahan."
+   },
+   {
+    "s": "pak_ilham",
+    "e": "kecewa",
+    "t": "Kami merasa dihukum untuk api yang bukan dari ladang kami."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Petani ladang Kalimantan Tengah dibantu alat dan teknik tanpa bakar.",
+  "b": "Pembakaran terkendali sesuai aturan yang tercatat diizinkan kembali.",
+  "c": "Larangan membakar dipertahankan tanpa bantuan bagi petani ladang."
+ }
+}

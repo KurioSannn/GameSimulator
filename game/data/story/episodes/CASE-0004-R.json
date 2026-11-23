@@ -1,0 +1,88 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0004-R",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0004",
+ "background": "asap",
+ "locals": {
+  "pak_ilham": {
+   "name": "Pak Ilham",
+   "role": "Petani ladang, Kabupaten Kapuas",
+   "color": "6a4a2a",
+   "initials": "I"
+  },
+  "bu_rina": {
+   "name": "Bu Rina",
+   "role": "Perawat puskesmas, Palangka Raya",
+   "color": "4a6a8a",
+   "initials": "R"
+  }
+ },
+ "agenda": {
+  "hook": "Musim kemarau tiba. Api kembali di lahan gambut.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Kemarau kembali. Titik-titik api muncul lagi di peta satelit.",
+   "bg": "asap"
+  },
+  {
+   "s": "bu_rina",
+   "e": "cemas",
+   "t": "Kami sudah menyiapkan masker. Seberapa banyak yang kami butuhkan, tergantung keputusan setahun lalu.",
+   "bg": "asap"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Di provinsi yang pencegahannya sudah dibangun, apinya lebih kecil.",
+   "bg": "ruang_rapat"
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Pemadaman udara dan darat dikerahkan di provinsi gambut."
+   },
+   {
+    "s": "bu_rina",
+    "e": "lega",
+    "t": "Langit cepat bersih minggu ini."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Status siaga ditetapkan dan semua pembakaran dilarang musim ini."
+   },
+   {
+    "s": "pak_ilham",
+    "e": "kecewa",
+    "t": "Kami mengerti, tapi petani kembali menunggu."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Penanganan diserahkan ke daerah."
+   },
+   {
+    "s": "bu_rina",
+    "e": "netral",
+    "t": "Pemadam daerah bekerja keras. Hasilnya tergantung kampungnya."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Operasi pemadaman darurat di musim kemarau berikutnya.",
+  "b": "Status siaga dan larangan membakar selama musim kemarau.",
+  "c": "Kebakaran musim kemarau diserahkan ke daerah."
+ }
+}

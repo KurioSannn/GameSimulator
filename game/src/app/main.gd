@@ -42,6 +42,11 @@ var _left_down := false
 var _left_down_pos := Vector2.ZERO
 var _is_panning := false
 var _audio_accum := 0.0
+var story_player: StoryPlayer
+var agenda_board: AgendaBoard
+var coach: TutorialCoach
+var _story_busy := false
+var _qa_story := false  # QA screenshots of the real story UI (--story=...)
 
 
 const FIGMA_ICONS := {
@@ -160,6 +165,60 @@ func _debug_automation() -> void:
 		_toggle_3d_mode()
 	if args.has("hide-case"):
 		case_modal.visible = false
+	# --story=prologue[:beats] | agenda | opening:<case> | reaction:<case>:<choice> | goals | journal | library | ending
+	if args.has("story"):
+		_qa_story = true
+		var parts := str(args.story).split(":")
+		Game.new_game(Game.DEFAULT_SEED, true)
+		case_modal.hide()
+		screens.session_started = true
+		screens.close_screen()
+		var steps := int(args.get("beats", "0"))
+		match parts[0]:
+			"prologue":
+				_start_session()
+				for _i in steps:
+					await get_tree().process_frame
+					story_player.advance()
+					story_player.advance()
+			"agenda", "opening", "reaction", "goals", "journal", "ending", "coach":
+				Narrative.ensure(Game.world)["prologue_done"] = true
+				_start_session()
+				coach.start(true)
+				if parts[0] == "coach":
+					pass
+				elif parts[0] == "agenda":
+					_open_agenda()
+				elif parts[0] in ["opening", "reaction"]:
+					coach.skip_all()
+					Game.take_agenda(parts[1]) if Campaign.items(Game.session).any(func(x): return x.case_id == parts[1]) else _qa_force(parts[1])
+					for _i in steps:
+						await get_tree().process_frame
+						story_player.advance()
+						story_player.advance()
+					if parts[0] == "reaction":
+						story_player.skip_scene()
+						await get_tree().process_frame
+						case_modal._choose(parts[2])
+						for _i in maxi(steps, 3):
+							await get_tree().process_frame
+							story_player.advance()
+							story_player.advance()
+				elif parts[0] in ["goals", "journal"]:
+					coach.skip_all()
+					screens.open(parts[0])
+				elif parts[0] == "ending":
+					coach.skip_all()
+					_qa_finish_term()
+					_play_ending()
+					for _i in steps:
+						await get_tree().process_frame
+						story_player.advance()
+						story_player.advance()
+					if args.has("skip"):
+						story_player.skip_scene()
+			"library":
+				screens.open("library")
 	if args.has("play-to"):  # --play-to=<case_id> [--choices=<case_id>:<choice>,...] (others: first choice)
 		var picks := {}
 		for kv in str(args.get("choices", "")).split(",", false):
@@ -251,7 +310,7 @@ func _build_ui() -> void:
 	hud.budget_pressed.connect(_toggle_budget)
 	hud.log_pressed.connect(_toggle_log)
 	hud.decision_pressed.connect(func(): if Game.pending_case() != "": case_modal.present(Game.pending_case()))
-	hud.legacy_pressed.connect(func(): screens._origin = "map"; screens.open("legacy"))
+	hud.legacy_pressed.connect(_play_ending)
 	hud.overlay_selected.connect(_set_overlay)
 	hud.change_toggled.connect(func(on: bool): _change_mode = on; _recolor(); _clear_map_focus())
 	hud.zoom_pressed.connect(_zoom_by)
@@ -362,7 +421,11 @@ func _build_ui() -> void:
 	center.add_child(budget_panel)
 	sources_dialog = SourcesDialog.new()
 	center.add_child(sources_dialog)
-	for modal in [case_modal, policy_panel, budget_panel, sources_dialog]:
+	agenda_board = AgendaBoard.new()
+	center.add_child(agenda_board)
+	agenda_board.taken.connect(_on_agenda_taken)
+	agenda_board.closed.connect(func(): _refresh_all(); _sync_interaction())
+	for modal in [case_modal, policy_panel, budget_panel, sources_dialog, agenda_board]:
 		modal.visibility_changed.connect(_sync_interaction)
 	case_modal.decided.connect(_on_decided)
 	case_modal.region_data_requested.connect(func(id: String): map_view.set_selected(id); region_panel.show_region(id))
@@ -373,14 +436,29 @@ func _build_ui() -> void:
 	screens.closed.connect(_sync_interaction)
 	screens.visibility_changed.connect(_sync_interaction)
 	screens.region_selected.connect(func(id): map_view.set_selected(id); region_panel.show_region(id); screens.visited[id] = true)
+	screens.scenario_requested.connect(_start_scenario)
+	screens.tutorial_requested.connect(func(): screens.close_screen(); coach.start(true); _sync_interaction())
+	coach = TutorialCoach.new()
+	_map_chrome.add_child(coach)
+	coach.completed.connect(_refresh_all)
+	story_player = StoryPlayer.new()
+	root.add_child(story_player)
+	story_player.visibility_changed.connect(_sync_interaction)
+	hud.agenda_pressed.connect(_open_agenda)
+	hud.goals_pressed.connect(func(): screens._origin = "map"; screens.open("goals"))
+	camera.navigated.connect(func(k): if coach: coach.notify(k))
+	camera_3d.navigated.connect(func(k): if coach: coach.notify(k))
 	screens.preferences_changed.connect(func(): root.theme = UiKit.make_theme(); UiKit.rescale(root); _refresh_all())
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if story_player != null and story_player.visible:
+		return
 	if screens != null and screens.visible:
 		return
 	if _modal_shade != null and _modal_shade.visible:
 		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+			agenda_board.hide()
 			case_modal.hide()
 			policy_panel.hide()
 			budget_panel.hide()
@@ -436,6 +514,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_T: _toggle_3d_mode()
 			KEY_C: _change_btn.button_pressed = not _change_btn.button_pressed
 			KEY_L: _toggle_log()
+			KEY_J: screens._origin = "map"; screens.open("journal")
+			KEY_G: screens._origin = "map"; screens.open("goals")
 			KEY_F9: _quickload()
 			KEY_ESCAPE:
 				if _mode_3d and map_view_3d:
@@ -471,6 +551,7 @@ func _handle_map_click(screen_pos: Vector2, is_double_click: bool) -> void:
 	if id != "":
 		GameAudio.play_ui("select")
 		screens.visited[id] = true
+		if coach: coach.notify("region")
 	if policy_panel.visible:
 		policy_panel.context = {}
 		policy_panel.region_id = id
@@ -618,7 +699,9 @@ func _refresh_all() -> void:
 		_indicators.add_child(box)
 	_weighting_label.text = "Bobot penduduk" if w.national_weighting() == "population" else "Bobot setara 514 wilayah"
 	_weighting_label.tooltip_text = "Agregasi indikator nasional menggunakan " + ChangeText.weighting_label(w.national_weighting()) + "."
-	_next_btn.disabled = Game.pending_case() != "" or w.is_term_over()
+	_next_btn.disabled = Game.pending_case() != "" or w.is_term_over() or (Campaign.enabled(w) and not Campaign.can_advance(Game.session))
+	hud.refresh_goals(Narrative.pillars(Game.session))
+	hud.goals_panel.visible = not Game.in_scenario()
 	_recolor()
 	if map_view_3d:
 		map_view_3d.sync_climate_from_world(w)
@@ -681,24 +764,114 @@ func _toggle_log() -> void:
 
 
 func _next_quarter() -> void:
-	if case_modal.visible or _next_btn.disabled:
+	if case_modal.visible or _next_btn.disabled or _story_busy:
+		return
+	if Campaign.enabled(Game.world) and not Campaign.can_advance(Game.session):
+		_toast_msg(Campaign.block_reason(Game.session))
+		if Game.pending_case() == "" and not Campaign.taken_this_quarter(Game.world):
+			_open_agenda()
 		return
 	GameAudio.play_ui("confirm")
-	Game.advance_quarter()
-	var msg := "Kuartal selesai."
-	_toast_msg(msg)
+	_story_busy = true  # a follow-up opened during the quarter waits until the transition scene ends
+	var reports := Game.advance_quarter()
+	if reports.is_empty():
+		_story_busy = false
+		return
+	if coach: coach.notify("quarter")
 	_refresh_all()
-	if not Array(OS.get_cmdline_user_args()).any(func(a): return a.begins_with("--screenshot=") or a.begins_with("--qa-") or a.begins_with("--map-bench=")):
+	if _automation():
+		_story_busy = false
+		return
+	var beats := Narrative.resolve(Game.world, ContentDB.story.get("quarters", {}).get("transition", []), {})
+	_play_beats(beats, {}, func(): _drain_story(_after_quarter_story), {"title": "Kuartal %d dari 20" % mini(Game.world.quarter_index() + 1, 20)})
+
+
+func _after_quarter_story() -> void:
+	_refresh_all()
+	if Game.in_scenario() and _scenario_finished():
+		screens._origin = "map"
+		screens.open("scenario_end")
+		return
+	if Game.world.is_term_over():
+		_play_ending()
+		return
+	if coach and coach.current_wait() == "ack":
+		screens._origin = "map"
 		screens.open("report")
+		return
+	if Game.pending_case() != "":
+		_on_case_presented(Game.pending_case())
+	elif Campaign.enabled(Game.world) and not (Game.world.story.get("agenda", {}) as Dictionary).is_empty():
+		_open_agenda()
+
+
+func _automation() -> bool:
+	if _qa_story:
+		return false
+	return Array(OS.get_cmdline_user_args()).any(func(a): return a.begins_with("--screenshot=") or a.begins_with("--qa-") or a.begins_with("--map-bench="))
+
+
+## Plays pending story scenes (reactions, callbacks, unattended issues, openings) one after another.
+func _drain_story(then: Callable = Callable()) -> void:
+	var scene := Narrative.pop_pending(Game.world)
+	if scene.is_empty():
+		_story_busy = false
+		if then.is_valid():
+			then.call()
+		return
+	_story_busy = true
+	var rec: Dictionary = ContentDB.cases.get(str(scene.get("case", "")), {})
+	var beats := Narrative.scene_beats(Game.world, scene, ContentDB.cases)
+	var key := "%s/%s/%s" % [scene.get("kind", ""), scene.get("case", ""), scene.get("id", scene.get("choice", ""))]
+	Narrative.mark_seen(Game.world, key)
+	if str(scene.get("kind", "")) == "opening":
+		_focus_case(str(scene.case))
+	var title := str(rec.get("title", ""))
+	if str(scene.get("kind", "")) == "callback":
+		title = "Kabar dari daerah · " + title
+	var bg := str(rec.get("story", {}).get("background", "ruang_kerja"))
+	_play_beats(beats, {"case": str(scene.get("case", "")), "case_record": rec, "bg": bg}, func(): _drain_story(then), {"title": title})
+
+
+func _play_beats(beats: Array, ctx: Dictionary, done: Callable, opts: Dictionary = {}) -> void:
+	if beats.is_empty() or _automation():
+		done.call()
+		return
+	region_panel.hide()
+	_tooltip.visible = false
+	story_player.play(beats, ctx, done, opts)
+
+
+func _open_agenda() -> void:
+	if not Campaign.enabled(Game.world) or Game.world.is_term_over():
+		return
+	if Game.pending_case() != "":
+		case_modal.present(Game.pending_case())
+		return
+	agenda_board.open(Game.session)
+	if coach: coach.notify("agenda")
+
+
+func _on_agenda_taken(case_id: String) -> void:
+	var err := Game.take_agenda(case_id)
+	if err != "":
+		_toast_msg(err)
 
 
 func _on_case_presented(id: String) -> void:
 	_tooltip.visible = false
 	_focus_case(id)  # the map behind the modal shows where the case happens
-	if screens == null or not screens.visible or screens.active_screen != "menu":
-		case_modal.present(id)
-		GameAudio.play_ui("alert")
-	_refresh_all()
+	if screens != null and screens.visible and screens.active_screen == "menu":
+		_refresh_all()
+		return
+	if _story_busy:
+		return
+	# Story first: the opening scene establishes why the decision matters, then the decision panel.
+	_drain_story(func():
+		if Game.pending_case() != "":
+			case_modal.present(Game.pending_case())
+			GameAudio.play_ui("alert")
+		_refresh_all())
 
 
 func _focus_case(case_id: String) -> void:
@@ -716,17 +889,23 @@ func _focus_case(case_id: String) -> void:
 
 func _on_decided(case_id: String, choice_id: String) -> void:
 	var err := Game.decide(case_id, choice_id)
-	var msg := err
-	if err == "":
-		msg = "Keputusan dicatat."
+	if err != "":
+		_toast_msg(err)
+		return
+	if Game.in_scenario():
+		Narrative.ensure(Game.world)["scenario_decided_tick"] = Game.world.tick
+	_focus_case(case_id)
+	_refresh_all()
+	_drain_story(func():
+		if coach: coach.notify("decided")
+		var msg := "Keputusan dicatat di Buku Kisah."
 		for k in range(Game.world.event_log.size() - 1, -1, -1):
 			var e: Dictionary = Game.world.event_log[k]
 			if str(e.kind) == "decision" and str(e.get("case_id", "")) == case_id:
 				msg = ChangeText.decision_toast(e)
 				break
-	_toast_msg(msg)
-	_focus_case(case_id)
-	_refresh_all()
+		_toast_msg(msg)
+		_refresh_all())
 
 
 func _toggle_policy() -> void:
@@ -884,18 +1063,74 @@ func _start_session() -> void:
 	budget_panel.hide()
 	sources_dialog.hide()
 	case_modal.hide()
-	if Game.pending_case() != "":
-		_on_case_presented(Game.pending_case())
+	agenda_board.hide()
+	story_player.clear_history()
 	_refresh_all()
 	_sync_interaction()
+	var st := Narrative.ensure(Game.world)
+	if Game.in_scenario():
+		_drain_story(_resume_play)
+		return
+	if not bool(st.get("prologue_done", true)):
+		var prologue: Dictionary = ContentDB.story.get("prologue", {})
+		_play_beats(Narrative.resolve(Game.world, prologue.get("beats", []), {}), {"bg": "istana_pagi"}, func():
+			st["prologue_done"] = true
+			Narrative.journal(Game.world, "bab", "Pagi Pertama", "Nara Adinata memulai masa bakti lima tahun bersama Laras, Bayu, Yosef, dan Sekar.")
+			coach.start(true)
+			_refresh_all()
+			_sync_interaction(), {"title": "Prolog · Pagi Pertama", "bg": "istana_pagi"})
+		return
+	coach.resume()
+	_drain_story(_resume_play)
+
+
+## After a load or a scene: reopen whatever the player was in the middle of.
+func _resume_play() -> void:
+	_refresh_all()
+	if Game.pending_case() != "":
+		case_modal.present(Game.pending_case())
+	elif Campaign.enabled(Game.world) and not Game.world.is_term_over() and not Campaign.taken_this_quarter(Game.world) \
+			and not (Game.world.story.get("agenda", {}) as Dictionary).is_empty() and not coach.active():
+		_open_agenda()
+	_sync_interaction()
+
+
+func _start_scenario(case_id: String) -> void:
+	var err := Game.start_scenario(case_id)
+	if err != "":
+		_toast_msg(err)
+		return
+	screens.session_started = true
+	screens.close_screen()
+	_start_session()
+
+
+func _scenario_finished() -> bool:
+	var t := int(Game.world.story.get("scenario_decided_tick", -1))
+	return t >= 0 and Game.pending_case() == "" and Game.world.tick - t >= 4 * SimWorld.TICKS_PER_QUARTER
+
+
+func _play_ending() -> void:
+	var ev := Game.evaluate_ending()
+	var cfg: Dictionary = ContentDB.story.get("endings", {})
+	var arch: Dictionary = cfg.get("archetypes", {}).get(str(ev.id), {})
+	Narrative.ensure(Game.world)["ending"] = ev
+	var beats: Array = Narrative.resolve(Game.world, arch.get("beats", []), {})
+	beats.append_array(Narrative.resolve(Game.world, cfg.get("closing", []), {}))
+	_play_beats(beats, {"bg": "senja"}, func():
+		screens._origin = "map"
+		screens.open("legacy"), {"title": str(arch.get("title", "Akhir Masa Bakti")), "skippable": true})
 
 
 func _sync_interaction() -> void:
 	if case_modal == null or policy_panel == null or sources_dialog == null or screens == null:
 		return
-	var modal := case_modal.visible or policy_panel.visible or budget_panel.visible or sources_dialog.visible
+	var modal := case_modal.visible or policy_panel.visible or budget_panel.visible or sources_dialog.visible or (agenda_board != null and agenda_board.visible)
 	_modal_shade.visible = modal
-	var blocked := modal or screens.visible
+	var story := story_player != null and story_player.visible
+	var blocked := modal or screens.visible or story
+	if coach != null:
+		coach.set_suppressed(blocked)
 	_map_chrome.visible = not blocked
 	if blocked and _toast_panel != null:
 		_toast_panel.visible = false
@@ -905,7 +1140,7 @@ func _sync_interaction() -> void:
 	camera_3d.set_process_unhandled_input(not blocked and _mode_3d)
 	_tooltip.visible = false
 	if modal and not screens.visible:
-		for surface in [case_modal, policy_panel, budget_panel, sources_dialog]:
+		for surface in [case_modal, policy_panel, budget_panel, sources_dialog, agenda_board]:
 			if surface.visible:
 				UiKit.trap_focus.call_deferred(surface)
 	elif not blocked:
@@ -941,3 +1176,28 @@ func _clear_map_focus() -> void:
 	var fo := vp.gui_get_focus_owner()
 	if fo != null:
 		fo.release_focus()
+
+
+
+## QA only: open a specific case immediately (outside the agenda order) to capture its scenes.
+func _qa_force(case_id: String) -> void:
+	var st := Narrative.ensure(Game.world)
+	st.agenda[case_id] = {"opened_tick": Game.world.tick}
+	Game.take_agenda(case_id)
+
+
+## QA only: plays the whole term with first choices so the ending screen has real data.
+func _qa_finish_term() -> void:
+	var s := Game.session
+	var guard := 0
+	while not s.world.is_term_over() and guard < 200:
+		guard += 1
+		if s.pending_case() != "":
+			Game.decide(s.pending_case(), str(s.cases.cases[s.pending_case()].choices[0].choice_id))
+			continue
+		if not Campaign.can_advance(s):
+			Campaign.take(s, Campaign.items(s)[0].case_id)
+			continue
+		Game.advance_quarter()
+	Narrative.ensure(s.world)["pending"] = []
+	_refresh_all()

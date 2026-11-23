@@ -1,0 +1,88 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0006-R",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0006",
+ "background": "kering",
+ "locals": {
+  "bu_martha": {
+   "name": "Bu Martha",
+   "role": "Ibu rumah tangga dan peternak, Sabu Raijua",
+   "color": "9a6a3a",
+   "initials": "M"
+  },
+  "pak_yakob": {
+   "name": "Pak Yakob",
+   "role": "Kepala desa, Kabupaten Kupang",
+   "color": "5a6a3a",
+   "initials": "Y"
+  }
+ },
+ "agenda": {
+  "hook": "Kemarau berikutnya tiba di Sabu Raijua dan Kupang.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Setahun berlalu. Kemarau kembali ke selatan.",
+   "bg": "kering"
+  },
+  {
+   "s": "bu_martha",
+   "e": "netral",
+   "t": "Kemarau datang lagi, Pak. Kami ingat yang tahun lalu.",
+   "bg": "kering"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Dampaknya lebih kecil di desa yang sudah punya sumur bor dan embung.",
+   "bg": "ruang_rapat"
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Distribusi air darurat diulang."
+   },
+   {
+    "s": "bu_martha",
+    "e": "netral",
+    "t": "Truk air datang lagi. Kami bersyukur, tapi kami ingin tidak bergantung pada truk."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Dana tambahan menyelesaikan sumur bor dan pipa."
+   },
+   {
+    "s": "pak_yakob",
+    "e": "senyum",
+    "t": "Pipa ke desa kami akhirnya tersambung."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Penanganan diserahkan ke kabupaten."
+   },
+   {
+    "s": "bu_martha",
+    "e": "kecewa",
+    "t": "Kabupaten berusaha. Tapi pulau kami jauh."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Air bersih darurat dikirim lagi pada kemarau berikutnya.",
+  "b": "Proyek air di Sabu Raijua dan Kupang dipercepat.",
+  "c": "Kemarau berikutnya diserahkan ke pemerintah kabupaten."
+ }
+}

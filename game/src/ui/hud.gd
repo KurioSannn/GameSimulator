@@ -6,6 +6,8 @@ signal policy_pressed
 signal budget_pressed
 signal log_pressed
 signal decision_pressed
+signal agenda_pressed
+signal goals_pressed
 signal legacy_pressed
 signal menu_selected(id: String)
 signal overlay_selected(def: Dictionary)
@@ -41,6 +43,8 @@ var _agenda_btn: Button
 var _term_over := false
 var _bottom_dock: PanelContainer
 var _agenda_text: VBoxContainer
+var goals_panel: PanelContainer
+var _goal_rows: Dictionary = {}
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -127,7 +131,8 @@ func _build_sidebar() -> void:
 	column.position = Vector2(18, 96)
 	for item in [["Kebijakan", "imgIkonScroll", "policy", "Kebijakan (P)"],
 		["Anggaran", "imgIkonCoin1", "budget", "Anggaran nasional (B)"],
-		["Statistik", "imgIkonBook", "statistics", "Semua indikator nasional"]]:
+		["Statistik", "imgIkonBook", "statistics", "Semua indikator nasional"],
+		["Buku Kisah", "imgIkonFlag", "journal", "Buku Kisah: perjalanan, janji, dan tokoh (J)"]]:
 		var action: String = item[2]
 		var on_press := func():
 			match action:
@@ -147,7 +152,7 @@ func _build_sidebar() -> void:
 	# Always-visible map navigation: zoom without hunting for the scroll wheel or the tools card.
 	var nav := UiKit.vbox(6)
 	nav.name = "ZoomHUD"
-	nav.position = Vector2(18, 296)
+	nav.position = Vector2(18, 360)
 	for item in [["+", "zoom_in", "Perbesar peta (+ · scroll · cubit trackpad)"],
 		["−", "zoom_out", "Perkecil peta (− · scroll · cubit trackpad)"],
 		["⌂", "home", "Seluruh Indonesia (Home)"]]:
@@ -163,6 +168,46 @@ func _build_sidebar() -> void:
 		UiKit.hud_type(b, 22)
 		nav.add_child(b)
 	add_child(nav)
+	_build_goals()
+
+## Tujuan Masa Bakti: the four pillars as plain words (detail on click).
+func _build_goals() -> void:
+	goals_panel = PanelContainer.new()
+	goals_panel.name = "TujuanMasaBakti"
+	goals_panel.add_theme_stylebox_override("panel", GameSkin.hud_frame())
+	goals_panel.position = Vector2(84, 104)
+	goals_panel.custom_minimum_size = Vector2(252, 0)
+	goals_panel.mouse_filter = Control.MOUSE_FILTER_STOP
+	goals_panel.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	goals_panel.tooltip_text = "Tujuan Masa Bakti: klik untuk melihat rinciannya"
+	goals_panel.gui_input.connect(func(e):
+		if e is InputEventMouseButton and e.pressed and e.button_index == MOUSE_BUTTON_LEFT:
+			goals_pressed.emit())
+	var col := UiKit.vbox(3)
+	col.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	goals_panel.add_child(col)
+	var head := UiKit.subheader("TUJUAN MASA BAKTI", UiKit.ACCENT, 12)
+	col.add_child(head)
+	for p in Narrative.PILLARS:
+		var row := UiKit.hbox(6)
+		row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var name := UiKit.label(str(Narrative.PILLAR_LABELS[p]), 14, UiKit.TEXT)
+		name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(name)
+		var trend := UiKit.label("", 14, UiKit.MUTED)
+		row.add_child(trend)
+		col.add_child(row)
+		_goal_rows[p] = trend
+	add_child(goals_panel)
+
+
+func refresh_goals(pillars: Dictionary) -> void:
+	for p in _goal_rows:
+		var lbl: Label = _goal_rows[p]
+		var word := str(pillars.get(p, {}).get("trend", "stabil"))
+		lbl.text = {"membaik": "▲ membaik", "menurun": "▼ menurun"}.get(word, "● stabil")
+		lbl.add_theme_color_override("font_color", UiKit.SUCCESS if word == "membaik" else UiKit.DANGER if word == "menurun" else UiKit.MUTED)
+
 
 func _build_right() -> void:
 	right_col = UiKit.vbox(8)
@@ -321,6 +366,8 @@ func _build_bottom() -> void:
 	var on_agenda := func():
 		if _term_over:
 			legacy_pressed.emit()
+		elif _agenda_btn.text == "BUKA AGENDA":
+			agenda_pressed.emit()
 		else:
 			decision_pressed.emit()
 	_agenda_btn = UiKit.button("BUKA KEPUTUSAN", on_agenda, true)
@@ -355,22 +402,31 @@ func refresh(world: SimWorld, pending_case: String) -> void:
 			fire = true
 	season_label.text = "%s · %s" % [season, "Kebakaran aktif" if fire else "Bulan %d" % month]
 	var pending := pending_case != ""
-	_agenda_text.visible = pending or _term_over
-	_agenda_btn.visible = pending or _term_over
-	next_btn.visible = not pending and not _term_over
+	var campaign := Campaign.enabled(world)
+	var agenda_open := campaign and not pending and not _term_over and not (world.story.get("agenda", {}) as Dictionary).is_empty() and not Campaign.taken_this_quarter(world)
+	_agenda_text.visible = pending or _term_over or agenda_open
+	_agenda_btn.visible = pending or _term_over or agenda_open
+	next_btn.visible = not pending and not _term_over and not agenda_open
 	if pending:
 		var current: Dictionary = ContentDB.cases[pending_case]
 		_agenda_title.text = str(current.title)
 		_agenda_sub.text = str(current.get("location_label", ""))
 		_agenda_btn.text = "BUKA KEPUTUSAN"
 	elif _term_over:
-		_agenda_title.text = "Masa jabatan selesai"
-		_agenda_sub.text = "Tinjau warisan pemerintahan Nara Adinata."
-		_agenda_btn.text = "RAPOR WARISAN"
+		_agenda_title.text = "Masa bakti selesai"
+		_agenda_sub.text = "Saatnya melihat warisan yang ditinggalkan."
+		_agenda_btn.text = "AKHIR MASA BAKTI"
+	elif agenda_open:
+		var n := (world.story.agenda as Dictionary).size()
+		_agenda_title.text = "Agenda kuartal: %d persoalan menunggu" % n
+		_agenda_sub.text = "Pilih satu untuk ditangani langsung kuartal ini."
+		_agenda_btn.text = "BUKA AGENDA"
 	else:
 		_agenda_title.text = "Siap melanjutkan kuartal"
-		var latest := "Atur kebijakan dan anggaran, lalu tinjau perkembangan negeri."
-		if not world.event_log.is_empty():
+		var latest := "Tinjau daerah, atur kebijakan dan anggaran, lalu jalankan tiga bulan berikutnya."
+		if campaign and Campaign.taken_this_quarter(world):
+			latest = "Keputusan kuartal ini sudah diambil. Lanjutkan saat Bapak siap."
+		elif not world.event_log.is_empty():
 			var event := ChangeText.entry_card(world.event_log[-1])
 			latest = "%s · %s" % [str(event.when), str(event.title)]
 		_agenda_sub.text = latest

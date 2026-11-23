@@ -1,0 +1,250 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0016",
+ "fact_class": "FICTIONAL",
+ "background": "banjir_bandang",
+ "locals": {
+  "mama_yohana": {
+   "name": "Mama Yohana",
+   "role": "Penjual pinang, Sentani",
+   "color": "7a3a4a",
+   "initials": "Y"
+  },
+  "pak_benny": {
+   "name": "Pak Benny",
+   "role": "Guru dan anggota kelompok tani hutan, Kabupaten Jayapura",
+   "color": "3a6a3a",
+   "initials": "B"
+  }
+ },
+ "agenda": {
+  "hook": "Banjir bandang membawa lumpur, batu, dan kayu dari lereng di atas Sentani ke kompleks perumahan.",
+  "if_postponed": "Sentani dibersihkan seadanya. Lereng di hulu tetap rusak."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "bg": "banjir_bandang",
+   "t": "Hujan lebat sejak sore. Tengah malam, terdengar suara gemuruh dari arah gunung."
+  },
+  {
+   "s": "mama_yohana",
+   "e": "sedih",
+   "t": "Bukan air biasa, Pak. Batu sebesar mobil, kayu gelondongan, lumpur setinggi pinggang. Kompleks kami tertimbun."
+  },
+  {
+   "s": "pak_benny",
+   "e": "serius",
+   "t": "Lereng di atas Sentani sudah lama dibuka untuk kebun dan rumah. Hutannya menipis. Air tidak lagi tertahan."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "bg": "ruang_rapat",
+   "t": "Puluhan orang meninggal, ribuan mengungsi, Pak. Mereka takut kembali karena khawatir ada banjir susulan."
+  },
+  {
+   "s": "yosef",
+   "e": "berpikir",
+   "t": "Lumpur yang turun ke kompleks itu datang dari atas, Pak. Kalau hulunya tidak dibenahi, kita akan membersihkan lumpur yang sama lagi nanti."
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Evakuasi dan pemulihan cepat paling langsung terasa. Rehabilitasi hulu lambat. Tanggul dan normalisasi sungai cepat melindungi, tapi merusak sungai dan danau."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Yang di bawah butuh pertolongan. Yang di atas butuh perbaikan. Dua-duanya tidak bisa menunggu lama."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Mengerahkan semua sumber daya untuk evakuasi dan pemulihan.",
+   "helps": "Warga yang mengungsi: cepat kembali ke rumah.",
+   "burden": "Lereng di hulu tetap rusak.",
+   "now": "Kerusakan pulih cepat selama tiga bulan, kepercayaan naik.",
+   "later": "Risiko banjir bandang berikutnya tidak berubah."
+  },
+  "b": {
+   "intent": "Merehabilitasi kawasan hulu bersama masyarakat adat.",
+   "helps": "Seluruh Sentani untuk jangka panjang, dan ekosistem danau.",
+   "burden": "Warga yang ingin melihat perubahan cepat.",
+   "now": "Kepercayaan sedikit turun.",
+   "later": "Lingkungan dan perlindungan banjir naik setelah sekitar sembilan bulan."
+  },
+  "c": {
+   "intent": "Mengeruk, meluruskan, dan menanggul sungai.",
+   "helps": "Permukiman di tepi sungai: perlindungan cepat.",
+   "burden": "Ekosistem sungai dan Danau Sentani; anggaran.",
+   "now": "Biaya terbesar.",
+   "later": "Perlindungan banjir dan infrastruktur naik setelah enam bulan, lingkungan menurun."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "bg": "banjir_bandang",
+    "t": "Alat berat membuka jalan yang tertimbun. Tenda pengungsian diganti hunian sementara."
+   },
+   {
+    "s": "mama_yohana",
+    "e": "lega",
+    "t": "Kami sudah bisa kembali ke rumah. Lumpurnya sudah diangkut. Saya buka lapak lagi minggu depan."
+   },
+   {
+    "s": "pak_benny",
+    "e": "cemas",
+    "t": "Rumahnya bersih. Tapi lereng di atas masih gundul. Kalau hujan sebesar itu datang lagi..."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "bg": "hutan",
+    "t": "Bibit pohon dibawa naik ke lereng. Kelompok tani hutan dan masyarakat adat menanam bersama, dan permukiman baru di lereng ditertibkan."
+   },
+   {
+    "s": "pak_benny",
+    "e": "senyum",
+    "t": "Murid-murid saya ikut menanam. Saya bilang ke mereka, pohon ini akan menjaga rumah kalian nanti."
+   },
+   {
+    "s": "mama_yohana",
+    "e": "kecewa",
+    "bg": "banjir_bandang",
+    "t": "Pohon itu bagus, Pak. Tapi rumah saya masih penuh lumpur hari ini."
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "bg": "ruang_rapat",
+    "t": "Warga butuh tanda nyata bahwa mereka juga diperhatikan sekarang."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "bg": "banjir_bandang",
+    "t": "Ekskavator masuk ke sungai. Tanggul beton mulai dibangun di sepanjang aliran yang melewati permukiman."
+   },
+   {
+    "s": "mama_yohana",
+    "e": "senyum",
+    "t": "Melihat tanggul itu, saya sedikit lebih tenang."
+   },
+   {
+    "s": "pak_benny",
+    "e": "kecewa",
+    "t": "Sungainya jadi seperti selokan besar. Ikan di muara danau akan hilang. Kita memindahkan masalahnya, bukan menyelesaikannya."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "hulu",
+   "after_quarters": 4,
+   "choices": [
+    "b"
+   ],
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "environment",
+        "op": ">",
+        "value": 4
+       },
+       "beats": [
+        {
+         "s": "pak_benny",
+         "e": "senyum",
+         "bg": "hutan",
+         "t": "Pohon-pohon yang kami tanam sudah setinggi dada, Pak. Hujan besar bulan lalu, sungainya keruh, tapi tidak meluap."
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_benny",
+         "e": "cemas",
+         "bg": "hutan",
+         "t": "Banyak bibit mati di musim kering. Rehabilitasinya perlu dirawat, bukan hanya ditanam."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pulih",
+   "after_quarters": 2,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "damage",
+        "op": "<",
+        "value": -5
+       },
+       "beats": [
+        {
+         "s": "mama_yohana",
+         "e": "senyum",
+         "bg": "danau",
+         "t": "Pasar di Sentani ramai lagi, Pak. Kami masih ingat malam itu, tapi hidup jalan terus."
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "mama_yohana",
+         "e": "sedih",
+         "bg": "banjir_bandang",
+         "t": "Masih banyak rumah yang belum bisa ditempati, Pak."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "bg": "banjir_bandang",
+   "t": "Sentani dibersihkan dengan kemampuan daerah. Tidak ada yang naik ke hulu."
+  },
+  {
+   "s": "pak_benny",
+   "e": "kecewa",
+   "t": "Semua sibuk dengan lumpur di bawah. Tidak ada yang bertanya dari mana lumpurnya datang."
+  }
+ ],
+ "journal": {
+  "a": "Evakuasi dan pemulihan cepat di Sentani. Warga kembali ke rumah, lereng hulu tetap rusak.",
+  "b": "Kawasan hulu di atas Sentani direhabilitasi bersama masyarakat adat. Lambat, mengurangi risiko jangka panjang.",
+  "c": "Sungai di Sentani dikeruk dan ditanggul. Perlindungan cepat, ekosistem sungai dan danau dikorbankan."
+ },
+ "promises": {
+  "b": {
+   "text": "Lereng di atas Sentani kembali hijau dan mampu menahan hujan besar.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "environment",
+    "op": ">",
+    "value": 4
+   }
+  }
+ }
+}

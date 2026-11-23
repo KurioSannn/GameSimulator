@@ -4,6 +4,7 @@ extends VBoxContainer
 
 signal saved
 signal cancelled
+signal tutorial_requested
 var pending: Dictionary
 var _binding := ""
 var _binding_button: Button
@@ -182,6 +183,14 @@ func _build() -> void:
 	mrow.add_child(motion)
 	access.add_child(mrow)
 
+	var story := _section("CERITA DAN DIALOG", "imgIkonBook")
+	_option(story, "KECEPATAN TEKS", "text_speed", ["Lambat", "Normal", "Cepat", "Langsung"])
+	_check(story, "LANJUT OTOMATIS", "auto_dialogue")
+	_check(story, "TAMPILKAN SUMBER DATA (MODE PENGEMBANG)", "show_sources")
+	var tut := UiKit.ghost_button("ULANGI TUTORIAL", func(): tutorial_requested.emit(), "Mulai lagi panduan bermain langkah demi langkah")
+	tut.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	story.add_child(tut)
+
 	var foot := UiKit.hbox(12)
 	var reset_btn := UiKit.ghost_button("SETELAN AWAL", func():
 		pending = UiPreferences.DEFAULTS.duplicate(true)
@@ -246,3 +255,19 @@ func _input(event: InputEvent) -> void:
 	pending[_binding] = key
 	_binding_button.text = OS.get_keycode_string(key)
 	_binding = ""
+
+
+func _check(body: VBoxContainer, label: String, key: String) -> void:
+	var row := UiKit.hbox(12)
+	var lbl := UiKit.label(label, 15, UiKit.TEXT)
+	lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(lbl)
+	var cb := CheckButton.new()
+	cb.button_pressed = bool(pending.get(key, false))
+	cb.text = "Aktif" if cb.button_pressed else "Nonaktif"
+	cb.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	cb.toggled.connect(func(on):
+		pending[key] = on
+		cb.text = "Aktif" if on else "Nonaktif")
+	row.add_child(cb)
+	body.add_child(row)

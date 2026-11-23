@@ -10,6 +10,8 @@ var policies: PolicyEngine
 ## Regional values at the start of the term (from content; identical for every load of the same
 ## snapshot, so not saved). Baseline for "sejak awal masa jabatan" comparisons.
 var initial_vars: Dictionary = {}
+## National fiscal space at the start of the term (content constant; Tujuan Masa Bakti baseline).
+var initial_fiscal := 0.0
 
 
 func _init(sim_params: Dictionary, regions: Array, baseline: Dictionary, case_records: Dictionary, seed_value: int,
@@ -21,6 +23,7 @@ func _init(sim_params: Dictionary, regions: Array, baseline: Dictionary, case_re
 	for v in SimLedger.TRACKED:
 		if world.vars.has(v):
 			initial_vars[v] = (world.vars[v] as PackedFloat64Array).duplicate()
+	initial_fiscal = float(world.national.get("fiscal_space", 0.0))
 
 
 func enact_policy(policy_id: String, target: Dictionary) -> String:
@@ -42,6 +45,9 @@ func _log_policy(policy_id: String, kind: String) -> void:
 ## If no case is pending, trigger one eligible case (story priority, then weighted RNG).
 func present_next_case() -> String:
 	if not cases.active_cases(world).is_empty() or world.is_term_over():
+		return ""
+	if Campaign.enabled(world):
+		Campaign.refresh(self)  # campaign: cases open on the visible agenda; the player takes one
 		return ""
 	var id := cases.pick(world, cases.eligible(world))
 	if id != "":
@@ -70,6 +76,7 @@ func decide(case_id: String, choice_id: String) -> String:
 		SimLedger.log_event(world, SimLedger.scheduled_entry(world, "decision", "case:%s/choice:%s" % [case_id, choice_id],
 			{"case_id": case_id, "choice_id": choice_id, "title": str(c.get("title", case_id)),
 			"choice_label": str(ch.get("label", choice_id)), "fact_class": str(ch.get("fact_class", ""))}))
+		Narrative.on_decided(world, c, choice_id)
 		if ch.has("enact_policy"):
 			var ep: Dictionary = ch.enact_policy
 			var perr := policies.enact(world, str(ep.policy_id), ep.get("target", {"type": "national"}))
@@ -86,6 +93,8 @@ func advance_quarter() -> Array:
 	var reports: Array = []
 	if pending_case() != "" or world.is_term_over():
 		return reports
+	if Campaign.enabled(world) and not Campaign.can_advance(self):
+		return reports
 	SimLedger.begin(world)
 	var floods: Array = []
 	for _i in SimWorld.TICKS_PER_QUARTER:
@@ -95,7 +104,23 @@ func advance_quarter() -> Array:
 		floods.append(rep.floods)
 		reports.append(rep)
 	SimLedger.log_event(world, SimLedger.quarter_entry(world, floods))
+	_after_quarter()
 	return reports
+
+
+## Story/campaign bookkeeping at the quarter boundary (reads simulation state, never changes the
+## monthly step). Order: expire unattended agenda items, settle promises, queue due callbacks, record
+## pillars, then open new agenda items for the coming quarter.
+func _after_quarter() -> void:
+	if world.story.is_empty() and not Campaign.enabled(world):
+		Narrative.ensure(world)
+	if Campaign.enabled(world):
+		Campaign.expire_due(self)
+	Narrative.settle_promises(world, cases.cases)
+	Narrative.collect_due(world)
+	Narrative.record_quarter(self)
+	if Campaign.enabled(world) and not world.is_term_over():
+		Campaign.refresh(self)
 
 
 ## Sets the national budget (SIMULATED state). shares: sector -> percent, must cover every

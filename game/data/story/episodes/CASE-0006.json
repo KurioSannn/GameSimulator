@@ -1,0 +1,71 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0006",
+ "fact_class": "FICTIONAL",
+ "background": "kering",
+ "locals": {
+  "bu_martha": {"name": "Bu Martha", "role": "Ibu rumah tangga dan peternak, Sabu Raijua", "color": "9a6a3a", "initials": "M"},
+  "pak_yakob": {"name": "Pak Yakob", "role": "Kepala desa, Kabupaten Kupang", "color": "5a6a3a", "initials": "Y"}
+ },
+ "agenda": {
+  "hook": "Kemarau panjang mengeringkan sumur dan ladang di Sabu Raijua. Hujan diperkirakan baru datang Desember.",
+  "if_postponed": "Warga Sabu Raijua menghadapi kemarau dengan bantuan seadanya dari daerah."
+ },
+ "opening": [
+  {"s": "narasi", "bg": "kering", "t": "Sabu Raijua, pulau kecil di selatan. Tanahnya retak, rumput sudah lama menguning."},
+  {"s": "bu_martha", "e": "cemas", "t": "Kami jalan dua jam untuk satu jeriken air. Kambing-kambing mulai kurus. Ladang sudah tidak bisa ditanami."},
+  {"s": "pak_yakob", "e": "serius", "t": "Di Kupang juga kering, Pak, walau tidak separah di Sabu. Embung desa kami tinggal lumpur."},
+  {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Prakiraan cuaca bilang hujan terlambat, kemungkinan baru Desember. Masih berbulan-bulan lagi."},
+  {"s": "bayu", "e": "netral", "t": "Truk air cepat, tapi berhenti begitu anggarannya berhenti. Embung dan sumur bor mahal, dan manfaatnya baru terasa tahun depan."},
+  {"s": "sekar", "e": "netral", "t": "Warga di pulau kecil sering merasa jadi yang terakhir diingat. Apa pun pilihannya, mereka perlu tahu kita melihat mereka."},
+  {"s": "nara", "e": "berpikir", "t": "Hari ini mereka butuh air. Tahun depan mereka akan butuh air lagi."}
+ ],
+ "choices": {
+  "a": {"intent": "Mengirim air bersih darurat ke desa-desa terdampak.", "helps": "Warga yang kehausan sekarang.", "burden": "Kesiapan kemarau berikutnya tidak berubah.", "now": "Layanan air membaik selama tiga bulan, kepercayaan naik.", "later": "Saat bantuan berhenti, keadaannya kembali seperti semula."},
+  "b": {"intent": "Memberi bantuan pangan dan penghidupan bagi petani dan peternak.", "helps": "Rumah tangga paling rentan: kesejahteraan tertopang.", "burden": "Pasokan air tidak bertambah.", "now": "Kesejahteraan terbantu selama empat bulan.", "later": "Tidak ada perubahan untuk kemarau berikutnya."},
+  "c": {"intent": "Membangun embung, sumur bor, dan perpipaan.", "helps": "Warga Sabu Raijua dan Kupang untuk kemarau-kemarau berikutnya.", "burden": "Warga yang kesulitan sekarang: tidak ada bantuan yang terlihat.", "now": "Kepercayaan turun.", "later": "Infrastruktur air dan layanan naik setelah sekitar sembilan bulan."}
+ },
+ "reactions": {
+  "a": [
+   {"s": "narasi", "bg": "kering", "t": "Truk tangki dan kapal pengangkut air tiba di pelabuhan kecil Sabu."},
+   {"s": "bu_martha", "e": "lega", "t": "Air datang ke desa kami tiap tiga hari. Anak-anak tidak perlu bolos sekolah untuk mengantre lagi."},
+   {"s": "yosef", "e": "netral", "bg": "ruang_rapat", "t": "Ini menolong sekarang. Tapi begitu kapal terakhir pulang, sumurnya tetap kering."}
+  ],
+  "b": [
+   {"s": "narasi", "bg": "kering", "t": "Beras, pakan ternak, dan bantuan uang tunai dikirim untuk keluarga petani dan peternak."},
+   {"s": "bu_martha", "e": "senyum", "t": "Kambing kami masih hidup, dan dapur masih berasap. Air tetap harus kami cari sendiri."},
+   {"s": "pak_yakob", "e": "netral", "t": "Bantuan ini menahan warga supaya tidak menjual ternak murah-murah. Itu penting, Pak."}
+  ],
+  "c": [
+   {"s": "narasi", "bg": "kering", "t": "Alat bor dan pipa dikirim ke pulau. Belum ada yang mengalir."},
+   {"s": "bu_martha", "e": "marah", "t": "Proyek tahun depan tidak mengisi jeriken saya minggu ini, Pak."},
+   {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Kemarau ini akan sangat berat bagi mereka. Kalau embungnya jadi tepat waktu, kemarau berikutnya bisa jauh lebih ringan."},
+   {"s": "nara", "e": "serius", "t": "Kita kawal sampai airnya benar-benar mengalir."}
+  ]
+ },
+ "callbacks": [
+  {"id": "air", "after_quarters": 3, "choices": ["c"], "beats": [
+   {"pick": [
+    {"if": {"delta": "infrastructure", "op": ">", "value": 5}, "beats": [
+     {"s": "bu_martha", "e": "senyum", "bg": "kering", "t": "Sumur bor di desa kami sudah mengalir, Pak. Saya masih ingat marah waktu itu. Sekarang saya bisa menyiram kebun."}]},
+    {"if": {}, "beats": [
+     {"s": "pak_yakob", "e": "cemas", "bg": "kering", "t": "Proyek air belum selesai, Pak. Kemarau berikutnya sudah dekat."}]}
+   ]}
+  ]},
+  {"id": "pulau", "after_quarters": 2, "choices": ["a", "b"], "beats": [
+   {"s": "bu_martha", "e": "netral", "bg": "kering", "t": "Hujan akhirnya datang. Terima kasih sudah ingat kami waktu itu. Tapi kemarau akan datang lagi, Pak."}
+  ]}
+ ],
+ "unattended": [
+  {"s": "narasi", "bg": "kering", "t": "Tanpa keputusan dari Jakarta, kabupaten menanggung kemarau dengan kemampuan sendiri."},
+  {"s": "bu_martha", "e": "sedih", "t": "Kami jual dua kambing untuk beli air. Murah sekali harganya."}
+ ],
+ "journal": {
+  "a": "Air bersih darurat dikirim ke Sabu Raijua dan Kupang. Menolong saat kemarau, tidak mengubah kemarau berikutnya.",
+  "b": "Keluarga petani dan peternak Sabu Raijua menerima bantuan pangan dan penghidupan.",
+  "c": "Embung, sumur bor, dan pipa mulai dibangun di Sabu Raijua dan Kupang. Warga kecewa sekarang, manfaatnya tahun depan."
+ },
+ "promises": {
+  "c": {"text": "Sumur bor dan embung di Sabu Raijua dan Kupang mengalir sebelum kemarau berikutnya.", "due_quarters": 4, "check": {"delta": "infrastructure", "op": ">", "value": 5}}
+ }
+}

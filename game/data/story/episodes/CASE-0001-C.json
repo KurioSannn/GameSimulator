@@ -1,0 +1,93 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0001-C",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0001",
+ "background": "kota",
+ "locals": {
+  "bu_yati": {
+   "name": "Bu Yati",
+   "role": "Pedagang sayur, Jakarta Timur",
+   "color": "7a4f8a",
+   "initials": "Y"
+  },
+  "pak_asep": {
+   "name": "Pak Asep",
+   "role": "Relawan desa, Kabupaten Lebak",
+   "color": "4f7a5a",
+   "initials": "A"
+  }
+ },
+ "agenda": {
+  "hook": "Warga Jakarta menagih janji: bantuan banjir dulu dibatasi demi tanggul yang belum terlihat.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "bu_yati",
+   "e": "marah",
+   "t": "Pak, saya masih ingat tidur di tenda. Katanya demi tanggul. Mana tanggulnya?",
+   "bg": "kota"
+  },
+  {
+   "s": "sekar",
+   "e": "cemas",
+   "t": "Kemarahan ini menyebar, Pak. Kalau kita diam, ini akan jadi cerita tentang pemerintah yang ingkar.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Mereka berhak bertanya."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Bantuan tunai sementara disalurkan ke warga terdampak banjir."
+   },
+   {
+    "s": "bu_yati",
+    "e": "netral",
+    "t": "Ini tidak menghapus semuanya, Pak. Tapi saya bisa membeli gerobak baru."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Presiden datang sendiri ke kampung dan membuka rencana serta jadwal pembangunan.",
+    "bg": "kota"
+   },
+   {
+    "s": "bu_yati",
+    "e": "netral",
+    "t": "Saya akan tagih jadwal itu, Pak. Bulan demi bulan."
+   },
+   {
+    "s": "nara",
+    "e": "yakin",
+    "t": "Silakan. Saya juga akan menagihnya."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Pemerintah tetap pada rencana. Tidak ada program tambahan."
+   },
+   {
+    "s": "sekar",
+    "e": "kecewa",
+    "t": "Mereka merasa tidak didengar, Pak. Tanggulnya harus benar-benar jadi."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Warga Jakarta yang kecewa menerima bantuan tunai sementara.",
+  "b": "Presiden berdialog langsung dengan warga dan membuka jadwal pembangunan tanggul.",
+  "c": "Pemerintah bertahan pada rencana tanggul tanpa program tambahan."
+ }
+}

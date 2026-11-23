@@ -1,0 +1,39 @@
+{
+ "schema": "nusantara.story_scene/1",
+ "fact_class": "FICTIONAL",
+ "note": "Quarter transition scene. Every line is chosen from actual pillar changes (pillar_q = change over the quarter just simulated), so the story never contradicts the numbers.",
+ "transition": [
+  {"pick": [
+   {"if": {"tick": "==", "value": 60}, "beats": [{"s": "narasi", "bg": "senja", "t": "Tiga bulan terakhir berlalu. Masa bakti lima tahun sampai di ujungnya."}]},
+   {"if": {"tick": "==", "value": 30}, "beats": [{"s": "narasi", "bg": "senja", "t": "Tiga bulan berlalu. Separuh masa bakti sudah dijalani."}]},
+   {"if": {"month": [1]}, "beats": [{"s": "narasi", "bg": "istana_pagi", "t": "Tiga bulan berlalu. Tahun ke-{tahun} dimulai, dan hujan masih sering turun di banyak daerah."}]},
+   {"if": {"month": [4]}, "beats": [{"s": "narasi", "bg": "istana_pagi", "t": "Tiga bulan berlalu. Musim mulai berganti. Di banyak sawah, panen sedang berjalan."}]},
+   {"if": {"month": [7]}, "beats": [{"s": "narasi", "bg": "istana_siang", "t": "Tiga bulan berlalu. Kemarau mulai terasa di selatan negeri."}]},
+   {"if": {}, "beats": [{"s": "narasi", "bg": "istana_siang", "t": "Tiga bulan berlalu. Menjelang akhir tahun, awan hujan kembali menggantung."}]}
+  ]},
+  {"s": "laras", "e": "netral", "bg": "ruang_kerja", "t": "Ringkasannya sudah siap, Pak. Kuartal ke-{kuartal_ke} dari dua puluh."},
+  {"pick": [
+   {"if": {"pillar_q": "welfare", "op": ">", "value": 0.25}, "beats": [{"s": "yosef", "e": "senyum", "t": "Dari daerah, kabarnya cukup baik, Pak. Di banyak tempat, hidup warga sedikit lebih ringan dibanding tiga bulan lalu."}]},
+   {"if": {"pillar_q": "welfare", "op": "<", "value": -0.25}, "beats": [{"s": "yosef", "e": "cemas", "t": "Saya tidak mau menutupinya, Pak. Di banyak daerah, warga merasa hidupnya lebih berat kuartal ini."}]},
+   {"if": {}, "beats": [{"s": "yosef", "e": "netral", "t": "Di daerah, keadaannya kurang lebih sama dengan kuartal lalu. Tidak ada lonjakan besar, baik atau buruk."}]}
+  ]},
+  {"pick": [
+   {"if": {"pillar_q": "trust", "op": "<", "value": -0.3}, "beats": [{"s": "sekar", "e": "cemas", "t": "Suasana publik memanas, Pak. Banyak yang merasa pemerintah lambat atau tidak mendengar."}]},
+   {"if": {"pillar_q": "trust", "op": ">", "value": 0.3}, "beats": [{"s": "sekar", "e": "senyum", "t": "Ada kabar baik. Lebih banyak warga merasa didengar. Jangan sampai kita lengah, ya, Pak."}]},
+   {"if": {}, "beats": [{"s": "sekar", "e": "netral", "t": "Suasana publik relatif tenang. Orang menunggu bukti, bukan janji."}]}
+  ]},
+  {"pick": [
+   {"if": {"pillar_value": "fiscal", "op": "<", "value": 0}, "beats": [{"s": "bayu", "e": "serius", "t": "Ruang fiskal kita sudah di bawah nol, Pak. Setiap program baru sekarang berarti menunda yang lain, atau meminjam dari masa depan."}]},
+   {"if": {"pillar_value": "fiscal", "op": "<", "value": 10}, "beats": [{"s": "bayu", "e": "cemas", "t": "Ruang fiskal makin sempit. Saya sarankan kita pilih janji baru dengan sangat hati-hati."}]},
+   {"if": {"pillar_q": "fiscal", "op": "<", "value": -4}, "beats": [{"s": "bayu", "e": "netral", "t": "Belanja kuartal ini cukup besar. Masih aman, tapi saya mulai menghitung lebih sering."}]},
+   {"if": {}, "beats": [{"s": "bayu", "e": "netral", "t": "Keuangan masih terkendali. Belum ada alasan panik, dan saya akan bilang kalau sudah ada."}]}
+  ]},
+  {"if": {"promises_due": ">", "value": 0}, "s": "laras", "e": "netral", "t": "Ada janji yang sudah jatuh tempo kuartal ini. Hasilnya saya catat di Buku Kisah."},
+  {"pick": [
+   {"if": {"tick": "==", "value": 48}, "beats": [{"s": "laras", "e": "serius", "t": "Tinggal satu tahun, Pak. Apa yang kita mulai sekarang mungkin baru selesai di tangan pemerintahan berikutnya."}]},
+   {"if": {"tick": "==", "value": 24}, "beats": [{"s": "laras", "e": "netral", "t": "Dua tahun sudah lewat. Proyek-proyek awal mulai menunjukkan hasilnya, atau mulai menunjukkan masalahnya."}]},
+   {"if": {}, "beats": []}
+  ]},
+  {"if": {"agenda_open": ">", "value": 0}, "s": "laras", "e": "netral", "t": "Agenda kuartal ini sudah saya siapkan di meja Bapak."}
+ ]
+}

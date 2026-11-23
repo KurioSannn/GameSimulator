@@ -1,0 +1,67 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0015",
+ "fact_class": "FICTIONAL",
+ "background": "pelabuhan",
+ "locals": {
+  "pak_darmo": {"name": "Pak Darmo", "role": "Nakhoda kapal cantrang, Tegal", "color": "2a4a6a", "initials": "D"},
+  "mbak_ratih": {"name": "Mbak Ratih", "role": "Peneliti kelautan muda, Semarang", "color": "3a7a5a", "initials": "R"}
+ },
+ "agenda": {
+  "hook": "Ribuan nelayan Pantura berunjuk rasa menolak larangan cantrang. Di sisi lain, ikan di Laut Jawa makin sulit dicari.",
+  "if_postponed": "Larangan cantrang menggantung tanpa keputusan. Nelayan dan laut sama-sama menunggu."
+ },
+ "opening": [
+  {"s": "narasi", "bg": "pelabuhan", "t": "Pelabuhan Tegal sebelum subuh. Kapal-kapal berjajar, tapi banyak yang tidak berangkat."},
+  {"s": "pak_darmo", "e": "marah", "t": "Kapal ini saya cicil sepuluh tahun. Kalau jaringnya dilarang, kapalnya jadi besi tua, utangnya tetap."},
+  {"s": "mbak_ratih", "e": "cemas", "bg": "laut", "t": "Jaring yang ditarik menyapu dasar laut, Pak. Ikan kecil ikut terangkat sebelum sempat besar. Nelayan tua sendiri bilang ikan makin jauh."},
+  {"s": "sekar", "e": "serius", "bg": "ruang_rapat", "t": "Massa nelayan sedang menuju Jakarta. Para bupati Pantura ikut menyuarakan kekhawatiran mereka."},
+  {"s": "bayu", "e": "netral", "t": "Larangan penuh hampir tidak memakan biaya negara, tapi pendapatan nelayan langsung jatuh. Peralihan bertahap butuh bantuan alat tangkap pengganti."},
+  {"s": "yosef", "e": "berpikir", "t": "Kalau larangannya dicabut, nelayan senang hari ini. Tapi kalau ikannya habis, yang paling dulu kehilangan pekerjaan juga mereka."},
+  {"s": "nara", "e": "berpikir", "t": "Laut yang habis tidak bisa diberi masa transisi."}
+ ],
+ "choices": {
+  "a": {"intent": "Menegakkan larangan cantrang sepenuhnya sekarang.", "helps": "Laut Jawa: stok ikan pulih lebih cepat.", "burden": "Nelayan dan awak kapal cantrang Pantura.", "now": "Pendapatan nelayan turun selama tiga bulan dan kepercayaan turun tajam.", "later": "Lingkungan laut membaik setelah enam bulan; kesejahteraan struktural naik setelah satu setengah tahun."},
+  "b": {"intent": "Memberi masa peralihan bersyarat: tanpa kapal baru, ukur ulang, hanya Pantura, bantuan alat pengganti.", "helps": "Nelayan: punya waktu dan bantuan untuk beralih.", "burden": "Anggaran; laut pulih lebih lambat.", "now": "Protes mereda.", "later": "Lingkungan laut membaik setelah sekitar setahun."},
+  "c": {"intent": "Mencabut larangan cantrang.", "helps": "Nelayan cantrang: lega dan langsung melaut.", "burden": "Laut Jawa dan nelayan generasi berikutnya.", "now": "Kesejahteraan dan kepercayaan naik.", "later": "Lingkungan laut memburuk setelah enam bulan; kesejahteraan struktural turun setelah satu setengah tahun."}
+ },
+ "reactions": {
+  "a": [
+   {"s": "narasi", "bg": "pelabuhan", "t": "Larangan ditegakkan. Kapal-kapal cantrang ditambatkan di dermaga."},
+   {"s": "pak_darmo", "e": "marah", "t": "Anak buah saya dua puluh orang, Pak. Mulai besok mereka mau makan apa?"},
+   {"s": "mbak_ratih", "e": "netral", "bg": "laut", "t": "Ini keputusan yang benar untuk laut. Tapi saya tidak akan pura-pura ini tidak menyakitkan bagi mereka."},
+   {"s": "sekar", "e": "cemas", "bg": "ruang_rapat", "t": "Unjuk rasa akan membesar, Pak. Kita harus siap."}
+  ],
+  "b": [
+   {"s": "narasi", "bg": "pelabuhan", "t": "Pemerintah tidak mencabut larangan, tapi memberi waktu. Tidak boleh ada kapal baru. Semua kapal diukur ulang. Hanya boleh di perairan Pantura."},
+   {"s": "pak_darmo", "e": "netral", "t": "Setidaknya kami tidak langsung tenggelam. Jaring pengganti, akan kami coba. Asal tangkapannya cukup untuk menutup solar."},
+   {"s": "mbak_ratih", "e": "berpikir", "bg": "laut", "t": "Lautnya pulih lebih lambat. Tapi kalau peralihannya benar-benar jalan, ini mungkin cara yang paling bisa bertahan."}
+  ],
+  "c": [
+   {"s": "narasi", "bg": "pelabuhan", "t": "Larangan dicabut. Malam itu, mesin-mesin kapal menyala lagi di sepanjang Pantura."},
+   {"s": "pak_darmo", "e": "senyum", "t": "Terima kasih, Pak. Anak buah saya bisa pulang membawa uang lagi."},
+   {"s": "mbak_ratih", "e": "kecewa", "bg": "laut", "t": "Hari ini mereka senang. Dua tahun lagi, mereka akan berlayar lebih jauh untuk ikan yang lebih sedikit."}
+  ]
+ },
+ "callbacks": [
+  {"id": "laut", "after_quarters": 4, "beats": [
+   {"pick": [
+    {"if": {"delta": "environment", "op": ">", "value": 2}, "beats": [{"s": "mbak_ratih", "e": "senyum", "bg": "laut", "t": "Survei terakhir menunjukkan ikan muda mulai kembali di beberapa titik, Pak. Pelan, tapi nyata."}]},
+    {"if": {"delta": "environment", "op": "<", "value": -2}, "beats": [{"s": "mbak_ratih", "e": "sedih", "bg": "laut", "t": "Tangkapan rata-rata kapal turun lagi, Pak. Nelayan mulai berlayar lebih jauh dari biasanya."}]},
+    {"if": {}, "beats": [{"s": "pak_darmo", "e": "netral", "bg": "pelabuhan", "t": "Laut belum banyak berubah, Pak. Kami masih menunggu."}]}
+   ]}
+  ]}
+ ],
+ "unattended": [
+  {"s": "narasi", "bg": "pelabuhan", "t": "Keputusan soal cantrang terus ditunda. Sebagian kapal melaut, sebagian ditahan, aturannya tidak jelas."},
+  {"s": "pak_darmo", "e": "kecewa", "t": "Kami ini dilarang atau tidak? Tidak ada yang bisa menjawab."}
+ ],
+ "journal": {
+  "a": "Larangan cantrang ditegakkan penuh. Laut Jawa diberi waktu pulih, nelayan Pantura terpukul.",
+  "b": "Nelayan cantrang Pantura diberi masa peralihan bersyarat dan bantuan alat tangkap pengganti.",
+  "c": "Larangan cantrang dicabut. Nelayan lega, tekanan pada stok ikan berlanjut."
+ },
+ "promises": {
+  "b": {"text": "Nelayan Pantura beralih ke alat tangkap ramah lingkungan dan laut mulai pulih.", "due_quarters": 5, "check": {"delta": "environment", "op": ">", "value": 1}}
+ }
+}

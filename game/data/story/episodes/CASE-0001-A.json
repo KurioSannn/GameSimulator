@@ -1,0 +1,92 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0001-A",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0001",
+ "background": "ruang_rapat",
+ "locals": {
+  "bu_yati": {
+   "name": "Bu Yati",
+   "role": "Pedagang sayur, Jakarta Timur",
+   "color": "7a4f8a",
+   "initials": "Y"
+  },
+  "pak_asep": {
+   "name": "Pak Asep",
+   "role": "Relawan desa, Kabupaten Lebak",
+   "color": "4f7a5a",
+   "initials": "A"
+  }
+ },
+ "agenda": {
+  "hook": "Tagihan tanggap darurat banjir Jabodetabek masuk ke neraca. Sesuatu harus dikorbankan.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Beberapa bulan setelah banjir tahun baru, sebuah map tebal mendarat di meja Presiden.",
+   "bg": "ruang_kerja"
+  },
+  {
+   "s": "bayu",
+   "e": "serius",
+   "t": "Ini tagihan penanganan banjir yang dulu kita ambil alih, Pak. Uangnya harus datang dari suatu tempat.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "yosef",
+   "e": "cemas",
+   "t": "Kalau layanan daerah dipotong, yang merasakan justru daerah yang tidak kebanjiran."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Jadi kita memilih siapa yang membayar pemulihan Jakarta."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Anggaran layanan di semua daerah dipangkas sedikit."
+   },
+   {
+    "s": "yosef",
+    "e": "cemas",
+    "t": "Puskesmas di banyak kabupaten mengurangi jam layanan, Pak. Kecil di setiap tempat, tapi terasa di mana-mana."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Proyek-proyek infrastruktur baru ditunda setahun."
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Layanan tetap jalan. Jembatan dan jalan yang dijanjikan harus menunggu."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tidak ada yang dipotong. Ruang fiskal dibiarkan sempit."
+   },
+   {
+    "s": "bayu",
+    "e": "cemas",
+    "t": "Daerah aman sekarang. Tapi kalau krisis berikutnya datang cepat, kita tidak punya cadangan."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Tagihan banjir ditutup dengan memangkas layanan di semua daerah.",
+  "b": "Tagihan banjir ditutup dengan menunda proyek infrastruktur setahun.",
+  "c": "Tagihan banjir dibiarkan mempersempit ruang fiskal."
+ }
+}

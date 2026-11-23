@@ -1,0 +1,87 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0002-C",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0002",
+ "background": "pesisir_rusak",
+ "locals": {
+  "pak_ridwan": {
+   "name": "Pak Ridwan",
+   "role": "Warga penyintas, Kota Palu",
+   "color": "6a5a3a",
+   "initials": "R"
+  },
+  "bu_nirwana": {
+   "name": "Bu Nirwana",
+   "role": "Guru SD, Kabupaten Sigi",
+   "color": "8a4a4a",
+   "initials": "N"
+  }
+ },
+ "agenda": {
+  "hook": "Rumah-rumah yang dibangun dengan dana stimulan di Palu mulai retak.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "bu_nirwana",
+   "e": "cemas",
+   "t": "Dinding rumah tetangga saya retak setelah gempa kecil minggu lalu. Kami mulai khawatir, Pak.",
+   "bg": "pesisir_rusak"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Dana stimulan membuat rumah cepat berdiri. Tapi tidak ada yang memeriksa mutunya.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Ini akibat dari pilihan kita. Kita yang harus membereskannya."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tim teknis turun memeriksa dan mendampingi perbaikan rumah."
+   },
+   {
+    "s": "bu_nirwana",
+    "e": "senyum",
+    "t": "Mereka mengajari kami memasang besi yang benar. Saya tidak tahu selama ini salah."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Dana tambahan disalurkan untuk memperkuat rumah sesuai standar."
+   },
+   {
+    "s": "bu_nirwana",
+    "e": "lega",
+    "t": "Rumah saya diperkuat. Saya merasa diperhatikan."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tidak ada program tambahan."
+   },
+   {
+    "s": "bu_nirwana",
+    "e": "sedih",
+    "t": "Kami hanya bisa berdoa tidak ada gempa besar lagi."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Rumah swadaya di Palu diperiksa dan didampingi tim teknis.",
+  "b": "Rumah swadaya di Palu diperkuat dengan dana tambahan.",
+  "c": "Masalah mutu rumah swadaya di Palu dibiarkan."
+ }
+}

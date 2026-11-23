@@ -1,0 +1,87 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0003-C",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0003",
+ "background": "pasar",
+ "locals": {
+  "bu_endang": {
+   "name": "Bu Endang",
+   "role": "Penjual gorengan, Bekasi",
+   "color": "a0662a",
+   "initials": "E"
+  },
+  "pak_togar": {
+   "name": "Pak Togar",
+   "role": "Petani sawit swadaya, Riau",
+   "color": "3f6a3a",
+   "initials": "T"
+  }
+ },
+ "agenda": {
+  "hook": "Bantuan tunai minyak goreng habis, harga di pasar masih tinggi.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "bu_endang",
+   "e": "cemas",
+   "t": "Bantuannya sudah habis, Pak. Harga minyak masih tinggi.",
+   "bg": "pasar"
+  },
+  {
+   "s": "bayu",
+   "e": "cemas",
+   "t": "Inilah yang saya khawatirkan. Kita membeli waktu, dan waktunya habis.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Lalu apa langkah berikutnya?"
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Bantuan tunai diperpanjang tiga bulan."
+   },
+   {
+    "s": "bayu",
+    "e": "cemas",
+    "t": "Warga terbantu lagi. Neraca kita makin berat."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kebijakan diganti kewajiban pasok dalam negeri."
+   },
+   {
+    "s": "bu_endang",
+    "e": "netral",
+    "t": "Semoga yang ini benar-benar menurunkan harga."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tidak ada program baru."
+   },
+   {
+    "s": "sekar",
+    "e": "kecewa",
+    "t": "Warga merasa ditinggal di tengah jalan, Pak."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Bantuan tunai minyak goreng diperpanjang.",
+  "b": "Kebijakan minyak goreng beralih ke kewajiban pasok dalam negeri.",
+  "c": "Intervensi minyak goreng dihentikan."
+ }
+}

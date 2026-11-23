@@ -1,0 +1,87 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0002-B",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0002",
+ "background": "pesisir_rusak",
+ "locals": {
+  "pak_ridwan": {
+   "name": "Pak Ridwan",
+   "role": "Warga penyintas, Kota Palu",
+   "color": "6a5a3a",
+   "initials": "R"
+  },
+  "bu_nirwana": {
+   "name": "Bu Nirwana",
+   "role": "Guru SD, Kabupaten Sigi",
+   "color": "8a4a4a",
+   "initials": "N"
+  }
+ },
+ "agenda": {
+  "hook": "Warga yang lelah menunggu hunian tetap mulai kembali ke zona merah Palu.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "pak_ridwan",
+   "e": "kecewa",
+   "t": "Kami lelah menunggu, Pak. Beberapa keluarga sudah kembali membangun di tanah lama.",
+   "bg": "pesisir_rusak"
+  },
+  {
+   "s": "yosef",
+   "e": "cemas",
+   "t": "Zona merah itu tetap tidak aman. Tapi kepercayaan warga pada relokasi terus turun.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Kita tidak bisa sekadar melarang. Kita harus memberi alasan untuk tidak kembali."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Aparat menertibkan bangunan baru di zona merah."
+   },
+   {
+    "s": "pak_ridwan",
+    "e": "marah",
+    "t": "Kami diperlakukan seperti pelanggar di tanah kami sendiri."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Anggaran tambahan mempercepat hunian tetap. Air bersih mengalir ke lokasi baru."
+   },
+   {
+    "s": "pak_ridwan",
+    "e": "netral",
+    "t": "Kalau rumahnya benar-benar jadi dan airnya ada, saya akan pindah."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Warga boleh kembali dengan aturan bangunan dan jalur evakuasi."
+   },
+   {
+    "s": "yosef",
+    "e": "cemas",
+    "t": "Mereka senang. Saya hanya berharap tanahnya tidak bergerak lagi."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Larangan tinggal di zona merah Palu ditegakkan.",
+  "b": "Hunian tetap untuk warga zona merah Palu dipercepat dan dilengkapi air bersih.",
+  "c": "Warga boleh kembali ke zona merah Palu dengan syarat mitigasi."
+ }
+}

@@ -1,0 +1,87 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0007-A",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0007",
+ "background": "pegunungan",
+ "locals": {
+  "suster_ani": {
+   "name": "Suster Ani",
+   "role": "Perawat puskesmas, Papua Pegunungan",
+   "color": "3a6a8a",
+   "initials": "A"
+  },
+  "pak_markus": {
+   "name": "Pak Markus",
+   "role": "Kepala kampung, Papua Tengah",
+   "color": "6a5a2a",
+   "initials": "M"
+  }
+ },
+ "agenda": {
+  "hook": "Kabupaten di Papua Pegunungan kesulitan merekrut dokter meski sudah diperkuat.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "suster_ani",
+   "e": "kecewa",
+   "t": "Lowongan dokter dibuka, Pak. Tapi belum ada yang mau datang ke lembah kami.",
+   "bg": "pegunungan"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Uangnya ada di kabupaten. Masalahnya, dokter yang mau tinggal di distrik terpencil sangat sedikit.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Kalau orang tidak datang, mungkin kita harus menumbuhkan dari dalam."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tunjangan dan fasilitas tambahan ditawarkan bagi dokter di distrik terpencil."
+   },
+   {
+    "s": "suster_ani",
+    "e": "senyum",
+    "t": "Ada dokter muda yang melamar minggu ini!"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Beasiswa pendidikan dokter dibuka bagi putra-putri daerah, dengan ikatan pulang."
+   },
+   {
+    "s": "suster_ani",
+    "e": "senyum",
+    "t": "Keponakan saya mendaftar. Butuh bertahun-tahun, tapi dia akan kembali ke sini."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tidak ada program tambahan."
+   },
+   {
+    "s": "suster_ani",
+    "e": "kecewa",
+    "t": "Kami menunggu lagi."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Insentif bagi dokter di distrik sangat terpencil Papua.",
+  "b": "Beasiswa dokter bagi putra-putri daerah Papua Pegunungan.",
+  "c": "Pemerintah menunggu hasil penguatan dinas kesehatan."
+ }
+}

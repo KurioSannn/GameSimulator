@@ -1,0 +1,73 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0005",
+ "fact_class": "FICTIONAL",
+ "background": "industri",
+ "locals": {
+  "mas_fajar": {"name": "Mas Fajar", "role": "Pekerja smelter, Morowali", "color": "5a5a7a", "initials": "F"},
+  "mama_sara": {"name": "Mama Sara", "role": "Nelayan dan petani, Halmahera Tengah", "color": "2f6a6a", "initials": "S"}
+ },
+ "agenda": {
+  "hook": "Kawasan industri nikel di Morowali dan Halmahera Tengah tumbuh sangat cepat. Ada pekerjaan baru, dan ada sungai yang keruh.",
+  "if_postponed": "Izin smelter berjalan tanpa arahan baru. Pertumbuhan dan tekanan lingkungan berlanjut seperti biasa."
+ },
+ "opening": [
+  {"s": "narasi", "bg": "industri", "t": "Malam di Morowali tidak pernah benar-benar gelap. Cerobong smelter menyala sepanjang waktu."},
+  {"s": "mas_fajar", "e": "senyum", "t": "Lima tahun lalu saya kerja serabutan. Sekarang gaji saya cukup untuk menyekolahkan adik-adik."},
+  {"s": "mas_fajar", "e": "cemas", "t": "Tapi teman satu shift saya pernah terluka di tungku. Kami ingin kerja yang aman, bukan hanya kerja yang ada."},
+  {"s": "mama_sara", "e": "cemas", "bg": "pesisir", "t": "Dulu air sungai kami jernih. Sekarang kalau hujan, airnya merah. Ikan di muara makin jauh."},
+  {"s": "bayu", "e": "netral", "bg": "ruang_rapat", "t": "Nilai ekspor naik berlipat sejak bijih mentah dilarang keluar. Dua provinsi itu tumbuh paling cepat di Indonesia timur."},
+  {"s": "yosef", "e": "serius", "t": "Pertumbuhan itu nyata, Pak. Pertanyaannya, berapa yang ditanggung daerahnya, dan oleh siapa."},
+  {"s": "sekar", "e": "netral", "t": "Investor menunggu kepastian. Warga sekitar menunggu didengar. Keduanya akan membaca keputusan ini."},
+  {"s": "nara", "e": "berpikir", "t": "Nilai tambah memang yang kita kejar. Tapi saya tidak mau nilainya dihitung tanpa ongkosnya."}
+ ],
+ "choices": {
+  "a": {"intent": "Mempercepat hilirisasi dan izin smelter.", "helps": "Penerimaan negara dan lapangan kerja: tumbuh paling cepat.", "burden": "Lingkungan dan warga sekitar kawasan.", "now": "Kepercayaan warga sekitar turun.", "later": "Penerimaan negara naik setelah sekitar sembilan bulan, kesejahteraan struktural naik, lingkungan terus tertekan setahun."},
+  "b": {"intent": "Melanjutkan hilirisasi dengan syarat audit keselamatan dan lingkungan.", "helps": "Pekerja dan warga sekitar: pengawasan lebih kuat.", "burden": "Anggaran pengawasan sekarang; investor menghadapi syarat lebih ketat.", "now": "Ada biaya pengawasan.", "later": "Layanan dan kepercayaan membaik setelah tiga bulan; manfaat ekonomi datang lebih lambat."},
+  "c": {"intent": "Menahan izin smelter baru sambil meninjau dampaknya.", "helps": "Lingkungan dan warga yang khawatir keselamatan.", "burden": "Pertumbuhan dan lapangan kerja baru.", "now": "Tekanan lingkungan paling kecil.", "later": "Investor bisa menekan pemerintah untuk membuka kembali."}
+ },
+ "reactions": {
+  "a": [
+   {"s": "narasi", "bg": "industri", "t": "Izin baru terbit lebih cepat. Lahan di sekitar kawasan mulai dibuka untuk tungku-tungku berikutnya."},
+   {"s": "mas_fajar", "e": "senyum", "t": "Lowongan dibuka lagi. Sepupu saya dari kampung bisa kerja di sini."},
+   {"s": "mama_sara", "e": "marah", "bg": "pesisir", "t": "Lebih banyak tungku, lebih banyak lumpur di sungai. Siapa yang mendengar kami?"},
+   {"s": "yosef", "e": "cemas", "bg": "ruang_rapat", "t": "Uangnya akan datang, Pak. Saya hanya berharap kita tidak membayarnya dengan sungai dan laut di sana."}
+  ],
+  "b": [
+   {"s": "narasi", "bg": "industri", "t": "Izin baru mensyaratkan audit keselamatan kerja dan lingkungan. Pengawas dikirim ke kawasan."},
+   {"s": "mas_fajar", "e": "lega", "t": "Kami dapat pelatihan keselamatan ulang minggu ini. Pertama kalinya ada yang menanyakan kondisi tungku ke kami."},
+   {"s": "bayu", "e": "netral", "bg": "ruang_rapat", "t": "Ada biaya sekarang, dan sebagian investor mengeluh. Tapi aturan yang jelas juga mengurangi risiko di kemudian hari."}
+  ],
+  "c": [
+   {"s": "narasi", "bg": "industri", "t": "Izin smelter baru dihentikan sementara. Smelter yang sudah ada tetap berjalan sambil ditinjau."},
+   {"s": "mama_sara", "e": "lega", "bg": "pesisir", "t": "Setidaknya tidak bertambah dulu. Kami ingin sungai kami diperiksa dengan benar."},
+   {"s": "sekar", "e": "cemas", "bg": "ruang_rapat", "t": "Pasar membaca ini sebagai sinyal mundur, Pak. Kita akan ditanya kapan pintunya dibuka lagi."}
+  ]
+ },
+ "callbacks": [
+  {"id": "muara", "after_quarters": 3, "beats": [
+   {"pick": [
+    {"if": {"delta": "environment", "op": "<", "value": -3}, "beats": [{"s": "mama_sara", "e": "sedih", "bg": "pesisir", "t": "Muara makin keruh, Pak. Anak-anak tidak lagi berenang di sana."}]},
+    {"if": {}, "beats": [{"s": "mama_sara", "e": "netral", "bg": "pesisir", "t": "Sungai belum seperti dulu. Tapi tidak bertambah parah. Itu sudah sesuatu."}]}
+   ]}
+  ]},
+  {"id": "pengawasan", "after_quarters": 2, "choices": ["b"], "beats": [
+   {"pick": [
+    {"if": {"delta": "services", "op": ">", "value": 1}, "beats": [{"s": "mas_fajar", "e": "senyum", "bg": "industri", "t": "Pengawas datang rutin sekarang. Kami berani melapor kalau ada yang tidak aman."}]},
+    {"if": {}, "beats": [{"s": "mas_fajar", "e": "netral", "bg": "industri", "t": "Aturannya bagus di atas kertas. Di lapangan, masih banyak yang perlu diperbaiki."}]}
+   ]}
+  ]}
+ ],
+ "unattended": [
+  {"s": "narasi", "bg": "industri", "t": "Tanpa arahan baru, kawasan industri tumbuh dengan aturan yang sama seperti sebelumnya."},
+  {"s": "mama_sara", "e": "kecewa", "bg": "pesisir", "t": "Kami mengirim surat ke mana-mana. Tidak ada yang datang."}
+ ],
+ "journal": {
+  "a": "Hilirisasi nikel dipercepat. Penerimaan dan lapangan kerja tumbuh, tekanan lingkungan di Morowali dan Halmahera Tengah naik.",
+  "b": "Izin smelter baru disyaratkan audit keselamatan dan lingkungan. Pertumbuhan lebih lambat, pengawasan lebih kuat.",
+  "c": "Izin smelter baru ditahan untuk ditinjau. Lingkungan lebih terjaga, investor menunggu kepastian."
+ },
+ "promises": {
+  "b": {"text": "Pekerja dan warga di kawasan nikel merasakan pengawasan keselamatan yang nyata.", "due_quarters": 2, "check": {"delta": "services", "op": ">", "value": 1}}
+ }
+}

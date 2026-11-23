@@ -1,0 +1,87 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0005-C",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0005",
+ "background": "industri",
+ "locals": {
+  "mas_fajar": {
+   "name": "Mas Fajar",
+   "role": "Pekerja smelter, Morowali",
+   "color": "5a5a7a",
+   "initials": "F"
+  },
+  "mama_sara": {
+   "name": "Mama Sara",
+   "role": "Nelayan dan petani, Halmahera Tengah",
+   "color": "2f6a6a",
+   "initials": "S"
+  }
+ },
+ "agenda": {
+  "hook": "Investor menunggu kepastian setelah moratorium izin smelter.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Enam bulan moratorium, Pak. Investor bertanya kapan pintunya dibuka lagi.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "mas_fajar",
+   "e": "netral",
+   "t": "Teman-teman yang belum dapat kerja juga bertanya.",
+   "bg": "industri"
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Kita menahan untuk meninjau. Sekarang tinjauannya harus menghasilkan keputusan."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Izin baru dibuka hanya untuk proyek yang lolos audit keselamatan dan lingkungan."
+   },
+   {
+    "s": "mas_fajar",
+    "e": "senyum",
+    "t": "Lowongan dibuka lagi, dan katanya dengan aturan keselamatan yang lebih ketat."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Moratorium dilanjutkan."
+   },
+   {
+    "s": "bayu",
+    "e": "cemas",
+    "t": "Investor kecewa. Beberapa mulai melirik negara lain."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Izin baru hanya untuk pengolahan bernilai tambah lebih tinggi, dengan insentif."
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Lebih mahal sekarang. Kalau berhasil, nilai tambahnya tinggal lebih lama di sini."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Izin smelter dibuka kembali dengan syarat audit ketat.",
+  "b": "Moratorium izin smelter dilanjutkan.",
+  "c": "Izin baru diarahkan ke pengolahan nikel bernilai tambah tinggi."
+ }
+}

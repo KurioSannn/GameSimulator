@@ -1,0 +1,87 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0003-B",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0003",
+ "background": "pasar",
+ "locals": {
+  "bu_endang": {
+   "name": "Bu Endang",
+   "role": "Penjual gorengan, Bekasi",
+   "color": "a0662a",
+   "initials": "E"
+  },
+  "pak_togar": {
+   "name": "Pak Togar",
+   "role": "Petani sawit swadaya, Riau",
+   "color": "3f6a3a",
+   "initials": "T"
+  }
+ },
+ "agenda": {
+  "hook": "Kewajiban pasok dalam negeri tidak dipatuhi. Harga minyak goreng belum turun.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "bu_endang",
+   "e": "kecewa",
+   "t": "Katanya harga akan turun. Sudah berbulan-bulan, Pak, masih mahal.",
+   "bg": "pasar"
+  },
+  {
+   "s": "bayu",
+   "e": "serius",
+   "t": "Sebagian eksportir tidak memenuhi kewajiban pasoknya. Pengawasannya lemah.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Aturan tanpa pengawasan hanya kertas."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Pengawasan distribusi diperketat dan sanksi dijatuhkan."
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Harga mulai turun. Pengusaha mengeluh, itu tanda pengawasannya bekerja."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Biaya distribusi minyak ke daerah disubsidi."
+   },
+   {
+    "s": "bu_endang",
+    "e": "senyum",
+    "t": "Minyak murah sudah sampai ke pasar kami."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kewajiban pasok dihapus. Harga mengikuti pasar dunia."
+   },
+   {
+    "s": "bu_endang",
+    "e": "kecewa",
+    "t": "Jadi kami harus menunggu harga dunia turun sendiri?"
+   }
+  ]
+ },
+ "journal": {
+  "a": "Pengawasan kewajiban pasok minyak goreng diperketat.",
+  "b": "Distribusi minyak goreng ke daerah disubsidi.",
+  "c": "Kewajiban pasok dalam negeri dicabut."
+ }
+}

@@ -1,0 +1,66 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0007",
+ "fact_class": "FICTIONAL",
+ "background": "pegunungan",
+ "locals": {
+  "suster_ani": {"name": "Suster Ani", "role": "Perawat puskesmas, Papua Pegunungan", "color": "3a6a8a", "initials": "A"},
+  "pak_markus": {"name": "Pak Markus", "role": "Kepala kampung, Papua Tengah", "color": "6a5a2a", "initials": "M"}
+ },
+ "agenda": {
+  "hook": "Lebih dari separuh puskesmas di Papua Pegunungan tidak punya dokter. Banyak distrik hanya bisa dicapai lewat udara atau jalan kaki.",
+  "if_postponed": "Puskesmas di pegunungan Papua tetap kekurangan tenaga. Warga menunggu dokter yang tidak kunjung datang."
+ },
+ "opening": [
+  {"s": "narasi", "bg": "pegunungan", "t": "Pagi berkabut di lembah. Pesawat kecil berputar dua kali sebelum berani mendarat di landasan rumput."},
+  {"s": "suster_ani", "e": "serius", "t": "Saya satu-satunya tenaga kesehatan di puskesmas ini. Persalinan, demam, luka, semuanya saya tangani sendiri."},
+  {"s": "pak_markus", "e": "netral", "t": "Kalau ada yang sakit berat, kami pikul dua hari jalan kaki ke kota. Kadang tidak sampai."},
+  {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Datanya jelas, Pak. Papua Pegunungan dan Papua Tengah punya puskesmas tanpa dokter terbanyak di negeri ini."},
+  {"s": "bayu", "e": "netral", "t": "Mengirim tim dari pusat cepat, tapi mahal dan berhenti saat masa tugasnya habis. Menguatkan kabupaten murah, tapi lambat."},
+  {"s": "yosef", "e": "berpikir", "t": "Dan ada pilihan ketiga: layanan keliling dan membuka akses rujukan. Lapangan terbang perintis, jalan, transportasi pasien."},
+  {"s": "nara", "e": "serius", "t": "Saya ingin layanan yang tetap ada setelah kita tidak lagi memperhatikan."}
+ ],
+ "choices": {
+  "a": {"intent": "Memperkuat dinas kesehatan kabupaten agar mampu merekrut dan menahan tenaganya.", "helps": "Kabupaten dengan layanan paling lemah, untuk jangka panjang.", "burden": "Warga yang sakit sekarang: hasilnya lambat.", "now": "Biaya rendah.", "later": "Layanan naik sedikit demi sedikit selama bertahun-tahun, kepercayaan naik setelah enam bulan."},
+  "b": {"intent": "Mengirim tim dokter dari pusat selama dua tahun.", "helps": "Semua puskesmas di kedua provinsi: paling cepat dan merata.", "burden": "Anggaran, dan layanan bisa turun lagi saat masa tugas berakhir.", "now": "Layanan naik mulai dua bulan lagi.", "later": "Biaya tambahan setelah setahun; manfaat berhenti setelah dua tahun."},
+  "c": {"intent": "Membuka layanan keliling dan akses rujukan.", "helps": "Distrik paling terpencil di Papua Pegunungan.", "burden": "Anggaran: pilihan paling mahal di awal.", "now": "Layanan naik selama enam bulan, kepercayaan naik.", "later": "Akses jalan dan udara membaik setelah sekitar setahun."}
+ },
+ "reactions": {
+  "a": [
+   {"s": "narasi", "bg": "pegunungan", "t": "Dana dan pendamping dikirim ke dinas kesehatan kabupaten. Lowongan dokter daerah dibuka dengan tunjangan khusus."},
+   {"s": "suster_ani", "e": "netral", "t": "Katanya akan ada dokter tetap. Saya sudah sering dengar janji itu. Tapi kali ini anggarannya ada di kabupaten."},
+   {"s": "yosef", "e": "netral", "bg": "ruang_rapat", "t": "Ini jalan panjang, Pak. Hasilnya baru terasa setelah beberapa tahun."}
+  ],
+  "b": [
+   {"s": "narasi", "bg": "pegunungan", "t": "Tim dokter dari pusat diterbangkan ke puskesmas-puskesmas di lembah dan pegunungan."},
+   {"s": "suster_ani", "e": "lega", "t": "Ada dokter yang menemani saya sekarang. Ibu-ibu melahirkan dengan lebih tenang."},
+   {"s": "bayu", "e": "cemas", "bg": "ruang_rapat", "t": "Dua tahun, Pak. Setelah itu kita harus memutuskan lagi. Saya catat di kalender."}
+  ],
+  "c": [
+   {"s": "narasi", "bg": "pegunungan", "t": "Tim kesehatan keliling mulai mendatangi kampung-kampung. Di beberapa lembah, landasan perintis mulai diperpanjang."},
+   {"s": "pak_markus", "e": "senyum", "t": "Untuk pertama kalinya, dokter datang ke kampung kami. Bukan kami yang memikul orang sakit ke kota."},
+   {"s": "bayu", "e": "netral", "bg": "ruang_rapat", "t": "Mahal di depan. Tapi jalan dan landasan itu akan dipakai bertahun-tahun, untuk banyak hal."}
+  ]
+ },
+ "callbacks": [
+  {"id": "layanan", "after_quarters": 4, "beats": [
+   {"pick": [
+    {"if": {"delta": "services", "op": ">", "value": 2}, "beats": [{"s": "suster_ani", "e": "senyum", "bg": "pegunungan", "t": "Puskesmas kami lebih ramai sekarang, Pak. Bukan karena lebih banyak yang sakit, tapi karena orang percaya ada yang melayani."}]},
+    {"if": {}, "beats": [{"s": "suster_ani", "e": "kecewa", "bg": "pegunungan", "t": "Saya masih sendirian di sini hampir setiap hari, Pak. Perubahannya belum sampai ke lembah kami."}]}
+   ]}
+  ]}
+ ],
+ "unattended": [
+  {"s": "narasi", "bg": "pegunungan", "t": "Laporan tentang puskesmas tanpa dokter kembali masuk ke laci."},
+  {"s": "suster_ani", "e": "sedih", "t": "Kami terbiasa dilupakan. Tapi terbiasa bukan berarti tidak apa-apa."}
+ ],
+ "journal": {
+  "a": "Dinas kesehatan di Papua Pegunungan dan Papua Tengah diperkuat untuk merekrut tenaga sendiri. Lambat, bertahan lama.",
+  "b": "Tim dokter dari pusat ditugaskan dua tahun di Papua Pegunungan dan Papua Tengah. Cepat, mahal, sementara.",
+  "c": "Layanan kesehatan keliling dan akses rujukan dibuka di Papua Pegunungan. Mahal di awal, aksesnya bertahan."
+ },
+ "promises": {
+  "a": {"text": "Puskesmas di Papua Pegunungan dan Papua Tengah punya tenaga kesehatan yang menetap.", "due_quarters": 8, "check": {"delta": "services", "op": ">", "value": 2}},
+  "c": {"text": "Jalan dan landasan perintis membuka akses rujukan pasien di Papua Pegunungan.", "due_quarters": 5, "check": {"delta": "infrastructure", "op": ">", "value": 2}}
+ }
+}

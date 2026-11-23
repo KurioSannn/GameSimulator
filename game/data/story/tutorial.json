@@ -1,0 +1,14 @@
+{
+ "schema": "nusantara.story_tutorial/1",
+ "fact_class": "FICTIONAL",
+ "note": "Contextual tutorial: one feature at a time, each step waits for the player to perform the action. Replayable from Pengaturan and Buku Kisah.",
+ "steps": [
+  {"id": "geser", "s": "yosef", "title": "Menjelajah peta", "t": "Geser peta: seret dengan klik kiri, usap dua jari di trackpad, atau tekan W A S D.", "wait": "pan"},
+  {"id": "zoom", "s": "yosef", "title": "Mendekat", "t": "Sekarang dekatkan pandangan: scroll mouse, cubit trackpad, atau tombol + di kiri layar.", "wait": "zoom"},
+  {"id": "wilayah", "s": "yosef", "title": "Melihat daerah", "t": "Klik satu kabupaten atau kota. Panel di kanan menunjukkan kondisi warganya.", "wait": "region"},
+  {"id": "agenda", "s": "laras", "title": "Agenda kuartal", "t": "Agenda pertama sudah masuk, Pak. Buka papan agenda dengan tombol BUKA AGENDA di bawah.", "wait": "agenda"},
+  {"id": "pilih", "s": "laras", "title": "Mengambil keputusan", "t": "Dengarkan ceritanya, lalu pilih satu langkah. Baca siapa yang terbantu dan siapa yang menanggung biayanya sebelum menetapkan.", "wait": "decided"},
+  {"id": "lanjut", "s": "laras", "title": "Menjalankan waktu", "t": "Keputusan sudah diambil. Tekan LANJUTKAN KUARTAL. Tiga bulan akan berjalan di seluruh negeri.", "wait": "quarter"},
+  {"id": "laporan", "s": "laras", "title": "Membaca akibat", "t": "Inilah hasilnya. Tujuan Masa Bakti di kiri atas menunjukkan arah empat hal yang kita jaga. Buku Kisah menyimpan semua yang sudah terjadi.", "wait": "ack"}
+ ]
+}

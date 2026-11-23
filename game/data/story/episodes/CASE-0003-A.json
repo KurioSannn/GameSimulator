@@ -1,0 +1,87 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0003-A",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0003",
+ "background": "kebun",
+ "locals": {
+  "bu_endang": {
+   "name": "Bu Endang",
+   "role": "Penjual gorengan, Bekasi",
+   "color": "a0662a",
+   "initials": "E"
+  },
+  "pak_togar": {
+   "name": "Pak Togar",
+   "role": "Petani sawit swadaya, Riau",
+   "color": "3f6a3a",
+   "initials": "T"
+  }
+ },
+ "agenda": {
+  "hook": "Petani sawit Riau menuntut ekspor dibuka kembali.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "pak_togar",
+   "e": "marah",
+   "t": "Sudah berbulan-bulan, Pak. Harga buah kami belum pulih. Kami menuntut ekspor dibuka.",
+   "bg": "kebun"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Kalau ekspor dibuka, sebagian tekanan harga minyak goreng bisa kembali.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Dapur di kota, kebun di Riau. Kita sudah tahu ini akan datang."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Ekspor dibuka kembali."
+   },
+   {
+    "s": "pak_togar",
+    "e": "lega",
+    "t": "Pabrik menerima buah kami lagi, Pak. Harganya pelan-pelan naik."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Larangan dipertahankan, petani swadaya menerima kompensasi sementara."
+   },
+   {
+    "s": "pak_togar",
+    "e": "netral",
+    "t": "Kompensasinya menolong. Tapi kami petani, bukan penerima bantuan."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Larangan dipertahankan tanpa kompensasi."
+   },
+   {
+    "s": "pak_togar",
+    "e": "kecewa",
+    "t": "Kami yang membayar harga minyak murah di kota, Pak."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Ekspor CPO dibuka kembali atas tuntutan petani sawit.",
+  "b": "Petani sawit swadaya menerima kompensasi selama larangan ekspor.",
+  "c": "Larangan ekspor CPO dipertahankan tanpa kompensasi petani."
+ }
+}

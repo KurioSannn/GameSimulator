@@ -10,6 +10,8 @@ extends Camera3D
 ## - Home: Fit entire archipelago.
 
 signal view_changed
+## "pan" or "zoom" when the player navigates (tutorial listens; no gameplay effect).
+signal navigated(kind: String)
 
 const ZOOM_STEP := 1.15
 const KEY_PAN_SPEED := 950.0
@@ -137,12 +139,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 ## Moves the view by a screen-pixel delta (positive y = look further south), as if dragging the map by -delta.
 func nav_pan(view_delta: Vector2) -> void:
+	navigated.emit("pan")
 	var c := get_viewport().get_visible_rect().size * 0.5 if is_inside_tree() else Vector2.ZERO
 	drag_pan_step(c, c - view_delta)
 
 
 ## zoom_in > 1 moves the camera closer, keeping the ground point under `at` fixed.
 func nav_zoom(zoom_in: float, at: Vector2) -> void:
+	navigated.emit("zoom")
 	if zoom_in > 0.0:
 		_zoom_step(1.0 / zoom_in, at)
 
@@ -188,6 +192,7 @@ func _process(delta: float) -> void:
 		var right := Vector3(cos(deg_to_rad(yaw)), 0.0, sin(deg_to_rad(yaw))).normalized()
 		var move := (right * dir.x - forward * dir.y) * speed
 		target += move
+		navigated.emit("pan")
 		_clamp_target()
 		_apply_transform()
 		view_changed.emit()

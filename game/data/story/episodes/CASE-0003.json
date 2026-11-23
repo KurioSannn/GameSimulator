@@ -1,0 +1,70 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0003",
+ "fact_class": "FICTIONAL",
+ "background": "pasar",
+ "locals": {
+  "bu_endang": {"name": "Bu Endang", "role": "Penjual gorengan, Bekasi", "color": "a0662a", "initials": "E"},
+  "pak_togar": {"name": "Pak Togar", "role": "Petani sawit swadaya, Riau", "color": "3f6a3a", "initials": "T"}
+ },
+ "agenda": {
+  "hook": "Minyak goreng mahal dan langka di dapur warga, padahal kebun sawit di Sumatra sedang berbuah lebat.",
+  "if_postponed": "Harga minyak goreng dibiarkan mengikuti pasar. Dapur rumah tangga dan pedagang kecil terus tertekan."
+ },
+ "opening": [
+  {"s": "narasi", "bg": "pasar", "t": "Antrean panjang di depan minimarket. Rak minyak goreng kosong sejak pagi."},
+  {"s": "bu_endang", "e": "kecewa", "t": "Satu jeriken minyak sekarang hampir dua kali harga bulan lalu. Gorengan saya tidak mungkin dijual dua kali lipat."},
+  {"s": "pak_togar", "e": "netral", "bg": "kebun", "t": "Aneh, Pak. Kebun kami penuh buah. Tapi minyak di warung dekat rumah juga mahal."},
+  {"s": "bayu", "e": "berpikir", "bg": "ruang_rapat", "t": "Harga sawit dunia sedang tinggi. Produsen lebih untung menjual ke luar negeri daripada ke pasar dalam negeri."},
+  {"s": "yosef", "e": "serius", "t": "Kalau ekspor kita tahan, minyak di dalam negeri melimpah. Tapi jutaan petani sawit di Riau, Jambi, dan Sumatera Selatan ikut menanggung."},
+  {"s": "sekar", "e": "cemas", "t": "Ini masalah dapur, Pak. Semua rumah tangga merasakannya. Warga ingin melihat harga turun, bukan penjelasan."},
+  {"s": "nara", "e": "berpikir", "t": "Siapa pun yang kita lindungi, ada yang menanggung. Saya ingin tahu persis siapa."}
+ ],
+ "choices": {
+  "a": {"intent": "Melarang ekspor CPO sementara agar pasokan dalam negeri pulih.", "helps": "Semua rumah tangga: harga minyak goreng turun paling cepat.", "burden": "Petani sawit Sumatra: harga buah sawit anjlok; penerimaan ekspor hilang.", "now": "Tekanan harga nasional turun bulan depan. Kesejahteraan dan kepercayaan di provinsi sawit turun.", "later": "Petani bisa menuntut ekspor dibuka kembali."},
+  "b": {"intent": "Mewajibkan eksportir memasok pasar dalam negeri dengan harga khusus.", "helps": "Rumah tangga, tanpa mematikan ekspor.", "burden": "Hasilnya lebih lambat dan bergantung pada kepatuhan.", "now": "Tekanan harga turun setelah dua bulan; petani sawit hanya sedikit terdampak.", "later": "Kalau kepatuhan lemah, harga bisa bertahan tinggi."},
+  "c": {"intent": "Menyubsidi minyak curah dan memberi bantuan tunai.", "helps": "Rumah tangga miskin di seluruh negeri, dan petani tidak dirugikan.", "burden": "Anggaran nasional: mahal, dan harga pasar tetap tinggi.", "now": "Kesejahteraan rumah tangga terbantu selama tiga bulan.", "later": "Saat bantuan habis, harga bisa masih tinggi."}
+ },
+ "reactions": {
+  "a": [
+   {"s": "narasi", "bg": "pasar", "t": "Kapal tanker tertahan di pelabuhan. Dalam beberapa minggu, minyak goreng kembali mengisi rak-rak toko."},
+   {"s": "bu_endang", "e": "lega", "t": "Harganya mulai turun. Saya bisa menggoreng lagi tanpa menghitung setiap tetes."},
+   {"s": "pak_togar", "e": "marah", "bg": "kebun", "t": "Pabrik menolak buah kami, Pak. Harga tandan jatuh. Buahnya busuk di pinggir jalan."},
+   {"s": "yosef", "e": "cemas", "bg": "ruang_rapat", "t": "Dapur di kota lega. Kebun di Sumatra merugi. Kita perlu memikirkan berapa lama larangan ini bisa bertahan."}
+  ],
+  "b": [
+   {"s": "narasi", "bg": "pasar", "t": "Eksportir diwajibkan menjual sebagian minyaknya ke pasar dalam negeri dengan harga khusus."},
+   {"s": "bayu", "e": "netral", "bg": "ruang_rapat", "t": "Ekspor tetap jalan, penerimaan negara tetap masuk. Tapi ini bergantung pada pengawasan."},
+   {"s": "bu_endang", "e": "netral", "bg": "pasar", "t": "Katanya harga akan turun. Saya akan percaya kalau sudah lihat sendiri di warung."},
+   {"s": "pak_togar", "e": "netral", "bg": "kebun", "t": "Harga buah sedikit turun, tapi masih bisa kami tanggung."}
+  ],
+  "c": [
+   {"s": "narasi", "bg": "pasar", "t": "Minyak curah bersubsidi dikirim ke pasar tradisional. Keluarga miskin menerima bantuan tunai selama tiga bulan."},
+   {"s": "bu_endang", "e": "senyum", "t": "Bantuannya cukup untuk menutup kenaikan minyak. Setidaknya sampai musim ini lewat."},
+   {"s": "bayu", "e": "cemas", "bg": "ruang_rapat", "t": "Mahal, Pak. Dan harga di rak toko tetap tinggi. Kita hanya membeli waktu."}
+  ]
+ },
+ "callbacks": [
+  {"id": "dapur", "after_quarters": 2, "beats": [
+   {"pick": [
+    {"if": {"national": "price_pressure", "op": "<", "value": 0.03}, "beats": [{"s": "bu_endang", "e": "senyum", "bg": "pasar", "t": "Minyak sudah tidak langka lagi, Pak. Pelanggan saya kembali."}]},
+    {"if": {}, "beats": [{"s": "bu_endang", "e": "kecewa", "bg": "pasar", "t": "Harga-harga di pasar masih tinggi, Pak. Minyak hanya salah satunya."}]}
+   ]}
+  ]},
+  {"id": "kebun", "after_quarters": 2, "choices": ["a"], "beats": [
+   {"pick": [
+    {"if": {"delta": "welfare", "op": "<", "value": 0}, "beats": [{"s": "pak_togar", "e": "kecewa", "bg": "kebun", "t": "Kebun kami belum pulih dari larangan ekspor, Pak. Banyak petani berutang untuk pupuk."}]},
+    {"if": {}, "beats": [{"s": "pak_togar", "e": "netral", "bg": "kebun", "t": "Harga buah mulai naik lagi. Kami bertahan, walau sempat sangat sulit."}]}
+   ]}
+  ]}
+ ],
+ "unattended": [
+  {"s": "narasi", "bg": "pasar", "t": "Tanpa keputusan Presiden, harga minyak goreng dibiarkan mengikuti pasar dunia."},
+  {"s": "bu_endang", "e": "kecewa", "t": "Saya kecilkan potongan tempe gorengnya. Pelanggan protes, tapi saya tidak punya pilihan."}
+ ],
+ "journal": {
+  "a": "Ekspor CPO dilarang sementara. Minyak goreng kembali murah, petani sawit Sumatra menanggung kerugian.",
+  "b": "Eksportir sawit wajib memasok pasar dalam negeri. Harga turun perlahan, ekspor tetap berjalan.",
+  "c": "Minyak curah disubsidi dan keluarga miskin menerima bantuan tunai. Mahal, harga pasar tetap tinggi."
+ }
+}

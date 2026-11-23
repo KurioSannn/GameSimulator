@@ -1,0 +1,93 @@
+{
+ "schema": "nusantara.story_endings/1",
+ "fact_class": "FICTIONAL",
+ "calibration": {
+  "status": "provisional",
+  "note": "Replaced by tools/calibrate_endings.gd output (deterministic playthroughs). See research/reports for the distribution."
+ },
+ "thresholds": {
+  "welfare_good": 1.0, "welfare_poor": -1.0,
+  "trust_good": 1.0, "trust_poor": -2.0,
+  "services_good": 1.0, "services_poor": -1.0,
+  "fiscal_good": 20.0, "fiscal_poor": 0.0,
+  "crisis_trust_delta": -6.0, "crisis_fiscal_level": -20.0, "crisis_min_quarters": 4,
+  "legacy_promise_ratio": 0.6
+ },
+ "rating_words": {"good": "terjaga dengan baik", "fair": "bertahan, belum banyak bergerak", "poor": "tertinggal"},
+ "archetypes": {
+  "warisan_besar": {
+   "title": "WARISAN BESAR",
+   "subtitle": "Negeri yang lebih kuat dan lebih seimbang",
+   "legacy": "Pemerintahan Nara Adinata meninggalkan negeri yang lebih sejahtera, lebih terlayani, dan tetap dipercaya, tanpa mewariskan beban fiskal kepada generasi berikutnya.",
+   "beats": [
+    {"s": "narasi", "bg": "senja", "t": "Hari terakhir di Istana. Peta besar itu masih terbentang di atas meja, tapi kali ini penuh catatan tangan."},
+    {"s": "yosef", "e": "senyum", "t": "Pak, minggu lalu saya ke daerah lagi. Jalan yang dulu kita bicarakan sudah dilewati truk sayur setiap pagi."},
+    {"s": "bayu", "e": "senyum", "t": "Dan saya masih bisa tidur nyenyak melihat neraca kita. Itu jarang terjadi di pekerjaan ini."},
+    {"s": "sekar", "e": "senyum", "t": "Orang tidak selalu setuju dengan kita. Tapi mereka tahu kita mendengar."},
+    {"s": "nara", "e": "lega", "t": "Kita tidak menyelesaikan semuanya. Tapi kita meninggalkan negeri ini dalam keadaan yang lebih baik untuk siapa pun yang datang sesudah kita."}
+   ]
+  },
+  "nusantara_menguat": {
+   "title": "NUSANTARA YANG MENGUAT",
+   "subtitle": "Kemajuan nyata, dengan pekerjaan rumah yang tersisa",
+   "legacy": "Pemerintahan Nara Adinata membawa kemajuan nyata di banyak daerah. Sebagian janji dan sebagian wilayah masih menunggu giliran.",
+   "beats": [
+    {"s": "narasi", "bg": "senja", "t": "Hari terakhir di Istana. Di luar, kota bergerak seperti pagi pertama dulu."},
+    {"s": "laras", "e": "netral", "t": "Daftar pekerjaan yang belum selesai sudah saya rapikan, Pak. Untuk pemerintahan berikutnya."},
+    {"s": "yosef", "e": "netral", "t": "Banyak daerah lebih kuat sekarang. Tapi saya masih ingat beberapa yang belum sempat kita datangi."},
+    {"s": "nara", "e": "berpikir", "t": "Negeri ini lebih kuat dari lima tahun lalu. Itu cukup untuk dibanggakan, dan tidak cukup untuk membuat kita puas."}
+   ]
+  },
+  "pemerintahan_bertahan": {
+   "title": "PEMERINTAHAN YANG BERTAHAN",
+   "subtitle": "Stabil, namun kemajuan tidak merata",
+   "legacy": "Pemerintahan Nara Adinata menjaga negeri tetap stabil. Kemajuan berjalan tidak merata, dan beberapa persoalan penting belum terselesaikan.",
+   "beats": [
+    {"s": "narasi", "bg": "senja", "t": "Hari terakhir di Istana. Tumpukan laporan di meja tidak jauh berbeda tingginya dengan lima tahun lalu."},
+    {"s": "bayu", "e": "netral", "t": "Kita tidak jatuh, Pak. Di tahun-tahun seperti ini, itu bukan hal kecil."},
+    {"s": "sekar", "e": "netral", "t": "Tapi warga juga tidak merasa banyak berubah. Itu yang paling sering saya dengar."},
+    {"s": "nara", "e": "berpikir", "t": "Bertahan itu penting. Tapi saya berharap kita bisa melangkah lebih jauh."}
+   ]
+  },
+  "janji_belum_selesai": {
+   "title": "JANJI YANG BELUM SELESAI",
+   "subtitle": "Hasil sosial yang nyata, ditopang fondasi yang rapuh",
+   "legacy": "Pemerintahan Nara Adinata memperbaiki sebagian kehidupan warga, namun keterbatasan fiskal dan janji yang tertunda membatasi apa yang bisa bertahan.",
+   "beats": [
+    {"s": "narasi", "bg": "senja", "t": "Hari terakhir di Istana. Beberapa map di meja masih bertanda merah."},
+    {"s": "yosef", "e": "netral", "t": "Ada daerah yang hidupnya lebih baik sekarang, Pak. Itu nyata."},
+    {"s": "bayu", "e": "cemas", "t": "Tapi beberapa janji kita bergantung pada uang yang tidak ada. Pemerintahan berikutnya akan mewarisi tagihan itu."},
+    {"s": "nara", "e": "kecewa", "t": "Kita ingin menolong semua orang sekaligus. Saya mengerti sekarang kenapa itu tidak mungkin."}
+   ]
+  },
+  "krisis_mandat": {
+   "title": "KRISIS MANDAT",
+   "subtitle": "Kepercayaan yang terkikis terlalu lama",
+   "legacy": "Pemerintahan Nara Adinata berakhir dalam krisis kepercayaan. Kegagalan yang berulang membuat warga meragukan kemampuan negara melayani mereka.",
+   "beats": [
+    {"s": "narasi", "bg": "malam", "t": "Hari terakhir di Istana. Di luar pagar, suara warga terdengar sampai ke ruang kerja."},
+    {"s": "sekar", "e": "cemas", "t": "Saya sudah memperingatkan berkali-kali, Pak. Kepercayaan itu turun pelan-pelan, lalu sekaligus."},
+    {"s": "laras", "e": "sedih", "t": "Banyak masalah yang menunggu terlalu lama di meja kita."},
+    {"s": "nara", "e": "kecewa", "t": "Saya yang memilih urutan prioritasnya. Kesalahannya juga milik saya."}
+   ]
+  }
+ },
+ "closing": [
+  {"pick": [
+   {"if": {"flag": "prioritas_awal", "equals": "welfare"}, "beats": [{"s": "laras", "e": "netral", "t": "Di pagi pertama, Bapak bilang ingin menjaga kesejahteraan warga lebih dulu."}]},
+   {"if": {"flag": "prioritas_awal", "equals": "trust"}, "beats": [{"s": "laras", "e": "netral", "t": "Di pagi pertama, Bapak bilang ingin menjaga kepercayaan publik lebih dulu."}]},
+   {"if": {"flag": "prioritas_awal", "equals": "services"}, "beats": [{"s": "laras", "e": "netral", "t": "Di pagi pertama, Bapak bilang ingin menjaga pelayanan publik lebih dulu."}]},
+   {"if": {"flag": "prioritas_awal", "equals": "fiscal"}, "beats": [{"s": "laras", "e": "netral", "t": "Di pagi pertama, Bapak bilang ingin menjaga kesehatan fiskal lebih dulu."}]},
+   {"if": {}, "beats": []}
+  ]},
+  {"pick": [
+   {"if": {"all": [{"flag": "prioritas_awal", "equals": "welfare"}, {"pillar": "welfare", "op": ">", "value": 0}]}, "beats": [{"s": "nara", "e": "lega", "t": "Dan hidup warga memang lebih baik sekarang. Setidaknya yang itu kita tepati."}]},
+   {"if": {"all": [{"flag": "prioritas_awal", "equals": "trust"}, {"pillar": "trust", "op": ">", "value": 0}]}, "beats": [{"s": "nara", "e": "lega", "t": "Dan warga masih mau mendengar kita. Itu yang paling saya syukuri."}]},
+   {"if": {"all": [{"flag": "prioritas_awal", "equals": "services"}, {"pillar": "services", "op": ">", "value": 0}]}, "beats": [{"s": "nara", "e": "lega", "t": "Dan pelayanan memang lebih baik. Puskesmas buka, sekolah berjalan. Itu yang akan tinggal."}]},
+   {"if": {"all": [{"flag": "prioritas_awal", "equals": "fiscal"}, {"pillar_value": "fiscal", "op": ">", "value": 10}]}, "beats": [{"s": "nara", "e": "lega", "t": "Dan kita tidak mewariskan utang yang tidak perlu. Bayu benar soal itu."}]},
+   {"if": {"flag": "prioritas_awal"}, "beats": [{"s": "nara", "e": "kecewa", "t": "Ternyata yang paling ingin saya jaga justru yang paling sulit dijaga."}]},
+   {"if": {}, "beats": []}
+  ]},
+  {"s": "narasi", "bg": "peta", "t": "Peta besar itu dilipat untuk terakhir kalinya. Lima ratus empat belas wilayah, masing-masing dengan ceritanya sendiri, dan sebagian kecil dari cerita itu kini membawa jejak keputusanmu."}
+ ]
+}

@@ -6,7 +6,7 @@ extends RefCounted
 ## indexed by region index (0..region_count-1). There are no per-region Nodes; the
 ## monthly tick is a single centralized loop over every region (docs/07, D-004).
 
-const SAVE_SCHEMA := 5  # v5: drivers; v4: ledger + event_log; v3: policy_state; v2: exact floats (SaveCodec); older versions migrated on load
+const SAVE_SCHEMA := 6  # v6: story (narrative/campaign state); v5: drivers; v4: ledger + event_log; v3: policy_state; v2: exact floats (SaveCodec); older versions migrated on load
 const TICKS_PER_QUARTER := 3
 const QUARTERS_PER_YEAR := 4
 const TERM_YEARS := 5
@@ -38,6 +38,9 @@ var event_log: Array = []
 ## Which effect sources make up a national driver's current value, e.g.
 ## {"price_pressure": {"case:CASE-0003/trigger": 0.06, "case:CASE-0003/choice:a": -0.04}} (SimLedger; observational).
 var drivers: Dictionary = {}
+## Narrative + campaign state (Narrative/Campaign): story flags, seen scenes, journal, promises, agenda,
+## pending story scenes, pillar history, tutorial progress. Never read by the monthly simulation step.
+var story: Dictionary = {}
 ## Calendar month of tick 0 (1 = January); set from sim_params by WorldFactory (not saved: content constant).
 var start_month: int = 1
 ## Runtime-only cache: static scope string -> region indices (not saved; rebuilt on demand).
@@ -151,6 +154,7 @@ func to_dict() -> Dictionary:
 		"ledger": SaveCodec.encode(ledger),
 		"event_log": SaveCodec.encode(event_log),
 		"drivers": SaveCodec.encode(drivers),
+		"story": SaveCodec.encode(story),
 	}
 
 
@@ -175,6 +179,12 @@ func load_dict(d: Dictionary) -> String:
 	if schema == 4:
 		d = d.duplicate()
 		d["drivers"] = {}  # pre-v5: an existing price pressure is shown as "sumber tidak tercatat"
+		d["schema"] = 5
+		schema = 5
+	if schema == 5:
+		d = d.duplicate()
+		# pre-v6 saves predate the story layer: continue the campaign without replaying the prologue.
+		d["story"] = SaveCodec.encode({"migrated_from": 5, "prologue_done": true, "agenda_mode": false})
 		d["schema"] = SAVE_SCHEMA
 		schema = SAVE_SCHEMA
 	if schema != SAVE_SCHEMA:
@@ -208,6 +218,7 @@ func load_dict(d: Dictionary) -> String:
 	ledger = SaveCodec.decode(d.get("ledger", {}))
 	event_log = SaveCodec.decode(d.get("event_log", []))
 	drivers = SaveCodec.decode(d.get("drivers", {}))
+	story = SaveCodec.decode(d.get("story", {}))
 	return ""
 
 

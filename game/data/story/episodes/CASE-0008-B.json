@@ -1,0 +1,87 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0008-B",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0008",
+ "background": "kota",
+ "locals": {
+  "bang_roni": {
+   "name": "Bang Roni",
+   "role": "Pengemudi ojek daring, Medan",
+   "color": "2a5a7a",
+   "initials": "R"
+  },
+  "bu_wati": {
+   "name": "Bu Wati",
+   "role": "Pemilik warung, Surabaya",
+   "color": "8a4a6a",
+   "initials": "W"
+  }
+ },
+ "agenda": {
+  "hook": "Bantuan tunai BBM hampir berakhir, harga barang belum turun.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "bu_wati",
+   "e": "cemas",
+   "t": "Bantuannya tinggal sebulan lagi, Pak. Harga di pasar belum turun.",
+   "bg": "pasar"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Sesuai rencana, bantuan berakhir. Tapi keadaan di lapangan tidak mengikuti rencana.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Jadwal dibuat untuk orang. Bukan sebaliknya."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Bantuan tunai diperpanjang dua bulan."
+   },
+   {
+    "s": "bu_wati",
+    "e": "lega",
+    "t": "Pembeli saya bisa belanja sedikit lebih lama."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Dana dialihkan ke program padat karya di daerah."
+   },
+   {
+    "s": "bu_wati",
+    "e": "senyum",
+    "t": "Suami tetangga saya dapat kerja proyek jalan. Lebih lambat dari bantuan, tapi lebih bermartabat, katanya."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Bantuan berakhir sesuai jadwal."
+   },
+   {
+    "s": "bu_wati",
+    "e": "kecewa",
+    "t": "Pembeli makin sedikit, Pak."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Bantuan tunai BBM diperpanjang dua bulan.",
+  "b": "Dana bantuan BBM dialihkan ke program padat karya.",
+  "c": "Bantuan tunai BBM berakhir sesuai jadwal."
+ }
+}

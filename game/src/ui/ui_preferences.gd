@@ -5,7 +5,7 @@ const PATH := "user://ui_preferences.cfg"
 const DEFAULTS := {"volume": 80.0, "music": 60.0, "effects": 85.0, "dialog": 90.0,
 	"window_mode": 0, "resolution": 0, "antialiasing": 1, "text_scale": 1.0, "reduce_motion": false,
 	"player_name": "Pemain", "pan_left": KEY_A, "pan_right": KEY_D, "pan_up": KEY_W, "pan_down": KEY_S,
-	"scroll_mode": 0}
+	"scroll_mode": 0, "text_speed": 1, "auto_dialogue": false, "show_sources": false}
 static var values: Dictionary = DEFAULTS.duplicate(true)
 static var config_path := PATH
 
@@ -23,6 +23,9 @@ static func read() -> void:
 	values.resolution = clampi(int(values.resolution), 0, 2)
 	values.antialiasing = clampi(int(values.antialiasing), 0, 2)
 	values.scroll_mode = clampi(int(values.scroll_mode), 0, 2)
+	values.text_speed = clampi(int(values.text_speed), 0, 3)
+	values.auto_dialogue = bool(values.auto_dialogue)
+	values.show_sources = bool(values.show_sources)
 
 
 static func write(next_values: Dictionary) -> Error:

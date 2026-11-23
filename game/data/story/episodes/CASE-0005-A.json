@@ -1,0 +1,87 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0005-A",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0005",
+ "background": "pesisir",
+ "locals": {
+  "mas_fajar": {
+   "name": "Mas Fajar",
+   "role": "Pekerja smelter, Morowali",
+   "color": "5a5a7a",
+   "initials": "F"
+  },
+  "mama_sara": {
+   "name": "Mama Sara",
+   "role": "Nelayan dan petani, Halmahera Tengah",
+   "color": "2f6a6a",
+   "initials": "S"
+  }
+ },
+ "agenda": {
+  "hook": "Sungai di Teluk Weda keruh. Warga Halmahera Tengah mengeluh.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "mama_sara",
+   "e": "sedih",
+   "t": "Sungai kami sekarang merah setiap kali hujan, Pak. Ikan di muara hampir hilang.",
+   "bg": "pesisir"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Ini harga dari percepatan hilirisasi dulu. Warga minta kita turun tangan.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Kita yang mempercepatnya. Kita juga yang harus memeriksanya."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Audit lingkungan menyeluruh dilakukan dan perusahaan pelanggar dikenai sanksi."
+   },
+   {
+    "s": "mama_sara",
+    "e": "lega",
+    "t": "Akhirnya ada yang datang mengambil sampel air."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Air bersih dan ganti rugi diberikan ke desa terdampak."
+   },
+   {
+    "s": "mama_sara",
+    "e": "netral",
+    "t": "Kami bisa minum air bersih. Tapi sungainya tetap keruh."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Penyelesaian diserahkan ke perusahaan dan pemerintah daerah."
+   },
+   {
+    "s": "mama_sara",
+    "e": "kecewa",
+    "t": "Kami sudah ke perusahaan. Mereka bilang ke pemerintah. Pemerintah bilang ke perusahaan."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Audit lingkungan dan sanksi di kawasan nikel Halmahera Tengah.",
+  "b": "Warga Teluk Weda menerima air bersih dan ganti rugi.",
+  "c": "Keluhan sungai keruh di Teluk Weda diserahkan ke perusahaan dan pemda."
+ }
+}

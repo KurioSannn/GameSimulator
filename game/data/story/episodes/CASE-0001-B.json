@@ -1,0 +1,76 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0001-B",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0001",
+ "background": "desa",
+ "locals": {
+  "bu_yati": {
+   "name": "Bu Yati",
+   "role": "Pedagang sayur, Jakarta Timur",
+   "color": "7a4f8a",
+   "initials": "Y"
+  },
+  "pak_asep": {
+   "name": "Pak Asep",
+   "role": "Relawan desa, Kabupaten Lebak",
+   "color": "4f7a5a",
+   "initials": "A"
+  }
+ },
+ "agenda": {
+  "hook": "Pemulihan banjir di Bogor dan Lebak tertinggal jauh dibanding Jakarta.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "pak_asep",
+   "e": "kecewa",
+   "t": "Pak, di kota sudah bersih. Di desa kami, jalan ke dusun atas masih tertutup longsor.",
+   "bg": "desa"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Penanganan oleh daerah berjalan, tapi tidak merata. Daerah dengan BPBD kecil tertinggal.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Dulu kita percayakan ke daerah. Sekarang kita lihat di mana mereka butuh bantuan."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tim pusat dikirim khusus ke Bogor dan Lebak.",
+    "bg": "desa"
+   },
+   {
+    "s": "pak_asep",
+    "e": "lega",
+    "t": "Alat beratnya datang minggu ini, Pak. Dusun atas akhirnya terbuka."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "BPBD setempat dilatih dan didanai.",
+    "bg": "desa"
+   },
+   {
+    "s": "pak_asep",
+    "e": "netral",
+    "t": "Lambat, Pak. Tapi sekarang kami punya alat dan orang terlatih sendiri. Banjir berikutnya, kami lebih siap."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Tim pusat mempercepat pemulihan banjir di Bogor dan Lebak.",
+  "b": "BPBD Bogor dan Lebak dilatih dan didanai untuk jangka panjang."
+ }
+}

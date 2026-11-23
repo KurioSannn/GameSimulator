@@ -1,0 +1,67 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0008",
+ "fact_class": "FICTIONAL",
+ "background": "kota",
+ "locals": {
+  "bang_roni": {"name": "Bang Roni", "role": "Pengemudi ojek daring, Medan", "color": "2a5a7a", "initials": "R"},
+  "bu_wati": {"name": "Bu Wati", "role": "Pemilik warung, Surabaya", "color": "8a4a6a", "initials": "W"}
+ },
+ "agenda": {
+  "hook": "Anggaran subsidi BBM membengkak. Menahan harga melindungi semua orang sekarang, tapi menguras uang untuk layanan lain.",
+  "if_postponed": "Harga BBM dibiarkan seperti semula. Subsidi terus menggerus ruang fiskal."
+ },
+ "opening": [
+  {"s": "narasi", "bg": "kota", "t": "Antrean motor mengular di SPBU. Kabar kenaikan harga BBM menyebar lebih cepat dari pengumuman resmi."},
+  {"s": "bang_roni", "e": "cemas", "t": "Kalau bensin naik, penghasilan saya langsung turun. Tarif tidak bisa saya naikkan seenaknya."},
+  {"s": "bu_wati", "e": "netral", "t": "Bensin naik, semua ikut naik. Sayur, telur, ongkos kirim. Pembeli saya kebanyakan orang kecil."},
+  {"s": "bayu", "e": "serius", "bg": "ruang_rapat", "t": "Subsidi BBM sudah membengkak jauh dari rencana, Pak. Dan sebagian besar dinikmati yang mampu, yang mobilnya besar dan tangkinya penuh."},
+  {"s": "sekar", "e": "cemas", "t": "Tapi bagi warga, harga BBM adalah harga segalanya. Ini keputusan yang paling cepat terasa di seluruh negeri."},
+  {"s": "yosef", "e": "netral", "t": "Di daerah terpencil, harga sudah lebih mahal dari kota. Kenaikan apa pun terasa dua kali lipat di sana."},
+  {"s": "nara", "e": "berpikir", "t": "Jadi kita memilih siapa yang dilindungi, dan berapa lama."}
+ ],
+ "choices": {
+  "a": {"intent": "Menahan harga BBM dengan menambah anggaran subsidi.", "helps": "Semua pengguna BBM, termasuk yang mampu.", "burden": "Anggaran nasional: terkuras setiap bulan selama sembilan bulan.", "now": "Tidak ada kejutan harga.", "later": "Ruang fiskal makin sempit; pertanyaan yang sama akan kembali."},
+  "b": {"intent": "Menaikkan harga dan mengalihkan subsidi ke bantuan tertarget.", "helps": "Rumah tangga termiskin dan pekerja bergaji rendah, selama empat bulan; anggaran pulih paling cepat.", "burden": "Semua wilayah: harga barang naik.", "now": "Tekanan harga naik, bantuan menahan kesejahteraan.", "later": "Saat bantuan habis, harga belum tentu turun."},
+  "c": {"intent": "Menaikkan bertahap sambil mendukung transportasi dan penghidupan.", "helps": "Pengemudi, nelayan, dan angkutan umum: kejutan harga lebih kecil.", "burden": "Anggaran: penghematan lebih lambat.", "now": "Separuh kenaikan sekarang, separuh enam bulan lagi.", "later": "Kesejahteraan tertopang enam bulan."}
+ },
+ "reactions": {
+  "a": [
+   {"s": "narasi", "bg": "kota", "t": "Harga di SPBU tidak berubah. Antrean mereda dalam sehari."},
+   {"s": "bang_roni", "e": "lega", "t": "Alhamdulillah, Pak. Bulan ini saya bisa tetap kirim uang ke kampung."},
+   {"s": "bayu", "e": "cemas", "bg": "ruang_rapat", "t": "Setiap bulan harga ini ditahan, ada sekolah atau puskesmas yang menunggu lebih lama. Saya hanya ingin itu tercatat."}
+  ],
+  "b": [
+   {"s": "narasi", "bg": "kota", "t": "Harga baru berlaku sore hari. Bantuan tunai mulai disalurkan untuk keluarga termiskin."},
+   {"s": "bu_wati", "e": "kecewa", "t": "Pemasok saya menaikkan harga besoknya. Bantuannya menolong, tapi tidak semua pembeli saya dapat."},
+   {"s": "bayu", "e": "netral", "bg": "ruang_rapat", "t": "Anggaran pulih paling cepat. Sekarang tugas kita memastikan bantuannya tepat sasaran."},
+   {"s": "sekar", "e": "cemas", "t": "Minggu ini akan ramai, Pak. Kita harus menjelaskan ke mana uang subsidinya pergi."}
+  ],
+  "c": [
+   {"s": "narasi", "bg": "kota", "t": "Harga naik separuh. Dana daerah diarahkan untuk angkutan umum, ojek, dan nelayan."},
+   {"s": "bang_roni", "e": "netral", "t": "Naik, tapi tidak sekaligus. Ada bantuan untuk kami juga. Masih berat, tapi bisa dihitung."},
+   {"s": "bayu", "e": "netral", "bg": "ruang_rapat", "t": "Lebih halus, lebih lambat. Kenaikan kedua enam bulan lagi, dan saya pastikan tidak ada yang lupa."}
+  ]
+ },
+ "callbacks": [
+  {"id": "harga", "after_quarters": 2, "beats": [
+   {"pick": [
+    {"if": {"pillar_value": "fiscal", "op": "<", "value": 20}, "beats": [{"s": "bayu", "e": "cemas", "bg": "ruang_rapat", "t": "Ruang fiskal kita makin sempit setelah urusan BBM, Pak. Pilihan-pilihan berikutnya harus lebih hemat."}]},
+    {"if": {}, "beats": [{"s": "bayu", "e": "netral", "bg": "ruang_rapat", "t": "Urusan BBM sudah tercermin di neraca. Untuk sekarang, keuangan kita masih bernapas."}]}
+   ]},
+   {"pick": [
+    {"if": {"pillar_q": "welfare", "op": "<", "value": 0}, "beats": [{"s": "bu_wati", "e": "kecewa", "bg": "pasar", "t": "Pembeli saya makin sedikit belanjanya, Pak. Semua serba dihitung."}]},
+    {"if": {}, "beats": [{"s": "bu_wati", "e": "netral", "bg": "pasar", "t": "Pembeli mulai terbiasa dengan harga baru. Pelan-pelan, warung ramai lagi."}]}
+   ]}
+  ]}
+ ],
+ "unattended": [
+  {"s": "narasi", "bg": "kota", "t": "Keputusan soal BBM terus ditunda. Subsidi berjalan seperti biasa."},
+  {"s": "bayu", "e": "kecewa", "bg": "ruang_rapat", "t": "Menunda juga keputusan, Pak. Dan yang ini mahal."}
+ ],
+ "journal": {
+  "a": "Harga BBM ditahan dengan menambah subsidi. Semua terlindungi sekarang, ruang fiskal terkuras.",
+  "b": "Harga BBM dinaikkan dan subsidi dialihkan ke bantuan tertarget. Anggaran pulih, harga barang naik.",
+  "c": "Harga BBM dinaikkan bertahap sambil mendukung angkutan umum, ojek, dan nelayan."
+ }
+}

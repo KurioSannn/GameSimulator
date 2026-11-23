@@ -23,6 +23,9 @@ var policy_categories: Array = []
 var source_institutions: Dictionary = {}   # source_id -> institution (for REAL fact labels)
 var sources: Dictionary = {}  # offline provenance, exported from the existing research registry
 var load_errors: PackedStringArray = []
+## Story content (game/data/story): cast, prologue, tutorial, quarter transitions, endings.
+var story: Dictionary = {}
+const STORY_DIR := "res://data/story"
 
 
 func _ready() -> void:
@@ -56,6 +59,10 @@ func load_all() -> void:
 		if pr.has("policy_id"):
 			policies[pr["policy_id"]] = pr
 	policy_categories = _read_json(POLICY_CATEGORIES_PATH).get("categories", [])
+	story = {}
+	for key in ["cast", "prologue", "tutorial", "quarters", "endings", "credits"]:
+		story[key] = _read_json("%s/%s.json" % [STORY_DIR, key])
+	merge_episodes(cases, STORY_DIR + "/episodes")
 	var order: Array = baseline.get("region_order", [])
 	if order.size() != regions.size():
 		load_errors.append("baseline.region_order tidak cocok dengan regions.json")
@@ -110,3 +117,34 @@ func _list_json(dir_path: String) -> PackedStringArray:
 			out.append(dir_path.path_join(f))
 	out.sort()
 	return out
+
+
+## Character record from the story cast, or a neutral narrator/local fallback.
+func character(id: String, case_record: Dictionary = {}) -> Dictionary:
+	var cast: Dictionary = story.get("cast", {}).get("characters", {})
+	if cast.has(id):
+		return cast[id]
+	var locals: Dictionary = case_record.get("story", {}).get("locals", {})
+	if locals.has(id):
+		return locals[id]
+	return {"name": "", "role": "", "color": "8a7a5a"}
+
+
+## Top-level playable cases (major historical) in id order: the Kumpulan Kisah library.
+func library_cases() -> Array:
+	var ids: Array = cases.keys().filter(func(id): return str(cases[id].get("class", "")) == "major_historical")
+	ids.sort()
+	return ids
+
+
+## Merges narrative episodes (game/data/story/episodes/<case_id>.json, FICTIONAL) into case records as
+## case["story"]. Kept separate from the researched case data so provenance and fiction never mix.
+static func merge_episodes(case_records: Dictionary, dir: String) -> void:
+	if not DirAccess.dir_exists_absolute(dir):
+		return
+	for f in DirAccess.get_files_at(dir):
+		if not f.ends_with(".json"):
+			continue
+		var ep: Variant = JSON.parse_string(FileAccess.get_file_as_string(dir + "/" + f))
+		if ep is Dictionary and case_records.has(str(ep.get("case_id", ""))):
+			case_records[str(ep.case_id)]["story"] = ep

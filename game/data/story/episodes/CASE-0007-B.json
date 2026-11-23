@@ -1,0 +1,87 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0007-B",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0007",
+ "background": "pegunungan",
+ "locals": {
+  "suster_ani": {
+   "name": "Suster Ani",
+   "role": "Perawat puskesmas, Papua Pegunungan",
+   "color": "3a6a8a",
+   "initials": "A"
+  },
+  "pak_markus": {
+   "name": "Pak Markus",
+   "role": "Kepala kampung, Papua Tengah",
+   "color": "6a5a2a",
+   "initials": "M"
+  }
+ },
+ "agenda": {
+  "hook": "Masa tugas dua tahun tim kesehatan pusat di Papua berakhir.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "suster_ani",
+   "e": "cemas",
+   "t": "Dokter-dokter dari pusat akan pulang bulan depan, Pak. Lalu kami bagaimana?",
+   "bg": "pegunungan"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Dua tahun sudah lewat, Pak. Ini catatan di kalender yang saya janjikan.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Kita tidak boleh membuat layanan muncul lalu menghilang."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Penugasan tim pusat diperpanjang setahun."
+   },
+   {
+    "s": "suster_ani",
+    "e": "lega",
+    "t": "Syukurlah. Tapi kami tetap harus bersiap untuk suatu hari nanti."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tim pusat mendampingi kabupaten mengambil alih layanan bertahap."
+   },
+   {
+    "s": "suster_ani",
+    "e": "netral",
+    "t": "Kami belajar banyak dari mereka. Pelan-pelan, kami bisa sendiri."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Penugasan berakhir tanpa pengganti."
+   },
+   {
+    "s": "suster_ani",
+    "e": "sedih",
+    "t": "Puskesmas kembali sepi dokter."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Penugasan tim kesehatan pusat di Papua diperpanjang.",
+  "b": "Layanan kesehatan diserahterimakan bertahap ke kabupaten di Papua.",
+  "c": "Penugasan tim kesehatan pusat di Papua berakhir tanpa pengganti."
+ }
+}

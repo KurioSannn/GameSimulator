@@ -1,0 +1,78 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0004",
+ "fact_class": "FICTIONAL",
+ "note": "Option c and its lines use only the practices documented in the research record for Mantangai, Kapuas (group land preparation by deliberation, fire breaks, dry-season restriction, customary responsibility). Nothing is generalised to other Dayak communities.",
+ "background": "asap",
+ "locals": {
+  "pak_ilham": {"name": "Pak Ilham", "role": "Petani ladang, Kabupaten Kapuas", "color": "6a4a2a", "initials": "I"},
+  "bu_rina": {"name": "Bu Rina", "role": "Perawat puskesmas, Palangka Raya", "color": "4a6a8a", "initials": "R"}
+ },
+ "agenda": {
+  "hook": "Asap dari gambut yang terbakar menutup langit Kalimantan Tengah. Sekolah diliburkan, puskesmas penuh pasien sesak napas.",
+  "if_postponed": "Kebakaran gambut ditangani seadanya. Asap bertahan berminggu-minggu dan musim kemarau berikutnya akan sama berbahayanya."
+ },
+ "opening": [
+  {"s": "narasi", "bg": "asap", "t": "Siang hari, tapi matahari hanya tampak seperti bulan pucat di balik asap kuning."},
+  {"s": "bu_rina", "e": "cemas", "t": "Pasien kami kebanyakan anak-anak dan orang tua. Batuk, sesak, mata perih. Masker sudah habis sejak minggu lalu."},
+  {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Gambut yang kering terbakar dari bawah, Pak. Apinya bisa tetap menyala di dalam tanah berminggu-minggu."},
+  {"s": "pak_ilham", "e": "netral", "bg": "ladang", "t": "Kami berladang dengan api sejak dulu, Pak. Tapi kami bakar bersama-sama, dengan aturan. Yang besar-besar ini bukan dari ladang kami."},
+  {"s": "bayu", "e": "netral", "bg": "ruang_rapat", "t": "Ada tiga jalan. Larangan total dan penegakan hukum. Membasahi kembali gambut, mahal dan lambat. Atau bekerja dengan aturan masyarakat setempat."},
+  {"s": "yosef", "e": "berpikir", "t": "Di Kapuas, ada kelompok tani Dayak Ngaju yang menyiapkan lahan dengan musyawarah, sekat bakar, dan tanggung jawab adat kalau api menjalar. Itu tercatat dan sudah diteliti."},
+  {"s": "sekar", "e": "cemas", "t": "Dan warga di kota hanya ingin bisa bernapas lagi, Pak."},
+  {"s": "nara", "e": "berpikir", "t": "Saya ingin api ini berhenti. Tapi saya tidak mau orang kehilangan cara hidupnya karena kesalahan yang bukan miliknya."}
+ ],
+ "choices": {
+  "a": {"intent": "Melarang total pembakaran lahan dan menindak tegas pelanggar.", "helps": "Warga yang terpapar asap: pencegahan paling cepat dan andal.", "burden": "Petani ladang kecil yang bergantung pada api.", "now": "Kerusakan berkurang dan pencegahan kebakaran naik tajam di provinsi gambut.", "later": "Kesejahteraan petani kecil tertekan selama setahun."},
+  "b": {"intent": "Membasahi kembali gambut dan menyekat kanal.", "helps": "Ekosistem gambut dan mata pencaharian petani tetap terjaga.", "burden": "Anggaran: program besar yang manfaatnya baru terasa setelah sekitar enam bulan.", "now": "Sedikit pengurangan kerusakan.", "later": "Pencegahan kebakaran naik bertahap."},
+  "c": {"intent": "Mengakui dan mendukung aturan penyiapan lahan berkelompok di Kapuas.", "helps": "Petani ladang Kapuas: cara hidup dihormati, aturan dijalankan bersama.", "burden": "Hasilnya bergantung pada kepercayaan masyarakat; tidak berlaku di daerah lain.", "now": "Biaya rendah, kepercayaan setempat naik.", "later": "Pencegahan kebakaran membaik di Kapuas."}
+ },
+ "reactions": {
+  "a": [
+   {"s": "narasi", "bg": "asap", "t": "Larangan diumumkan. Patroli diperketat dan beberapa perusahaan diperiksa."},
+   {"s": "bu_rina", "e": "lega", "t": "Kalau tahun depan langit tetap biru, saya akan ingat hari ini."},
+   {"s": "pak_ilham", "e": "kecewa", "bg": "ladang", "t": "Lalu kami menanam dengan apa, Pak? Membuka lahan tanpa api butuh alat yang kami tidak punya."},
+   {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Larangannya akan bekerja. Tapi petani kecil akan menagih jalan keluarnya."}
+  ],
+  "b": [
+   {"s": "narasi", "bg": "gambut", "t": "Kanal-kanal lama disekat. Air mulai ditahan kembali di lahan gambut yang mengering."},
+   {"s": "yosef", "e": "netral", "bg": "ruang_rapat", "t": "Tidak akan terlihat dalam semalam. Tapi gambut yang basah tidak mudah terbakar."},
+   {"s": "bayu", "e": "cemas", "t": "Program sebesar ini butuh komitmen bertahun-tahun, Pak. Kita tidak bisa berhenti di tengah jalan."}
+  ],
+  "c": [
+   {"s": "narasi", "bg": "ladang", "t": "Di Kapuas, pemerintah duduk bersama kelompok tani dan tetua kampung. Aturan menyiapkan lahan bersama diakui dan didukung."},
+   {"s": "pak_ilham", "e": "senyum", "t": "Kami musyawarah dulu, buat sekat bakar, tidak membakar saat kemarau panjang. Kalau api menjalar, kami yang bertanggung jawab."},
+   {"s": "sekar", "e": "netral", "bg": "ruang_rapat", "t": "Warga setempat merasa dihormati. Tapi kalau tahun depan ada api lepas dari ladang, cerita ini bisa berbalik."},
+   {"s": "nara", "e": "yakin", "t": "Kita mulai dari tempat yang praktiknya jelas. Kita tidak memaksakannya ke tempat lain."}
+  ]
+ },
+ "callbacks": [
+  {"id": "kemarau", "after_quarters": 3, "beats": [
+   {"pick": [
+    {"if": {"delta": "fire_prevention", "op": ">", "value": 10}, "beats": [
+     {"s": "bu_rina", "e": "senyum", "bg": "gambut", "t": "Kemarau tahun ini, pasien sesak napas jauh berkurang. Saya bisa pulang sebelum gelap."}]},
+    {"if": {}, "beats": [
+     {"s": "bu_rina", "e": "cemas", "bg": "asap", "t": "Kemarau datang lagi, Pak, dan pencegahannya belum terasa. Kami menyiapkan masker lebih banyak."}]}
+   ]}
+  ]},
+  {"id": "petani", "after_quarters": 3, "choices": ["a"], "beats": [
+   {"pick": [
+    {"if": {"delta": "welfare", "op": "<", "value": 0}, "beats": [{"s": "pak_ilham", "e": "kecewa", "bg": "ladang", "t": "Ladang kami tidak dibuka tahun ini. Banyak anak muda pergi ke kota mencari kerja."}]},
+    {"if": {}, "beats": [{"s": "pak_ilham", "e": "netral", "bg": "ladang", "t": "Kami belajar cara lain membuka lahan. Lebih lelah, tapi masih bisa makan."}]}
+   ]}
+  ]}
+ ],
+ "unattended": [
+  {"s": "narasi", "bg": "asap", "t": "Tanpa arahan Presiden, kebakaran ditangani dengan pemadaman seadanya."},
+  {"s": "bu_rina", "e": "sedih", "t": "Asapnya pergi saat hujan datang. Bukan karena kita. Tahun depan akan terulang."}
+ ],
+ "journal": {
+  "a": "Pembakaran lahan dilarang total di provinsi gambut. Asap berkurang, petani ladang kecil kehilangan cara berladang.",
+  "b": "Gambut Kalimantan Tengah dibasahi kembali lewat program restorasi. Mahal dan bertahap.",
+  "c": "Aturan penyiapan lahan berkelompok di Kapuas diakui dan didukung. Murah, bergantung pada kepercayaan warga."
+ },
+ "promises": {
+  "b": {"text": "Gambut Kalimantan Tengah cukup basah untuk menahan api di musim kemarau berikutnya.", "due_quarters": 4, "check": {"delta": "fire_prevention", "op": ">", "value": 10}},
+  "c": {"text": "Ladang di Kapuas disiapkan tanpa api yang menjalar, dengan aturan bersama.", "due_quarters": 4, "check": {"delta": "fire_prevention", "op": ">", "value": 5}}
+ }
+}

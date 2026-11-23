@@ -1,0 +1,110 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0001",
+ "fact_class": "FICTIONAL",
+ "note": "Narrative episode. Characters are fictional composites; no line is a real person's quote. Reactions describe the choice's scheduled effects; callbacks read actual state.",
+ "background": "kota_hujan",
+ "locals": {
+  "bu_yati": {"name": "Bu Yati", "role": "Pedagang sayur, Jakarta Timur", "color": "7a4f8a", "initials": "Y"},
+  "pak_asep": {"name": "Pak Asep", "role": "Relawan desa, Kabupaten Lebak", "color": "4f7a5a", "initials": "A"}
+ },
+ "agenda": {
+  "hook": "Banjir besar merendam Jabodetabek di malam tahun baru. Ribuan warga mengungsi dan desa di lereng selatan terputus.",
+  "if_postponed": "Pemulihan berjalan sendiri-sendiri tanpa arahan Presiden. Warga terdampak merasa ditinggalkan.",
+  "urgency": 3
+ },
+ "opening": [
+  {"s": "narasi", "bg": "kota_hujan", "t": "Malam pergantian tahun. Hujan turun tanpa jeda sejak sore."},
+  {"s": "narasi", "t": "Menjelang subuh, air sudah masuk ke rumah-rumah di Jakarta. Di selatan, tanah di lereng Bogor dan Lebak mulai bergerak."},
+  {"s": "laras", "e": "cemas", "bg": "ruang_kerja", "t": "Maaf mengganggu sepagi ini, Pak. Laporan banjir masuk dari hampir semua kota di Jabodetabek."},
+  {"s": "bu_yati", "e": "sedih", "bg": "kota_hujan", "t": "Airnya naik cepat sekali. Kami cuma sempat menyelamatkan anak-anak dan surat-surat. Dagangan saya hanyut semua."},
+  {"s": "pak_asep", "e": "cemas", "t": "Di desa kami, jalan tertimbun longsor. Bantuan belum bisa masuk. Warga yang sakit kami tandu bergantian."},
+  {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Ribuan orang mengungsi, Pak. Yang paling sulit dijangkau justru desa-desa di Lebak dan Bogor."},
+  {"s": "bayu", "e": "netral", "t": "Kalau pusat mengambil alih semuanya, cepat, tapi mahal sekali. Uang itu tidak bisa dipakai untuk hal lain tahun ini."},
+  {"s": "sekar", "e": "serius", "t": "Warga sedang menonton, Pak. Hari-hari pertama ini menentukan apakah mereka percaya kita hadir."},
+  {"s": "yosef", "e": "berpikir", "t": "Dan banjir seperti ini akan datang lagi. Pertanyaannya, kapan kita mau benar-benar siap?"},
+  {"s": "nara", "e": "serius", "t": "Kita putuskan arah penanganannya sekarang."}
+ ],
+ "choices": {
+  "a": {"intent": "Memulihkan secepat mungkin dengan kekuatan pusat.",
+        "helps": "Warga terdampak di Jakarta, Bogor, dan Lebak: bantuan dan perbaikan datang paling cepat.",
+        "burden": "Anggaran nasional: biaya terbesar dari ketiga pilihan.",
+        "now": "Kerusakan berkurang tajam mulai bulan depan dan kepercayaan warga naik.",
+        "later": "Kesiapan menghadapi banjir berikutnya tidak bertambah."},
+  "b": {"intent": "Menyerahkan penanganan kepada daerah sambil memperkuat BPBD.",
+        "helps": "Pemerintah daerah: kemampuan menangani bencana tumbuh.",
+        "burden": "Warga terdampak: pemulihan lebih lambat.",
+        "now": "Biayanya sekitar separuh penanganan pusat.",
+        "later": "Layanan publik di daerah membaik setelah sekitar tiga bulan."},
+  "c": {"intent": "Membatasi bantuan darurat dan membangun pengendali banjir.",
+        "helps": "Warga yang akan menghadapi musim hujan berikutnya.",
+        "burden": "Warga yang sedang mengungsi: bantuan minim dan kekecewaan tinggi.",
+        "now": "Kepercayaan warga turun cukup dalam.",
+        "later": "Perlindungan banjir naik besar setelah sekitar enam bulan."}
+ },
+ "reactions": {
+  "a": [
+   {"s": "narasi", "bg": "kota_hujan", "t": "Dalam hitungan jam, perahu karet, dapur umum, dan alat berat bergerak dari pusat."},
+   {"s": "bu_yati", "e": "lega", "t": "Petugas datang sebelum air surut. Anak-anak saya sudah dapat selimut dan makanan hangat."},
+   {"s": "bayu", "e": "serius", "bg": "ruang_rapat", "t": "Tagihannya akan besar, Pak. Saya mulai menghitung apa saja yang harus kita tunda."},
+   {"s": "yosef", "e": "netral", "t": "Pemulihannya cepat. Tapi sungai dan tanggulnya masih sama seperti kemarin."}
+  ],
+  "b": [
+   {"s": "narasi", "bg": "kota_hujan", "t": "Dana darurat dikirim ke pemerintah daerah. BPBD di setiap kota memimpin di lapangan."},
+   {"s": "pak_asep", "e": "netral", "t": "Kami yang paling tahu jalan setapak ke dusun-dusun. Alat kami sedikit, tapi sekarang ada dananya. Pelan-pelan, kami jalan."},
+   {"s": "sekar", "e": "cemas", "bg": "ruang_rapat", "t": "Di media, orang mulai bertanya kenapa pusat tidak turun langsung. Kita harus menjelaskan alasannya."},
+   {"s": "laras", "e": "netral", "t": "Kalau dalam beberapa bulan ada daerah yang tertinggal, kabarnya akan sampai ke meja Bapak."}
+  ],
+  "c": [
+   {"s": "narasi", "bg": "kota_hujan", "t": "Bantuan darurat dibatasi. Anggaran dialihkan ke saluran air, tanggul, dan waduk."},
+   {"s": "bu_yati", "e": "marah", "t": "Kami masih tidur di tenda, dan yang dibicarakan waduk? Kami butuh bantuan sekarang, bukan tahun depan."},
+   {"s": "sekar", "e": "cemas", "bg": "ruang_rapat", "t": "Minggu-minggu pertama akan berat, Pak. Kemarahan warga ini nyata."},
+   {"s": "yosef", "e": "serius", "t": "Kalau tanggulnya selesai sebelum musim hujan berikutnya, ceritanya akan berbeda. Kalau tidak, kita akan dikenang karena hari ini."},
+   {"s": "nara", "e": "serius", "t": "Kalau begitu pastikan selesai."}
+  ]
+ },
+ "callbacks": [
+  {"id": "pemulihan", "after_quarters": 2, "beats": [
+   {"pick": [
+    {"if": {"delta": "damage", "op": "<", "value": -8}, "beats": [
+     {"s": "bu_yati", "e": "senyum", "bg": "kota", "t": "Warung saya sudah buka lagi, Pak. Masih sepi, tapi buka."},
+     {"s": "yosef", "e": "senyum", "t": "Sebagian besar kerusakan banjir tahun baru sudah dipulihkan."}]},
+    {"if": {"delta": "damage", "op": "<", "value": 0}, "beats": [
+     {"s": "pak_asep", "e": "netral", "bg": "desa", "t": "Sebagian desa sudah pulih. Tapi beberapa dusun di atas masih menunggu jalannya dibuka."}]},
+    {"if": {}, "beats": [
+     {"s": "yosef", "e": "cemas", "bg": "kota_hujan", "t": "Bekas banjir tahun baru belum banyak berkurang, Pak. Di beberapa tempat, warga masih membersihkan lumpur sendiri."}]}
+   ]}
+  ]},
+  {"id": "tanggul", "after_quarters": 3, "choices": ["c"], "beats": [
+   {"pick": [
+    {"if": {"delta": "flood_protection", "op": ">", "value": 10}, "beats": [
+     {"s": "yosef", "e": "senyum", "bg": "kota", "t": "Tanggul dan saluran baru sudah berfungsi, Pak. Musim hujan nanti, kita akan lihat apakah taruhan kita benar."},
+     {"s": "bu_yati", "e": "netral", "t": "Saya masih kesal soal tenda dulu. Tapi kalau tahun ini rumah saya kering, saya akan bilang terima kasih."}]},
+    {"if": {}, "beats": [
+     {"s": "yosef", "e": "cemas", "bg": "kota_hujan", "t": "Pembangunan pengendali banjir belum terasa manfaatnya. Warga mulai menagih janji kita."}]}
+   ]}
+  ]},
+  {"id": "tagihan", "after_quarters": 2, "choices": ["a"], "beats": [
+   {"pick": [
+    {"if": {"pillar_value": "fiscal", "op": "<", "value": 30}, "beats": [
+     {"s": "bayu", "e": "cemas", "bg": "ruang_rapat", "t": "Tagihan banjir tahun baru sudah masuk ke neraca, Pak. Ruang kita untuk program lain jadi lebih sempit."}]},
+    {"if": {}, "beats": [
+     {"s": "bayu", "e": "netral", "bg": "ruang_rapat", "t": "Biaya penanganan banjir sudah tercatat. Berat, tapi masih bisa kita tanggung."}]}
+   ]}
+  ]}
+ ],
+ "unattended": [
+  {"s": "narasi", "bg": "kota_hujan", "t": "Tanpa arahan langsung dari Presiden, kementerian dan pemerintah daerah bergerak sendiri-sendiri."},
+  {"s": "bu_yati", "e": "sedih", "t": "Kami menunggu lama sekali. Akhirnya tetangga yang saling bantu."},
+  {"s": "sekar", "e": "cemas", "bg": "ruang_rapat", "t": "Warga Jabodetabek merasa ditinggalkan, Pak. Itu akan lama diingat."}
+ ],
+ "journal": {
+  "a": "Pemerintah pusat mengambil alih penanganan banjir Jabodetabek. Pemulihan cepat, biayanya besar.",
+  "b": "Penanganan banjir Jabodetabek dipimpin daerah dengan dana dari pusat. Lebih murah, pemulihan lebih lambat.",
+  "c": "Bantuan darurat banjir dibatasi demi tanggul dan saluran air. Warga kecewa, perlindungan dijanjikan untuk musim hujan berikutnya."
+ },
+ "promises": {
+  "c": {"text": "Jabodetabek lebih terlindungi dari banjir sebelum musim hujan berikutnya.", "due_quarters": 4,
+        "check": {"delta": "flood_protection", "op": ">", "value": 10}}
+ }
+}

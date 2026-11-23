@@ -1,0 +1,74 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0014",
+ "fact_class": "FICTIONAL",
+ "background": "pesisir_malam",
+ "locals": {
+  "kang_ujang": {"name": "Kang Ujang", "role": "Pemilik warung pantai, Pandeglang", "color": "3a5a8a", "initials": "U"},
+  "bu_lastri": {"name": "Bu Lastri", "role": "Istri nelayan, Lampung Selatan", "color": "8a5a3a", "initials": "L"}
+ },
+ "agenda": {
+  "hook": "Gelombang tsunami datang malam hari tanpa gempa yang terasa, menghantam pantai Pandeglang dan pesisir Lampung Selatan.",
+  "if_postponed": "Pemulihan pesisir Selat Sunda berjalan tanpa arah baru. Pantai kembali dihuni seperti sebelumnya."
+ },
+ "opening": [
+  {"s": "narasi", "bg": "pesisir_malam", "t": "Sabtu malam di pantai Pandeglang. Ada panggung musik, keluarga yang berlibur, warung-warung yang ramai."},
+  {"s": "narasi", "t": "Tidak ada gempa. Tidak ada sirene. Laut tiba-tiba naik dan menyapu bibir pantai."},
+  {"s": "kang_ujang", "e": "sedih", "t": "Saya sempat lari ke bukit sambil menarik anak saya. Warung saya hilang. Tetangga-tetangga saya, banyak yang tidak sempat."},
+  {"s": "bu_lastri", "e": "cemas", "bg": "pesisir_rusak", "t": "Di seberang, di Lampung, perahu-perahu terlempar ke darat. Suami saya selamat karena malam itu tidak melaut."},
+  {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Para ahli gunung api menduga sebagian tubuh Anak Krakatau longsor ke laut. Bukan gempa. Itu sebabnya peringatan dini tidak berbunyi."},
+  {"s": "sekar", "e": "netral", "t": "Warga bertanya kenapa tidak ada peringatan. Jawabannya teknis, tapi rasa takutnya sangat nyata."},
+  {"s": "bayu", "e": "netral", "t": "Ada tiga arah, Pak. Pulihkan cepat, pindahkan permukiman dari pantai paling berbahaya, atau perkuat pemantauan dan kesiapsiagaan."},
+  {"s": "nara", "e": "berpikir", "t": "Gunungnya masih di sana. Lautnya juga."}
+ ],
+ "choices": {
+  "a": {"intent": "Mengambil alih tanggap darurat dari pusat.", "helps": "Warga terdampak di Pandeglang, Lampung Selatan, dan Serang.", "burden": "Anggaran; pantai tetap sepadat sebelumnya.", "now": "Kerusakan pulih cepat selama tiga bulan, kepercayaan naik.", "later": "Risiko berikutnya tidak berkurang."},
+  "b": {"intent": "Memindahkan rumah dan usaha dari sempadan pantai paling berbahaya.", "helps": "Keselamatan warga pesisir di masa depan.", "burden": "Warga yang harus meninggalkan mata pencaharian di pantai.", "now": "Kepercayaan turun di Pandeglang dan Lampung Selatan.", "later": "Infrastruktur dan kesejahteraan struktural naik setelah sekitar setahun."},
+  "c": {"intent": "Memasang pemantauan di sekitar Anak Krakatau dan melatih warga mengungsi.", "helps": "Seluruh pesisir Selat Sunda: lebih siap untuk kejadian berikutnya.", "burden": "Pemulihan berjalan biasa saja.", "now": "Biaya paling rendah, kepercayaan sedikit naik.", "later": "Infrastruktur dan layanan naik setelah sekitar enam bulan."}
+ },
+ "reactions": {
+  "a": [
+   {"s": "narasi", "bg": "pesisir_rusak", "t": "Tenda, dapur umum, dan alat berat tiba di sepanjang pantai. Jalan pesisir dibersihkan dalam hitungan hari."},
+   {"s": "bu_lastri", "e": "lega", "t": "Bantuan datang cepat. Anak-anak sudah dapat tempat tidur yang kering."},
+   {"s": "yosef", "e": "cemas", "bg": "ruang_rapat", "t": "Dalam setahun, warung-warung akan berdiri lagi di tempat yang sama, Pak. Persis di garis air."}
+  ],
+  "b": [
+   {"s": "narasi", "bg": "pesisir_rusak", "t": "Zona paling berbahaya di pantai ditandai. Rumah dan warung di dalamnya akan dipindahkan ke daerah yang lebih tinggi."},
+   {"s": "kang_ujang", "e": "marah", "t": "Saya hidup dari wisatawan, Pak. Kalau warung saya dipindah ke bukit, siapa yang mau mampir?"},
+   {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Dia benar soal penghasilannya. Kita perlu membantu mereka membangun usaha di tempat baru, bukan hanya rumah."},
+   {"s": "nara", "e": "serius", "t": "Kita tidak sekadar memindahkan bangunan. Kita memindahkan hidup orang. Itu harus terasa dalam caranya."}
+  ],
+  "c": [
+   {"s": "narasi", "bg": "pesisir", "t": "Stasiun pasang surut dipasang di pulau-pulau sekitar Anak Krakatau. Di sekolah-sekolah pesisir, anak-anak berlatih berlari ke bukit."},
+   {"s": "bu_lastri", "e": "netral", "t": "Sekarang kami tahu jalur mengungsi. Kalau laut surut tiba-tiba, kami tidak menunggu sirene."},
+   {"s": "sekar", "e": "senyum", "bg": "ruang_rapat", "t": "Warga menyambut latihan itu, Pak. Rasa takut mereka punya tempat untuk dikerjakan."}
+  ]
+ },
+ "callbacks": [
+  {"id": "pesisir", "after_quarters": 2, "beats": [
+   {"pick": [
+    {"if": {"delta": "damage", "op": "<", "value": -6}, "beats": [{"s": "kang_ujang", "e": "netral", "bg": "pesisir", "t": "Pantai sudah ramai lagi, Pak. Wisatawan kembali, pelan-pelan."}]},
+    {"if": {}, "beats": [{"s": "kang_ujang", "e": "kecewa", "bg": "pesisir_rusak", "t": "Puing-puing masih banyak di pantai, Pak. Pengunjung belum berani datang."}]}
+   ]}
+  ]},
+  {"id": "relokasi", "after_quarters": 4, "choices": ["b"], "beats": [
+   {"pick": [
+    {"if": {"delta": "infrastructure", "op": ">", "value": 3}, "beats": [{"s": "kang_ujang", "e": "senyum", "bg": "pesisir", "t": "Warung saya sekarang di jalan menuju pantai, Pak. Ternyata orang tetap mampir. Dan saya tidur lebih tenang."}]},
+    {"if": {}, "beats": [{"s": "kang_ujang", "e": "kecewa", "bg": "pesisir_rusak", "t": "Lokasi barunya belum siap, Pak. Sebagian tetangga sudah kembali ke pantai."}]}
+   ]}
+  ]}
+ ],
+ "unattended": [
+  {"s": "narasi", "bg": "pesisir_rusak", "t": "Tanpa arahan baru, pesisir Selat Sunda dipulihkan seperti sebelumnya. Warung-warung kembali berdiri di garis air."},
+  {"s": "bu_lastri", "e": "cemas", "t": "Kami kembali ke tempat yang sama. Setiap malam, suami saya menatap laut lebih lama."}
+ ],
+ "journal": {
+  "a": "Tanggap darurat tsunami Selat Sunda diambil alih pusat. Pemulihan cepat, pantai tetap padat.",
+  "b": "Permukiman di sempadan pantai Pandeglang dan Lampung Selatan dipindahkan ke tempat lebih tinggi.",
+  "c": "Pemantauan di sekitar Anak Krakatau dipasang dan warga pesisir berlatih mengungsi."
+ },
+ "promises": {
+  "b": {"text": "Warga pesisir Pandeglang dan Lampung Selatan menempati permukiman baru yang lebih aman.", "due_quarters": 5, "check": {"delta": "infrastructure", "op": ">", "value": 3}},
+  "c": {"text": "Pesisir Selat Sunda punya pemantauan tsunami gunung api dan jalur evakuasi yang dilatih.", "due_quarters": 3, "check": {"delta": "infrastructure", "op": ">", "value": 1.5}}
+ }
+}

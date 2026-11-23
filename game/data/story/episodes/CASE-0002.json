@@ -1,0 +1,75 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0002",
+ "fact_class": "FICTIONAL",
+ "background": "pesisir_rusak",
+ "locals": {
+  "pak_ridwan": {"name": "Pak Ridwan", "role": "Warga penyintas, Kota Palu", "color": "6a5a3a", "initials": "R"},
+  "bu_nirwana": {"name": "Bu Nirwana", "role": "Guru SD, Kabupaten Sigi", "color": "8a4a4a", "initials": "N"}
+ },
+ "agenda": {
+  "hook": "Gempa, tsunami, dan tanah yang mencair meluluhlantakkan Palu dan Sigi. Warga ingin pulang, tapi sebagian tanahnya tidak aman lagi.",
+  "if_postponed": "Pembangunan kembali Palu berjalan tanpa arah yang jelas. Warga menunggu di hunian darurat."
+ },
+ "opening": [
+  {"s": "narasi", "bg": "pesisir_rusak", "t": "Sore itu bumi bergerak di Teluk Palu. Beberapa menit kemudian, laut naik ke darat."},
+  {"s": "narasi", "t": "Di beberapa kampung, tanah berubah seperti lumpur dan menelan rumah-rumah beserta jalannya."},
+  {"s": "pak_ridwan", "e": "sedih", "t": "Rumah saya tidak runtuh, Pak. Rumah saya hilang. Tanahnya bergeser puluhan meter."},
+  {"s": "bu_nirwana", "e": "cemas", "t": "Murid-murid saya tersebar di tenda pengungsian. Mereka terus bertanya kapan bisa pulang."},
+  {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Para ahli sudah memetakan zona merah, Pak. Membangun lagi di sana berarti menunggu bencana berikutnya."},
+  {"s": "sekar", "e": "netral", "t": "Tapi bagi warga, tanah itu bukan sekadar lokasi. Di situ kuburan keluarga, kebun, tetangga. Memindahkan orang tidak pernah sederhana."},
+  {"s": "bayu", "e": "netral", "t": "Membangun cepat di tempat semula paling murah per rumah. Relokasi paling mahal. Dana stimulan paling cepat menyentuh rumah tangga, tapi mutunya sulit dijaga."},
+  {"s": "nara", "e": "berpikir", "t": "Jadi kita memilih antara cepat, aman, dan murah. Dan sepertinya tidak bisa ketiganya."}
+ ],
+ "choices": {
+  "a": {"intent": "Membangun kembali secepat mungkin di lokasi semula.", "helps": "Warga yang ingin segera pulang.", "burden": "Generasi berikutnya: risiko di kawasan rawan tetap ada.", "now": "Pemulihan tercepat dan kepercayaan naik.", "later": "Tidak ada pengurangan risiko jangka panjang."},
+  "b": {"intent": "Memindahkan warga zona merah ke hunian tetap yang aman.", "helps": "Keselamatan warga zona merah untuk jangka panjang.", "burden": "Warga yang harus pindah dan anggaran: paling mahal dan paling lambat.", "now": "Kepercayaan turun di awal.", "later": "Setelah sekitar setahun, kerusakan pulih lebih dalam, layanan membaik, dan kepercayaan kembali."},
+  "c": {"intent": "Memberi dana stimulan agar warga membangun sendiri.", "helps": "Rumah tangga: bantuan cepat dan langsung terasa.", "burden": "Keamanan bangunan: mutu tidak merata.", "now": "Biaya paling rendah, kesejahteraan rumah tangga terbantu tiga bulan.", "later": "Pemulihan rumah sedang, tanpa jaminan mutu."}
+ },
+ "reactions": {
+  "a": [
+   {"s": "narasi", "bg": "pesisir_rusak", "t": "Alat berat masuk ke kampung-kampung lama. Fondasi baru dicor di atas tanah yang sama."},
+   {"s": "pak_ridwan", "e": "lega", "t": "Kami pulang, Pak. Ke tempat yang sama. Untuk sekarang, itu yang paling kami butuhkan."},
+   {"s": "yosef", "e": "cemas", "bg": "ruang_rapat", "t": "Mereka bahagia hari ini. Saya hanya berharap tanahnya tidak bergerak lagi selama kita masih hidup."}
+  ],
+  "b": [
+   {"s": "narasi", "bg": "pesisir_rusak", "t": "Zona merah dipasangi papan larangan. Warga pindah ke hunian sementara sambil menunggu hunian tetap dibangun di lokasi yang lebih aman."},
+   {"s": "pak_ridwan", "e": "marah", "t": "Kami diminta meninggalkan tanah kami sendiri, dan rumah barunya baru jadi tahun depan?"},
+   {"s": "bu_nirwana", "e": "berpikir", "t": "Saya mengerti marahnya. Tapi saya juga tidak mau murid-murid saya tumbuh di atas tanah yang bisa mencair lagi."},
+   {"s": "sekar", "e": "cemas", "bg": "ruang_rapat", "t": "Setahun ke depan akan berat secara politik, Pak. Kita harus terus hadir dan menjelaskan."}
+  ],
+  "c": [
+   {"s": "narasi", "bg": "pesisir_rusak", "t": "Dana stimulan masuk ke rekening keluarga penyintas. Di banyak halaman, warga mulai mengaduk semen sendiri."},
+   {"s": "bu_nirwana", "e": "senyum", "t": "Tetangga saling bantu. Rumah saya sudah berdinding lagi bulan ini."},
+   {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Cepat dan murah. Tapi tidak ada yang memeriksa apakah besinya cukup, apakah tanahnya aman. Kita akan tahu jawabannya saat gempa berikutnya."}
+  ]
+ },
+ "callbacks": [
+  {"id": "pemulihan", "after_quarters": 3, "beats": [
+   {"pick": [
+    {"if": {"delta": "damage", "op": "<", "value": -10}, "beats": [{"s": "bu_nirwana", "e": "senyum", "bg": "desa", "t": "Sekolah kami sudah dibuka lagi, Pak. Anak-anak tertawa di kelas. Saya hampir lupa suara itu."}]},
+    {"if": {}, "beats": [{"s": "bu_nirwana", "e": "sedih", "bg": "pesisir_rusak", "t": "Kami masih belajar di tenda, Pak. Pemulihan di sini berjalan pelan sekali."}]}
+   ]}
+  ]},
+  {"id": "huntap", "after_quarters": 4, "choices": ["b"], "beats": [
+   {"pick": [
+    {"if": {"delta": "trust", "op": ">", "value": 0}, "beats": [
+     {"s": "pak_ridwan", "e": "netral", "bg": "desa", "t": "Rumah baru kami jauh dari laut. Saya masih rindu kampung lama. Tapi anak-anak tidur nyenyak di sini."}]},
+    {"if": {}, "beats": [
+     {"s": "pak_ridwan", "e": "kecewa", "bg": "pesisir_rusak", "t": "Hunian tetapnya belum juga selesai. Sebagian tetangga sudah diam-diam kembali ke zona merah."}]}
+   ]}
+  ]}
+ ],
+ "unattended": [
+  {"s": "narasi", "bg": "pesisir_rusak", "t": "Tanpa keputusan dari pusat, setiap instansi membangun dengan caranya sendiri di Palu dan Sigi."},
+  {"s": "pak_ridwan", "e": "kecewa", "t": "Kami tidak tahu harus menunggu apa. Jadi sebagian dari kami mulai membangun sendiri, di mana saja."}
+ ],
+ "journal": {
+  "a": "Palu dan Sigi dibangun kembali di lokasi semula. Warga cepat pulang, risiko kawasan rawan tetap ada.",
+  "b": "Warga zona merah Palu dipindahkan ke hunian tetap yang aman. Mahal dan lambat, kepercayaan turun di awal.",
+  "c": "Penyintas Palu menerima dana stimulan dan membangun rumah sendiri. Cepat, mutunya tidak merata."
+ },
+ "promises": {
+  "b": {"text": "Warga zona merah Palu dan Sigi menempati hunian tetap yang aman.", "due_quarters": 5, "check": {"delta": "damage", "op": "<", "value": -12}}
+ }
+}

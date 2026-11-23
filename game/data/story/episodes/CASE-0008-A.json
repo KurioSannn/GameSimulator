@@ -1,0 +1,88 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0008-A",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0008",
+ "background": "ruang_rapat",
+ "locals": {
+  "bang_roni": {
+   "name": "Bang Roni",
+   "role": "Pengemudi ojek daring, Medan",
+   "color": "2a5a7a",
+   "initials": "R"
+  },
+  "bu_wati": {
+   "name": "Bu Wati",
+   "role": "Pemilik warung, Surabaya",
+   "color": "8a4a6a",
+   "initials": "W"
+  }
+ },
+ "agenda": {
+  "hook": "Anggaran subsidi BBM menipis setelah harga ditahan.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "bayu",
+   "e": "serius",
+   "t": "Saya sudah bilang ini akan datang, Pak. Anggaran subsidi hampir habis.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "sekar",
+   "e": "cemas",
+   "t": "Kalau harga naik sekarang tanpa bantuan, kemarahannya akan dua kali lipat."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Menunda keputusan ternyata juga keputusan."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Harga BBM disesuaikan penuh tanpa paket bantuan."
+   },
+   {
+    "s": "bang_roni",
+    "e": "kecewa",
+    "t": "Langsung naik, tanpa aba-aba. Penghasilan saya turun minggu ini.",
+    "bg": "kota"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Anggaran subsidi ditambah lagi dari pos lain."
+   },
+   {
+    "s": "bayu",
+    "e": "kecewa",
+    "t": "Harga aman. Pos lain menunggu. Lagi."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Pembelian BBM bersubsidi dibatasi untuk kendaraan dan kelompok tertentu."
+   },
+   {
+    "s": "bang_roni",
+    "e": "netral",
+    "t": "Motor saya masih boleh isi yang murah. Yang mobil besar mulai mengeluh.",
+    "bg": "kota"
+   }
+  ]
+ },
+ "journal": {
+  "a": "Harga BBM disesuaikan penuh setelah anggaran subsidi menipis.",
+  "b": "Anggaran subsidi BBM ditambah lagi.",
+  "c": "Pembelian BBM bersubsidi dibatasi."
+ }
+}

@@ -7,6 +7,8 @@ signal started
 signal closed
 signal region_selected(id: String)
 signal preferences_changed
+signal scenario_requested(case_id: String)
+signal tutorial_requested
 
 var active_screen := ""
 var session_started := false
@@ -63,8 +65,13 @@ func open(screen: String) -> void:
 		"legacy": "RAPOR WARISAN",
 		"settings": "PENGATURAN",
 		"help": "CARA BERMAIN",
-		"saves": "LANJUTKAN PEMERINTAHAN",
-		"new": "MULAI MANDAT BARU",
+		"saves": "MUAT PERMAINAN",
+		"new": "MULAI PEMERINTAHAN BARU",
+		"journal": "BUKU KISAH",
+		"goals": "TUJUAN MASA BAKTI",
+		"library": "KUMPULAN KISAH",
+		"credits": "KREDIT",
+		"scenario_end": "AKHIR KISAH",
 	}
 
 	var header := UiKit.hbox(14)
@@ -100,9 +107,15 @@ func open(screen: String) -> void:
 			_content.add_child(settings)
 			settings.cancelled.connect(_back)
 			settings.saved.connect(func(): preferences_changed.emit(); _back())
+			settings.tutorial_requested.connect(func(): tutorial_requested.emit())
 		"help": _help()
 		"saves": _saves()
 		"new": _new_confirmation()
+		"journal": _journal()
+		"goals": _goals()
+		"library": _library()
+		"credits": _credits()
+		"scenario_end": _scenario_end()
 
 	UiKit.animate_open(_content)
 	_focus_first.call_deferred()
@@ -115,7 +128,11 @@ func close_screen() -> void:
 
 
 func _back() -> void:
-	if active_screen in ["settings", "help", "saves", "new", "legacy"]:
+	if active_screen == "scenario_end":
+		Game.end_scenario()
+		open("library")
+		return
+	if active_screen in ["settings", "help", "saves", "new", "legacy", "journal", "goals", "library", "credits"]:
 		if _origin == "map":
 			close_screen()
 		else:
@@ -167,11 +184,11 @@ func _menu() -> void:
 	var ribbon := PanelContainer.new()
 	ribbon.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("ed4b39"), StitchTheme.color("outline"), 8, 14, 6, 2))
 	ribbon.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-	var subtitle := UiKit.title("MANDAT KEPEMIMPINAN", 22, Color("fff4d2"))
+	var subtitle := UiKit.title("LIMA TAHUN MENJAGA NEGERI", 22, Color("fff4d2"))
 	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	ribbon.add_child(subtitle)
 	brand.add_child(ribbon)
-	brand.add_child(UiKit.title("Bangun negeri. Tentukan warisanmu.", 18, Color("fff4d2")))
+	brand.add_child(UiKit.title("Satu negeri. Ratusan cerita. Setiap keputusan meninggalkan jejak.", 18, Color("fff4d2")))
 	_surface.add_child(brand)
 
 	# Top-right utility pills (clean inline row)
@@ -205,28 +222,59 @@ func _menu() -> void:
 	var heading := UiKit.heading("PEMERINTAHANMU")
 	body.add_child(heading)
 
-	var begin := UiKit.button("MULAI MANDAT BARU", func():
+	var begin := UiKit.button("MULAI PEMERINTAHAN BARU", func():
 		_origin = "menu"
-		if session_started:
+		if session_started and not Game.in_scenario():
 			open("new")
 		else:
 			_start_new(), true)
-	begin.custom_minimum_size.y = 62
+	begin.custom_minimum_size.y = 58
 	begin.add_theme_font_size_override("font_size", 21)
 	body.add_child(begin)
 
-	if session_started:
-		var cont := UiKit.button("KEMBALI KE PEMERINTAHAN", close_screen)
-		cont.custom_minimum_size.y = 48
+	if Game.in_scenario():
+		var leave := UiKit.button("KELUAR DARI KISAH INI", func(): Game.end_scenario(); open("library"))
+		leave.custom_minimum_size.y = 46
+		body.add_child(leave)
+	if session_started and not Game.in_scenario():
+		var cont := UiKit.button("LANJUTKAN", close_screen)
+		cont.custom_minimum_size.y = 46
 		body.add_child(cont)
 	elif not Game.saves.list_slots().is_empty():
-		var load_btn := UiKit.button("LANJUTKAN SIMPANAN", func(): _origin = "menu"; open("saves"))
-		load_btn.custom_minimum_size.y = 48
-		body.add_child(load_btn)
+		var latest := UiKit.button("LANJUTKAN", _continue_latest)
+		latest.custom_minimum_size.y = 46
+		latest.tooltip_text = "Lanjutkan simpanan terakhir"
+		body.add_child(latest)
+	var row := UiKit.hbox(10)
+	for spec in [["MUAT PERMAINAN", "saves"], ["KUMPULAN KISAH", "library"]]:
+		var dest: String = spec[1]
+		var b := UiKit.button(spec[0], func(): _origin = "menu"; open(dest))
+		b.custom_minimum_size.y = 44
+		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(b)
+	body.add_child(row)
+	var row2 := UiKit.hbox(10)
+	for spec in [["CARA BERMAIN", "help"], ["KREDIT", "credits"]]:
+		var dest2: String = spec[1]
+		var b2 := UiKit.ghost_button(spec[0], func(): _origin = "menu"; open(dest2))
+		b2.custom_minimum_size.y = 40
+		b2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row2.add_child(b2)
+	body.add_child(row2)
 
-	var help_btn := UiKit.button("CARA BERMAIN", func(): _origin = "menu"; open("help"))
-	help_btn.custom_minimum_size.y = 46
-	body.add_child(help_btn)
+
+func _continue_latest() -> void:
+	var slots: Array = Game.saves.list_slots().filter(func(x): return bool(x.ok))
+	if slots.is_empty():
+		return
+	var err := Game.load_from(str(slots[0].slot_id))  # list_slots is newest first
+	if err != "":
+		open("saves")
+		return
+	session_started = true
+	close_screen()
+	started.emit()
+
 
 func _start_new() -> void:
 	visited.clear()
@@ -640,78 +688,253 @@ func _report() -> void:
 
 
 func _legacy() -> void:
-	var lhead := PanelContainer.new()
-	lhead.theme_type_variation = "PanelHeader"
-	var lh := UiKit.hbox(12)
-	var lt := UiKit.vbox(2)
-	lt.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	lt.add_child(UiKit.subheader("RAPOR AKHIR MASA JABATAN", Color("fff4d2"), 11))
-	lt.add_child(UiKit.title("PEMERINTAHAN PRESIDEN NARA ADINATA", 20, Color("fff4d2")))
-	lh.add_child(lt)
-	lhead.add_child(lh)
-	_content.add_child(lhead)
-	_indicator_row(_content, false)
-
+	var w := Game.world
+	var ev: Dictionary = w.story.get("ending", {})
+	if ev.is_empty():
+		ev = Game.evaluate_ending()
+	var cfg: Dictionary = ContentDB.story.get("endings", {})
+	var arch: Dictionary = cfg.get("archetypes", {}).get(str(ev.get("id", "")), {})
+	var head := PanelContainer.new()
+	head.theme_type_variation = "PanelHeader"
+	var hv := UiKit.vbox(2)
+	hv.add_child(UiKit.subheader("AKHIR MASA BAKTI PRESIDEN NARA ADINATA", Color("fff4d2"), 12))
+	hv.add_child(UiKit.title(str(arch.get("title", "")), 34, Color("fff4d2")))
+	hv.add_child(UiKit.label(str(arch.get("subtitle", "")), 17, Color("f4dcae")))
+	head.add_child(hv)
+	_content.add_child(head)
 	var row := UiKit.hbox(16)
 	row.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_content.add_child(row)
 
-	var left := _card("RINGKASAN PEMERINTAHAN", row)
+	var left := _card("EMPAT TUJUAN MASA BAKTI", row)
 	left.get_parent().size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var decisions := 0
-	for state in Game.world.case_state.values():
-		decisions += state.get("history", []).size()
-	var w := Game.world
-	var trust := w.national_mean("trust")
-	var welfare := w.national_mean("welfare")
-	var env := w.national_mean("environment")
-	var grade := "MANDAT KOKOH" if trust >= 60.0 and welfare >= 75.0 else ("MANDAT STABIL" if trust >= 48.0 and welfare >= 65.0 else "MANDAT PENUH UJIAN")
-	left.add_child(UiKit.subheader("PREDIKAT AKHIR", UiKit.INFO, 11))
-	left.add_child(UiKit.title(grade, 26, UiKit.ACCENT))
-	for pair in [
-		["Status Masa Jabatan", Fmt.period(w)],
-		["Keputusan Kasus", "%d keputusan" % decisions],
-		["Kebijakan Dijalankan", "%d program" % w.policy_state.size()],
-		["Wilayah Ditinjau", "%d dari %d kab/kota" % [visited.size(), w.region_count()]],
-		["Kesejahteraan Akhir", "%s / 100" % Fmt.num(welfare, 1)],
-		["Lingkungan Akhir", "%s / 100" % Fmt.num(env, 1)],
-	]:
-		left.add_child(UiKit.kv_row(pair[0], pair[1], UiKit.TEXT, 14))
+	var words: Dictionary = cfg.get("rating_words", {})
+	var ratings: Dictionary = ev.get("ratings", {})
+	for p in Narrative.PILLARS:
+		var r := str(ratings.get(p, "fair"))
+		var col := UiKit.SUCCESS if r == "good" else UiKit.DANGER if r == "poor" else UiKit.MUTED
+		left.add_child(UiKit.kv_row(str(Narrative.PILLAR_LABELS[p]), str(words.get(r, r)), col, 15))
+	left.add_child(HSeparator.new())
+	left.add_child(UiKit.label(str(arch.get("legacy", "")), 16, UiKit.TEXT, true))
+	var f: Dictionary = ev.get("features", {})
+	left.add_child(UiKit.label("%d keputusan besar diambil langsung. %d persoalan ditangani tanpa arahan Presiden." % [int(f.get("decided", 0)), int(f.get("unattended", 0))], 14, UiKit.MUTED, true))
 
-	var right := _card("CATATAN PENUTUP", row)
+	var mid := _card("JANJI PEMERINTAH", row)
+	mid.get_parent().size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var promises: Dictionary = w.story.get("promises", {})
+	if promises.is_empty():
+		mid.add_child(UiKit.label("Tidak ada janji jangka panjang yang dibuat.", 15, UiKit.MUTED, true))
+	for pid in promises:
+		var pr: Dictionary = promises[pid]
+		var st := str(pr.status)
+		var tag := "TERPENUHI" if st == "kept" else "BELUM TERPENUHI" if st == "broken" else "MASIH BERJALAN"
+		var tcol := UiKit.SUCCESS if st == "kept" else UiKit.DANGER if st == "broken" else UiKit.INFO
+		var line := UiKit.hbox(8)
+		line.add_child(UiKit.tag(tag, tcol, 11))
+		var txt := UiKit.label(str(pr.text), 14, UiKit.TEXT, true)
+		txt.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		line.add_child(txt)
+		mid.add_child(line)
+
+	var right := _card("KEPUTUSAN YANG MEMBENTUK NEGERI", row)
 	right.get_parent().size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var adv := UiKit.hbox(14)
-	var portrait := FigmaAssets.avatar(2, Vector2(84, 84))
-	portrait.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	adv.add_child(portrait)
-	var qbox := PanelContainer.new()
-	qbox.add_theme_stylebox_override("panel", StitchTheme.soft_box(UiKit.PANEL_SOFT, Color(1, 1, 1, 0.10), 8, 14, 12, 1))
-	qbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var quote := UiKit.label(
-		"“Kepemimpinan berarti memilih pengorbanan mana yang paling sanggup dipikul bersama oleh seluruh wilayah Nusantara.”",
-		15, UiKit.TEXT, true)
-	qbox.add_child(quote)
-	adv.add_child(qbox)
-	right.add_child(adv)
-	right.add_child(HSeparator.new())
-	right.add_child(UiKit.subheader("REKAM JEJAK SINGKAT", UiKit.ACCENT, 11))
-	var summary_line := "Kepercayaan publik berakhir di angka %s%% dengan tingkat kesejahteraan rata-rata %s/100." % [Fmt.num(trust, 1), Fmt.num(welfare, 1)]
-	right.add_child(UiKit.label(summary_line, 14, UiKit.TEXT, true))
-	right.add_child(UiKit.spacer())
-	right.add_child(UiKit.label("Gunakan 'Mulai Mandat Baru' untuk mencoba strategi dan prioritas wilayah yang berbeda.", 13, UiKit.MUTED, true))
+	var shown := 0
+	for e in w.story.get("journal", []):
+		if str(e.kind) != "keputusan":
+			continue
+		right.add_child(UiKit.title(str(e.title), 15, UiKit.ACCENT))
+		right.add_child(UiKit.label(str(e.text), 14, UiKit.TEXT, true))
+		shown += 1
+		if shown >= 8:
+			break
+	var missed := Campaign.never_opened(Game.session)
+	if not missed.is_empty():
+		right.add_child(HSeparator.new())
+		right.add_child(UiKit.label("%d kisah lain tidak sempat sampai ke meja Presiden pada masa bakti ini. Semuanya bisa dimainkan di Kumpulan Kisah." % missed.size(), 13, UiKit.MUTED, true))
 
 	var foot := UiKit.hbox(14)
-	var stat := UiKit.ghost_button("TINJAU STATISTIK", func(): open("statistics"))
-	stat.custom_minimum_size.y = 44
-	foot.add_child(stat)
+	foot.add_child(UiKit.ghost_button("BUKA BUKU KISAH", func(): open("journal")))
 	foot.add_child(UiKit.spacer())
 	var back := UiKit.ghost_button("KEMBALI KE PETA", close_screen)
-	back.custom_minimum_size.y = 44
 	foot.add_child(back)
-	var new_btn := UiKit.button("MULAI MANDAT BARU", func(): _origin = "map"; open("new"), true)
-	new_btn.custom_minimum_size = Vector2(230, 44)
+	var new_btn := UiKit.button("MULAI PEMERINTAHAN BARU", func(): _origin = "map"; open("new"), true)
+	new_btn.custom_minimum_size = Vector2(260, 44)
 	foot.add_child(new_btn)
 	_content.add_child(foot)
+
+
+func _scroll_card(title: String, parent: Node) -> VBoxContainer:
+	var card := _card(title, parent)
+	card.get_parent().size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	card.get_parent().size_flags_vertical = Control.SIZE_EXPAND_FILL
+	var sc := ScrollContainer.new()
+	sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	card.add_child(sc)
+	var box := UiKit.vbox(10)
+	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	sc.add_child(box)
+	return box
+
+
+## Buku Kisah: the player's own story history. No sources, citations or provenance here.
+func _journal() -> void:
+	var w := Game.world
+	var st := Narrative.ensure(w)
+	var row := UiKit.hbox(16)
+	row.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_content.add_child(row)
+	var story := _scroll_card("PERJALANAN", row)
+	story.get_parent().get_parent().get_parent().size_flags_stretch_ratio = 1.6
+	var entries: Array = st.journal
+	if entries.is_empty():
+		story.add_child(UiKit.label("Belum ada catatan. Kisahmu dimulai dari keputusan pertama.", 15, UiKit.MUTED, true))
+	for k in range(entries.size() - 1, -1, -1):
+		var e: Dictionary = entries[k]
+		var when := "Tahun %d · Kuartal %d" % [int(e.tick) / 12 + 1, (int(e.tick) % 12) / 3 + 1]
+		var tag: Array = {"keputusan": ["KEPUTUSAN", UiKit.ACCENT], "janji": ["JANJI", UiKit.INFO], "tertunda": ["TERTUNDA", UiKit.DANGER], "bab": ["BAB", UiKit.REAL]}.get(str(e.kind), ["CATATAN", UiKit.MUTED])
+		var head := UiKit.hbox(8)
+		head.add_child(UiKit.tag(tag[0], tag[1], 11))
+		head.add_child(UiKit.subheader(when, UiKit.MUTED, 12))
+		story.add_child(head)
+		story.add_child(UiKit.title(str(e.title), 17))
+		story.add_child(UiKit.label(str(e.text), 15, UiKit.TEXT, true))
+		story.add_child(HSeparator.new())
+	var side := UiKit.vbox(16)
+	side.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(side)
+	var prom := _scroll_card("JANJI DAN AKIBAT YANG MASIH BERJALAN", side)
+	var any := false
+	for pid in st.promises:
+		var p: Dictionary = st.promises[pid]
+		if str(p.status) != "open":
+			continue
+		any = true
+		var months := maxi(0, int(p.due_tick) - w.tick)
+		prom.add_child(UiKit.label("• %s (ditagih sekitar %d bulan lagi)" % [str(p.text), months], 14, UiKit.TEXT, true))
+	var pend := {}
+	for e in w.pending_effects:
+		var src := str(e.get("source", ""))
+		if src.begins_with("case:") and int(e.get("apply_tick", 0)) > w.tick:
+			var cid := src.get_slice("/", 0).trim_prefix("case:")
+			pend[cid] = mini(int(pend.get(cid, 999)), int(e.apply_tick) - w.tick)
+	for cid in pend:
+		any = true
+		prom.add_child(UiKit.label("• Hasil keputusan \"%s\" mulai terasa sekitar %d bulan lagi." % [str(ContentDB.cases.get(cid, {}).get("title", cid)), int(pend[cid])], 14, UiKit.TEXT, true))
+	if not any:
+		prom.add_child(UiKit.label("Tidak ada janji atau akibat tertunda saat ini.", 14, UiKit.MUTED, true))
+	var people := _scroll_card("TOKOH YANG DITEMUI", side)
+	for id in st.met:
+		var c: Dictionary = ContentDB.character(str(id))
+		if str(c.get("name", "")) == "":
+			for cid in ContentDB.cases:
+				var loc: Dictionary = ContentDB.cases[cid].get("story", {}).get("locals", {})
+				if loc.has(id):
+					c = loc[id]
+					break
+		if str(c.get("name", "")) != "":
+			people.add_child(UiKit.label("%s · %s" % [str(c.name), str(c.get("role", ""))], 14, UiKit.TEXT, true))
+	var foot := UiKit.hbox(12)
+	foot.add_child(UiKit.ghost_button("ULANGI TUTORIAL", func(): tutorial_requested.emit()))
+	foot.add_child(UiKit.spacer())
+	foot.add_child(UiKit.ghost_button("TUJUAN MASA BAKTI", func(): open("goals")))
+	_content.add_child(foot)
+
+
+func _goals() -> void:
+	var p := Narrative.pillars(Game.session)
+	var intro := _card("APA YANG KITA JAGA SELAMA LIMA TAHUN")
+	intro.add_child(UiKit.label("Masa bakti berlangsung dua puluh kuartal. Tidak ada pemerintahan yang menyelesaikan semuanya. Di akhir masa bakti, keempat tujuan ini dinilai bersama, bersama janji yang ditepati dan persoalan yang dibiarkan.", 16, UiKit.TEXT, true))
+	var grid := GridContainer.new()
+	grid.columns = 2
+	grid.add_theme_constant_override("h_separation", 16)
+	grid.add_theme_constant_override("v_separation", 16)
+	grid.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_content.add_child(grid)
+	var notes := {
+		"welfare": ["Kesejahteraan warga", "Apakah hidup orang di daerah membaik: penghasilan, pangan, rasa aman."],
+		"trust": ["Kepercayaan publik", "Apakah warga merasa didengar dan percaya pemerintah hadir."],
+		"services": ["Pelayanan publik", "Puskesmas, sekolah, air bersih, listrik, dan layanan yang terasa setiap hari."],
+		"fiscal": ["Kesehatan fiskal", "Kemampuan negara membiayai program tanpa membebani masa depan."],
+	}
+	for k in Narrative.PILLARS:
+		var card := PanelContainer.new()
+		card.theme_type_variation = "PanelCard"
+		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var v := UiKit.vbox(6)
+		card.add_child(v)
+		v.add_child(UiKit.title(str(notes[k][0]), 22, UiKit.ACCENT))
+		v.add_child(UiKit.label(str(notes[k][1]), 15, UiKit.MUTED, true))
+		var word := str(p[k].trend)
+		var col := UiKit.SUCCESS if word == "membaik" else UiKit.DANGER if word == "menurun" else UiKit.MUTED
+		v.add_child(UiKit.title("Sejak awal masa bakti: %s" % word, 19, col))
+		var unit := " poin ruang fiskal" if k == "fiscal" else " / 100"
+		v.add_child(UiKit.label("Sekarang %s%s (awal %s, perubahan %s)" % [Fmt.num(float(p[k].value), 1), unit, Fmt.num(float(p[k].start), 1), Fmt.signed(float(p[k].delta), 1)], 14, UiKit.MUTED, true))
+		grid.add_child(card)
+
+
+func _library() -> void:
+	var intro := UiKit.label("Setiap kisah bisa dimainkan sendiri di ruang terpisah. Pilihanmu di sini tidak mengubah pemerintahan utama atau simpananmu.", 16, UiKit.MUTED, true)
+	_content.add_child(intro)
+	var sc := ScrollContainer.new()
+	sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_content.add_child(sc)
+	var grid := GridContainer.new()
+	grid.columns = 3
+	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	grid.add_theme_constant_override("h_separation", 14)
+	grid.add_theme_constant_override("v_separation", 14)
+	sc.add_child(grid)
+	for id in ContentDB.library_cases():
+		var c: Dictionary = ContentDB.cases[id]
+		var card := PanelContainer.new()
+		card.theme_type_variation = "PanelCard"
+		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		card.custom_minimum_size = Vector2(380, 0)
+		var v := UiKit.vbox(6)
+		card.add_child(v)
+		v.add_child(UiKit.subheader(str(c.get("location_label", "")).to_upper(), UiKit.WARN, 12))
+		var t := UiKit.title(str(c.get("title", id)), 19)
+		t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		v.add_child(t)
+		v.add_child(UiKit.label(str(c.get("story", {}).get("agenda", {}).get("hook", "")), 14, UiKit.TEXT, true))
+		var cid: String = id
+		var play := UiKit.button("MAINKAN KISAH", func(): scenario_requested.emit(cid), true)
+		play.size_flags_horizontal = Control.SIZE_SHRINK_END
+		play.disabled = c.get("story", {}).is_empty()
+		v.add_child(play)
+		grid.add_child(card)
+
+
+func _credits() -> void:
+	var sc := ScrollContainer.new()
+	sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_content.add_child(sc)
+	var v := UiKit.vbox(16)
+	v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	sc.add_child(v)
+	for sec in ContentDB.story.get("credits", {}).get("sections", []):
+		var card := _card(str(sec.title).to_upper(), v)
+		for line in sec.lines:
+			card.add_child(UiKit.label(str(line), 16, UiKit.TEXT, true))
+
+
+func _scenario_end() -> void:
+	var w := Game.world
+	var cid := Game.scenario_case
+	var c: Dictionary = ContentDB.cases.get(cid, {})
+	var card := _card(str(c.get("title", "")).to_upper())
+	var choice := str(w.case_state.get(cid, {}).get("choice_id", ""))
+	card.add_child(UiKit.label(str(c.get("story", {}).get("journal", {}).get(choice, "")), 18, UiKit.TEXT, true))
+	var p := Narrative.pillars(Game.session)
+	for k in Narrative.PILLARS:
+		card.add_child(UiKit.kv_row(str(Narrative.PILLAR_LABELS[k]), "%s (%s)" % [str(p[k].trend), Fmt.signed(float(p[k].delta), 1)], UiKit.TEXT, 15))
+	card.add_child(UiKit.label("Setahun setelah keputusanmu. Coba pilihan lain untuk melihat bagaimana kisahnya berubah.", 15, UiKit.MUTED, true))
+	var row := UiKit.hbox(12)
+	row.add_child(UiKit.button("MAINKAN ULANG", func(): Game.end_scenario(); scenario_requested.emit(cid), true))
+	row.add_child(UiKit.ghost_button("KEMBALI KE KUMPULAN KISAH", func(): Game.end_scenario(); open("library")))
+	card.add_child(row)
 
 
 func _focus_first() -> void:

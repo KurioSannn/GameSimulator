@@ -37,7 +37,7 @@ func _ready() -> void:
 	var data := UiKit.ghost_button("Data Wilayah", _view_data, "Buka detail wilayah kasus")
 	data.custom_minimum_size = Vector2(160, 46)
 	_footer.add_child(data)
-	_selection_summary = UiKit.label("Pilih opsi 1–3, lalu tetapkan keputusan.", 16, UiKit.MUTED, true)
+	_selection_summary = UiKit.label("Pilih satu langkah, lalu tetapkan keputusan.", 16, UiKit.MUTED, true)
 	_selection_summary.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_footer.add_child(_selection_summary)
 	_confirm = UiKit.button("Tetapkan keputusan", _confirm_choice, true)
@@ -67,14 +67,14 @@ func present(id: String) -> void:
 
 	var brief_top := UiKit.hbox(12)
 	var loc := str(current.get("location_label", "")).strip_edges()
-	var eyebrow_txt := ("SITUASI KRISIS · " + loc.to_upper()) if loc != "" else "SITUASI KRISIS"
+	var eyebrow_txt := ("KEPUTUSAN PRESIDEN · " + loc.to_upper()) if loc != "" else "KEPUTUSAN PRESIDEN"
 	var eyebrow := UiKit.subheader(eyebrow_txt, UiKit.WARN, 16)
 	eyebrow.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	eyebrow.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	brief_top.add_child(eyebrow)
 
 	_context_details = UiKit.vbox(12)
-	var more := UiKit.ghost_button("Laporan lengkap  ▾", func():
+	var more := UiKit.ghost_button("Latar kisah  ▾", func():
 		_context_details.visible = not _context_details.visible
 		_fit.call_deferred())
 	more.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -99,7 +99,7 @@ func present(id: String) -> void:
 	var choices := UiKit.vbox(8)
 	choices.custom_minimum_size.x = 460
 	choices.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	choices.add_child(UiKit.subheader("PILIH KEBIJAKAN (TEKAN 1–3)", UiKit.MUTED, 15))
+	choices.add_child(UiKit.subheader("PILIH LANGKAH (TEKAN 1 SAMPAI 3)", UiKit.MUTED, 15))
 	columns.add_child(choices)
 	var detail := _card()
 	detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -120,6 +120,9 @@ func present(id: String) -> void:
 
 
 func _player_intro(current: Dictionary) -> String:
+	var hook := str(current.get("story", {}).get("agenda", {}).get("hook", "")).strip_edges()
+	if hook != "":
+		return hook
 	var narrative := str(current.get("simulated_context", {}).get("text", current.get("briefing", {}).get("text", ""))).strip_edges()
 	if narrative.begins_with("Pak Presiden, kasus ini diangkat"):
 		var end := narrative.find(". ")
@@ -140,8 +143,8 @@ func _player_intro(current: Dictionary) -> String:
 func _show_selection() -> void:
 	UiKit.clear(_selection_detail)
 	if _selected == "":
-		_selection_detail.add_child(UiKit.title("Wilayah Terdampak", 26))
-		_selection_detail.add_child(UiKit.label("Klik salah satu opsi di kiri (atau tekan 1–3) untuk melihat manfaat, risiko, dan jangkauannya.", 18, UiKit.MUTED, true))
+		_selection_detail.add_child(UiKit.title("Wilayah yang terdampak", 26))
+		_selection_detail.add_child(UiKit.label("Klik salah satu langkah di kiri, atau tekan angkanya, untuk melihat siapa yang terbantu dan siapa yang menanggung.", 18, UiKit.MUTED, true))
 		var current: Dictionary = ContentDB.cases[case_id]
 		if map_lod != null and not current.get("focus_regions", []).is_empty():
 			var preview := MapPreview.new()
@@ -156,23 +159,47 @@ func _show_selection() -> void:
 		if str(choice.choice_id) != _selected:
 			continue
 		var data := ChangeText.choice_card_data(choice)
+		var info: Dictionary = ContentDB.cases[case_id].get("story", {}).get("choices", {}).get(str(choice.choice_id), {})
 		var heading := UiKit.title(str(choice.label), 26)
 		heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_selection_detail.add_child(heading)
+		if info.has("intent"):
+			_selection_detail.add_child(UiKit.label(str(info.intent), 19, UiKit.MUTED, true))
 		_selection_detail.add_child(HSeparator.new())
-		var ben_box := _tint_box(UiKit.SUCCESS)
-		var ben_col: VBoxContainer = ben_box.get_child(0)
-		ben_col.add_child(UiKit.title("Manfaat", 20, UiKit.SUCCESS))
-		ben_col.add_child(UiKit.label(str(data.benefit), 20, UiKit.TEXT, true))
-		_selection_detail.add_child(ben_box)
-		var risk_box := _tint_box(UiKit.WARN)
-		var risk_col: VBoxContainer = risk_box.get_child(0)
-		risk_col.add_child(UiKit.title("Risiko", 20, UiKit.WARN))
-		risk_col.add_child(UiKit.label(str(data.risk), 20, UiKit.TEXT, true))
-		_selection_detail.add_child(risk_box)
-		_selection_detail.add_child(UiKit.spacer())
-		_selection_detail.add_child(UiKit.label(str(data.scope_chip), 18, UiKit.MUTED, true))
+		if info.is_empty():
+			_add_box(UiKit.SUCCESS, "Manfaat", str(data.benefit))
+			_add_box(UiKit.WARN, "Risiko", str(data.risk))
+		else:
+			_add_box(UiKit.SUCCESS, "Siapa terbantu", str(info.get("helps", "")))
+			_add_box(UiKit.WARN, "Siapa menanggung", str(info.get("burden", "")))
+			var timing := UiKit.hbox(10)
+			timing.add_child(_add_box(UiKit.INFO, "Yang terjadi segera", str(info.get("now", "")), false))
+			timing.add_child(_add_box(UiKit.ACCENT, "Yang butuh waktu", str(info.get("later", "")), false))
+			for c in timing.get_children():
+				c.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			_selection_detail.add_child(timing)
+		var numbers := UiKit.vbox(4)
+		numbers.add_child(UiKit.label(_cost_line(choice), 16, UiKit.TEXT, true))
+		if not info.is_empty():
+			numbers.add_child(UiKit.label("Manfaat terukur: " + str(data.benefit), 15, UiKit.MUTED, true))
+			numbers.add_child(UiKit.label("Risiko terukur: " + str(data.risk), 15, UiKit.MUTED, true))
+		numbers.add_child(UiKit.label(str(data.scope_chip), 15, UiKit.MUTED, true))
+		numbers.hide()
+		var toggle := UiKit.ghost_button("Rincian angka  ▾", func(): numbers.visible = not numbers.visible; _fit.call_deferred(), "Angka simulasi untuk pilihan ini")
+		toggle.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+		_selection_detail.add_child(toggle)
+		_selection_detail.add_child(numbers)
 	_fit.call_deferred()
+
+
+func _add_box(accent: Color, title_text: String, body_text: String, attach := true) -> PanelContainer:
+	var box := _tint_box(accent)
+	var col: VBoxContainer = box.get_child(0)
+	col.add_child(UiKit.title(title_text, 18, accent))
+	col.add_child(UiKit.label(body_text, 18, UiKit.TEXT, true))
+	if attach:
+		_selection_detail.add_child(box)
+	return box
 
 
 func _tint_box(accent: Color) -> PanelContainer:
@@ -187,12 +214,13 @@ func _tint_box(accent: Color) -> PanelContainer:
 func _build_context(current: Dictionary) -> void:
 	var real: Dictionary = current.get("real_context", {})
 	if not real.get("lines", []).is_empty():
-		_context_details.add_child(UiKit.subheader("FAKTA SEJARAH", UiKit.REAL, 14))
+		_context_details.add_child(UiKit.label("Kisah ini diangkat dari peristiwa nyata. Pilihan dan akibatnya di permainan adalah simulasi.", 15, UiKit.FICTION, true))
+		_context_details.add_child(UiKit.subheader("LATAR SEJARAH", UiKit.REAL, 14))
 		for fact in real.lines:
 			_context_details.add_child(UiKit.label("• " + str(fact.text), 16, UiKit.TEXT, true))
-			var source := UiKit.label("Sumber: " + ChangeText.clean_source_names(fact.source_refs, str(fact.as_of)), 14, UiKit.MUTED, true)
-			source.tooltip_text = "ID sumber: " + ", ".join(fact.source_refs)
-			_context_details.add_child(source)
+			if bool(UiPreferences.values.get("show_sources", false)):
+				var source := UiKit.label("Sumber (mode pengembang): " + ", ".join(fact.source_refs), 13, UiKit.MUTED, true)
+				_context_details.add_child(source)
 	var simulated: Dictionary = current.get("simulated_context", {})
 	if not simulated.is_empty():
 		_context_details.add_child(UiKit.label(str(simulated.text), 16, UiKit.TEXT, true))
@@ -201,10 +229,10 @@ func _build_context(current: Dictionary) -> void:
 		_context_details.add_child(UiKit.title("Alasan kasus muncul", 18))
 		for line in ChangeText.describe_conditions(Game.world, trigger.get("conditions", {})):
 			_context_details.add_child(UiKit.label(str(line), 16, UiKit.TEXT, true))
-	var advisor: Dictionary = current.get("briefing", {})
-	_context_details.add_child(HSeparator.new())
-	_context_details.add_child(UiKit.label(str(advisor.get("speaker", "Penasihat")) + " · DIALOG FIKSI", 14, UiKit.FICTION, true))
-	_context_details.add_child(UiKit.label("“" + str(advisor.get("text", "")) + "”", 16, UiKit.TEXT, true))
+	if current.get("story", {}).is_empty():
+		var advisor: Dictionary = current.get("briefing", {})
+		_context_details.add_child(HSeparator.new())
+		_context_details.add_child(UiKit.label("“" + str(advisor.get("text", "")) + "”", 16, UiKit.TEXT, true))
 func _build_choice_card(number: int, choice: Dictionary, group: ButtonGroup) -> Button:
 	var data := ChangeText.choice_card_data(choice)
 	var button := Button.new()
@@ -231,6 +259,9 @@ func _build_choice_card(number: int, choice: Dictionary, group: ButtonGroup) -> 
 	selected.modulate.a = 0.0
 	head.add_child(selected)
 	body.add_child(head)
+	var intent := str(ContentDB.cases[case_id].get("story", {}).get("choices", {}).get(str(choice.choice_id), {}).get("intent", ""))
+	if intent != "":
+		body.add_child(UiKit.label(intent, 16, UiKit.MUTED, true))
 	var cost_row := UiKit.hbox(8)
 	cost_row.add_child(FigmaAssets.picture(6, "imgIkonCoin", Vector2(20, 20)))
 	var cost := UiKit.number(str(data.cost_text).trim_prefix("Anggaran "), 20, UiKit.ACCENT)
@@ -267,11 +298,11 @@ func _select(choice_id: String) -> void:
 
 func _update_confirm() -> void:
 	_confirm.disabled = _selected == ""
-	_selection_summary.text = "Pilih opsi 1–3 untuk melihat detail sebelum menetapkan."
+	_selection_summary.text = "Pilih satu langkah untuk melihat siapa yang terbantu dan siapa yang menanggung."
 	if _selected != "":
 		for choice in ContentDB.cases[case_id].choices:
 			if choice.choice_id == _selected:
-				_selection_summary.text = "Opsi %s terpilih — tekan Enter untuk menetapkan." % _selected.to_upper()
+				_selection_summary.text = "Opsi %s terpilih. Tekan Enter untuk menetapkan." % _selected.to_upper()
 	_confirm.tooltip_text = "Pilih satu opsi terlebih dahulu." if _selected == "" else "Tetapkan pilihan (Enter)"
 
 func _confirm_choice() -> void:

@@ -1,0 +1,130 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0001-R",
+ "fact_class": "FICTIONAL",
+ "parent": "CASE-0001",
+ "background": "kota_hujan",
+ "locals": {
+  "bu_yati": {
+   "name": "Bu Yati",
+   "role": "Pedagang sayur, Jakarta Timur",
+   "color": "7a4f8a",
+   "initials": "Y"
+  },
+  "pak_asep": {
+   "name": "Pak Asep",
+   "role": "Relawan desa, Kabupaten Lebak",
+   "color": "4f7a5a",
+   "initials": "A"
+  }
+ },
+ "agenda": {
+  "hook": "Musim hujan kembali. Banjir datang lagi ke kawasan yang sama.",
+  "label": "Lanjutan"
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Musim hujan kembali. Di kawasan yang sama, air kembali naik.",
+   "bg": "kota_hujan"
+  },
+  {
+   "pick": [
+    {
+     "if": {
+      "case_choice": "CASE-0001",
+      "choice": "c"
+     },
+     "beats": [
+      {
+       "s": "bu_yati",
+       "e": "berpikir",
+       "t": "Tanggul yang dulu dijanjikan itu, Pak. Musim ini kita lihat apakah dia menahan air.",
+       "bg": "kota_hujan"
+      }
+     ]
+    },
+    {
+     "if": {
+      "case_choice": "CASE-0001",
+      "choice": "a"
+     },
+     "beats": [
+      {
+       "s": "bu_yati",
+       "e": "kecewa",
+       "t": "Dulu bantuan datang cepat sekali. Tapi sungainya tidak berubah, Pak, dan airnya datang lagi.",
+       "bg": "kota_hujan"
+      }
+     ]
+    },
+    {
+     "if": {},
+     "beats": [
+      {
+       "s": "pak_asep",
+       "e": "netral",
+       "t": "Kali ini BPBD kami lebih siap. Tapi hujannya sama derasnya.",
+       "bg": "desa"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Seberapa parah kali ini bergantung pada apa yang sudah kita bangun sejak banjir tahun baru.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Dan sekarang kita lihat hasilnya."
+  }
+ ],
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Evakuasi dan pemulihan dipusatkan di wilayah yang terendam."
+   },
+   {
+    "s": "bu_yati",
+    "e": "netral",
+    "t": "Petugas datang lebih cepat dari dulu. Tapi airnya tetap masuk rumah."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Anggaran besar dialirkan untuk drainase dan tanggul."
+   },
+   {
+    "s": "yosef",
+    "e": "serius",
+    "t": "Musim ini tetap berat. Enam bulan lagi, kawasan ini lebih terlindungi."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Sirene peringatan dini dipasang dan warga berlatih mengungsi."
+   },
+   {
+    "s": "pak_asep",
+    "e": "senyum",
+    "t": "Kali ini kami tahu kapan harus naik ke tempat tinggi. Tidak ada yang terjebak."
+   }
+  ]
+ },
+ "journal": {
+  "a": "Banjir musim hujan berikutnya ditangani dengan bantuan darurat cepat.",
+  "b": "Pengendali banjir Jabodetabek dipercepat setelah banjir musim berikutnya.",
+  "c": "Peringatan dini dan latihan evakuasi dipasang di kawasan banjir Jabodetabek."
+ }
+}

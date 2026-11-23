@@ -28,6 +28,7 @@ const SUITES := [
 	"res://tests/test_diorama.gd",
 	"res://tests/test_audio.gd",
 	"res://tests/test_map_input.gd",
+	"res://tests/test_story.gd",
 ]
 
 var failures: PackedStringArray = []
