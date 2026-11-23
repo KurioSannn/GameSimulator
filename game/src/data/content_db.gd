@@ -126,8 +126,19 @@ func character(id: String, case_record: Dictionary = {}) -> Dictionary:
 		return cast[id]
 	var locals: Dictionary = case_record.get("story", {}).get("locals", {})
 	if locals.has(id):
-		return locals[id]
+		var c: Dictionary = locals[id].duplicate()
+		if str(c.get("portrait", "")) == "":
+			var path := local_portrait_path(str(case_record.get("case_id", "")), id)
+			if ResourceLoader.exists(path):
+				c["portrait"] = path
+				c["portrait_kind"] = "card"
+		return c
 	return {"name": "", "role": "", "color": "8a7a5a"}
+
+
+## Portrait of an episode's local character. Follow-ups (CASE-0001-A) share the parent case's cast.
+static func local_portrait_path(case_id: String, local_id: String) -> String:
+	return "res://assets/story/portraits/locals/%s_%s.jpg" % [case_id.substr(0, 9), local_id]
 
 
 ## Top-level playable cases (major historical) in id order: the Kumpulan Kisah library.

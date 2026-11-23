@@ -31,3 +31,6 @@ research/reports/ui_runtime_20261115/flow/preferences.cfg
 data/raw/**/*.sql
 data/processed/**/*.geojson
 data/raw/**/*.pdf
+
+# Raw AI image downloads (regenerable from scripts/art; checksums of shipped crops in game/assets/story/ART_MANIFEST.json)
+work/art_raw/*.png

@@ -1,40 +1,75 @@
 {
  "schema": "nusantara.story_cast/1",
  "fact_class": "FICTIONAL",
- "note": "Recurring cast. All characters are fictional; none represents a real official. Portraits marked art_pending use the generated medallion until the art team (Ananda/Cleo) supplies a drawing; replace 'portrait' with a res:// path and set art_pending false.",
+ "note": "Recurring cast. All characters are fictional; none represents a real official. Nara and Laras use the team's approved art. Bayu, Yosef and Sekar use AI-generated portraits with expression variants (docs/12, research/reports/AI_USAGE_LOG.md); episode locals resolve to res://assets/story/portraits/locals/<CASE>_<id>.jpg (ContentDB.local_portrait_path).",
  "characters": {
   "nara": {
-   "name": "Nara Adinata", "role": "Presiden Republik Indonesia",
-   "portrait": "res://assets/ui/figma/2_NaraAdinataKarakterPemain_e7034.png", "portrait_kind": "full",
-   "color": "1f3a5f", "art_pending": false,
+   "name": "Nara Adinata",
+   "role": "Presiden Republik Indonesia",
+   "portrait": "res://assets/ui/figma/2_NaraAdinataKarakterPemain_e7034.png",
+   "portrait_kind": "full",
+   "color": "1f3a5f",
+   "art_pending": false,
    "voice": "Tenang, ringkas, suka bertanya. Sesekali terlalu menganalisis. Tidak pernah berpidato panjang."
   },
   "laras": {
-   "name": "Laras Prameswari", "role": "Sekretaris Presiden",
-   "portrait": "res://assets/ui/figma/5_AvatarPenasihatPemerintah_c2bae.jpg", "portrait_kind": "avatar",
-   "color": "2f6f73", "art_pending": false,
+   "name": "Laras Prameswari",
+   "role": "Sekretaris Presiden",
+   "portrait": "res://assets/ui/figma/5_AvatarPenasihatPemerintah_c2bae.jpg",
+   "portrait_kind": "card",
+   "color": "2f6f73",
+   "art_pending": false,
    "voice": "Rapi dan hangat. Menghubungkan satu keputusan dengan keputusan lain. Sering menutup dengan langkah berikutnya."
   },
   "bayu": {
-   "name": "Bayu Hartono", "role": "Penasihat Keuangan",
-   "portrait": "", "portrait_kind": "generated", "initials": "BH",
-   "color": "8a5a1f", "art_pending": true,
-   "voice": "Hati-hati, humornya kering. Selalu bertanya siapa yang membayar dan apa yang harus menunggu."
+   "name": "Bayu Hartono",
+   "role": "Penasihat Keuangan",
+   "portrait": "res://assets/story/portraits/bayu.jpg",
+   "portrait_kind": "card",
+   "color": "8a5a1f",
+   "art_pending": false,
+   "voice": "Hati-hati, humornya kering. Selalu bertanya siapa yang membayar dan apa yang harus menunggu.",
+   "expressions": {
+    "senyum": "res://assets/story/portraits/bayu_senyum.jpg",
+    "cemas": "res://assets/story/portraits/bayu_cemas.jpg",
+    "serius": "res://assets/story/portraits/bayu_serius.jpg"
+   }
   },
   "yosef": {
-   "name": "Yosef Latumahina", "role": "Penasihat Pembangunan Daerah",
-   "portrait": "", "portrait_kind": "generated", "initials": "YL",
-   "color": "3c6e3a", "art_pending": true,
-   "voice": "Orang lapangan. Bicara tentang jarak, perahu, jalan, dan nama kampung. Tidak sabar dengan rapat yang terlalu panjang."
+   "name": "Yosef Latumahina",
+   "role": "Penasihat Pembangunan Daerah",
+   "portrait": "res://assets/story/portraits/yosef.jpg",
+   "portrait_kind": "card",
+   "color": "3c6e3a",
+   "art_pending": false,
+   "voice": "Orang lapangan. Bicara tentang jarak, perahu, jalan, dan nama kampung. Tidak sabar dengan rapat yang terlalu panjang.",
+   "expressions": {
+    "senyum": "res://assets/story/portraits/yosef_senyum.jpg",
+    "cemas": "res://assets/story/portraits/yosef_cemas.jpg",
+    "serius": "res://assets/story/portraits/yosef_serius.jpg"
+   }
   },
   "sekar": {
-   "name": "Sekar Anindita", "role": "Penasihat Komunikasi Publik",
-   "portrait": "", "portrait_kind": "generated", "initials": "SA",
-   "color": "9b3b4a", "art_pending": true,
-   "voice": "Cepat dan blak-blakan. Membaca suasana hati warga. Mengingatkan bahwa kepercayaan lambat naik dan cepat turun."
+   "name": "Sekar Anindita",
+   "role": "Penasihat Komunikasi Publik",
+   "portrait": "res://assets/story/portraits/sekar.jpg",
+   "portrait_kind": "card",
+   "color": "9b3b4a",
+   "art_pending": false,
+   "voice": "Cepat dan blak-blakan. Membaca suasana hati warga. Mengingatkan bahwa kepercayaan lambat naik dan cepat turun.",
+   "expressions": {
+    "senyum": "res://assets/story/portraits/sekar_senyum.jpg",
+    "cemas": "res://assets/story/portraits/sekar_cemas.jpg",
+    "serius": "res://assets/story/portraits/sekar_serius.jpg"
+   }
   },
   "narasi": {
-   "name": "", "role": "", "portrait": "", "portrait_kind": "none", "color": "5a4a32", "art_pending": false,
+   "name": "",
+   "role": "",
+   "portrait": "",
+   "portrait_kind": "none",
+   "color": "5a4a32",
+   "art_pending": false,
    "voice": "Narator: kalimat pendek, deskriptif, tanpa angka."
   }
  }

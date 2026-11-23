@@ -1,0 +1,28 @@
+sheet_bayu https://www.figma.com/api/mcp/asset/6538b63c-17e5-4ad8-ad8a-04e55c6365d7.png
+sheet_yosef https://www.figma.com/api/mcp/asset/6e944160-1151-4faf-91c6-faf3da469e89.png
+sheet_sekar https://www.figma.com/api/mcp/asset/499aa738-517d-4721-9953-63980c5b83a4.png
+sheet_L01 https://www.figma.com/api/mcp/asset/44f93ebf-aa25-4895-a148-9e122b585665.png CASE-0001_bu_yati CASE-0001_pak_asep CASE-0002_pak_ridwan CASE-0002_bu_nirwana
+sheet_L02 https://www.figma.com/api/mcp/asset/8c4e235e-d356-4ed9-9f0e-72d5618bcefc.png CASE-0003_bu_endang CASE-0003_pak_togar CASE-0004_pak_ilham CASE-0004_bu_rina
+sheet_L03 https://www.figma.com/api/mcp/asset/f49029c4-6398-4046-9efe-e4c81f356f5d.png CASE-0005_mas_fajar CASE-0005_mama_sara CASE-0006_bu_martha CASE-0006_pak_yakob
+sheet_L04 https://www.figma.com/api/mcp/asset/87bcc2c3-bfe9-4838-aef2-f667561bc978.png CASE-0007_suster_ani CASE-0007_pak_markus CASE-0008_bang_roni CASE-0008_bu_wati
+sheet_L05 https://www.figma.com/api/mcp/asset/059ffd65-2799-4218-9d44-fb9a758ca2d6.png CASE-0011_mbak_dinda CASE-0011_pak_hasan CASE-0013_bu_yuliana CASE-0013_pak_niko
+sheet_L06 https://www.figma.com/api/mcp/asset/a07cf93b-212c-401b-9861-40cb68b052d0.png CASE-0014_kang_ujang CASE-0014_bu_lastri CASE-0015_pak_darmo CASE-0015_mbak_ratih
+sheet_L07 https://www.figma.com/api/mcp/asset/54f0f93b-aa52-4c02-8618-e02c72820340.png CASE-0016_mama_yohana CASE-0016_pak_benny CASE-0020_dokter_ayu CASE-0020_bu_tina
+sheet_L08 https://www.figma.com/api/mcp/asset/421a42ab-d5d5-4c63-a31d-a0c10801d365.png CASE-0021_bu_sri CASE-0021_dr_fikri CASE-0022_bu_cut CASE-0022_pak_ilyas
+sheet_L09 https://www.figma.com/api/mcp/asset/57896ce1-7a4c-4e5f-ae3f-a37395add705.png CASE-0023_teh_neneng CASE-0023_mang_ujang CASE-0024_pak_sutrisno CASE-0024_mbak_lina
+sheet_L10 https://www.figma.com/api/mcp/asset/84a57f08-9b36-45b9-ac60-0491b4874837.png CASE-0025_mama_theresia CASE-0025_om_frans CASE-0026_bu_marni CASE-0026_bang_jefri
+sheet_L11 https://www.figma.com/api/mcp/asset/2de815a8-cf3e-49c9-ad5a-918d07d6ddb2.png CASE-0027_pak_rahman CASE-0027_bu_asni CASE-0028_acil_imah CASE-0028_pak_hasbi
+sheet_L12 https://www.figma.com/api/mcp/asset/3892867c-d17a-4d33-80ad-bfd04535276e.png CASE-0029_om_yance CASE-0029_tante_lusi CASE-0030_uni_ros CASE-0030_da_ipul
+sheet_L13 https://www.figma.com/api/mcp/asset/9a0a98a6-9854-44e1-b50e-c6393b8bb174.png CASE-0031_pak_kasmin CASE-0031_mbak_ninik CASE-0032_mama_veronika CASE-0032_pater_dominikus
+sheet_L14 https://www.figma.com/api/mcp/asset/5ee425a0-e4bf-4c62-b2c4-5b82a85c8354.png CASE-0033_mas_dimas CASE-0033_bu_ani CASE-0034_mama_ina CASE-0034_bidan_rosa
+sheet_L15 https://www.figma.com/api/mcp/asset/11e8abbd-7e8a-4d75-b539-a9787f00df75.png CASE-0035_pak_darsono CASE-0035_bu_wayan CASE-0036_mbak_sri CASE-0036_pak_tono
+sheet_L16 https://www.figma.com/api/mcp/asset/c789d14a-c32f-4bbe-9d4a-c050bcd3f807.png CASE-0037_mang_ade CASE-0037_teh_rina CASE-0038_pak_joko CASE-0038_dr_maya
+sheet_L17 https://www.figma.com/api/mcp/asset/8228d447-d3e7-40ac-bd41-84f23ccaff30.png CASE-0039_pak_haji_mukhlis CASE-0039_bu_nur CASE-0040_pak_andi CASE-0040_bu_hasna
+sheet_L18 https://www.figma.com/api/mcp/asset/b200a273-2273-4b01-b15d-014395a6dc68.png CASE-0041_bli_komang CASE-0041_mbok_sari CASE-0042_pak_slamet CASE-0042_bu_kartini
+sheet_L19 https://www.figma.com/api/mcp/asset/ec0d7e01-ee2f-4008-911d-3251dda11fc6.png CASE-0043_mama_yuliana CASE-0043_drh_petrus CASE-0044_uda_rizal CASE-0044_amak_nur
+sheet_L20 https://www.figma.com/api/mcp/asset/987988c4-34d2-4e86-ab83-ec871802ae00.png CASE-0045_bu_aisyah CASE-0045_pak_rofiq CASE-0046_inang_rosmaida CASE-0046_amang_tigor
+sheet_L21 https://www.figma.com/api/mcp/asset/df12d35f-9c7c-461e-b878-b52a4f6d20dd.png CASE-0047_mas_bagus CASE-0047_mbah_sukirah CASE-0048_pak_jamal CASE-0048_bu_halimah
+sheet_L22 https://www.figma.com/api/mcp/asset/3ccfe00c-c025-4239-949e-d61269c207e2.png CASE-0049_bu_sumi CASE-0049_pak_rahmat CASE-0050_uda_rizal CASE-0050_bu_nurlela
+sheet_L23 https://www.figma.com/api/mcp/asset/380737bb-6998-4372-9527-be2fd83086d0.png CASE-0051_pak_udin CASE-0051_bu_enah CASE-0052_pak_ketut CASE-0052_bu_marni
+sheet_L24 https://www.figma.com/api/mcp/asset/c8d734f9-2ae3-4674-bd18-548b40613c7c.png CASE-0053_pak_dahlan CASE-0053_kak_sinta CASE-0054_dr_maria CASE-0054_pak_yohanis
+sheet_L25 https://www.figma.com/api/mcp/asset/2bec95fe-d7d8-4a94-a66c-2f6fec661c3a.png CASE-0055_kang_dede CASE-0055_bu_iis CASE-0056_bu_rini CASE-0056_pak_hendra

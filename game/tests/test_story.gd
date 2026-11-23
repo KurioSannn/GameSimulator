@@ -68,6 +68,32 @@ func test_every_case_has_a_complete_episode() -> void:
 				t.check(StoryBackdrop.KINDS.has(str(b.bg)), "%s: background '%s' known" % [id, str(b.bg)])
 
 
+func test_every_speaker_has_drawn_art_and_every_scene_a_painted_backdrop() -> void:
+	# Release rule: no generated medallion placeholders and no procedural-only scenes in story mode.
+	for id in _cases():
+		var c: Dictionary = _cases()[id]
+		var st: Dictionary = c.get("story", {})
+		var beats: Array = []
+		_speakers(st.get("opening", []), beats)
+		for k in st.get("reactions", {}):
+			_speakers(st.reactions[k], beats)
+		for cb in st.get("callbacks", []):
+			_speakers(cb.get("beats", []), beats)
+		_speakers(st.get("unattended", []), beats)
+		var seen := {}
+		for b in beats:
+			var who := str(b.get("s", ""))
+			if who == "narasi" or seen.has(who):
+				continue
+			seen[who] = true
+			var ch := ContentDB.character(who, c)
+			var path := str(ch.get("portrait", ""))
+			t.check(path != "" and ResourceLoader.exists(path), "%s: '%s' has a portrait" % [id, who])
+		for bg in [str(st.get("background", ""))] + beats.map(func(x): return str(x.get("bg", ""))):
+			if bg != "" and bg != "peta":
+				t.check(StoryBackdrop.art_for(bg) != null, "%s: backdrop '%s' is painted" % [id, bg])
+
+
 func test_story_scripts_reference_defined_speakers() -> void:
 	var cast: Dictionary = ContentDB.story.cast.characters
 	var beats: Array = []

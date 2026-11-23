@@ -1,0 +1,1224 @@
+{
+ "schema": "nusantara.art_manifest/1",
+ "generated": "2026-11-23",
+ "tool": "Figma AI image generation (model gpt-image-2.5-flare) via the Figma MCP connector, run by Claude Code at the user's request",
+ "figma_file": "XP4EqEvlREoHCJDKRhN0vv (draft \"NUSANTARA Story Art (generated)\")",
+ "style": "Bold outline, cel-shaded cartoon matching the team's approved Nara Adinata art; portraits chest-up on a teal-blue gradient; backgrounds 16:9 without people or text",
+ "processing": "Backgrounds: PNG 1536x864 -> JPEG q86. Portraits: 2x2 sheets split on white gutters by scripts/art/crop_sheet.py -> 512x512 JPEG.",
+ "characters": "All depicted people are fictional composites; no real person, brand or copyrighted character was requested. Nara Adinata and Laras Prameswari keep the team's approved art.",
+ "human_review": "pending (Galih/Cleo/Ananda)",
+ "source_asset_note": "Figma asset URLs expire after 7 days; the files themselves are the record.",
+ "assets": [
+  {
+   "path": "res://assets/story/backgrounds/asap.jpg",
+   "kind": "background",
+   "id": "asap",
+   "sha256": "1d1282dda5cb8ffc84cfc96d811fbeffecdba43bbc81d7322430f8f7ad7d7970",
+   "source_asset": "https://www.figma.com/api/mcp/asset/25cd6845-8345-433b-a204-fc86aec44d7f.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/banjir_bandang.jpg",
+   "kind": "background",
+   "id": "banjir_bandang",
+   "sha256": "ea129609eac9500e062d1d90d8211c517321074ea368d3fc2364ec3afd79413d",
+   "source_asset": "https://www.figma.com/api/mcp/asset/5c0c159b-65cb-45bd-929b-372e09770bd1.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/danau.jpg",
+   "kind": "background",
+   "id": "danau",
+   "sha256": "9bfb62491a7d70f3e1c5c8b3c2744921c4ba4ea7c05f5daf3b27bc81bd1e4951",
+   "source_asset": "https://www.figma.com/api/mcp/asset/2b2705cc-4c8e-465b-80fb-c097990a96e3.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/desa.jpg",
+   "kind": "background",
+   "id": "desa",
+   "sha256": "a9186bc3414615d1c6a44e628431965ee56760e58f80fe510ccfc7b6e56b941f",
+   "source_asset": "https://www.figma.com/api/mcp/asset/30b10320-ff3e-46c0-b420-aa07d09a5a15.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/gambut.jpg",
+   "kind": "background",
+   "id": "gambut",
+   "sha256": "154c898baf72010797cbfeeb4e62bcb123d7e91cbe537a7cee2bdac3e2cc797c",
+   "source_asset": "https://www.figma.com/api/mcp/asset/25ebd019-578e-4020-8c4e-9aa372bc6c62.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/gunung_api.jpg",
+   "kind": "background",
+   "id": "gunung_api",
+   "sha256": "741622c751876f62e269bc2dfa8f37a46d429b907eed743dd66a75009f197e43",
+   "source_asset": "https://www.figma.com/api/mcp/asset/c0fac004-4a02-4134-b7a6-4a391e3872cc.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/hutan.jpg",
+   "kind": "background",
+   "id": "hutan",
+   "sha256": "8313d6cb2214adf97d35063d0aa7ccd855ef3d0b1f89ddb55e67545377d5bf86",
+   "source_asset": "https://www.figma.com/api/mcp/asset/9efd3322-7208-4c85-9160-2ca377a7add3.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/industri.jpg",
+   "kind": "background",
+   "id": "industri",
+   "sha256": "6523535cd3b0dbdd04c053f7a8f8a5ded0802ad0302493d7626dfe476c134d58",
+   "source_asset": "https://www.figma.com/api/mcp/asset/0c5166bc-5a49-455e-bfa6-b7f27c279f81.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/istana_pagi.jpg",
+   "kind": "background",
+   "id": "istana_pagi",
+   "sha256": "1f842129ca2ab4f0e0216ec38a7519454e9c619778e15a1ee4d788ecb2f8efd9",
+   "source_asset": "https://www.figma.com/api/mcp/asset/a3a416f1-652c-4bc5-84fa-b7844c7e56ce.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/istana_siang.jpg",
+   "kind": "background",
+   "id": "istana_siang",
+   "sha256": "d15ad5701d365042bf6a60c4db815912a57cdf462db199fdcf83503e43d63746",
+   "source_asset": "https://www.figma.com/api/mcp/asset/f08f7ec9-d728-45d2-a87d-e4f3842b942f.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/kebun.jpg",
+   "kind": "background",
+   "id": "kebun",
+   "sha256": "ebc113f5accaa2a02fa0efe085058eb8673e2d0257911e0d394e2309676448a2",
+   "source_asset": "https://www.figma.com/api/mcp/asset/d4207fa1-bb09-4f7a-a0bf-4d4560dd71f2.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/kering.jpg",
+   "kind": "background",
+   "id": "kering",
+   "sha256": "8c3a0ecdf27f5cde52715e588d2c77c8a7f36e3c84bc54af03d3feb6add995ab",
+   "source_asset": "https://www.figma.com/api/mcp/asset/4325176e-1454-4877-b853-971a9de8f2e4.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/kota.jpg",
+   "kind": "background",
+   "id": "kota",
+   "sha256": "5386a21e68f902e2d1984b8bff2f33e48a89705f3d5b64531fc7ccf8294abf9b",
+   "source_asset": "https://www.figma.com/api/mcp/asset/9334ab58-ec86-409e-adf5-4495b5a3f8c3.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/kota_gelap.jpg",
+   "kind": "background",
+   "id": "kota_gelap",
+   "sha256": "fd8d3c757c6b20f95e25f8d9c90df6b1441570d899c1a74a20ea25cd15321327",
+   "source_asset": "https://www.figma.com/api/mcp/asset/fea01b70-7a2f-4c4c-9cf7-bd615a94b627.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/kota_hujan.jpg",
+   "kind": "background",
+   "id": "kota_hujan",
+   "sha256": "080dcf55ac51e851537867374c29e86f15c2b1e662af05dcb4cdbb7716290afe",
+   "source_asset": "https://www.figma.com/api/mcp/asset/2f8a3164-e116-4569-8b47-21eb910854eb.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/ladang.jpg",
+   "kind": "background",
+   "id": "ladang",
+   "sha256": "ab535af6a693c08632416b70d0c92aa50b9eb88fe6c9eb17e6ba7e2584699907",
+   "source_asset": "https://www.figma.com/api/mcp/asset/a1caebfe-ac5b-4180-911c-c0b5957574c1.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/laut.jpg",
+   "kind": "background",
+   "id": "laut",
+   "sha256": "1c10486c77305826f429315dcca78bb651faa378329bd7e0a6598d2725ed3565",
+   "source_asset": "https://www.figma.com/api/mcp/asset/9ee98fab-e5a3-41fe-b305-2f08ea857ee6.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/malam.jpg",
+   "kind": "background",
+   "id": "malam",
+   "sha256": "7f61e07876a6b85f2e9bd184fe448421568275f6d1f7f1b743375fda79dcc159",
+   "source_asset": "https://www.figma.com/api/mcp/asset/bb67754e-ae2a-4ddc-ad3c-863ae4841152.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/pasar.jpg",
+   "kind": "background",
+   "id": "pasar",
+   "sha256": "654c19a724491f5729e4385c1584528b0c84277786a68516473b8609ab69673a",
+   "source_asset": "https://www.figma.com/api/mcp/asset/73dbc188-bb04-4767-8c92-78ca9e6a43d0.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/pegunungan.jpg",
+   "kind": "background",
+   "id": "pegunungan",
+   "sha256": "bfae0532f1582860beae4b5d56e3acc94b1dead577af456d2a14420b4ef09e38",
+   "source_asset": "https://www.figma.com/api/mcp/asset/95c44485-987c-4a7b-b0e2-0fca6c43ff03.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/pelabuhan.jpg",
+   "kind": "background",
+   "id": "pelabuhan",
+   "sha256": "e36e89a3ee199629597467446125007758ff0496f4e7633c818c6a18d8231684",
+   "source_asset": "https://www.figma.com/api/mcp/asset/48b47a69-005d-42e3-8152-d790d623c3dc.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/pesisir.jpg",
+   "kind": "background",
+   "id": "pesisir",
+   "sha256": "49e5381117a7ad48e88b23ff11848718a4e52c73c5ae151f03691b61ebf21ba1",
+   "source_asset": "https://www.figma.com/api/mcp/asset/03816584-58a4-4b86-a0ed-f5b2caf8736f.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/pesisir_malam.jpg",
+   "kind": "background",
+   "id": "pesisir_malam",
+   "sha256": "302c3c8b7cd46d77dea2bd7c7ee32e2e529015e4e80cc5ea5da28d04c883096b",
+   "source_asset": "https://www.figma.com/api/mcp/asset/a5f40af8-c3fc-4e47-b8f3-509dd7a5269b.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/pesisir_rusak.jpg",
+   "kind": "background",
+   "id": "pesisir_rusak",
+   "sha256": "dbad3e13cbfae79c5ac1fc57214450148f9b8df7ded21306cfa1d81458ec956e",
+   "source_asset": "https://www.figma.com/api/mcp/asset/3199bd56-86ae-4508-ac6a-2d76995c017c.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/rawa.jpg",
+   "kind": "background",
+   "id": "rawa",
+   "sha256": "313dd694fe52ea7fba1b76845961710ff09c42120f302cc519d5c790633e6a1e",
+   "source_asset": "https://www.figma.com/api/mcp/asset/fa55ece1-75cf-4a77-b2ea-35a0d5df09eb.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/ruang_kerja.jpg",
+   "kind": "background",
+   "id": "ruang_kerja",
+   "sha256": "39abaad342f7b0ccec7bf4f395f5d8b1dfceeedb4b9a8a8fd7bcd9f89d9e6b19",
+   "source_asset": "https://www.figma.com/api/mcp/asset/d69da6c4-415e-4c6c-b0e8-377f637ca076.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/ruang_rapat.jpg",
+   "kind": "background",
+   "id": "ruang_rapat",
+   "sha256": "7dc701dc3926e08c8d31e291da953d763b2b942fc8336ac503ce3d989c50ccc6",
+   "source_asset": "https://www.figma.com/api/mcp/asset/53408c0d-a15b-43fe-88ce-1dd1aa5965f4.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/rumah_sakit.jpg",
+   "kind": "background",
+   "id": "rumah_sakit",
+   "sha256": "f66a8d78623ddb4ba8a2333a646fb01e7407d3b858360d659e6a392d3cf9223b",
+   "source_asset": "https://www.figma.com/api/mcp/asset/4b59aff7-17b6-47b6-b14c-f6fd8a45a6ed.png"
+  },
+  {
+   "path": "res://assets/story/backgrounds/senja.jpg",
+   "kind": "background",
+   "id": "senja",
+   "sha256": "01ce039a29e2f05c6dee4ce84f6e32cd762ffe464798fd19dbbf774e78177e63",
+   "source_asset": "https://www.figma.com/api/mcp/asset/2aed9830-bb18-434c-838a-fddedfc13f0f.png"
+  },
+  {
+   "path": "res://assets/story/portraits/bayu.jpg",
+   "kind": "portrait",
+   "character": "bayu",
+   "expression": "netral",
+   "sha256": "861ccacf0dbef377ce42aeb1c91f1922b062bfa2e37865a096d90759b53e6976",
+   "source_sheet": "sheet_bayu",
+   "source_asset": "https://www.figma.com/api/mcp/asset/6538b63c-17e5-4ad8-ad8a-04e55c6365d7.png"
+  },
+  {
+   "path": "res://assets/story/portraits/bayu_cemas.jpg",
+   "kind": "portrait",
+   "character": "bayu",
+   "expression": "cemas",
+   "sha256": "7f507845d4db70788c0123d247fbefacfaa2258b4852a25a620a555f4dcd5e46",
+   "source_sheet": "sheet_bayu",
+   "source_asset": "https://www.figma.com/api/mcp/asset/6538b63c-17e5-4ad8-ad8a-04e55c6365d7.png"
+  },
+  {
+   "path": "res://assets/story/portraits/bayu_senyum.jpg",
+   "kind": "portrait",
+   "character": "bayu",
+   "expression": "senyum",
+   "sha256": "dfa3f5e5e38df1f9c0240be144226a9c39cef6c9c20b1d840fcb29bafb70f38f",
+   "source_sheet": "sheet_bayu",
+   "source_asset": "https://www.figma.com/api/mcp/asset/6538b63c-17e5-4ad8-ad8a-04e55c6365d7.png"
+  },
+  {
+   "path": "res://assets/story/portraits/bayu_serius.jpg",
+   "kind": "portrait",
+   "character": "bayu",
+   "expression": "serius",
+   "sha256": "c765a73a6f02fb3456101f1ca0b148c59ede900e5ff165b7dd72920e18310e15",
+   "source_sheet": "sheet_bayu",
+   "source_asset": "https://www.figma.com/api/mcp/asset/6538b63c-17e5-4ad8-ad8a-04e55c6365d7.png"
+  },
+  {
+   "path": "res://assets/story/portraits/sekar.jpg",
+   "kind": "portrait",
+   "character": "sekar",
+   "expression": "netral",
+   "sha256": "b3f344afa0309aafe37616c80f5fdbc77ed440c2a10ca20d4c6171a41b0f66c5",
+   "source_sheet": "sheet_sekar",
+   "source_asset": "https://www.figma.com/api/mcp/asset/499aa738-517d-4721-9953-63980c5b83a4.png"
+  },
+  {
+   "path": "res://assets/story/portraits/sekar_cemas.jpg",
+   "kind": "portrait",
+   "character": "sekar",
+   "expression": "cemas",
+   "sha256": "b27d0a23543b510517c0818e70fa6b772af7d353a0b2a12921290ff696995d18",
+   "source_sheet": "sheet_sekar",
+   "source_asset": "https://www.figma.com/api/mcp/asset/499aa738-517d-4721-9953-63980c5b83a4.png"
+  },
+  {
+   "path": "res://assets/story/portraits/sekar_senyum.jpg",
+   "kind": "portrait",
+   "character": "sekar",
+   "expression": "senyum",
+   "sha256": "5e06ee718e0b8e7fab0f92b50acd775a6262f199bbc64b57588ba364cd419be7",
+   "source_sheet": "sheet_sekar",
+   "source_asset": "https://www.figma.com/api/mcp/asset/499aa738-517d-4721-9953-63980c5b83a4.png"
+  },
+  {
+   "path": "res://assets/story/portraits/sekar_serius.jpg",
+   "kind": "portrait",
+   "character": "sekar",
+   "expression": "serius",
+   "sha256": "15362cb1583db8f8b766e8464e3ca8d6bb2512a0173181b13f0f0c6c9c3dff61",
+   "source_sheet": "sheet_sekar",
+   "source_asset": "https://www.figma.com/api/mcp/asset/499aa738-517d-4721-9953-63980c5b83a4.png"
+  },
+  {
+   "path": "res://assets/story/portraits/yosef.jpg",
+   "kind": "portrait",
+   "character": "yosef",
+   "expression": "netral",
+   "sha256": "734e15f6cec8dd3c510ae661cef73124961fe46997aa5a7ce7dd1128560c3768",
+   "source_sheet": "sheet_yosef",
+   "source_asset": "https://www.figma.com/api/mcp/asset/6e944160-1151-4faf-91c6-faf3da469e89.png"
+  },
+  {
+   "path": "res://assets/story/portraits/yosef_cemas.jpg",
+   "kind": "portrait",
+   "character": "yosef",
+   "expression": "cemas",
+   "sha256": "b0fa08deae0c980799327a0871c5d3ebb60dae55129bca84aeec8e5587507c6f",
+   "source_sheet": "sheet_yosef",
+   "source_asset": "https://www.figma.com/api/mcp/asset/6e944160-1151-4faf-91c6-faf3da469e89.png"
+  },
+  {
+   "path": "res://assets/story/portraits/yosef_senyum.jpg",
+   "kind": "portrait",
+   "character": "yosef",
+   "expression": "senyum",
+   "sha256": "61423060fe42835604dade004c54d1c3690aeb6300393937e8771ac98b590ad2",
+   "source_sheet": "sheet_yosef",
+   "source_asset": "https://www.figma.com/api/mcp/asset/6e944160-1151-4faf-91c6-faf3da469e89.png"
+  },
+  {
+   "path": "res://assets/story/portraits/yosef_serius.jpg",
+   "kind": "portrait",
+   "character": "yosef",
+   "expression": "serius",
+   "sha256": "4d3a727e2510a0035065e884731b26060f0ea6653bdbdda583dc8306359b8ef9",
+   "source_sheet": "sheet_yosef",
+   "source_asset": "https://www.figma.com/api/mcp/asset/6e944160-1151-4faf-91c6-faf3da469e89.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0001_bu_yati.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0001",
+   "character": "bu_yati",
+   "sha256": "03d526fe86b8ba6abaf5ae32ff2efd48b15c8ed0c7e2f9542baaea59dfba94b8",
+   "source_sheet": "sheet_L01",
+   "source_asset": "https://www.figma.com/api/mcp/asset/44f93ebf-aa25-4895-a148-9e122b585665.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0001_pak_asep.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0001",
+   "character": "pak_asep",
+   "sha256": "585d56cb9a680e2faf3087d5485b58a2f1ec37e42a273074e6ece624ae8d65f4",
+   "source_sheet": "sheet_L01",
+   "source_asset": "https://www.figma.com/api/mcp/asset/44f93ebf-aa25-4895-a148-9e122b585665.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0002_bu_nirwana.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0002",
+   "character": "bu_nirwana",
+   "sha256": "1d69799003efd8e9814a38e03f1e24af275e361c3f461669c0675b2c116b01d1",
+   "source_sheet": "sheet_L01",
+   "source_asset": "https://www.figma.com/api/mcp/asset/44f93ebf-aa25-4895-a148-9e122b585665.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0002_pak_ridwan.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0002",
+   "character": "pak_ridwan",
+   "sha256": "f0c885ffecda450dee90f84806f0ef7fe319e10bb2b545331a01bf48c544dbf5",
+   "source_sheet": "sheet_L01",
+   "source_asset": "https://www.figma.com/api/mcp/asset/44f93ebf-aa25-4895-a148-9e122b585665.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0003_bu_endang.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0003",
+   "character": "bu_endang",
+   "sha256": "9c8049c421455063dfbd0a07a84956db68158bde9fbf1790a96768354a096a3a",
+   "source_sheet": "sheet_L02",
+   "source_asset": "https://www.figma.com/api/mcp/asset/8c4e235e-d356-4ed9-9f0e-72d5618bcefc.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0003_pak_togar.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0003",
+   "character": "pak_togar",
+   "sha256": "4572c31edf7baa61c851b4f485af0729e80b503c2ccdee17958d83720e77fdd4",
+   "source_sheet": "sheet_L02",
+   "source_asset": "https://www.figma.com/api/mcp/asset/8c4e235e-d356-4ed9-9f0e-72d5618bcefc.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0004_bu_rina.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0004",
+   "character": "bu_rina",
+   "sha256": "f829fe130786aa87dc2df7833af1a5ab4f93a4d80e2e4b5270366bb859c9e381",
+   "source_sheet": "sheet_L02",
+   "source_asset": "https://www.figma.com/api/mcp/asset/8c4e235e-d356-4ed9-9f0e-72d5618bcefc.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0004_pak_ilham.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0004",
+   "character": "pak_ilham",
+   "sha256": "4ac50dff9b149b9ad6a57644f3e2da9d2c27205a2738843b7d256f4b3d88dca3",
+   "source_sheet": "sheet_L02",
+   "source_asset": "https://www.figma.com/api/mcp/asset/8c4e235e-d356-4ed9-9f0e-72d5618bcefc.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0005_mama_sara.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0005",
+   "character": "mama_sara",
+   "sha256": "64c590a6490bc0ee47d4b96bf8587e7953d0b6ab05c5c81103e49ef90ec9d76a",
+   "source_sheet": "sheet_L03",
+   "source_asset": "https://www.figma.com/api/mcp/asset/f49029c4-6398-4046-9efe-e4c81f356f5d.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0005_mas_fajar.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0005",
+   "character": "mas_fajar",
+   "sha256": "a1edf71bb4e24d4323cdc4fa0d5ff8396565ccdcf871baa5d4b20b8945fb959f",
+   "source_sheet": "sheet_L03",
+   "source_asset": "https://www.figma.com/api/mcp/asset/f49029c4-6398-4046-9efe-e4c81f356f5d.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0006_bu_martha.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0006",
+   "character": "bu_martha",
+   "sha256": "80ca91c2cf40c206964389f362b39344d996ba0bc071e775aaecebfbb1c024c2",
+   "source_sheet": "sheet_L03",
+   "source_asset": "https://www.figma.com/api/mcp/asset/f49029c4-6398-4046-9efe-e4c81f356f5d.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0006_pak_yakob.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0006",
+   "character": "pak_yakob",
+   "sha256": "01e990f2948e5ed353a4cf942f9fe30603c5957dd97e0f7132d4a505f9820fbf",
+   "source_sheet": "sheet_L03",
+   "source_asset": "https://www.figma.com/api/mcp/asset/f49029c4-6398-4046-9efe-e4c81f356f5d.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0007_pak_markus.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0007",
+   "character": "pak_markus",
+   "sha256": "01d636e5b95dd563b9aad8cfaa0147ee2ea6280b816353c215e55fc0f46aed17",
+   "source_sheet": "sheet_L04",
+   "source_asset": "https://www.figma.com/api/mcp/asset/87bcc2c3-bfe9-4838-aef2-f667561bc978.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0007_suster_ani.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0007",
+   "character": "suster_ani",
+   "sha256": "a5822d5f99ec39482832d96c91258109f5feb281227a76f94cef5f74469d2d1f",
+   "source_sheet": "sheet_L04",
+   "source_asset": "https://www.figma.com/api/mcp/asset/87bcc2c3-bfe9-4838-aef2-f667561bc978.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0008_bang_roni.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0008",
+   "character": "bang_roni",
+   "sha256": "b463f079d02fe8aca9dc6a3e1fa67be3a5d6c03c1f1d3e985389cc8086c44145",
+   "source_sheet": "sheet_L04",
+   "source_asset": "https://www.figma.com/api/mcp/asset/87bcc2c3-bfe9-4838-aef2-f667561bc978.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0008_bu_wati.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0008",
+   "character": "bu_wati",
+   "sha256": "6d11c76ae9886e7cb64a8955d0d39fcb4443d1eea363c2177d8eefdfe5a603fa",
+   "source_sheet": "sheet_L04",
+   "source_asset": "https://www.figma.com/api/mcp/asset/87bcc2c3-bfe9-4838-aef2-f667561bc978.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0011_mbak_dinda.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0011",
+   "character": "mbak_dinda",
+   "sha256": "7f592131fbffef2898a0c1a5b7546fb8149fae4574c6b51bc6b8ab8c1b92b355",
+   "source_sheet": "sheet_L05",
+   "source_asset": "https://www.figma.com/api/mcp/asset/059ffd65-2799-4218-9d44-fb9a758ca2d6.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0011_pak_hasan.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0011",
+   "character": "pak_hasan",
+   "sha256": "80a1c2eb42f63bb7d1ce48fe613d817fefe5f85f8b98c72c2ee0caf2423590d8",
+   "source_sheet": "sheet_L05",
+   "source_asset": "https://www.figma.com/api/mcp/asset/059ffd65-2799-4218-9d44-fb9a758ca2d6.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0013_bu_yuliana.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0013",
+   "character": "bu_yuliana",
+   "sha256": "c3f8f12e16a3fbdc7b65f748d67071cdf380fdeb81257d47a910af76e18fa11f",
+   "source_sheet": "sheet_L05",
+   "source_asset": "https://www.figma.com/api/mcp/asset/059ffd65-2799-4218-9d44-fb9a758ca2d6.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0013_pak_niko.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0013",
+   "character": "pak_niko",
+   "sha256": "18f838e89127bcccba11c3d47cd57b61aa820ca7745ee471ad5fc88f58ba8b51",
+   "source_sheet": "sheet_L05",
+   "source_asset": "https://www.figma.com/api/mcp/asset/059ffd65-2799-4218-9d44-fb9a758ca2d6.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0014_bu_lastri.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0014",
+   "character": "bu_lastri",
+   "sha256": "f755891ba27f68222aae0d439f065abfc29636a8bafbbc93e6f22e8adc954495",
+   "source_sheet": "sheet_L06",
+   "source_asset": "https://www.figma.com/api/mcp/asset/a07cf93b-212c-401b-9861-40cb68b052d0.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0014_kang_ujang.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0014",
+   "character": "kang_ujang",
+   "sha256": "b139e6b87f80a6a497d182c4e52136c1997a5d3ccf3ceae5f20c19a9c14508b2",
+   "source_sheet": "sheet_L06",
+   "source_asset": "https://www.figma.com/api/mcp/asset/a07cf93b-212c-401b-9861-40cb68b052d0.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0015_mbak_ratih.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0015",
+   "character": "mbak_ratih",
+   "sha256": "6991aac5761b550c74e52e032dc32d7c2d914853edfac039aa6fb69fba801b10",
+   "source_sheet": "sheet_L06",
+   "source_asset": "https://www.figma.com/api/mcp/asset/a07cf93b-212c-401b-9861-40cb68b052d0.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0015_pak_darmo.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0015",
+   "character": "pak_darmo",
+   "sha256": "b4e73408cf94e36a2c555330bd06552723bf68f0d2b8e59fa410b3d8564c0021",
+   "source_sheet": "sheet_L06",
+   "source_asset": "https://www.figma.com/api/mcp/asset/a07cf93b-212c-401b-9861-40cb68b052d0.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0016_mama_yohana.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0016",
+   "character": "mama_yohana",
+   "sha256": "c3fbd5725b2c47ca3d6aa4b6b21deec85d193657d13d39d5baf32578dddaa557",
+   "source_sheet": "sheet_L07",
+   "source_asset": "https://www.figma.com/api/mcp/asset/54f0f93b-aa52-4c02-8618-e02c72820340.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0016_pak_benny.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0016",
+   "character": "pak_benny",
+   "sha256": "66cf59d9ccf2dba370b0d4568adb2cfcd297f1775aee1aa35d1ccbde757e9b46",
+   "source_sheet": "sheet_L07",
+   "source_asset": "https://www.figma.com/api/mcp/asset/54f0f93b-aa52-4c02-8618-e02c72820340.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0020_bu_tina.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0020",
+   "character": "bu_tina",
+   "sha256": "14d68e91144be930c1023243304bf976ed20171fc2c3a6eb666dca9cdfcc261c",
+   "source_sheet": "sheet_L07",
+   "source_asset": "https://www.figma.com/api/mcp/asset/54f0f93b-aa52-4c02-8618-e02c72820340.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0020_dokter_ayu.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0020",
+   "character": "dokter_ayu",
+   "sha256": "8eb08bc580b4ea26f9fb964d3861b5132e964baca1aa497fbf81b0dd2d4de773",
+   "source_sheet": "sheet_L07",
+   "source_asset": "https://www.figma.com/api/mcp/asset/54f0f93b-aa52-4c02-8618-e02c72820340.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0021_bu_sri.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0021",
+   "character": "bu_sri",
+   "sha256": "0fd6b512e07f27b0ee6434c5b3087777389fc561a1f1de6b26169e9408029266",
+   "source_sheet": "sheet_L08",
+   "source_asset": "https://www.figma.com/api/mcp/asset/421a42ab-d5d5-4c63-a31d-a0c10801d365.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0021_dr_fikri.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0021",
+   "character": "dr_fikri",
+   "sha256": "9aa5bfff8833d03bf2c9e8af0311ff50a3247b11150cd85c0503a2353ae8fb27",
+   "source_sheet": "sheet_L08",
+   "source_asset": "https://www.figma.com/api/mcp/asset/421a42ab-d5d5-4c63-a31d-a0c10801d365.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0022_bu_cut.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0022",
+   "character": "bu_cut",
+   "sha256": "0c8d43b0bfd57a48ca85fe0d66eed323c2b8d6ba50b8d2b80b1e7e53564d74f7",
+   "source_sheet": "sheet_L08",
+   "source_asset": "https://www.figma.com/api/mcp/asset/421a42ab-d5d5-4c63-a31d-a0c10801d365.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0022_pak_ilyas.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0022",
+   "character": "pak_ilyas",
+   "sha256": "fd5287401beeaa994321b6022f44b5916bf954a972453c37953d56a024ffdcd3",
+   "source_sheet": "sheet_L08",
+   "source_asset": "https://www.figma.com/api/mcp/asset/421a42ab-d5d5-4c63-a31d-a0c10801d365.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0023_mang_ujang.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0023",
+   "character": "mang_ujang",
+   "sha256": "de1d53dfd8152e4ac1eead44535aab4d49ba71fe847f05b5ebcb35942d915c25",
+   "source_sheet": "sheet_L09",
+   "source_asset": "https://www.figma.com/api/mcp/asset/57896ce1-7a4c-4e5f-ae3f-a37395add705.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0023_teh_neneng.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0023",
+   "character": "teh_neneng",
+   "sha256": "dfc2155553643c459b3195aa4265c65a175a360eb54d13190610d4cdbf443c46",
+   "source_sheet": "sheet_L09",
+   "source_asset": "https://www.figma.com/api/mcp/asset/57896ce1-7a4c-4e5f-ae3f-a37395add705.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0024_mbak_lina.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0024",
+   "character": "mbak_lina",
+   "sha256": "83d07f5faf05c29d48fc6f54a3aae846555b221859611739a15992377a66a79a",
+   "source_sheet": "sheet_L09",
+   "source_asset": "https://www.figma.com/api/mcp/asset/57896ce1-7a4c-4e5f-ae3f-a37395add705.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0024_pak_sutrisno.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0024",
+   "character": "pak_sutrisno",
+   "sha256": "ccfec112440b6dac1ae66073282eafda01d6f0de475a2319f0fb332274e1b3db",
+   "source_sheet": "sheet_L09",
+   "source_asset": "https://www.figma.com/api/mcp/asset/57896ce1-7a4c-4e5f-ae3f-a37395add705.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0025_mama_theresia.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0025",
+   "character": "mama_theresia",
+   "sha256": "9ae137867d8b0b739f549d9109fe109b8e4a12e898224615473d1077e35f3745",
+   "source_sheet": "sheet_L10",
+   "source_asset": "https://www.figma.com/api/mcp/asset/84a57f08-9b36-45b9-ac60-0491b4874837.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0025_om_frans.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0025",
+   "character": "om_frans",
+   "sha256": "3955ef491540396514ae27f4490d3e0f83704c48c8dedd8ed4e98d880f7c7821",
+   "source_sheet": "sheet_L10",
+   "source_asset": "https://www.figma.com/api/mcp/asset/84a57f08-9b36-45b9-ac60-0491b4874837.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0026_bang_jefri.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0026",
+   "character": "bang_jefri",
+   "sha256": "478ae64a624faf0e261839cfdab45f2c974e31c3a05d6289a6f6801262877eb8",
+   "source_sheet": "sheet_L10",
+   "source_asset": "https://www.figma.com/api/mcp/asset/84a57f08-9b36-45b9-ac60-0491b4874837.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0026_bu_marni.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0026",
+   "character": "bu_marni",
+   "sha256": "e99fffa2ce3b3448ded901414c3754c5a3e2bef9ef15ab4ab0fb8e486f5f08d1",
+   "source_sheet": "sheet_L10",
+   "source_asset": "https://www.figma.com/api/mcp/asset/84a57f08-9b36-45b9-ac60-0491b4874837.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0027_bu_asni.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0027",
+   "character": "bu_asni",
+   "sha256": "0bad3f623881aefaf03c665ab4dc2f9e8e66491a5d575c6efffff8b38b2cae0f",
+   "source_sheet": "sheet_L11",
+   "source_asset": "https://www.figma.com/api/mcp/asset/2de815a8-cf3e-49c9-ad5a-918d07d6ddb2.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0027_pak_rahman.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0027",
+   "character": "pak_rahman",
+   "sha256": "e9681d09f6927e29b0c16d18b6900a8d34fb2215aceb6fc546b85d43d056d700",
+   "source_sheet": "sheet_L11",
+   "source_asset": "https://www.figma.com/api/mcp/asset/2de815a8-cf3e-49c9-ad5a-918d07d6ddb2.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0028_acil_imah.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0028",
+   "character": "acil_imah",
+   "sha256": "38f80245827bbcf4d84388a2bf7504c53841aef2217243a4910db9c7b86045e1",
+   "source_sheet": "sheet_L11",
+   "source_asset": "https://www.figma.com/api/mcp/asset/2de815a8-cf3e-49c9-ad5a-918d07d6ddb2.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0028_pak_hasbi.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0028",
+   "character": "pak_hasbi",
+   "sha256": "dc2805b02b1bdaa0dbc4638c6c110807be89d03a386742114c6256b9691f051b",
+   "source_sheet": "sheet_L11",
+   "source_asset": "https://www.figma.com/api/mcp/asset/2de815a8-cf3e-49c9-ad5a-918d07d6ddb2.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0029_om_yance.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0029",
+   "character": "om_yance",
+   "sha256": "ce0295b669251f5e890dcd38f15f6a4f6e4e311be49b62b9f2d9abf27ea2935c",
+   "source_sheet": "sheet_L12",
+   "source_asset": "https://www.figma.com/api/mcp/asset/3892867c-d17a-4d33-80ad-bfd04535276e.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0029_tante_lusi.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0029",
+   "character": "tante_lusi",
+   "sha256": "ad3ee4694930542192e1017184cabbcf6291b9d92d662d9c4b98615241e463c9",
+   "source_sheet": "sheet_L12",
+   "source_asset": "https://www.figma.com/api/mcp/asset/3892867c-d17a-4d33-80ad-bfd04535276e.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0030_da_ipul.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0030",
+   "character": "da_ipul",
+   "sha256": "908db22b60f0c3c97d462fd2e75c666f59972bffad28291bb41c71bcc1163dcd",
+   "source_sheet": "sheet_L12",
+   "source_asset": "https://www.figma.com/api/mcp/asset/3892867c-d17a-4d33-80ad-bfd04535276e.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0030_uni_ros.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0030",
+   "character": "uni_ros",
+   "sha256": "e5f44583191919945c38b70640a747090297cf4753a18a59becc8d0f10344840",
+   "source_sheet": "sheet_L12",
+   "source_asset": "https://www.figma.com/api/mcp/asset/3892867c-d17a-4d33-80ad-bfd04535276e.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0031_mbak_ninik.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0031",
+   "character": "mbak_ninik",
+   "sha256": "98854b32b230a3e7f6192c5d14af81faacb6980d94bcc2c4d2c0c71b7a3d7ec2",
+   "source_sheet": "sheet_L13",
+   "source_asset": "https://www.figma.com/api/mcp/asset/9a0a98a6-9854-44e1-b50e-c6393b8bb174.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0031_pak_kasmin.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0031",
+   "character": "pak_kasmin",
+   "sha256": "a156d6071a055ed760ed8dcacea98550e14c294c331f9ab631fde4685ab724c7",
+   "source_sheet": "sheet_L13",
+   "source_asset": "https://www.figma.com/api/mcp/asset/9a0a98a6-9854-44e1-b50e-c6393b8bb174.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0032_mama_veronika.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0032",
+   "character": "mama_veronika",
+   "sha256": "f9551acc69ce430167a1db2963a34e4f0481d874ad973d820b19c1b719d3652a",
+   "source_sheet": "sheet_L13",
+   "source_asset": "https://www.figma.com/api/mcp/asset/9a0a98a6-9854-44e1-b50e-c6393b8bb174.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0032_pater_dominikus.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0032",
+   "character": "pater_dominikus",
+   "sha256": "9d014cc03bd1f7dbcbfac3f7b6fa3ed9cfe471fdfcb8f4924edbcd6185bed7e0",
+   "source_sheet": "sheet_L13",
+   "source_asset": "https://www.figma.com/api/mcp/asset/9a0a98a6-9854-44e1-b50e-c6393b8bb174.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0033_bu_ani.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0033",
+   "character": "bu_ani",
+   "sha256": "92e341f53bf4eaa400995038d9c62bdebe1103799d44a020c05a282072916077",
+   "source_sheet": "sheet_L14",
+   "source_asset": "https://www.figma.com/api/mcp/asset/5ee425a0-e4bf-4c62-b2c4-5b82a85c8354.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0033_mas_dimas.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0033",
+   "character": "mas_dimas",
+   "sha256": "f5e5a5b6a6069b25aa8be4e38a8a455766ac02fc549576ae7aa079d71a0bf262",
+   "source_sheet": "sheet_L14",
+   "source_asset": "https://www.figma.com/api/mcp/asset/5ee425a0-e4bf-4c62-b2c4-5b82a85c8354.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0034_bidan_rosa.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0034",
+   "character": "bidan_rosa",
+   "sha256": "a89d0b8ae250332b731435c66e5d6d0a29389efe4c0de25d5f8c61d9b8e62a19",
+   "source_sheet": "sheet_L14",
+   "source_asset": "https://www.figma.com/api/mcp/asset/5ee425a0-e4bf-4c62-b2c4-5b82a85c8354.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0034_mama_ina.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0034",
+   "character": "mama_ina",
+   "sha256": "d3cd4e1f6c473b5e42540d7cd155d864ff020ce54858712e7c1b911c4f267bfa",
+   "source_sheet": "sheet_L14",
+   "source_asset": "https://www.figma.com/api/mcp/asset/5ee425a0-e4bf-4c62-b2c4-5b82a85c8354.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0035_bu_wayan.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0035",
+   "character": "bu_wayan",
+   "sha256": "8f46e53490b8d9e5e4045bfbc57ca8fd7ce9b81eefcd0d94d4610a986b3da346",
+   "source_sheet": "sheet_L15",
+   "source_asset": "https://www.figma.com/api/mcp/asset/11e8abbd-7e8a-4d75-b539-a9787f00df75.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0035_pak_darsono.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0035",
+   "character": "pak_darsono",
+   "sha256": "7d83ffd6ef94bab4c62931cf57c1282f44176e082a763509fce528045b5482ce",
+   "source_sheet": "sheet_L15",
+   "source_asset": "https://www.figma.com/api/mcp/asset/11e8abbd-7e8a-4d75-b539-a9787f00df75.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0036_mbak_sri.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0036",
+   "character": "mbak_sri",
+   "sha256": "205382332c793858255b03571b02b8a59786341147c5b01a8cbeaa2e2e8234b0",
+   "source_sheet": "sheet_L15",
+   "source_asset": "https://www.figma.com/api/mcp/asset/11e8abbd-7e8a-4d75-b539-a9787f00df75.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0036_pak_tono.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0036",
+   "character": "pak_tono",
+   "sha256": "aa659b112dd4b5b3e42a83630b2ef9c75c304bc357bfcff82d5bae4550ace30b",
+   "source_sheet": "sheet_L15",
+   "source_asset": "https://www.figma.com/api/mcp/asset/11e8abbd-7e8a-4d75-b539-a9787f00df75.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0037_mang_ade.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0037",
+   "character": "mang_ade",
+   "sha256": "2e8fedbfd6892ba347013a4118c02a6059606b71550bcc7ac24e28b9cbad1caa",
+   "source_sheet": "sheet_L16",
+   "source_asset": "https://www.figma.com/api/mcp/asset/c789d14a-c32f-4bbe-9d4a-c050bcd3f807.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0037_teh_rina.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0037",
+   "character": "teh_rina",
+   "sha256": "d40452ba78cf7871a7f613d51390bc9363fbdf000a058d4dd452882e2f0ef5ec",
+   "source_sheet": "sheet_L16",
+   "source_asset": "https://www.figma.com/api/mcp/asset/c789d14a-c32f-4bbe-9d4a-c050bcd3f807.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0038_dr_maya.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0038",
+   "character": "dr_maya",
+   "sha256": "d299abcdcc01cae462d73ba8731a89ae65cd6bc4b57ff932adbe31780a2bdb34",
+   "source_sheet": "sheet_L16",
+   "source_asset": "https://www.figma.com/api/mcp/asset/c789d14a-c32f-4bbe-9d4a-c050bcd3f807.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0038_pak_joko.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0038",
+   "character": "pak_joko",
+   "sha256": "21dc5e8bdd4a42089fd8ff8d50839c90d00f3dafa72c934943db2582b8c0d4a3",
+   "source_sheet": "sheet_L16",
+   "source_asset": "https://www.figma.com/api/mcp/asset/c789d14a-c32f-4bbe-9d4a-c050bcd3f807.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0039_bu_nur.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0039",
+   "character": "bu_nur",
+   "sha256": "26cfa49990e3a0a8c0162bed5615031dd64a15c4d98e3601dc3928e6ea5d68c7",
+   "source_sheet": "sheet_L17",
+   "source_asset": "https://www.figma.com/api/mcp/asset/8228d447-d3e7-40ac-bd41-84f23ccaff30.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0039_pak_haji_mukhlis.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0039",
+   "character": "pak_haji_mukhlis",
+   "sha256": "68b27294334b7f45d56480bcee49c2bfc2232607797196aa24ecfb3d821ce798",
+   "source_sheet": "sheet_L17",
+   "source_asset": "https://www.figma.com/api/mcp/asset/8228d447-d3e7-40ac-bd41-84f23ccaff30.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0040_bu_hasna.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0040",
+   "character": "bu_hasna",
+   "sha256": "8a7d3b222718757e6699974c6fa466b2de2b529f152720ed158f03d63db5bf3a",
+   "source_sheet": "sheet_L17",
+   "source_asset": "https://www.figma.com/api/mcp/asset/8228d447-d3e7-40ac-bd41-84f23ccaff30.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0040_pak_andi.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0040",
+   "character": "pak_andi",
+   "sha256": "fe9936a0078e747b0c990e367b336fbca98fbe5be66da3acd3bdcc49e9ff808b",
+   "source_sheet": "sheet_L17",
+   "source_asset": "https://www.figma.com/api/mcp/asset/8228d447-d3e7-40ac-bd41-84f23ccaff30.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0041_bli_komang.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0041",
+   "character": "bli_komang",
+   "sha256": "5bb0ddb05772d63b7cb1e739f63fa0eef085cf71916a6f1767e16b933502531e",
+   "source_sheet": "sheet_L18",
+   "source_asset": "https://www.figma.com/api/mcp/asset/b200a273-2273-4b01-b15d-014395a6dc68.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0041_mbok_sari.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0041",
+   "character": "mbok_sari",
+   "sha256": "7c8e190fb42d1fc79f08ea3d33321758d9ec29c3aac9b05e9425bda390fcc291",
+   "source_sheet": "sheet_L18",
+   "source_asset": "https://www.figma.com/api/mcp/asset/b200a273-2273-4b01-b15d-014395a6dc68.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0042_bu_kartini.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0042",
+   "character": "bu_kartini",
+   "sha256": "d415213d11e6d2abb779f30730914f45fea64cb2a775a4f81658073a8891e034",
+   "source_sheet": "sheet_L18",
+   "source_asset": "https://www.figma.com/api/mcp/asset/b200a273-2273-4b01-b15d-014395a6dc68.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0042_pak_slamet.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0042",
+   "character": "pak_slamet",
+   "sha256": "4d316dc96f8797d8a37b60c008f5a0de1de03a60356cf4ceab164aec6b029799",
+   "source_sheet": "sheet_L18",
+   "source_asset": "https://www.figma.com/api/mcp/asset/b200a273-2273-4b01-b15d-014395a6dc68.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0043_drh_petrus.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0043",
+   "character": "drh_petrus",
+   "sha256": "0498f9068183afedf4e997bf3c848c76694ff39b5298eb4cd5ca2a6da0c93006",
+   "source_sheet": "sheet_L19",
+   "source_asset": "https://www.figma.com/api/mcp/asset/ec0d7e01-ee2f-4008-911d-3251dda11fc6.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0043_mama_yuliana.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0043",
+   "character": "mama_yuliana",
+   "sha256": "374104b68ddb2600d2da97288fbf24f92d71488b5418b34ac37966a833607302",
+   "source_sheet": "sheet_L19",
+   "source_asset": "https://www.figma.com/api/mcp/asset/ec0d7e01-ee2f-4008-911d-3251dda11fc6.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0044_amak_nur.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0044",
+   "character": "amak_nur",
+   "sha256": "2225a4b1b5dda610fe7b71ef226ae233201dc7559e048f345b6ce209835db27e",
+   "source_sheet": "sheet_L19",
+   "source_asset": "https://www.figma.com/api/mcp/asset/ec0d7e01-ee2f-4008-911d-3251dda11fc6.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0044_uda_rizal.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0044",
+   "character": "uda_rizal",
+   "sha256": "b5b5680fd4fa2646d901511abbd8aaab1158f38b74f4e6d5e556cc6240d008af",
+   "source_sheet": "sheet_L19",
+   "source_asset": "https://www.figma.com/api/mcp/asset/ec0d7e01-ee2f-4008-911d-3251dda11fc6.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0045_bu_aisyah.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0045",
+   "character": "bu_aisyah",
+   "sha256": "3c8d4627c3595339a96406f217b91aaee9ca7e6b7b04dec95c92261886df7418",
+   "source_sheet": "sheet_L20",
+   "source_asset": "https://www.figma.com/api/mcp/asset/987988c4-34d2-4e86-ab83-ec871802ae00.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0045_pak_rofiq.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0045",
+   "character": "pak_rofiq",
+   "sha256": "0f7fd8d36dc2ec0de46f501070a2791976a0949b795e79fb6b44ab5e399c9978",
+   "source_sheet": "sheet_L20",
+   "source_asset": "https://www.figma.com/api/mcp/asset/987988c4-34d2-4e86-ab83-ec871802ae00.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0046_amang_tigor.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0046",
+   "character": "amang_tigor",
+   "sha256": "2a7cb76af4191330197ee42d5dedf7465a6dc276163d1fbd61d334a78daddab4",
+   "source_sheet": "sheet_L20",
+   "source_asset": "https://www.figma.com/api/mcp/asset/987988c4-34d2-4e86-ab83-ec871802ae00.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0046_inang_rosmaida.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0046",
+   "character": "inang_rosmaida",
+   "sha256": "de078ac48f30d9146be170c2ec110d7d36dc086563398f4a2824063003dd03cb",
+   "source_sheet": "sheet_L20",
+   "source_asset": "https://www.figma.com/api/mcp/asset/987988c4-34d2-4e86-ab83-ec871802ae00.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0047_mas_bagus.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0047",
+   "character": "mas_bagus",
+   "sha256": "c5c82130c5922c8f61d19afbcf7e2fc194a7301c4edd26a59d63ad9ae84b81d9",
+   "source_sheet": "sheet_L21",
+   "source_asset": "https://www.figma.com/api/mcp/asset/df12d35f-9c7c-461e-b878-b52a4f6d20dd.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0047_mbah_sukirah.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0047",
+   "character": "mbah_sukirah",
+   "sha256": "04c80502362a9daf7cc29dff1ca08846b24167f09f3dbc4a1dbc7407f6c37471",
+   "source_sheet": "sheet_L21",
+   "source_asset": "https://www.figma.com/api/mcp/asset/df12d35f-9c7c-461e-b878-b52a4f6d20dd.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0048_bu_halimah.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0048",
+   "character": "bu_halimah",
+   "sha256": "dfb99d792114002f429a141777e652a204c0451c9f0c008c878441fefd508245",
+   "source_sheet": "sheet_L21",
+   "source_asset": "https://www.figma.com/api/mcp/asset/df12d35f-9c7c-461e-b878-b52a4f6d20dd.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0048_pak_jamal.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0048",
+   "character": "pak_jamal",
+   "sha256": "c63b0a27291f37f733188d647f3bfbc0db9da7bd93812de1eaa4d4bb06bfb48e",
+   "source_sheet": "sheet_L21",
+   "source_asset": "https://www.figma.com/api/mcp/asset/df12d35f-9c7c-461e-b878-b52a4f6d20dd.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0049_bu_sumi.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0049",
+   "character": "bu_sumi",
+   "sha256": "182b25515ae4ae219d0b981fa91f434ac267ebfdd16fe5ecdf1b6e3b7917bc68",
+   "source_sheet": "sheet_L22",
+   "source_asset": "https://www.figma.com/api/mcp/asset/3ccfe00c-c025-4239-949e-d61269c207e2.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0049_pak_rahmat.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0049",
+   "character": "pak_rahmat",
+   "sha256": "ca4dd863f5ea32211b92b9565b0d011f25d245d9521eed06f104fc4eb070cc80",
+   "source_sheet": "sheet_L22",
+   "source_asset": "https://www.figma.com/api/mcp/asset/3ccfe00c-c025-4239-949e-d61269c207e2.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0050_bu_nurlela.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0050",
+   "character": "bu_nurlela",
+   "sha256": "84bcbead720d00f7b1ae3a029bfb4188af0c6eac835ea41114b1ee5dda94be8d",
+   "source_sheet": "sheet_L22",
+   "source_asset": "https://www.figma.com/api/mcp/asset/3ccfe00c-c025-4239-949e-d61269c207e2.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0050_uda_rizal.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0050",
+   "character": "uda_rizal",
+   "sha256": "c2256da0f29429e315e81698f0af6f679976e094b7d46734481052bf72816df3",
+   "source_sheet": "sheet_L22",
+   "source_asset": "https://www.figma.com/api/mcp/asset/3ccfe00c-c025-4239-949e-d61269c207e2.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0051_bu_enah.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0051",
+   "character": "bu_enah",
+   "sha256": "73b9b247ab346bf1d4193716a97910e77e8d7ade982c74efdf30f347d5d5fa9f",
+   "source_sheet": "sheet_L23",
+   "source_asset": "https://www.figma.com/api/mcp/asset/380737bb-6998-4372-9527-be2fd83086d0.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0051_pak_udin.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0051",
+   "character": "pak_udin",
+   "sha256": "58288de5f58a18c542b89963f10508e75665301611d72c19da5169785899420c",
+   "source_sheet": "sheet_L23",
+   "source_asset": "https://www.figma.com/api/mcp/asset/380737bb-6998-4372-9527-be2fd83086d0.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0052_bu_marni.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0052",
+   "character": "bu_marni",
+   "sha256": "55482dde202eb97f74b3c836498b7f71f6475d2b3785fbca6118d233d4421671",
+   "source_sheet": "sheet_L23",
+   "source_asset": "https://www.figma.com/api/mcp/asset/380737bb-6998-4372-9527-be2fd83086d0.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0052_pak_ketut.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0052",
+   "character": "pak_ketut",
+   "sha256": "ccc48fca505d7cb855bf175b8b8e7a08502c7661e5744ebb0b4aa710a9b5a964",
+   "source_sheet": "sheet_L23",
+   "source_asset": "https://www.figma.com/api/mcp/asset/380737bb-6998-4372-9527-be2fd83086d0.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0053_kak_sinta.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0053",
+   "character": "kak_sinta",
+   "sha256": "7a16bd1c393e79788f7950082d40e1f6ded35a9ee56cdd7d5147f17137d36979",
+   "source_sheet": "sheet_L24",
+   "source_asset": "https://www.figma.com/api/mcp/asset/c8d734f9-2ae3-4674-bd18-548b40613c7c.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0053_pak_dahlan.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0053",
+   "character": "pak_dahlan",
+   "sha256": "a1afb3f87bd504687699a8f84677eee6e4c79ba35cf1caad204f3f222f585ce3",
+   "source_sheet": "sheet_L24",
+   "source_asset": "https://www.figma.com/api/mcp/asset/c8d734f9-2ae3-4674-bd18-548b40613c7c.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0054_dr_maria.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0054",
+   "character": "dr_maria",
+   "sha256": "77d4a5752326dd7b99507be35b827ce7fb28293035ffb05779bc5016024b3ea5",
+   "source_sheet": "sheet_L24",
+   "source_asset": "https://www.figma.com/api/mcp/asset/c8d734f9-2ae3-4674-bd18-548b40613c7c.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0054_pak_yohanis.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0054",
+   "character": "pak_yohanis",
+   "sha256": "c1d191399caa3c9e6cb013eb46daab4ef321c25df03f8763dcfd417feea5a0ca",
+   "source_sheet": "sheet_L24",
+   "source_asset": "https://www.figma.com/api/mcp/asset/c8d734f9-2ae3-4674-bd18-548b40613c7c.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0055_bu_iis.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0055",
+   "character": "bu_iis",
+   "sha256": "f32d1c1931ff69a0c5ff9abc1c9ae71b73186c24388e454a5a1e76720243f6dd",
+   "source_sheet": "sheet_L25",
+   "source_asset": "https://www.figma.com/api/mcp/asset/2bec95fe-d7d8-4a94-a66c-2f6fec661c3a.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0055_kang_dede.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0055",
+   "character": "kang_dede",
+   "sha256": "d45eb362d095f89419153a31ff948c67977ba850829d27d5dd3f1cd4ca11b5ec",
+   "source_sheet": "sheet_L25",
+   "source_asset": "https://www.figma.com/api/mcp/asset/2bec95fe-d7d8-4a94-a66c-2f6fec661c3a.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0056_bu_rini.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0056",
+   "character": "bu_rini",
+   "sha256": "970383f45673f503583c2ecc665659e19874e07c0fed2c24f579266f01835ec5",
+   "source_sheet": "sheet_L25",
+   "source_asset": "https://www.figma.com/api/mcp/asset/2bec95fe-d7d8-4a94-a66c-2f6fec661c3a.png"
+  },
+  {
+   "path": "res://assets/story/portraits/locals/CASE-0056_pak_hendra.jpg",
+   "kind": "portrait_local",
+   "case": "CASE-0056",
+   "character": "pak_hendra",
+   "sha256": "b475f1eaea68dc9ffe16a8584408e3023e58752f45be988825e416cfe5b19010",
+   "source_sheet": "sheet_L25",
+   "source_asset": "https://www.figma.com/api/mcp/asset/2bec95fe-d7d8-4a94-a66c-2f6fec661c3a.png"
+  }
+ ]
+}

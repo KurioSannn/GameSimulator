@@ -37,9 +37,22 @@ const KINDS := {
 	"desa": {"sky": ["a8d6e6", "eef3dc"], "ground": "6a8a42", "sun": "fff3c8", "shape": "desa"},
 }
 
+const ART_DIR := "res://assets/story/backgrounds/"
+
 var kind := "ruang_kerja"
 var _t := 0.0
 var _motion := true
+var _art: Texture2D
+static var _art_cache := {}
+
+
+## Painted backdrop for a kind (game/assets/story/backgrounds/<kind>.jpg), or null when none exists
+## (the procedural drawing below is then used, e.g. for the map veil).
+static func art_for(k: String) -> Texture2D:
+	if not _art_cache.has(k):
+		var path := ART_DIR + k + ".jpg"
+		_art_cache[k] = load(path) if ResourceLoader.exists(path) else null
+	return _art_cache[k]
 
 
 func _ready() -> void:
@@ -50,11 +63,16 @@ func _ready() -> void:
 
 func set_kind(k: String) -> void:
 	kind = k if KINDS.has(k) else "ruang_kerja"
+	_art = art_for(kind)
+	_t = 0.0
 	queue_redraw()
 
 
 func _process(delta: float) -> void:
 	_t += delta
+	if _art != null:
+		queue_redraw()
+		return
 	if KINDS[kind].has("weather") or KINDS[kind].shape in ["pesisir", "laut", "danau", "rawa", "pelabuhan", "industri"]:
 		queue_redraw()
 
@@ -69,6 +87,9 @@ func _draw() -> void:
 	var h := size.y
 	if spec.shape == "veil":
 		draw_rect(Rect2(Vector2.ZERO, size), Color(0.04, 0.07, 0.12, 0.35))
+		return
+	if _art != null:
+		_draw_art(w, h)
 		return
 	var sky: Array = spec.sky
 	var top := _c(sky[0])
@@ -101,6 +122,23 @@ func _draw() -> void:
 				draw_circle(Vector2(x, horizon - h * 0.06), h * 0.16, Color(1, 1, 1, 0.16))
 	# soft vignette for dialogue readability
 	draw_rect(Rect2(0, h * 0.62, w, h * 0.38), Color(0, 0, 0, 0.22))
+
+
+## Painted backdrop scaled to cover the screen, with a very slow drift (none with reduced motion) and
+## the same lower-third shade the procedural scenes use so dialogue stays readable.
+func _draw_art(w: float, h: float) -> void:
+	var ts := _art.get_size()
+	var zoom := 1.06 if _motion else 1.0
+	var sc := maxf(w / ts.x, h / ts.y) * zoom
+	var ds := ts * sc
+	var drift := 0.0
+	if _motion:
+		drift = sin(_t * 0.05) * (ds.x - w) * 0.5
+	var pos := Vector2((w - ds.x) * 0.5 + drift, (h - ds.y) * 0.5)
+	draw_texture_rect(_art, Rect2(pos, ds), false)
+	for i in 12:
+		var y0 := h * (0.6 + 0.4 * i / 12.0)
+		draw_rect(Rect2(0, y0, w, h * 0.4 / 12.0 + 1), Color(0, 0, 0, 0.03 * i))
 
 
 func _poly(points: Array, col: Color) -> void:
