@@ -845,6 +845,7 @@ func _goals() -> void:
 	var p := Narrative.pillars(Game.session)
 	var intro := _card("APA YANG KITA JAGA SELAMA LIMA TAHUN")
 	intro.add_child(UiKit.label("Masa bakti berlangsung dua puluh kuartal. Tidak ada pemerintahan yang menyelesaikan semuanya. Di akhir masa bakti, keempat tujuan ini dinilai bersama, bersama janji yang ditepati dan persoalan yang dibiarkan.", 16, UiKit.TEXT, true))
+	intro.add_child(UiKit.label("Lima tahun ini penuh bencana dan krisis, jadi angka di banyak daerah bisa turun meski pemerintah bekerja keras. Yang dinilai adalah seberapa baik dampaknya ditahan dibanding jika persoalan dibiarkan.", 15, UiKit.MUTED, true))
 	var grid := GridContainer.new()
 	grid.columns = 2
 	grid.add_theme_constant_override("h_separation", 16)

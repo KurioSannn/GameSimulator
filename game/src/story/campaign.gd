@@ -14,8 +14,14 @@ extends RefCounted
 const MAX_OPEN := 3
 const DEFAULT_WINDOW_Q := 3
 const FOLLOWUP_WINDOW_Q := 2
-const UNATTENDED_TRUST := -1.0
-const UNATTENDED_TRUST_NATIONAL := -0.3
+## Design values (calibrated 2026-11-23, see research/reports/2026-11-23_STORY_CAMPAIGN_REPORT.md): an
+## unattended crisis lacks a coordinated response, so affected regions lose trust, welfare and services
+## for months. Before calibration (-1 trust only) neglecting every agenda item scored like governing.
+const UNATTENDED_TRUST := -3.0
+const UNATTENDED_TRUST_NATIONAL := -1.2
+const UNATTENDED_WELFARE := -0.4   # per month for UNATTENDED_MONTHS
+const UNATTENDED_SERVICES := -0.4
+const UNATTENDED_MONTHS := 6
 const SKIP_CHOICE := "_tunda"
 
 
@@ -140,10 +146,12 @@ static func expire_due(session: Session) -> Array:
 		var custom: Array = c.get("story", {}).get("agenda", {}).get("unattended_effects", [])
 		if not custom.is_empty():
 			effects.append_array(custom)
-		elif c.get("focus_regions", []).is_empty():
-			effects.append({"scope": "all", "var": "trust", "op": "add", "value": UNATTENDED_TRUST_NATIONAL})
 		else:
-			effects.append({"scope": "regions:" + ",".join(c.focus_regions), "var": "trust", "op": "add", "value": UNATTENDED_TRUST})
+			var scope := "all" if c.get("focus_regions", []).is_empty() else "regions:" + ",".join(c.focus_regions)
+			var national := scope == "all"
+			effects.append({"scope": scope, "var": "trust", "op": "add", "value": UNATTENDED_TRUST_NATIONAL if national else UNATTENDED_TRUST})
+			effects.append({"scope": scope, "var": "welfare", "op": "add", "value": UNATTENDED_WELFARE * (0.4 if national else 1.0), "duration": UNATTENDED_MONTHS})
+			effects.append({"scope": scope, "var": "services", "op": "add", "value": UNATTENDED_SERVICES * (0.4 if national else 1.0), "duration": UNATTENDED_MONTHS})
 		EffectQueue.schedule(session.world, effects, "case:%s/choice:%s" % [id, SKIP_CHOICE])
 		session.world.case_state[id] = {"status": CaseEngine.STATUS_RESOLVED, "triggered_tick": session.world.tick,
 			"decided_tick": session.world.tick, "choice_id": SKIP_CHOICE, "count": 1,
