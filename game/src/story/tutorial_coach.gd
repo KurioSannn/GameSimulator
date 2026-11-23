@@ -36,6 +36,7 @@ func _ready() -> void:
 	_title = UiKit.title("", 21, UiKit.TEXT)
 	col.add_child(_title)
 	_text = UiKit.label("", 17, UiKit.TEXT, true)
+	_text.custom_minimum_size.x = 430  # fixed wrap width, so the panel's height follows the text
 	col.add_child(_text)
 	_ack = UiKit.button("MENGERTI", func(): notify("ack"), true)
 	_ack.size_flags_horizontal = Control.SIZE_SHRINK_END
@@ -114,8 +115,16 @@ func _show_step() -> void:
 	var c: Dictionary = ContentDB.character(str(s.get("s", "laras")))
 	_who.text = str(c.get("name", "")).to_upper()
 	_title.text = str(s.get("title", ""))
-	_text.text = str(s.get("t", ""))
+	_text.text = str(s.get("t_mobile", s.get("t", ""))) if OS.has_feature("mobile") else str(s.get("t", ""))
 	_progress.text = "%d / %d" % [i + 1, _steps.size()]
 	_ack.visible = str(s.wait) == "ack"
 	show()
+	_fit.call_deferred()
 	step_changed.emit(str(s.id))
+
+
+## Shrink-wrap to the current text, keeping the bottom edge in place (the panel grows upward).
+func _fit() -> void:
+	var h := get_combined_minimum_size().y
+	offset_top = offset_bottom - h
+	size.y = h

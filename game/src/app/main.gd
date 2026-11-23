@@ -62,7 +62,61 @@ const FIGMA_ICONS := {
 var ready_ticks_ms := 0  # engine start -> main screen _ready (QA timing)
 
 
+## Mobile lifecycle and the Android back button (quit_on_go_back is off): back acts like Esc
+## (close screen, skip scene, close panel); leaving the app saves the campaign so a killed app resumes.
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_WM_GO_BACK_REQUEST:
+			var ev := InputEventKey.new()
+			ev.keycode = KEY_ESCAPE
+			ev.pressed = true
+			Input.parse_input_event(ev)
+			var up := ev.duplicate()
+			up.pressed = false
+			Input.parse_input_event(up)
+		NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_CLOSE_REQUEST:
+			if Game.world != null and Game.mode == "campaign" and screens != null and screens.session_started:
+				Game.autosave_counter += 1
+				Game.saves.autosave(Game.world.to_dict(), Game.save_meta(), Game.autosave_counter)
+
+
+func _apply_graphics() -> void:
+	if map_view_3d != null:
+		map_view_3d.set_low_power(int(UiPreferences.values.get("graphics", 0)) == 1)
+	UiPreferences.apply(get_viewport()) if not _automation() else null
+
+
+func _on_patch_ready(version: String) -> void:
+	var d := ConfirmationDialog.new()
+	d.title = "Pembaruan siap"
+	d.dialog_text = "Pembaruan %s sudah diunduh. Mulai ulang sekarang untuk memakainya? Permainanmu disimpan otomatis." % version
+	d.ok_button_text = "Mulai ulang"
+	d.cancel_button_text = "Nanti saja"
+	if OS.has_feature("mobile"):
+		d.dialog_text = "Pembaruan %s sudah diunduh dan akan dipakai saat NUSANTARA dibuka lagi." % version
+		d.ok_button_text = "Oke"
+	d.confirmed.connect(func():
+		_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+		if not OS.has_feature("mobile"):
+			Updater.restart_now())
+	add_child(d)
+	d.popup_centered()
+
+
+func _on_major_update(version: String, url: String, notes: String) -> void:
+	var d := ConfirmationDialog.new()
+	d.title = "Versi baru tersedia"
+	d.dialog_text = "NUSANTARA %s sudah tersedia.%s\nUnduh dan pasang versi baru? Simpanan permainanmu tetap aman." % [version, ("\n" + notes) if notes != "" else ""]
+	d.ok_button_text = "Unduh"
+	d.cancel_button_text = "Nanti saja"
+	d.confirmed.connect(func(): OS.shell_open(url))
+	add_child(d)
+	d.popup_centered()
+
+
 func _ready() -> void:
+	Updater.patch_ready.connect(_on_patch_ready)
+	Updater.major_available.connect(_on_major_update)
 	UiPreferences.read()
 	var automation := Array(OS.get_cmdline_user_args()).any(func(a): return a.begins_with("--screenshot=") or a.begins_with("--qa-") or a.begins_with("--map-bench="))
 	if not automation:
@@ -105,6 +159,7 @@ func _ready() -> void:
 	_refresh_all()
 	if not automation:
 		_toggle_3d_mode()
+	_apply_graphics()
 	var pend := Game.pending_case()
 	if pend != "":
 		_on_case_presented(pend)
@@ -469,7 +524,7 @@ func _build_ui() -> void:
 	hud.goals_pressed.connect(func(): screens._origin = "map"; screens.open("goals"))
 	camera.navigated.connect(func(k): if coach: coach.notify(k))
 	camera_3d.navigated.connect(func(k): if coach: coach.notify(k))
-	screens.preferences_changed.connect(func(): root.theme = UiKit.make_theme(); UiKit.rescale(root); _refresh_all())
+	screens.preferences_changed.connect(func(): root.theme = UiKit.make_theme(); UiKit.rescale(root); _apply_graphics(); _refresh_all())
 
 
 func _unhandled_input(event: InputEvent) -> void:

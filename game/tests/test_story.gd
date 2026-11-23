@@ -318,6 +318,14 @@ func test_dialogue_position_survives_save_and_load() -> void:
 	t.check(str(pl.get("bg", "")) == "ruang_rapat" and bool(pl.get("revealed", false)), "backdrop and reveal state restored")
 
 
+func test_updater_versions_and_binary_lines() -> void:
+	var U: GDScript = load("res://src/app/updater.gd")
+	t.check(U.compare("1.0.10", "1.0.9") == 1 and U.compare("1.0.0", "1.0") == 0 and U.compare("1.1.0", "1.2.0") == -1, "numeric version compare")
+	t.check(U.line_of("1.0.7") == "1.0" and U.line_of("2.3.0") == "2.3", "binary line = major.minor")
+	var cfg: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/update_config.json"))
+	t.check(str(cfg.get("manifest_url", "")).begins_with("https://"), "update manifest served over https")
+
+
 func test_story_state_survives_save_and_load() -> void:
 	var s := _session()
 	s.present_next_case()

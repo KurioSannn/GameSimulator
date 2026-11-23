@@ -1,0 +1,5 @@
+{
+ "schema": "nusantara.update_config/1",
+ "note": "Manifest published with each release (scripts/release/build_release.sh writes update.json). Empty manifest_url disables checks.",
+ "manifest_url": "https://github.com/KurioSannn/GameSimulator/releases/latest/download/update.json"
+}

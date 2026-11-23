@@ -99,7 +99,7 @@ func present(id: String) -> void:
 	var choices := UiKit.vbox(8)
 	choices.custom_minimum_size.x = 460
 	choices.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	choices.add_child(UiKit.subheader("PILIH LANGKAH (TEKAN 1 SAMPAI 3)", UiKit.MUTED, 15))
+	choices.add_child(UiKit.subheader("PILIH LANGKAH" if OS.has_feature("mobile") else "PILIH LANGKAH (TEKAN 1 SAMPAI 3)", UiKit.MUTED, 15))
 	columns.add_child(choices)
 	var detail := _card()
 	detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -302,7 +302,7 @@ func _update_confirm() -> void:
 	if _selected != "":
 		for choice in ContentDB.cases[case_id].choices:
 			if choice.choice_id == _selected:
-				_selection_summary.text = "Opsi %s terpilih. Tekan Enter untuk menetapkan." % _selected.to_upper()
+				_selection_summary.text = ("Opsi %s terpilih. Ketuk Tetapkan keputusan." if OS.has_feature("mobile") else "Opsi %s terpilih. Tekan Enter untuk menetapkan.") % _selected.to_upper()
 	_confirm.tooltip_text = "Pilih satu opsi terlebih dahulu." if _selected == "" else "Tetapkan pilihan (Enter)"
 
 func _confirm_choice() -> void:

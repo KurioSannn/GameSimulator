@@ -74,14 +74,14 @@ func _ready() -> void:
 	tools.offset_top = 20
 	tools.offset_right = -24
 	add_child(tools)
-	var hist := UiKit.ghost_button("Riwayat (H)", _toggle_history, "Baca ulang percakapan")
+	var hist := UiKit.ghost_button(_k("Riwayat", "H"), _toggle_history, "Baca ulang percakapan")
 	tools.add_child(hist)
-	_auto_btn = UiKit.ghost_button("Otomatis (A)", _toggle_auto, "Lanjut otomatis setelah setiap kalimat")
+	_auto_btn = UiKit.ghost_button(_k("Otomatis", "A"), _toggle_auto, "Lanjut otomatis setelah setiap kalimat")
 	_auto_btn.toggle_mode = true
 	tools.add_child(_auto_btn)
-	var save := UiKit.ghost_button("Simpan (F5)", func(): save_requested.emit(), "Simpan permainan di kalimat ini")
+	var save := UiKit.ghost_button(_k("Simpan", "F5"), func(): save_requested.emit(), "Simpan permainan di kalimat ini")
 	tools.add_child(save)
-	var skip := UiKit.ghost_button("Lewati (Esc)", skip_scene, "Lewati adegan ini")
+	var skip := UiKit.ghost_button(_k("Lewati", "Esc"), skip_scene, "Lewati adegan ini")
 	skip.name = "SkipButton"
 	tools.add_child(skip)
 
@@ -106,7 +106,7 @@ func _ready() -> void:
 	_text.add_theme_color_override("default_color", UiKit.TEXT)
 	_text.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	col.add_child(_text)
-	_cont = UiKit.label("▼ klik / Spasi", 15, UiKit.MUTED)
+	_cont = UiKit.label("▼ ketuk untuk lanjut" if OS.has_feature("mobile") else "▼ klik / Spasi", 15, UiKit.MUTED)
 	_cont.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	col.add_child(_cont)
 
@@ -395,3 +395,8 @@ func _unhandled_input(event: InputEvent) -> void:
 					if i < _options.get_child_count():
 						(_options.get_child(i) as Button).pressed.emit()
 	get_viewport().set_input_as_handled()
+
+
+## Button label with its keyboard shortcut on desktop; touch devices show the word only.
+static func _k(label: String, key: String) -> String:
+	return label if OS.has_feature("mobile") else "%s (%s)" % [label, key]

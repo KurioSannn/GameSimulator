@@ -3,6 +3,8 @@
 _Last updated: 2026-11-23 (Claude Code, final experience milestone)._ **Submission deadline recorded by the project: 15 Nov 2026.**
 
 ## Current phase
+**Release builds and auto-update (2026-11-24; user request)**: Windows .exe, macOS .zip and signed Android .apk built with `scripts/release/build_release.sh` (D-096); in-game Updater with SHA-256-verified patch packs (tested end to end on macOS: 1.0.0 downloaded and mounted a 1,980-byte 1.0.1 patch) and a download prompt for major versions. Android tested on an emulator (phone 2400x1080): splash, prologue, tap to advance, swipe the map. Mobile fixes: back button, pause autosave, graphics quality setting, touch wording, tutorial panel sizing. Not published yet; iOS blocked (no Xcode/Apple account). Guide: docs/RELEASE.md. Tests 184/184.
+
 **Final experience milestone: content freeze at 50 cases (2026-11-23; user brief)**:
 - Art: 29 painted story backdrops and portraits for every speaker (3 advisers with 4 expressions, 100 locals), generated with Figma AI at the user's request; manifest + AI log; placeholder guard test.
 - Agenda outcome categories (D-093): decided, delegated, covered, displaced, lapsed, missed critical; KRISIS BESAR items cannot be delegated. Negligence = missed critical + idle lapses.

@@ -123,8 +123,10 @@ func _build() -> void:
 	audio.add_child(audio_bar)
 
 	var display := _section("TAMPILAN DAN BAHASA", "imgIkonScreen")
-	_option(display, "MODE LAYAR", "window_mode", ["Layar penuh", "Jendela"])
-	_option(display, "RESOLUSI JENDELA", "resolution", ["1920 × 1080", "1600 × 900", "1280 × 720"])
+	_option(display, "KUALITAS GRAFIS", "graphics", ["Tinggi", "Hemat baterai"])
+	if not OS.has_feature("mobile"):
+		_option(display, "MODE LAYAR", "window_mode", ["Layar penuh", "Jendela"])
+		_option(display, "RESOLUSI JENDELA", "resolution", ["1920 × 1080", "1600 × 900", "1280 × 720"])
 	_option(display, "ANTIALIASING PETA 3D", "antialiasing", ["Nonaktif", "2×", "4×"])
 	var language := UiKit.hbox(12)
 	language.add_child(UiKit.label("BAHASA", 15, UiKit.TEXT))
@@ -187,6 +189,9 @@ func _build() -> void:
 	_option(story, "KECEPATAN TEKS", "text_speed", ["Lambat", "Normal", "Cepat", "Langsung"])
 	_check(story, "LANJUT OTOMATIS", "auto_dialogue")
 	_check(story, "TAMPILKAN SUMBER DATA (MODE PENGEMBANG)", "show_sources")
+	_check(story, "PERIKSA PEMBARUAN OTOMATIS", "auto_update")
+	var ver := UiKit.label("Versi permainan %s" % Updater.current_version + ("" if Updater.current_version == Updater.binary_version else " (aplikasi %s)" % Updater.binary_version), 14, UiKit.MUTED, true)
+	story.add_child(ver)
 	var tut := UiKit.ghost_button("ULANGI TUTORIAL", func(): tutorial_requested.emit(), "Mulai lagi panduan bermain langkah demi langkah")
 	tut.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	story.add_child(tut)

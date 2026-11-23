@@ -198,6 +198,17 @@ func _init_materials() -> void:
 	_mat_highlight_hover.albedo_color = HOVER_COLOR
 
 
+## Hemat graphics (mobile default): no sun shadows and no decorative traffic, ships or neighbouring
+## countries' props. The regions, roads, clouds and weather that carry game information stay.
+func set_low_power(on: bool) -> void:
+	if _sun:
+		_sun.shadow_enabled = not on
+	for layer in [_maritime, _aviation, _neighbor_props]:
+		if layer != null:
+			layer.visible = not on
+			layer.process_mode = Node.PROCESS_MODE_DISABLED if on else Node.PROCESS_MODE_INHERIT
+
+
 func _init_environment() -> void:
 	# Directional Sun Light (isometric angle with soft shadows)
 	_sun = DirectionalLight3D.new()
