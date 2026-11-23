@@ -46,7 +46,7 @@ var _ambient_players: Dictionary = {}
 var _ambient_target_db: Dictionary = {}
 var _ambient_current_db: Dictionary = {}
 var _ship_horn_player: AudioStreamPlayer
-var _ship_horn_timer: float = 9.0
+var _ship_horn_timer: float = 45.0
 
 var _bgm_day_player: AudioStreamPlayer
 var _bgm_night_player: AudioStreamPlayer
@@ -102,15 +102,15 @@ func _process(delta: float) -> void:
 				player.play(_rng.randf_range(0.0, 4.0))
 
 	if _ship_horn_player != null and _ship_horn_player.stream != null:
-		var sea_audible := _world_active and _landscape_active and not _modal_active and _cam_distance < 920.0
+		var sea_audible := _world_active and _landscape_active and not _modal_active and _cam_distance < 520.0
 		if sea_audible and DisplayServer.get_name() != "headless":
 			_ship_horn_timer -= dt
 			if _ship_horn_timer <= 0.0:
 				var proximity := clampf(1.0 - (_cam_distance - 240.0) / 680.0, 0.0, 1.0)
-				_ship_horn_player.volume_db = lerpf(-26.0, -14.0, proximity)
+				_ship_horn_player.volume_db = lerpf(-38.0, -29.0, proximity)
 				_ship_horn_player.pitch_scale = _rng.randf_range(0.94, 1.06)
 				_ship_horn_player.play()
-				_ship_horn_timer = _rng.randf_range(16.0, 29.0)
+				_ship_horn_timer = _rng.randf_range(60.0, 120.0)
 
 
 func play_ui(kind: String = "click", pitch_jitter: float = 0.03) -> void:
@@ -168,7 +168,7 @@ func update_world_ambience(mode_3d: bool, landscape: bool, modal_open: bool, cam
 	var rain_weight := clampf(rain * (0.45 + 0.55 * zoom_mid), 0.0, 1.0)
 	var flood_weight := clampf(flood * (0.35 + 0.65 * zoom_close), 0.0, 1.0)
 	var fire_weight := clampf(fire * (0.35 + 0.65 * zoom_close), 0.0, 1.0)
-	var traffic_weight := clampf(traffic * zoom_close, 0.0, 1.0)
+	var traffic_weight := clampf(traffic * zoom_close * zoom_close * 0.6, 0.0, 1.0)
 	var quake_weight := clampf(quake * (0.40 + 0.60 * zoom_mid), 0.0, 1.0)
 
 	_ambient_target_db["ocean"] = _weight_to_db(ocean_weight, -29.0, -14.0, modal_att)
@@ -177,7 +177,7 @@ func update_world_ambience(mode_3d: bool, landscape: bool, modal_open: bool, cam
 	_ambient_target_db["rain"] = _weight_to_db(rain_weight, -26.0, -11.0, modal_att)
 	_ambient_target_db["flood"] = _weight_to_db(flood_weight, -27.0, -12.0, modal_att)
 	_ambient_target_db["fire"] = _weight_to_db(fire_weight, -25.0, -10.5, modal_att)
-	_ambient_target_db["traffic"] = _weight_to_db(traffic_weight, -28.0, -14.5, modal_att)
+	_ambient_target_db["traffic"] = _weight_to_db(traffic_weight, -44.0, -30.0, modal_att)
 	_ambient_target_db["quake"] = _weight_to_db(quake_weight, -24.0, -9.5, modal_att)
 
 
