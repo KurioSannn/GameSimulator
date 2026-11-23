@@ -882,7 +882,7 @@ func _library() -> void:
 	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	_content.add_child(sc)
 	var grid := GridContainer.new()
-	grid.columns = 3
+	grid.columns = 2
 	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	grid.add_theme_constant_override("h_separation", 14)
 	grid.add_theme_constant_override("v_separation", 14)
@@ -892,14 +892,18 @@ func _library() -> void:
 		var card := PanelContainer.new()
 		card.theme_type_variation = "PanelCard"
 		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		card.custom_minimum_size = Vector2(380, 0)
 		var v := UiKit.vbox(6)
 		card.add_child(v)
-		v.add_child(UiKit.subheader(str(c.get("location_label", "")).to_upper(), UiKit.WARN, 12))
+		var loc := UiKit.subheader(str(c.get("location_label", "")).to_upper(), UiKit.WARN, 12)
+		loc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		loc.custom_minimum_size.x = 200
+		v.add_child(loc)
 		var t := UiKit.title(str(c.get("title", id)), 19)
 		t.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		v.add_child(t)
-		v.add_child(UiKit.label(str(c.get("story", {}).get("agenda", {}).get("hook", "")), 14, UiKit.TEXT, true))
+		var hook := UiKit.label(str(c.get("story", {}).get("agenda", {}).get("hook", "")), 14, UiKit.TEXT, true)
+		hook.custom_minimum_size.x = 200
+		v.add_child(hook)
 		var cid: String = id
 		var play := UiKit.button("MAINKAN KISAH", func(): scenario_requested.emit(cid), true)
 		play.size_flags_horizontal = Control.SIZE_SHRINK_END

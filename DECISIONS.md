@@ -469,3 +469,19 @@ _Imported (originally D-019). Consistent with the existing .gitignore policy (ra
 **Decision:** A case record whose cited sources cannot be retrieved and read is set back to `candidate` (with the audit in `status_note`) and kept out of the game. CASE-0009, 0010, 0012, 0017, 0018 and 0019 are quarantined. CASE-0011, 0013, 0014, 0015, 0016 and 0020 were re-researched and added with `story_priority: 8`, so the original eight cases (incl. local-wisdom CASE-0004) are never crowded out of the 20 quarterly decision slots.
 **Why:** CLAUDE.md forbids fabricated sources; the URL audit found most citations in the 2026-11-03 records did not exist. Increasing the number of decisions per quarter is a core-loop change left to the team.
 
+## D-088: Narrative campaign layer over the authoritative simulation (2026-11-23)
+**Decision:** Story state lives in `SimWorld.story` (save v6) and is only read from the simulation, never read by it. Story content is data (`game/data/story/**`, episodes merged into cases at load). Story text is selected by conditions on actual state (decision snapshots, pillar changes), so narrative never contradicts the calculations. Cast: Laras (sekretaris), Bayu (keuangan), Yosef (pembangunan daerah), Sekar (komunikasi publik); all fictional.
+**Why:** User redesign brief: the game must read as a story with remembered consequences, not a questionnaire. Title/subtitle: NUSANTARA, LIMA TAHUN MENJAGA NEGERI.
+
+## D-089: Visible agenda replaces silent case selection in the campaign (2026-11-23)
+**Decision:** Up to three eligible cases are open on the agenda; one is taken per quarter; items expire after their window with explicit, logged and narrated consequences; unopened cases are reported and playable in Kumpulan Kisah. Supersedes the story_priority workaround of D-087 for the campaign (priority still orders the queue). Headless legacy sessions keep the old pick so golden masters stay valid.
+**Why:** No case may disappear silently; prioritisation becomes the game.
+
+## D-090: Endings are calibrated, relative, and resistant to single mistakes (2026-11-23)
+**Decision:** Pillars rated against p75/p25 of 47 deterministic strategies; crisis requires sustained failure; unattended crises cost trust and welfare/services so neglect is not a winning strategy. Recalibrate with `game/tests/calibrate_endings.gd` after content or coefficient changes.
+**Why:** The model's crises lower welfare and trust under every strategy; absolute thresholds would make good endings unreachable, and uncalibrated neglect scored like governing.
+
+## D-091: Player-facing text has no citations and no em dash (2026-11-23)
+**Decision:** Sources stay in research records; in game they appear only with the developer setting. U+2014 is removed from game text and authored docs and guarded by a test; generated data and evidence captures are left unchanged and listed by `scripts/text/em_dash.py`.
+**Why:** User requirement; immutable/generated files must keep their checksums.
+

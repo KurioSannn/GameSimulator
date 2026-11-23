@@ -1,8 +1,16 @@
 # STATUS
 
-_Last updated: 2026-11-23 (Claude Code, trackpad/mouse controls + case re-verification)._ **Submission deadline recorded by the project: 15 Nov 2026.**
+_Last updated: 2026-11-23 (Claude Code, narrative redesign + 32-case library)._ **Submission deadline recorded by the project: 15 Nov 2026.**
 
 ## Current phase
+**Narrative redesign: story campaign, agenda, endings, 32 playable cases (2026-11-23; user redesign brief)**:
+- Authoritative GDD rewritten (docs/02_GDD.md). Data-driven story layer: prologue, cast of five, 7-step contextual tutorial, opening and choice-specific reaction scenes for every case, state-checked callbacks, promises, quarter transitions from actual pillar changes, Buku Kisah, Tujuan Masa Bakti, Kumpulan Kisah (isolated scenarios), five calibrated endings.
+- Visible quarterly agenda replaces silent priority picks; unattended issues expire with explicit consequences; never-opened cases are reported. Save schema v6 (v5 migrates).
+- Calibration: neglect originally scored like governing; unattended costs raised. Endings relative to 47 strategies (Bertahan 27, Menguat 9, Janji 8, Krisis 4, Warisan 0).
+- Cases: 18 new researched cases (CASE-0021..0038) from official pages read 2026-11-23; **32/50** playable. PDNS 2024 and rice 2023 dropped (no readable official source).
+- U+2014 removed from game text and authored docs; guard test. Tests 177/177; validate_all OK.
+- Report: research/reports/2026-11-23_STORY_CAMPAIGN_REPORT.md.
+
 **Trackpad/mouse controls and case re-verification (2026-11-23; user request)**:
 - Map navigation no longer requires click-and-hold. Two-finger trackpad swipe pans; pinch, Ctrl/⌘+scroll and the wheel zoom toward the cursor; Shift/horizontal wheel pans; touchscreens get two-finger pinch/pan. Shared `MapNavInput` serves both cameras. New setting GULIR / TRACKPAD; always-visible +/−/⌂ buttons.
 - CASE-0009…0020 audit: 50 cited URLs, most 404/unreachable; the registry listed different topics than the files contained. Six topics re-researched with sources read on 2026-11-23 and now playable: CASE-0011, 0013, 0014, 0015, 0016, 0020 (14 major cases in game). Six records quarantined (status back to `candidate`).
