@@ -1,0 +1,188 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0035",
+ "research_ref": "research/cases/CASE-0035.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Pupuk untuk Musim Tanam",
+ "location_label": "Nasional (petani terdaftar e-RDKK)",
+ "focus_regions": [],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 16
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0035"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "all",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.25
+  },
+  {
+   "scope": "national",
+   "var": "price_pressure",
+   "op": "add",
+   "value": 0.01
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Menurut Menteri Pertanian, terbatasnya anggaran di awal 2024 dan kenaikan harga pokok menyebabkan volume pupuk bersubsidi berkurang; alokasi diusulkan naik dari 4,73 juta ton menjadi 9,55 juta ton dan telah disetujui DPR.",
+    "source_refs": [
+     "SRC-KEMENTAN-PUPUK-2024-05-02"
+    ],
+    "as_of": "2024-05-02"
+   },
+   {
+    "text": "Permentan No. 01 Tahun 2024 menambahkan pupuk organik ke jenis pupuk bersubsidi; penyaluran dari kios ke petani berdasarkan data e-RDKK dengan batas alokasi per kecamatan.",
+    "source_refs": [
+     "SRC-KEMENTAN-PUPUK-2024-05-02"
+    ],
+    "as_of": "2024-05-02"
+   },
+   {
+    "text": "Penebusan pupuk bersubsidi kemudian dimungkinkan dengan KTP atau sistem iPubers, dan bisa diwakilkan keluarga atau kelompok tani; realisasi penyerapan mencapai 49,01 persen per 13 September 2024.",
+    "source_refs": [
+     "SRC-KEMENTAN-PUPUK-2024-09-16"
+    ],
+    "as_of": "2024-09-16"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Musim tanam tiba, tetapi jatah pupuk bersubsidi petani tinggal separuh. Kios-kios kehabisan stok."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): small nationwide welfare dent (farm income) and food price pressure +0.01. National data only. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "fertilizer shortage -> farm income (welfare) and food price pressure; bigger allocation -> welfare + lower price pressure; easier redemption -> welfare + trust; organic shift -> environment + welfare_base later",
+  "immediate": "a: fiscal -4, welfare +0.3/month x6 nationwide; b: fiscal -0.5, welfare +0.15/month x6, trust +0.3; c: fiscal -2, trust -0.2",
+  "delayed": "a: price pressure -0.01 after 3 months; c: environment +1 after 9 months, welfare_base +0.2 after 12",
+  "regional": "nationwide",
+  "national": "fiscal_space; price_pressure",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Tambah alokasi pupuk bersubsidi",
+   "description": "Volume pupuk bersubsidi dinaikkan hampir dua kali lipat untuk musim tanam ini. Langsung menolong petani, sangat mahal bagi anggaran.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.0
+    },
+    {
+     "scope": "all",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.3,
+     "duration": 6
+    },
+    {
+     "scope": "national",
+     "var": "price_pressure",
+     "op": "add",
+     "value": -0.01,
+     "delay": 3
+    }
+   ],
+   "memory": {
+    "pupuk2024_response": "more_allocation"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Permudah penebusan cukup dengan KTP",
+   "description": "Petani terdaftar cukup membawa KTP, dan penebusan bisa diwakilkan kelompok tani. Murah, tetapi tidak menambah jumlah pupuk.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "all",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.15,
+     "duration": 6
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": 0.3
+    }
+   ],
+   "memory": {
+    "pupuk2024_response": "easier_redemption"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Dorong pupuk organik dan kesehatan tanah",
+   "description": "Sebagian anggaran dialihkan ke pupuk organik dan pendampingan kesuburan tanah. Petani harus menyesuaikan cara bertani, hasilnya terasa beberapa musim kemudian.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": -0.2
+    },
+    {
+     "scope": "all",
+     "var": "environment",
+     "op": "add",
+     "value": 1.0,
+     "delay": 9
+    },
+    {
+     "scope": "all",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.2,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "pupuk2024_response": "organic"
+   }
+  }
+ ]
+}

@@ -1,0 +1,208 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0033",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "kota",
+ "locals": {
+  "mas_dimas": {
+   "name": "Mas Dimas",
+   "role": "Pengemudi ojek daring, Jakarta Barat",
+   "color": "3a5a7a",
+   "initials": "D"
+  },
+  "bu_ani": {
+   "name": "Bu Ani",
+   "role": "Ibu dua anak, Kota Bekasi",
+   "color": "7a4a6a",
+   "initials": "A"
+  }
+ },
+ "agenda": {
+  "hook": "Udara Jabodetabek tidak sehat berhari-hari. Puskesmas penuh anak batuk, dan langit tidak lagi biru.",
+  "if_postponed": "Udara Jabodetabek dibiarkan membaik sendiri saat hujan datang."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Pagi di Jakarta. Gedung-gedung tinggi tenggelam dalam kabut kelabu yang bukan kabut.",
+   "bg": "kota"
+  },
+  {
+   "s": "mas_dimas",
+   "e": "cemas",
+   "t": "Sepuluh jam sehari saya di jalan, Pak. Seminggu ini dada saya sesak dan mata perih."
+  },
+  {
+   "s": "bu_ani",
+   "e": "sedih",
+   "t": "Anak saya yang kecil batuk terus. Dokter puskesmas bilang banyak anak yang sama."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Kemarau panjang memperparah semuanya. Asap kendaraan, pabrik, pembangkit, semua menumpuk di atas kota.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Ada yang cepat dan murah tapi sementara. Ada yang menyentuh sumbernya tapi berbiaya bagi ekonomi. Ada yang mengubah kota tapi butuh bertahun-tahun."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Orang tidak bisa memilih untuk tidak bernapas. Kita harus memilih untuk mereka."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Kerja dari rumah dan memancing hujan di atas kota.",
+   "helps": "Warga yang menghirup udara kota minggu ini.",
+   "burden": "Sumber pencemaran tidak tersentuh.",
+   "now": "Lingkungan membaik dua bulan, kepercayaan naik.",
+   "later": "Kembali buruk saat kemarau berikutnya."
+  },
+  "b": {
+   "intent": "Menindak industri pencemar dan menguji emisi kendaraan.",
+   "helps": "Warga kota untuk jangka menengah.",
+   "burden": "Pabrik dan pekerjanya; pemilik kendaraan tua.",
+   "now": "Kesejahteraan struktural turun sedikit.",
+   "later": "Lingkungan dan kepercayaan naik setelah tiga bulan."
+  },
+  "c": {
+   "intent": "Memperluas transportasi massal listrik.",
+   "helps": "Komuter dan seluruh warga kota.",
+   "burden": "Anggaran: biaya besar.",
+   "now": "Belum ada perubahan.",
+   "later": "Infrastruktur dan layanan naik setelah sembilan bulan, lingkungan setelah setahun."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Jalanan lebih lengang. Pesawat penyemai garam terbang di atas Jabodetabek.",
+    "bg": "kota_hujan"
+   },
+   {
+    "s": "bu_ani",
+    "e": "lega",
+    "t": "Hujan turun dua hari, dan anak saya bisa main di luar lagi."
+   },
+   {
+    "s": "yosef",
+    "e": "cemas",
+    "t": "Ini menolong sebentar, Pak. Kemarau tahun depan, kita kembali ke sini.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tim pengawas menyegel cerobong-cerobong yang melanggar. Uji emisi digelar di jalan-jalan.",
+    "bg": "industri"
+   },
+   {
+    "s": "mas_dimas",
+    "e": "netral",
+    "t": "Motor saya lolos uji emisi. Teman saya tidak, harus servis dulu. Lumayan mahal.",
+    "bg": "kota"
+   },
+   {
+    "s": "bayu",
+    "e": "cemas",
+    "t": "Beberapa pabrik berhenti sementara. Kita akan dengar keluhan soal pekerjaan.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Rencana jalur bus listrik dan kereta pengumpan diumumkan untuk seluruh Jabodetabek.",
+    "bg": "kota"
+   },
+   {
+    "s": "mas_dimas",
+    "e": "berpikir",
+    "t": "Kalau busnya nyaman dan murah, saya mau ninggalin motor untuk perjalanan jauh."
+   },
+   {
+    "s": "bu_ani",
+    "e": "kecewa",
+    "t": "Bagus untuk nanti. Anak saya batuk sekarang, Pak."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "kemarau",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "environment",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "bu_ani",
+         "e": "senyum",
+         "t": "Kemarau tahun ini langitnya masih biru, Pak. Anak saya tidak batuk seperti tahun lalu.",
+         "bg": "kota"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "mas_dimas",
+         "e": "kecewa",
+         "t": "Kemarau datang lagi dan udaranya sama saja, Pak. Masker lagi.",
+         "bg": "kota"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Tidak ada keputusan khusus soal udara Jabodetabek. Semua menunggu hujan.",
+   "bg": "kota"
+  },
+  {
+   "s": "bu_ani",
+   "e": "sedih",
+   "t": "Kami menutup jendela dan berdoa hujan datang."
+  }
+ ],
+ "journal": {
+  "a": "Kerja dari rumah dan rekayasa cuaca saat polusi Jabodetabek 2023.",
+  "b": "Industri pencemar ditindak dan uji emisi kendaraan diperketat di Jabodetabek.",
+  "c": "Transportasi massal listrik Jabodetabek dipercepat."
+ },
+ "promises": {
+  "c": {
+   "text": "Jabodetabek punya jaringan transportasi massal yang membuat udara lebih bersih.",
+   "due_quarters": 5,
+   "check": {
+    "delta": "environment",
+    "op": ">",
+    "value": 2
+   }
+  }
+ }
+}

@@ -1,0 +1,105 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0038",
+ "title": "Penemuan kasus tuberkulosis dan skrining aktif, 2023 sampai 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "health_infectious_disease",
+ "subcategories": [
+  "tuberculosis",
+  "case_finding",
+  "treatment_adherence",
+  "housing"
+ ],
+ "start_date": "2023",
+ "end_date": "2024-11-12",
+ "decision_as_of": "2024-08-02",
+ "island": "nasional",
+ "provinces": [
+  "32",
+  "33",
+  "35",
+  "36",
+  "31",
+  "53",
+  "73",
+  "12",
+  "81"
+ ],
+ "regency_city_documented": [],
+ "geographic_resolution": "Nasional; provinsi prioritas skrining aktif",
+ "real_facts": [
+  {
+   "fact": "Kemenkes mencatat lebih dari 724.000 kasus TBC baru ditemukan pada 2022 dan 809.000 pada 2023, notifikasi tertinggi sepanjang sejarah berkat perbaikan sistem deteksi dan pelaporan; sebelum pandemi rata-rata penemuan di bawah 600.000 per tahun, hanya 40 sampai 45 persen dari estimasi kasus.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-TBC-2024-01-29"
+   ],
+   "as_of": "2024-01-29"
+  },
+  {
+   "fact": "Indonesia berada di posisi kedua kasus TBC tertinggi di dunia setelah India, dengan sekitar 1.060.000 kasus baru dan 134.000 kematian setiap tahun.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-TBC-2024-08-02"
+   ],
+   "as_of": "2024-08-02"
+  },
+  {
+   "fact": "Pada Agustus 2024 Kemenkes meluncurkan rontgen portabel untuk skrining aktif dan mendistribusikannya ke wilayah prioritas seperti Banten, Jawa Barat, Jawa Tengah, Jawa Timur, NTT, DKI Jakarta, Sulawesi Selatan, Sumatera Utara, dan Maluku, dengan target 900.000 kasus ditemukan pada 2024.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-TBC-2024-08-02"
+   ],
+   "as_of": "2024-08-02"
+  }
+ ],
+ "information_available_at_decision": "Agustus 2024: makin banyak kasus ditemukan karena dicari lebih aktif; masih banyak orang dengan TBC yang belum terdeteksi dan belum diobati.",
+ "trigger": [
+  "Penemuan kasus tuberkulosis dan skrining aktif, 2023 sampai 2024"
+ ],
+ "root_causes_note": "Banyak kasus tidak terdeteksi, pengobatan panjang yang sering putus, dan permukiman padat dengan ventilasi buruk.",
+ "stakeholders": [
+  "Kementerian Kesehatan",
+  "dinas kesehatan dan puskesmas",
+  "kader TBC",
+  "pasien dan keluarga",
+  "pemerintah daerah"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-KEMKES-TBC-2024-01-29",
+   "institution": "Kementerian Kesehatan RI",
+   "title": "Kasus TBC Tinggi Karena Perbaikan Sistem Deteksi dan Pelaporan",
+   "url": "https://kemkes.go.id/id/kasus-tbc-tinggi-karena-perbaikan-sistem-deteksi-dan-pelaporan",
+   "publication_date": "2024-01-29",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional",
+   "reference_period": "2022-2023",
+   "unit": "kasus"
+  },
+  {
+   "source_id": "SRC-KEMKES-TBC-2024-08-02",
+   "institution": "Kementerian Kesehatan RI",
+   "title": "Menkes Budi Luncurkan Portable X-Ray Pendeteksi TBC",
+   "url": "https://kemkes.go.id/id/menkes-budi-luncurkan-portable-x-ray-pendeteksi-tbc",
+   "publication_date": "2024-08-02",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional; provinsi prioritas",
+   "reference_period": "2021-2024",
+   "unit": "kasus; kematian per tahun"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka kasus 2023 berbeda antarrilis (809.000 dan sekitar 821.000); game memakai rilis Januari 2024.",
+  "Angka kematian per tahun berbeda (134.000 dan 136.000) antarrilis; game memakai rilis Agustus 2024."
+ ],
+ "todo_to_validate": [
+  "Data notifikasi dan keberhasilan pengobatan per provinsi (SITB)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0038.json",
+ "game_adaptation_notes": "Skrining aktif (menemukan lebih banyak, beban layanan naik) vs pendamping minum obat (memastikan sembuh) vs perbaikan rumah dan ventilasi (memutus penularan, lambat).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

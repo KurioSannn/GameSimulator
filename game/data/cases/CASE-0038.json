@@ -1,0 +1,175 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0038",
+ "research_ref": "research/cases/CASE-0038.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Penyakit Lama yang Tersembunyi",
+ "location_label": "Nasional; provinsi prioritas skrining aktif",
+ "focus_regions": [],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 21
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0038"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "all",
+   "var": "services",
+   "op": "add",
+   "value": -0.3
+  },
+  {
+   "scope": "all",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.2
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Kemenkes mencatat lebih dari 724.000 kasus TBC baru ditemukan pada 2022 dan 809.000 pada 2023, notifikasi tertinggi sepanjang sejarah berkat perbaikan sistem deteksi dan pelaporan; sebelum pandemi rata-rata penemuan di bawah 600.000 per tahun, hanya 40 sampai 45 persen dari estimasi kasus.",
+    "source_refs": [
+     "SRC-KEMKES-TBC-2024-01-29"
+    ],
+    "as_of": "2024-01-29"
+   },
+   {
+    "text": "Indonesia berada di posisi kedua kasus TBC tertinggi di dunia setelah India, dengan sekitar 1.060.000 kasus baru dan 134.000 kematian setiap tahun.",
+    "source_refs": [
+     "SRC-KEMKES-TBC-2024-08-02"
+    ],
+    "as_of": "2024-08-02"
+   },
+   {
+    "text": "Pada Agustus 2024 Kemenkes meluncurkan rontgen portabel untuk skrining aktif dan mendistribusikannya ke wilayah prioritas seperti Banten, Jawa Barat, Jawa Tengah, Jawa Timur, NTT, DKI Jakarta, Sulawesi Selatan, Sumatera Utara, dan Maluku, dengan target 900.000 kasus ditemukan pada 2024.",
+    "source_refs": [
+     "SRC-KEMKES-TBC-2024-08-02"
+    ],
+    "as_of": "2024-08-02"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Penyakit lama ini membunuh lebih dari seratus ribu orang setiap tahun. Banyak penderitanya bahkan belum tahu mereka sakit."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): small nationwide services and welfare dent (hidden caseload). National data; design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "undetected TB -> services strain and welfare; active screening -> services up nationally; treatment companions -> welfare and trust; housing ventilation -> infrastructure and welfare_base later",
+  "immediate": "a: fiscal -2, services +0.4/month x4 nationwide; b: fiscal -1.5, welfare +0.2/month x6, trust +0.3; c: fiscal -4",
+  "delayed": "c: infrastructure +0.8 after 9 months, welfare_base +0.3 after 12 months",
+  "regional": "nationwide (priority provinces named in facts)",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Skrining aktif dengan rontgen portabel",
+   "description": "Tim dengan rontgen portabel mendatangi permukiman padat, sekolah, dan pabrik untuk menemukan kasus yang tersembunyi.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "all",
+     "var": "services",
+     "op": "add",
+     "value": 0.4,
+     "duration": 4
+    }
+   ],
+   "memory": {
+    "tbc_response": "active_screening"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Pendamping minum obat sampai sembuh",
+   "description": "Setiap pasien didampingi kader sampai pengobatan enam bulan selesai, termasuk bantuan transportasi dan makanan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "all",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.2,
+     "duration": 6
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": 0.3
+    }
+   ],
+   "memory": {
+    "tbc_response": "treatment_support"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Perbaiki rumah dan ventilasi permukiman padat",
+   "description": "Bantuan bedah rumah, jendela, dan ventilasi di kampung-kampung padat dengan kasus tinggi. Memutus penularan, mahal dan lambat.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.0
+    },
+    {
+     "scope": "all",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 0.8,
+     "delay": 9
+    },
+    {
+     "scope": "all",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.3,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "tbc_response": "housing"
+   }
+  }
+ ]
+}

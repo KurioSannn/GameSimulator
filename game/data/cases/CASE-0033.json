@@ -1,0 +1,214 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0033",
+ "research_ref": "research/cases/CASE-0033.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Langit Kelabu di Jabodetabek",
+ "location_label": "Jakarta, Kota Bekasi, Kota Tangerang, Tangerang Selatan",
+ "focus_regions": [
+  "31.71",
+  "31.73",
+  "31.74",
+  "32.75",
+  "36.74",
+  "36.71"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 31
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0033"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+   "var": "environment",
+   "op": "add",
+   "value": -4.0
+  },
+  {
+   "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+   "var": "services",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+   "var": "trust",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Pada 13 Agustus 2023 indeks kualitas udara DKI Jakarta berada di angka 156 dengan keterangan tidak sehat; faktor penyebabnya antara lain kemarau tiga bulan, emisi transportasi, dan industri yang memakai batu bara.",
+    "source_refs": [
+     "SRC-SETKAB-UDARA-2023-08-14"
+    ],
+    "as_of": "2023-08-14"
+   },
+   {
+    "text": "Arahan jangka pendek meliputi rekayasa cuaca, percepatan batas emisi Euro 5 dan Euro 6, ruang terbuka hijau, dan bila perlu kerja hibrida; jangka menengah beralih ke transportasi massal; jangka panjang mengawasi industri dan pembangkit listrik di sekitar Jabodetabek.",
+    "source_refs": [
+     "SRC-SETKAB-UDARA-2023-08-14"
+    ],
+    "as_of": "2023-08-14"
+   },
+   {
+    "text": "Kemenkes menyiapkan 674 puskesmas untuk pemeriksaan ISPA dan 66 rumah sakit di Jabodetabek untuk pemeriksaan pneumonia.",
+    "source_refs": [
+     "SRC-KEMKES-UDARA-2023-08-28"
+    ],
+    "as_of": "2023-08-28"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Udara Jabodetabek tidak sehat berhari-hari. Puskesmas penuh anak batuk, dan langit tidak lagi biru."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): environment -4, services -1 (respiratory caseload), welfare -1, trust -1 in six Jabodetabek cities. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "pollution -> environment, health services, welfare; emergency measures -> environment (temporary); enforcement -> environment later, small structural welfare cost; mass transit -> infrastructure, environment, services later",
+  "immediate": "a: fiscal -1, environment +1.5/month x2, trust +0.5; b: fiscal -1, welfare_base -0.3; c: fiscal -5",
+  "delayed": "b: environment +4 and trust +1 after 3 months; c: infrastructure +4 and services +1 after 9 months, environment +4 after 12",
+  "regional": "six Jabodetabek cities",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Kerja dari rumah dan rekayasa cuaca",
+   "description": "Sebagian kantor bekerja dari rumah dan hujan buatan dipancing di atas Jabodetabek. Udara lebih baik beberapa minggu, sumbernya tetap.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+     "var": "environment",
+     "op": "add",
+     "value": 1.5,
+     "duration": 2
+    },
+    {
+     "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "udara2023_response": "emergency"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Tindak industri pencemar dan uji emisi",
+   "description": "Pabrik yang melanggar disegel dan kendaraan diuji emisinya. Efektif, tetapi ada pabrik yang berhenti dan pekerja yang terganggu.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+     "var": "welfare_base",
+     "op": "add",
+     "value": -0.3
+    },
+    {
+     "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+     "var": "environment",
+     "op": "add",
+     "value": 4.0,
+     "delay": 3
+    },
+    {
+     "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0,
+     "delay": 3
+    }
+   ],
+   "memory": {
+    "udara2023_response": "enforcement"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Percepat transportasi massal listrik",
+   "description": "Bus listrik, kereta, dan jalur pengumpan diperluas supaya orang meninggalkan kendaraan pribadi. Mahal dan butuh waktu, tetapi mengubah udara kota.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 4.0,
+     "delay": 9
+    },
+    {
+     "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "delay": 9
+    },
+    {
+     "scope": "regions:31.71,31.73,31.74,32.75,36.74,36.71",
+     "var": "environment",
+     "op": "add",
+     "value": 4.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "udara2023_response": "mass_transit"
+   }
+  }
+ ]
+}

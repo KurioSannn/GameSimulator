@@ -1,0 +1,98 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0034",
+ "title": "Prevalensi stunting balita hasil Survei Kesehatan Indonesia 2023",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "health_nutrition",
+ "subcategories": [
+  "stunting",
+  "child_nutrition",
+  "sanitation",
+  "primary_care"
+ ],
+ "start_date": "2023",
+ "end_date": "2024-06",
+ "decision_as_of": "2024-06-07",
+ "island": "nasional",
+ "provinces": [
+  "53",
+  "94",
+  "95"
+ ],
+ "regency_city_documented": [],
+ "geographic_resolution": "Papua Tengah, Nusa Tenggara Timur, Papua Pegunungan (data tingkat provinsi)",
+ "real_facts": [
+  {
+   "fact": "Survei Kesehatan Indonesia 2023 mencatat prevalensi stunting balita nasional 21,5 persen, turun selama sepuluh tahun terakhir tetapi belum mencapai target RPJMN 14 persen pada 2024.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BKPK-SKI2023-STUNTING-FS-2024-04"
+   ],
+   "as_of": "2024-04"
+  },
+  {
+   "fact": "Tiga provinsi dengan prevalensi tertinggi adalah Papua Tengah (39,4 persen), Nusa Tenggara Timur (37,9 persen), dan Papua Pegunungan (37,3 persen); terendah Bali (7,2 persen). Sekitar 1 dari 5 balita mengalami stunting, terbanyak pada usia 24 sampai 35 bulan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BKPK-SKI2023-STUNTING-FS-2024-04"
+   ],
+   "as_of": "2024-04"
+  },
+  {
+   "fact": "Kemenkes menyebut pencegahan sebaiknya dilakukan sebelum dan sesudah kehamilan, dengan perhatian pada usia 6 sampai 11 bulan dan 12 sampai 23 bulan karena prevalensi naik cukup tinggi pada kelompok itu.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BKPK-SKI2023-HASIL-2024-06-07"
+   ],
+   "as_of": "2024-06-07"
+  }
+ ],
+ "information_available_at_decision": "Pertengahan 2024: hasil survei menunjukkan penurunan stunting nasional hampir berhenti; kesenjangan antarprovinsi sangat lebar.",
+ "trigger": [
+  "Prevalensi stunting balita hasil Survei Kesehatan Indonesia 2023"
+ ],
+ "root_causes_note": "Gizi ibu dan anak, sanitasi dan air bersih, serta akses layanan kesehatan dasar yang tidak merata.",
+ "stakeholders": [
+  "Kementerian Kesehatan",
+  "BKKBN",
+  "pemerintah provinsi dan kabupaten",
+  "posyandu dan kader",
+  "keluarga dengan balita"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BKPK-SKI2023-STUNTING-FS-2024-04",
+   "institution": "Badan Kebijakan Pembangunan Kesehatan, Kemenkes",
+   "title": "Stunting di Indonesia dan Determinannya (fact sheet SKI 2023)",
+   "url": "https://repository.badankebijakan.kemkes.go.id/id/eprint/5535/1/06%20factsheet%20Gizi%20SKI_bahasa.pdf",
+   "publication_date": "2024-04",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "provinsi",
+   "reference_period": "2023",
+   "unit": "persen balita"
+  },
+  {
+   "source_id": "SRC-BKPK-SKI2023-HASIL-2024-06-07",
+   "institution": "Badan Kebijakan Pembangunan Kesehatan, Kemenkes",
+   "title": "Hasil Utama SKI 2023",
+   "url": "https://www.badankebijakan.kemkes.go.id/daftar-frequently-asked-question-seputar-hasil-utama-ski-2023/hasil-utama-ski-2023/",
+   "publication_date": "2024-06-07",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional; provinsi",
+   "reference_period": "2023",
+   "unit": "persen balita"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Data dalam survei berada di tingkat provinsi; game tidak menurunkannya ke kabupaten/kota (efek diterapkan per provinsi)."
+ ],
+ "todo_to_validate": [
+  "Prevalensi stunting per kabupaten/kota (SSGI/SKI) bila tersedia"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0034.json",
+ "game_adaptation_notes": "Makanan tambahan (cepat, sementara) vs air bersih dan sanitasi (lambat, struktural) vs penguatan posyandu dan kader (murah, bergantung SDM).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

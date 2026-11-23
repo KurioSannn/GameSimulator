@@ -1,0 +1,95 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0037",
+ "title": "Kebakaran TPST Sarimukti dan darurat sampah Bandung Raya, Agustus 2023",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "urban_waste",
+ "subcategories": [
+  "landfill_fire",
+  "waste_management",
+  "urban_services",
+  "air_quality"
+ ],
+ "start_date": "2023-08-19",
+ "end_date": "2023-08-26",
+ "decision_as_of": "2023-08-25",
+ "island": "jawa",
+ "provinces": [
+  "32"
+ ],
+ "regency_city_documented": [
+  "32.17",
+  "32.73",
+  "32.77",
+  "32.04"
+ ],
+ "geographic_resolution": "Bandung Barat, Kota Bandung, Kota Cimahi, Kab. Bandung (Jawa Barat)",
+ "real_facts": [
+  {
+   "fact": "TPST Sarimukti di Kabupaten Bandung Barat terbakar sejak Sabtu 19 Agustus 2023 pukul 20.00 WIB; hingga 25 Agustus lahan terbakar mencapai 80 persen dan asapnya diperkirakan berdampak pada sekitar 3.000 KK di permukiman sekitar.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SARIMUKTI-2023-08-26"
+   ],
+   "as_of": "2023-08-26"
+  },
+  {
+   "fact": "Atas permintaan Gubernur Jawa Barat, BNPB mengirim satu helikopter water bombing yang mampu membawa 4.000 liter air sekali terbang; dalam 2,5 jam operasi pertama dilepaskan 200.000 liter air.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SARIMUKTI-2023-08-26"
+   ],
+   "as_of": "2023-08-26"
+  }
+ ],
+ "information_available_at_decision": "25 Agustus 2023: api masih menyala di tumpukan sampah, kota-kota Bandung Raya kehilangan tempat membuang sampah, tumpukan mulai muncul di pinggir jalan.",
+ "trigger": [
+  "Kebakaran TPST Sarimukti dan darurat sampah Bandung Raya, Agustus 2023"
+ ],
+ "root_causes_note": "Ketergantungan beberapa kota pada satu tempat pembuangan akhir dengan sampah organik yang tidak dipilah.",
+ "stakeholders": [
+  "Pemprov Jawa Barat",
+  "Pemkab Bandung Barat",
+  "Pemkot Bandung dan Cimahi",
+  "BNPB",
+  "warga sekitar TPA",
+  "petugas kebersihan"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-SARIMUKTI-2023-08-26",
+   "institution": "BNPB",
+   "title": "BNPB Gunakan Helikopter Water Bombing Untuk Percepat Pemadaman Api di TPST Sarimukti",
+   "url": "https://bnpb.go.id/berita/bnpb-gunakan-helikopter-water-bombing-untuk-percepat-pemadaman-api-di-tpst-sarimukti",
+   "publication_date": "2023-08-26",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Bandung Barat",
+   "reference_period": "2023-08-25 10.00 WIB",
+   "unit": "persen lahan; KK"
+  },
+  {
+   "source_id": "SRC-BNPB-SARIMUKTI-HELI-2023-08-26",
+   "institution": "BNPB",
+   "title": "Aksi Helikopter BNPB Padamkan Api di TPST Sarimukti",
+   "url": "https://bnpb.go.id/berita/aksi-helikopter-bnpb-padamkan-api-di-tpst-sarimukti",
+   "publication_date": "2023-08-26",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Bandung Barat",
+   "reference_period": "2023-08-25",
+   "unit": ""
+  }
+ ],
+ "rejected_or_unverified": [
+  "Kesepakatan Bandung Raya mengurangi 50 persen sampah ke Sarimukti hanya dari halaman yang sertifikatnya kedaluwarsa; tidak dicantumkan sebagai fakta.",
+  "Status darurat dan perpanjangannya tidak dibaca dari sumber resmi yang dapat diakses."
+ ],
+ "todo_to_validate": [
+  "SK status tanggap darurat Kab. Bandung Barat; data timbulan sampah Bandung Raya (SIPSN)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0037.json",
+ "game_adaptation_notes": "Padamkan dan buka TPA cadangan (cepat, masalah tetap) vs wajib pilah dan olah sampah organik di kota (murah, butuh disiplin warga) vs fasilitas pengolahan sampah regional (mahal, lama, tuntas).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

@@ -1,0 +1,95 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0035",
+ "title": "Kekurangan alokasi dan penambahan pupuk bersubsidi 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "agriculture_inputs",
+ "subcategories": [
+  "fertilizer_subsidy",
+  "smallholder_farmers",
+  "distribution",
+  "food_security"
+ ],
+ "start_date": "2024-01",
+ "end_date": "2024-09-16",
+ "decision_as_of": "2024-05-02",
+ "island": "nasional",
+ "provinces": [],
+ "regency_city_documented": [],
+ "geographic_resolution": "Nasional (petani terdaftar e-RDKK)",
+ "real_facts": [
+  {
+   "fact": "Menurut Menteri Pertanian, terbatasnya anggaran di awal 2024 dan kenaikan harga pokok menyebabkan volume pupuk bersubsidi berkurang; alokasi diusulkan naik dari 4,73 juta ton menjadi 9,55 juta ton dan telah disetujui DPR.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENTAN-PUPUK-2024-05-02"
+   ],
+   "as_of": "2024-05-02"
+  },
+  {
+   "fact": "Permentan No. 01 Tahun 2024 menambahkan pupuk organik ke jenis pupuk bersubsidi; penyaluran dari kios ke petani berdasarkan data e-RDKK dengan batas alokasi per kecamatan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENTAN-PUPUK-2024-05-02"
+   ],
+   "as_of": "2024-05-02"
+  },
+  {
+   "fact": "Penebusan pupuk bersubsidi kemudian dimungkinkan dengan KTP atau sistem iPubers, dan bisa diwakilkan keluarga atau kelompok tani; realisasi penyerapan mencapai 49,01 persen per 13 September 2024.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENTAN-PUPUK-2024-09-16"
+   ],
+   "as_of": "2024-09-16"
+  }
+ ],
+ "information_available_at_decision": "Mei 2024: petani mengeluhkan jatah pupuk yang berkurang; alokasi baru disetujui, tetapi sistem penebusan masih menyulitkan sebagian petani.",
+ "trigger": [
+  "Kekurangan alokasi dan penambahan pupuk bersubsidi 2024"
+ ],
+ "root_causes_note": "Anggaran subsidi yang terbatas, harga pupuk naik, dan sistem penebusan yang rumit bagi petani kecil.",
+ "stakeholders": [
+  "Kementerian Pertanian",
+  "PT Pupuk Indonesia",
+  "petani kecil dan kelompok tani",
+  "kios pengecer",
+  "pemerintah daerah"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-KEMENTAN-PUPUK-2024-05-02",
+   "institution": "Kementerian Pertanian (Ditjen PSP)",
+   "title": "Pastikan Pupuk Subsidi Tepat Sasaran, Kementan Terbitkan Permentan No 01 Tahun 2024",
+   "url": "https://psp.pertanian.go.id/berita/pastikan-pupuk-subsidi-tepat-sasaran-kementan-terbitkan-permentan-no-01-tahun-2024",
+   "publication_date": "2024-05-02",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional; batas per kecamatan",
+   "reference_period": "2024",
+   "unit": "juta ton"
+  },
+  {
+   "source_id": "SRC-KEMENTAN-PUPUK-2024-09-16",
+   "institution": "Kementerian Pertanian (Ditjen PSP)",
+   "title": "Terapkan Sistem Baru, Penyerapan Pupuk Subsidi Menunjukkan Kemajuan",
+   "url": "https://psp.pertanian.go.id/berita/terapkan-sistem-baru-penyerapan-pupuk-subsidi-menunjukkan-kemajuan",
+   "publication_date": "2024-09-16",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional",
+   "reference_period": "s.d. 2024-09-13",
+   "unit": "persen"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Laporan kesulitan petani di lapangan tidak diverifikasi dari sumber resmi; dalam game hanya digambarkan lewat tokoh fiktif.",
+  "Tidak ada data per kabupaten; efek diterapkan nasional."
+ ],
+ "todo_to_validate": [
+  "Realisasi akhir penyerapan 2024 per provinsi"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0035.json",
+ "game_adaptation_notes": "Tambah alokasi (mahal, langsung) vs permudah penebusan (murah, administratif) vs alihkan ke pupuk organik dan kesehatan tanah (lambat, berkelanjutan).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

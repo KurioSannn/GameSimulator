@@ -1,0 +1,209 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0037",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "asap",
+ "locals": {
+  "mang_ade": {
+   "name": "Mang Ade",
+   "role": "Petugas kebersihan, Kota Bandung",
+   "color": "5a6a3a",
+   "initials": "A"
+  },
+  "teh_rina": {
+   "name": "Teh Rina",
+   "role": "Warga dekat TPA, Bandung Barat",
+   "color": "8a4a5a",
+   "initials": "R"
+  }
+ },
+ "agenda": {
+  "hook": "Gunung sampah di Sarimukti terbakar berhari-hari. Truk sampah Bandung Raya tidak punya tempat tujuan.",
+  "if_postponed": "Api di Sarimukti padam sendiri dalam beberapa minggu. Bandung Raya kembali bergantung pada TPA yang sama."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Malam di Bandung Barat. Api menjalar di bukit-bukit sampah. Asapnya tercium sampai desa-desa di bawahnya.",
+   "bg": "asap"
+  },
+  {
+   "s": "teh_rina",
+   "e": "cemas",
+   "t": "Anak-anak kami sesak napas. Kami menutup jendela dengan kain basah."
+  },
+  {
+   "s": "mang_ade",
+   "e": "kecewa",
+   "t": "Truk kami tidak bisa masuk TPA, Pak. Sampah menumpuk di depo, di pinggir jalan, di pasar.",
+   "bg": "kota"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Empat kota dan kabupaten membuang ke satu tempat yang sama. Begitu satu tempat itu terbakar, semuanya macet.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "berpikir",
+   "t": "Memadamkan api itu soal hari ini. Pertanyaan sebenarnya: kenapa sampah sebanyak itu harus ke sana."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Kita padamkan apinya. Lalu kita harus jujur bahwa masalahnya ada di setiap rumah, termasuk rumah kita."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Memadamkan api dan membuka tempat pembuangan cadangan.",
+   "helps": "Warga kota: sampah kembali diangkut.",
+   "burden": "Ketergantungan pada TPA tetap.",
+   "now": "Kerusakan pulih dan layanan sampah naik tiga bulan.",
+   "later": "Tidak ada perubahan cara mengelola sampah."
+  },
+  "b": {
+   "intent": "Mewajibkan pilah dan olah sampah organik.",
+   "helps": "Lingkungan dan umur TPA.",
+   "burden": "Warga yang harus mengubah kebiasaan.",
+   "now": "Kepercayaan turun sedikit.",
+   "later": "Layanan dan lingkungan naik setelah enam bulan."
+  },
+  "c": {
+   "intent": "Membangun fasilitas pengolahan sampah regional.",
+   "helps": "Seluruh Bandung Raya untuk jangka panjang.",
+   "burden": "Anggaran: biaya besar.",
+   "now": "Belum ada perubahan.",
+   "later": "Infrastruktur, lingkungan, dan layanan naik setelah setahun."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Helikopter menjatuhkan air di atas bukit sampah. Lokasi pembuangan sementara dibuka.",
+    "bg": "asap"
+   },
+   {
+    "s": "mang_ade",
+    "e": "lega",
+    "t": "Truk kami bisa jalan lagi. Jalanan mulai bersih.",
+    "bg": "kota"
+   },
+   {
+    "s": "teh_rina",
+    "e": "berpikir",
+    "t": "Asapnya berkurang. Tapi gunung sampah itu masih di sini, di depan rumah kami."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Setiap rumah mendapat dua tong: organik dan sisa. Sampah organik tidak lagi diangkut ke TPA.",
+    "bg": "kota"
+   },
+   {
+    "s": "mang_ade",
+    "e": "netral",
+    "t": "Minggu pertama kacau, Pak. Banyak yang belum paham. Tapi volume ke TPA mulai turun."
+   },
+   {
+    "s": "sekar",
+    "e": "senyum",
+    "t": "Warga mengeluh repot. Tapi beberapa kelurahan sudah bangga dengan kompos mereka.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Lokasi fasilitas pengolahan regional ditetapkan. Pembangunan akan memakan waktu lebih dari setahun.",
+    "bg": "ruang_rapat"
+   },
+   {
+    "s": "mang_ade",
+    "e": "kecewa",
+    "t": "Sementara menunggu, kami tetap mengangkut ke tempat yang sama, Pak.",
+    "bg": "kota"
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Mahal, tapi ini satu-satunya pilihan yang menutup masalahnya."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "sampah",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "environment",
+        "op": ">",
+        "value": 1
+       },
+       "beats": [
+        {
+         "s": "teh_rina",
+         "e": "senyum",
+         "t": "Truk yang lewat depan rumah kami berkurang, Pak. Bau dan asapnya juga.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "mang_ade",
+         "e": "cemas",
+         "t": "Sampah masih menumpuk seperti dulu, Pak. Kami takut ada kebakaran lagi musim kemarau ini.",
+         "bg": "kota"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Api di Sarimukti padam sendiri setelah berminggu-minggu.",
+   "bg": "asap"
+  },
+  {
+   "s": "teh_rina",
+   "e": "kecewa",
+   "t": "Asapnya hilang. Gunung sampahnya tetap."
+  }
+ ],
+ "journal": {
+  "a": "Kebakaran TPST Sarimukti dipadamkan dan tempat pembuangan cadangan dibuka.",
+  "b": "Bandung Raya mewajibkan pilah dan olah sampah organik.",
+  "c": "Fasilitas pengolahan sampah regional Bandung Raya dibangun."
+ },
+ "promises": {
+  "b": {
+   "text": "Sampah organik Bandung Raya diolah di kota, tidak lagi menumpuk di TPA.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "environment",
+    "op": ">",
+    "value": 1
+   }
+  }
+ }
+}

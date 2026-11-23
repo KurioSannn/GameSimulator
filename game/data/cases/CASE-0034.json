@@ -1,0 +1,283 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0034",
+ "research_ref": "research/cases/CASE-0034.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Anak-Anak yang Tumbuh Pendek",
+ "location_label": "Papua Tengah, Nusa Tenggara Timur, Papua Pegunungan (data tingkat provinsi)",
+ "focus_regions": [],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 19
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0034"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "province:94",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "province:53",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "province:95",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "province:94",
+   "var": "welfare_base",
+   "op": "add",
+   "value": -0.3
+  },
+  {
+   "scope": "province:53",
+   "var": "welfare_base",
+   "op": "add",
+   "value": -0.3
+  },
+  {
+   "scope": "province:95",
+   "var": "welfare_base",
+   "op": "add",
+   "value": -0.3
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Survei Kesehatan Indonesia 2023 mencatat prevalensi stunting balita nasional 21,5 persen, turun selama sepuluh tahun terakhir tetapi belum mencapai target RPJMN 14 persen pada 2024.",
+    "source_refs": [
+     "SRC-BKPK-SKI2023-STUNTING-FS-2024-04"
+    ],
+    "as_of": "2024-04"
+   },
+   {
+    "text": "Tiga provinsi dengan prevalensi tertinggi adalah Papua Tengah (39,4 persen), Nusa Tenggara Timur (37,9 persen), dan Papua Pegunungan (37,3 persen); terendah Bali (7,2 persen). Sekitar 1 dari 5 balita mengalami stunting, terbanyak pada usia 24 sampai 35 bulan.",
+    "source_refs": [
+     "SRC-BKPK-SKI2023-STUNTING-FS-2024-04"
+    ],
+    "as_of": "2024-04"
+   },
+   {
+    "text": "Kemenkes menyebut pencegahan sebaiknya dilakukan sebelum dan sesudah kehamilan, dengan perhatian pada usia 6 sampai 11 bulan dan 12 sampai 23 bulan karena prevalensi naik cukup tinggi pada kelompok itu.",
+    "source_refs": [
+     "SRC-BKPK-SKI2023-HASIL-2024-06-07"
+    ],
+    "as_of": "2024-06-07"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Satu dari lima balita di negeri ini tumbuh terlalu pendek untuk usianya. Di beberapa provinsi, hampir dua dari lima."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): welfare -1 and welfare_base -0.3 in the three provinces with the highest SKI 2023 prevalence. Province-level data applied at province scope (no district disaggregation). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "stunting -> welfare and welfare_base; supplementary food -> welfare (temporary); water & sanitation -> infrastructure, services, welfare_base later; posyandu -> services and trust",
+  "immediate": "a: fiscal -3, welfare +0.6/month x6 in three provinces, trust +0.5; b: fiscal -4; c: fiscal -1.5",
+  "delayed": "b: infrastructure +3 and services +2 after 6 months, welfare_base +0.5 after 12; c: services +2 and trust +1 after 3 months",
+  "regional": "Papua Tengah, NTT, Papua Pegunungan (province scope)",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Makanan tambahan untuk balita dan ibu hamil",
+   "description": "Paket gizi rutin dibagikan lewat posyandu di tiga provinsi dengan angka tertinggi. Cepat menyentuh anak-anak, berhenti ketika program berhenti.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "province:94",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.6,
+     "duration": 6
+    },
+    {
+     "scope": "province:53",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.6,
+     "duration": 6
+    },
+    {
+     "scope": "province:95",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.6,
+     "duration": 6
+    },
+    {
+     "scope": "province:53",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "stunting2023_response": "food"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Air bersih dan sanitasi desa",
+   "description": "Sumur, perpipaan, dan jamban sehat dibangun di desa-desa dengan angka stunting tinggi. Lambat, tetapi mengurangi infeksi yang menghambat tumbuh kembang anak.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.0
+    },
+    {
+     "scope": "province:94",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    },
+    {
+     "scope": "province:53",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    },
+    {
+     "scope": "province:95",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    },
+    {
+     "scope": "province:94",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    },
+    {
+     "scope": "province:53",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    },
+    {
+     "scope": "province:95",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    },
+    {
+     "scope": "province:94",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.5,
+     "delay": 12
+    },
+    {
+     "scope": "province:53",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.5,
+     "delay": 12
+    },
+    {
+     "scope": "province:95",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.5,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "stunting2023_response": "wash"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Perkuat posyandu dan kader",
+   "description": "Kader dilatih menimbang, mengukur, dan mendampingi ibu sejak hamil sampai anak berusia dua tahun. Murah, hasilnya bergantung pada orang-orang di desa.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "province:94",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 3
+    },
+    {
+     "scope": "province:53",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 3
+    },
+    {
+     "scope": "province:95",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 3
+    },
+    {
+     "scope": "province:53",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0,
+     "delay": 3
+    }
+   ],
+   "memory": {
+    "stunting2023_response": "posyandu"
+   }
+  }
+ ]
+}

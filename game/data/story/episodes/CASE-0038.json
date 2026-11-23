@@ -1,0 +1,200 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0038",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "kota",
+ "locals": {
+  "pak_joko": {
+   "name": "Pak Joko",
+   "role": "Penyintas TBC dan kader, Surabaya",
+   "color": "4a6a5a",
+   "initials": "J"
+  },
+  "dr_maya": {
+   "name": "dr. Maya",
+   "role": "Dokter puskesmas, Kota Bandung",
+   "color": "6a4a7a",
+   "initials": "M"
+  }
+ },
+ "agenda": {
+  "hook": "Penyakit lama ini membunuh lebih dari seratus ribu orang setiap tahun. Banyak penderitanya bahkan belum tahu mereka sakit.",
+  "if_postponed": "Penemuan kasus TBC berjalan seperti biasa. Banyak penderita tetap tidak terdeteksi."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Sebuah gang padat di kota besar. Rumah-rumah berdempetan, jendela kecil, sinar matahari jarang masuk.",
+   "bg": "kota"
+  },
+  {
+   "s": "pak_joko",
+   "e": "sedih",
+   "t": "Saya batuk berbulan-bulan dan mengira cuma masuk angin. Waktu ketahuan TBC, istri saya sudah tertular."
+  },
+  {
+   "s": "dr_maya",
+   "e": "serius",
+   "t": "Pengobatannya enam bulan, Pak. Banyak yang berhenti di bulan kedua karena merasa sudah sembuh. Lalu kambuh, dan menularkan lagi.",
+   "bg": "rumah_sakit"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Kita sekarang menemukan lebih banyak kasus dari sebelumnya, karena kita mencarinya. Tapi masih banyak yang tersembunyi.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Mencari, mengobati, atau mencegah. Ketiganya perlu. Anggaran kita hanya cukup untuk menekankan satu."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Penyakit yang tidak terlihat tidak membuat orang turun ke jalan. Tapi ia membunuh lebih banyak."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Menemukan kasus tersembunyi dengan skrining aktif.",
+   "helps": "Orang yang sakit tanpa tahu: segera diobati.",
+   "burden": "Puskesmas yang bebannya bertambah.",
+   "now": "Layanan kesehatan naik empat bulan.",
+   "later": "Penularan baru tetap terjadi di rumah padat."
+  },
+  "b": {
+   "intent": "Mendampingi pasien sampai sembuh.",
+   "helps": "Pasien dan keluarganya.",
+   "burden": "Kasus yang belum ditemukan.",
+   "now": "Kesejahteraan naik enam bulan, kepercayaan naik.",
+   "later": "Tidak menambah kasus yang ditemukan."
+  },
+  "c": {
+   "intent": "Memperbaiki rumah dan ventilasi di permukiman padat.",
+   "helps": "Keluarga di kampung padat untuk jangka panjang.",
+   "burden": "Anggaran: biaya besar.",
+   "now": "Belum ada perubahan.",
+   "later": "Infrastruktur dan kesejahteraan struktural naik setelah sembilan bulan sampai setahun."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Mobil rontgen berhenti di balai warga. Antrean mengular sejak pagi.",
+    "bg": "kota"
+   },
+   {
+    "s": "dr_maya",
+    "e": "senyum",
+    "t": "Dalam seminggu kami menemukan puluhan kasus baru. Puskesmas kami kewalahan, tapi itu kabar baik.",
+    "bg": "rumah_sakit"
+   },
+   {
+    "s": "pak_joko",
+    "e": "lega",
+    "t": "Tetangga saya ketahuan lebih awal. Dia tidak perlu melewati yang saya lewati."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kader mengunjungi pasien setiap minggu, memastikan obat diminum dan perut tidak kosong.",
+    "bg": "kota"
+   },
+   {
+    "s": "pak_joko",
+    "e": "senyum",
+    "t": "Saya sekarang jadi pendamping. Saya tahu rasanya ingin berhenti di bulan kedua."
+   },
+   {
+    "s": "dr_maya",
+    "e": "netral",
+    "t": "Lebih sedikit yang putus obat. Itu berarti lebih sedikit yang menularkan.",
+    "bg": "rumah_sakit"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tukang-tukang memasang jendela dan genteng kaca di rumah-rumah gang padat.",
+    "bg": "kota"
+   },
+   {
+    "s": "pak_joko",
+    "e": "senyum",
+    "t": "Rumah saya sekarang terang di siang hari. Dulu harus menyalakan lampu."
+   },
+   {
+    "s": "dr_maya",
+    "e": "berpikir",
+    "t": "Bagus untuk nanti, Pak. Pasien di depan saya hari ini tetap butuh obat dan pendamping.",
+    "bg": "rumah_sakit"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "batuk",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "pillar": "services",
+        "op": ">",
+        "value": -1.5
+       },
+       "beats": [
+        {
+         "s": "dr_maya",
+         "e": "senyum",
+         "t": "Tahun ini lebih banyak pasien TBC yang menyelesaikan pengobatan, Pak. Beberapa kampung mulai sepi batuk.",
+         "bg": "rumah_sakit"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "dr_maya",
+         "e": "cemas",
+         "t": "Kami masih menemukan kasus baru di kampung yang sama, Pak. Rantainya belum putus.",
+         "bg": "rumah_sakit"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Penanggulangan TBC berjalan seperti biasa.",
+   "bg": "kota"
+  },
+  {
+   "s": "dr_maya",
+   "e": "sedih",
+   "t": "Kami mengobati yang datang. Yang tidak datang, kami tidak tahu.",
+   "bg": "rumah_sakit"
+  }
+ ],
+ "journal": {
+  "a": "Skrining aktif TBC dengan rontgen portabel di permukiman padat.",
+  "b": "Pasien TBC didampingi kader sampai pengobatan selesai.",
+  "c": "Rumah dan ventilasi di permukiman padat diperbaiki untuk memutus penularan TBC."
+ },
+ "promises": {}
+}

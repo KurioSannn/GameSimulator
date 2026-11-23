@@ -1,0 +1,209 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0034",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "desa",
+ "locals": {
+  "mama_ina": {
+   "name": "Mama Ina",
+   "role": "Kader posyandu, Timor Tengah Selatan",
+   "color": "8a4a3a",
+   "initials": "I"
+  },
+  "bidan_rosa": {
+   "name": "Bidan Rosa",
+   "role": "Bidan puskesmas, Papua Pegunungan",
+   "color": "3a6a6a",
+   "initials": "R"
+  }
+ },
+ "agenda": {
+  "hook": "Satu dari lima balita di negeri ini tumbuh terlalu pendek untuk usianya. Di beberapa provinsi, hampir dua dari lima.",
+  "if_postponed": "Program stunting berjalan seperti biasa tanpa dorongan baru di provinsi dengan angka tertinggi."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Hari posyandu di sebuah desa di Timor. Ibu-ibu antre menimbang anak di bawah pohon asam.",
+   "bg": "desa"
+  },
+  {
+   "s": "mama_ina",
+   "e": "sedih",
+   "t": "Anak ini dua tahun, Pak, tapi tingginya seperti anak satu tahun. Ibunya sudah berusaha."
+  },
+  {
+   "s": "bidan_rosa",
+   "e": "serius",
+   "t": "Di kampung-kampung kami, air bersih jauh. Anak-anak sering diare. Makanan yang masuk keluar lagi.",
+   "bg": "pegunungan"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Angka nasional hampir tidak turun tahun ini, Pak. Dan jaraknya antarprovinsi sangat lebar.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Makanan tambahan cepat terlihat. Air dan sanitasi lambat. Kader murah tapi bergantung orangnya."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Anak yang terlambat tumbuh hari ini akan merasakannya seumur hidup. Kita tidak punya banyak waktu."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Membagikan makanan tambahan untuk balita dan ibu hamil.",
+   "helps": "Anak-anak di tiga provinsi dengan angka tertinggi.",
+   "burden": "Anggaran; berhenti saat program berhenti.",
+   "now": "Kesejahteraan naik enam bulan, kepercayaan naik.",
+   "later": "Tidak mengubah air dan sanitasi."
+  },
+  "b": {
+   "intent": "Membangun air bersih dan sanitasi di desa.",
+   "helps": "Keluarga di desa-desa dengan angka tinggi, untuk jangka panjang.",
+   "burden": "Anggaran; anak-anak yang menunggu.",
+   "now": "Biaya besar.",
+   "later": "Infrastruktur dan layanan naik setelah enam bulan, kesejahteraan struktural setelah setahun."
+  },
+  "c": {
+   "intent": "Melatih dan memperkuat kader posyandu.",
+   "helps": "Ibu hamil dan balita yang didampingi sejak dini.",
+   "burden": "Hasil bergantung pada kader di desa.",
+   "now": "Biaya kecil.",
+   "later": "Layanan dan kepercayaan naik setelah tiga bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Paket telur, kacang hijau, dan ikan dibagikan rutin di posyandu.",
+    "bg": "desa"
+   },
+   {
+    "s": "mama_ina",
+    "e": "senyum",
+    "t": "Ibu-ibu datang lebih rajin sekarang. Anak-anak juga."
+   },
+   {
+    "s": "bidan_rosa",
+    "e": "berpikir",
+    "t": "Bagus. Tapi kalau airnya masih kotor, sebagian gizi itu hilang lagi.",
+    "bg": "pegunungan"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Pipa air dan jamban sehat mulai dibangun di desa-desa prioritas.",
+    "bg": "desa"
+   },
+   {
+    "s": "bidan_rosa",
+    "e": "senyum",
+    "t": "Kalau air bersih sampai ke kampung, diare anak-anak akan berkurang banyak.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "mama_ina",
+    "e": "cemas",
+    "t": "Proyeknya lama, Pak. Anak-anak di timbangan saya tidak menunggu."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kader-kader dilatih mengukur tinggi badan dan mendampingi ibu sejak hamil.",
+    "bg": "desa"
+   },
+   {
+    "s": "mama_ina",
+    "e": "senyum",
+    "t": "Sekarang saya bisa tahu lebih awal kalau ada anak yang mulai tertinggal."
+   },
+   {
+    "s": "yosef",
+    "e": "netral",
+    "t": "Kader adalah tulang punggungnya. Mereka harus tetap ada tahun depan.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "timbang",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "pillar": "welfare",
+        "op": ">",
+        "value": -2
+       },
+       "beats": [
+        {
+         "s": "mama_ina",
+         "e": "senyum",
+         "t": "Di buku timbangan saya, lebih banyak anak yang garisnya naik tahun ini, Pak.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bidan_rosa",
+         "e": "kecewa",
+         "t": "Perubahannya lambat sekali, Pak. Masih banyak anak di bawah garis.",
+         "bg": "pegunungan"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Program stunting berjalan seperti biasa. Angka di provinsi tertinggi hampir tidak bergerak.",
+   "bg": "desa"
+  },
+  {
+   "s": "mama_ina",
+   "e": "sedih",
+   "t": "Kami menimbang, mencatat, dan menunggu."
+  }
+ ],
+ "journal": {
+  "a": "Makanan tambahan dibagikan di provinsi dengan stunting tertinggi.",
+  "b": "Air bersih dan sanitasi desa dibangun untuk menekan stunting.",
+  "c": "Posyandu dan kader diperkuat untuk mencegah stunting sejak kehamilan."
+ },
+ "promises": {
+  "b": {
+   "text": "Desa-desa dengan stunting tertinggi punya air bersih dan sanitasi layak.",
+   "due_quarters": 4,
+   "check": {
+    "pillar": "services",
+    "op": ">",
+    "value": -2
+   }
+  }
+ }
+}

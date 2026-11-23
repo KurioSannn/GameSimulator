@@ -1,0 +1,100 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0036",
+ "title": "Penghentian produksi dan PHK pekerja Sritex Group, 2024 sampai 2025",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "labor_industry",
+ "subcategories": [
+  "layoffs",
+  "textile_industry",
+  "social_security",
+  "reemployment"
+ ],
+ "start_date": "2024-11",
+ "end_date": "2025-03-18",
+ "decision_as_of": "2024-11-15",
+ "island": "jawa",
+ "provinces": [
+  "33"
+ ],
+ "regency_city_documented": [
+  "33.11",
+  "33.09"
+ ],
+ "geographic_resolution": "Kab. Sukoharjo dan Kab. Boyolali, Jawa Tengah",
+ "real_facts": [
+  {
+   "fact": "Pada 15 November 2024 di Sukoharjo, Wakil Menteri Ketenagakerjaan menyatakan sekitar 2.500 pekerja Sritex dirumahkan, bukan di-PHK, karena perusahaan tidak berproduksi akibat kekurangan bahan baku, dan menjamin hak pekerja bila kelak terjadi PHK.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMNAKER-SRITEX-2024-11-15"
+   ],
+   "as_of": "2024-11-16"
+  },
+  {
+   "fact": "Pada Maret 2025, Kemnaker bersama BPJS Ketenagakerjaan membuka layanan jemput bola klaim Jaminan Hari Tua dan Jaminan Kehilangan Pekerjaan bagi eks pekerja Sritex Group yang terkena PHK; klaim JHT hampir 100 persen dan JKP ditargetkan selesai dalam lima hari.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMNAKER-SRITEX-2025-03-18"
+   ],
+   "as_of": "2025-03-18"
+  },
+  {
+   "fact": "Menurut Menteri Ketenagakerjaan, sejumlah eks pekerja telah bekerja kembali dengan kontrak kerja baru.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMNAKER-SRITEX-2025-03-18"
+   ],
+   "as_of": "2025-03-18"
+  }
+ ],
+ "information_available_at_decision": "November 2024: ribuan pekerja dirumahkan, nasib perusahaan menunggu proses hukum, keluarga pekerja tidak tahu apakah gaji akan kembali.",
+ "trigger": [
+  "Penghentian produksi dan PHK pekerja Sritex Group, 2024 sampai 2025"
+ ],
+ "root_causes_note": "Kesulitan keuangan perusahaan tekstil besar di tengah persaingan industri tekstil.",
+ "stakeholders": [
+  "Kementerian Ketenagakerjaan",
+  "BPJS Ketenagakerjaan",
+  "serikat pekerja",
+  "Pemkab Sukoharjo dan Boyolali",
+  "keluarga pekerja"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-KEMNAKER-SRITEX-2024-11-15",
+   "institution": "Kementerian Ketenagakerjaan RI",
+   "title": "Wamenaker Tepati Janji Berkunjung ke PT Sritex Solo, Pastikan Tidak Ada PHK",
+   "url": "https://kemnaker.go.id/news/detail/wamenaker-tepati-janji-berkunjung-ke-pt-sritex-solo-pastikan-tidak-ada-phk",
+   "publication_date": "2024-11-16",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Sukoharjo",
+   "reference_period": "2024-11-15",
+   "unit": "pekerja"
+  },
+  {
+   "source_id": "SRC-KEMNAKER-SRITEX-2025-03-18",
+   "institution": "Kementerian Ketenagakerjaan RI",
+   "title": "Kemnaker Percepat Klaim JHT dan JKP bagi Eks Pekerja Sritex Group",
+   "url": "https://kemnaker.go.id/news/detail/kemnaker-percepat-klaim-jht-dan-jkp-bagi-eks-pekerja-sritex-group",
+   "publication_date": "2025-03-18",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Boyolali",
+   "reference_period": "2025-03-18",
+   "unit": ""
+  }
+ ],
+ "rejected_or_unverified": [
+  "Putusan pailit dan jumlah total pekerja yang di-PHK tidak tercantum di halaman resmi yang dibaca; tidak dicantumkan sebagai fakta.",
+  "Penyebab kesulitan keuangan perusahaan tidak diverifikasi."
+ ],
+ "todo_to_validate": [
+  "Jumlah resmi eks pekerja Sritex yang terkena PHK dan yang bekerja kembali (Kemnaker)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0036.json",
+ "game_adaptation_notes": "Talangan agar pabrik tetap berjalan (mahal, menahan pekerjaan) vs jaring pengaman dan penempatan kerja baru (seperti respons nyata) vs pelatihan ulang dan pindah industri (lambat, masa depan).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

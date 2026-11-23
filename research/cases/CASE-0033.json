@@ -1,0 +1,105 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0033",
+ "title": "Polusi udara Jabodetabek, Agustus 2023",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "environment_air_quality",
+ "subcategories": [
+  "air_pollution",
+  "transport",
+  "industry_emissions",
+  "public_health"
+ ],
+ "start_date": "2023-08",
+ "end_date": "2023-08-28",
+ "decision_as_of": "2023-08-14",
+ "island": "jawa",
+ "provinces": [
+  "31",
+  "32",
+  "36"
+ ],
+ "regency_city_documented": [
+  "31.71",
+  "31.73",
+  "31.74",
+  "32.75",
+  "36.74",
+  "36.71"
+ ],
+ "geographic_resolution": "Jakarta, Kota Bekasi, Kota Tangerang, Tangerang Selatan",
+ "real_facts": [
+  {
+   "fact": "Pada 13 Agustus 2023 indeks kualitas udara DKI Jakarta berada di angka 156 dengan keterangan tidak sehat; faktor penyebabnya antara lain kemarau tiga bulan, emisi transportasi, dan industri yang memakai batu bara.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-UDARA-2023-08-14"
+   ],
+   "as_of": "2023-08-14"
+  },
+  {
+   "fact": "Arahan jangka pendek meliputi rekayasa cuaca, percepatan batas emisi Euro 5 dan Euro 6, ruang terbuka hijau, dan bila perlu kerja hibrida; jangka menengah beralih ke transportasi massal; jangka panjang mengawasi industri dan pembangkit listrik di sekitar Jabodetabek.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-UDARA-2023-08-14"
+   ],
+   "as_of": "2023-08-14"
+  },
+  {
+   "fact": "Kemenkes menyiapkan 674 puskesmas untuk pemeriksaan ISPA dan 66 rumah sakit di Jabodetabek untuk pemeriksaan pneumonia.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-UDARA-2023-08-28"
+   ],
+   "as_of": "2023-08-28"
+  }
+ ],
+ "information_available_at_decision": "Pertengahan Agustus 2023: kualitas udara tidak sehat selama sepekan; warga mengeluh batuk dan sesak; pemerintah membahas langkah jangka pendek sampai panjang.",
+ "trigger": [
+  "Polusi udara Jabodetabek, Agustus 2023"
+ ],
+ "root_causes_note": "Kemarau panjang ditambah emisi kendaraan, industri, dan pembangkit di kawasan metropolitan terpadat.",
+ "stakeholders": [
+  "Kementerian LHK",
+  "Kementerian Kesehatan",
+  "Pemprov DKI, Jabar, Banten",
+  "industri dan pembangkit",
+  "pekerja komuter"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-SETKAB-UDARA-2023-08-14",
+   "institution": "Sekretariat Kabinet RI",
+   "title": "Rapat Terbatas mengenai Peningkatan Kualitas Udara Kawasan Jabodetabek, Istana Merdeka, 14 Agustus 2023 (pengantar Presiden)",
+   "url": "https://setkab.go.id/rapat-terbatas-mengenai-peningkatan-kualitas-udara-kawasan-jabodetabek-di-istana-merdeka-provinsi-dki-jakarta-14-agustus-2023/",
+   "publication_date": "2023-08-14",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Jabodetabek",
+   "reference_period": "2023-08-13",
+   "unit": "indeks kualitas udara"
+  },
+  {
+   "source_id": "SRC-KEMKES-UDARA-2023-08-28",
+   "institution": "Kementerian Kesehatan RI",
+   "title": "Begini Upaya Sektor Kesehatan Tangani Polusi Udara",
+   "url": "https://kemkes.go.id/id/begini-upaya-sektor-kesehatan-tangani-polusi-udara",
+   "publication_date": "2023-08-28",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Jabodetabek",
+   "reference_period": "2023-08",
+   "unit": "fasilitas kesehatan"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Jumlah industri yang disegel KLHK hanya dari ringkasan pencarian (situs Gakkum tidak dapat diakses); tidak dicantumkan."
+ ],
+ "todo_to_validate": [
+  "Data PM2.5 harian per kota (KLHK/BMKG)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0033.json",
+ "game_adaptation_notes": "Langkah darurat (kerja dari rumah, rekayasa cuaca) vs penindakan sumber pencemar (efektif, ada biaya ekonomi) vs transportasi massal dan kendaraan umum listrik (mahal, jangka panjang).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

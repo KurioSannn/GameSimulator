@@ -1,0 +1,199 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0035",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "ladang",
+ "locals": {
+  "pak_darsono": {
+   "name": "Pak Darsono",
+   "role": "Petani padi, Ngawi",
+   "color": "6a6a2a",
+   "initials": "D"
+  },
+  "bu_wayan": {
+   "name": "Bu Wayan",
+   "role": "Pemilik kios pupuk, Tabanan",
+   "color": "7a5a3a",
+   "initials": "W"
+  }
+ },
+ "agenda": {
+  "hook": "Musim tanam tiba, tetapi jatah pupuk bersubsidi petani tinggal separuh. Kios-kios kehabisan stok.",
+  "if_postponed": "Petani menanam dengan pupuk seadanya. Panen musim ini akan menjawab akibatnya."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Musim tanam. Sawah sudah diolah, bibit siap ditanam. Di kios pupuk, rak kosong.",
+   "bg": "ladang"
+  },
+  {
+   "s": "pak_darsono",
+   "e": "cemas",
+   "t": "Jatah saya cuma separuh dari tahun lalu, Pak. Beli yang nonsubsidi harganya tiga kali lipat."
+  },
+  {
+   "s": "bu_wayan",
+   "e": "kecewa",
+   "t": "Banyak petani datang membawa kartu, tapi datanya tidak cocok. Saya tidak boleh melayani.",
+   "bg": "pasar"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Anggaran subsidi di awal tahun memang terbatas, dan harga pupuk naik. Volumenya jadi menyusut.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Kalau pupuk kurang, panen turun. Kalau panen turun, harga beras naik. Rantainya pendek sekali."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Petani tidak bisa menunggu rapat kita selesai. Musim tanam tidak menunggu."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Menambah alokasi pupuk bersubsidi.",
+   "helps": "Petani kecil di seluruh negeri.",
+   "burden": "Anggaran: biaya sangat besar.",
+   "now": "Kesejahteraan petani naik enam bulan.",
+   "later": "Tekanan harga pangan turun setelah tiga bulan."
+  },
+  "b": {
+   "intent": "Mempermudah penebusan dengan KTP.",
+   "helps": "Petani yang terhambat administrasi.",
+   "burden": "Jumlah pupuk tidak bertambah.",
+   "now": "Kesejahteraan naik sedikit, kepercayaan naik.",
+   "later": "Tidak ada perubahan pasokan."
+  },
+  "c": {
+   "intent": "Mengalihkan sebagian ke pupuk organik dan kesehatan tanah.",
+   "helps": "Kesuburan tanah untuk musim-musim berikutnya.",
+   "burden": "Petani yang harus mengubah cara bertani.",
+   "now": "Kepercayaan turun sedikit.",
+   "later": "Lingkungan dan kesejahteraan struktural naik setelah sembilan bulan sampai setahun."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Truk-truk pupuk berangkat ke kios-kios di seluruh negeri.",
+    "bg": "ladang"
+   },
+   {
+    "s": "pak_darsono",
+    "e": "lega",
+    "t": "Jatah saya kembali normal. Sawah saya bisa dipupuk tepat waktu."
+   },
+   {
+    "s": "bayu",
+    "e": "cemas",
+    "t": "Ini menambah beban anggaran cukup besar, Pak. Pos lain harus menyesuaikan.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kios-kios kini melayani petani terdaftar yang membawa KTP.",
+    "bg": "pasar"
+   },
+   {
+    "s": "bu_wayan",
+    "e": "netral",
+    "t": "Antrean lebih lancar. Tapi kalau stoknya habis, KTP pun tidak menolong."
+   },
+   {
+    "s": "pak_darsono",
+    "e": "senyum",
+    "t": "Setidaknya saya tidak bolak-balik mengurus kartu lagi.",
+    "bg": "ladang"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Penyuluh turun ke sawah mengajarkan pupuk organik dan perawatan tanah.",
+    "bg": "ladang"
+   },
+   {
+    "s": "pak_darsono",
+    "e": "cemas",
+    "t": "Saya mau coba, Pak. Tapi musim ini saya takut hasilnya turun."
+   },
+   {
+    "s": "yosef",
+    "e": "berpikir",
+    "t": "Tanah yang sehat hasilnya baru terasa beberapa musim lagi.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "panen",
+   "after_quarters": 2,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "welfare",
+        "op": ">",
+        "value": 0
+       },
+       "beats": [
+        {
+         "s": "pak_darsono",
+         "e": "senyum",
+         "t": "Panen musim ini lumayan, Pak. Pupuknya sampai tepat waktu.",
+         "bg": "ladang"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_darsono",
+         "e": "kecewa",
+         "t": "Panen turun, Pak. Sebagian sawah tidak cukup dipupuk.",
+         "bg": "ladang"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Petani menanam dengan pupuk seadanya.",
+   "bg": "ladang"
+  },
+  {
+   "s": "pak_darsono",
+   "e": "kecewa",
+   "t": "Kami pakai yang ada. Kita lihat saja panennya nanti."
+  }
+ ],
+ "journal": {
+  "a": "Alokasi pupuk bersubsidi dinaikkan untuk musim tanam.",
+  "b": "Penebusan pupuk bersubsidi dipermudah cukup dengan KTP.",
+  "c": "Sebagian subsidi pupuk dialihkan ke pupuk organik dan kesehatan tanah."
+ },
+ "promises": {}
+}

@@ -1,0 +1,196 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0036",
+ "research_ref": "research/cases/CASE-0036.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Mesin Tenun Berhenti",
+ "location_label": "Kab. Sukoharjo dan Kab. Boyolali, Jawa Tengah",
+ "focus_regions": [
+  "33.11",
+  "33.09"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 45
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0036"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:33.11",
+   "var": "welfare",
+   "op": "add",
+   "value": -2.5
+  },
+  {
+   "scope": "region:33.09",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "regions:33.11,33.09",
+   "var": "trust",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Pada 15 November 2024 di Sukoharjo, Wakil Menteri Ketenagakerjaan menyatakan sekitar 2.500 pekerja Sritex dirumahkan, bukan di-PHK, karena perusahaan tidak berproduksi akibat kekurangan bahan baku, dan menjamin hak pekerja bila kelak terjadi PHK.",
+    "source_refs": [
+     "SRC-KEMNAKER-SRITEX-2024-11-15"
+    ],
+    "as_of": "2024-11-16"
+   },
+   {
+    "text": "Pada Maret 2025, Kemnaker bersama BPJS Ketenagakerjaan membuka layanan jemput bola klaim Jaminan Hari Tua dan Jaminan Kehilangan Pekerjaan bagi eks pekerja Sritex Group yang terkena PHK; klaim JHT hampir 100 persen dan JKP ditargetkan selesai dalam lima hari.",
+    "source_refs": [
+     "SRC-KEMNAKER-SRITEX-2025-03-18"
+    ],
+    "as_of": "2025-03-18"
+   },
+   {
+    "text": "Menurut Menteri Ketenagakerjaan, sejumlah eks pekerja telah bekerja kembali dengan kontrak kerja baru.",
+    "source_refs": [
+     "SRC-KEMNAKER-SRITEX-2025-03-18"
+    ],
+    "as_of": "2025-03-18"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Pabrik tekstil raksasa di Sukoharjo berhenti berproduksi. Ribuan pekerja pulang tanpa kepastian."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Sukoharjo welfare -2.5, Boyolali -1 (company location vs claims service site), trust -1. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "mass layoffs -> welfare and trust; bailout -> welfare + trust now at a large fiscal cost; social security + placement -> welfare + services; retraining -> welfare_base later",
+  "immediate": "a: fiscal -5, welfare +1/month x6, trust +1.5; b: fiscal -1.5, welfare +0.6/month x4, services +1/month x3, trust +0.5; c: fiscal -2.5, trust -0.5",
+  "delayed": "c: welfare_base +1 after 9 months",
+  "regional": "Sukoharjo, Boyolali",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Talangan agar pabrik tetap berproduksi",
+   "description": "Negara menalangi sementara supaya mesin tetap jalan dan pekerja tetap digaji sambil mencari investor. Menahan pekerjaan, mahal, dan belum tentu menyelamatkan perusahaan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "regions:33.11,33.09",
+     "var": "welfare",
+     "op": "add",
+     "value": 1.0,
+     "duration": 6
+    },
+    {
+     "scope": "regions:33.11,33.09",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    }
+   ],
+   "memory": {
+    "sritex_response": "bailout"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Jaring pengaman dan pekerjaan baru",
+   "description": "Klaim jaminan hari tua dan kehilangan pekerjaan dipercepat, dan pekerja dipertemukan dengan pabrik lain yang membutuhkan tenaga.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "regions:33.11,33.09",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.6,
+     "duration": 4
+    },
+    {
+     "scope": "regions:33.11,33.09",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "duration": 3
+    },
+    {
+     "scope": "regions:33.11,33.09",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "sritex_response": "safety_net"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Pelatihan ulang untuk industri lain",
+   "description": "Pekerja dilatih untuk keterampilan baru di industri yang sedang tumbuh. Lambat, tetapi tidak menggantungkan mereka pada satu pabrik.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "regions:33.11,33.09",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:33.11,33.09",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 1.0,
+     "delay": 9
+    }
+   ],
+   "memory": {
+    "sritex_response": "retraining"
+   }
+  }
+ ]
+}

@@ -1,0 +1,206 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0037",
+ "research_ref": "research/cases/CASE-0037.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Gunung Sampah Terbakar",
+ "location_label": "Bandung Barat, Kota Bandung, Kota Cimahi, Kab. Bandung (Jawa Barat)",
+ "focus_regions": [
+  "32.17",
+  "32.73",
+  "32.77",
+  "32.04"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 43
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0037"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:32.17",
+   "var": "damage",
+   "op": "add",
+   "value": 3.0
+  },
+  {
+   "scope": "region:32.17",
+   "var": "environment",
+   "op": "add",
+   "value": -4.0
+  },
+  {
+   "scope": "region:32.17",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.5
+  },
+  {
+   "scope": "regions:32.17,32.73,32.77,32.04",
+   "var": "services",
+   "op": "add",
+   "value": -1.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "TPST Sarimukti di Kabupaten Bandung Barat terbakar sejak Sabtu 19 Agustus 2023 pukul 20.00 WIB; hingga 25 Agustus lahan terbakar mencapai 80 persen dan asapnya diperkirakan berdampak pada sekitar 3.000 KK di permukiman sekitar.",
+    "source_refs": [
+     "SRC-BNPB-SARIMUKTI-2023-08-26"
+    ],
+    "as_of": "2023-08-26"
+   },
+   {
+    "text": "Atas permintaan Gubernur Jawa Barat, BNPB mengirim satu helikopter water bombing yang mampu membawa 4.000 liter air sekali terbang; dalam 2,5 jam operasi pertama dilepaskan 200.000 liter air.",
+    "source_refs": [
+     "SRC-BNPB-SARIMUKTI-2023-08-26"
+    ],
+    "as_of": "2023-08-26"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Gunung sampah di Sarimukti terbakar berhari-hari. Truk sampah Bandung Raya tidak punya tempat tujuan."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Bandung Barat damage 3, environment -4, welfare -0.5 (about 3,000 households affected by smoke); services -1.5 across the four Bandung Raya regions that use the landfill. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "landfill fire -> environment, services; firefighting + backup site -> damage recovery + services now; mandatory sorting -> services + environment later at a trust cost; regional facility -> infrastructure, environment, services later",
+  "immediate": "a: fiscal -2, damage -1.5/month x2 (Bandung Barat), services +1/month x3; b: fiscal -1.5, trust -0.5; c: fiscal -5",
+  "delayed": "b: services +2 and environment +2 after 6 months; c: infrastructure +4, environment +3, services +2 after 12 months",
+  "regional": "Bandung Raya",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Padamkan dan buka tempat buang cadangan",
+   "description": "Api dipadamkan habis-habisan dan lokasi pembuangan sementara dibuka supaya sampah kota bisa diangkut lagi. Cepat, ketergantungan pada TPA tetap.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:32.17",
+     "var": "damage",
+     "op": "add",
+     "value": -1.5,
+     "duration": 2
+    },
+    {
+     "scope": "regions:32.17,32.73,32.77,32.04",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "sarimukti_response": "firefight_backup"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Wajib pilah dan olah sampah organik",
+   "description": "Rumah tangga dan pasar wajib memilah sampah; sampah organik diolah di kelurahan dan tidak boleh dibuang ke TPA. Murah, berat di awal bagi warga.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "regions:32.17,32.73,32.77,32.04",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:32.17,32.73,32.77,32.04",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    },
+    {
+     "scope": "regions:32.17,32.73,32.77,32.04",
+     "var": "environment",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "sarimukti_response": "sorting"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Bangun fasilitas pengolahan sampah regional",
+   "description": "Fasilitas pengolahan modern untuk seluruh Bandung Raya. Mahal dan butuh lebih dari setahun, tetapi mengakhiri ketergantungan pada satu gunung sampah.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "regions:32.17,32.73,32.77,32.04",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 4.0,
+     "delay": 12
+    },
+    {
+     "scope": "regions:32.17,32.73,32.77,32.04",
+     "var": "environment",
+     "op": "add",
+     "value": 3.0,
+     "delay": 12
+    },
+    {
+     "scope": "regions:32.17,32.73,32.77,32.04",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "sarimukti_response": "regional_facility"
+   }
+  }
+ ]
+}

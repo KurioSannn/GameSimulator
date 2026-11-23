@@ -1,0 +1,206 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0036",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "industri",
+ "locals": {
+  "mbak_sri": {
+   "name": "Mbak Sri",
+   "role": "Operator mesin tenun, Sukoharjo",
+   "color": "7a4a6a",
+   "initials": "S"
+  },
+  "pak_tono": {
+   "name": "Pak Tono",
+   "role": "Ketua serikat pekerja, Sukoharjo",
+   "color": "4a5a7a",
+   "initials": "T"
+  }
+ },
+ "agenda": {
+  "hook": "Pabrik tekstil raksasa di Sukoharjo berhenti berproduksi. Ribuan pekerja pulang tanpa kepastian.",
+  "if_postponed": "Nasib pekerja tekstil Sukoharjo diserahkan pada proses hukum dan pasar."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Gerbang pabrik di Sukoharjo. Biasanya ribuan pekerja masuk shift pagi. Hari ini sepi.",
+   "bg": "industri"
+  },
+  {
+   "s": "mbak_sri",
+   "e": "cemas",
+   "t": "Saya sudah dua belas tahun di bagian tenun. Kemarin disuruh pulang, katanya bahan baku habis."
+  },
+  {
+   "s": "pak_tono",
+   "e": "serius",
+   "t": "Kami tidak minta belas kasihan, Pak. Kami minta kepastian: gaji, pesangon, dan pekerjaan."
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Menalangi perusahaan sebesar ini mahal sekali, dan belum tentu menyelamatkannya.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Sukoharjo hidup dari pabrik ini. Warung, kos-kosan, angkutan, semua ikut terdampak."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Pabrik bisa tutup. Yang tidak boleh hilang adalah penghidupan orang-orangnya."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Menalangi agar pabrik tetap berproduksi.",
+   "helps": "Pekerja yang ingin tetap bekerja di tempat yang sama.",
+   "burden": "Anggaran: biaya sangat besar, risiko tetap gagal.",
+   "now": "Kesejahteraan dan kepercayaan naik.",
+   "later": "Tidak ada jaminan jangka panjang."
+  },
+  "b": {
+   "intent": "Mempercepat jaminan sosial dan menempatkan pekerja di pabrik lain.",
+   "helps": "Pekerja yang kehilangan pekerjaan.",
+   "burden": "Pekerja yang tidak terserap industri lain.",
+   "now": "Kesejahteraan dan layanan naik beberapa bulan.",
+   "later": "Bergantung pada lowongan di daerah."
+  },
+  "c": {
+   "intent": "Melatih ulang pekerja untuk industri yang tumbuh.",
+   "helps": "Masa depan pekerja dan keluarganya.",
+   "burden": "Pekerja yang butuh penghasilan sekarang.",
+   "now": "Kepercayaan turun sedikit.",
+   "later": "Kesejahteraan struktural naik setelah sembilan bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Dana talangan dicairkan. Mesin-mesin tenun kembali berbunyi.",
+    "bg": "industri"
+   },
+   {
+    "s": "mbak_sri",
+    "e": "lega",
+    "t": "Saya kembali bekerja minggu ini. Saya hanya berharap ini bertahan."
+   },
+   {
+    "s": "bayu",
+    "e": "cemas",
+    "t": "Kita menyelamatkan gaji bulan ini. Saya belum yakin kita menyelamatkan perusahaannya.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Posko klaim jaminan sosial dibuka di dekat pabrik. Bursa kerja digelar di balai kabupaten.",
+    "bg": "kota"
+   },
+   {
+    "s": "pak_tono",
+    "e": "netral",
+    "t": "Pesangon dan jaminan cair lebih cepat dari yang kami kira. Beberapa teman sudah tanda tangan kontrak baru."
+   },
+   {
+    "s": "mbak_sri",
+    "e": "senyum",
+    "t": "Saya dapat panggilan dari pabrik garmen di Boyolali. Jauh, tapi kerja."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kelas-kelas pelatihan dibuka: perbaikan mesin, logistik, pengolahan pangan, teknologi.",
+    "bg": "kota"
+   },
+   {
+    "s": "mbak_sri",
+    "e": "berpikir",
+    "t": "Saya ikut kelas pengolahan pangan. Tapi bulan ini kami makan dari tabungan."
+   },
+   {
+    "s": "pak_tono",
+    "e": "cemas",
+    "t": "Pelatihan itu bagus. Kami butuh jembatan sampai pelatihan itu menghasilkan."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "kerja",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "welfare",
+        "op": ">",
+        "value": 0
+       },
+       "beats": [
+        {
+         "s": "mbak_sri",
+         "e": "senyum",
+         "t": "Saya sudah bekerja lagi, Pak. Gajinya tidak sebesar dulu, tapi dapur kembali mengepul.",
+         "bg": "kota"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_tono",
+         "e": "kecewa",
+         "t": "Masih banyak teman yang belum bekerja, Pak. Warung-warung di sekitar pabrik banyak yang tutup.",
+         "bg": "industri"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Nasib pekerja diserahkan pada proses hukum perusahaan.",
+   "bg": "industri"
+  },
+  {
+   "s": "pak_tono",
+   "e": "sedih",
+   "t": "Kami menunggu di depan gerbang yang terkunci."
+  }
+ ],
+ "journal": {
+  "a": "Pabrik tekstil di Sukoharjo ditalangi agar tetap berproduksi.",
+  "b": "Jaminan sosial eks pekerja tekstil dipercepat dan mereka ditempatkan di pabrik lain.",
+  "c": "Eks pekerja tekstil Sukoharjo dilatih ulang untuk industri lain."
+ },
+ "promises": {
+  "c": {
+   "text": "Eks pekerja tekstil Sukoharjo bekerja di industri baru.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "welfare_base",
+    "op": ">",
+    "value": 0.5
+   }
+  }
+ }
+}
