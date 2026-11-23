@@ -1,0 +1,183 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0045",
+ "research_ref": "research/cases/CASE-0045.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Campak Kembali ke Sekolah",
+ "location_label": "Kab. Sumenep, Jawa Timur; nasional",
+ "focus_regions": [
+  "35.29"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 44
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0045"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:35.29",
+   "var": "services",
+   "op": "add",
+   "value": -2.0
+  },
+  {
+   "scope": "region:35.29",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "all",
+   "var": "services",
+   "op": "add",
+   "value": -0.15
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Cakupan imunisasi rutin lengkap turun dari 92 persen pada 2018 menjadi 87,8 persen pada 2023; kasus campak konfirmasi naik dari lebih dari 4.800 (2022) menjadi lebih dari 10.600 (2023), dan KLB campak dari 64 menjadi 95.",
+    "source_refs": [
+     "SRC-KEMKES-CAMPAK-2025-08-26"
+    ],
+    "as_of": "2025-08-26"
+   },
+   {
+    "text": "Di Kabupaten Sumenep kasus pertama muncul Agustus 2024; hingga 26 Agustus 2025 tercatat 2.139 suspek dan 205 kasus terkonfirmasi, terbanyak pada anak usia 1 sampai 4 tahun (53 persen) dan 5 sampai 9 tahun (29 persen). Cakupan MR1 2024 sebesar 92 persen dan MR2 82,3 persen, di bawah target 95 persen.",
+    "source_refs": [
+     "SRC-KEMKES-CAMPAK-2025-08-26"
+    ],
+    "as_of": "2025-08-26"
+   },
+   {
+    "text": "Sepanjang 2025 tercatat 63.769 kasus suspek campak, 11.094 terkonfirmasi laboratorium, dan 69 kematian.",
+    "source_refs": [
+     "SRC-KEMKES-CAMPAK-2026-02-26"
+    ],
+    "as_of": "2026-02-26"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Penyakit yang hampir terlupakan kembali mengisi bangsal anak. Di Sumenep, ribuan anak diduga terkena campak."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Sumenep services -2, welfare -1; small national services dent (national resurgence). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "measles outbreak -> services & welfare; school catch-up -> services quickly; case care -> welfare now; routine immunization + records -> services and trust later",
+  "immediate": "a: fiscal -1.5, Sumenep services +2/month x2, trust +0.5; b: fiscal -1, Sumenep welfare +0.6/month x3; c: fiscal -2",
+  "delayed": "c: services +0.4 nationwide and +2 in Sumenep after 6 months",
+  "regional": "Kab. Sumenep; nationwide component",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Imunisasi kejar di sekolah dan madrasah",
+   "description": "Tim kesehatan datang ke sekolah, pesantren, dan madrasah untuk mengejar anak yang belum lengkap imunisasinya, bersama guru dan tokoh agama.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "region:35.29",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "duration": 2
+    },
+    {
+     "scope": "region:35.29",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "campak_response": "school_catchup"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Rawat dan isolasi kasus",
+   "description": "Puskesmas dan rumah sakit disiapkan merawat anak yang sakit, dengan vitamin A dan isolasi agar penularan berkurang.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "region:35.29",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.6,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "campak_response": "case_care"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Perbaiki imunisasi rutin dan pencatatannya",
+   "description": "Pencatatan imunisasi setiap anak dibenahi dan posyandu diaktifkan kembali di seluruh negeri. Lambat, tetapi mencegah KLB berikutnya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "all",
+     "var": "services",
+     "op": "add",
+     "value": 0.4,
+     "delay": 6
+    },
+    {
+     "scope": "region:35.29",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "campak_response": "routine_records"
+   }
+  }
+ ]
+}

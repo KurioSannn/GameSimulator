@@ -1,0 +1,210 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0045",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "desa",
+ "locals": {
+  "bu_aisyah": {
+   "name": "Bu Aisyah",
+   "role": "Guru madrasah, Sumenep",
+   "color": "4a6a7a",
+   "initials": "A"
+  },
+  "pak_rofiq": {
+   "name": "Pak Rofiq",
+   "role": "Petugas imunisasi puskesmas, Sumenep",
+   "color": "6a5a3a",
+   "initials": "R"
+  }
+ },
+ "agenda": {
+  "hook": "Penyakit yang hampir terlupakan kembali mengisi bangsal anak. Di Sumenep, ribuan anak diduga terkena campak.",
+  "if_postponed": "Penanganan campak berjalan seperti biasa. Anak-anak yang belum diimunisasi tetap rentan."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Sebuah madrasah di Sumenep. Separuh bangku kosong. Banyak murid demam dan bercak merah.",
+   "bg": "desa"
+  },
+  {
+   "s": "bu_aisyah",
+   "e": "cemas",
+   "t": "Satu kelas saya tinggal dua belas anak, Pak. Yang lain sakit di rumah."
+  },
+  {
+   "s": "pak_rofiq",
+   "e": "serius",
+   "t": "Banyak anak yang imunisasinya tidak lengkap. Ada yang tercatat, ada yang tidak tercatat sama sekali.",
+   "bg": "rumah_sakit"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Bukan hanya Sumenep, Pak. Kasus campak di seluruh negeri naik sejak cakupan imunisasi turun.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "sekar",
+   "e": "berpikir",
+   "t": "Kalau kita datang ke sekolah, kita butuh guru dan tokoh agama di samping kita."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Kita pernah hampir menghapus penyakit ini. Saya tidak mau anak-anak membayar karena kita lengah."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Mengejar imunisasi di sekolah dan madrasah.",
+   "helps": "Anak-anak yang belum terlindungi.",
+   "burden": "Butuh izin dan kepercayaan orang tua.",
+   "now": "Layanan naik dua bulan, kepercayaan naik.",
+   "later": "Tidak membenahi pencatatan rutin."
+  },
+  "b": {
+   "intent": "Merawat dan mengisolasi anak yang sakit.",
+   "helps": "Anak-anak yang sudah sakit.",
+   "burden": "Penularan baru tetap terjadi.",
+   "now": "Kesejahteraan naik tiga bulan.",
+   "later": "Tidak mencegah KLB berikutnya."
+  },
+  "c": {
+   "intent": "Membenahi imunisasi rutin dan pencatatan nasional.",
+   "helps": "Anak-anak di seluruh negeri untuk tahun-tahun mendatang.",
+   "burden": "Anak yang sakit minggu ini.",
+   "now": "Biaya sedang.",
+   "later": "Layanan nasional dan Sumenep naik setelah enam bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tim imunisasi datang ke madrasah dan pesantren, didampingi guru dan kiai.",
+    "bg": "desa"
+   },
+   {
+    "s": "bu_aisyah",
+    "e": "senyum",
+    "t": "Orang tua lebih tenang karena kiai ikut menjelaskan. Hampir semua murid saya ikut."
+   },
+   {
+    "s": "pak_rofiq",
+    "e": "lega",
+    "t": "Dalam seminggu kami mengejar ribuan anak. Lelah, tapi ini yang kami tunggu.",
+    "bg": "rumah_sakit"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Bangsal anak di rumah sakit kabupaten ditambah. Vitamin A dibagikan ke setiap anak yang sakit.",
+    "bg": "rumah_sakit"
+   },
+   {
+    "s": "pak_rofiq",
+    "e": "berpikir",
+    "t": "Anak-anak yang dirawat cepat pulih. Tapi pasien baru datang setiap hari."
+   },
+   {
+    "s": "bu_aisyah",
+    "e": "kecewa",
+    "t": "Kelas saya masih kosong separuh, Pak.",
+    "bg": "desa"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Buku imunisasi digital dan posyandu yang aktif kembali mulai disiapkan di seluruh negeri.",
+    "bg": "ruang_rapat"
+   },
+   {
+    "s": "pak_rofiq",
+    "e": "senyum",
+    "t": "Akhirnya kami tahu anak mana yang belum lengkap tanpa membuka tumpukan kertas.",
+    "bg": "rumah_sakit"
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "t": "Orang tua di Sumenep bertanya kenapa belum ada yang datang ke sekolah anak mereka."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "kelas",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "services",
+        "op": ">",
+        "value": 1.5
+       },
+       "beats": [
+        {
+         "s": "bu_aisyah",
+         "e": "senyum",
+         "t": "Kelas saya penuh lagi, Pak. Tidak ada murid yang absen karena campak bulan ini.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bu_aisyah",
+         "e": "cemas",
+         "t": "Masih ada murid yang tertular, Pak. Campak berpindah dari kelas ke kelas.",
+         "bg": "desa"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Dinas kesehatan kabupaten menangani campak dengan tenaga yang ada.",
+   "bg": "desa"
+  },
+  {
+   "s": "pak_rofiq",
+   "e": "sedih",
+   "t": "Kami tidak sanggup mengejar semua anak sendirian.",
+   "bg": "rumah_sakit"
+  }
+ ],
+ "journal": {
+  "a": "Imunisasi kejar campak di sekolah dan madrasah Sumenep.",
+  "b": "Anak-anak sakit campak di Sumenep dirawat dan diisolasi.",
+  "c": "Imunisasi rutin dan pencatatannya dibenahi di seluruh negeri."
+ },
+ "promises": {
+  "c": {
+   "text": "Imunisasi rutin anak kembali di atas target sehingga KLB campak tidak berulang.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "services",
+    "op": ">",
+    "value": 1.5
+   }
+  }
+ }
+}

@@ -1,0 +1,99 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0047",
+ "title": "Banjir dan tanah longsor Petungkriyono, Kabupaten Pekalongan, Januari 2025",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_landslide",
+ "subcategories": [
+  "landslide",
+  "highland_villages",
+  "search_and_rescue",
+  "spatial_planning"
+ ],
+ "start_date": "2025-01-20",
+ "end_date": "2025-01-22",
+ "decision_as_of": "2025-01-22",
+ "island": "jawa",
+ "provinces": [
+  "33"
+ ],
+ "regency_city_documented": [
+  "33.26"
+ ],
+ "geographic_resolution": "Kec. Petungkriyono, Kab. Pekalongan, Jawa Tengah",
+ "real_facts": [
+  {
+   "fact": "Longsor melanda Desa Petungkriyono dan sekitarnya di Kabupaten Pekalongan pada Januari 2025; hingga 22 Januari pagi tim SAR gabungan telah menemukan 19 korban meninggal.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-PETUNGKRIYONO-2025-01-22"
+   ],
+   "as_of": "2025-01-22"
+  },
+  {
+   "fact": "Menurut kaji cepat per 22 Januari 2025, korban meninggal menjadi 21 orang, 5 masih dicari, 13 luka dirujuk, 2 luka ringan, dan sekitar 159 orang mengungsi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-PETUNGKRIYONO-2025-01-23"
+   ],
+   "as_of": "2025-01-23"
+  },
+  {
+   "fact": "Kepala BNPB meminta pencarian diteruskan sesuai prosedur Basarnas tujuh hari dengan memperhatikan keputusan keluarga, layanan terbaik dan tanpa biaya bagi korban luka, serta kajian apakah permukiman diperbaiki atau dipindah.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-PETUNGKRIYONO-2025-01-23"
+   ],
+   "as_of": "2025-01-23"
+  }
+ ],
+ "information_available_at_decision": "22 Januari 2025: korban masih dicari di bawah longsoran; jalan pegunungan terputus; warga di lereng bertanya apakah mereka aman kembali.",
+ "trigger": [
+  "Banjir dan tanah longsor Petungkriyono, Kabupaten Pekalongan, Januari 2025"
+ ],
+ "root_causes_note": "Permukiman dan jalan di lereng curam pegunungan dengan hujan ekstrem.",
+ "stakeholders": [
+  "BNPB dan BPBD Pekalongan",
+  "Basarnas",
+  "Pemkab Pekalongan",
+  "warga Petungkriyono",
+  "pengelola wisata alam"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-PETUNGKRIYONO-2025-01-22",
+   "institution": "BNPB",
+   "title": "[UPDATE] Banjir dan Tanah Longsor Kabupaten Pekalongan: Tim SAR Gabungan Kembali Menemukan 2 Jenazah, Total Korban Meninggal 19 Jiwa",
+   "url": "https://www.bnpb.go.id/berita/update-banjir-dan-tanah-longsor-kabupaten-pekalongan-tim-sar-gabungan-kembali-menemukan-2-jenazah-total-korban-meninggal-19-jiwa",
+   "publication_date": "2025-01-22",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kec. Petungkriyono",
+   "reference_period": "2025-01-22",
+   "unit": "orang"
+  },
+  {
+   "source_id": "SRC-BNPB-PETUNGKRIYONO-2025-01-23",
+   "institution": "BNPB",
+   "title": "Kunjungi Lokasi Bansor Pekalongan, Kepala BNPB Berikan Arahan Penanganan Darurat Hingga Rehabilitasi dan Rekonstruksi",
+   "url": "https://www.bnpb.go.id/index.php/berita/kunjungi-lokasi-bansor-pekalongan-kepala-bnpb-berikan-arahan-penanganan-darurat-hingga-rehabilitasi-dan-rekonstruksi",
+   "publication_date": "2025-01-23",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kec. Petungkriyono",
+   "reference_period": "2025-01-22",
+   "unit": "orang"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka korban akhir berbeda antarlaporan (19, 21, dan lebih tinggi di buletin bulanan); game memakai dua laporan BNPB 22 Januari.",
+  "Nama korban dalam sumber tidak dicantumkan."
+ ],
+ "todo_to_validate": [
+  "Data akhir korban dan rumah terdampak (BNPB Januari 2025)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0047.json",
+ "game_adaptation_notes": "Pencarian dan perawatan korban (kemanusiaan) vs kaji zona rawan dan relokasi (aman) vs perkuat jalan dan lereng di kawasan wisata pegunungan (akses).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

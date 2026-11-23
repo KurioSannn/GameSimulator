@@ -1,0 +1,207 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0047",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "pegunungan",
+ "locals": {
+  "mas_bagus": {
+   "name": "Mas Bagus",
+   "role": "Pemandu wisata alam, Petungkriyono",
+   "color": "3a6a3a",
+   "initials": "B"
+  },
+  "mbah_sukirah": {
+   "name": "Mbah Sukirah",
+   "role": "Petani kopi, Petungkriyono",
+   "color": "7a5a3a",
+   "initials": "S"
+  }
+ },
+ "agenda": {
+  "hook": "Longsor menimbun rumah dan kendaraan di jalan pegunungan Petungkriyono. Korban masih dicari di bawah tanah.",
+  "if_postponed": "Pencarian selesai sesuai prosedur. Warga kembali ke lereng yang sama."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Sore hari di pegunungan Pekalongan. Kabut turun bersama hujan yang tidak berhenti.",
+   "bg": "pegunungan"
+  },
+  {
+   "s": "mas_bagus",
+   "e": "sedih",
+   "t": "Tebing di atas jalan runtuh tiba-tiba, Pak. Ada mobil dan motor yang sedang lewat."
+  },
+  {
+   "s": "mbah_sukirah",
+   "e": "cemas",
+   "t": "Rumah saya di atas sana. Malam ini saya tidur di balai desa. Saya tidak tahu kapan berani pulang."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Belasan korban ditemukan, beberapa masih dicari. Jalannya terputus di beberapa titik.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Mencari dan merawat sekarang, atau menata ulang permukiman dan jalannya untuk nanti. Dua-duanya butuh uang."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Keluarga harus didampingi. Dan kita harus tahu lereng mana yang masih aman untuk ditinggali."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Mengutamakan pencarian, perawatan korban, dan pengungsi.",
+   "helps": "Keluarga korban dan pengungsi.",
+   "burden": "Risiko lereng tetap.",
+   "now": "Kepercayaan dan kesejahteraan naik.",
+   "later": "Tidak ada perubahan zona rawan."
+  },
+  "b": {
+   "intent": "Mengkaji zona rawan dan memindahkan rumah di zona merah.",
+   "helps": "Keselamatan warga lereng.",
+   "burden": "Warga yang harus pindah.",
+   "now": "Kepercayaan turun sedikit.",
+   "later": "Infrastruktur naik setelah sembilan bulan, kesejahteraan struktural setelah setahun."
+  },
+  "c": {
+   "intent": "Memperkuat jalan dan lereng pegunungan.",
+   "helps": "Warga dan pengunjung kawasan wisata alam.",
+   "burden": "Anggaran; rumah di zona merah tetap.",
+   "now": "Biaya besar.",
+   "later": "Infrastruktur dan layanan naik setelah enam bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tim SAR, relawan, dan warga mencari bersama. Pengungsi mendapat dapur umum dan layanan kesehatan.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "mbah_sukirah",
+    "e": "netral",
+    "t": "Kami makan hangat setiap hari. Tapi rumah di atas masih menunggu."
+   },
+   {
+    "s": "mas_bagus",
+    "e": "sedih",
+    "t": "Keluarga korban berterima kasih ditemani sampai akhir."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Ahli geologi memetakan retakan di lereng. Beberapa dusun dinyatakan zona merah.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "mbah_sukirah",
+    "e": "kecewa",
+    "t": "Kebun kopi saya di zona merah, Pak. Rumah baru boleh di bawah, tapi kopi saya di atas."
+   },
+   {
+    "s": "sekar",
+    "e": "berpikir",
+    "t": "Pemindahan harus memberi jalan untuk tetap bisa berkebun.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Dinding penahan dan saluran air dibangun di sepanjang jalan pegunungan.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "mas_bagus",
+    "e": "senyum",
+    "t": "Kalau jalannya aman, wisatawan berani datang lagi. Kami hidup dari mereka."
+   },
+   {
+    "s": "yosef",
+    "e": "berpikir",
+    "t": "Jalan lebih kuat. Rumah-rumah di lereng paling curam masih di tempatnya.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "lereng",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "mas_bagus",
+         "e": "senyum",
+         "t": "Musim hujan kemarin jalan tetap terbuka, Pak. Lereng yang diperkuat bertahan.",
+         "bg": "pegunungan"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "mbah_sukirah",
+         "e": "cemas",
+         "t": "Kami kembali ke rumah di lereng. Setiap hujan lebat kami berjaga.",
+         "bg": "pegunungan"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Pencarian selesai setelah tujuh hari. Warga kembali ke lereng yang sama.",
+   "bg": "pegunungan"
+  },
+  {
+   "s": "mbah_sukirah",
+   "e": "sedih",
+   "t": "Kami tidak punya tempat lain."
+  }
+ ],
+ "journal": {
+  "a": "Pencarian dan perawatan korban longsor Petungkriyono diutamakan.",
+  "b": "Zona rawan longsor Petungkriyono dikaji dan rumah di zona merah dipindahkan.",
+  "c": "Jalan dan lereng pegunungan Petungkriyono diperkuat."
+ },
+ "promises": {
+  "c": {
+   "text": "Jalan pegunungan Petungkriyono tetap terbuka saat musim hujan berikutnya.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 2
+   }
+  }
+ }
+}

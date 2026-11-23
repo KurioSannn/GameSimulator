@@ -1,0 +1,98 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0046",
+ "title": "Banjir bandang Desa Simangulampe, Humbang Hasundutan, Desember 2023",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_flash_flood",
+ "subcategories": [
+  "flash_flood",
+  "lake_toba",
+  "search_and_rescue",
+  "watershed"
+ ],
+ "start_date": "2023-12-01",
+ "end_date": "2023-12-12",
+ "decision_as_of": "2023-12-10",
+ "island": "sumatera",
+ "provinces": [
+  "12"
+ ],
+ "regency_city_documented": [
+  "12.16"
+ ],
+ "geographic_resolution": "Kab. Humbang Hasundutan, Sumatera Utara (tepi Danau Toba)",
+ "real_facts": [
+  {
+   "fact": "Banjir bandang menerjang Desa Simangulampe, Kecamatan Baktiraja, pada Jumat 1 Desember 2023 pukul 21.25 WIB setelah hujan lebat yang lama, membawa bongkahan batu besar, batang pohon, dan lumpur; 12 orang dilaporkan hilang dan 50 KK mengungsi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-HUMBAHAS-2023-12-02"
+   ],
+   "as_of": "2023-12-02"
+  },
+  {
+   "fact": "Kaji cepat sementara mencatat 12 rumah rusak berat, termasuk satu rumah ibadah dan satu penginapan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-HUMBAHAS-2023-12-02"
+   ],
+   "as_of": "2023-12-02"
+  },
+  {
+   "fact": "Hingga hari ketujuh pencarian, dua korban ditemukan meninggal dan 10 masih hilang; operasi SAR diperpanjang tiga hari hingga 12 Desember 2023.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-HUMBAHAS-2023-12-10"
+   ],
+   "as_of": "2023-12-10"
+  }
+ ],
+ "information_available_at_decision": "10 Desember 2023: keluarga masih menunggu kabar sepuluh orang yang hilang di bawah batu dan lumpur setinggi rumah.",
+ "trigger": [
+  "Banjir bandang Desa Simangulampe, Humbang Hasundutan, Desember 2023"
+ ],
+ "root_causes_note": "Lereng curam di atas permukiman tepi Danau Toba dan hujan lebat berkepanjangan (penyebab spesifik di hulu tidak diverifikasi).",
+ "stakeholders": [
+  "BNPB dan BPBD Humbang Hasundutan",
+  "Basarnas",
+  "warga Baktiraja",
+  "gereja dan tokoh adat Batak",
+  "pelaku wisata Danau Toba"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-HUMBAHAS-2023-12-02",
+   "institution": "BNPB",
+   "title": "Banjir Bandang Terjang Humbang Hasundutan, Sebanyak 12 Warga Hilang",
+   "url": "https://bnpb.go.id/berita/banjir-bandang-terjang-humbang-hasundutan-sebanyak-12-warga-hilang",
+   "publication_date": "2023-12-02",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Desa Simangulampe, Kec. Baktiraja",
+   "reference_period": "2023-12-01",
+   "unit": "orang; KK; unit"
+  },
+  {
+   "source_id": "SRC-BNPB-HUMBAHAS-2023-12-10",
+   "institution": "BNPB",
+   "title": "Operasi SAR Banjir Bandang Humbang Hasundutan Diperpanjang Tiga Hari",
+   "url": "https://bnpb.go.id/berita/operasi-sar-banjir-bandang-humbang-hasundutan-diperpanjang-tiga-hari",
+   "publication_date": "2023-12-10",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Humbang Hasundutan",
+   "reference_period": "2023-12-09/12",
+   "unit": "orang"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Penyebab di hulu (tutupan lahan) tidak diverifikasi dari sumber resmi yang dibaca."
+ ],
+ "todo_to_validate": [
+  "Kajian geologi lereng Baktiraja (Badan Geologi)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0046.json",
+ "game_adaptation_notes": "Teruskan pencarian sampai keluarga siap (kemanusiaan) vs relokasi desa dari jalur banjir bandang (aman) vs peta rawan dan peringatan dini di tepi Danau Toba (pencegahan, kawasan wisata).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

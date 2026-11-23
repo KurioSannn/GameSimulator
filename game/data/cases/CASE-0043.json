@@ -1,0 +1,190 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0043",
+ "research_ref": "research/cases/CASE-0043.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Gigitan yang Mematikan",
+ "location_label": "Kab. Timor Tengah Selatan dan Kab. Sikka, Nusa Tenggara Timur",
+ "focus_regions": [
+  "53.02",
+  "53.07"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 17
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0043"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "regions:53.02,53.07",
+   "var": "services",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "regions:53.02,53.07",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "regions:53.02,53.07",
+   "var": "trust",
+   "op": "add",
+   "value": -0.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Hingga April 2023 tercatat 31.113 kasus gigitan hewan penular rabies, 23.211 di antaranya sudah mendapat vaksin antirabies, dan 11 kematian; 95 persen kasus rabies pada manusia berasal dari gigitan anjing.",
+    "source_refs": [
+     "SRC-KEMKES-RABIES-2023-06-02"
+    ],
+    "as_of": "2023-06-02"
+   },
+   {
+    "text": "Saat itu 26 provinsi endemis rabies dan 11 provinsi bebas rabies; di NTT ada pulau yang bebas rabies seperti Pulau Sumba.",
+    "source_refs": [
+     "SRC-KEMKES-RABIES-2023-06-02"
+    ],
+    "as_of": "2023-06-02"
+   },
+   {
+    "text": "Kejadian luar biasa rabies terjadi di Kabupaten Sikka dan Kabupaten Timor Tengah Selatan, Nusa Tenggara Timur.",
+    "source_refs": [
+     "SRC-KEMKES-UPK-RABIES-2023"
+    ],
+    "as_of": "2023-06"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Anjing yang biasa berkeliaran di kampung tiba-tiba menjadi ancaman. Rabies merenggut nyawa di dua kabupaten NTT."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): services -1.5, welfare -1, trust -0.5 in the two regencies with declared outbreaks. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "rabies outbreak -> services & welfare; dog vaccination -> services + welfare later; human post-exposure vaccine -> services now; culling -> trust cost, quick environment/services gain",
+  "immediate": "a: fiscal -2, trust +0.5; b: fiscal -1.5, services +1.5/month x3; c: fiscal -0.5, trust -1.5",
+  "delayed": "a: services +3 and welfare +0.5 after 3 months; c: services +1 after 1 month",
+  "regional": "TTS, Sikka",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Vaksinasi anjing massal dari kampung ke kampung",
+   "description": "Petugas kesehatan hewan dan kader memvaksin anjing di setiap kampung. Memutus rabies di sumbernya, butuh waktu dan kerja sama pemilik anjing.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:53.02,53.07",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    },
+    {
+     "scope": "regions:53.02,53.07",
+     "var": "services",
+     "op": "add",
+     "value": 3.0,
+     "delay": 3
+    },
+    {
+     "scope": "regions:53.02,53.07",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.5,
+     "delay": 3
+    }
+   ],
+   "memory": {
+    "rabies_response": "dog_vaccination"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Vaksin antirabies di setiap puskesmas",
+   "description": "Stok vaksin dan serum antirabies untuk manusia dipastikan ada di semua puskesmas. Menyelamatkan yang sudah digigit, tidak menghentikan gigitan berikutnya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "regions:53.02,53.07",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "rabies_response": "human_vaccine"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Tertibkan anjing liar",
+   "description": "Anjing yang berkeliaran tanpa pemilik ditangkap dan ditertibkan. Cepat mengurangi risiko gigitan, ditentang banyak warga dan pecinta hewan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:53.02,53.07",
+     "var": "trust",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "regions:53.02,53.07",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "delay": 1
+    }
+   ],
+   "memory": {
+    "rabies_response": "culling"
+   }
+  }
+ ]
+}

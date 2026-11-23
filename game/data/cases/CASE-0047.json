@@ -1,0 +1,196 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0047",
+ "research_ref": "research/cases/CASE-0047.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Longsor di Lereng Petungkriyono",
+ "location_label": "Kec. Petungkriyono, Kab. Pekalongan, Jawa Tengah",
+ "focus_regions": [
+  "33.26"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 48
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0047"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:33.26",
+   "var": "damage",
+   "op": "add",
+   "value": 6.0
+  },
+  {
+   "scope": "region:33.26",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "region:33.26",
+   "var": "services",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Longsor melanda Desa Petungkriyono dan sekitarnya di Kabupaten Pekalongan pada Januari 2025; hingga 22 Januari pagi tim SAR gabungan telah menemukan 19 korban meninggal.",
+    "source_refs": [
+     "SRC-BNPB-PETUNGKRIYONO-2025-01-22"
+    ],
+    "as_of": "2025-01-22"
+   },
+   {
+    "text": "Menurut kaji cepat per 22 Januari 2025, korban meninggal menjadi 21 orang, 5 masih dicari, 13 luka dirujuk, 2 luka ringan, dan sekitar 159 orang mengungsi.",
+    "source_refs": [
+     "SRC-BNPB-PETUNGKRIYONO-2025-01-23"
+    ],
+    "as_of": "2025-01-23"
+   },
+   {
+    "text": "Kepala BNPB meminta pencarian diteruskan sesuai prosedur Basarnas tujuh hari dengan memperhatikan keputusan keluarga, layanan terbaik dan tanpa biaya bagi korban luka, serta kajian apakah permukiman diperbaiki atau dipindah.",
+    "source_refs": [
+     "SRC-BNPB-PETUNGKRIYONO-2025-01-23"
+    ],
+    "as_of": "2025-01-23"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Longsor menimbun rumah dan kendaraan di jalan pegunungan Petungkriyono. Korban masih dicari di bawah tanah."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Kab. Pekalongan damage 6, welfare -1.5, services -1 (highland landslide). Region also hosts CASE-0042 (coastal flooding), a different event. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "landslide -> damage, welfare, services; search + care -> trust + welfare now; hazard zoning + relocation -> infrastructure + welfare_base later at trust cost; road + slope works -> infrastructure + services",
+  "immediate": "a: fiscal -1.5, trust +1.5, welfare +0.5/month x2; b: fiscal -3.5, trust -0.5; c: fiscal -3",
+  "delayed": "b: infrastructure +4 after 9 months, welfare_base +0.6 after 12; c: infrastructure +4 and services +1 after 6 months",
+  "regional": "Kab. Pekalongan",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Utamakan pencarian dan perawatan korban",
+   "description": "Pencarian diteruskan bersama keluarga, korban luka dirawat tanpa biaya, dan pengungsi dipenuhi kebutuhannya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "region:33.26",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    },
+    {
+     "scope": "region:33.26",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.5,
+     "duration": 2
+    }
+   ],
+   "memory": {
+    "petungkriyono_response": "search_care"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Kaji zona rawan dan pindahkan rumah",
+   "description": "Lereng di sekitar desa dikaji; rumah di zona merah dipindahkan ke lahan aman. Berat diterima, mencegah longsor berikutnya menelan korban.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.5
+    },
+    {
+     "scope": "region:33.26",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "region:33.26",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 4.0,
+     "delay": 9
+    },
+    {
+     "scope": "region:33.26",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.6,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "petungkriyono_response": "zoning_relocation"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Perkuat jalan dan lereng pegunungan",
+   "description": "Jalan ke desa-desa pegunungan dan kawasan wisata alam diperkuat dengan dinding penahan dan drainase lereng.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "region:33.26",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 4.0,
+     "delay": 6
+    },
+    {
+     "scope": "region:33.26",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "petungkriyono_response": "road_slope"
+   }
+  }
+ ]
+}

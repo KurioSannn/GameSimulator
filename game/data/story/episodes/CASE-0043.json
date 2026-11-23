@@ -1,0 +1,207 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0043",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "desa",
+ "locals": {
+  "mama_yuliana": {
+   "name": "Mama Yuli",
+   "role": "Ibu rumah tangga, Timor Tengah Selatan",
+   "color": "8a4a3a",
+   "initials": "Y"
+  },
+  "drh_petrus": {
+   "name": "drh. Petrus",
+   "role": "Dokter hewan kabupaten, Sikka",
+   "color": "3a6a4a",
+   "initials": "P"
+  }
+ },
+ "agenda": {
+  "hook": "Anjing yang biasa berkeliaran di kampung tiba-tiba menjadi ancaman. Rabies merenggut nyawa di dua kabupaten NTT.",
+  "if_postponed": "Penanganan rabies diserahkan ke kabupaten dengan vaksin seadanya."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Sore di sebuah kampung di Timor. Seekor anjing menggigit anak yang sedang bermain di halaman.",
+   "bg": "desa"
+  },
+  {
+   "s": "mama_yuliana",
+   "e": "sedih",
+   "t": "Kami kira luka biasa, Pak. Kami cuci dan obati sendiri. Tidak tahu harus ke puskesmas."
+  },
+  {
+   "s": "drh_petrus",
+   "e": "serius",
+   "t": "Rabies itu bisa dicegah seratus persen. Tapi sekali gejala muncul, tidak ada yang bisa menyelamatkan."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Dua kabupaten sudah menetapkan KLB, Pak. Anjing di sana hidup bebas di antara rumah-rumah warga.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "sekar",
+   "e": "berpikir",
+   "t": "Bagi banyak keluarga, anjing itu penjaga rumah dan bagian dari kehidupan. Kita harus hati-hati memilih caranya."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Kesehatan manusia dan hewan di sini tidak bisa dipisahkan. Kita mulai dari mana?"
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Memvaksin anjing di setiap kampung.",
+   "helps": "Seluruh warga: rabies diputus dari sumbernya.",
+   "burden": "Butuh waktu dan kerja sama pemilik anjing.",
+   "now": "Kepercayaan naik sedikit.",
+   "later": "Layanan dan kesejahteraan naik setelah tiga bulan."
+  },
+  "b": {
+   "intent": "Menyediakan vaksin antirabies manusia di puskesmas.",
+   "helps": "Warga yang sudah tergigit.",
+   "burden": "Gigitan baru tetap terjadi.",
+   "now": "Layanan naik tiga bulan.",
+   "later": "Tidak mengubah sumber penularan."
+  },
+  "c": {
+   "intent": "Menertibkan anjing liar.",
+   "helps": "Warga yang takut digigit.",
+   "burden": "Pemilik anjing dan pecinta hewan.",
+   "now": "Kepercayaan turun.",
+   "later": "Layanan naik sedikit bulan depan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Petugas berkeliling dengan kotak pendingin. Anjing-anjing diberi kalung tanda sudah divaksin.",
+    "bg": "desa"
+   },
+   {
+    "s": "drh_petrus",
+    "e": "senyum",
+    "t": "Warga ternyata mau, asal dijelaskan dengan baik. Anjing mereka juga keluarga."
+   },
+   {
+    "s": "mama_yuliana",
+    "e": "lega",
+    "t": "Anjing kami sudah berkalung merah. Anak-anak lebih tenang bermain."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kiriman vaksin antirabies tiba di puskesmas-puskesmas kabupaten.",
+    "bg": "rumah_sakit"
+   },
+   {
+    "s": "mama_yuliana",
+    "e": "lega",
+    "t": "Tetangga yang digigit minggu lalu langsung disuntik. Dia selamat.",
+    "bg": "desa"
+   },
+   {
+    "s": "drh_petrus",
+    "e": "berpikir",
+    "t": "Bagus untuk yang tergigit. Tapi anjingnya masih menggigit."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Petugas menangkap anjing-anjing yang berkeliaran di jalan dan pasar.",
+    "bg": "desa"
+   },
+   {
+    "s": "mama_yuliana",
+    "e": "kecewa",
+    "t": "Anjing tetangga yang ditangkap ternyata ada pemiliknya. Mereka marah sekali."
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "t": "Kecaman datang dari banyak arah, Pak. Kita harus menjelaskan dan memastikan anjing berpemilik tidak ikut ditangkap.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "kampung",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "services",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "drh_petrus",
+         "e": "senyum",
+         "t": "Bulan ini tidak ada kasus gigitan anjing rabies yang dilaporkan di kabupaten kami, Pak.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "mama_yuliana",
+         "e": "cemas",
+         "t": "Masih ada anjing yang menggigit di kampung sebelah, Pak. Kami takut.",
+         "bg": "desa"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Kabupaten menangani rabies dengan vaksin yang ada.",
+   "bg": "desa"
+  },
+  {
+   "s": "drh_petrus",
+   "e": "sedih",
+   "t": "Kami kekurangan vaksin hewan dan tenaga. Kampung-kampung jauh belum tersentuh."
+  }
+ ],
+ "journal": {
+  "a": "Anjing di TTS dan Sikka divaksin massal untuk memutus rabies.",
+  "b": "Vaksin antirabies manusia disediakan di semua puskesmas TTS dan Sikka.",
+  "c": "Anjing liar di TTS dan Sikka ditertibkan."
+ },
+ "promises": {
+  "a": {
+   "text": "Tidak ada lagi kematian karena rabies di TTS dan Sikka.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "services",
+    "op": ">",
+    "value": 2
+   }
+  }
+ }
+}

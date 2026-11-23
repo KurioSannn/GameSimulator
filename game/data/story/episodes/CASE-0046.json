@@ -1,0 +1,221 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0046",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "danau",
+ "locals": {
+  "inang_rosmaida": {
+   "name": "Inang Rosmaida",
+   "role": "Petani bawang, Baktiraja",
+   "color": "7a3a4a",
+   "initials": "R"
+  },
+  "amang_tigor": {
+   "name": "Amang Tigor",
+   "role": "Pengurus gereja dan relawan, Baktiraja",
+   "color": "3a5a6a",
+   "initials": "T"
+  }
+ },
+ "agenda": {
+  "hook": "Banjir bandang membawa batu sebesar rumah ke sebuah desa di tepi Danau Toba. Sepuluh orang belum ditemukan.",
+  "if_postponed": "Pencarian dihentikan sesuai prosedur. Desa dibangun kembali di tempat yang sama."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Malam Jumat di tepi Danau Toba. Hujan turun berjam-jam, lalu terdengar gemuruh dari bukit.",
+   "bg": "danau"
+  },
+  {
+   "s": "inang_rosmaida",
+   "e": "sedih",
+   "t": "Rumah tetangga saya hilang, Pak. Hanya batu dan lumpur sekarang. Mereka sekeluarga di dalamnya."
+  },
+  {
+   "s": "amang_tigor",
+   "e": "sedih",
+   "t": "Kami menggali dengan tangan sampai pagi. Gereja kami juga rusak."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Tim gabungan sudah seminggu mencari, Pak. Lumpurnya sampai tiga meter. Dua ditemukan, sepuluh belum.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "sekar",
+   "e": "berpikir",
+   "t": "Bagi keluarga, menghentikan pencarian berarti melepas. Itu keputusan yang tidak bisa kita buat untuk mereka."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Kita cari selama keluarga masih berharap. Lalu kita pastikan tidak ada desa lain yang bernasib sama."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Meneruskan pencarian dan memulihkan desa.",
+   "helps": "Keluarga yang menunggu kabar.",
+   "burden": "Anggaran; risiko desa tetap.",
+   "now": "Kepercayaan naik, pemulihan dua bulan.",
+   "later": "Desa tetap di jalur banjir."
+  },
+  "b": {
+   "intent": "Memindahkan rumah dari jalur banjir bandang.",
+   "helps": "Keselamatan warga Baktiraja.",
+   "burden": "Warga yang tanah dan kebunnya di tepi danau.",
+   "now": "Kepercayaan turun.",
+   "later": "Infrastruktur naik setelah sembilan bulan, kesejahteraan struktural setelah setahun."
+  },
+  "c": {
+   "intent": "Memetakan lereng rawan dan memasang peringatan dini.",
+   "helps": "Desa-desa di sekeliling Danau Toba.",
+   "burden": "Kebutuhan pemulihan sekarang.",
+   "now": "Biaya sedang.",
+   "later": "Perlindungan dan layanan naik setelah enam bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Alat berat, penyelam, dan anjing pelacak bekerja hari demi hari.",
+    "bg": "danau"
+   },
+   {
+    "s": "amang_tigor",
+    "e": "netral",
+    "t": "Keluarga merasa ditemani. Itu berarti banyak, apa pun hasilnya."
+   },
+   {
+    "s": "inang_rosmaida",
+    "e": "berpikir",
+    "t": "Desa mulai bersih. Kami menanam bawang lagi di petak yang tersisa."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Lahan baru di lereng yang lebih aman disiapkan untuk keluarga di jalur banjir.",
+    "bg": "desa"
+   },
+   {
+    "s": "inang_rosmaida",
+    "e": "sedih",
+    "t": "Tanah ini warisan ompung kami, Pak. Meninggalkannya seperti meninggalkan keluarga."
+   },
+   {
+    "s": "amang_tigor",
+    "e": "berpikir",
+    "t": "Kalau dibicarakan bersama adat dan gereja, mungkin orang bisa menerima."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tim geologi memetakan lereng-lereng curam di sekeliling danau. Sirene dipasang di desa-desa di bawahnya.",
+    "bg": "danau"
+   },
+   {
+    "s": "amang_tigor",
+    "e": "senyum",
+    "t": "Sekarang lonceng gereja juga jadi tanda bahaya. Semua orang tahu harus lari ke mana."
+   },
+   {
+    "s": "sekar",
+    "e": "senyum",
+    "t": "Desa wisata lain di sekitar danau juga ingin ikut, Pak.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "hujan",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "flood_protection",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "amang_tigor",
+         "e": "senyum",
+         "t": "Hujan besar lagi bulan lalu. Sirene berbunyi, semua naik. Tidak ada yang terluka.",
+         "bg": "danau"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "inang_rosmaida",
+         "e": "netral",
+         "t": "Rumah baru kami di atas, Pak. Kebun tetap kami datangi setiap hari.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "inang_rosmaida",
+         "e": "cemas",
+         "t": "Setiap hujan lebat, kami tidak bisa tidur. Bukit itu masih di sana.",
+         "bg": "danau"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Pencarian dihentikan setelah tujuh hari sesuai prosedur. Desa dibangun kembali di tempat yang sama.",
+   "bg": "danau"
+  },
+  {
+   "s": "amang_tigor",
+   "e": "sedih",
+   "t": "Kami berdoa untuk yang tidak ditemukan."
+  }
+ ],
+ "journal": {
+  "a": "Pencarian korban banjir bandang Baktiraja diteruskan dan desa dipulihkan.",
+  "b": "Rumah di jalur banjir bandang Baktiraja dipindahkan.",
+  "c": "Lereng rawan di sekeliling Danau Toba dipetakan dan peringatan dini dipasang."
+ },
+ "promises": {
+  "c": {
+   "text": "Desa-desa di bawah lereng rawan Danau Toba punya peringatan dini.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "flood_protection",
+    "op": ">",
+    "value": 2
+   }
+  }
+ }
+}

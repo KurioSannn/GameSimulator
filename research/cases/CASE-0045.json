@@ -1,0 +1,98 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0045",
+ "title": "Lonjakan campak dan KLB Sumenep di tengah turunnya cakupan imunisasi, 2023 sampai 2026",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "health_outbreak",
+ "subcategories": [
+  "measles",
+  "immunization_coverage",
+  "school_children",
+  "outbreak_response"
+ ],
+ "start_date": "2023",
+ "end_date": "2026-03-06",
+ "decision_as_of": "2025-08-26",
+ "island": "jawa",
+ "provinces": [
+  "35"
+ ],
+ "regency_city_documented": [
+  "35.29"
+ ],
+ "geographic_resolution": "Kab. Sumenep, Jawa Timur; nasional",
+ "real_facts": [
+  {
+   "fact": "Cakupan imunisasi rutin lengkap turun dari 92 persen pada 2018 menjadi 87,8 persen pada 2023; kasus campak konfirmasi naik dari lebih dari 4.800 (2022) menjadi lebih dari 10.600 (2023), dan KLB campak dari 64 menjadi 95.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-CAMPAK-2025-08-26"
+   ],
+   "as_of": "2025-08-26"
+  },
+  {
+   "fact": "Di Kabupaten Sumenep kasus pertama muncul Agustus 2024; hingga 26 Agustus 2025 tercatat 2.139 suspek dan 205 kasus terkonfirmasi, terbanyak pada anak usia 1 sampai 4 tahun (53 persen) dan 5 sampai 9 tahun (29 persen). Cakupan MR1 2024 sebesar 92 persen dan MR2 82,3 persen, di bawah target 95 persen.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-CAMPAK-2025-08-26"
+   ],
+   "as_of": "2025-08-26"
+  },
+  {
+   "fact": "Sepanjang 2025 tercatat 63.769 kasus suspek campak, 11.094 terkonfirmasi laboratorium, dan 69 kematian.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-CAMPAK-2026-02-26"
+   ],
+   "as_of": "2026-02-26"
+  }
+ ],
+ "information_available_at_decision": "Akhir Agustus 2025: ribuan anak suspek campak di Sumenep; cakupan imunisasi kedua masih jauh dari target; Kemenkes menurunkan tim surveilans.",
+ "trigger": [
+  "Lonjakan campak dan KLB Sumenep di tengah turunnya cakupan imunisasi, 2023 sampai 2026"
+ ],
+ "root_causes_note": "Turunnya imunisasi rutin dalam beberapa tahun terakhir sehingga kekebalan kelompok tidak tercapai.",
+ "stakeholders": [
+  "Kementerian Kesehatan",
+  "Dinas Kesehatan Sumenep",
+  "sekolah dan madrasah",
+  "tokoh agama",
+  "orang tua"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-KEMKES-CAMPAK-2025-08-26",
+   "institution": "Kementerian Kesehatan RI",
+   "title": "KLB Campak Meningkat, Kemenkes Ingatkan Pentingnya Imunisasi Lengkap",
+   "url": "https://www.kemkes.go.id/id/klb-campak-meningkat-kemenkes-ingatkan-pentingnya-imunisasi-lengkap",
+   "publication_date": "2025-08-26",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional; Kab. Sumenep",
+   "reference_period": "2018-2025",
+   "unit": "kasus; KLB; persen"
+  },
+  {
+   "source_id": "SRC-KEMKES-CAMPAK-2026-02-26",
+   "institution": "Kementerian Kesehatan RI",
+   "title": "Kemenkes Waspadai Dinamika Campak Nasional dan Global",
+   "url": "https://www.kemkes.go.id/id/kemenkes-waspadai-dinamika-campak-nasional-dan-global",
+   "publication_date": "2026-02-26",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional",
+   "reference_period": "2025; 2026 minggu ke-7",
+   "unit": "kasus; kematian"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Penyebab turunnya cakupan imunisasi tidak diuraikan di sumber; game tidak mengklaim penyebab tertentu."
+ ],
+ "todo_to_validate": [
+  "Cakupan MR per kecamatan Sumenep"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0045.json",
+ "game_adaptation_notes": "Imunisasi kejar di sekolah dan madrasah (cepat, butuh izin orang tua) vs isolasi dan perawatan kasus (menolong yang sakit) vs perbaiki imunisasi rutin dan pencatatan (lambat, akar masalah).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

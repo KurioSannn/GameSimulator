@@ -1,0 +1,100 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0043",
+ "title": "Kejadian luar biasa rabies di Timor Tengah Selatan dan Sikka, 2023",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "health_zoonosis",
+ "subcategories": [
+  "rabies",
+  "one_health",
+  "dog_vaccination",
+  "post_exposure_care"
+ ],
+ "start_date": "2023-04",
+ "end_date": "2023-06-02",
+ "decision_as_of": "2023-06-02",
+ "island": "bali_nusa_tenggara",
+ "provinces": [
+  "53"
+ ],
+ "regency_city_documented": [
+  "53.02",
+  "53.07"
+ ],
+ "geographic_resolution": "Kab. Timor Tengah Selatan dan Kab. Sikka, Nusa Tenggara Timur",
+ "real_facts": [
+  {
+   "fact": "Hingga April 2023 tercatat 31.113 kasus gigitan hewan penular rabies, 23.211 di antaranya sudah mendapat vaksin antirabies, dan 11 kematian; 95 persen kasus rabies pada manusia berasal dari gigitan anjing.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-RABIES-2023-06-02"
+   ],
+   "as_of": "2023-06-02"
+  },
+  {
+   "fact": "Saat itu 26 provinsi endemis rabies dan 11 provinsi bebas rabies; di NTT ada pulau yang bebas rabies seperti Pulau Sumba.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-RABIES-2023-06-02"
+   ],
+   "as_of": "2023-06-02"
+  },
+  {
+   "fact": "Kejadian luar biasa rabies terjadi di Kabupaten Sikka dan Kabupaten Timor Tengah Selatan, Nusa Tenggara Timur.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-UPK-RABIES-2023"
+   ],
+   "as_of": "2023-06"
+  }
+ ],
+ "information_available_at_decision": "Juni 2023: KLB ditetapkan di dua kabupaten; warga yang digigit harus segera mendapat vaksin antirabies; anjing berkeliaran bebas di banyak kampung.",
+ "trigger": [
+  "Kejadian luar biasa rabies di Timor Tengah Selatan dan Sikka, 2023"
+ ],
+ "root_causes_note": "Anjing peliharaan dan liar yang tidak divaksin di wilayah endemis, serta keterlambatan berobat setelah digigit.",
+ "stakeholders": [
+  "Kementerian Kesehatan",
+  "Kementerian Pertanian (kesehatan hewan)",
+  "Pemkab TTS dan Sikka",
+  "puskesmas",
+  "pemilik anjing"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-KEMKES-RABIES-2023-06-02",
+   "institution": "Kementerian Kesehatan RI",
+   "title": "Hingga April 2023 ada 11 Kasus Kematian Karena Rabies, Segera ke Faskes jika Digigit Anjing!",
+   "url": "https://kemkes.go.id/id/hingga-april-2023-ada-11-kasus-kematian-karena-rabies-segera-ke-faskes-jika-digigit-anjing",
+   "publication_date": "2023-06-02",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional; provinsi",
+   "reference_period": "s.d. April 2023",
+   "unit": "kasus gigitan; kematian"
+  },
+  {
+   "source_id": "SRC-KEMKES-UPK-RABIES-2023",
+   "institution": "Unit Pelayanan Kesehatan Kemenkes",
+   "title": "KLB Rabies Terjadi di Indonesia",
+   "url": "https://upk.kemkes.go.id/new/klb-rabies-terjadi-di-indonesia",
+   "publication_date": "2023-06",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Sikka, Kab. Timor Tengah Selatan",
+   "reference_period": "April 2023",
+   "unit": "",
+   "note": "Halaman tidak mencantumkan tanggal terbit; isinya merujuk konferensi pers Kemenkes 2 Juni 2023 dan data April 2023."
+  }
+ ],
+ "rejected_or_unverified": [
+  "Jumlah kematian khusus di TTS dan Sikka tidak tercantum di sumber yang dibaca; tidak dicantumkan."
+ ],
+ "todo_to_validate": [
+  "Data kasus dan cakupan vaksinasi anjing per kabupaten (Dinkes NTT)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0043.json",
+ "game_adaptation_notes": "Vaksinasi anjing massal (memutus sumber, One Health) vs perbanyak vaksin antirabies untuk manusia di puskesmas (menyelamatkan yang digigit) vs penertiban anjing liar (cepat, kontroversial).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

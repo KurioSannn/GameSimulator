@@ -1,0 +1,196 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0046",
+ "research_ref": "research/cases/CASE-0046.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Batu dari Bukit Baktiraja",
+ "location_label": "Kab. Humbang Hasundutan, Sumatera Utara (tepi Danau Toba)",
+ "focus_regions": [
+  "12.16"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 47
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0046"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:12.16",
+   "var": "damage",
+   "op": "add",
+   "value": 6.0
+  },
+  {
+   "scope": "region:12.16",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "region:12.16",
+   "var": "trust",
+   "op": "add",
+   "value": -0.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Banjir bandang menerjang Desa Simangulampe, Kecamatan Baktiraja, pada Jumat 1 Desember 2023 pukul 21.25 WIB setelah hujan lebat yang lama, membawa bongkahan batu besar, batang pohon, dan lumpur; 12 orang dilaporkan hilang dan 50 KK mengungsi.",
+    "source_refs": [
+     "SRC-BNPB-HUMBAHAS-2023-12-02"
+    ],
+    "as_of": "2023-12-02"
+   },
+   {
+    "text": "Kaji cepat sementara mencatat 12 rumah rusak berat, termasuk satu rumah ibadah dan satu penginapan.",
+    "source_refs": [
+     "SRC-BNPB-HUMBAHAS-2023-12-02"
+    ],
+    "as_of": "2023-12-02"
+   },
+   {
+    "text": "Hingga hari ketujuh pencarian, dua korban ditemukan meninggal dan 10 masih hilang; operasi SAR diperpanjang tiga hari hingga 12 Desember 2023.",
+    "source_refs": [
+     "SRC-BNPB-HUMBAHAS-2023-12-10"
+    ],
+    "as_of": "2023-12-10"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Banjir bandang membawa batu sebesar rumah ke sebuah desa di tepi Danau Toba. Sepuluh orang belum ditemukan."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Humbang Hasundutan damage 6, welfare -1.5, trust -0.5. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "flash flood -> damage & welfare; extended search + recovery -> trust + damage recovery; relocation -> infrastructure + welfare_base later at trust cost; hazard map + warning -> flood_protection + services",
+  "immediate": "a: fiscal -1.5, trust +1.5, damage -1/month x2; b: fiscal -3.5, trust -1; c: fiscal -2",
+  "delayed": "b: infrastructure +4 after 9 months, welfare_base +0.6 after 12; c: flood_protection +5 and services +1 after 6 months",
+  "regional": "Kab. Humbang Hasundutan",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Cari terus dan pulihkan desa",
+   "description": "Pencarian diteruskan dengan alat berat, penyelam, dan anjing pelacak sampai keluarga siap, sambil membersihkan desa dari batu dan lumpur.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "region:12.16",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    },
+    {
+     "scope": "region:12.16",
+     "var": "damage",
+     "op": "add",
+     "value": -1.0,
+     "duration": 2
+    }
+   ],
+   "memory": {
+    "humbahas_response": "search_recover"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Pindahkan desa dari jalur banjir bandang",
+   "description": "Rumah di jalur aliran bebatuan dipindahkan ke tempat yang lebih aman di sekitar Baktiraja. Berat bagi warga yang tanahnya di tepi danau.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.5
+    },
+    {
+     "scope": "region:12.16",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "region:12.16",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 4.0,
+     "delay": 9
+    },
+    {
+     "scope": "region:12.16",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.6,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "humbahas_response": "relocation"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Peta rawan dan peringatan dini tepi Danau Toba",
+   "description": "Lereng-lereng di sekeliling Danau Toba dipetakan dan desa-desa di bawahnya diberi alat peringatan dan latihan mengungsi.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:12.16",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 5.0,
+     "delay": 6
+    },
+    {
+     "scope": "region:12.16",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "humbahas_response": "hazard_warning"
+   }
+  }
+ ]
+}

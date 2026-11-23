@@ -1,0 +1,203 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0044",
+ "research_ref": "research/cases/CASE-0044.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Emas di Bawah Tebing",
+ "location_label": "Kab. Solok, Sumatera Barat",
+ "focus_regions": [
+  "13.02"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 32
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0044"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:13.02",
+   "var": "damage",
+   "op": "add",
+   "value": 5.0
+  },
+  {
+   "scope": "region:13.02",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "region:13.02",
+   "var": "environment",
+   "op": "add",
+   "value": -2.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Tanah longsor menimbun kawasan tambang emas ilegal di Nagari Sungai Abu, Kecamatan Hiliran Gumanti, Kabupaten Solok, pada Kamis 26 September 2024 pukul 17.00 WIB setelah hujan deras; 15 penambang meninggal dan 3 luka berat.",
+    "source_refs": [
+     "SRC-BNPB-SOLOK-2024-09-27"
+    ],
+    "as_of": "2024-09-27"
+   },
+   {
+    "text": "BPBD Kabupaten Solok menilai struktur tanah yang labil turut berkontribusi; pencarian korban terkendala medan dan lokasi yang sulit dijangkau kendaraan.",
+    "source_refs": [
+     "SRC-BNPB-SOLOK-2024-09-27"
+    ],
+    "as_of": "2024-09-27"
+   },
+   {
+    "text": "PVMBG Badan Geologi menyatakan longsor terjadi di area bekas tambang emas ilegal di perbukitan bergelombang berlereng agak curam, dipicu penggalian lereng dan curah hujan tinggi; BPBD Sumatera Barat melaporkan 15 meninggal dan 25 dilaporkan hilang.",
+    "source_refs": [
+     "SRC-ESDM-SOLOK-2024-09-28"
+    ],
+    "as_of": "2024-09-28"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Tebing di tambang emas ilegal runtuh setelah hujan deras. Belasan penambang tertimbun di bawahnya."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Solok damage 5, welfare -1.5, environment -2 (landslide in former illegal mine). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "mine collapse -> damage, welfare, environment; closure -> environment later, welfare & trust loss now; licensed people's mining -> services + welfare_base later; alternative livelihood + land rehab -> environment + welfare_base later",
+  "immediate": "a: fiscal -1, welfare -1/month x3, trust -1; b: fiscal -2, trust +1; c: fiscal -3",
+  "delayed": "a: environment +3 after 6 months; b: services +1.5 and welfare_base +0.5 after 9 months; c: environment +4 and welfare_base +0.8 after 12 months",
+  "regional": "Kab. Solok",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Tutup dan tindak tambang ilegal",
+   "description": "Lokasi tambang ditutup, alat berat disita, dan pemodal ditindak. Mencegah korban berikutnya, tetapi ratusan keluarga kehilangan penghasilan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "region:13.02",
+     "var": "welfare",
+     "op": "add",
+     "value": -1.0,
+     "duration": 3
+    },
+    {
+     "scope": "region:13.02",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "region:13.02",
+     "var": "environment",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "solok_response": "closure"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Jadikan tambang rakyat berizin",
+   "description": "Wilayah pertambangan rakyat ditetapkan, penambang dibina standar keselamatan, dan hasilnya diawasi. Bertahap dan rumit, tetapi penambang tidak lagi bekerja dalam gelap.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:13.02",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    },
+    {
+     "scope": "region:13.02",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "delay": 9
+    },
+    {
+     "scope": "region:13.02",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.5,
+     "delay": 9
+    }
+   ],
+   "memory": {
+    "solok_response": "licensing"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Alih profesi dan pulihkan lahan",
+   "description": "Penambang dilatih dan dimodali untuk usaha lain, sementara lahan bekas tambang ditanami kembali. Lambat, menutup tambang tanpa menutup dapur.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "region:13.02",
+     "var": "environment",
+     "op": "add",
+     "value": 4.0,
+     "delay": 12
+    },
+    {
+     "scope": "region:13.02",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.8,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "solok_response": "livelihood_rehab"
+   }
+  }
+ ]
+}

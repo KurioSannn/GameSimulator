@@ -1,0 +1,208 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0044",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "pegunungan",
+ "locals": {
+  "uda_rizal": {
+   "name": "Uda Rizal",
+   "role": "Penambang rakyat, Hiliran Gumanti",
+   "color": "6a5a3a",
+   "initials": "R"
+  },
+  "amak_nur": {
+   "name": "Amak Nur",
+   "role": "Ibu dari penambang, Sungai Abu",
+   "color": "7a4a5a",
+   "initials": "N"
+  }
+ },
+ "agenda": {
+  "hook": "Tebing di tambang emas ilegal runtuh setelah hujan deras. Belasan penambang tertimbun di bawahnya.",
+  "if_postponed": "Tambang ilegal di Solok dibuka kembali setelah pencarian selesai."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Sore hari di perbukitan Solok. Hujan turun sejak siang. Di lubang-lubang tambang, orang masih bekerja.",
+   "bg": "pegunungan"
+  },
+  {
+   "s": "amak_nur",
+   "e": "sedih",
+   "t": "Anak saya pergi pagi membawa nasi bungkus. Dia bilang sore ini dapat emas, kita bayar utang."
+  },
+  {
+   "s": "uda_rizal",
+   "e": "sedih",
+   "t": "Saya selamat karena sedang naik mengambil air. Teman-teman di bawah tidak sempat."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Tambangnya ilegal, Pak. Tapi bagi banyak keluarga di sana, itu satu-satunya penghasilan tunai.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Menutupnya murah. Mengganti penghasilan mereka tidak."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Hukum harus ditegakkan. Tapi kalau kita hanya menutup lubangnya, orang akan menggali lubang lain."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Menutup tambang ilegal dan menindak pemodalnya.",
+   "helps": "Keselamatan penambang dan lingkungan.",
+   "burden": "Keluarga yang kehilangan penghasilan.",
+   "now": "Kesejahteraan dan kepercayaan turun.",
+   "later": "Lingkungan pulih setelah enam bulan."
+  },
+  "b": {
+   "intent": "Menetapkan tambang rakyat berizin dengan standar keselamatan.",
+   "helps": "Penambang rakyat yang ingin bekerja aman dan sah.",
+   "burden": "Pengawasan rumit; risiko tetap ada.",
+   "now": "Kepercayaan naik.",
+   "later": "Layanan dan kesejahteraan struktural naik setelah sembilan bulan."
+  },
+  "c": {
+   "intent": "Melatih alih profesi dan memulihkan lahan bekas tambang.",
+   "helps": "Generasi berikutnya dan lingkungan.",
+   "burden": "Anggaran; penambang yang butuh penghasilan cepat.",
+   "now": "Biaya besar.",
+   "later": "Lingkungan dan kesejahteraan struktural naik setelah setahun."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Garis polisi dipasang di jalan masuk tambang. Ekskavator disita.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "uda_rizal",
+    "e": "kecewa",
+    "t": "Saya mengerti, Pak. Tapi besok saya kerja apa?"
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "t": "Ada yang lega, ada yang marah. Kita harus segera menawarkan jalan keluar.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Wilayah tambang rakyat dipetakan. Penambang dilatih memakai penyangga dan membaca tanda tanah bergerak.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "uda_rizal",
+    "e": "netral",
+    "t": "Pertama kali ada yang mengajari kami cara menambang yang tidak membunuh."
+   },
+   {
+    "s": "bayu",
+    "e": "berpikir",
+    "t": "Butuh pengawasan bertahun-tahun. Kalau lengah, kita kembali ke titik ini.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kelas pertanian dan usaha kecil dibuka di nagari. Bibit pohon ditanam di bekas lubang tambang.",
+    "bg": "desa"
+   },
+   {
+    "s": "amak_nur",
+    "e": "berpikir",
+    "t": "Saya tidak mau anak bungsu saya menambang. Biar dia belajar menanam kopi."
+   },
+   {
+    "s": "uda_rizal",
+    "e": "netral",
+    "t": "Emas cepat, kopi lambat. Tapi kopi tidak menimbun orang.",
+    "bg": "pegunungan"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "nagari",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "welfare_base",
+        "op": ">",
+        "value": 0.3
+       },
+       "beats": [
+        {
+         "s": "uda_rizal",
+         "e": "senyum",
+         "t": "Sekarang saya bekerja dengan izin dan alat pengaman, atau di kebun. Tidak ada lagi yang turun ke lubang saat hujan.",
+         "bg": "pegunungan"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "amak_nur",
+         "e": "cemas",
+         "t": "Lubang-lubang baru muncul di bukit sebelah, Pak. Anak-anak muda kembali ke sana.",
+         "bg": "pegunungan"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Setelah pencarian selesai, lubang-lubang tambang di Solok dibuka lagi.",
+   "bg": "pegunungan"
+  },
+  {
+   "s": "uda_rizal",
+   "e": "kecewa",
+   "t": "Kami kembali menggali. Tidak ada pilihan lain."
+  }
+ ],
+ "journal": {
+  "a": "Tambang emas ilegal di Solok ditutup dan pemodalnya ditindak.",
+  "b": "Tambang rakyat berizin dengan standar keselamatan ditetapkan di Solok.",
+  "c": "Penambang Solok dilatih alih profesi dan lahan bekas tambang dipulihkan."
+ },
+ "promises": {
+  "b": {
+   "text": "Penambang rakyat Solok bekerja dengan izin dan standar keselamatan.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "welfare_base",
+    "op": ">",
+    "value": 0.3
+   }
+  }
+ }
+}
