@@ -13,7 +13,7 @@ CAST = json.load(open(ROOT / "game/data/story/cast.json", encoding="utf-8"))["ch
 ADVISERS = {"laras", "bayu", "yosef", "sekar"}
 BG_DIR = ROOT / "game/assets/story/backgrounds"
 LOC_DIR = ROOT / "game/assets/story/portraits/locals"
-BAD = [("—", "em dash"), ("http", "url"), ("SRC-", "source id"), ("www.", "url")]
+BAD = [(chr(0x2014), "em dash"), ("http", "url"), ("SRC-", "source id"), ("www.", "url")]
 
 
 def flat(beats):
