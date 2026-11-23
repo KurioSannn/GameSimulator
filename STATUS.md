@@ -1,8 +1,17 @@
 # STATUS
 
-_Last updated: 2026-11-23 (Claude Code, narrative redesign + 50-case library)._ **Submission deadline recorded by the project: 15 Nov 2026.**
+_Last updated: 2026-11-23 (Claude Code, final experience milestone)._ **Submission deadline recorded by the project: 15 Nov 2026.**
 
 ## Current phase
+**Final experience milestone: content freeze at 50 cases (2026-11-23; user brief)**:
+- Art: 29 painted story backdrops and portraits for every speaker (3 advisers with 4 expressions, 100 locals), generated with Figma AI at the user's request; manifest + AI log; placeholder guard test.
+- Agenda outcome categories (D-093): decided, delegated, covered, displaced, lapsed, missed critical; KRISIS BESAR items cannot be delegated. Negligence = missed critical + idle lapses.
+- Endings recalibrated; deterministic strong route reaches Warisan Besar and is replayed in the suite (D-095). Distribution over 49 runs: Warisan 1, Menguat 1, Bertahan 28, Janji 9, Krisis 10.
+- Exact mid-dialogue save/resume (D-094), Simpan (F5) in dialogue.
+- Personal legacy sequence (address, map overview, returning locals, cabinet verdicts) and expanded Rapor Warisan; Kumpulan Kisah cards with scene thumbnails.
+- Narrative coverage 50/50 with content-level checks (`scripts/story/coverage.py`, gated in validate_all). Tests 183/183.
+- Report: research/reports/2026-11-23_FINAL_EXPERIENCE_REPORT.md.
+
 **Narrative redesign: story campaign, agenda, endings, 50 playable cases (2026-11-23; user redesign brief)**:
 - Authoritative GDD rewritten (docs/02_GDD.md). Data-driven story layer: prologue, cast of five, 7-step contextual tutorial, opening and choice-specific reaction scenes for every case, state-checked callbacks, promises, quarter transitions from actual pillar changes, Buku Kisah, Tujuan Masa Bakti, Kumpulan Kisah (isolated scenarios), five calibrated endings.
 - Visible quarterly agenda replaces silent priority picks; unattended issues expire with explicit consequences; never-opened cases are reported. Save schema v6 (v5 migrates).

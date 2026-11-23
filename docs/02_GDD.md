@@ -51,7 +51,18 @@ Quarter start
 ## 4. Campaign scheduling (replaces silent priority picks)
 
 - Every case whose trigger conditions hold is **opened** on the agenda, up to 3 at a time; further eligible cases wait in a visible queue in deterministic order (story priority, trigger month, id).
-- An agenda item can wait its window (default 3 quarters, follow-ups 2). When the window ends it is **handled without the President**: its shock applies plus documented unattended costs (trust −3 in focus regions or −1.2 nationally, welfare and services −0.4/month for 6 months). It is logged, written to Buku Kisah, and narrated.
+- An agenda item can wait its window (default 3 quarters, follow-ups 2). When the window ends it is **handled without the President**: its shock applies plus unattended costs (base: trust −3 in focus regions or −1.2 nationally, welfare and services −0.4/month for 6 months), scaled by **outcome category** (D-093):
+
+| Category | Meaning | Cost share (trust / losses) |
+|---|---|---|
+| Ditangani | the President decided it | none |
+| Diserahkan ke kementerian | handed over on purpose (non-critical only; does not use the quarter's decision) | 35% / 50% |
+| Teratasi lewat keputusan lain | lapsed, but a decision in the same province covered it | 30% / 30% |
+| Tergeser krisis lain | lapsed while the President took up critical issues | 50% / 75% |
+| Terlewat tanpa tindakan | lapsed in a quarter where nothing was taken up | 100% |
+| Krisis besar yang terlewat | a critical crisis lapsed while lesser items were taken | 100% |
+
+  Critical = trigger damage ≥ 8 or an episode flagged critical (deadly outbreaks). The agenda marks them KRISIS BESAR. Everything is logged, written to Buku Kisah with its category, and narrated.
 - Cases that never open during a term are listed at the end and remain playable in Kumpulan Kisah. **No case disappears silently.**
 - Headless regression sessions keep the legacy one-case pick so earlier golden masters stay valid (`Campaign.enabled()` is false there).
 
@@ -89,7 +100,9 @@ Data-driven, no per-case scripts.
 | yosef | Yosef Latumahina | Penasihat Pembangunan Daerah | field person, distances, boats, village names |
 | sekar | Sekar Anindita | Penasihat Komunikasi Publik | quick, blunt, reads public mood |
 
-Local characters are fictional composites per episode (e.g. Bu Yati in Jakarta Timur, Pak Asep in Lebak) and return in that case's follow-ups and callbacks. No line quotes or impersonates a real person. Portraits: Nara and Laras use the team's art; others use a clearly generated medallion (`art_pending: true`) until Ananda/Cleo supply drawings.
+Local characters are fictional composites per episode (e.g. Bu Yati in Jakarta Timur, Pak Asep in Lebak) and return in that case's follow-ups, callbacks and the legacy sequence. No line quotes or impersonates a real person.
+
+**Art.** Nara and Laras use the team's approved art. Bayu, Yosef and Sekar have portraits with four expressions (netral, senyum, cemas, serius; moods map onto these families). All 100 episode locals have their own portrait (`game/assets/story/portraits/locals/<CASE>_<id>.jpg`). Story scenes use 29 painted 16:9 backdrops (`game/assets/story/backgrounds/<kind>.jpg`) with a slow drift (none with reduced motion). All new art was generated with Figma AI at the user's request in the style of the team's Nara art, is listed with checksums in `game/assets/story/ART_MANIFEST.json`, logged in the AI usage log, and pending the art team's review. A test fails if any speaker or scene falls back to a placeholder.
 
 ## 7. First-time experience
 
@@ -101,11 +114,11 @@ Tutorial and prologue choices are saved; continuing a save never replays the pro
 
 Five archetypes: **Warisan Besar**, **Nusantara yang Menguat**, **Pemerintahan yang Bertahan**, **Janji yang Belum Selesai**, **Krisis Mandat**.
 
-Each pillar is rated good / fair / poor against thresholds **calibrated from 48 deterministic full-term campaigns** (always a/b/c, cheapest, costliest, first/last agenda item, 40 seeded random strategies) plus a neglect counterfactual (`game/tests/calibrate_endings.gd`). Good = top quartile, poor = bottom quartile of plausible strategies. Crisis requires sustained failure (trust in the bottom decile for 4+ quarters with poor trust, 3+ poor pillars, or 15+ agenda items left to expire); one bad decision cannot end the game. Promises kept and unattended issues are part of the assessment.
+Each pillar is rated good / fair / poor against the p75 / p25 of **47 plausible deterministic full-term campaigns** (always a/b/c, cheapest, costliest, first/last agenda item, 40 seeded random strategies). Two reference runs sit outside the quartiles: a **neglect counterfactual** (never takes an item) and a **strong-governance route** (4-quarter lookahead per decision, critical crises answered before their window closes, deliberate delegation; `game/tests/data/strong_route.json`, replayed by the test suite). Crisis requires sustained failure (trust in the bottom decile for 4+ quarters with poor trust, 3+ poor pillars, or negligence: missed critical crises plus idle lapses ≥ 8). Warisan Besar needs all four pillars good, 60% of settled promises kept and no missed critical crisis; Nusantara yang Menguat allows at most one.
 
-Every ending has its own final scene, a reflection that remembers the player's prologue priority, the map closing image, and a summary screen with pillar ratings, promises kept/unfinished, the decisions that shaped the country, and the legacy statement.
+**Legacy sequence** (`EndingStory`, built from actual state): (1) the final presidential address, recalling the prologue priority, the defining decision and the promises; (2) a map overview of Indonesia naming the provinces that improved most and those still struggling, and any critical crisis missed; (3) returning local characters from the decisions that changed their regions most, speaking to how their place fared; (4) each adviser's verdict on the pillar they care about (Bayu fiscal, Sekar trust, Yosef services, Laras promises); (5) the ending title revealed in the scene, the archetype scene and the closing; (6) the Rapor Warisan screen (ratings, agenda outcome categories, provinces, promises, decisions) with new campaign and Kumpulan Kisah buttons.
 
-Calibrated distribution (2026-11-23, 50 playable cases): Bertahan 20, Menguat 9, Janji 8, Krisis 11 (including neglect), Warisan Besar 0. With one decision per quarter and 50 cases, a median of 9 agenda items expire even under active play; prioritising is the game. Warisan Besar is aspirational: it needs top-quartile results on all four pillars plus kept promises. **Recalibrate whenever cases or coefficients change.**
+Calibrated distribution (2026-11-23, 50 cases, 49 runs): Bertahan 28, Janji 9, Krisis 10 (incl. neglect), Menguat 1, **Warisan Besar 1 (the strong route)**. Warisan is demanding but attainable by excellent, plausible play. Warisan Besar is aspirational: it needs top-quartile results on all four pillars plus kept promises. **Recalibrate whenever cases or coefficients change.**
 
 ## 9. Case library
 
@@ -125,8 +138,8 @@ One full-screen story interaction owns focus at a time; it swallows map and HUD 
 
 ## 12. Save / load
 
-World + story state in one save (schema v6). Pending story scenes survive close/reopen (replayed from the start of the scene). Scenario mode is never saved. Autosave each quarter in campaign mode only.
+World + story state in one save (schema v6). **The exact dialogue position is saved** (D-094): resolved beats including chosen option replies, beat index, speaker and expression, backdrop, reveal state, open options, recent history, and the flow it belongs to (prologue, case scene, quarter transition, ending). Loading resumes at that beat without re-applying any effect. Simpan (F5) works inside dialogue. A term that ended before its ending played resumes into the ending. Scenario mode is never saved. Autosave each quarter in campaign mode only.
 
 ## 13. Out of scope / later
 
-Voice acting; drawn portraits for advisers and locals; per-expression art; regional mini-episodes that do not consume the quarterly slot; more case batches toward the 100+ library goal (docs/20).
+Voice acting; expression variants for Nara, Laras and locals; human redraws of generated art if the art team prefers; regional mini-episodes that do not consume the quarterly slot; more case batches toward the 100+ library goal (docs/20).

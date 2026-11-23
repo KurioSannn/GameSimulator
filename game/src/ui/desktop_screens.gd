@@ -904,8 +904,22 @@ func _library() -> void:
 		var card := PanelContainer.new()
 		card.theme_type_variation = "PanelCard"
 		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var hrow := UiKit.hbox(12)
+		card.add_child(hrow)
+		# Episode thumbnail: the scene's painted backdrop (game/assets/story/backgrounds).
+		var art := StoryBackdrop.art_for(str(c.get("story", {}).get("background", "")))
+		if art != null:
+			var thumb := TextureRect.new()
+			thumb.texture = art
+			thumb.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			thumb.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+			thumb.custom_minimum_size = Vector2(150, 150)
+			thumb.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+			thumb.clip_contents = true
+			hrow.add_child(thumb)
 		var v := UiKit.vbox(6)
-		card.add_child(v)
+		v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		hrow.add_child(v)
 		var loc := UiKit.subheader(str(c.get("location_label", "")).to_upper(), UiKit.WARN, 12)
 		loc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		loc.custom_minimum_size.x = 200
