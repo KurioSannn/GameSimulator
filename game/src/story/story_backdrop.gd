@@ -33,6 +33,7 @@ const KINDS := {
 	"danau": {"sky": ["9fd0e4", "ecf3ea"], "ground": "3f6f5a", "sun": "fff6dc", "shape": "danau"},
 	"banjir_bandang": {"sky": ["56606a", "9aa0a2"], "ground": "6a5a44", "sun": "", "shape": "gunung", "weather": "hujan"},
 	"rumah_sakit": {"sky": ["d9e7ea", "f4f7f4"], "ground": "c9d3d6", "sun": "", "shape": "rumah_sakit"},
+	"gunung_api": {"sky": ["4a4650", "a8907a"], "ground": "5a5048", "sun": "", "shape": "gunung_api", "weather": "asap"},
 	"desa": {"sky": ["a8d6e6", "eef3dc"], "ground": "6a8a42", "sun": "fff3c8", "shape": "desa"},
 }
 
@@ -352,3 +353,11 @@ func _shape_desa(w: float, h: float, horizon: float, spec: Dictionary) -> void:
 		draw_rect(Rect2(x, horizon - h * 0.08, w * 0.09, h * 0.08), Color("e9dcc0"))
 		_poly([Vector2(x - 10, horizon - h * 0.08), Vector2(x + w * 0.045, horizon - h * 0.15), Vector2(x + w * 0.09 + 10, horizon - h * 0.08)], Color("a0452f"))
 	_trees(w, horizon, 6, Color("3f7a3a"))
+
+
+func _shape_gunung_api(w: float, h: float, horizon: float, spec: Dictionary) -> void:
+	_poly([Vector2(w * 0.05, horizon), Vector2(w * 0.42, h * 0.16), Vector2(w * 0.5, h * 0.14), Vector2(w * 0.9, horizon)], Color("4a403a"))
+	for i in 4:
+		draw_circle(Vector2(w * 0.46 + i * 18, h * 0.1 - i * 22 - fmod(_t * 5.0, 20.0)), 30 + i * 10, Color(0.55, 0.5, 0.48, 0.45 - i * 0.08))
+	_poly([Vector2(w * 0.4, h * 0.2), Vector2(w * 0.46, h * 0.18), Vector2(w * 0.56, horizon), Vector2(w * 0.36, horizon)], Color("6a5a50"))
+	_trees(w, horizon, 6, Color("4a5a3a"))

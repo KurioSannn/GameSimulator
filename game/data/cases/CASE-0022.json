@@ -1,0 +1,191 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0022",
+ "research_ref": "research/cases/CASE-0022.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Polio Kembali di Pidie",
+ "location_label": "Kab. Pidie dan Pidie Jaya, Aceh",
+ "focus_regions": [
+  "11.07",
+  "11.18"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 46
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0022"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "regions:11.07,11.18",
+   "var": "services",
+   "op": "add",
+   "value": -2.0
+  },
+  {
+   "scope": "regions:11.07,11.18",
+   "var": "trust",
+   "op": "add",
+   "value": -0.5
+  },
+  {
+   "scope": "province:11",
+   "var": "services",
+   "op": "add",
+   "value": -0.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Indonesia telah menerima sertifikat bebas polio dari WHO pada 2014, tetapi kasus polio kembali ditemukan di Kabupaten Pidie, Aceh, yang menurut Menteri Kesehatan termasuk daerah dengan cakupan imunisasi polio rendah.",
+    "source_refs": [
+     "SRC-KEMKES-POLIO-2022-12-05"
+    ],
+    "as_of": "2022-12-05"
+   },
+   {
+    "text": "Sebagai tindak lanjut KLB, imunisasi polio massal (Sub PIN) dimulai 28 November 2022 di Pidie dengan sasaran 95.603 anak usia 0 sampai 12 tahun; pada hari pertama 14.000 anak diimunisasi.",
+    "source_refs": [
+     "SRC-KEMKES-POLIO-2022-11-28"
+    ],
+    "as_of": "2022-11-28"
+   },
+   {
+    "text": "Sub PIN diperluas ke 21 kabupaten/kota lain di Aceh dalam dua putaran dengan sasaran sekitar 1.217.939 anak; pada hari keenam di Pidie (4 Desember) cakupan mencapai 79,5 persen.",
+    "source_refs": [
+     "SRC-KEMKES-POLIO-2022-12-05"
+    ],
+    "as_of": "2022-12-05"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Kasus polio ditemukan lagi di Pidie, Aceh, delapan tahun setelah Indonesia dinyatakan bebas polio."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): services -2 and trust -0.5 in Pidie and Pidie Jaya, services -0.5 across Aceh (low coverage province-wide per Kemenkes). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "outbreak -> services -> sentiment; province-wide campaign -> services now; local-only -> risk of later welfare loss; routine immunization + trust -> services later",
+  "immediate": "a: fiscal -1.5, Aceh services +1.5/month x3, trust +0.5; b: fiscal -0.5, Pidie services +2/month x2; c: fiscal -1",
+  "delayed": "b: Aceh welfare -0.5 after 6 months (spread risk, design); c: Aceh trust +1.5 after 3 months, services +3 after 6 months",
+  "regional": "Pidie, Pidie Jaya, Aceh province",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "All magnitudes are design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Imunisasi serentak se-Aceh",
+   "description": "Vaksinasi massal di semua kabupaten dan kota Aceh dalam dua putaran. Paling luas dan cepat menutup celah, butuh banyak tenaga dan dana.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "province:11",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "duration": 3
+    },
+    {
+     "scope": "province:11",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "polio2022_response": "province_wide"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Fokus di Pidie dulu",
+   "description": "Vaksinasi intensif hanya di daerah kasus. Murah dan cepat di titik api, tetapi virus bisa saja sudah beredar di kabupaten tetangga.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:11.07,11.18",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "duration": 2
+    },
+    {
+     "scope": "province:11",
+     "var": "welfare",
+     "op": "add",
+     "value": -0.5,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "polio2022_response": "local_only"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Bangun kepercayaan dan imunisasi rutin",
+   "description": "Bersama tokoh masyarakat dan puskesmas, memperbaiki imunisasi rutin di seluruh Aceh. Lebih lambat, tetapi menutup akar masalahnya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "province:11",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5,
+     "delay": 3
+    },
+    {
+     "scope": "province:11",
+     "var": "services",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "polio2022_response": "routine_trust"
+   }
+  }
+ ]
+}

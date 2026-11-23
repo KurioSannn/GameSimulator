@@ -1,0 +1,111 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0024",
+ "title": "Erupsi Gunung Semeru dan relokasi warga Lumajang, Desember 2021",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_volcanic",
+ "subcategories": [
+  "volcanic_eruption",
+  "relocation",
+  "temporary_housing",
+  "livelihoods"
+ ],
+ "start_date": "2021-12-04",
+ "end_date": "2022-03-31",
+ "decision_as_of": "2021-12-26",
+ "island": "jawa",
+ "provinces": [
+  "35"
+ ],
+ "regency_city_documented": [
+  "35.08"
+ ],
+ "geographic_resolution": "Kab. Lumajang, Jawa Timur",
+ "real_facts": [
+  {
+   "fact": "Setelah erupsi Gunung Semeru pada Sabtu 4 Desember 2021, Presiden memerintahkan BNPB, Basarnas, para menteri terkait, TNI, Polri, gubernur, dan bupati sekitar untuk segera menangani darurat, mencari korban, dan merawat yang terluka.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-SEMERU-2021-12-05"
+   ],
+   "as_of": "2021-12-05"
+  },
+  {
+   "fact": "Per 25 Desember 2021, posko mencatat 1.027 rumah rusak di Desa Sumberwuluh (Candipuro) dan Desa Supiturang (Pronojiwo), serta 9.417 warga mengungsi di 402 titik; Bupati Lumajang menetapkan masa transisi darurat 90 hari.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SEMERU-2021-12-26"
+   ],
+   "as_of": "2021-12-26"
+  },
+  {
+   "fact": "Lahan relokasi di Desa Sumbermujur, Candipuro, disiapkan setelah mendapat izin Kementerian LHK; pada Maret 2022 BNPB menargetkan 300 sampai 478 keluarga dari pengungsian menempati hunian tetap dan sementara tahap pertama sebelum Lebaran.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SEMERU-2022-03-31"
+   ],
+   "as_of": "2022-03-31"
+  }
+ ],
+ "information_available_at_decision": "Akhir Desember 2021: ribuan warga masih mengungsi; lahan relokasi sedang dibersihkan; warga belum tahu kapan bisa pindah.",
+ "trigger": [
+  "Erupsi Gunung Semeru dan relokasi warga Lumajang, Desember 2021"
+ ],
+ "root_causes_note": "Permukiman dan lahan pertanian berada di jalur aliran awan panas dan lahar Semeru.",
+ "stakeholders": [
+  "BNPB",
+  "Pemkab Lumajang",
+  "Kementerian PUPR",
+  "Kementerian LHK",
+  "warga Candipuro dan Pronojiwo"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-SETKAB-SEMERU-2021-12-05",
+   "institution": "Sekretariat Kabinet RI",
+   "title": "President Jokowi Orders Immediate Response Following Mt. Semeru Eruption",
+   "url": "https://setkab.go.id/en/president-jokowi-orders-for-immediate-response-following-mt-semeru-eruption/",
+   "publication_date": "2021-12-05",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Lumajang",
+   "reference_period": "2021-12-04/05",
+   "unit": ""
+  },
+  {
+   "source_id": "SRC-BNPB-SEMERU-2021-12-26",
+   "institution": "BNPB",
+   "title": "Penanganan Paska Awan Panas Guguran Semeru Memasuki Status Transisi Darurat",
+   "url": "https://www.bnpb.go.id/berita/penanganan-paska-awan-panas-guguran-semeru-memasuki-status-transisi-darurat",
+   "publication_date": "2021-12-26",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kec. Candipuro, Pronojiwo, Pasirian",
+   "reference_period": "2021-12-25",
+   "unit": "unit rumah; jiwa"
+  },
+  {
+   "source_id": "SRC-BNPB-SEMERU-2022-03-31",
+   "institution": "BNPB",
+   "title": "Tahap Pertama Targetkan Penyintas Erupsi Semeru di Pengungsian Tinggal di Huntap dan Huntara",
+   "url": "https://bnpb.go.id/berita/tahap-pertama-targetkan-penyintas-erupsi-semeru-di-pengungsian-tinggal-di-huntap-dan-huntara",
+   "publication_date": "2022-03-31",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Desa Sumbermujur, Kec. Candipuro",
+   "reference_period": "2022-03-31",
+   "unit": "unit"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka korban jiwa berbeda antarsumber (berita); tidak dicantumkan sebagai fakta.",
+  "Halaman BNPB tentang relokasi Dusun Sumbersari bertanggal November 2025 membahas erupsi yang lebih baru; tidak dipakai untuk kasus 2021."
+ ],
+ "todo_to_validate": [
+  "Data korban jiwa final erupsi Desember 2021 (BNPB)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0024.json",
+ "game_adaptation_notes": "Pemulihan di tempat (cepat, risiko tetap) vs relokasi ke hunian tetap (aman, lambat, berat) vs menopang penghidupan (langsung, tidak mengubah risiko).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

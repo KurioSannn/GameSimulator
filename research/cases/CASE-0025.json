@@ -1,0 +1,115 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0025",
+ "title": "Siklon tropis Seroja, banjir bandang, dan longsor di Nusa Tenggara Timur, April 2021",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_cyclone",
+ "subcategories": [
+  "tropical_cyclone",
+  "flash_flood",
+  "island_logistics",
+  "early_warning"
+ ],
+ "start_date": "2021-04-02",
+ "end_date": "2021-05-05",
+ "decision_as_of": "2021-04-10",
+ "island": "bali_nusa_tenggara",
+ "provinces": [
+  "53"
+ ],
+ "regency_city_documented": [
+  "53.06",
+  "53.13",
+  "53.05",
+  "53.01",
+  "53.71"
+ ],
+ "geographic_resolution": "Flores Timur, Lembata, Alor, Kab. Kupang, Kota Kupang (NTT)",
+ "real_facts": [
+  {
+   "fact": "Gubernur NTT menetapkan status tanggap darurat bencana siklon tropis, banjir bandang, longsor, dan gelombang pasang dari 6 April sampai 5 Mei 2021, mencakup Kota Kupang dan 21 kabupaten.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SEROJA-2021-04-08"
+   ],
+   "as_of": "2021-04-08"
+  },
+  {
+   "fact": "Per 10 April 2021, BNPB mencatat 174 orang meninggal dan 48 hilang di NTT: Flores Timur 71 meninggal, Lembata 46, Alor 28, Kabupaten Kupang 12, dan Kota Kupang 6.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SEROJA-2021-04-12"
+   ],
+   "as_of": "2021-04-12"
+  },
+  {
+   "fact": "Data BPBD NTT kemudian mencatat 182 korban jiwa. BMKG telah beberapa kali mengeluarkan peringatan dini cuaca ekstrem dan bibit siklon; Seroja disebut siklon terbesar kedua di Indonesia setelah siklon Kenanga.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SEROJA-2021-04-30"
+   ],
+   "as_of": "2021-04-30"
+  }
+ ],
+ "information_available_at_decision": "10 April 2021: pencarian korban hilang masih berjalan; banyak desa di pulau-pulau kecil hanya bisa dijangkau lewat laut; status tanggap darurat sebulan.",
+ "trigger": [
+  "Siklon tropis Seroja, banjir bandang, dan longsor di Nusa Tenggara Timur, April 2021"
+ ],
+ "root_causes_note": "Cuaca ekstrem di pulau-pulau dengan lereng curam, permukiman di jalur banjir bandang, dan logistik antarpulau yang terbatas.",
+ "stakeholders": [
+  "BNPB dan BPBD NTT",
+  "BMKG",
+  "pemerintah kabupaten kepulauan",
+  "warga Adonara, Lembata, Alor",
+  "nelayan dan petani"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-SEROJA-2021-04-08",
+   "institution": "BNPB",
+   "title": "Gubernur NTT Tetapkan Tanggap Darurat Bencana",
+   "url": "https://bnpb.go.id/berita/gubernur-ntt-tetapkan-tanggap-darurat-bencana-",
+   "publication_date": "2021-04-08",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kota Kupang dan 21 kabupaten NTT",
+   "reference_period": "2021-04-06/05-05",
+   "unit": ""
+  },
+  {
+   "source_id": "SRC-BNPB-SEROJA-2021-04-12",
+   "institution": "BNPB",
+   "title": "BNPB Perbaharui Data Korban NTT, Pencarian Korban Hilang Terus Dioptimalkan",
+   "url": "https://www.bnpb.go.id/index.php/berita/bnpb-perbaharui-data-korban-ntt-pencarian-korban-hilang-terus-dioptimalkan",
+   "publication_date": "2021-04-12",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "kabupaten/kota NTT",
+   "reference_period": "2021-04-10",
+   "unit": "orang"
+  },
+  {
+   "source_id": "SRC-BNPB-SEROJA-2021-04-30",
+   "institution": "BNPB",
+   "title": "Pembelajaran dari Banjir Bandang dan Longsor NTT",
+   "url": "https://www.bnpb.go.id/berita/pembelajaran-dari-banjir-bandang-dan-longsor-ntt",
+   "publication_date": "2021-04-30",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Provinsi NTT",
+   "reference_period": "2021-04",
+   "unit": "orang"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka lain di pemberitaan (177, 181) tidak dipakai; game memakai angka BNPB 10 April dan BPBD 182.",
+  "Kunjungan Presiden ke lokasi tidak diverifikasi dari sumber resmi dalam batch ini."
+ ],
+ "todo_to_validate": [
+  "Data rumah rusak per kabupaten (BNPB)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0025.json",
+ "game_adaptation_notes": "Logistik darurat antarpulau (cepat, mahal) vs peringatan dini sampai desa (murah, pencegahan) vs relokasi dari jalur banjir bandang (lambat, aman).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

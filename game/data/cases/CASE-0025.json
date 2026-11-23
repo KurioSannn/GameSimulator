@@ -1,0 +1,230 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0025",
+ "research_ref": "research/cases/CASE-0025.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Badai Seroja di Kepulauan Timur",
+ "location_label": "Flores Timur, Lembata, Alor, Kab. Kupang, Kota Kupang (NTT)",
+ "focus_regions": [
+  "53.06",
+  "53.13",
+  "53.05",
+  "53.01",
+  "53.71"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 39
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0025"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:53.06",
+   "var": "damage",
+   "op": "add",
+   "value": 12.0
+  },
+  {
+   "scope": "region:53.13",
+   "var": "damage",
+   "op": "add",
+   "value": 10.0
+  },
+  {
+   "scope": "region:53.05",
+   "var": "damage",
+   "op": "add",
+   "value": 7.0
+  },
+  {
+   "scope": "region:53.01",
+   "var": "damage",
+   "op": "add",
+   "value": 3.0
+  },
+  {
+   "scope": "region:53.71",
+   "var": "damage",
+   "op": "add",
+   "value": 2.0
+  },
+  {
+   "scope": "regions:53.06,53.13",
+   "var": "welfare",
+   "op": "add",
+   "value": -2.0
+  },
+  {
+   "scope": "regions:53.06,53.13,53.05,53.01,53.71",
+   "var": "services",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Gubernur NTT menetapkan status tanggap darurat bencana siklon tropis, banjir bandang, longsor, dan gelombang pasang dari 6 April sampai 5 Mei 2021, mencakup Kota Kupang dan 21 kabupaten.",
+    "source_refs": [
+     "SRC-BNPB-SEROJA-2021-04-08"
+    ],
+    "as_of": "2021-04-08"
+   },
+   {
+    "text": "Per 10 April 2021, BNPB mencatat 174 orang meninggal dan 48 hilang di NTT: Flores Timur 71 meninggal, Lembata 46, Alor 28, Kabupaten Kupang 12, dan Kota Kupang 6.",
+    "source_refs": [
+     "SRC-BNPB-SEROJA-2021-04-12"
+    ],
+    "as_of": "2021-04-12"
+   },
+   {
+    "text": "Data BPBD NTT kemudian mencatat 182 korban jiwa. BMKG telah beberapa kali mengeluarkan peringatan dini cuaca ekstrem dan bibit siklon; Seroja disebut siklon terbesar kedua di Indonesia setelah siklon Kenanga.",
+    "source_refs": [
+     "SRC-BNPB-SEROJA-2021-04-30"
+    ],
+    "as_of": "2021-04-30"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Siklon tropis membawa banjir bandang dan longsor ke pulau-pulau di NTT. Banyak desa hanya bisa dicapai lewat laut."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): damage ordered by BNPB deaths of 10 April (Flores Timur 71 > Lembata 46 > Alor 28 > Kab. Kupang 12 > Kota Kupang 6). Magnitudes are design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "cyclone -> damage & services; island logistics -> damage recovery + trust; early warning -> infrastructure/services later; relocation -> infrastructure + welfare_base later at a trust cost",
+  "immediate": "a: fiscal -3.5, damage -2/month x3, trust +1; b: fiscal -1.5, trust +0.5; c: fiscal -4.5, trust -1",
+  "delayed": "b: infrastructure +3 and services +1 after 6 months; c: infrastructure +5 after 9 months, welfare_base +0.8 after 12 months (Flores Timur, Lembata)",
+  "regional": "five NTT regencies/cities with BNPB-recorded deaths",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "All magnitudes are design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Logistik darurat lintas pulau",
+   "description": "Kapal dan pesawat membawa bantuan, alat berat, dan tenaga ke pulau-pulau terdampak. Cepat dan mahal.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.5
+    },
+    {
+     "scope": "regions:53.06,53.13,53.05,53.01,53.71",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "duration": 3
+    },
+    {
+     "scope": "regions:53.06,53.13,53.05,53.01,53.71",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "seroja2021_response": "island_logistics"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Peringatan dini sampai ke desa",
+   "description": "Peringatan cuaca ekstrem diteruskan sampai kepala desa, dengan jalur dan latihan mengungsi. Murah, tidak memulihkan kerusakan sekarang.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "regions:53.06,53.13,53.05,53.01,53.71",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    },
+    {
+     "scope": "regions:53.06,53.13,53.05,53.01,53.71",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    },
+    {
+     "scope": "regions:53.06,53.13,53.05,53.01,53.71",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "seroja2021_response": "early_warning"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Relokasi dari jalur banjir bandang",
+   "description": "Permukiman di muara sungai dan kaki lereng paling rawan di Flores Timur dan Lembata dipindahkan. Aman untuk jangka panjang, berat dan lama.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.5
+    },
+    {
+     "scope": "regions:53.06,53.13,53.05,53.01,53.71",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "regions:53.06,53.13",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 5.0,
+     "delay": 9
+    },
+    {
+     "scope": "regions:53.06,53.13",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.8,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "seroja2021_response": "relocation"
+   }
+  }
+ ]
+}

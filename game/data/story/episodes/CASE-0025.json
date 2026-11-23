@@ -1,0 +1,239 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0025",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "pesisir_rusak",
+ "locals": {
+  "mama_theresia": {
+   "name": "Mama Theresia",
+   "role": "Penenun dan ibu rumah tangga, Adonara",
+   "color": "8a3a4a",
+   "initials": "T"
+  },
+  "om_frans": {
+   "name": "Om Frans",
+   "role": "Nakhoda kapal penyeberangan, Lewoleba",
+   "color": "2a5a7a",
+   "initials": "F"
+  }
+ },
+ "agenda": {
+  "hook": "Siklon tropis membawa banjir bandang dan longsor ke pulau-pulau di NTT. Banyak desa hanya bisa dicapai lewat laut.",
+  "if_postponed": "Pulau-pulau terdampak Seroja menunggu bantuan dengan kapal seadanya."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Hujan tidak berhenti selama tiga hari. Angin mencabut atap-atap seng di pulau-pulau timur.",
+   "bg": "pesisir_rusak"
+  },
+  {
+   "s": "mama_theresia",
+   "e": "sedih",
+   "t": "Banjir datang malam hari dari bukit. Batu dan lumpur menutup separuh kampung kami."
+  },
+  {
+   "s": "om_frans",
+   "e": "cemas",
+   "t": "Kapal saya satu-satunya yang berani menyeberang minggu ini, Pak. Bantuan menumpuk di pelabuhan.",
+   "bg": "pelabuhan"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Flores Timur, Lembata, Alor. Korbannya ratusan, Pak. Dan jarak antarpulau membuat semuanya lebih lambat.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Membawa bantuan lewat laut dan udara mahal. Tapi menunggu juga mahal, dengan cara lain."
+  },
+  {
+   "s": "sekar",
+   "e": "berpikir",
+   "t": "Peringatan cuaca sebenarnya sudah dikeluarkan. Tapi apakah sampai ke kampung-kampung di lereng?"
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Kalau peringatannya ada tapi tidak sampai, itu juga kegagalan kita."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Mengirim logistik darurat lewat laut dan udara.",
+   "helps": "Warga di pulau-pulau terdampak: bantuan cepat sampai.",
+   "burden": "Anggaran; tidak mengubah kesiapan berikutnya.",
+   "now": "Kerusakan pulih tiga bulan, kepercayaan naik.",
+   "later": "Risiko berikutnya sama."
+  },
+  "b": {
+   "intent": "Memastikan peringatan dini sampai ke desa.",
+   "helps": "Seluruh kepulauan untuk badai berikutnya.",
+   "burden": "Kerusakan sekarang pulih seperti biasa.",
+   "now": "Biaya kecil, kepercayaan naik sedikit.",
+   "later": "Infrastruktur dan layanan naik setelah enam bulan."
+  },
+  "c": {
+   "intent": "Memindahkan permukiman dari jalur banjir bandang.",
+   "helps": "Keselamatan warga Flores Timur dan Lembata.",
+   "burden": "Warga yang harus pindah; anggaran.",
+   "now": "Kepercayaan turun.",
+   "later": "Infrastruktur naik setelah sembilan bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kapal perang dan pesawat angkut membawa beras, terpal, dan alat berat ke Adonara dan Lembata.",
+    "bg": "pelabuhan"
+   },
+   {
+    "s": "om_frans",
+    "e": "senyum",
+    "t": "Pelabuhan sibuk siang malam. Kapal saya ikut mengangkut ke desa-desa kecil."
+   },
+   {
+    "s": "mama_theresia",
+    "e": "lega",
+    "t": "Bantuan sampai ke kampung kami di hari kelima. Anak-anak bisa makan nasi lagi.",
+    "bg": "pesisir_rusak"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Pengeras suara gereja dan masjid, radio desa, dan pesan singkat disiapkan sebagai jalur peringatan cuaca.",
+    "bg": "desa"
+   },
+   {
+    "s": "om_frans",
+    "e": "senyum",
+    "t": "Kami nakhoda sekarang dapat peringatan langsung. Itu berarti nyawa, Pak.",
+    "bg": "pelabuhan"
+   },
+   {
+    "s": "mama_theresia",
+    "e": "kecewa",
+    "t": "Itu baik untuk nanti. Tapi rumah kami masih tertimbun hari ini.",
+    "bg": "pesisir_rusak"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Desa-desa di muara sungai dan kaki lereng paling rawan dipetakan untuk dipindahkan.",
+    "bg": "pesisir_rusak"
+   },
+   {
+    "s": "mama_theresia",
+    "e": "sedih",
+    "t": "Kampung kami sudah di sini sejak nenek moyang. Tapi saya tidak mau tidur dengan suara banjir lagi."
+   },
+   {
+    "s": "yosef",
+    "e": "serius",
+    "t": "Kita harus memindahkan dengan menghormati adat dan tanah mereka. Bukan sekadar membangun rumah di tempat lain.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "musim",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "om_frans",
+         "e": "senyum",
+         "t": "Musim angin kemarin, peringatan datang dua hari sebelumnya. Semua kapal tinggal di pelabuhan. Tidak ada yang hilang.",
+         "bg": "pelabuhan"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "damage",
+        "op": "<",
+        "value": -5
+       },
+       "beats": [
+        {
+         "s": "mama_theresia",
+         "e": "senyum",
+         "t": "Kampung kami sudah bersih, Pak. Kami menenun lagi di bawah rumah panggung.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "mama_theresia",
+         "e": "kecewa",
+         "t": "Bekas banjir masih banyak di kampung, Pak. Kami membersihkan sendiri pelan-pelan.",
+         "bg": "pesisir_rusak"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Tanpa arahan nasional, bantuan untuk pulau-pulau terdampak Seroja datang tersendat.",
+   "bg": "pelabuhan"
+  },
+  {
+   "s": "om_frans",
+   "e": "kecewa",
+   "t": "Bantuan menumpuk di pelabuhan. Kapalnya yang tidak ada."
+  }
+ ],
+ "journal": {
+  "a": "Logistik darurat lintas pulau dikirim ke daerah terdampak Seroja.",
+  "b": "Peringatan dini cuaca ekstrem diteruskan sampai ke desa-desa NTT.",
+  "c": "Permukiman di jalur banjir bandang Flores Timur dan Lembata direlokasi."
+ },
+ "promises": {
+  "b": {
+   "text": "Desa-desa di kepulauan NTT menerima peringatan cuaca ekstrem sebelum badai berikutnya.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 2
+   }
+  },
+  "c": {
+   "text": "Warga dari jalur banjir bandang di Flores Timur dan Lembata tinggal di tempat yang lebih aman.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 2.5
+   }
+  }
+ }
+}

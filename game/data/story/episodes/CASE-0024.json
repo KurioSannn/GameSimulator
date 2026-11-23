@@ -1,0 +1,231 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0024",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "gunung_api",
+ "locals": {
+  "pak_sutrisno": {
+   "name": "Pak Sutrisno",
+   "role": "Petani, Candipuro",
+   "color": "6a5a3a",
+   "initials": "S"
+  },
+  "mbak_lina": {
+   "name": "Mbak Lina",
+   "role": "Relawan dapur umum, Pronojiwo",
+   "color": "8a4a5a",
+   "initials": "L"
+  }
+ },
+ "agenda": {
+  "hook": "Awan panas Semeru mengubur desa-desa di Lumajang. Ribuan warga mengungsi dan bertanya ke mana harus pulang.",
+  "if_postponed": "Pemulihan Lumajang berjalan tanpa keputusan relokasi. Warga kembali ke desa di jalur awan panas."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Sore itu langit di Lumajang mendadak gelap. Abu turun seperti hujan, lalu awan panas meluncur ke lembah.",
+   "bg": "gunung_api"
+  },
+  {
+   "s": "pak_sutrisno",
+   "e": "sedih",
+   "t": "Ladang saya di bawah pasir sekarang, Pak. Rumah juga. Yang tersisa cuma atapnya."
+  },
+  {
+   "s": "mbak_lina",
+   "e": "cemas",
+   "t": "Di dapur umum kami memasak untuk ribuan orang setiap hari. Mereka bertanya, kapan bisa pulang."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Lebih dari seribu rumah rusak, Pak. Lahan untuk relokasi sudah ada, di luar jalur lahar.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Relokasi mahal dan lama. Membangun di tempat lama lebih murah, tapi gunungnya tidak pindah."
+  },
+  {
+   "s": "sekar",
+   "e": "berpikir",
+   "t": "Dan banyak warga tidak mau jauh dari ladangnya. Bagi mereka, tanah itu hidup."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Saya mengerti kenapa mereka ingin pulang. Saya juga mengerti kenapa kita tidak boleh membiarkan mereka."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Memulihkan desa di tempat semula.",
+   "helps": "Warga yang ingin segera pulang.",
+   "burden": "Warga di masa depan: risiko awan panas tetap.",
+   "now": "Kerusakan pulih cepat tiga bulan, kepercayaan naik.",
+   "later": "Tidak ada pengurangan risiko."
+  },
+  "b": {
+   "intent": "Memindahkan warga ke hunian tetap yang aman.",
+   "helps": "Keselamatan warga jangka panjang.",
+   "burden": "Warga yang harus meninggalkan ladang; anggaran.",
+   "now": "Kepercayaan turun di awal.",
+   "later": "Infrastruktur naik setelah enam bulan, kesejahteraan struktural setelah sembilan bulan."
+  },
+  "c": {
+   "intent": "Menopang penghidupan keluarga terdampak.",
+   "helps": "Petani dan pekerja yang kehilangan penghasilan.",
+   "burden": "Risiko tempat tinggal tidak berubah.",
+   "now": "Kesejahteraan naik empat bulan.",
+   "later": "Manfaat berhenti saat bantuan selesai."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Hunian sementara dibangun di dekat desa lama. Jalan dan jembatan diperbaiki.",
+    "bg": "gunung_api"
+   },
+   {
+    "s": "pak_sutrisno",
+    "e": "lega",
+    "t": "Saya bisa menengok ladang setiap hari. Itu yang saya mau."
+   },
+   {
+    "s": "yosef",
+    "e": "cemas",
+    "t": "Mereka senang. Saya hanya berharap gunung itu tenang selama mungkin.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Alat berat membersihkan lahan relokasi. Rumah-rumah tetap mulai berdiri berderet.",
+    "bg": "desa"
+   },
+   {
+    "s": "pak_sutrisno",
+    "e": "kecewa",
+    "t": "Rumahnya bagus, Pak. Tapi ladang saya jauh sekarang. Saya harus naik motor sejam."
+   },
+   {
+    "s": "mbak_lina",
+    "e": "netral",
+    "t": "Anak-anak senang ada listrik dan air di rumah baru. Orang tua butuh waktu."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Bantuan tunai, bibit, dan pekerjaan padat karya disalurkan ke keluarga terdampak.",
+    "bg": "desa"
+   },
+   {
+    "s": "mbak_lina",
+    "e": "senyum",
+    "t": "Dapur-dapur keluarga mulai menyala lagi. Dapur umum bisa sedikit istirahat."
+   },
+   {
+    "s": "yosef",
+    "e": "berpikir",
+    "t": "Ini menolong mereka bertahan. Tapi mereka bertahan di tempat yang sama berbahayanya.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "huntap",
+   "after_quarters": 3,
+   "choices": [
+    "b"
+   ],
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 3
+       },
+       "beats": [
+        {
+         "s": "mbak_lina",
+         "e": "senyum",
+         "t": "Ratusan keluarga sudah pindah ke hunian tetap, Pak. Listrik dan airnya jalan.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_sutrisno",
+         "e": "kecewa",
+         "t": "Hunian tetapnya belum selesai, Pak. Sebagian dari kami kembali ke desa lama.",
+         "bg": "gunung_api"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ladang",
+   "after_quarters": 2,
+   "choices": [
+    "a",
+    "c"
+   ],
+   "beats": [
+    {
+     "s": "pak_sutrisno",
+     "e": "netral",
+     "t": "Ladang mulai hijau lagi, Pak. Tapi setiap kali gunung bergemuruh, kami semua berhenti bekerja dan menoleh.",
+     "bg": "gunung_api"
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Tanpa keputusan relokasi, warga Lumajang kembali ke desa lamanya satu per satu.",
+   "bg": "gunung_api"
+  },
+  {
+   "s": "mbak_lina",
+   "e": "sedih",
+   "t": "Mereka pulang karena tidak ada pilihan lain."
+  }
+ ],
+ "journal": {
+  "a": "Desa-desa terdampak Semeru dipulihkan di tempat semula.",
+  "b": "Warga zona bahaya Semeru direlokasi ke hunian tetap.",
+  "c": "Keluarga terdampak Semeru dibantu penghidupannya."
+ },
+ "promises": {
+  "b": {
+   "text": "Warga dari jalur awan panas Semeru menempati hunian tetap yang aman.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 3
+   }
+  }
+ }
+}

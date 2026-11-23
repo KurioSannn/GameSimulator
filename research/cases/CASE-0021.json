@@ -1,0 +1,106 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0021",
+ "title": "Lonjakan kasus demam berdarah dengue 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "health_outbreak",
+ "subcategories": [
+  "dengue",
+  "vector_control",
+  "urban_health",
+  "climate"
+ ],
+ "start_date": "2024-01",
+ "end_date": "2024-06",
+ "decision_as_of": "2024-04-02",
+ "island": "jawa",
+ "provinces": [
+  "32",
+  "74",
+  "33"
+ ],
+ "regency_city_documented": [
+  "32.73",
+  "74.71",
+  "32.17",
+  "32.71",
+  "32.13",
+  "33.20"
+ ],
+ "geographic_resolution": "Kota Bandung, Kota Kendari, Bandung Barat, Kota Bogor, Subang, Jepara",
+ "real_facts": [
+  {
+   "fact": "Hingga pekan ke-13 2024 (26 Maret), Kemenkes mencatat 53.131 kasus dengue dan 404 kematian. Kasus terbanyak di Kota Bandung (1.741), Kota Kendari (1.195), Bandung Barat (1.143), Kota Bogor (939), dan Subang (909); kematian terbanyak di Jepara (17) dan Subang (15).",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-DBD-2024-04-02"
+   ],
+   "as_of": "2024-04-02"
+  },
+  {
+   "fact": "Hingga pekan ke-17 2024 tercatat 88.593 kasus dan 621 kematian; kematian terjadi di 174 kabupaten/kota di 28 provinsi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-DBD-2024-06-14"
+   ],
+   "as_of": "2024-06-14"
+  },
+  {
+   "fact": "Pada pekan ke-22 2024 kasus mencapai 119.709, lebih tinggi dari total sepanjang 2023 (114.720). Kemenkes menyebut siklus tahunan lonjakan dengue memendek dari sekitar 10 tahun menjadi 3 tahun atau kurang, dikaitkan dengan El Nino.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-DBD-2024-06-14"
+   ],
+   "as_of": "2024-06-14"
+  }
+ ],
+ "information_available_at_decision": "Awal April 2024: kasus dengue naik di banyak kota dan belum mencapai puncak menurut Kemenkes; tempat tidur rumah sakit masih tersedia.",
+ "trigger": [
+  "Lonjakan kasus demam berdarah dengue 2024"
+ ],
+ "root_causes_note": "Musim hujan dan suhu tinggi, genangan di permukiman padat, dan siklus lonjakan yang makin pendek.",
+ "stakeholders": [
+  "Kementerian Kesehatan",
+  "dinas kesehatan kota",
+  "puskesmas dan rumah sakit",
+  "kader jumantik",
+  "warga permukiman padat"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-KEMKES-DBD-2024-04-02",
+   "institution": "Kementerian Kesehatan RI",
+   "title": "Waspada, Kenaikan Kasus DBD Belum Mencapai Puncak",
+   "url": "https://www.kemkes.go.id/id/waspada-kenaikan-kasus-dbd-belum-mencapai-puncak",
+   "publication_date": "2024-04-02",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional; kab/kota teratas",
+   "reference_period": "s.d. pekan ke-13 2024",
+   "unit": "kasus; kematian"
+  },
+  {
+   "source_id": "SRC-KEMKES-DBD-2024-06-14",
+   "institution": "Kementerian Kesehatan RI",
+   "title": "Waspada DBD di Musim Kemarau",
+   "url": "https://www.kemkes.go.id/id/waspada-dbd-di-musim-kemarau",
+   "publication_date": "2024-06-14",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional",
+   "reference_period": "s.d. pekan ke-22 2024",
+   "unit": "kasus; kematian"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Total kasus akhir tahun 2024 tidak diambil dari halaman resmi dalam batch ini.",
+  "Rincian program nyamuk ber-Wolbachia tidak diverifikasi; pilihan c di game adalah opsi kebijakan simulasi, bukan klaim program."
+ ],
+ "todo_to_validate": [
+  "Data kasus per kab/kota akhir 2024 (SKDR/Kemenkes)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0021.json",
+ "game_adaptation_notes": "Pencegahan berbasis warga (murah, bergantung partisipasi) vs respons rumah sakit dan pengasapan (cepat, mahal) vs teknologi pengendalian vektor jangka panjang (lambat).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

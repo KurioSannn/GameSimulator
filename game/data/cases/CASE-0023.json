@@ -1,0 +1,217 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0023",
+ "research_ref": "research/cases/CASE-0023.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Gempa di Kaki Gunung Gede",
+ "location_label": "Kab. Cianjur, Jawa Barat",
+ "focus_regions": [
+  "32.03"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 34
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0023"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:32.03",
+   "var": "damage",
+   "op": "add",
+   "value": 14.0
+  },
+  {
+   "scope": "region:32.03",
+   "var": "welfare",
+   "op": "add",
+   "value": -3.0
+  },
+  {
+   "scope": "region:32.03",
+   "var": "services",
+   "op": "add",
+   "value": -2.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Gempa bermagnitudo 5,6 mengguncang Kabupaten Cianjur pada siang hari 21 November 2022. BNPB mengirim tim reaksi cepat, 47 tenda, dan bantuan logistik senilai Rp500 juta.",
+    "source_refs": [
+     "SRC-SETKAB-CIANJUR-2022-11-22"
+    ],
+    "as_of": "2022-11-22"
+   },
+   {
+    "text": "Longsoran akibat gempa menutup ruas jalan Cipanas sampai Cianjur; alat berat dari dua sisi berhasil menembusnya pada pagi 22 November.",
+    "source_refs": [
+     "SRC-SETKAB-CIANJUR-PUPR-2022-11-22"
+    ],
+    "as_of": "2022-11-22"
+   },
+   {
+    "text": "Kecamatan Cugenang menjadi episentrum dengan kerusakan rumah dan korban terbanyak. Dari 741 pasien yang awalnya masuk rumah sakit, 24 masih dirawat pada 24 November.",
+    "source_refs": [
+     "SRC-SETKAB-CIANJUR-2022-11-24"
+    ],
+    "as_of": "2022-11-24"
+   },
+   {
+    "text": "Pemerintah menyiapkan bantuan Rp50 juta untuk rumah rusak berat, Rp25 juta rusak sedang, dan Rp10 juta rusak ringan, dengan beberapa skema pembangunan: oleh kementerian, dibantu TNI, atau oleh warga sendiri.",
+    "source_refs": [
+     "SRC-SETKAB-CIANJUR-2022-11-24"
+    ],
+    "as_of": "2022-11-24"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Gempa merobohkan ribuan rumah di Cianjur. Banyak korban adalah anak-anak yang sedang belajar."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Cianjur damage 14, welfare -3, services -2. Grounded in the reported epicentre damage and casualties; magnitudes are design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "earthquake -> damage -> services & welfare; government rebuild -> damage recovery + trust; stimulus -> welfare + damage recovery; relocation -> infrastructure + welfare_base later at a trust cost",
+  "immediate": "a: fiscal -5, damage -2/month x4 (from month 1), trust +1.5; b: fiscal -3.5, damage -1.5/month x3, welfare +1/month x3, trust +1; c: fiscal -6, trust -1, damage -1/month x2",
+  "delayed": "c: infrastructure +6 after 9 months, welfare_base +1 after 12 months",
+  "regional": "Kab. Cianjur",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "All magnitudes are design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Bangun ulang oleh pemerintah dan TNI",
+   "description": "Kementerian dan TNI membangun kembali rumah yang rusak dengan standar tahan gempa. Rapi dan cepat, tetapi biaya terbesar ditanggung negara.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "region:32.03",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "delay": 1,
+     "duration": 4
+    },
+    {
+     "scope": "region:32.03",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    }
+   ],
+   "memory": {
+    "cianjur2022_response": "government_rebuild"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Dana stimulan sesuai tingkat kerusakan",
+   "description": "Warga menerima bantuan sesuai kerusakan rumahnya dan membangun sendiri dengan pendampingan. Cepat menyentuh keluarga, mutu bergantung pada pengawasan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.5
+    },
+    {
+     "scope": "region:32.03",
+     "var": "damage",
+     "op": "add",
+     "value": -1.5,
+     "duration": 3
+    },
+    {
+     "scope": "region:32.03",
+     "var": "welfare",
+     "op": "add",
+     "value": 1.0,
+     "duration": 3
+    },
+    {
+     "scope": "region:32.03",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "cianjur2022_response": "stimulus"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Relokasi dan rumah tahan gempa",
+   "description": "Permukiman di lereng paling rawan dipindahkan dan semua rumah baru wajib tahan gempa. Paling aman untuk jangka panjang, paling lambat dan paling berat diterima.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -6.0
+    },
+    {
+     "scope": "region:32.03",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "region:32.03",
+     "var": "damage",
+     "op": "add",
+     "value": -1.0,
+     "duration": 2
+    },
+    {
+     "scope": "region:32.03",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 6.0,
+     "delay": 9
+    },
+    {
+     "scope": "region:32.03",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 1.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "cianjur2022_response": "relocation"
+   }
+  }
+ ]
+}

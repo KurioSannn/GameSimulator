@@ -1,0 +1,212 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0023",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "desa",
+ "locals": {
+  "teh_neneng": {
+   "name": "Teh Neneng",
+   "role": "Guru madrasah, Cugenang",
+   "color": "8a5a6a",
+   "initials": "N"
+  },
+  "mang_ujang": {
+   "name": "Mang Dadan",
+   "role": "Tukang bangunan, Cianjur",
+   "color": "5a6a3a",
+   "initials": "D"
+  }
+ },
+ "agenda": {
+  "hook": "Gempa merobohkan ribuan rumah di Cianjur. Banyak korban adalah anak-anak yang sedang belajar.",
+  "if_postponed": "Pembangunan kembali Cianjur berjalan tanpa skema yang jelas. Warga membangun dengan apa yang ada."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Siang hari di kaki Gunung Gede. Tanah berguncang hanya belasan detik.",
+   "bg": "desa"
+  },
+  {
+   "s": "teh_neneng",
+   "e": "sedih",
+   "t": "Anak-anak sedang mengaji waktu dindingnya runtuh. Kami menggali dengan tangan sampai sore."
+  },
+  {
+   "s": "mang_ujang",
+   "e": "serius",
+   "t": "Rumah-rumah di sini kebanyakan bata tanpa tulang besi, Pak. Murah dibangun, cepat roboh."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Jalan ke Cipanas sempat tertimbun longsor. Kecamatan Cugenang paling parah.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Bantuan perbaikan rumah sudah diumumkan sesuai tingkat kerusakan. Sekarang pertanyaannya, siapa yang membangun."
+  },
+  {
+   "s": "sekar",
+   "e": "cemas",
+   "t": "Warga takut tidur di dalam rumah. Mereka ingin tahu kapan bisa tinggal dengan aman."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Membangun cepat itu penting. Membangun yang tidak roboh lagi, lebih penting."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Pemerintah dan TNI membangun kembali rumah warga.",
+   "helps": "Warga terdampak: rumah tahan gempa dibangun rapi.",
+   "burden": "Anggaran negara: biaya terbesar.",
+   "now": "Kerusakan pulih cepat selama empat bulan, kepercayaan naik.",
+   "later": "Tidak ada perubahan lokasi permukiman."
+  },
+  "b": {
+   "intent": "Memberi dana stimulan sesuai kerusakan rumah.",
+   "helps": "Keluarga terdampak: bantuan langsung dan pilihan sendiri.",
+   "burden": "Mutu bangunan bergantung pengawasan.",
+   "now": "Kesejahteraan dan pemulihan naik tiga bulan.",
+   "later": "Risiko mutu tidak merata."
+  },
+  "c": {
+   "intent": "Memindahkan permukiman paling rawan dan mewajibkan rumah tahan gempa.",
+   "helps": "Keselamatan warga untuk jangka panjang.",
+   "burden": "Warga yang harus pindah; anggaran.",
+   "now": "Kepercayaan turun.",
+   "later": "Infrastruktur naik setelah sembilan bulan, kesejahteraan struktural setelah setahun."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Prajurit dan pekerja kementerian mendirikan rumah-rumah baru dengan rangka tahan gempa.",
+    "bg": "desa"
+   },
+   {
+    "s": "mang_ujang",
+    "e": "senyum",
+    "t": "Saya ikut jadi pekerja. Sekarang saya tahu cara memasang besi yang benar."
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Tagihannya besar, Pak. Tapi rumah-rumah ini akan berdiri lama.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Dana bantuan masuk ke rekening warga sesuai tingkat kerusakan rumahnya.",
+    "bg": "desa"
+   },
+   {
+    "s": "teh_neneng",
+    "e": "senyum",
+    "t": "Kami bisa memilih tukang sendiri, dan rumah cepat berdiri lagi."
+   },
+   {
+    "s": "mang_ujang",
+    "e": "berpikir",
+    "t": "Asal ada yang mengawasi, Pak. Kalau tidak, orang akan membangun seperti dulu lagi."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Lereng paling rawan ditandai. Lahan baru disiapkan untuk permukiman yang lebih aman.",
+    "bg": "desa"
+   },
+   {
+    "s": "teh_neneng",
+    "e": "sedih",
+    "t": "Madrasah kami harus pindah. Saya sedih, tapi saya tidak mau mengajar di bawah dinding yang bisa runtuh lagi."
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "t": "Pindah itu berat, Pak. Kita harus terus hadir sampai mereka benar-benar tinggal di tempat baru.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "rumah",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "damage",
+        "op": "<",
+        "value": -8
+       },
+       "beats": [
+        {
+         "s": "teh_neneng",
+         "e": "senyum",
+         "t": "Anak-anak sudah mengaji lagi di bangunan baru, Pak. Mereka masih kaget kalau ada truk lewat, tapi pelan-pelan tenang.",
+         "bg": "desa"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "mang_ujang",
+         "e": "kecewa",
+         "t": "Masih banyak keluarga di tenda, Pak. Pembangunannya belum selesai.",
+         "bg": "desa"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Tanpa skema yang jelas, warga Cianjur membangun kembali dengan cara lama.",
+   "bg": "desa"
+  },
+  {
+   "s": "mang_ujang",
+   "e": "kecewa",
+   "t": "Bata tanpa besi lagi, Pak. Cepat, murah, dan sama rapuhnya."
+  }
+ ],
+ "journal": {
+  "a": "Rumah warga Cianjur dibangun ulang oleh pemerintah dan TNI dengan standar tahan gempa.",
+  "b": "Warga Cianjur menerima dana stimulan sesuai tingkat kerusakan rumah.",
+  "c": "Permukiman paling rawan di Cianjur direlokasi dan rumah baru wajib tahan gempa."
+ },
+ "promises": {
+  "c": {
+   "text": "Warga dari lereng paling rawan di Cianjur tinggal di permukiman baru yang aman.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 3
+   }
+  }
+ }
+}

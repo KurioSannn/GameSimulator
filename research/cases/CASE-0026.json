@@ -1,0 +1,99 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0026",
+ "title": "Kebakaran depo BBM Pertamina Plumpang dan zona penyangga permukiman, Maret 2023",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "industrial_safety_urban",
+ "subcategories": [
+  "industrial_fire",
+  "buffer_zone",
+  "urban_settlement",
+  "critical_infrastructure"
+ ],
+ "start_date": "2023-03",
+ "end_date": "2023-03-05",
+ "decision_as_of": "2023-03-05",
+ "island": "jawa",
+ "provinces": [
+  "31"
+ ],
+ "regency_city_documented": [
+  "31.72"
+ ],
+ "geographic_resolution": "Kota Adm. Jakarta Utara, DKI Jakarta",
+ "real_facts": [
+  {
+   "fact": "Di posko pengungsian korban kebakaran depo BBM Plumpang pada 5 Maret 2023, Presiden menyatakan kawasan itu zona berbahaya yang tidak bisa lagi ditinggali dan memerintahkan Menteri BUMN serta Gubernur DKI mencari solusi: memindahkan depo ke lahan reklamasi atau merelokasi penduduk.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-PLUMPANG-2023-03-05"
+   ],
+   "as_of": "2023-03-05"
+  },
+  {
+   "fact": "Presiden juga meminta semua zona berbahaya di sekitar objek vital, tidak hanya Plumpang, diaudit dan dievaluasi, dan menyebut zona di sekitar depo semestinya berupa zona air seperti sungai.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-PLUMPANG-2023-03-05"
+   ],
+   "as_of": "2023-03-05"
+  },
+  {
+   "fact": "Rencana zona penyangga selebar 50 meter yang memisahkan permukiman dan depo Plumpang telah disiapkan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-PLUMPANG-EN-2023-03-05"
+   ],
+   "as_of": "2023-03-05"
+  }
+ ],
+ "information_available_at_decision": "5 Maret 2023: warga di sekitar depo mengungsi; keputusan antara memindahkan depo atau warga diserahkan kepada Pertamina dan Gubernur dalam beberapa hari.",
+ "trigger": [
+  "Kebakaran depo BBM Pertamina Plumpang dan zona penyangga permukiman, Maret 2023"
+ ],
+ "root_causes_note": "Permukiman padat yang tumbuh hingga menempel pagar objek vital berisiko tinggi.",
+ "stakeholders": [
+  "Pertamina",
+  "Kementerian BUMN",
+  "Pemprov DKI Jakarta",
+  "warga Rawa Badak Selatan",
+  "pemadam kebakaran"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-SETKAB-PLUMPANG-2023-03-05",
+   "institution": "Sekretariat Kabinet RI",
+   "title": "Peninjauan Posko Pengungsian Korban Kebakaran TBBM Pertamina Plumpang, RPTRA Rasela, Rawa Badak Selatan, 5 Maret 2023 (keterangan pers)",
+   "url": "https://setkab.go.id/peninjauan-posko-pengungsian-korban-kebakaran-terminal-bahan-bakar-minyak-tbbm-pertamina-plumpang-di-ruang-publik-terpadu-ramah-anak-rptra-rasela-rawa-badak-selatan-jakarta-utara-provinsi-dki/",
+   "publication_date": "2023-03-05",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Rawa Badak Selatan, Jakarta Utara",
+   "reference_period": "2023-03-05",
+   "unit": ""
+  },
+  {
+   "source_id": "SRC-SETKAB-PLUMPANG-EN-2023-03-05",
+   "institution": "Sekretariat Kabinet RI",
+   "title": "President Jokowi Calls for Post-Disaster Plan Following Fuel Depot Fire",
+   "url": "https://setkab.go.id/en/president-jokowi-calls-for-post-disaster-plan-following-fuel-depot-fire/",
+   "publication_date": "2023-03-05",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Jakarta Utara",
+   "reference_period": "2023-03-05",
+   "unit": "meter"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Jumlah korban jiwa dan tanggal pasti kebakaran tidak tercantum di sumber resmi yang dibaca; tidak dicantumkan.",
+  "Lebar zona penyangga lain (52,5 m; 500 m) hanya dari pemberitaan; tidak dipakai."
+ ],
+ "todo_to_validate": [
+  "Data korban dan pengungsi resmi (BPBD DKI)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0026.json",
+ "game_adaptation_notes": "Memindahkan depo (mahal, warga tetap) vs zona penyangga dengan relokasi warga terdekat (murah, menyakitkan) vs audit nasional zona berbahaya (pencegahan luas).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

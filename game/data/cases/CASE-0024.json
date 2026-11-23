@@ -1,0 +1,202 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0024",
+ "research_ref": "research/cases/CASE-0024.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Awan Panas Semeru",
+ "location_label": "Kab. Lumajang, Jawa Timur",
+ "focus_regions": [
+  "35.08"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 23
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0024"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:35.08",
+   "var": "damage",
+   "op": "add",
+   "value": 12.0
+  },
+  {
+   "scope": "region:35.08",
+   "var": "welfare",
+   "op": "add",
+   "value": -2.5
+  },
+  {
+   "scope": "region:35.08",
+   "var": "services",
+   "op": "add",
+   "value": -1.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Setelah erupsi Gunung Semeru pada Sabtu 4 Desember 2021, Presiden memerintahkan BNPB, Basarnas, para menteri terkait, TNI, Polri, gubernur, dan bupati sekitar untuk segera menangani darurat, mencari korban, dan merawat yang terluka.",
+    "source_refs": [
+     "SRC-SETKAB-SEMERU-2021-12-05"
+    ],
+    "as_of": "2021-12-05"
+   },
+   {
+    "text": "Per 25 Desember 2021, posko mencatat 1.027 rumah rusak di Desa Sumberwuluh (Candipuro) dan Desa Supiturang (Pronojiwo), serta 9.417 warga mengungsi di 402 titik; Bupati Lumajang menetapkan masa transisi darurat 90 hari.",
+    "source_refs": [
+     "SRC-BNPB-SEMERU-2021-12-26"
+    ],
+    "as_of": "2021-12-26"
+   },
+   {
+    "text": "Lahan relokasi di Desa Sumbermujur, Candipuro, disiapkan setelah mendapat izin Kementerian LHK; pada Maret 2022 BNPB menargetkan 300 sampai 478 keluarga dari pengungsian menempati hunian tetap dan sementara tahap pertama sebelum Lebaran.",
+    "source_refs": [
+     "SRC-BNPB-SEMERU-2022-03-31"
+    ],
+    "as_of": "2022-03-31"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Awan panas Semeru mengubur desa-desa di Lumajang. Ribuan warga mengungsi dan bertanya ke mana harus pulang."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Lumajang damage 12, welfare -2.5, services -1.5 (1,027 damaged houses and 9,417 displaced per BNPB). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "eruption -> damage & welfare; recovery in place -> damage recovery; relocation -> infrastructure + welfare_base later at a trust cost; livelihood support -> welfare",
+  "immediate": "a: fiscal -2.5, damage -2/month x3, trust +1; b: fiscal -5, trust -1, damage -1/month x2; c: fiscal -3, welfare +1/month x4, trust +0.5",
+  "delayed": "b: infrastructure +6 after 6 months, welfare_base +1 after 9 months",
+  "regional": "Kab. Lumajang",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "All magnitudes are design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Pulihkan di tempat semula",
+   "description": "Hunian sementara dan perbaikan rumah di desa-desa terdampak. Warga cepat kembali, tetapi tetap tinggal di jalur awan panas.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "region:35.08",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "duration": 3
+    },
+    {
+     "scope": "region:35.08",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "semeru2021_response": "in_place"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Relokasi ke hunian tetap yang aman",
+   "description": "Warga dari zona bahaya dipindahkan ke hunian tetap di lahan baru yang jauh dari jalur lahar. Paling aman, paling mahal, dan berat bagi yang harus meninggalkan ladangnya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "region:35.08",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "region:35.08",
+     "var": "damage",
+     "op": "add",
+     "value": -1.0,
+     "duration": 2
+    },
+    {
+     "scope": "region:35.08",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 6.0,
+     "delay": 6
+    },
+    {
+     "scope": "region:35.08",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 1.0,
+     "delay": 9
+    }
+   ],
+   "memory": {
+    "semeru2021_response": "relocation"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Topang penghidupan petani dan pekerja",
+   "description": "Bantuan tunai, bibit, dan pekerjaan sementara bagi keluarga yang kehilangan ladang dan penghasilan. Menolong dapur warga, tidak menjauhkan mereka dari bahaya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "region:35.08",
+     "var": "welfare",
+     "op": "add",
+     "value": 1.0,
+     "duration": 4
+    },
+    {
+     "scope": "region:35.08",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "semeru2021_response": "livelihood"
+   }
+  }
+ ]
+}

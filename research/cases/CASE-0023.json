@@ -1,0 +1,119 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0023",
+ "title": "Gempa bumi Cianjur, Jawa Barat, 21 November 2022",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_earthquake",
+ "subcategories": [
+  "earthquake",
+  "housing_reconstruction",
+  "landslide",
+  "aid_scheme"
+ ],
+ "start_date": "2022-11-21",
+ "end_date": "2022-11-24",
+ "decision_as_of": "2022-11-24",
+ "island": "jawa",
+ "provinces": [
+  "32"
+ ],
+ "regency_city_documented": [
+  "32.03"
+ ],
+ "geographic_resolution": "Kab. Cianjur, Jawa Barat",
+ "real_facts": [
+  {
+   "fact": "Gempa bermagnitudo 5,6 mengguncang Kabupaten Cianjur pada siang hari 21 November 2022. BNPB mengirim tim reaksi cepat, 47 tenda, dan bantuan logistik senilai Rp500 juta.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-CIANJUR-2022-11-22"
+   ],
+   "as_of": "2022-11-22"
+  },
+  {
+   "fact": "Longsoran akibat gempa menutup ruas jalan Cipanas sampai Cianjur; alat berat dari dua sisi berhasil menembusnya pada pagi 22 November.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-CIANJUR-PUPR-2022-11-22"
+   ],
+   "as_of": "2022-11-22"
+  },
+  {
+   "fact": "Kecamatan Cugenang menjadi episentrum dengan kerusakan rumah dan korban terbanyak. Dari 741 pasien yang awalnya masuk rumah sakit, 24 masih dirawat pada 24 November.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-CIANJUR-2022-11-24"
+   ],
+   "as_of": "2022-11-24"
+  },
+  {
+   "fact": "Pemerintah menyiapkan bantuan Rp50 juta untuk rumah rusak berat, Rp25 juta rusak sedang, dan Rp10 juta rusak ringan, dengan beberapa skema pembangunan: oleh kementerian, dibantu TNI, atau oleh warga sendiri.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-CIANJUR-2022-11-24"
+   ],
+   "as_of": "2022-11-24"
+  }
+ ],
+ "information_available_at_decision": "24 November 2022: evakuasi masih berjalan di Cugenang; bantuan perbaikan rumah sudah diumumkan, skema pembangunannya belum diputuskan.",
+ "trigger": [
+  "Gempa bumi Cianjur, Jawa Barat, 21 November 2022"
+ ],
+ "root_causes_note": "Permukiman padat di kawasan rawan gempa dan longsor, dengan banyak rumah yang tidak tahan gempa.",
+ "stakeholders": [
+  "BNPB",
+  "Kementerian PUPR",
+  "TNI",
+  "Pemkab Cianjur",
+  "warga Cugenang dan sekitarnya"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-SETKAB-CIANJUR-2022-11-22",
+   "institution": "Sekretariat Kabinet RI (mengutip BNPB)",
+   "title": "BNPB Turunkan Tim Reaksi Cepat dan Salurkan Bantuan Logistik ke Lokasi Terdampak Gempa Cianjur",
+   "url": "https://setkab.go.id/bnpb-turunkan-tim-reaksi-cepat-dan-salurkan-bantuan-logistik-ke-lokasi-terdampak-gempa-cianjur/",
+   "publication_date": "2022-11-22",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Cianjur",
+   "reference_period": "2022-11-21",
+   "unit": ""
+  },
+  {
+   "source_id": "SRC-SETKAB-CIANJUR-2022-11-24",
+   "institution": "Sekretariat Kabinet RI",
+   "title": "Kunjungan ke Pos Pengungsi Gempa di Kecamatan Cugenang, Kabupaten Cianjur, 24 November 2022 (keterangan pers)",
+   "url": "https://setkab.go.id/kunjungan-ke-pos-pengungsi-gempa-di-kecamatan-cugenang-kabupaten-cianjur-provinsi-jawa-barat-24-november-2022/",
+   "publication_date": "2022-11-24",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kec. Cugenang, Kab. Cianjur",
+   "reference_period": "2022-11-24",
+   "unit": "pasien; rupiah per rumah"
+  },
+  {
+   "source_id": "SRC-SETKAB-CIANJUR-PUPR-2022-11-22",
+   "institution": "Sekretariat Kabinet RI (mengutip Kementerian PUPR)",
+   "title": "Gerak Cepat Pemerintah Tangani Dampak Bencana Gempa Bumi Cianjur",
+   "url": "https://setkab.go.id/gerak-cepat-pemerintah-tangani-bencana-gempa-bumi-cianjur/",
+   "publication_date": "2022-11-22",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "ruas Cipanas-Cianjur",
+   "reference_period": "2022-11-21/22",
+   "unit": ""
+  }
+ ],
+ "rejected_or_unverified": [
+  "Total korban jiwa dan rumah rusak final berasal dari halaman Kemenko PMK yang tidak dapat diakses otomatis; tidak dipakai.",
+  "Detail sesar dan zona relokasi tidak diverifikasi; pilihan relokasi di game adalah opsi simulasi."
+ ],
+ "todo_to_validate": [
+  "Data final korban dan rumah rusak (BNPB)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0023.json",
+ "game_adaptation_notes": "Rekonstruksi oleh pemerintah (cepat, mahal) vs dana stimulan per tingkat kerusakan (langsung ke warga) vs relokasi dan standar rumah tahan gempa (lambat, aman).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

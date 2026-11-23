@@ -1,0 +1,100 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0022",
+ "title": "Kejadian luar biasa polio di Kabupaten Pidie, Aceh, 2022",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "health_outbreak",
+ "subcategories": [
+  "polio",
+  "immunization",
+  "vaccine_coverage",
+  "public_trust"
+ ],
+ "start_date": "2022-11",
+ "end_date": "2023-01",
+ "decision_as_of": "2022-11-28",
+ "island": "sumatera",
+ "provinces": [
+  "11"
+ ],
+ "regency_city_documented": [
+  "11.07",
+  "11.18"
+ ],
+ "geographic_resolution": "Kab. Pidie dan Pidie Jaya, Aceh",
+ "real_facts": [
+  {
+   "fact": "Indonesia telah menerima sertifikat bebas polio dari WHO pada 2014, tetapi kasus polio kembali ditemukan di Kabupaten Pidie, Aceh, yang menurut Menteri Kesehatan termasuk daerah dengan cakupan imunisasi polio rendah.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-POLIO-2022-12-05"
+   ],
+   "as_of": "2022-12-05"
+  },
+  {
+   "fact": "Sebagai tindak lanjut KLB, imunisasi polio massal (Sub PIN) dimulai 28 November 2022 di Pidie dengan sasaran 95.603 anak usia 0 sampai 12 tahun; pada hari pertama 14.000 anak diimunisasi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-POLIO-2022-11-28"
+   ],
+   "as_of": "2022-11-28"
+  },
+  {
+   "fact": "Sub PIN diperluas ke 21 kabupaten/kota lain di Aceh dalam dua putaran dengan sasaran sekitar 1.217.939 anak; pada hari keenam di Pidie (4 Desember) cakupan mencapai 79,5 persen.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMKES-POLIO-2022-12-05"
+   ],
+   "as_of": "2022-12-05"
+  }
+ ],
+ "information_available_at_decision": "Akhir November 2022: satu kasus polio terkonfirmasi di Pidie; cakupan imunisasi di wilayah itu rendah bertahun-tahun; vaksinasi massal baru dimulai.",
+ "trigger": [
+  "Kejadian luar biasa polio di Kabupaten Pidie, Aceh, 2022"
+ ],
+ "root_causes_note": "Cakupan imunisasi rutin yang rendah selama bertahun-tahun.",
+ "stakeholders": [
+  "Kementerian Kesehatan",
+  "Dinas Kesehatan Aceh dan Pidie",
+  "orang tua dan anak",
+  "tokoh masyarakat dan agama",
+  "puskesmas"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-KEMKES-POLIO-2022-11-28",
+   "institution": "Kementerian Kesehatan RI",
+   "title": "Kemenkes Gelar Sub Pekan Imunisasi Nasional di Provinsi Aceh, Targetkan 95% Anak Diimunisasi Polio",
+   "url": "https://kemkes.go.id/id/kemenkes-gelar-sub-pekan-imunisasi-nasional-di-provinsi-aceh-targetkan-95-anak-diimunisasi-polio",
+   "publication_date": "2022-11-28",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Pidie; Provinsi Aceh",
+   "reference_period": "2022-11-28",
+   "unit": "anak"
+  },
+  {
+   "source_id": "SRC-KEMKES-POLIO-2022-12-05",
+   "institution": "Kementerian Kesehatan RI",
+   "title": "Menkes Optimis Target 95% Anak di Provinsi Aceh Diimunisasi Polio Tercapai",
+   "url": "https://www.kemkes.go.id/id/menkes-optimis-target-95-anak-di-provinsi-aceh-diimunisasi-polio-tercapai",
+   "publication_date": "2022-12-05",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Pidie; Provinsi Aceh",
+   "reference_period": "2022-12-04",
+   "unit": "persen anak"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Penyebab rendahnya cakupan imunisasi di Aceh tidak dijelaskan di sumber terverifikasi; game tidak menyebut penyebab tertentu.",
+  "Cakupan akhir putaran kedua tidak ditemukan."
+ ],
+ "todo_to_validate": [
+  "Laporan akhir Sub PIN Aceh 2023"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0022.json",
+ "game_adaptation_notes": "Kampanye cepat se-provinsi (mahal, merata) vs fokus satu kabupaten (murah, risiko menyebar) vs memperkuat kepercayaan dan imunisasi rutin (lambat, bertahan).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

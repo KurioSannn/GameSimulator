@@ -1,0 +1,226 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0026",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "kota_gelap",
+ "locals": {
+  "bu_marni": {
+   "name": "Bu Marni",
+   "role": "Pedagang warung, Rawa Badak Selatan",
+   "color": "8a5a3a",
+   "initials": "M"
+  },
+  "bang_jefri": {
+   "name": "Bang Jefri",
+   "role": "Petugas pemadam kebakaran, Jakarta Utara",
+   "color": "a03a2a",
+   "initials": "J"
+  }
+ },
+ "agenda": {
+  "hook": "Kebakaran di depo BBM Plumpang merembet ke permukiman yang menempel pagarnya. Rumah-rumah hangus dalam semalam.",
+  "if_postponed": "Keputusan soal Plumpang ditunda. Warga kembali membangun di samping pagar depo."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Malam di Jakarta Utara. Ledakan terdengar sampai jauh, dan langit berubah jingga.",
+   "bg": "kota_gelap"
+  },
+  {
+   "s": "bang_jefri",
+   "e": "serius",
+   "t": "Apinya cepat sekali masuk ke gang. Rumah-rumah di sana nempel ke pagar depo, Pak. Tidak ada jarak sama sekali."
+  },
+  {
+   "s": "bu_marni",
+   "e": "sedih",
+   "t": "Saya lahir di gang ini. Malam itu kami lari bawa anak, tanpa sandal."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Pilihannya jelas tapi sulit. Depo yang pindah, atau warga yang pindah.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Memindahkan depo itu proyek raksasa. Zona penyangga lebih murah, tapi artinya ratusan keluarga kehilangan rumah."
+  },
+  {
+   "s": "sekar",
+   "e": "cemas",
+   "t": "Dan orang di kota lain mulai bertanya: apakah rumah kami juga di samping bahaya seperti ini?"
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Tidak boleh ada lagi rumah yang hanya berjarak satu pagar dari tangki bahan bakar."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Memindahkan depo BBM menjauh dari permukiman.",
+   "helps": "Warga sekitar depo: tidak perlu pindah.",
+   "burden": "Anggaran: biaya sangat besar, butuh bertahun-tahun.",
+   "now": "Kepercayaan warga naik.",
+   "later": "Infrastruktur membaik setelah sekitar setahun."
+  },
+  "b": {
+   "intent": "Membuat zona penyangga dengan merelokasi warga terdekat.",
+   "helps": "Keselamatan warga yang tersisa, dengan biaya kecil.",
+   "burden": "Keluarga yang rumahnya masuk zona penyangga.",
+   "now": "Kepercayaan turun; risiko berkurang bulan depan.",
+   "later": "Layanan membaik setelah enam bulan."
+  },
+  "c": {
+   "intent": "Mengaudit semua zona berbahaya di sekitar objek vital.",
+   "helps": "Warga di seluruh negeri yang tinggal dekat bahaya serupa.",
+   "burden": "Warga Plumpang menunggu keputusan khusus.",
+   "now": "Kepercayaan nasional naik sedikit.",
+   "later": "Infrastruktur nasional membaik setelah enam bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Rencana pemindahan depo diumumkan. Kajian lahan reklamasi dimulai.",
+    "bg": "kota"
+   },
+   {
+    "s": "bu_marni",
+    "e": "lega",
+    "t": "Jadi kami tidak perlu pindah? Alhamdulillah. Tapi sampai depo itu pergi, kami tetap tidur di sampingnya."
+   },
+   {
+    "s": "bayu",
+    "e": "cemas",
+    "t": "Ini salah satu proyek termahal yang pernah kita setujui, Pak.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Patok-patok dipasang lima puluh meter dari pagar depo. Rumah di dalamnya akan dipindahkan.",
+    "bg": "kota"
+   },
+   {
+    "s": "bu_marni",
+    "e": "sedih",
+    "t": "Rumah saya kena patok, Pak. Saya mengerti alasannya. Tapi warung saya hidup dari gang ini."
+   },
+   {
+    "s": "bang_jefri",
+    "e": "netral",
+    "t": "Lima puluh meter itu jarak yang memberi kami waktu kalau terjadi lagi.",
+    "bg": "kota_gelap"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tim audit dikirim ke depo, kilang, dan gudang bahan berbahaya di seluruh negeri.",
+    "bg": "ruang_rapat"
+   },
+   {
+    "s": "sekar",
+    "e": "senyum",
+    "t": "Warga di banyak kota lega ada yang memeriksa lingkungannya."
+   },
+   {
+    "s": "bu_marni",
+    "e": "kecewa",
+    "t": "Bagus untuk semua orang. Tapi kami di Plumpang masih menunggu, Pak.",
+    "bg": "kota"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "gang",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "case_choice": "CASE-0026",
+        "choice": "b"
+       },
+       "beats": [
+        {
+         "s": "bu_marni",
+         "e": "netral",
+         "t": "Saya buka warung lagi di rusun baru, Pak. Pelanggannya beda, tapi anak-anak tidur tanpa takut.",
+         "bg": "kota"
+        }
+       ]
+      },
+      {
+       "if": {
+        "case_choice": "CASE-0026",
+        "choice": "a"
+       },
+       "beats": [
+        {
+         "s": "bu_marni",
+         "e": "berpikir",
+         "t": "Depo masih di sana, Pak. Katanya pindahnya bertahun-tahun lagi. Kami menunggu.",
+         "bg": "kota"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bang_jefri",
+         "e": "netral",
+         "t": "Hasil audit menemukan beberapa tempat lain yang sama berbahayanya. Pelan-pelan dibenahi.",
+         "bg": "kota"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Keputusan soal Plumpang terus ditunda. Rumah-rumah yang terbakar dibangun kembali di tempat yang sama.",
+   "bg": "kota_gelap"
+  },
+  {
+   "s": "bang_jefri",
+   "e": "cemas",
+   "t": "Kami kembali memadamkan di gang yang sama. Semoga tidak."
+  }
+ ],
+ "journal": {
+  "a": "Depo BBM Plumpang dipindahkan menjauh dari permukiman.",
+  "b": "Zona penyangga 50 meter dibuat di sekitar depo Plumpang dengan merelokasi warga terdekat.",
+  "c": "Semua zona berbahaya di sekitar objek vital nasional diaudit."
+ },
+ "promises": {
+  "a": {
+   "text": "Depo BBM Plumpang tidak lagi berbatasan langsung dengan rumah warga.",
+   "due_quarters": 5,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 2
+   }
+  }
+ }
+}

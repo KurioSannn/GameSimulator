@@ -1,0 +1,201 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0026",
+ "research_ref": "research/cases/CASE-0026.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Api di Pagar Depo",
+ "location_label": "Kota Adm. Jakarta Utara, DKI Jakarta",
+ "focus_regions": [
+  "31.72"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 26
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0026"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:31.72",
+   "var": "damage",
+   "op": "add",
+   "value": 4.0
+  },
+  {
+   "scope": "region:31.72",
+   "var": "trust",
+   "op": "add",
+   "value": -2.0
+  },
+  {
+   "scope": "region:31.72",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Di posko pengungsian korban kebakaran depo BBM Plumpang pada 5 Maret 2023, Presiden menyatakan kawasan itu zona berbahaya yang tidak bisa lagi ditinggali dan memerintahkan Menteri BUMN serta Gubernur DKI mencari solusi: memindahkan depo ke lahan reklamasi atau merelokasi penduduk.",
+    "source_refs": [
+     "SRC-SETKAB-PLUMPANG-2023-03-05"
+    ],
+    "as_of": "2023-03-05"
+   },
+   {
+    "text": "Presiden juga meminta semua zona berbahaya di sekitar objek vital, tidak hanya Plumpang, diaudit dan dievaluasi, dan menyebut zona di sekitar depo semestinya berupa zona air seperti sungai.",
+    "source_refs": [
+     "SRC-SETKAB-PLUMPANG-2023-03-05"
+    ],
+    "as_of": "2023-03-05"
+   },
+   {
+    "text": "Rencana zona penyangga selebar 50 meter yang memisahkan permukiman dan depo Plumpang telah disiapkan.",
+    "source_refs": [
+     "SRC-SETKAB-PLUMPANG-EN-2023-03-05"
+    ],
+    "as_of": "2023-03-05"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Kebakaran di depo BBM Plumpang merembet ke permukiman yang menempel pagarnya. Rumah-rumah hangus dalam semalam."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Jakarta Utara damage 4, trust -2, welfare -1. Localised event; design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "industrial fire -> damage & trust; move depot -> trust + infrastructure later; buffer zone -> damage recovery now, trust cost; national audit -> small infrastructure/trust gains everywhere",
+  "immediate": "a: fiscal -6, trust +2; b: fiscal -2, trust -1.5, damage -2 (month 1); c: fiscal -3, trust +0.3 nationwide, damage -1 Jakarta Utara",
+  "delayed": "a: infrastructure +4 after 12 months; b: services +1 after 6 months; c: infrastructure +0.5 nationwide after 6 months",
+  "regional": "Jakarta Utara",
+  "national": "fiscal_space; option c touches every region",
+  "branching": "none",
+  "assumptions": "All magnitudes are design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Pindahkan depo ke lahan reklamasi",
+   "description": "Depo BBM dipindahkan menjauh dari permukiman. Warga tetap tinggal di kampungnya, tetapi biayanya sangat besar dan butuh waktu bertahun-tahun.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -6.0
+    },
+    {
+     "scope": "region:31.72",
+     "var": "trust",
+     "op": "add",
+     "value": 2.0
+    },
+    {
+     "scope": "region:31.72",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 4.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "plumpang2023_response": "move_depot"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Zona penyangga dan relokasi warga terdekat",
+   "description": "Permukiman yang menempel pagar depo dipindahkan untuk zona penyangga. Lebih murah dan cepat mengurangi risiko, berat bagi keluarga yang harus pindah.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:31.72",
+     "var": "trust",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "region:31.72",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "delay": 1
+    },
+    {
+     "scope": "region:31.72",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "plumpang2023_response": "buffer_zone"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Audit semua zona berbahaya di negeri ini",
+   "description": "Semua objek vital berisiko tinggi di dekat permukiman diperiksa dan dibenahi. Mencegah Plumpang berikutnya, tetapi warga Plumpang menunggu keputusan khusus.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": 0.3
+    },
+    {
+     "scope": "region:31.72",
+     "var": "damage",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "all",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 0.5,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "plumpang2023_response": "national_audit"
+   }
+  }
+ ]
+}

@@ -1,0 +1,228 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0021",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "kota",
+ "locals": {
+  "bu_sri": {
+   "name": "Bu Sri",
+   "role": "Kader jumantik, Kota Bandung",
+   "color": "6a7a3a",
+   "initials": "S"
+  },
+  "dr_fikri": {
+   "name": "dr. Fikri",
+   "role": "Dokter IGD, Kota Kendari",
+   "color": "3a5a8a",
+   "initials": "F"
+  }
+ },
+ "agenda": {
+  "hook": "Kasus demam berdarah melonjak di banyak kota. Rumah sakit mulai penuh, dan puncaknya belum datang.",
+  "if_postponed": "Lonjakan dengue ditangani masing-masing daerah tanpa dorongan nasional."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Musim hujan belum benar-benar pergi. Di gang-gang sempit, air tergenang di pot, ban bekas, dan talang.",
+   "bg": "kota"
+  },
+  {
+   "s": "bu_sri",
+   "e": "cemas",
+   "t": "Setiap Jumat saya keliling memeriksa bak mandi. Sekarang hampir setiap rumah ada jentiknya, Pak."
+  },
+  {
+   "s": "dr_fikri",
+   "e": "serius",
+   "t": "IGD kami penuh pasien demam. Kebanyakan anak-anak. Kami harus cepat membedakan mana yang berbahaya.",
+   "bg": "rumah_sakit"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Kasusnya naik di banyak kota sekaligus. Bandung, Kendari, Bogor. Dan polanya datang makin sering dari tahun ke tahun.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Rumah sakit dan pengasapan cepat terlihat, tapi mahal. Gerakan warga murah, tapi hasilnya bergantung pada orang mau bergerak."
+  },
+  {
+   "s": "sekar",
+   "e": "cemas",
+   "t": "Orang tua panik, Pak. Mereka ingin melihat pemerintah bergerak di kampungnya, bukan hanya di televisi."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Kita tidak bisa mengasapi seluruh negeri. Tapi kita juga tidak bisa membiarkan rumah sakit kewalahan."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Mengajak warga membersihkan sarang nyamuk serentak.",
+   "helps": "Warga kampung padat: lebih sedikit jentik, biaya kecil.",
+   "burden": "Hasilnya bergantung pada partisipasi warga.",
+   "now": "Kesejahteraan dan kepercayaan di kota terdampak naik sedikit.",
+   "later": "Tidak ada perubahan kapasitas layanan."
+  },
+  "b": {
+   "intent": "Menambah kapasitas rumah sakit dan pengasapan.",
+   "helps": "Pasien yang sudah sakit: tertangani lebih cepat.",
+   "burden": "Anggaran; jentik di rumah tidak tersentuh.",
+   "now": "Layanan kesehatan naik selama dua bulan.",
+   "later": "Lonjakan berikutnya tetap sama besar."
+  },
+  "c": {
+   "intent": "Membangun pengendalian nyamuk berbasis teknologi.",
+   "helps": "Kota-kota rawan untuk tahun-tahun berikutnya.",
+   "burden": "Warga yang sakit sekarang; anggaran.",
+   "now": "Kepercayaan turun sedikit.",
+   "later": "Layanan naik besar setelah sekitar sembilan bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Sirene masjid dan pengeras suara RT mengumumkan Jumat bersih. Warga turun membawa ember dan sikat."
+   },
+   {
+    "s": "bu_sri",
+    "e": "senyum",
+    "t": "Ibu-ibu sekarang saling mengingatkan. Kemarin satu gang menemukan tiga puluh tempat jentik."
+   },
+   {
+    "s": "dr_fikri",
+    "e": "netral",
+    "t": "Ini bagus untuk minggu-minggu depan. Pasien yang sudah sakit tetap datang ke kami.",
+    "bg": "rumah_sakit"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Bangsal tambahan dibuka. Mobil pengasapan berkeliling kota menjelang magrib.",
+    "bg": "rumah_sakit"
+   },
+   {
+    "s": "dr_fikri",
+    "e": "lega",
+    "t": "Tempat tidur tambahan sangat menolong. Kami tidak lagi merawat pasien di lorong."
+   },
+   {
+    "s": "bu_sri",
+    "e": "berpikir",
+    "t": "Asapnya memang terlihat. Tapi besok pagi jentiknya masih ada di bak tetangga.",
+    "bg": "kota"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Tim peneliti dan dinas kesehatan memetakan kota-kota yang paling sering dilanda dengue.",
+    "bg": "ruang_rapat"
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "t": "Musim ini orang akan bertanya kenapa kita bicara riset saat anak-anak dirawat."
+   },
+   {
+    "s": "yosef",
+    "e": "serius",
+    "t": "Kalau berhasil, lonjakan seperti ini tidak lagi datang setiap tiga tahun. Kalau gagal, kita kehilangan satu musim."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "musim",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "services",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "dr_fikri",
+         "e": "senyum",
+         "t": "Musim hujan ini, IGD kami jauh lebih tenang, Pak. Kasus dengue tidak meledak seperti tahun lalu.",
+         "bg": "rumah_sakit"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "welfare",
+        "op": ">",
+        "value": 0
+       },
+       "beats": [
+        {
+         "s": "bu_sri",
+         "e": "netral",
+         "t": "Kebiasaan Jumat bersih masih jalan di gang kami. Tidak semua, tapi cukup banyak.",
+         "bg": "kota"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bu_sri",
+         "e": "kecewa",
+         "t": "Musim hujan datang lagi, dan jentik kembali, Pak. Kami seperti mulai dari nol.",
+         "bg": "kota"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Tanpa arahan nasional, setiap kota menghadapi lonjakan dengue dengan kemampuannya sendiri.",
+   "bg": "kota"
+  },
+  {
+   "s": "dr_fikri",
+   "e": "sedih",
+   "t": "Kami merawat di lorong selama berminggu-minggu.",
+   "bg": "rumah_sakit"
+  }
+ ],
+ "journal": {
+  "a": "Gerakan bersih sarang nyamuk serentak di kota-kota dengan kasus dengue tertinggi.",
+  "b": "Rumah sakit diperkuat dan pengasapan dilakukan saat lonjakan dengue 2024.",
+  "c": "Pengendalian nyamuk berbasis teknologi dimulai untuk menekan lonjakan dengue berikutnya."
+ },
+ "promises": {
+  "c": {
+   "text": "Kota-kota rawan dengue lebih siap menghadapi musim hujan berikutnya.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "services",
+    "op": ">",
+    "value": 2
+   }
+  }
+ }
+}

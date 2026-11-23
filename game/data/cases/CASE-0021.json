@@ -1,0 +1,200 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0021",
+ "research_ref": "research/cases/CASE-0021.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Musim Nyamuk di Kota-Kota",
+ "location_label": "Kota Bandung, Kota Kendari, Bandung Barat, Kota Bogor, Subang, Jepara",
+ "focus_regions": [
+  "32.73",
+  "74.71",
+  "32.17",
+  "32.71",
+  "32.13",
+  "33.20"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 14
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0021"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "regions:32.73,74.71,32.17,32.71,32.13,33.20",
+   "var": "services",
+   "op": "add",
+   "value": -2.0
+  },
+  {
+   "scope": "regions:32.73,74.71,32.17,32.71,32.13,33.20",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "all",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.15
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Hingga pekan ke-13 2024 (26 Maret), Kemenkes mencatat 53.131 kasus dengue dan 404 kematian. Kasus terbanyak di Kota Bandung (1.741), Kota Kendari (1.195), Bandung Barat (1.143), Kota Bogor (939), dan Subang (909); kematian terbanyak di Jepara (17) dan Subang (15).",
+    "source_refs": [
+     "SRC-KEMKES-DBD-2024-04-02"
+    ],
+    "as_of": "2024-04-02"
+   },
+   {
+    "text": "Hingga pekan ke-17 2024 tercatat 88.593 kasus dan 621 kematian; kematian terjadi di 174 kabupaten/kota di 28 provinsi.",
+    "source_refs": [
+     "SRC-KEMKES-DBD-2024-06-14"
+    ],
+    "as_of": "2024-06-14"
+   },
+   {
+    "text": "Pada pekan ke-22 2024 kasus mencapai 119.709, lebih tinggi dari total sepanjang 2023 (114.720). Kemenkes menyebut siklus tahunan lonjakan dengue memendek dari sekitar 10 tahun menjadi 3 tahun atau kurang, dikaitkan dengan El Nino.",
+    "source_refs": [
+     "SRC-KEMKES-DBD-2024-06-14"
+    ],
+    "as_of": "2024-06-14"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Kasus demam berdarah melonjak di banyak kota. Rumah sakit mulai penuh, dan puncaknya belum datang."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): services -2 and welfare -1 in the six regencies/cities named by Kemenkes (top cases and top deaths), plus a small national welfare dent. Magnitudes are design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "dengue surge -> services strain and welfare -> sentiment; community prevention -> welfare (temporary) + trust; hospital surge -> services now; vector technology -> services and welfare_base later",
+  "immediate": "a: fiscal -0.5, welfare +0.4/month x3, trust +0.5; b: fiscal -2, services +1.5/month x2, trust +1; c: fiscal -3, trust -0.5",
+  "delayed": "c: services +4 after 9 months, welfare_base +0.5 after 12 months",
+  "regional": "six named cities/regencies",
+  "national": "fiscal_space; small national welfare dent",
+  "branching": "none",
+  "assumptions": "All magnitudes are design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Gerakan bersih sarang nyamuk serentak",
+   "description": "Kader dan warga membersihkan genangan dari rumah ke rumah setiap pekan. Murah dan cepat menyebar, tetapi bergantung pada kemauan warga.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:32.73,74.71,32.17,32.71,32.13,33.20",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.4,
+     "duration": 3
+    },
+    {
+     "scope": "regions:32.73,74.71,32.17,32.71,32.13,33.20",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "dbd2024_response": "community"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Perkuat rumah sakit dan pengasapan",
+   "description": "Tambahan tempat tidur, tenaga, dan pengasapan di kota-kota dengan kasus tertinggi. Paling cepat menolong yang sakit, mahal, dan tidak menyentuh jentik.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:32.73,74.71,32.17,32.71,32.13,33.20",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "duration": 2
+    },
+    {
+     "scope": "regions:32.73,74.71,32.17,32.71,32.13,33.20",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "dbd2024_response": "hospital_fogging"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Teknologi pengendalian nyamuk jangka panjang",
+   "description": "Pengendalian vektor berbasis teknologi dan surveilans yang lebih rapat. Tidak menolong musim ini, tetapi bisa menekan lonjakan berikutnya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "regions:32.73,74.71,32.17,32.71,32.13,33.20",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:32.73,74.71,32.17,32.71,32.13,33.20",
+     "var": "services",
+     "op": "add",
+     "value": 4.0,
+     "delay": 9
+    },
+    {
+     "scope": "regions:32.73,74.71,32.17,32.71,32.13,33.20",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.5,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "dbd2024_response": "vector_tech"
+   }
+  }
+ ]
+}

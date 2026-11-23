@@ -4,10 +4,10 @@
   python3 scripts/text/em_dash.py --fix       rewrite in place (rules below), print a summary
 
 Rewrite rules (applied per line, conservative and readable):
-  1. A line with two dashes "A — aside — B"      -> "A (aside) B"
-  2. Heading / label "ID — Title" at line start   -> "ID: Title"
-  3. Placeholder value "—" alone in quotes        -> "-"
-  4. Any other " — " / "—"                         -> ", "
+  1. A line with two dashes "A <U+2014> aside <U+2014> B"      -> "A (aside) B"
+  2. Heading / label "ID <U+2014> Title" at line start   -> "ID: Title"
+  3. Placeholder value "<U+2014>" alone in quotes        -> "-"
+  4. Any other " <U+2014> " / "<U+2014>"                         -> ", "
 Out of scope (immutable or generated; reported, never edited): data/** (raw captures, normalized and
 calibration outputs carry checksums), scripts/pipelines/** (generators of those outputs), captured
 evidence under research/reports/**/*.json and research/reports/**/before/**, third-party licenses,
@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-DASH = "—"
+DASH = "\u2014"
 TEXT_EXT = {".md", ".json", ".gd", ".py", ".txt", ".cfg", ".csv", ".tscn", ".gdshader", ".yaml", ".yml", ".sh", ""}
 
 
