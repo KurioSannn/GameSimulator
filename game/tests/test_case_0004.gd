@@ -57,7 +57,7 @@ func _pm(s: Session, v: String, prov: String) -> float:
 func test_presented_in_october_of_year_four() -> void:
 	var s := _session()
 	_to(s, "CASE-0004")
-	t.check(s.world.tick == 45 and s.world.month() == 10, "presented at month 45 (October) — got %d / month %d" % [s.world.tick, s.world.month()])
+	t.check(s.world.tick == 45 and s.world.month() == 10, "presented at month 45 (October), got %d / month %d" % [s.world.tick, s.world.month()])
 
 
 func test_choices_enact_the_right_policies() -> void:
@@ -128,7 +128,7 @@ func test_fire_season_follow_up_timing_and_prevention_payoff() -> void:
 			if p != "":
 				s.decide(p, "c")
 			s.advance_quarter()
-		t.check(s.world.tick == 54 and s.world.month() == 7, "%s: fire-season case at month 54 (July, start of the dry-season design calendar) — got %d" % [ch, s.world.tick])
+		t.check(s.world.tick == 54 and s.world.month() == 7, "%s: fire-season case at month 54 (July, start of the dry-season design calendar), got %d" % [ch, s.world.tick])
 		for prov in ["62", "14"]:
 			before[prov] = _pm(s, "damage", prov)
 		var prev := {"62": _pm(s, "fire_prevention", "62"), "14": _pm(s, "fire_prevention", "14")}

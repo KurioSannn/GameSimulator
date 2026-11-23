@@ -1,6 +1,6 @@
 extends RefCounted
 ## Crisis cases through the regional loop (D-066..D-068): CASE-0002 (Palu 2018), CASE-0003 (cooking oil
-## 2022) and CASE-0004 (peat fires 2015) — regional attribution, national drivers, documented scoping,
+## 2022) and CASE-0004 (peat fires 2015), regional attribution, national drivers, documented scoping,
 ## inspectable follow-up triggers, multi-quarter horizons.
 
 var t

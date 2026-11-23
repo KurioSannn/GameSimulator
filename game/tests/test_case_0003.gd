@@ -47,7 +47,7 @@ func _prov_mean(s: Session, v: String, prov: String) -> float:
 func test_presented_in_april_of_year_four() -> void:
 	var s := _session(_cases())
 	_to_case(s)
-	t.check(s.world.tick == 39 and s.sim.month_of(s.world.tick) == 4, "presented at month 39 (April) — got %d" % s.world.tick)
+	t.check(s.world.tick == 39 and s.sim.month_of(s.world.tick) == 4, "presented at month 39 (April), got %d" % s.world.tick)
 
 
 func test_cross_system_chain_price_to_welfare_to_sentiment() -> void:

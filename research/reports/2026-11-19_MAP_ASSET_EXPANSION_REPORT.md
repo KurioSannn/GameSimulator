@@ -1,4 +1,4 @@
-# Perluasan aset dan atmosfer peta — 19 November 2026
+# Perluasan aset dan atmosfer peta, 19 November 2026
 
 Otorisasi: pengguna meminta lebih banyak shader, awan, rumah, gedung dan aset lain setelah remake low-poly pertama. Pelaksana: ChatGPT/Codex. Keputusan: D-081.
 

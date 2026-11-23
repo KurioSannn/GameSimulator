@@ -45,9 +45,9 @@ Full game content and seed; other cases answered "a". Full numbers: `case0005/mu
 
 | Choice | Structural welfare | Environment | Trust | Services | Sentiment | Follow-up |
 |---|---|---|---|---|---|---|
-| a | 55 → 58 at Q+3 | 50 → 44.0 at Q+4 | 49.5 at Q+4 | — | 48.2 → 39.9 at Q+6 | CASE-0005-A at month 40 |
-| b | 56.5 at Q+4 | 47.6 | peak 52.9 | 48 → 51 | — | — |
-| c | 56.5 at Q+5 (via the C follow-up, "reopen with strict conditions") | 47.0 at Q+6 | — | — | — | — |
+| a | 55 → 58 at Q+3 | 50 → 44.0 at Q+4 | 49.5 at Q+4 |, | 48.2 → 39.9 at Q+6 | CASE-0005-A at month 40 |
+| b | 56.5 at Q+4 | 47.6 | peak 52.9 | 48 → 51 | (|) |
+| c | 56.5 at Q+5 (via the C follow-up, "reopen with strict conditions") | 47.0 at Q+6 | (|) |, |, |
 
 - **a:** the audit chosen in CASE-0005-A then restores the environment to 46.
 - **c:** the moratorium keeps environmental pressure lowest; the income gain arrives only through the follow-up.

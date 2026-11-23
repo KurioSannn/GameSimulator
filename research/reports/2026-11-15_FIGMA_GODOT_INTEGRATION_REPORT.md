@@ -1,4 +1,4 @@
-# Integrasi Figma ke Godot — 15 November 2026
+# Integrasi Figma ke Godot: 15 November 2026
 
 Pelaksana: ChatGPT / Codex. Pengguna meminta perubahan Figma diterapkan ke game. Pembersihan C dilakukan lebih dahulu atas permintaan pengguna; Downloads dikecualikan.
 

@@ -54,8 +54,8 @@ Values are simulated. Most starting values are uncalibrated neutral defaults.
 | Measure | a, total ban | b, restoration | c, community governance |
 |---|---|---|---|
 | Fire prevention | +20 in Kalteng and its neighbours immediately | 0 for 6 months, then province-wide to 13.9 by Q+5 | Kapuas only: 3.2 → 6.3 → 9.3 by Q+4; Kalteng mean 0.67 |
-| Kalteng welfare, Q+1 | lowest (47.8) | — | — |
-| Fiscal space | 29 | — | 35 |
+| Kalteng welfare, Q+1 | lowest (47.8) | (|) |
+| Fiscal space | 29 |, | 35 |
 
 - **a:** the livelihood follow-up appears.
 - **c:** the dry-season episode CASE-0004-R hits less where prevention exists. The Kapuas follow-up "Api Menjalar dari Ladang" can then fire on Kapuas trust.

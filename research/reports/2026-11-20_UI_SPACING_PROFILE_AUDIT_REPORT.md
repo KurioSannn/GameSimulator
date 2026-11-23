@@ -19,7 +19,7 @@ Fitur **edit nama pemain sudah ada dan penyimpanannya bekerja**. Kekurangannya a
 
 ## Temuan
 
-### P1 — Aturan jarak isi dan bingkai belum konsisten
+### P1: Aturan jarak isi dan bingkai belum konsisten
 
 `GameSkin.frame()` memakai content inset 20 dan texture slice 24. HUD identitas lebih sempit: inset 12 dengan slice 24. Banner memakai inset horizontal 16 dengan slice 30. Akibatnya ukuran konten dapat lolos pemeriksaan panel, tetapi belum memberi ruang yang cukup terhadap ornamen.
 
@@ -42,7 +42,7 @@ Sumber kode: `game/src/ui/game_skin.gd:18`, `:35`, `:43`; default frame dipakai 
 
 Usulan perbaikan: definisikan ruang aman isi, ornamen, dan padding teks tombol secara terpisah. Sebagai target review, sediakan tambahan 8–12 unit setelah batas sudut dekoratif pada frame luar. Setelah aturan bersama berubah, hitung ulang tinggi dialog dan posisi HUD; jangan menaikkan padding global tanpa memeriksa reflow.
 
-### P1 — Avatar HUD belum menjadi komponen identitas yang stabil
+### P1: Avatar HUD belum menjadi komponen identitas yang stabil
 
 HUD menggunakan panel dengan inset 12, lalu tombol profil yang berisi HBox absolut sepanjang tombol. Susunan ini tidak memakai wadah portrait dengan ruang dalam sendiri. Avatar berjarak 12 unit dari kiri panel, sementara slice sudutnya 24; tepi atas/bawah avatar berjarak 21 unit. Ini menjelaskan kesan menempel/keluar ke area logam pada screenshot pengguna.
 
@@ -52,7 +52,7 @@ Bukti: [HUD 1920](ui_spacing_audit_20261120/hud_1920_100.png), [geometri avatar]
 
 Usulan: satu komponen portrait bersama dengan crop/aspect yang konsisten, ruang dalam terhadap ornamen, dan alignment vertikal yang mengikuti nama/kalender. Pertahankan ilustrasi yang ada; audit ini tidak mengusulkan gambar generatif baru.
 
-### P1 — Edit nama bekerja, tetapi tampil seperti data biasa
+### P1: Edit nama bekerja, tetapi tampil seperti data biasa
 
 Hasil verifikasi:
 
@@ -74,7 +74,7 @@ Sumber: `game/src/ui/desktop_screens.gd:442`, `:449`; `game/src/ui/ui_preference
 
 Usulan: perjelas field yang bisa diedit, beri umpan balik tersimpan, sinkronkan field setelah normalisasi, dan tentukan perilaku Enter/batal. Pisahkan identitas pemain dari karakter secara jelas. Nara Adinata adalah nama karakter yang ditetapkan kontrak proyek; audit ini tidak menyamakan edit nama pemain dengan mengganti tokoh.
 
-### P2 — Karakter besar terlihat melayang di atas platform
+### P2: Karakter besar terlihat melayang di atas platform
 
 Ilustrasi dan elips biru adalah dua anak VBox terpisah. Ilustrasi mendapat ruang vertikal yang dapat melebar dan memakai KEEP_ASPECT_CENTERED, sedangkan elips tetap pada tinggi 26. Tidak ada acuan posisi telapak kaki terhadap lantai.
 
@@ -84,7 +84,7 @@ Bukti: [profil 1920](ui_spacing_audit_20261120/profile_1920_100.png). Sumber: `g
 
 Usulan: letakkan karakter dan shadow/platform dalam satu komponen dengan acuan telapak yang stabil. Sesuaikan warna/bentuk grounding dengan permukaan profil. Mengubah jarak VBox saja tidak menyelesaikan ruang transparan/letterbox pada semua ukuran.
 
-### P2 — Komposisi profil belum sekuat layar lainnya
+### P2: Komposisi profil belum sekuat layar lainnya
 
 Karakter besar mendominasi tengah, sementara fitur edit berada di kartu kanan yang tampak sebagai panel statistik. Informasi tahun/masa bakti/nama karakter berulang pada beberapa lokasi. Medali, pill tahun, elips, dan nameplate masih memakai gaya dari komposisi lama sehingga profil terasa kurang menyatu dengan frame game baru.
 

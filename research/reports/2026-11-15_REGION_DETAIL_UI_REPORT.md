@@ -1,4 +1,4 @@
-# Detail Wilayah umum — audit dan implementasi Figma
+# Detail Wilayah umum: audit dan implementasi Figma
 
 **Tanggal:** 15 November 2026.  
 **Lingkup pengguna:** Detail Wilayah digunakan secara umum pada setiap konteks peta; Jawa Timur adalah contoh isi.
@@ -30,7 +30,7 @@ Label pulau/kelompok pulau tidak otomatis dianggap provinsi: misalnya Kalimantan
 - Label dan satuan indikator dipisahkan dari nilainya. Perubahan menggunakan poin; kepercayaan dijelaskan sebagai poin persentase.
 - Acuan perubahan mengikuti konteks: awal mandat untuk contoh panel; awal kuartal untuk laporan. Acuan harga 100 berasal dari kontrak model existing, bukan IHK resmi.
 - Bar indikator diganti keterangan skala/satuan pada komponen umum, sehingga indeks harga tidak terlihat dibatasi skor 100.
-- Nilai contoh Jawa Timur dipertahankan pada konteks yang memakai fixture tersebut. Pada wilayah lain nilai dan perubahan direset menjadi `—`; data yang belum ada berstatus **Belum dimuat**.
+- Nilai contoh Jawa Timur dipertahankan pada konteks yang memakai fixture tersebut. Pada wilayah lain nilai dan perubahan direset menjadi `, `; data yang belum ada berstatus **Belum dimuat**.
 - Peta laporan tidak mengambil indikator nasional sebagai indikator regional. Semua angka regional yang tidak tersedia pada fixture laporan tetap kosong, termasuk ketika Jawa Timur dipilih.
 - Data acuan memiliki properti ringkasan dan status yang bisa diisi ulang. Tabel sumber menampilkan lembaga, judul, tautan, tanggal publikasi/pembaruan, waktu pengambilan, cakupan, periode, satuan dan status; informasi yang belum diketahui tetap kosong/Belum dimuat.
 - Aksi Atur Kebijakan membuka konteks wilayah terpilih. Hanya fixture kasus Jawa Timur yang punya rincian opsi tertaut; wilayah lain tidak diarahkan ke kasus Jawa Timur.

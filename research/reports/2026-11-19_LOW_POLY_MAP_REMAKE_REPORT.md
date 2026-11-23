@@ -1,4 +1,4 @@
-# Remake peta low-poly NUSANTARA — 19 November 2026
+# Remake peta low-poly NUSANTARA: 19 November 2026
 
 Otorisasi: pengguna meminta remake peta low-poly dengan kualitas visual lebih baik dan riset aset/library di luar proyek, termasuk GitHub. Pelaksana: ChatGPT/Codex. Keputusan: D-080.
 

@@ -4,8 +4,8 @@ Generated 2026-10-06T03:34:58+00:00 from the BNPB Satu Data portal (CKAN API). N
 
 | Year | Status | Dataset title | Org | License | Resources (DataStore / Drive) | Expected manual destination |
 |---|---|---|---|---|---|---|
-| 2000 | **API_AVAILABLE** | Jumlah kejadian dan Dampak Bencana Tahun 2000 | Pusat Data Informasi dan Komunikasi Kebencanaan | — | 38 (32 / 0) | — |
-| 2001 | **API_AVAILABLE** | Jumlah kejadian dan Dampak Bencana Tahun 2001 | Pusat Data Informasi dan Komunikasi Kebencanaan | Creative Commons Attribution | 38 (1 / 0) | — |
+| 2000 | **API_AVAILABLE** | Jumlah kejadian dan Dampak Bencana Tahun 2000 | Pusat Data Informasi dan Komunikasi Kebencanaan | (| 38 (32 / 0) |) |
+| 2001 | **API_AVAILABLE** | Jumlah kejadian dan Dampak Bencana Tahun 2001 | Pusat Data Informasi dan Komunikasi Kebencanaan | Creative Commons Attribution | 38 (1 / 0) |, |
 | 2002 | **MANUAL_DOWNLOAD_REQUIRED** | Jumlah kejadian dan Dampak Bencana Tahun 2002 | Pusat Data Informasi dan Komunikasi Kebencanaan | Creative Commons Attribution | 1 (0 / 1) | data/raw/bnpb/drive_manual/2002/ |
 | 2003 | **MANUAL_DOWNLOAD_REQUIRED** | Jumlah kejadian dan Dampak Bencana Tahun 2003 | Pusat Data Informasi dan Komunikasi Kebencanaan | Creative Commons Attribution | 1 (0 / 1) | data/raw/bnpb/drive_manual/2003/ |
 | 2004 | **MANUAL_DOWNLOAD_REQUIRED** | Jumlah kejadian dan Dampak Bencana Tahun 2004 | Pusat Data Informasi dan Komunikasi Kebencanaan | Creative Commons Attribution | 1 (0 / 1) | data/raw/bnpb/drive_manual/2004/ |
@@ -28,8 +28,8 @@ Generated 2026-10-06T03:34:58+00:00 from the BNPB Satu Data portal (CKAN API). N
 | 2021 | **MANUAL_DOWNLOAD_REQUIRED** | Jumlah kejadian dan Dampak Bencana Tahun 2021 | Pusat Data Informasi dan Komunikasi Kebencanaan | Creative Commons Attribution | 1 (0 / 1) | data/raw/bnpb/drive_manual/2021/ |
 | 2022 | **MANUAL_DOWNLOAD_REQUIRED** | Jumlah kejadian dan Dampak Bencana Tahun 2022 | Pusat Data Informasi dan Komunikasi Kebencanaan | Creative Commons Attribution | 1 (0 / 1) | data/raw/bnpb/drive_manual/2022/ |
 | 2023 | **MANUAL_DOWNLOAD_REQUIRED** | Jumlah kejadian dan Dampak Bencana Tahun 2023 | Pusat Data Informasi dan Komunikasi Kebencanaan | Creative Commons Attribution | 1 (0 / 1) | data/raw/bnpb/drive_manual/2023/ |
-| 2024 | **API_AVAILABLE** | Kompilasi Data Kejadian dan Dampak Bencana tahun 2024 | Pusat Data Informasi dan Komunikasi Kebencanaan | Open Data Commons Open Database License (ODbL) | 28 (28 / 0) | — |
-| 2025 | **API_AVAILABLE** | Kompilasi Data Kejadian dan Dampak Bencana 2025 | Pusat Data Informasi dan Komunikasi Kebencanaan | Open Data Commons Attribution License | 10 (10 / 0) | — |
+| 2024 | **API_AVAILABLE** | Kompilasi Data Kejadian dan Dampak Bencana tahun 2024 | Pusat Data Informasi dan Komunikasi Kebencanaan | Open Data Commons Open Database License (ODbL) | 28 (28 / 0) |, |
+| 2025 | **API_AVAILABLE** | Kompilasi Data Kejadian dan Dampak Bencana 2025 | Pusat Data Informasi dan Komunikasi Kebencanaan | Open Data Commons Attribution License | 10 (10 / 0) |, |
 
 Drive resource locations (open in a browser, use Download, unzip into the destination):
 

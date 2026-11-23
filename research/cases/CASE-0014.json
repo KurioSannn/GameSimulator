@@ -99,7 +99,7 @@
  ],
  "rejected_or_unverified": [
   "Angka per kabupaten selain Pandeglang tidak tercantum di sumber terverifikasi; dampak Lampung Selatan dan Serang diskalakan lebih kecil sebagai nilai desain.",
-  "Record lama memakai URL bmkg.go.id/bnpb.go.id yang tidak ada (404/403) — dibuang."
+  "Record lama memakai URL bmkg.go.id/bnpb.go.id yang tidak ada (404/403), dibuang."
  ],
  "todo_to_validate": [
   "Ekstrak tabel per kabupaten dari BNPB 'Info Bencana Desember 2018' (PDF tersedia, belum diolah)"

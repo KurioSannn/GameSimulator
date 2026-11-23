@@ -311,8 +311,8 @@ static func clean_source_names(refs: Array, as_of: String) -> String:
 					"SETKAB": "Sekretariat Kabinet", "SETNEG": "Kemensetneg", "ESDM": "Kementerian ESDM", "OMBUDSMAN": "Ombudsman RI"}.get(core, core.capitalize())
 			else:
 				inst = s
-		if inst.contains(" — "):
-			inst = inst.split(" — ")[0].strip_edges()
+		if inst.contains(", "):
+			inst = inst.split(", ")[0].strip_edges()
 		if inst.contains("("):
 			inst = inst.split("(")[0].strip_edges()
 		if inst.length() > 26:

@@ -52,7 +52,7 @@
    "as_of": "2019-11-14"
   }
  ],
- "information_available_at_decision": "Pada 5 Agustus 2019: listrik di sebagian Jabodetabek, Jawa Barat dan Banten belum pulih penuh; PLN menyebut gangguan transmisi 500 kV sebagai penyebab. Temuan Ombudsman tentang pohon dan SLO baru muncul November 2019 — pemain tidak mengetahuinya saat memutuskan.",
+ "information_available_at_decision": "Pada 5 Agustus 2019: listrik di sebagian Jabodetabek, Jawa Barat dan Banten belum pulih penuh; PLN menyebut gangguan transmisi 500 kV sebagai penyebab. Temuan Ombudsman tentang pohon dan SLO baru muncul November 2019, pemain tidak mengetahuinya saat memutuskan.",
  "trigger": [
   "Pemadaman listrik total sistem Jawa-Bali 4 Agustus 2019"
  ],
@@ -94,7 +94,7 @@
  "rejected_or_unverified": [
   "Angka total pelanggan terdampak (sekitar 21,9–22 juta) hanya ditemukan di pemberitaan dan dokumen DPR yang tidak dapat diakses (403); tidak dipakai.",
   "Nilai kompensasi PLN (Rp865 miliar) hanya dari pemberitaan; tidak dipakai sebagai fakta.",
-  "Record lama berisi URL esdm.go.id/pln.co.id/kominfo.go.id yang tidak ada (404/tidak terjangkau) — dibuang."
+  "Record lama berisi URL esdm.go.id/pln.co.id/kominfo.go.id yang tidak ada (404/tidak terjangkau), dibuang."
  ],
  "todo_to_validate": [
   "Unduh laporan investigasi Ombudsman asli",

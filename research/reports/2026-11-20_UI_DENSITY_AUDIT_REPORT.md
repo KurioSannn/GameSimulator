@@ -21,7 +21,7 @@ Catatan lama bahwa desain Figma belum terintegrasi sudah tidak menggambarkan kea
 
 ## Temuan berprioritas
 
-### P0 — Teks menyusut bersama seluruh layout
+### P0: Teks menyusut bersama seluruh layout
 
 [`project.godot:18`](../../game/project.godot#L18) menetapkan viewport 1920×1080 dengan `canvas_items`. Banyak label memakai 11–14 unit font. Dalam konfigurasi audit, pada 1280×720 ukuran efektifnya sekitar 7,3–9,3 px; pada 1600×900 label 11 unit sekitar 9,2 px. Di CASE-0001 ukuran efektif seluruh blok berkisar 7,3–16 px pada 1280×720. Teks manfaat 14 unit menjadi sekitar 9,3 px; risiko 13 unit sekitar 8,7 px; sumber 12 unit sekitar 8 px.
 
@@ -31,7 +31,7 @@ Bukti: [keputusan 1600](ui_audit_20261120/06_case_1600.png), [keputusan 1280](ui
 
 Tindak lanjut yang disarankan: tetapkan ukuran baca pada output desktop dan uji pembesaran teks sebelum menambah dekorasi. Ambang 12 px di audit ini hanya alat penyaringan; bukan sertifikasi aksesibilitas. [XAG 101 Microsoft](https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/101) juga membedakan pengukuran tinggi glyph dari angka font dan menekankan keterbacaan serta konfigurasi teks.
 
-### P0 — Detail Wilayah membuka terlalu banyak tingkat informasi sekaligus
+### P0: Detail Wilayah membuka terlalu banyak tingkat informasi sekaligus
 
 Peta awal menampilkan 49 blok teks. Membuka detail kota menaikkannya menjadi 81 pada 1600×900: enam indikator nasional tetap di atas, enam indikator wilayah di dalam drawer, identitas/kode administratif, peristiwa aktif, data resmi, kebijakan, penjelasan model, tombol rincian, dan footer. Dua bagian kosong masih meminta perhatian lewat panel, judul, dan penghitungnya.
 
@@ -39,7 +39,7 @@ Bukti: [peta awal](ui_audit_20261120/01_map_1600.png), [detail kota](ui_audit_20
 
 Tindak lanjut yang disarankan: pisahkan ringkasan yang membantu tindakan saat ini dari rincian indikator, administrasi, penyebab, dan sumber yang dibuka saat diperlukan. Pertahankan akses ke fakta, unit, resolusi geografis, dan provenance; jangan menghapus datanya atau membuat label simulasi/fakta menjadi ambigu. Komponen tetap harus berlaku untuk seluruh konteks peta, bukan khusus Jawa Timur.
 
-### P1 — Agenda dan indikator ditampilkan berulang
+### P1: Agenda dan indikator ditampilkan berulang
 
 Judul kasus yang sama muncul pada agenda kanan dan agenda bawah di peta awal. Periode mandat juga muncul di profil atas dan dock bawah. Di statistik, kesejahteraan/sentimen/lingkungan diulang sebagai bar dan kartu angka; kepercayaan muncul sebagai ringkasan grafik dan kartu bawah. Beberapa pengulangan bisa membantu konteks, tetapi sekarang semuanya permanen.
 
@@ -47,7 +47,7 @@ Bukti: [peta awal](ui_audit_20261120/01_map_1600.png), [statistik](ui_audit_2026
 
 Tindak lanjut yang disarankan: tentukan satu tempat utama untuk agenda dan status waktu. Setiap pengulangan harus punya fungsi tambahan yang jelas. Pilih ringkasan statistik yang mendukung pertanyaan pemain, bukan menambahkan kartu angka untuk semua data yang tersedia.
 
-### P1 — Terlalu banyak elemen bersaing menjadi tindakan utama
+### P1: Terlalu banyak elemen bersaing menjadi tindakan utama
 
 Tombol Ambil Keputusan, Lanjutkan Kuartal, dan Atur Kebijakan sama-sama mendapat warna kuning. Lanjutkan Kuartal memang diblokir saat kasus belum selesai, tetapi bentuk dan luasnya tetap dominan. Tombol Kebijakan di sidebar selalu memakai variasi ungu `ButtonAccent` berdasarkan jenis tombol, sehingga warna tersebut tidak menyatakan konteks aktif. Kabinet yang belum tersedia juga tetap menempati navigasi utama.
 
@@ -55,7 +55,7 @@ Bukti: [detail 1280](ui_audit_20261120/08_region_1280.png). Sumber: `game/src/ui
 
 Tindak lanjut yang disarankan: satu tindakan mendapat penekanan tertinggi sesuai tahap permainan; bedakan status aktif, belum tersedia, dan aksi sekunder secara konsisten. Pertahankan aturan blokir kemajuan kuartal.
 
-### P1 — Panel bertumpuk secara visual meski input sudah diblokir
+### P1: Panel bertumpuk secara visual meski input sudah diblokir
 
 Saat anggaran dibuka di atas detail provinsi, drawer, indikator, sidebar, dan dock masih terlihat di balik lapisan redup. Kasus dan kebijakan juga menyisakan banyak kontur HUD di belakangnya. `_sync_interaction()` mengatur interaksi/fokus, tetapi redupnya latar tidak menghilangkan kompetisi bentuk dan teks.
 
@@ -63,7 +63,7 @@ Bukti: [anggaran di atas detail](ui_audit_20261120/04_budget_over_region_1600.pn
 
 Tindak lanjut yang disarankan: tampilkan konteks belakang secukupnya saat tugas keputusan aktif. Hindari dua lapisan panel lengkap yang sama-sama terbaca. Tidak ada perubahan perilaku penutupan atau fokus dalam audit ini.
 
-### P2 — Identitas visual dan peta ikut menambah beban perhatian
+### P2: Identitas visual dan peta ikut menambah beban perhatian
 
 Kartu navy berulang, header kuning, aksen ungu, garis terang, awan putih, serta detail air/pulau sama-sama kuat. Penilaian visual audit: pola kartu, sidebar, dan deretan KPI memberi kesan dashboard. Menambahkan border ornamental atau lebih banyak shader berpotensi memperberat layar yang sama.
 
@@ -94,8 +94,8 @@ Tidak ditemukan kandidat perpotongan antarkotak teks >20% dari kotak yang lebih 
 
 | Kandidat dan sumber pembuat | Yang tersedia | Lisensi / status verifikasi | Penilaian untuk NUSANTARA |
 |---|---|---|---|
-| [Themey — Clashy / Spacey](https://github.com/wadlo/Themey) | Theme `.tres` dan gambar untuk Godot 4.x; Clashy bergaya tombol berdimensi, Spacey bersih dengan nuansa sci-fi | Non-image MIT; gambar umumnya CC0; Material icons Apache 2.0 menurut README. Commit `678c5574b3a9274437c0c1e0ac15395056b5fc5f` dipin; README/lisensi/preview Spacey tersimpan | Pembanding native Godot yang paling langsung. Kecocokan Clashy belum dinilai dari preview karena unduhan preview gagal; bukan rekomendasi final. Belum diuji di runtime proyek. |
-| [Kenney UI Pack — Adventure](https://kenney.nl/assets/ui-pack-adventure) | Listing 130 file, versi 1.0 tahun 2024; panel, tombol, slider dan elemen antarmuka | CC0 pada listing pembuat; HTML dan preview resmi tersimpan | Preview memperlihatkan panel kertas/blueprint dan bingkai logam. Bisa menjadi bahan identitas antarmuka game; beberapa varian terasa petualangan sehingga perlu seleksi. Paket gambar, bukan sistem layout atau logic. |
+| [Themey: Clashy / Spacey](https://github.com/wadlo/Themey) | Theme `.tres` dan gambar untuk Godot 4.x; Clashy bergaya tombol berdimensi, Spacey bersih dengan nuansa sci-fi | Non-image MIT; gambar umumnya CC0; Material icons Apache 2.0 menurut README. Commit `678c5574b3a9274437c0c1e0ac15395056b5fc5f` dipin; README/lisensi/preview Spacey tersimpan | Pembanding native Godot yang paling langsung. Kecocokan Clashy belum dinilai dari preview karena unduhan preview gagal; bukan rekomendasi final. Belum diuji di runtime proyek. |
+| [Kenney UI Pack: Adventure](https://kenney.nl/assets/ui-pack-adventure) | Listing 130 file, versi 1.0 tahun 2024; panel, tombol, slider dan elemen antarmuka | CC0 pada listing pembuat; HTML dan preview resmi tersimpan | Preview memperlihatkan panel kertas/blueprint dan bingkai logam. Bisa menjadi bahan identitas antarmuka game; beberapa varian terasa petualangan sehingga perlu seleksi. Paket gambar, bukan sistem layout atau logic. |
 | [Kenney Fantasy UI Borders](https://kenney.nl/assets/fantasy-ui-borders) | Listing 140 file, versi 1.0 tahun 2023; border panel/tombol dekoratif | CC0 pada listing pembuat; HTML dan preview resmi tersimpan | Bingkai tipis bisa menjadi referensi, tetapi estetika fantasi/pixel dan tambahan ornamen belum tentu sesuai game pemerintahan. Bukan paket UI fungsional lengkap. |
 | [Maaack Godot Game Template](https://github.com/Maaack/Godot-Game-Template) | Main menu, options, pause, credits, scene loader; README menyatakan Godot 4.7 / kompatibel 4.4+ | MIT; repository dan lisensi diperiksa lewat web. Cache API lokal gagal verifikasi sertifikat | Referensi struktur menu/fungsi, bukan solusi identitas visual. Proyek sudah punya save/settings/menu sendiri; penggantian menyeluruh berpotensi menduplikasi sistem. Belum diimpor atau diuji. |
 

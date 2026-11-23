@@ -220,7 +220,7 @@ func _metric_card(metric: Dictionary) -> Control:
 	var name_label := UiKit.label(str(metric.label).capitalize(), 14, UiKit.MUTED, true)
 	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(name_label)
-	var value := "—" if metric.value == null else Fmt.num(float(metric.value), 1)
+	var value := "-" if metric.value == null else Fmt.num(float(metric.value), 1)
 	var unit := "/ 100" if str(metric.unit).begins_with("skala ") else str(metric.unit).replace("indeks model", "indeks").replace("persen", "%")
 	row.add_child(UiKit.number(value + " " + unit, 20))
 	if metric.delta != null and absf(float(metric.delta)) >= 0.05:
@@ -342,7 +342,7 @@ func _add_scheduled(w: SimWorld, i: int) -> void:
 			continue
 		var eff := {"var": e.var, "op": e.op, "value": e.value, "scope": "region:" + w.region_ids[i], "regions": 1,
 			"delay_months": int(e.apply_tick) - w.tick, "duration": int(e.remaining)}
-		lines.append("• %s — %s" % [ChangeText.source_label(str(e.source)), ChangeText.effect_line(eff).split(" · ")[0]
+		lines.append("• %s: %s" % [ChangeText.source_label(str(e.source)), ChangeText.effect_line(eff).split(" · ")[0]
 			+ (" · dalam %d bulan" % (int(e.apply_tick) - w.tick) if int(e.apply_tick) > w.tick else " · bulan berikutnya")
 			+ (" · %d bulan" % int(e.remaining) if int(e.remaining) > 1 else "")])
 	if lines.is_empty():
@@ -373,7 +373,7 @@ func _add_national_drivers(w: SimWorld) -> void:
 			var origin := "sumber tidak tercatat (simpanan lama)" if k == SimLedger.UNRECORDED else ChangeText.source_label(str(k))
 			_body.add_child(UiKit.label("   %s %s" % [ChangeText.national_value("price_pressure", pp * float(fr[k]), true), origin], 11, UiKit.ACCENT, true))
 	for e in pending:
-		_body.add_child(UiKit.label("• Terjadwal: %s — %s" % [ChangeText.source_label(str(e.source)), ChangeText.effect_line(e)], 12, UiKit.TEXT, true))
+		_body.add_child(UiKit.label("• Terjadwal (%s): %s" % [ChangeText.source_label(str(e.source)), ChangeText.effect_line(e)], 12, UiKit.TEXT, true))
 	_body.add_child(UiKit.label("Bobot minyak goreng dalam indeks harga dan ketergantungan sawit per provinsi belum dimodelkan.", 11, UiKit.MUTED, true))
 
 

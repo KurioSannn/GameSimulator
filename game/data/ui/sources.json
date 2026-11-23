@@ -1,17 +1,17 @@
 {
   "schema": "nusantara.ui_sources/1",
-  "registry_sha256": "09872d2f075df81c336828d0ebb3a5b485e60b9ac9bb749083cd571979494d52",
+  "registry_sha256": "a02c2e280f2538c21abaac31371c15182d5b3e09bc4c38eb13f800802fc354f2",
   "sources": {
     "SRC-BIG-ADM-KABKOTA": {
       "source_id": "SRC-BIG-ADM-KABKOTA",
       "institution": "Badan Informasi Geospasial (BIG)",
       "title": "Wilayah Administrasi Kabupaten/Kota (Feature Service), geodatabase batas wilayah administrasi kab/kota edisi September 2023",
       "url": "https://geoservices.big.go.id/rbi/rest/services/Hosted/Wilayah_Administrasi_Kabupaten__Kota/FeatureServer/0",
-      "publication_date": "2023-09 (edition; service description notes later updates incl. April 2025 segment changes — verify)",
+      "publication_date": "2023-09 (edition; service description notes later updates incl. April 2025 segment changes, verify)",
       "retrieved_at": "2026-10-05",
       "geographic_resolution": "kabupaten/kota polygons (548 features; 514 coded kab/kota + uncoded/disputed areas)",
       "reference_period": "boundary edition 2023-09",
-      "unit": "geometry EPSG:4326; luaswh area field (unit assumed km2 — VERIFY against BIG field definition)",
+      "unit": "geometry EPSG:4326; luaswh area field (unit assumed km2, VERIFY against BIG field definition)",
       "status": "verified_ingested",
       "license_or_terms": "Not stated on service; BIG data generally public. TODO: record BIG terms of use before release."
     },
@@ -39,7 +39,7 @@
     },
     "SRC-BNPB-CKAN": {
       "source_id": "SRC-BNPB-CKAN",
-      "institution": "BNPB — Pusat Data Informasi dan Komunikasi Kebencanaan (Pusdatinkom)",
+      "institution": "BNPB, Pusat Data Informasi dan Komunikasi Kebencanaan (Pusdatinkom)",
       "title": "Satu Data Bencana Indonesia, CKAN portal: 'Kompilasi Data Jumlah dan Dampak Kejadian Bencana 2024' (kab/kota tables)",
       "url": "https://data.bnpb.go.id/api/3/action/package_show?id=kompilasi-data-jumlah-dan-dampak-kejadian-bencana-2024",
       "retrieved_at": "2026-10-06",
@@ -51,7 +51,7 @@
     "SRC-KEMENDAGRI-KODE-2025-SECONDARY": {
       "source_id": "SRC-KEMENDAGRI-KODE-2025-SECONDARY",
       "institution": "cahyadsn/wilayah (community GitHub repository, MIT)",
-      "title": "wilayah_level_1_2.sql — transcription 'sesuai Kepmendagri No 300.2.2-2138 Tahun 2025' (file last edit 2026-05-11)",
+      "title": "wilayah_level_1_2.sql, transcription 'sesuai Kepmendagri No 300.2.2-2138 Tahun 2025' (file last edit 2026-05-11)",
       "url": "https://raw.githubusercontent.com/cahyadsn/wilayah/master/db/wilayah_level_1_2.sql",
       "retrieved_at": "2026-10-05",
       "status": "secondary_crosscheck",
@@ -66,7 +66,7 @@
     },
     "SRC-DJPK": {
       "source_id": "SRC-DJPK",
-      "institution": "Kementerian Keuangan — DJPK",
+      "institution": "Kementerian Keuangan, DJPK",
       "title": "Data APBD / TKD portal",
       "url": "https://djpk.kemenkeu.go.id/",
       "status": "unreachable"
@@ -115,7 +115,7 @@
     },
     "SRC-ESDM-MOMI": {
       "source_id": "SRC-ESDM-MOMI",
-      "institution": "Kementerian ESDM — Ditjen Minerba",
+      "institution": "Kementerian ESDM, Ditjen Minerba",
       "title": "MOMI (Minerba One Map Indonesia)",
       "url": "https://momi.minerba.esdm.go.id/",
       "status": "verified_reachable"
@@ -129,7 +129,7 @@
     },
     "SRC-KEMENDAGRI-DUKCAPIL": {
       "source_id": "SRC-KEMENDAGRI-DUKCAPIL",
-      "institution": "Kemendagri — Dukcapil",
+      "institution": "Kemendagri, Dukcapil",
       "title": "Data kependudukan (DKB)",
       "url": "https://dukcapil.kemendagri.go.id/",
       "status": "verified_reachable"
@@ -197,7 +197,7 @@
     },
     "SRC-PUPR-JALAN-NASIONAL": {
       "source_id": "SRC-PUPR-JALAN-NASIONAL",
-      "institution": "Kementerian Pekerjaan Umum — Direktorat Jenderal Bina Marga (SIGI-PU)",
+      "institution": "Kementerian Pekerjaan Umum, Direktorat Jenderal Bina Marga (SIGI-PU)",
       "title": "Jaringan Jalan Nasional Indonesia (ast_bm_jalan_nasional_iri)",
       "url": "https://sigi.pu.go.id/serverpu/rest/services/Hosted/ast_bm_jalan_nasional_iri/FeatureServer/0",
       "publication_date": "2025-06-24",
@@ -210,7 +210,7 @@
     },
     "SRC-PUPR-BPJT-TOL-OPERASI": {
       "source_id": "SRC-PUPR-BPJT-TOL-OPERASI",
-      "institution": "Kementerian Pekerjaan Umum — Badan Pengatur Jalan Tol (BPJT / SIGI-PU)",
+      "institution": "Kementerian Pekerjaan Umum, Badan Pengatur Jalan Tol (BPJT / SIGI-PU)",
       "title": "Jaringan Jalan Tol Operasi Indonesia (ast_bpjt_tol_operasi_v2)",
       "url": "https://sigi.pu.go.id/serverpu/rest/services/Hosted/ast_bpjt_tol_operasi_v2/FeatureServer/0",
       "publication_date": "2025-06-19",

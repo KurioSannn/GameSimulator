@@ -95,7 +95,7 @@ total regional flood events over term: 5798 (2.92 per exposed region per year)
 |---|---|---|
 | 5 regions got λ = 0: a province prior of 0 when every observed region in the province recorded zero floods (artificial suppression) | hierarchical province prior shrunk to the national mean | `test_no_region_has_zero_flood_rate`, `test_province_all_zero_still_positive` |
 | CASE-0001-R relief targeted every flooded region nationwide ("where:" over all regions), so a Jakarta case funded relief in ~190 regions | `where:…&in:<case regions>` scope | `test_recurring_relief_stays_in_case_area` |
-| Tests assumed distant regions never flood | hazard-free worlds where the test isolates another mechanism | — |
+| Tests assumed distant regions never flood | hazard-free worlds where the test isolates another mechanism |, |
 
 ## 8. Tests
 - Godot **49/49**. New: 8 in `test_flood_calibration.gd` (official vs derived, IRBI+history, history without IRBI, neither, no zero rates, prior strength, mitigation on identical events, resilience), plus 2 in CASE-0001 (recovery with and without background floods; relief scope).

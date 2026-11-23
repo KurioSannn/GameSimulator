@@ -1,4 +1,4 @@
-# Local toolchain (Godot editor, node tools) — reproducible via docs/TECHNICAL_ARCHITECTURE.md
+# Local toolchain (Godot editor, node tools), reproducible via docs/TECHNICAL_ARCHITECTURE.md
 tools/*
 # ...except the pinned manifest of the geography toolchain (mapshaper, earcut); reinstall with
 # npm ci --prefix tools/geo --cache tools/geo/.npm-cache  (docs/29_GEOGRAPHY_DATA_PIPELINE.md)

@@ -22,11 +22,11 @@
   "regency_city_documented": [
     {
       "region_id": "32.01",
-      "evidence": "Sukajaya (Kab. Bogor) visited by the President during response — Kontan 2020-01-07"
+      "evidence": "Sukajaya (Kab. Bogor) visited by the President during response, Kontan 2020-01-07"
     },
     {
       "region_id": "36.02",
-      "evidence": "BPBD Banten reported deaths from flooding in Lebak — Tirto (headline)"
+      "evidence": "BPBD Banten reported deaths from flooding in Lebak, Tirto (headline)"
     }
   ],
   "regency_city_note": "DKI Jakarta impacts are recorded at province level (63 flood points) in sources retrieved so far; per-kota breakdown NOT_PUBLISHED in retrieved sources.",
@@ -54,7 +54,7 @@
       "as_of": "2020-01-07"
     },
     {
-      "fact": "Earlier BNPB figures were lower (9 dead on 2020-01-01; 16 dead shortly after) — totals rose as reports came in.",
+      "fact": "Earlier BNPB figures were lower (9 dead on 2020-01-01; 16 dead shortly after), totals rose as reports came in.",
       "source_refs": [
         "SRC-NEWS-KATADATA-20200101",
         "SRC-NEWS-TIRTO-BNPB-16"

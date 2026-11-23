@@ -55,7 +55,7 @@
   "briefing": {
     "fact_class": "FICTIONAL",
     "speaker": "Penasihat Kebencanaan",
-    "text": "Pak Presiden, kasus ini diangkat dari peristiwa nyata awal 2020. Dalam simulasi kita, hujan ekstrem melanda Jakarta dan sekitarnya. Akses jalan terputus dan ribuan warga mengungsi. Kita perlu memutuskan arah penanganan sekarang — setiap pilihan punya harga."
+    "text": "Pak Presiden, kasus ini diangkat dari peristiwa nyata awal 2020. Dalam simulasi kita, hujan ekstrem melanda Jakarta dan sekitarnya. Akses jalan terputus dan ribuan warga mengungsi. Kita perlu memutuskan arah penanganan sekarang, setiap pilihan punya harga."
   },
   "on_trigger_effects": [
     {

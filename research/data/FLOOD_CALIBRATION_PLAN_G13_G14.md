@@ -11,7 +11,7 @@ Written 2026-10-06, before implementation, as requested.
 | `jumlah-kejadian-dan-dampak-bencana-tahun-2000`, `-2001` | BNPB Pusdatinkom (CC-BY) | events + impacts | kab/kota (per-province XLSX) | 2000–2001 | CKAN (check DataStore; downloads may be challenged) | to check |
 | `jumlah-kejadian-dan-dampak-bencana-tahun-2002` … `-2023` | BNPB Pusdatinkom (CC-BY) | events + impacts (`stat_by_wil_<prov>_<year>.xlsx`) | kab/kota | 2002–2023 | linked public **Google Drive** folders. Drive robots.txt disallows the download endpoints (`/uc`, `drive.usercontent.google.com`), so **no automated download** | **human download needed** |
 | `kompilasi-data-kejadian-dan-dampak-bencana-2025` | BNPB Pusdatinkom | events + impacts | province (kab/kota to check) | 2025 (partial year) | CKAN | to check |
-| BNPB ArcGIS (InaRISK) | BNPB | hazard/risk layers | raster/kab | — | HTTP 521 (down) | blocked |
+| BNPB ArcGIS (InaRISK) | BNPB | hazard/risk layers | raster/kab |, | HTTP 521 (down) | blocked |
 
 ## 2. Variables (explicit names; REAL vs DERIVED never share a name)
 
@@ -26,13 +26,13 @@ Written 2026-10-06, before implementation, as requested.
 |---|---|---|---|
 | Baseline flood risk profile | `flood_risk_profile` | 100 × official IRBI flood score / 36 | UNCALIBRATED (neutral 50) |
 | Historical flood frequency | `flood_frequency` (events/year) | mean of `bnpb_flood_events` over available years (≥1); coverage years recorded | province median as PROVINCE_PROXY; else national median as UNCALIBRATED. **Never 0 by default.** |
-| Event probability | computed per tick | Poisson: P(≥1 event in month m) = 1 − exp(−λ·s_m), with λ = `flood_frequency` and s_m the month's share of the seasonal profile | — |
+| Event probability | computed per tick | Poisson: P(≥1 event in month m) = 1 − exp(−λ·s_m), with λ = `flood_frequency` and s_m the month's share of the seasonal profile |, |
 | Severity | per event, computed | Exp(mean μ) × severity_scale_i, capped | μ is a model value until population allows an empirical anchor (see §4) |
 | Severity scale (vulnerability/capacity composite) | derived from `flood_risk_profile` | 0.5 + profile/100 (median IRBI ≈ 1.0) | 1.0 (UNCALIBRATED) |
 | Exposure | not separately calibrated | no official exposure-only source ingested; the IRBI index already contains exposure | documented gap |
-| Mitigation | `flood_protection` | built during the term (cases, disaster budget); 0 at start | — |
+| Mitigation | `flood_protection` | built during the term (cases, disaster budget); 0 at start |, |
 | Infrastructure resilience | `infrastructure` | impact × (1.25 − 0.5 × infrastructure/100) (infrastructure 50 → ×1.0) | existing variable (UNCALIBRATED baseline) |
-| Damage / recovery | `damage`, recovery step | unchanged | — |
+| Damage / recovery | `damage`, recovery step | unchanged |, |
 
 Impact of one flood:
 `impact = severity_draw × severity_scale × (1 − 0.75 × protection/100) × resilience(infrastructure)`

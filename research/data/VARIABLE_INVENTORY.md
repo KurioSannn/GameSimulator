@@ -25,7 +25,7 @@ FICTIONAL CONTENT     case briefings, dialogue, Nara         never presented as 
 | obs_variable_id | Concept (Bahasa) | Definition (source wording to be confirmed on retrieval) | Unit | Best source | Resolution | Expected latest period | Status |
 |---|---|---|---|---|---|---|---|
 | `pop_total` | Jumlah penduduk | Mid-year population (BPS projection based on SP2020) | jiwa | BPS (WebAPI dynamic table) | kab/kota | 2024 or 2025 | BLOCKED (key) |
-| `pop_dkb` | Jumlah penduduk (administrasi) | Registered population in Data Kependudukan Bersih (semester) | jiwa | Kemendagri Dukcapil | kab/kota | 2025 S1 | MAPPED (alt; different definition — never merged with `pop_total`) |
+| `pop_dkb` | Jumlah penduduk (administrasi) | Registered population in Data Kependudukan Bersih (semester) | jiwa | Kemendagri Dukcapil | kab/kota | 2025 S1 | MAPPED (alt; different definition, never merged with `pop_total`) |
 | `area_km2` | Luas wilayah | Polygon area of official boundary | km² (to verify, G-03) | BIG geodatabase `luaswh` | kab/kota | edition 2023-09 | RETRIEVED |
 | `ipm` | Indeks Pembangunan Manusia | UNDP-method HDI (health, education, expenditure), BPS 2010+ method | indeks 0–100 | BPS | kab/kota | 2024/2025 | BLOCKED (key) |
 | `poverty_p0` | Persentase penduduk miskin | Share of population below poverty line (Susenas March) | persen | BPS | kab/kota | 2024/2025 | BLOCKED (key) |
@@ -55,8 +55,8 @@ FICTIONAL CONTENT     case briefings, dialogue, Nara         never presented as 
 | `infrastructure` | = 100 × road_good_km ÷ road_total_km | road_condition_good, road total | province ratio as `PROVINCE_PROXY` | Share of road length in good condition; transparent and bounded |
 | `services` | TBD (health/education facility density) | puskesmas, schools per 10k pop | UNCALIBRATED | needs facility datasets |
 | `environment` | TBD (forest cover share, air quality) | forest_area, area_km2 | UNCALIBRATED | |
-| `sentiment_base`, `trust` | **stay neutral by design** (no official measure of regional support for a fictional president exists) | — | neutral 55 | Inventing regional "support" from proxies would be a stereotype risk |
-| `price_level` | 100 at start by definition (index) | — | — | Index relative to the starting state |
+| `sentiment_base`, `trust` | **stay neutral by design** (no official measure of regional support for a fictional president exists) |, | neutral 55 | Inventing regional "support" from proxies would be a stereotype risk |
+| `price_level` | 100 at start by definition (index) | (|) | Index relative to the starting state |
 | `fiscal_space` (national) | from APBN discretionary share | apbn_* | UNCALIBRATED | |
 
 ## C. Conflicts policy
@@ -78,24 +78,24 @@ The two lists are **not one-to-one, by design**. Official variables describe the
 | # | Official variable | → Simulation variable | Resolution | Unit | Expected ref. year | Calibration rule | Current status |
 |---|---|---|---|---|---|---|---|
 | 1 | `pop_total` (BPS) | `population` | kab/kota | jiwa | 2024/2025 | identity | BLOCKED (key/host) |
-| 2 | `pop_dkb` (Dukcapil) | — (conflict check vs #1 only) | kab/kota | jiwa | 2025 S1 | none; never merged | BLOCKED (host) |
-| 3 | `area_km2` (BIG) | — (reference fact; future density = pop/area) | kab/kota | km² | 2023-09 | shown as REAL fact | **RETRIEVED** (514/514) |
+| 2 | `pop_dkb` (Dukcapil) |, (conflict check vs #1 only) | kab/kota | jiwa | 2025 S1 | none; never merged | BLOCKED (host) |
+| 3 | `area_km2` (BIG) |, (reference fact; future density = pop/area) | kab/kota | km² | 2023-09 | shown as REAL fact | **RETRIEVED** (514/514) |
 | 4 | `ipm` (BPS) | `welfare_base` → `welfare` (copy) | kab/kota | indeks | 2024/2025 | identity, province proxy fallback | BLOCKED |
-| 5 | `poverty_p0` (BPS) | — now; planned `poverty` (welfare split) | kab/kota | persen | 2024/2025 | reference fact first | BLOCKED |
-| 6 | `unemployment_tpt` (BPS) | — now; planned `employment` | kab/kota | persen | 2024/2025 | reference fact first | BLOCKED |
-| 7 | `pdrb_adhb` (BPS) | — now; planned `economic_output` | kab/kota | juta rupiah | 2024 | reference fact first | BLOCKED |
-| 8 | `pdrb_adhk` (BPS) | — (growth base for #9) | kab/kota | juta rupiah | 2024 | — | BLOCKED |
-| 9 | `pdrb_growth` (BPS) | — now; planned growth driver | kab/kota | persen | 2024 | — | BLOCKED |
+| 5 | `poverty_p0` (BPS) |, now; planned `poverty` (welfare split) | kab/kota | persen | 2024/2025 | reference fact first | BLOCKED |
+| 6 | `unemployment_tpt` (BPS) |, now; planned `employment` | kab/kota | persen | 2024/2025 | reference fact first | BLOCKED |
+| 7 | `pdrb_adhb` (BPS) |, now; planned `economic_output` | kab/kota | juta rupiah | 2024 | reference fact first | BLOCKED |
+| 8 | `pdrb_adhk` (BPS) | ((growth base for #9) | kab/kota | juta rupiah | 2024 |) | BLOCKED |
+| 9 | `pdrb_growth` (BPS) | (now; planned growth driver | kab/kota | persen | 2024 |) | BLOCKED |
 | 10 | `rice_production` (BPS) | `food_capacity` (with #1 and sourced constants) | kab/kota | ton GKG | 2024 | per-capita ratio | BLOCKED |
-| 11 | `rice_harvest_area` (BPS) | — (productivity context) | kab/kota | ha | 2024 | — | BLOCKED |
+| 11 | `rice_harvest_area` (BPS) | ((productivity context) | kab/kota | ha | 2024 |) | BLOCKED |
 | 12 | `road_condition_good` (BPS) | `infrastructure` → `logistics` (copy) | kab/kota | km | 2023/2024 | ratio_pct with road total | BLOCKED |
-| 13 | `electrification` | — now; planned `energy_access` | provinsi | persen | 2024 | — | MAPPED |
-| 14 | `apbd_revenue` (DJPK) | — now; planned regional fiscal | kab/kota | rupiah | 2025/2026 | — | BLOCKED (host) |
-| 15 | `apbd_pad` (DJPK) | — now; planned regional fiscal | kab/kota | rupiah | 2025/2026 | — | BLOCKED |
-| 16 | `apbd_spending` (DJPK) | — now; planned regional fiscal | kab/kota | rupiah | 2025/2026 | — | BLOCKED |
+| 13 | `electrification` | (now; planned `energy_access` | provinsi | persen | 2024 |) | MAPPED |
+| 14 | `apbd_revenue` (DJPK) | (now; planned regional fiscal | kab/kota | rupiah | 2025/2026 |) | BLOCKED (host) |
+| 15 | `apbd_pad` (DJPK) | (now; planned regional fiscal | kab/kota | rupiah | 2025/2026 |) | BLOCKED |
+| 16 | `apbd_spending` (DJPK) | (now; planned regional fiscal | kab/kota | rupiah | 2025/2026 |) | BLOCKED |
 | 17 | `apbn_revenue` / `apbn_spending` (+ spending by function) | national budget pool + sector base shares (`game/data/budget.json`) | national | rupiah | 2026 | see `data/calibration/budget_map.json` | MAPPED |
-| 18 | `forest_area` | — now; planned `environment` input | provinsi | ha | latest | — | MAPPED (host) |
-| 19 | `fish_capture` | — now; planned food/marine capacity | provinsi/kab | ton | latest | — | MAPPED (host) |
+| 18 | `forest_area` | (now; planned `environment` input | provinsi | ha | latest |) | MAPPED (host) |
+| 19 | `fish_capture` | (now; planned food/marine capacity | provinsi/kab | ton | latest |) | MAPPED (host) |
 | 20 | `irbi_flood` (BNPB IRBI 2024 flood risk) + `irbi_total` (multi-hazard, reference fact) | `flood_exposure` | kab/kota | skor IRBI | 2024 | 100 × score / 36 | **RETRIEVED** (flood 397/514 + 117 NOT_PUBLISHED; total 514/514) |
 
 ### E2. Every simulation variable → where its starting value comes from
@@ -129,4 +129,4 @@ So the sentence "14 of 14 placeholder" meant that no official input had been ing
 | `official_irbi_flood_score` (BNPB IRBI 2024) | skor IRBI | kab/kota (397 + 117 NOT_PUBLISHED) | 2024 | `flood_risk_profile` (indeks 0–100, turunan) | 100 × score/36; missing → 50 UNCALIBRATED | RETRIEVED |
 | `bnpb_flood_events` (BNPB CKAN) | kejadian | kab/kota (450) | 2024 (2002–2023 pending G-15) | `flood_frequency` (kejadian/tahun) | Gamma–Poisson, province prior | RETRIEVED |
 | `bnpb_flood_affected`, `_displaced`, `_deaths`, `_missing`, `_injured`, `_houses_damaged`, `_schools_damaged`, `_health_facilities_damaged`, `_bridges_damaged` | jiwa / unit | kab/kota (450) | 2024 | (severity anchor once population exists) | `100 × affected/events/population` (not yet active) | RETRIEVED |
-| `official_irbi_total_score` | skor IRBI | kab/kota (514) | 2024 | reference fact only | — | RETRIEVED |
+| `official_irbi_total_score` | skor IRBI | kab/kota (514) | 2024 | reference fact only |, | RETRIEVED |

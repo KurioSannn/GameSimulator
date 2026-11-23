@@ -1,4 +1,4 @@
-# Audit dan perbaikan UI Figma NUSANTARA — 15 November 2026
+# Audit dan perbaikan UI Figma NUSANTARA, 15 November 2026
 
 Audit ini memperbaiki tujuh layar NUSANTARA langsung pada [file Game Simulator](https://www.figma.com/design/xXZj1Xnoxln1coG2yEO81a/Game-Simulator?node-id=15-16673). Perubahan terbatas pada desain dan koneksi prototipe Figma. Kode Godot, data resmi, parameter simulasi, dan angka contoh yang sudah ada tidak diubah.
 
@@ -42,7 +42,7 @@ Komponen lokal: [papan komponen](https://www.figma.com/design/xXZj1Xnoxln1coG2yE
 - Font dibaca ulang dan cocok dengan sumber existing: Lilita One dan Inter.
 - Pemeriksaan geometri teks terlihat tidak menemukan teks keluar dari batas parent pada subset yang diperiksa. Group/instance dan layer peta latar kasus dikecualikan dari pemeriksaan geometri sederhana; screenshot digunakan untuk menilai komposisi.
 - Teks, tombol, panel, dan hierarki tetap editable. Image fill hanya berupa ilustrasi latar/karakter, potret, avatar dan seni peta existing; tidak ditambahkan raster dari keseluruhan UI.
-- Evaluasi statis terhadap reaksi yang dibaca ulang: **6/6 lulus** — A/B/C setelah konfirmasi dan A/B/C sebelum konfirmasi. B terkonfirmasi menuju laporan B; A/C menuju konsekuensi dinamis; ketiganya sebelum konfirmasi menuju peringatan.
+- Evaluasi statis terhadap reaksi yang dibaca ulang: **6/6 lulus**, A/B/C setelah konfirmasi dan A/B/C sebelum konfirmasi. B terkonfirmasi menuju laporan B; A/C menuju konsekuensi dinamis; ketiganya sebelum konfirmasi menuju peringatan.
 - Evaluasi tersebut bukan playback interaktif di browser. Tidak dijalankan test engine karena tidak ada perubahan runtime.
 - Selama validasi ditemukan bahwa representasi kondisi yang diterima tool tidak mempertahankan tiga cabang seperti yang diharapkan. Guard diperbaiki menjadi tiga aksi kondisional terpisah dan dibaca ulang; pengujian di atas memakai hasil baca ulang, bukan hanya skrip yang dikirim.
 

@@ -321,7 +321,7 @@ func _saves() -> void:
 		var info := UiKit.vbox(4)
 		info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		info.add_child(UiKit.title(str(meta.get("save_label", id)), 17))
-		info.add_child(UiKit.label("Tahun %s · Kuartal %s · Diperbarui %s" % [meta.get("year", "—"), meta.get("quarter", "—"), meta.get("updated_at", "")], 13, UiKit.MUTED))
+		info.add_child(UiKit.label("Tahun %s · Kuartal %s · Diperbarui %s" % [meta.get("year", "-"), meta.get("quarter", "-"), meta.get("updated_at", "")], 13, UiKit.MUTED))
 		if not bool(slot.ok):
 			info.add_child(UiKit.tag(str(slot.error), UiKit.DANGER, 11))
 		row.add_child(info)

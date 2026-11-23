@@ -146,8 +146,8 @@ Docs: docs/31; report: `research/reports/2026-10-22_REGIONAL_SIMULATION_REPORT.m
 - **Policy + budget system**: data-driven PolicyEngine (6 prototype policies, 14 categories), regional targeting/response, delayed phases, commitments crowding out sector budgets, fiscal ledger, policy UI (P), save schema v3
 
 ## Ready, waiting on human input
-- BPS workflow (check → inventory → sample → bulk, approval-gated) — needs `BPS_API_KEY` in `.env`
-- Multi-year BNPB frequency — needs the 2002–2023 Drive files in `data/raw/bnpb/drive_manual/<year>/` (index: `research/sources/bnpb_yearly_index.md`)
+- BPS workflow (check → inventory → sample → bulk, approval-gated), needs `BPS_API_KEY` in `.env`
+- Multi-year BNPB frequency, needs the 2002–2023 Drive files in `data/raw/bnpb/drive_manual/<year>/` (index: `research/sources/bnpb_yearly_index.md`)
 
 ## In progress / next
 - Save/load menu UI (slot list), legacy screen, budget allocation + policy cards

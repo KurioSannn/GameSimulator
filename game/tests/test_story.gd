@@ -222,3 +222,22 @@ func test_no_em_dash_in_player_facing_story_text() -> void:
 		t.check(not JSON.stringify(ContentDB.story[f]).contains(dash), "%s.json free of U+2014" % f)
 	for id in _cases():
 		t.check(not JSON.stringify(_cases()[id].get("story", {})).contains(dash), "%s story free of U+2014" % id)
+
+
+func _scan_dir(dir: String, exts: Array, out: Array) -> void:
+	for f in DirAccess.get_files_at(dir):
+		if f.get_extension() in exts:
+			out.append(dir.path_join(f))
+	for d in DirAccess.get_directories_at(dir):
+		if d != "map":  # generated map/art exports keep their copied provenance text
+			_scan_dir(dir.path_join(d), exts, out)
+
+
+func test_no_em_dash_in_any_game_text_or_code() -> void:
+	var dash := String.chr(0x2014)
+	var files: Array = []
+	_scan_dir("res://data", ["json"], files)
+	_scan_dir("res://src", ["gd"], files)
+	for f in files:
+		var s := FileAccess.get_file_as_string(f)
+		t.check(not s.contains(dash) and not s.contains("\\u2014"), "%s free of U+2014 (scripts/text/em_dash.py --fix)" % f)

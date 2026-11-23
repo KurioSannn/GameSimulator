@@ -5,7 +5,7 @@ extends RefCounted
 ## picks cases deterministically via the world RNG, applies trigger effects and
 ## schedules choice consequences through EffectQueue.
 ##
-## Condition DSL (JSON) — evaluated by Conditions (shared with PolicyEngine):
+## Condition DSL (JSON): evaluated by Conditions (shared with PolicyEngine):
 ##   {"all": [c...]} | {"any": [c...]} | {"not": c}
 ##   {"tick": ">=", "value": 3}
 ##   {"var": "damage", "scope": "province:31", "agg": "mean|max|min", "op": ">=", "value": 30}
