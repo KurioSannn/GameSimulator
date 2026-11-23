@@ -2,8 +2,8 @@
   "schema": "nusantara.case_research/1",
   "case_id": "CASE-0010",
   "title": "Erupsi Eksplosif Gunung Merapi dan Relokasi Huntap 2010",
-  "status": "researched",
-  "status_note": "Data kronologi kegempaan dan erupsi bersumber dari PVMBG/Badan Geologi. Data korban jiwa, jumlah pengungsi, dan kerusakan bersumber dari laporan resmi BNPB dan BPBD DIY/Jateng. Dokumentasi pemukiman kembali (REKOMPAK) bersumber dari Kementerian PUPR dan Bappenas.",
+  "status": "candidate",
+  "status_note": "URL audit 2026-11-23: 3 of 4 cited source URLs did not resolve to the cited document (HTTP 200,403,403,404). The facts and sources in this record were not verified and must not be used in game content until re-researched. Previous note: Data kronologi kegempaan dan erupsi bersumber dari PVMBG/Badan Geologi. Data korban jiwa, jumlah pengungsi, dan kerusakan bersumber dari laporan resmi BNPB dan BPBD DIY/Jateng. Dokumentasi pemukiman kembali (REKOMPAK) bersumber dari Kementerian PUPR dan Bappenas.",
   "category": "volcanic_disaster_reconstruction",
   "subcategories": [
     "pyroclastic_flow",
@@ -115,7 +115,7 @@
     "Peta definitif KRB Merapi pasca-2010",
     "Daftar lokasi huntap relokasi Sleman (Kuwang, Plosokerep, Pagerjurang)"
   ],
-  "game_adaptation_ref": "game/data/cases/CASE-0010.json",
+  "game_adaptation_ref": null,
   "game_adaptation_notes": "Kasus bencana geologi tingkat regional. Fokus interaksi mencakup: evakuasi paksa terpusat (biaya tinggi, sentimen turun tapi selamat), pengadaan pakan/evakuasi ternak bersama warga (kepercayaan tinggi), dan kebijakan zonasi KRB non-hunian dengan relokasi Huntap.",
   "fact_vs_simulation_notes": "Data letusan 2010, radius 20 km, 353 korban, dan relokasi REKOMPAK adalah riil. Pilihan presiden, tanggapan mitigasi, dan hasil relokasi dalam permainan adalah kondisi simulatif."
 }

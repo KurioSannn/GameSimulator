@@ -150,7 +150,9 @@ func _build() -> void:
 		col.add_child(button)
 		keys.add_child(col)
 	controls.add_child(keys)
-	controls.add_child(UiKit.label("Klik tombol arah untuk mengubahnya (Esc batal). Spasi: lanjut kuartal · Scroll: zoom · Home: seluruh peta.", 13, UiKit.MUTED, true))
+	controls.add_child(UiKit.label("Klik tombol arah untuk mengubahnya (Esc batal). Spasi: lanjut kuartal · Home: seluruh peta.", 13, UiKit.MUTED, true))
+	_option(controls, "GULIR / TRACKPAD", "scroll_mode", ["Otomatis", "Gulir = zoom", "Gulir = geser peta"])
+	controls.add_child(UiKit.label("Geser peta: seret klik kiri, usap dua jari di trackpad, Shift+scroll, atau WASD/panah. Zoom: scroll mouse, cubit trackpad, Ctrl/⌘+scroll, atau tombol +/−. Putar & miringkan: seret klik kanan atau Q/E/R/F. Klik dua kali wilayah untuk mendekat. Pilih \"Gulir = geser peta\" bila touchpad Windows menggeser saat diusap.", 13, UiKit.MUTED, true))
 
 	var access := _section("AKSESIBILITAS", "imgIkonEye")
 	var scale := UiKit.hbox(12)

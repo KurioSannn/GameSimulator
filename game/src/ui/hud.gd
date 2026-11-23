@@ -144,6 +144,25 @@ func _build_sidebar() -> void:
 		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		column.add_child(button)
 	add_child(column)
+	# Always-visible map navigation: zoom without hunting for the scroll wheel or the tools card.
+	var nav := UiKit.vbox(6)
+	nav.name = "ZoomHUD"
+	nav.position = Vector2(18, 296)
+	for item in [["+", "zoom_in", "Perbesar peta (+ · scroll · cubit trackpad)"],
+		["−", "zoom_out", "Perkecil peta (− · scroll · cubit trackpad)"],
+		["⌂", "home", "Seluruh Indonesia (Home)"]]:
+		var kind: String = item[1]
+		var on_nav := func():
+			match kind:
+				"zoom_in": zoom_pressed.emit(1.3)
+				"zoom_out": zoom_pressed.emit(1.0 / 1.3)
+				_: home_pressed.emit()
+		var b := UiKit.ghost_button(item[0], on_nav, item[2])
+		b.name = "Zoom_" + kind
+		b.custom_minimum_size = Vector2(46, 42)
+		UiKit.hud_type(b, 22)
+		nav.add_child(b)
+	add_child(nav)
 
 func _build_right() -> void:
 	right_col = UiKit.vbox(8)

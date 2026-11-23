@@ -1,0 +1,173 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0020",
+ "research_ref": "research/cases/CASE-0020.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Gagal Ginjal Akut pada Anak",
+ "location_label": "Nasional (kasus dilaporkan dari 20 provinsi)",
+ "focus_regions": [],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 48
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0020"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "all",
+   "var": "trust",
+   "op": "add",
+   "value": -0.8
+  },
+  {
+   "scope": "all",
+   "var": "services",
+   "op": "add",
+   "value": -0.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Hingga 18 Oktober 2022, Kemenkes menerima laporan 206 kasus gangguan ginjal akut pada anak dari 20 provinsi dengan 99 kematian; penyebabnya saat itu masih ditelusuri.",
+    "source_refs": [
+     "SRC-KEMKES-GGAPA-2022-10-19"
+    ],
+    "as_of": "2022-10-19"
+   },
+   {
+    "text": "Kemenkes mendatangkan antidotum Fomepizole dari Singapura, Australia, Kanada, dan Jepang; per 1 November 2022, 146 vial telah disebar ke 17 rumah sakit di 11 provinsi.",
+    "source_refs": [
+     "SRC-KEMKES-GGAPA-2022-11-01"
+    ],
+    "as_of": "2022-11-01"
+   },
+   {
+    "text": "Hingga 15 November 2022 tercatat 324 kasus (199 meninggal, 111 sembuh, 14 dirawat), tanpa kasus baru sejak 2 November; Kemenkes mengaitkan penurunan ini dengan surat edaran 18 Oktober 2022 yang menghentikan sementara penggunaan obat sirop pada anak.",
+    "source_refs": [
+     "SRC-KEMKES-GGAPA-2022-11-16"
+    ],
+    "as_of": "2022-11-16"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Kesehatan",
+  "text": "Pak Presiden, kasus ini diangkat dari lonjakan gagal ginjal akut pada anak tahun 2022. Dalam simulasi kita, rumah sakit di banyak provinsi menerima balita yang tiba-tiba berhenti buang air kecil. Obat sirop dicurigai tetapi belum terbukti. Setiap hari ragu-ragu berarti risiko, setiap larangan berarti apotek dan orang tua kebingungan."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): trust −0.8 and services −0.5 nationwide. Cases came from 20 provinces, but no per-region distribution was sourced, so the effect is uniform. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "drug-safety crisis -> trust & services nationwide; blanket ban -> services disruption, faster trust recovery; targeted recall -> cheaper, trust lags; antidote & referral -> fiscal cost, services up",
+  "immediate": "a: fiscal −0.5, services −0.5/month for 2 months, trust +0.5; b: fiscal −1, trust −1; c: fiscal −2.5, services +0.5/month for 3 months, trust +0.3",
+  "delayed": "none",
+  "regional": "all 514 regencies/cities (uniform; no regional data)",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "All magnitudes are design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Hentikan sementara semua obat sirop anak",
+   "description": "Semua obat sirop untuk anak berhenti diresepkan dan dijual sampai diuji. Cepat memutus risiko, tetapi apotek, dokter, dan orang tua kesulitan mencari pengganti.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "all",
+     "var": "services",
+     "op": "add",
+     "value": -0.5,
+     "duration": 2
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "ggapa2022_response": "blanket_ban"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Uji dan tarik produk bertahap",
+   "description": "Hanya produk yang terbukti tercemar yang ditarik, setelah diuji satu per satu. Layanan tidak terganggu, tetapi kepastian datang lebih lambat.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    }
+   ],
+   "memory": {
+    "ggapa2022_response": "targeted_recall"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Antidot gratis dan jalur rujukan khusus",
+   "description": "Fokus pada pasien: antidot didatangkan dan digratiskan, rumah sakit rujukan disiapkan di tiap provinsi. Mahal, tetapi lebih banyak anak tertolong.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "all",
+     "var": "services",
+     "op": "add",
+     "value": 0.5,
+     "duration": 3
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": 0.3
+    }
+   ],
+   "memory": {
+    "ggapa2022_response": "antidote_referral"
+   }
+  }
+ ]
+}

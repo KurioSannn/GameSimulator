@@ -402,6 +402,9 @@ func _unhandled_input(event: InputEvent) -> void:
 					_handle_map_click(mb.position, mb.double_click)
 	elif event is InputEventMouseMotion:
 		var mm := event as InputEventMouseMotion
+		if _left_down and _active_nav().is_multitouch():
+			_is_panning = true  # two-finger pinch/pan owns the gesture; never treat it as a click
+			return
 		if _left_down:
 			if not _is_panning and (mm.position - _left_down_pos).length() > 5.0:
 				_is_panning = true
@@ -755,13 +758,16 @@ func _on_menu(id: String) -> void:
 
 
 func _zoom_by(factor: float) -> void:
+	var center := get_viewport().get_visible_rect().size / 2
 	if _mode_3d and camera_3d:
-		camera_3d.distance = clampf(camera_3d.distance / factor, camera_3d.min_distance, camera_3d.max_distance)
-		camera_3d._apply_transform()
-		camera_3d.view_changed.emit()
+		camera_3d.nav_zoom(factor, center)
 	elif camera:
-		camera._zoom_at(factor, get_viewport().get_visible_rect().size / 2)
+		camera.nav_zoom(factor, center)
 	_clear_map_focus()
+
+
+func _active_nav() -> MapNavInput:
+	return camera_3d.nav if _mode_3d and camera_3d else camera.nav
 
 
 func _fit_home() -> void:

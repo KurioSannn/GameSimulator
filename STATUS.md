@@ -1,8 +1,14 @@
 # STATUS
 
-_Last updated: 2026-11-20 (ChatGPT/Codex, profile/avatar/spacing fixes)._ **Submission deadline recorded by the project: 15 Nov 2026.**
+_Last updated: 2026-11-23 (Claude Code, trackpad/mouse controls + case re-verification)._ **Submission deadline recorded by the project: 15 Nov 2026.**
 
 ## Current phase
+**Trackpad/mouse controls and case re-verification (2026-11-23; user request)**:
+- Map navigation no longer requires click-and-hold. Two-finger trackpad swipe pans; pinch, Ctrl/⌘+scroll and the wheel zoom toward the cursor; Shift/horizontal wheel pans; touchscreens get two-finger pinch/pan. Shared `MapNavInput` serves both cameras. New setting GULIR / TRACKPAD; always-visible +/−/⌂ buttons.
+- CASE-0009…0020 audit: 50 cited URLs, most 404/unreachable; the registry listed different topics than the files contained. Six topics re-researched with sources read on 2026-11-23 and now playable: CASE-0011, 0013, 0014, 0015, 0016, 0020 (14 major cases in game). Six records quarantined (status back to `candidate`).
+- Capacity: one decision per quarter (20 slots). New cases use story_priority 8, so the original eight always appear; 2–3 new cases are skipped per playthrough. **Team decision needed** on decisions per quarter.
+- Tests 167/167. Report: research/reports/2026-11-23_CONTROLS_AND_CASE_REVERIFICATION_REPORT.md.
+
 **Profile/avatar/frame-spacing fixes implemented (2026-11-20; user authorized after audit)**:
 - Shared outer inset 36 versus slice 24; banner controls clear their edges, case inner width follows actual frame margins, and disabled buttons retain readable paper styling.
 - Framed, aspect-preserving HUD/profile portraits. One alpha-cropped character stage anchors feet to a soft contact shadow; separate blue ellipse removed from profile composition.

@@ -1,7 +1,7 @@
 class_name MapCamera
 extends Camera2D
-## Desktop map navigation: wheel zoom toward cursor, middle/right-drag pan, WASD/arrow pan,
-## +/- zoom, Home to fit. Uses _unhandled_input so GUI panels consume their own events first.
+## Desktop map navigation: wheel/pinch zoom toward cursor, trackpad two-finger pan, left drag (via
+## Main) or middle/right-drag pan, WASD/arrow pan, +/- zoom, Home to fit. Device mapping: MapNavInput. Uses _unhandled_input so GUI panels consume their own events first.
 
 signal view_changed
 
@@ -12,6 +12,7 @@ var min_zoom := 0.2
 var max_zoom := 28.0
 var map_bounds := Rect2()
 var _dragging := false
+var nav := MapNavInput.new()
 
 
 func fit(rect: Rect2, viewport_size: Vector2) -> void:
@@ -32,31 +33,32 @@ func focus_rect(rect: Rect2, viewport_size: Vector2) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if nav.handle(event, nav_pan, nav_zoom, get_viewport().get_mouse_position()):
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventMouseButton:
 		var mb := event as InputEventMouseButton
-		if mb.pressed and mb.button_index == MOUSE_BUTTON_WHEEL_UP:
-			_zoom_at(ZOOM_STEP, mb.position)
-		elif mb.pressed and mb.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			_zoom_at(1.0 / ZOOM_STEP, mb.position)
-		elif mb.button_index in [MOUSE_BUTTON_MIDDLE, MOUSE_BUTTON_RIGHT]:
+		if mb.button_index in [MOUSE_BUTTON_MIDDLE, MOUSE_BUTTON_RIGHT]:
 			_dragging = mb.pressed
 	elif event is InputEventMouseMotion and _dragging:
-		position -= (event as InputEventMouseMotion).relative / zoom.x
-		_clamp()
-		view_changed.emit()
-	elif event is InputEventMagnifyGesture:  # trackpads on laptops
-		var mag := event as InputEventMagnifyGesture
-		var pos := mag.position if mag.position != Vector2.ZERO else get_viewport().get_mouse_position()
-		_zoom_at(mag.factor, pos.clamp(Vector2.ZERO, get_viewport_rect().size))
-	elif event is InputEventPanGesture:
-		position += (event as InputEventPanGesture).delta * 20.0 / zoom.x
-		_clamp()
-		view_changed.emit()
+		nav_pan(-(event as InputEventMouseMotion).relative)
 	elif event is InputEventKey and event.pressed:
 		match (event as InputEventKey).keycode:
 			KEY_EQUAL, KEY_KP_ADD: _zoom_at(ZOOM_STEP, get_viewport_rect().size / 2)
 			KEY_MINUS, KEY_KP_SUBTRACT: _zoom_at(1.0 / ZOOM_STEP, get_viewport_rect().size / 2)
 			KEY_HOME: fit(map_bounds, get_viewport_rect().size)
+
+
+## Moves the view by a screen-pixel delta (positive y = look further south).
+func nav_pan(view_delta: Vector2) -> void:
+	position += view_delta / zoom.x
+	_clamp()
+	view_changed.emit()
+
+
+func nav_zoom(zoom_in: float, at: Vector2) -> void:
+	if zoom_in > 0.0:
+		_zoom_at(zoom_in, at)
 
 
 func _process(delta: float) -> void:

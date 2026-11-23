@@ -1,0 +1,308 @@
+{
+ "schema": "nusantara.source_url_audit/1",
+ "checked_at": "2026-11-23",
+ "method": "curl -L, 20 s timeout, generic UA; status 000 = DNS/TLS/timeout failure",
+ "note": "HTTP 200 does not prove the cited content exists: the BPS URL for CASE-0009 returned 200 with a '404 - Page Not Found' body.",
+ "rows": [
+  {
+   "case_id": "CASE-0009",
+   "http_status": 200,
+   "source_id": "SRC-BPS-BRS-BERAS-202403",
+   "url": "https://www.bps.go.id/id/pressrelease/2024/03/01/2371/luas-panen-dan-produksi-padi-di-indonesia-2023--angka-tetap-.html"
+  },
+  {
+   "case_id": "CASE-0009",
+   "http_status": 200,
+   "source_id": "SRC-BAPANAS-HARGA-202310",
+   "url": "https://panelharga.badanpangan.go.id/"
+  },
+  {
+   "case_id": "CASE-0009",
+   "http_status": 404,
+   "source_id": "SRC-SETKAB-RATAS-BERAS-202309",
+   "url": "https://setkab.go.id/presiden-jokowi-pimpin-ratas-antisipasi-dampak-el-nino/"
+  },
+  {
+   "case_id": "CASE-0009",
+   "http_status": 404,
+   "source_id": "SRC-BULOG-IMPOR-202311",
+   "url": "https://www.bulog.co.id/siaran-pers-realisasi-stok-cbp/"
+  },
+  {
+   "case_id": "CASE-0009",
+   "http_status": 404,
+   "source_id": "SRC-BAPANAS-BANTUAN-PANGAN-2023",
+   "url": "https://badanpangan.go.id/berita-penyaluran-bantuan-pangan-beras"
+  },
+  {
+   "case_id": "CASE-0010",
+   "http_status": 200,
+   "source_id": "SRC-ESDM-PVMBG-MERAPI-2010",
+   "url": "https://vsi.esdm.go.id/laporan-aktivitas-gunungapi-merapi-2010"
+  },
+  {
+   "case_id": "CASE-0010",
+   "http_status": 403,
+   "source_id": "SRC-BNPB-MERAPI-LAPORAN-2010",
+   "url": "https://bnpb.go.id/laporan-erupsi-merapi-2010"
+  },
+  {
+   "case_id": "CASE-0010",
+   "http_status": 403,
+   "source_id": "SRC-BNPB-MERAPI-FINAL-2011",
+   "url": "https://bnpb.go.id/evaluasi-merapi-2011"
+  },
+  {
+   "case_id": "CASE-0010",
+   "http_status": 404,
+   "source_id": "SRC-PUPR-REKOMPAK-MERAPI-2012",
+   "url": "https://pu.go.id/berita-rekompak-huntap-merapi"
+  },
+  {
+   "case_id": "CASE-0011",
+   "http_status": 404,
+   "source_id": "SRC-ESDM-INVESTIGASI-BLACKOUT-2019",
+   "url": "https://www.esdm.go.id/siaran-pers-hasil-investigasi-pemadaman-listrik-2019"
+  },
+  {
+   "case_id": "CASE-0011",
+   "http_status": 0,
+   "source_id": "SRC-PLN-KOMPENSASI-2019",
+   "url": "https://web.pln.co.id/media/siaran-pers/2019/08/kompensasi-tmp-blackout"
+  },
+  {
+   "case_id": "CASE-0011",
+   "http_status": 0,
+   "source_id": "SRC-KOMINFO-JARINGAN-BLACKOUT-2019",
+   "url": "https://kominfo.go.id/berita/monitoring-telekomunikasi-blackout-2019"
+  },
+  {
+   "case_id": "CASE-0011",
+   "http_status": 0,
+   "source_id": "SRC-PLN-LAPORAN-KOMPENSASI-2019",
+   "url": "https://web.pln.co.id/laporan-realisasi-kompensasi-2019"
+  },
+  {
+   "case_id": "CASE-0011",
+   "http_status": 200,
+   "source_id": "SRC-MRT-EVAKUASI-2019",
+   "url": "https://jakartamrt.co.id/siaran-pers-evakuasi-penumpang-blackout"
+  },
+  {
+   "case_id": "CASE-0012",
+   "http_status": 401,
+   "source_id": "SRC-BKPM-REMPANG-2023",
+   "url": "https://www.bkpm.go.id/siaran-pers-investasi-rempang-2023"
+  },
+  {
+   "case_id": "CASE-0012",
+   "http_status": 403,
+   "source_id": "SRC-KOMNAS-HAM-REMPANG-2023",
+   "url": "https://www.komnasham.go.id/laporan-pemantauan-rempang-2023"
+  },
+  {
+   "case_id": "CASE-0012",
+   "http_status": 404,
+   "source_id": "SRC-OMBUDSMAN-REMPANG-2023",
+   "url": "https://ombudsman.go.id/berita-investigasi-rempang-2023"
+  },
+  {
+   "case_id": "CASE-0012",
+   "http_status": 404,
+   "source_id": "SRC-SETKAB-REMPANG-KOMPROMI-2023",
+   "url": "https://setkab.go.id/presiden-jokowi-instruksikan-penyelesaian-humanis-kasus-rempang/"
+  },
+  {
+   "case_id": "CASE-0013",
+   "http_status": 0,
+   "source_id": "SRC-KEMENKES-ASMAT-KLB-2018",
+   "url": "https://sehatnegeriku.kemkes.go.id/baca/rilis-media/20180115/kemenkes-tangani-klb-asmat/"
+  },
+  {
+   "case_id": "CASE-0013",
+   "http_status": 0,
+   "source_id": "SRC-KEMENKES-LAPORAN-AKHIR-ASMAT-2018",
+   "url": "https://sehatnegeriku.kemkes.go.id/baca/rilis-media/20180205/laporan-akhir-klb-asmat/"
+  },
+  {
+   "case_id": "CASE-0013",
+   "http_status": 403,
+   "source_id": "SRC-BNPB-SITREP-ASMAT-2018",
+   "url": "https://bnpb.go.id/sitrep-kesehatan-asmat-2018"
+  },
+  {
+   "case_id": "CASE-0013",
+   "http_status": 404,
+   "source_id": "SRC-SETKAB-PENANGANAN-ASMAT-2018",
+   "url": "https://setkab.go.id/presiden-jokowi-instruksikan-penanganan-total-asmat/"
+  },
+  {
+   "case_id": "CASE-0014",
+   "http_status": 404,
+   "source_id": "SRC-BMKG-TSUNAMI-KRAKATAU-2018",
+   "url": "https://www.bmkg.go.id/berita-tsunami-selat-sunda-2018"
+  },
+  {
+   "case_id": "CASE-0014",
+   "http_status": 200,
+   "source_id": "SRC-ESDM-GEOLOGI-ANAK-KRAKATAU-2018",
+   "url": "https://vsi.esdm.go.id/laporan-kolaps-anak-krakatau-2018"
+  },
+  {
+   "case_id": "CASE-0014",
+   "http_status": 403,
+   "source_id": "SRC-BNPB-LAPORAN-TSUNAMI-SUNDA-2019",
+   "url": "https://bnpb.go.id/laporan-akhir-tsunami-selat-sunda-2019"
+  },
+  {
+   "case_id": "CASE-0014",
+   "http_status": 404,
+   "source_id": "SRC-BMKG-EVALUASI-INATEWS-2018",
+   "url": "https://www.bmkg.go.id/evaluasi-peringatan-dini-non-tektonik"
+  },
+  {
+   "case_id": "CASE-0015",
+   "http_status": 404,
+   "source_id": "SRC-KKP-PERMEN-2-2015",
+   "url": "https://jdih.kkp.go.id/dokumen/permen-kp-2-2015"
+  },
+  {
+   "case_id": "CASE-0015",
+   "http_status": 404,
+   "source_id": "SRC-KKP-DIALOG-NELAYAN-2018",
+   "url": "https://setkab.go.id/presiden-jokowi-temui-perwakilan-nelayan-cantrang/"
+  },
+  {
+   "case_id": "CASE-0015",
+   "http_status": 404,
+   "source_id": "SRC-KKP-EVALUASI-BANTUAN-ALAT-2019",
+   "url": "https://kkp.go.id/laporan-bantuan-alat-tangkap-2019"
+  },
+  {
+   "case_id": "CASE-0015",
+   "http_status": 404,
+   "source_id": "SRC-KKP-NATUNA-KONFLIK-2020",
+   "url": "https://kkp.go.id/penyelesaian-wilayah-tangkap-natuna-2020"
+  },
+  {
+   "case_id": "CASE-0016",
+   "http_status": 404,
+   "source_id": "SRC-BMKG-HUJAN-SENTANI-2019",
+   "url": "https://www.bmkg.go.id/analisis-hujan-ekstrem-sentani-2019"
+  },
+  {
+   "case_id": "CASE-0016",
+   "http_status": 403,
+   "source_id": "SRC-BNPB-SENTANI-FINAL-2019",
+   "url": "https://bnpb.go.id/laporan-akhir-banjir-sentani-2019"
+  },
+  {
+   "case_id": "CASE-0016",
+   "http_status": 0,
+   "source_id": "SRC-KLHK-DAS-CYCLOOP-2019",
+   "url": "https://ppid.menlhk.go.id/berita-evaluasi-das-cycloop-2019"
+  },
+  {
+   "case_id": "CASE-0016",
+   "http_status": 0,
+   "source_id": "SRC-KLHK-REHAB-CYCLOOP-2020",
+   "url": "https://menlhk.go.id/rencana-induk-pemulihan-cycloop"
+  },
+  {
+   "case_id": "CASE-0017",
+   "http_status": 200,
+   "source_id": "SRC-DPR-UU-IKN-2022",
+   "url": "https://peraturan.go.id/id/uu-no-3-tahun-2022"
+  },
+  {
+   "case_id": "CASE-0017",
+   "http_status": 0,
+   "source_id": "SRC-KEMENKEU-APBN-IKN-2024",
+   "url": "https://kemenkeu.go.id/alokasi-apbn-ikn-2024"
+  },
+  {
+   "case_id": "CASE-0017",
+   "http_status": 403,
+   "source_id": "SRC-BAPPENAS-FOREST-CITY-2022",
+   "url": "https://ikn.go.id/rencana-induk-ikn-bappenas"
+  },
+  {
+   "case_id": "CASE-0017",
+   "http_status": 403,
+   "source_id": "SRC-KOMNAS-HAM-IKN-MASYARAKAT-2023",
+   "url": "https://komnasham.go.id/pengawasan-hak-masyarakat-adat-ikn-2023"
+  },
+  {
+   "case_id": "CASE-0018",
+   "http_status": 403,
+   "source_id": "SRC-KOMNAS-HAM-KINIPAN-2020",
+   "url": "https://www.komnasham.go.id/pernyataan-sikap-kasus-kinipan-2020"
+  },
+  {
+   "case_id": "CASE-0018",
+   "http_status": 0,
+   "source_id": "SRC-POLDA-KALTENG-PENANGGUHAN-2020",
+   "url": "https://tribratanews.kalteng.polri.go.id/penangguhan-penahanan-kinipan-2020"
+  },
+  {
+   "case_id": "CASE-0018",
+   "http_status": 0,
+   "source_id": "SRC-KLHK-KLARIFIKASI-KINIPAN-2020",
+   "url": "https://ppid.menlhk.go.id/siaran-pers-status-hutan-kinipan-2020"
+  },
+  {
+   "case_id": "CASE-0018",
+   "http_status": 404,
+   "source_id": "SRC-AMAN-PETA-KINIPAN-2020",
+   "url": "https://aman.or.id/laporan-advokasi-kinipan-2020"
+  },
+  {
+   "case_id": "CASE-0019",
+   "http_status": 200,
+   "source_id": "SRC-SETKAB-PERPRES-15-2018",
+   "url": "https://peraturan.go.id/id/perpres-no-15-tahun-2018"
+  },
+  {
+   "case_id": "CASE-0019",
+   "http_status": 0,
+   "source_id": "SRC-KLHK-CITARUM-PROFIL-2018",
+   "url": "https://ppid.menlhk.go.id/status-mutu-air-citarum-2018"
+  },
+  {
+   "case_id": "CASE-0019",
+   "http_status": 403,
+   "source_id": "SRC-SATGAS-CITARUM-DATA-2018",
+   "url": "https://dlh.jabarprov.go.id/laporan-industri-citarum-2018"
+  },
+  {
+   "case_id": "CASE-0019",
+   "http_status": 0,
+   "source_id": "SRC-KODAM-SILIWANGI-PENINDAKAN-2019",
+   "url": "https://siliwangi.mil.id/citarum-harum-progres-2019"
+  },
+  {
+   "case_id": "CASE-0020",
+   "http_status": 0,
+   "source_id": "SRC-KEMENKES-GGAPA-PENGUMUMAN-2022",
+   "url": "https://sehatnegeriku.kemkes.go.id/baca/rilis-media/20221018/kemenkes-terbitkan-se-ggapa/"
+  },
+  {
+   "case_id": "CASE-0020",
+   "http_status": 404,
+   "source_id": "SRC-BPOM-HASIL-UJI-OBAT-2022",
+   "url": "https://www.pom.go.id/penjelasan-bpom-sirup-obat-cemaran-eg-deg"
+  },
+  {
+   "case_id": "CASE-0020",
+   "http_status": 0,
+   "source_id": "SRC-KEMENKES-DATA-AKHIR-GGAPA-2022",
+   "url": "https://sehatnegeriku.kemkes.go.id/baca/rilis-media/20221116/update-kasus-ggapa-kemenkes/"
+  },
+  {
+   "case_id": "CASE-0020",
+   "http_status": 0,
+   "source_id": "SRC-KEMENKES-FOMEPIZOLE-2022",
+   "url": "https://sehatnegeriku.kemkes.go.id/baca/rilis-media/20221025/pengadaan-fomepizole-gratis/"
+  }
+ ]
+}

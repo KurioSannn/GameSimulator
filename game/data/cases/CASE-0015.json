@@ -1,0 +1,214 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0015",
+ "research_ref": "research/cases/CASE-0015.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Cantrang dan Laut Pantura",
+ "location_label": "Kab./Kota Tegal, Kab. Batang, Kab. Pati, Kab. Rembang (Jawa Tengah)",
+ "focus_regions": [
+  "33.28",
+  "33.76",
+  "33.25",
+  "33.18",
+  "33.17"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 12
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0015"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+   "var": "trust",
+   "op": "add",
+   "value": -2.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Pada 15 Januari 2018 di Tegal, perwakilan nelayan meminta Presiden melakukan uji petik oleh para ahli untuk membuktikan apakah cantrang merusak lingkungan, dan meminta cantrang dilegalkan selama uji petik berlangsung.",
+    "source_refs": [
+     "SRC-SETKAB-CANTRANG-2018-01-16"
+    ],
+    "as_of": "2018-01-16"
+   },
+   {
+    "text": "Dalam pertemuan 17 Januari 2018 di Istana Merdeka, sementara ribuan nelayan berunjuk rasa di depannya, pemerintah memutuskan tidak mencabut peraturan larangan cantrang tetapi memberi perpanjangan waktu melaut sampai pengalihan alat tangkap selesai.",
+    "source_refs": [
+     "SRC-SETNEG-CANTRANG-2018-01-18"
+    ],
+    "as_of": "2018-01-18"
+   },
+   {
+    "text": "Syarat perpanjangan: tidak boleh ada penambahan kapal cantrang, semua kapal wajib diukur ulang dengan benar, dan hanya boleh beroperasi di Pantai Utara Jawa. Bupati/wali kota Batang, Tegal, Kota Tegal, Pati, dan Rembang hadir.",
+    "source_refs": [
+     "SRC-SETNEG-CANTRANG-2018-01-18"
+    ],
+    "as_of": "2018-01-18"
+   },
+   {
+    "text": "Pada 8 Mei 2018 Presiden kembali mengajak nelayan beralih ke alat tangkap ramah lingkungan, dengan alasan kekayaan laut harus dijaga untuk generasi berikutnya.",
+    "source_refs": [
+     "SRC-SETNEG-CANTRANG-2018-05-08"
+    ],
+    "as_of": "2018-05-08"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Kelautan",
+  "text": "Pak Presiden, kasus ini diangkat dari polemik cantrang awal 2018. Dalam simulasi kita, ribuan nelayan Pantura berkumpul di depan Istana. Mereka bilang tanpa cantrang kapal tidak bisa melaut; para ahli kelautan bilang tanpa larangan, ikan di Laut Jawa akan habis."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): welfare −1.5 and trust −2 in the five Pantura regencies/cities whose heads attended the 17 Jan 2018 meeting. No fleet or income data was sourced; magnitudes are design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "gear ban -> fishing income (welfare) & protest (trust); stock recovery -> environment -> welfare_base (delayed)",
+  "immediate": "a: fiscal −0.5, welfare −1.5/month for 3 months, trust −2; b: fiscal −2, trust +0.5; c: welfare +0.5, trust +1.5",
+  "delayed": "a: environment +5 after 6 months, welfare_base +0.5 after 18; b: environment +3 after 12 months; c: environment −5 after 6 months, welfare_base −0.5 after 18",
+  "regional": "Batang, Kab./Kota Tegal, Pati, Rembang",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "'environment' stands for the coastal fish-stock condition. All magnitudes are design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Tegakkan larangan penuh sekarang",
+   "description": "Cantrang dilarang tanpa perpanjangan. Laut pulih lebih cepat, tetapi banyak kapal berhenti melaut dan protes membesar.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+     "var": "welfare",
+     "op": "add",
+     "value": -1.5,
+     "duration": 3
+    },
+    {
+     "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+     "var": "trust",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+     "var": "environment",
+     "op": "add",
+     "value": 5.0,
+     "delay": 6
+    },
+    {
+     "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.5,
+     "delay": 18
+    }
+   ],
+   "memory": {
+    "cantrang2018_response": "strict_ban"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Masa peralihan bersyarat",
+   "description": "Kapal yang ada boleh melaut sementara di Pantura, tanpa kapal baru, dengan pengukuran ulang dan bantuan alat tangkap pengganti. Lebih mahal, protes mereda, laut pulih lebih lambat.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    },
+    {
+     "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+     "var": "environment",
+     "op": "add",
+     "value": 3.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "cantrang2018_response": "conditional_transition"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Cabut larangan cantrang",
+   "description": "Cantrang dilegalkan kembali. Nelayan langsung lega, tetapi tekanan pada stok ikan berlanjut dan hasil tangkapan menurun di tahun-tahun berikutnya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.5
+    },
+    {
+     "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    },
+    {
+     "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+     "var": "environment",
+     "op": "add",
+     "value": -5.0,
+     "delay": 6
+    },
+    {
+     "scope": "regions:33.28,33.76,33.25,33.18,33.17",
+     "var": "welfare_base",
+     "op": "add",
+     "value": -0.5,
+     "delay": 18
+    }
+   ],
+   "memory": {
+    "cantrang2018_response": "lift_ban"
+   }
+  }
+ ]
+}

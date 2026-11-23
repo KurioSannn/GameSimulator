@@ -2,8 +2,8 @@
   "schema": "nusantara.case_research/1",
   "case_id": "CASE-0009",
   "title": "Krisis Pasokan Beras dan Dampak El Nino Kuat 2023–2024",
-  "status": "researched",
-  "status_note": "Data produksi beras, penurunan luas panen, dan lonjakan harga pangan bersumber dari Berita Resmi Statistik (BRS) BPS serta rilis resmi Badan Pangan Nasional (Bapanas) dan Perum Bulog. Data bantuan pangan beras 10 kg tercatat dalam Keputusan Bapanas dan Rapat Terbatas Presiden.",
+  "status": "candidate",
+  "status_note": "URL audit 2026-11-23: 4 of 5 cited source URLs did not resolve to the cited document (HTTP 200,200,404,404,404). The facts and sources in this record were not verified and must not be used in game content until re-researched. Previous note: Data produksi beras, penurunan luas panen, dan lonjakan harga pangan bersumber dari Berita Resmi Statistik (BRS) BPS serta rilis resmi Badan Pangan Nasional (Bapanas) dan Perum Bulog. Data bantuan pangan beras 10 kg tercatat dalam Keputusan Bapanas dan Rapat Terbatas Presiden.",
   "category": "food_security_agriculture",
   "subcategories": [
     "rice_production",
@@ -127,7 +127,7 @@
     "Data realisasi panen gadu 2023 per kabupaten di sentra Pantura",
     "Rincian realisasi Bantuan Pangan Beras per kabupaten/kota"
   ],
-  "game_adaptation_ref": "game/data/cases/CASE-0009.json",
+  "game_adaptation_ref": null,
   "game_adaptation_notes": "Kasus pangan skala nasional dengan asimetri regional: sentra produsen padi (Jatim/Jabar/Jateng/Sulsel) tertekan penurunan output, sementara daerah konsumen defisit mengalami lonjakan harga tajam. Pilihan pemain melibatkan trade-off antara kuota impor kilat, bantuan pangan APBN, atau pompanisasi darurat.",
   "fact_vs_simulation_notes": "Data penurunan produksi beras BPS, angka impor Bulog, dan bantuan pangan 21,35 juta KPM adalah fakta sejarah riil. Jalur kebijakan alternatif pemain dan proyeksi kestabilan harga jangka panjang adalah simulasi game."
 }

@@ -1,0 +1,210 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0016",
+ "research_ref": "research/cases/CASE-0016.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Banjir Bandang Sentani",
+ "location_label": "Kab. Jayapura dan Kota Jayapura, Papua",
+ "focus_regions": [
+  "91.03",
+  "91.71"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 41
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0016"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:91.03",
+   "var": "damage",
+   "op": "add",
+   "value": 10.0
+  },
+  {
+   "scope": "region:91.03",
+   "var": "welfare",
+   "op": "add",
+   "value": -2.0
+  },
+  {
+   "scope": "region:91.03",
+   "var": "services",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "region:91.71",
+   "var": "damage",
+   "op": "add",
+   "value": 2.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Hingga 19 Maret 2019 pagi, posko tanggap darurat mencatat 89 orang meninggal: 82 akibat banjir bandang di Kabupaten Jayapura dan 7 akibat tanah longsor di Ampera, Kota Jayapura.",
+    "source_refs": [
+     "SRC-SETKAB-SENTANI-2019-03-19"
+    ],
+    "as_of": "2019-03-19"
+   },
+   {
+    "text": "Pada tanggal yang sama tercatat 74 orang dilaporkan hilang, 159 luka-luka, dan 6.831 pengungsi di 15 titik; 1.613 personel dari 23 instansi menangani keadaan darurat.",
+    "source_refs": [
+     "SRC-SETKAB-SENTANI-2019-03-19"
+    ],
+    "as_of": "2019-03-19"
+   },
+   {
+    "text": "Presiden menginstruksikan evakuasi secepatnya dan meminta laporan penyebab bencana untuk menangani kerusakan hulu, tidak hanya di Sentani tetapi di daerah lain di Indonesia.",
+    "source_refs": [
+     "SRC-SETKAB-SENTANI-2019-03-17"
+    ],
+    "as_of": "2019-03-17"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Kebencanaan",
+  "text": "Pak Presiden, kasus ini diangkat dari banjir bandang Sentani Maret 2019. Dalam simulasi kita, hujan lebat malam hari membawa lumpur, batu, dan kayu dari lereng di atas Sentani ke kompleks perumahan. Ribuan warga mengungsi dan takut kembali. Penanganan darurat penting, tetapi akar masalahnya ada di hulu."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Kab. Jayapura damage 10 vs Kota Jayapura 2, following the official split of deaths (82 vs 7). Magnitudes are design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "flash flood -> damage -> services & welfare; relief -> damage recovery; upstream rehabilitation -> environment + flood_protection (delayed); river engineering -> flood_protection + infrastructure but environment loss",
+  "immediate": "a: fiscal −2.5, damage −2/month for 3 months, trust +1; b: fiscal −3, trust −0.5; c: fiscal −4",
+  "delayed": "b: environment +8 and flood_protection +4 after 9 months; c: flood_protection +8 and infrastructure +3 after 6 months, environment −2",
+  "regional": "Kab. Jayapura (main), Kota Jayapura (landslide)",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "All magnitudes are design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Evakuasi dan pemulihan cepat",
+   "description": "Semua sumber daya untuk pencarian korban, pengungsian, dan membersihkan permukiman. Warga cepat kembali, tetapi lereng di hulu tetap rusak.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "regions:91.03,91.71",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "duration": 3
+    },
+    {
+     "scope": "regions:91.03,91.71",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "sentani2019_response": "relief"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Rehabilitasi kawasan hulu",
+   "description": "Reboisasi dan penertiban permukiman di lereng hulu bersama masyarakat adat. Tidak terlihat cepat, tetapi risiko banjir bandang berikutnya turun.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "regions:91.03,91.71",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "region:91.03",
+     "var": "environment",
+     "op": "add",
+     "value": 8.0,
+     "delay": 9
+    },
+    {
+     "scope": "region:91.03",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 4.0,
+     "delay": 9
+    }
+   ],
+   "memory": {
+    "sentani2019_response": "upstream_rehab"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Normalisasi sungai dan tanggul",
+   "description": "Sungai dikeruk, diluruskan, dan diberi tanggul beton. Perlindungan cepat terasa, tetapi ekosistem sungai dan danau rusak.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.0
+    },
+    {
+     "scope": "region:91.03",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 8.0,
+     "delay": 6
+    },
+    {
+     "scope": "region:91.03",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    },
+    {
+     "scope": "region:91.03",
+     "var": "environment",
+     "op": "add",
+     "value": -2.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "sentani2019_response": "river_engineering"
+   }
+  }
+ ]
+}

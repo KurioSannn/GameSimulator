@@ -2,8 +2,8 @@
   "schema": "nusantara.case_research/1",
   "case_id": "CASE-0018",
   "title": "Sengketa Wilayah Adat Laman Kinipan dan Konsesi Sawit 2020",
-  "status": "researched",
-  "status_note": "Kronologi konflik pertanahan dan penangkapan tokoh adat mengacu pada siaran pers koalisi masyarakat sipil, Komnas HAM, dan kepolisian. Data status izin HGU perkebunan dan peta hutan adat bersumber dari KLHK dan ATR/BPN.",
+  "status": "candidate",
+  "status_note": "URL audit 2026-11-23: 4 of 4 cited source URLs did not resolve to the cited document (HTTP 403,0,0,404). The facts and sources in this record were not verified and must not be used in game content until re-researched. Previous note: Kronologi konflik pertanahan dan penangkapan tokoh adat mengacu pada siaran pers koalisi masyarakat sipil, Komnas HAM, dan kepolisian. Data status izin HGU perkebunan dan peta hutan adat bersumber dari KLHK dan ATR/BPN.",
   "category": "indigenous_land_forestry_conflict",
   "subcategories": [
     "customary_forest",
@@ -114,7 +114,7 @@
     "Perkembangan penetapan Perda MHA Lamandau",
     "Peta indikatif Hutan Adat BRWA untuk Lamandau"
   ],
-  "game_adaptation_ref": "game/data/cases/CASE-0018.json",
+  "game_adaptation_ref": null,
   "game_adaptation_notes": "Kasus konflik tata kelola hutan adat vs kepastian hukum izin usaha perkebunan. Pilihan mencakup: moratorium konsesi dan dorongan Perda Hutan Adat (stabilitas sosial terjaga, pendapatan sawit turun), penegakan hukum izin HGU (protes publik meluas), atau mediasi pembagian zona kemitraan plasma.",
   "fact_vs_simulation_notes": "Kasus penangkapan Effendi Buhing, sengketa izin sawit Kinipan 2020, dan regulasi Perda MHA adalah fakta. Kebijakan penyelesaian di tangan pemain adalah simulasi interaktif."
 }

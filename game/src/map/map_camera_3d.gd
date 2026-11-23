@@ -2,9 +2,11 @@ class_name MapCamera3D
 extends Camera3D
 ## 3D Desktop map navigation: tabletop diorama camera with strict Indonesia safe-zone clamping.
 ## Controls:
-## - Left drag (via Main) / Middle drag / WASD / Arrows: Pan strictly within Indonesia archipelago safe zone.
-## - Right drag / Q / E / R / F: Bounded orbit & tilt.
-## - Wheel / + / -: Bounded smooth zoom toward ground target.
+## - Left drag (via Main) / WASD / Arrows / trackpad two-finger swipe / Shift+wheel: pan within the
+##   Indonesia archipelago safe zone.
+## - Right or middle drag / Q / E / R / F: bounded orbit & tilt.
+## - Wheel / trackpad pinch / Ctrl+scroll / + / -: bounded zoom toward the cursor.
+## - Touchscreen: two-finger pinch & drag. Device mapping lives in MapNavInput.
 ## - Home: Fit entire archipelago.
 
 signal view_changed
@@ -30,6 +32,7 @@ var _dragging_pan := false
 var _dragging_orbit := false
 var _last_mouse_pos := Vector2.ZERO
 var _focus_tween: Tween
+var nav := MapNavInput.new()
 
 
 func _ready() -> void:
@@ -108,16 +111,17 @@ func get_ground_position(screen_pos: Vector2) -> Vector2:
 func _unhandled_input(event: InputEvent) -> void:
 	if not current:
 		return
+	if nav.handle(event, nav_pan, nav_zoom, get_viewport().get_mouse_position()):
+		_kill_focus_tween()
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventMouseButton:
 		var mb := event as InputEventMouseButton
-		if mb.pressed and mb.button_index == MOUSE_BUTTON_WHEEL_UP:
-			_zoom_step(1.0 / ZOOM_STEP, mb.position)
-		elif mb.pressed and mb.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			_zoom_step(ZOOM_STEP, mb.position)
-		elif mb.button_index == MOUSE_BUTTON_RIGHT or mb.button_index == MOUSE_BUTTON_MIDDLE:
+		if mb.button_index == MOUSE_BUTTON_RIGHT or mb.button_index == MOUSE_BUTTON_MIDDLE:
 			if mb.pressed:
 				_last_mouse_pos = mb.position
 				_dragging_orbit = true
+				_kill_focus_tween()
 			else:
 				_dragging_orbit = false
 	elif event is InputEventMouseMotion:
@@ -126,9 +130,26 @@ func _unhandled_input(event: InputEvent) -> void:
 			drag_orbit_step(mm.relative)
 	elif event is InputEventKey and event.pressed:
 		match (event as InputEventKey).keycode:
-			KEY_EQUAL, KEY_KP_ADD: _zoom_step(1.0 / ZOOM_STEP, get_viewport().get_visible_rect().size * 0.5)
-			KEY_MINUS, KEY_KP_SUBTRACT: _zoom_step(ZOOM_STEP, get_viewport().get_visible_rect().size * 0.5)
+			KEY_EQUAL, KEY_KP_ADD: nav_zoom(MapNavInput.ZOOM_STEP, get_viewport().get_visible_rect().size * 0.5)
+			KEY_MINUS, KEY_KP_SUBTRACT: nav_zoom(1.0 / MapNavInput.ZOOM_STEP, get_viewport().get_visible_rect().size * 0.5)
 			KEY_HOME, KEY_BACKSPACE: fit(map_bounds, get_viewport().get_visible_rect().size)
+
+
+## Moves the view by a screen-pixel delta (positive y = look further south), as if dragging the map by -delta.
+func nav_pan(view_delta: Vector2) -> void:
+	var c := get_viewport().get_visible_rect().size * 0.5 if is_inside_tree() else Vector2.ZERO
+	drag_pan_step(c, c - view_delta)
+
+
+## zoom_in > 1 moves the camera closer, keeping the ground point under `at` fixed.
+func nav_zoom(zoom_in: float, at: Vector2) -> void:
+	if zoom_in > 0.0:
+		_zoom_step(1.0 / zoom_in, at)
+
+
+func _kill_focus_tween() -> void:
+	if _focus_tween and _focus_tween.is_valid():
+		_focus_tween.kill()
 
 
 func drag_pan_step(from_screen: Vector2, to_screen: Vector2) -> void:

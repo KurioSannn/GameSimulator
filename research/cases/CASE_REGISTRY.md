@@ -13,20 +13,28 @@ Competition target (D-019): 12–20 deeply researched, playable cases. The long-
 | CASE-0006 | Kekeringan 2023 NTT: ketahanan air dan penghidupan | 2023 | **climate / water / livelihood** | **Bali–Nusa Tenggara**: Kab. Sabu Raijua (53.20), Kab. Kupang (53.01) | researched | R (next dry season, scaled by water infrastructure) | case0006.json |
 | CASE-0007 | Akses layanan kesehatan primer di Papua Pegunungan dan Papua Tengah | 2022–2024 | **health services / social policy** | **Papua**: Papua Pegunungan (95), Papua Tengah (94) — province-level evidence | researched | A (services still < 45), B (end of central deployment) | case0007.json |
 | CASE-0008 | Pengalihan subsidi BBM 2022: harga Pertalite/Solar, BLT BBM, BSU, 2% DTU | 2022 | **fiscal / energy / social protection** (national) | National — all 514 kab/kota (no regional distribution data) | researched | A (fiscal drain after holding prices), B (BLT about to end, prices > 101) | case0008.json |
-| CASE-0009 | Lonjakan harga beras nasional & bantuan pangan CBP | 2023–2024 | **food / agriculture / social protection** | National (sentra: Jawa Timur 35, Sulawesi Selatan 73) | researched | A, B | — |
-| CASE-0010 | Gempa bumi Cianjur: tanggap darurat & relokasi sesar Cugenang | 2022–2023 | **disaster (earthquake / spatial planning)** | Jawa: Kab. Cianjur (32.03) | researched | A, B | — |
-| CASE-0011 | Erupsi Semeru & relokasi hunian tetap Bumi Semeru Damai | 2021–2022 | **disaster (volcanic / resettlement)** | Jawa: Kab. Lumajang (35.08) | researched | A, B | — |
-| CASE-0012 | Siklon Tropis Seroja NTT: badai ekstrem & pemulihan kepulauan | 2021 | **disaster (cyclone / extreme weather)** | Bali–Nusa Tenggara: Kab. Flores Timur (53.06), Alor (53.05), Lembata (53.08), Kupang (53.71) | researched | A, B | — |
-| CASE-0013 | Konflik agraria & relokasi investasi Rempang Eco-City | 2023 | **land tenure / indigenous rights / investment** | Sumatera: Kota Batam (21.71) | researched | A, B | — |
-| CASE-0014 | Food Estate Kalimantan Tengah: cetak sawah eks-PLG | 2020–2023 | **agriculture / environment / food security** | Kalimantan: Kab. Pulang Pisau (62.11), Kab. Kapuas (62.03) | researched | A, B | — |
-| CASE-0015 | Polusi udara Jabodetabek & transisi energi PLTU | 2023 | **environment / air quality / public health** | Jawa: DKI Jakarta (31), Kota Bekasi (32.75), Tangerang Selatan (36.74) | researched | A, B | — |
-| CASE-0016 | Penurunan tanah Pantura & Tanggul Laut Raksasa (NCICD) | 2021–2024 | **environment / coastal infrastructure / water** | Jawa: DKI Jakarta (31), Kota Pekalongan (33.75), Kota Semarang (33.74) | researched | A, B | — |
-| CASE-0017 | Salinisasi intake air baku PDAM Banjarmasin akibat intrusi air laut | 2023 | **public utilities / water security / climate** | Kalimantan: Kota Banjarmasin (63.71) | researched | A, B | — |
-| CASE-0018 | Banjir bandang Sentani & perlindungan cagar alam Cycloop | 2019 | **disaster (flash flood / watershed conservation)** | Papua: Kab. Jayapura (91.03), Kota Jayapura (91.71) | researched | A, B | — |
-| CASE-0019 | Wabah Penyakit Mulut dan Kuku (PMK) ternak sapi | 2022 | **agriculture / biosecurity / livestock** | National (sentra: Jawa Timur 35, NTB 52, Jawa Tengah 33) | researched | A, B | — |
-| CASE-0020 | Blackout listrik Jawa-Bali Agustus 2019 & keandalan transmisi | 2019 | **energy / critical infrastructure / grid reliability** | Jawa-Bali: DKI Jakarta (31), Jawa Barat (32), Banten (36), Jawa Tengah (33) | researched | A, B | — |
+| CASE-0011 | Pemadaman listrik total sistem Jawa-Bali | 2019 | **energy / critical infrastructure** | Jawa: DKI (31), Jawa Barat (32), Banten (36) | researched (re-verified 2026-11-23) | — | — (in game, priority 8) |
+| CASE-0013 | KLB campak & gizi buruk Asmat | 2017–2018 | **health services / nutrition** | Papua Selatan: Kab. Asmat (93.04) | researched (re-verified 2026-11-23) | — | — (in game, priority 8) |
+| CASE-0014 | Tsunami Selat Sunda (longsoran Anak Krakatau) | 2018 | **disaster (non-tectonic tsunami / early warning)** | Banten: Pandeglang (36.01), Serang (36.04); Lampung: Lampung Selatan (18.01) | researched (re-verified 2026-11-23) | — | — (in game, priority 8) |
+| CASE-0015 | Larangan cantrang & masa peralihan nelayan Pantura | 2018 | **fisheries / livelihoods / marine environment** | Jawa Tengah: Batang, Kab./Kota Tegal, Pati, Rembang | researched (re-verified 2026-11-23) | — | — (in game, priority 8) |
+| CASE-0016 | Banjir bandang Sentani | 2019 | **disaster (flash flood / upstream watershed)** | Papua: Kab. Jayapura (91.03), Kota Jayapura (91.71) | researched (re-verified 2026-11-23) | — | — (in game, priority 8) |
+| CASE-0020 | Gangguan ginjal akut progresif atipikal (GGAPA) pada anak | 2022 | **health / drug safety** (national) | National (cases from 20 provinces; no regional distribution) | researched (re-verified 2026-11-23) | — | — (in game, priority 8) |
 
-Coverage so far: 20 comprehensive cases fully researched and validated across all seven island groups (Sumatera, Jawa, Kalimantan, Sulawesi, Bali–Nusa Tenggara, Maluku, Papua), covering disasters, natural resources, fiscal policy, environment, agriculture, public utilities, and critical infrastructure.
+### Quarantined: status `candidate`, needs re-verification (not in game)
+The 2026-11-03 records below cite source URLs that do not resolve to the cited documents (404, soft-404, or unreachable). See `research/reports/2026-11-23_case_source_url_audit.json`. Their content must not be used until re-researched.
+
+| ID | Topic in file | Audit (HTTP codes of cited URLs) |
+|---|---|---|
+| CASE-0009 | Krisis pasokan beras & El Niño 2023–2024 | 200 (soft-404), 200 (homepage), 404, 404, 404 |
+| CASE-0010 | Erupsi Merapi 2010 & huntap | 200 (unverified), 403, 403, 404 |
+| CASE-0012 | Konflik agraria Rempang 2023 | 401, 403, 404, 404 |
+| CASE-0017 | Pembangunan IKN & penataan ruang | 200 (law text), 000, 403, 403 |
+| CASE-0018 | Sengketa wilayah adat Laman Kinipan | 403, 000, 000, 404 |
+| CASE-0019 | Pencemaran DAS Citarum | 200 (law text), 000, 403, 000 |
+
+Note: before 2026-11-23 this table listed different titles for CASE-0009…0020 (e.g. Cianjur, Semeru, Seroja, Rempang, Food Estate, Jabodetabek air pollution) than the files actually contained. The table now reflects the files.
+
+Coverage in game: 14 major historical cases (8 original + 6 re-verified) across Sumatera, Jawa, Kalimantan, Sulawesi, Bali–Nusa Tenggara, Maluku and Papua. One decision is presented per quarter (20 per term), so the six priority-8 cases fill the slots left after the original eight and their follow-ups; 2–3 of them appear per playthrough (measured 2026-11-23).
 
 ## Candidate corpus (long-term corpus goal 100+; to research; not yet validated)
 | Candidate | Region | Domain | Why |

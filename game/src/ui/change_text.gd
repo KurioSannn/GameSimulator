@@ -307,7 +307,8 @@ static func clean_source_names(refs: Array, as_of: String) -> String:
 			if parts.size() >= 3 and parts[0] == "SRC":
 				var core := parts[2] if parts[1] in ["NEWS", "OFFICIAL", "DATA", "RESEARCH"] and parts.size() >= 3 else parts[1]
 				inst = {"CNNID": "CNN Indonesia", "CNBCID": "CNBC Indonesia", "BPK": "BPK", "BMKG": "BMKG",
-					"BNPB": "BNPB", "BPS": "BPS", "KEMENKEU": "Kemenkeu", "KEMENKES": "Kemenkes"}.get(core, core.capitalize())
+					"BNPB": "BNPB", "BPS": "BPS", "KEMENKEU": "Kemenkeu", "KEMENKES": "Kemenkes", "KEMKES": "Kemenkes",
+					"SETKAB": "Sekretariat Kabinet", "SETNEG": "Kemensetneg", "ESDM": "Kementerian ESDM", "OMBUDSMAN": "Ombudsman RI"}.get(core, core.capitalize())
 			else:
 				inst = s
 		if inst.contains(" — "):

@@ -1,120 +1,110 @@
 {
-  "schema": "nusantara.case_research/1",
-  "case_id": "CASE-0014",
-  "title": "Tsunami Selat Sunda dan Keruntuhan Tubuh Gunung Anak Krakatau 2018",
-  "status": "researched",
-  "status_note": "Data korban jiwa dan kerusakan fisik bersumber dari BNPB. Analisis geologi dan dinamika flank collapse Anak Krakatau bersumber dari BMKG, Badan Geologi, dan studi Badan Riset dan Inovasi Nasional (BRIN).",
-  "category": "volcanic_tsunami_early_warning",
-  "subcategories": [
-    "volcanic_collapse",
-    "tsunami",
-    "early_warning_failure",
-    "coastal_destruction",
-    "tourism_collapse"
-  ],
-  "start_date": "2018-12-22",
-  "end_date": "2019-03-31",
-  "decision_as_of": "2018-12-23",
-  "island": "sumatera",
-  "provinces": [
-    "36",
-    "18"
-  ],
-  "geographic_resolution": "Pesisir Selat Sunda: Banten (Kab. Pandeglang 36.01, Kab. Serang 36.04) dan Lampung (Kab. Lampung Selatan 18.01, Kab. Pesawaran 18.09, Kab. Tanggamus 18.06).",
-  "real_facts": [
-    {
-      "fact": "Pada 22 Desember 2018 pukul 21.03 WIB terjadi tsunami di pesisir Selat Sunda dengan tinggi gelombang 2 hingga 5 meter tanpa didahului gempa bumi tektonik yang dirasakan masyarakat.",
-      "kind": "fact",
-      "source_refs": [
-        "SRC-BMKG-TSUNAMI-KRAKATAU-2018"
-      ],
-      "as_of": "2018-12-23"
-    },
-    {
-      "fact": "Badan Geologi dan BMKG mengonfirmasi tsunami dipicu oleh longsoran lereng barat daya Gunung Anak Krakatau seluas 64 hektare ke dalam laut akibat erupsi vulkanik berkelanjutan.",
-      "kind": "fact",
-      "source_refs": [
-        "SRC-ESDM-GEOLOGI-ANAK-KRAKATAU-2018"
-      ],
-      "as_of": "2018-12-24"
-    },
-    {
-      "fact": "Sistem peringatan dini tsunami nasional (InaTEWS) yang berbasis sensor gempa tektonik (seismometer) tidak membunyikan sirine peringatan karena tidak ada parameter gempa tektonik signifikan, sementara jaringan buoy laut lepas telah rusak/tidak beroperasi.",
-      "kind": "official_claim",
-      "source_refs": [
-        "SRC-BMKG-EVALUASI-INATEWS-2018"
-      ],
-      "as_of": "2018-12-25"
-    },
-    {
-      "fact": "BNPB mencatat total 437 orang meninggal dunia, 14.059 luka-luka, 16 hilang, dan 33.721 orang mengungsi, dengan kerusakan terparah di kawasan wisata Pantai Tanjung Lesung dan Carita di Pandeglang.",
-      "kind": "statistic",
-      "source_refs": [
-        "SRC-BNPB-LAPORAN-TSUNAMI-SUNDA-2019"
-      ],
-      "as_of": "2019-01-10"
-    }
-  ],
-  "information_available_at_decision": "Pada 23 Desember 2018:\n- Ratusan korban jiwa dilaporkan di Pandeglang dan Lampung Selatan di tengah libur akhir tahun;\n- Anak Krakatau masih terus meletus dengan kepulan abu vulkanik tinggi;\n- Terjadi kepanikan dan trauma di pesisir akibat ketiadaan sirine peringatan dini.",
-  "trigger": [
-    "Keruntuhan lereng barat daya Anak Krakatau yang memicu tsunami vulkanik tanpa peringatan gempa awal"
-  ],
-  "root_causes_note": "Keterbatasan desain sistem InaTEWS generasi pertama yang hanya mendeteksi gempa tektonik, ketiadaan buoy laut aktif, serta tingginya okupasi pemukiman dan resort wisata di sempadan pantai rawan tsunami.",
-  "stakeholders": [
-    "masyarakat pesisir Banten dan Lampung",
-    "pelaku usaha pariwisata Pantai Anyer-Carita-Tanjung Lesung",
-    "BMKG",
-    "Badan Geologi PVMBG",
-    "BNPB/BPBD",
-    "Kementerian Kelautan dan Perikanan"
-  ],
-  "sources": [
-    {
-      "source_id": "SRC-BMKG-TSUNAMI-KRAKATAU-2018",
-      "institution": "Badan Meteorologi, Klimatologi, dan Geofisika",
-      "title": "Kronologi dan Analisis Tsunami Selat Sunda 22 Desember 2018",
-      "url": "https://www.bmkg.go.id/berita-tsunami-selat-sunda-2018",
-      "publication_date": "2018-12-23",
-      "retrieved_at": "2026-11-03",
-      "source_quality": "REAL_OFFICIAL"
-    },
-    {
-      "source_id": "SRC-ESDM-GEOLOGI-ANAK-KRAKATAU-2018",
-      "institution": "Pusat Vulkanologi dan Mitigasi Bencana Geologi",
-      "title": "Hasil Analisis Citra Satelit dan Pengukuran Kolaps Lereng Gunung Anak Krakatau",
-      "url": "https://vsi.esdm.go.id/laporan-kolaps-anak-krakatau-2018",
-      "publication_date": "2018-12-24",
-      "retrieved_at": "2026-11-03",
-      "source_quality": "REAL_OFFICIAL"
-    },
-    {
-      "source_id": "SRC-BNPB-LAPORAN-TSUNAMI-SUNDA-2019",
-      "institution": "Badan Nasional Penanggulangan Bencana",
-      "title": "Laporan Akhir Penanganan Darurat Tsunami Selat Sunda",
-      "url": "https://bnpb.go.id/laporan-akhir-tsunami-selat-sunda-2019",
-      "publication_date": "2019-01-10",
-      "retrieved_at": "2026-11-03",
-      "source_quality": "REAL_OFFICIAL"
-    },
-    {
-      "source_id": "SRC-BMKG-EVALUASI-INATEWS-2018",
-      "institution": "Badan Meteorologi, Klimatologi, dan Geofisika",
-      "title": "Evaluasi Sistem Peringatan Dini Non-Tektonik dan Rencana Pemasangan Radar Maritim",
-      "url": "https://www.bmkg.go.id/evaluasi-peringatan-dini-non-tektonik",
-      "publication_date": "2018-12-25",
-      "retrieved_at": "2026-11-03",
-      "source_quality": "REAL_OFFICIAL"
-    }
-  ],
-  "rejected_or_unverified": [
-    "Tuduhan kelalaian petugas BMKG dibantah karena protokol internasional InaTEWS saat itu memang terstandar untuk gempa bumi tektonik.",
-    "Biaya pemulihan sektor pariwisata Anyer-Carita tidak terdata seragam di seluruh kabupaten."
-  ],
-  "todo_to_validate": [
-    "Rincian proyek pengadaan kabel sensor optik bawah laut (CBT)",
-    "Peta penetapan sempadan pantai baru di Banten"
-  ],
-  "game_adaptation_ref": "game/data/cases/CASE-0014.json",
-  "game_adaptation_notes": "Kasus kebencanaan unik: ancaman mendadak tanpa deteksi gempa. Keputusan presiden mencakup: alokasi belanja modal besar untuk teknologi deteksi tsunami non-tektonik (kabel laut & radar maritim), penegakan sempadan pantai bebas bangunan (resistensi pemilik resort), atau santunan darurat.",
-  "fact_vs_simulation_notes": "437 korban tewas, kegagalan buoy, dan longsoran Anak Krakatau 2018 adalah fakta sejarah. Skenario respons kabinet dan pemulihan pesisir dalam permainan adalah fiktif."
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0014",
+ "title": "Tsunami Selat Sunda akibat longsoran tubuh Gunung Anak Krakatau, 22 Desember 2018",
+ "status": "researched",
+ "status_note": "Diteliti ulang 2026-11-23: record sebelumnya (2026-11-03) memuat URL sumber yang tidak dapat diverifikasi (404/tidak ada). Semua sumber di bawah diunduh dan isinya dibaca pada 2026-11-23.",
+ "category": "disaster_tsunami",
+ "subcategories": [
+  "non_tectonic_tsunami",
+  "early_warning",
+  "coastal_settlement",
+  "volcanic_hazard"
+ ],
+ "start_date": "2018-12-22",
+ "end_date": "2018-12-25",
+ "decision_as_of": "2018-12-25",
+ "island": "jawa",
+ "provinces": [
+  "36",
+  "18"
+ ],
+ "regency_city_documented": [
+  "36.01",
+  "18.01",
+  "36.04"
+ ],
+ "geographic_resolution": "Kab. Pandeglang & Serang (Banten), Kab. Lampung Selatan (Lampung)",
+ "real_facts": [
+  {
+   "fact": "Badan Geologi menilai tsunami 22 Desember 2018 kemungkinan besar dipicu longsoran sebagian tubuh Gunung Anak Krakatau (flank collapse) di sektor selatan dan barat daya, sementara erupsinya sejak Juni 2018 tidak menunjukkan peningkatan intensitas yang berarti.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-ESDM-TSUNAMI-SELATSUNDA-2018-12-24"
+   ],
+   "as_of": "2018-12-24"
+  },
+  {
+   "fact": "Hingga 25 Desember 2018 pukul 13.00 WIB, BNPB mencatat 429 orang meninggal, 1.485 luka-luka, 154 hilang, dan 16.082 mengungsi di lima kabupaten.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-TSUNAMI-SELATSUNDA-2018-12-25"
+   ],
+   "as_of": "2018-12-25"
+  },
+  {
+   "fact": "Kabupaten Pandeglang paling parah: 290 orang meninggal, 1.143 luka-luka, 77 hilang, dan 14.395 mengungsi; dampak lain menimpa Serang (Banten) serta Lampung Selatan, Pesawaran, dan Tanggamus (Lampung).",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-SETKAB-TSUNAMI-SELATSUNDA-2018-12-25"
+   ],
+   "as_of": "2018-12-25"
+  },
+  {
+   "fact": "Badan Geologi merekomendasikan pemantauan tsunami di tengah Selat Sunda, antara lain stasiun pasang surut di pulau sekitar Anak Krakatau dan/atau buoy, serta pemantauan visual dengan penginderaan jauh.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-ESDM-TSUNAMI-SELATSUNDA-2018-12-24"
+   ],
+   "as_of": "2018-12-24"
+  }
+ ],
+ "information_available_at_decision": "25 Desember 2018: korban terus bertambah, jalan dan jembatan pesisir rusak menghambat distribusi bantuan; penyebab tsunami diduga longsoran gunung api, bukan gempa, sehingga sistem peringatan berbasis gempa tidak berbunyi.",
+ "trigger": [
+  "Tsunami Selat Sunda akibat longsoran tubuh Gunung Anak Krakatau, 22 Desember 2018"
+ ],
+ "root_causes_note": "Permukiman dan wisata padat di pesisir rendah, serta sistem peringatan dini yang dirancang untuk tsunami akibat gempa tektonik.",
+ "stakeholders": [
+  "BNPB dan BPBD Banten/Lampung",
+  "Badan Geologi (PVMBG)",
+  "BMKG",
+  "warga & pelaku wisata pesisir Pandeglang",
+  "nelayan Lampung Selatan"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-SETKAB-TSUNAMI-SELATSUNDA-2018-12-25",
+   "institution": "Sekretariat Kabinet RI (mengutip BNPB)",
+   "title": "Update BNPB: Korban Meninggal Tsunami Selat Sunda 429 Jiwa, 16.082 Orang Mengungsi",
+   "url": "https://setkab.go.id/update-bnpb-korban-meninggal-tsunami-selat-sunda-429-jiwa-16-082-orang-mengungsi/",
+   "publication_date": "2018-12-25",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "kabupaten (Pandeglang, Serang, Lampung Selatan, Pesawaran, Tanggamus)",
+   "reference_period": "2018-12-25 13.00 WIB",
+   "unit": "orang"
+  },
+  {
+   "source_id": "SRC-ESDM-TSUNAMI-SELATSUNDA-2018-12-24",
+   "institution": "Kementerian ESDM (Badan Geologi)",
+   "title": "Tanggapan Kejadian Tsunami di Selat Sunda, Tanggal 22 Desember 2018",
+   "url": "https://esdm.go.id/id/media-center/arsip-berita/tanggapan-kejadian-tsunami-di-selat-sunda-tanggal-22-desember-2018",
+   "publication_date": "2018-12-24",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Selat Sunda",
+   "reference_period": "2018-12-22",
+   "unit": ""
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka per kabupaten selain Pandeglang tidak tercantum di sumber terverifikasi; dampak Lampung Selatan dan Serang diskalakan lebih kecil sebagai nilai desain.",
+  "Record lama memakai URL bmkg.go.id/bnpb.go.id yang tidak ada (404/403) — dibuang."
+ ],
+ "todo_to_validate": [
+  "Ekstrak tabel per kabupaten dari BNPB 'Info Bencana Desember 2018' (PDF tersedia, belum diolah)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0014.json",
+ "game_adaptation_notes": "Bencana jarang terjadi: tanggap darurat (cepat) vs relokasi dari sempadan pantai (mahal secara sosial) vs pemantauan non-tektonik & latihan evakuasi (pencegahan).",
+ "fact_vs_simulation_notes": "Peristiwa, angka, dan keputusan yang dikutip di real_facts adalah nyata dan bersumber. Pilihan pemain, besaran efek, dan hasilnya adalah simulasi."
 }

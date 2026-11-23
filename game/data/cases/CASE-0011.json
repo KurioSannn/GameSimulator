@@ -1,0 +1,275 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0011",
+ "research_ref": "research/cases/CASE-0011.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Padam Total di Barat Jawa",
+ "location_label": "DKI Jakarta, Jawa Barat, dan Banten",
+ "focus_regions": [
+  "31.71",
+  "32.01",
+  "36.03"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 24
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0011"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "province:31",
+   "var": "services",
+   "op": "add",
+   "value": -2.5
+  },
+  {
+   "scope": "province:32",
+   "var": "services",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "province:36",
+   "var": "services",
+   "op": "add",
+   "value": -2.0
+  },
+  {
+   "scope": "province:31",
+   "var": "trust",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "province:32",
+   "var": "trust",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "province:36",
+   "var": "trust",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_NEWS",
+  "lines": [
+   {
+    "text": "Menurut Plt. Direktur Utama PLN, pemadaman massal yang dimulai pukul 11.48 WIB pada 4 Agustus 2019 disebabkan gangguan pada SUTET 500 kV Ungaran–Pemalang, Jawa Tengah; pemulihan yang semestinya sekitar 4 jam molor karena pembangkit pemasok harus dihidupkan dari kondisi dingin (cold start).",
+    "source_refs": [
+     "SRC-SETKAB-BLACKOUT-2019-08-05"
+    ],
+    "as_of": "2019-08-05"
+   },
+   {
+    "text": "Investigasi Ombudsman (dilaporkan 14 November 2019) menyimpulkan PLN lalai memangkas pohon yang melewati jarak bebas minimum di jalur Ungaran–Pemalang, dan bahwa GITET 500 kV Pemalang sudah dioperasikan tanpa Sertifikat Laik Operasi; SLO baru terbit 9 Agustus 2019.",
+    "source_refs": [
+     "SRC-OMBUDSMAN-KLIPING-BLACKOUT-2019-11"
+    ],
+    "as_of": "2019-11-14"
+   },
+   {
+    "text": "Ombudsman mencatat pemadaman berdampak pada layanan telekomunikasi, air, transportasi, dan kegiatan usaha di Jawa Barat, DKI Jakarta, dan Banten.",
+    "source_refs": [
+     "SRC-OMBUDSMAN-KLIPING-BLACKOUT-2019-11"
+    ],
+    "as_of": "2019-11-14"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Energi",
+  "text": "Pak Presiden, kasus ini diangkat dari padam listrik besar Agustus 2019. Dalam simulasi kita, sebagian besar barat Jawa gelap sejak siang: kereta berhenti, sinyal ponsel hilang, air bersih terganggu. Pembangkit harus dinyalakan dari kondisi dingin, jadi pemulihan lambat. Warga marah dan menuntut jawaban."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): services −2.5/−1.5/−2.0 and trust −1.5/−1.0/−1.0 in DKI/Jabar/Banten. Ombudsman lists telecom, water, transport and business disruption in these three provinces; no per-province outage-hours data was sourced, so magnitudes are design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "grid failure -> services -> sentiment; compensation -> trust; ROW/SLO audit -> infrastructure (delayed); redundancy -> infrastructure + services (long delay)",
+  "immediate": "a: fiscal −2, trust +1.5; b: fiscal −1, trust −0.5; c: fiscal −5",
+  "delayed": "b: infrastructure +3 after 6 months; c: infrastructure +7 and services +1.5 after 12 months",
+  "regional": "DKI Jakarta, Jawa Barat, Banten (Ombudsman); Jawa Tengah gains from b/c because the faulty line runs there",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "All magnitudes are design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Kompensasi pelanggan segera",
+   "description": "Tagihan pelanggan terdampak dipotong dan PLN diminta minta maaf terbuka. Kemarahan cepat mereda, tetapi penyebab teknis tidak berubah.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "province:31",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    },
+    {
+     "scope": "province:32",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    },
+    {
+     "scope": "province:36",
+     "var": "trust",
+     "op": "add",
+     "value": 1.5
+    }
+   ],
+   "memory": {
+    "blackout2019_response": "compensation"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Audit jalur transmisi & sertifikasi gardu",
+   "description": "Pemangkasan pohon di jalur bebas, audit setelan relai, dan semua gardu wajib bersertifikat laik operasi. Murah, tapi warga tidak merasakan apa-apa sekarang.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "province:31",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "province:32",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "province:36",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "province:31",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    },
+    {
+     "scope": "province:32",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    },
+    {
+     "scope": "province:36",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    },
+    {
+     "scope": "province:33",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "blackout2019_response": "audit_row_slo"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Bangun redundansi transmisi",
+   "description": "Jalur transmisi kedua dan pembangkit cadangan di barat Jawa. Sangat mahal dan butuh setahun, tetapi jaringan jauh lebih tahan gangguan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "province:31",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 7.0,
+     "delay": 12
+    },
+    {
+     "scope": "province:32",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 7.0,
+     "delay": 12
+    },
+    {
+     "scope": "province:36",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 7.0,
+     "delay": 12
+    },
+    {
+     "scope": "province:31",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "delay": 12
+    },
+    {
+     "scope": "province:32",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "delay": 12
+    },
+    {
+     "scope": "province:36",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "blackout2019_response": "grid_redundancy"
+   }
+  }
+ ]
+}

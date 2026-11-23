@@ -460,3 +460,12 @@ _Imported (originally D-019). Consistent with the existing .gitignore policy (ra
 - Keep player-name edits in device UI preferences. Provide explicit editable styling, dirty/success feedback, Save/Cancel and Enter; synchronize normalized empty names into the field. Nara Adinata remains the fixed fictional character.
 - Reduce duplicated profile readouts and retain D-084 fonts, existing assets, all geographic contexts and the other map work. No avatar upload/selection or new art is added in this change.
 **Evidence:** research/reports/2026-11-20_UI_SPACING_PROFILE_FIX_REPORT.md and research/reports/ui_spacing_fix_20261120/.
+
+## D-086 — Pointer-agnostic map navigation via MapNavInput (2026-11-23)
+**Decision:** All map navigation input (wheel, trackpad pan/pinch gestures, touch) is translated by one `MapNavInput` into `pan`/`zoom` intents used by both the 2D and 3D cameras. Default: trackpad swipe pans, wheel/pinch/Ctrl+scroll zoom toward the cursor. A device preference `scroll_mode` (Otomatis / Gulir = zoom / Gulir = geser peta) covers Windows precision touchpads, which send wheel events. Zoom buttons are always visible.
+**Why:** The user reported the map was unplayable on a touchpad (only click-and-hold moved it); the 3D camera ignored gesture events. Mouse + keyboard remain primary (desktop-first).
+
+## D-087 — Unverifiable case records are quarantined; new cases yield scheduling priority (2026-11-23)
+**Decision:** A case record whose cited sources cannot be retrieved and read is set back to `candidate` (with the audit in `status_note`) and kept out of the game. CASE-0009, 0010, 0012, 0017, 0018 and 0019 are quarantined. CASE-0011, 0013, 0014, 0015, 0016 and 0020 were re-researched and added with `story_priority: 8`, so the original eight cases (incl. local-wisdom CASE-0004) are never crowded out of the 20 quarterly decision slots.
+**Why:** CLAUDE.md forbids fabricated sources; the URL audit found most citations in the 2026-11-03 records did not exist. Increasing the number of decisions per quarter is a core-loop change left to the team.
+

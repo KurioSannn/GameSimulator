@@ -2,8 +2,8 @@
   "schema": "nusantara.case_research/1",
   "case_id": "CASE-0019",
   "title": "Pencemaran Limbah Industri dan Revitalisasi DAS Citarum Harum 2018",
-  "status": "researched",
-  "status_note": "Dasar hukum mengacu pada Perpres No. 15/2018. Data mutu air, debit limbah, dan penegakan hukum saluran pembuangan bersumber dari Kementerian LHK, Kodam III/Siliwangi (Satgas Citarum), dan Dinas LH Jawa Barat.",
+  "status": "candidate",
+  "status_note": "URL audit 2026-11-23: 3 of 4 cited source URLs did not resolve to the cited document (HTTP 200,0,403,0). The facts and sources in this record were not verified and must not be used in game content until re-researched. Previous note: Dasar hukum mengacu pada Perpres No. 15/2018. Data mutu air, debit limbah, dan penegakan hukum saluran pembuangan bersumber dari Kementerian LHK, Kodam III/Siliwangi (Satgas Citarum), dan Dinas LH Jawa Barat.",
   "category": "industrial_pollution_river_restoration",
   "subcategories": [
     "river_pollution",
@@ -113,7 +113,7 @@
     "Evaluasi status mutu air IKA Citarum 2020",
     "Realisasi anggaran pembangunan IPAL komunal Cisirung"
   ],
-  "game_adaptation_ref": "game/data/cases/CASE-0019.json",
+  "game_adaptation_ref": null,
   "game_adaptation_notes": "Kasus pemulihan lingkungan industri berskala masif. Pilihan mencakup: penegakan sanksi pidana dan penutupan pabrik pencemar (lingkungan membaik, output manufaktur/tenaga kerja tertekan), pemberian subsidi pembangunan IPAL komunal (fiskal tersedot), atau pembatasan kuota buang air limbah.",
   "fact_vs_simulation_notes": "Kondisi pencemaran Citarum, Perpres 15/2018, dan penugasan Satgas TNI adalah fakta sejarah. Mekanika pilihan kebijakan dan indikator kesehatan air di game adalah simulasi."
 }

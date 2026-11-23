@@ -2,8 +2,8 @@
   "schema": "nusantara.case_research/1",
   "case_id": "CASE-0017",
   "title": "Pembangunan IKN Nusantara dan Penataan Ruang Kalimantan Timur 2022–2024",
-  "status": "researched",
-  "status_note": "Dasar hukum mengacu pada UU No. 3/2022 dan UU No. 21/2023. Angka alokasi APBN bersumber dari Nota Keuangan dan Kemenkeu (APBN KiTa). Data lingkungan dan koridor satwa bersumber dari KLHK dan Bappenas.",
+  "status": "candidate",
+  "status_note": "URL audit 2026-11-23: 3 of 4 cited source URLs did not resolve to the cited document (HTTP 200,0,403,403). The facts and sources in this record were not verified and must not be used in game content until re-researched. Previous note: Dasar hukum mengacu pada UU No. 3/2022 dan UU No. 21/2023. Angka alokasi APBN bersumber dari Nota Keuangan dan Kemenkeu (APBN KiTa). Data lingkungan dan koridor satwa bersumber dari KLHK dan Bappenas.",
   "category": "spatial_planning_capital_relocation",
   "subcategories": [
     "capital_relocation",
@@ -113,7 +113,7 @@
     "Realisasi belanja IKN dalam LKPP 2023 dan 2024",
     "Peta zonasi perlindungan satwa Teluk Balikpapan"
   ],
-  "game_adaptation_ref": "game/data/cases/CASE-0017.json",
+  "game_adaptation_ref": null,
   "game_adaptation_notes": "Mega-proyek tata ruang dan beban fiskal. Menghadapkan pemain pada trade-off: percepatan alokasi APBN untuk IKN (beban fiskal naik, belanja daerah lain tertekan), skema kemitraan investor selektif (lebih lambat tapi fiskal aman), atau penundaan tahap fisik untuk fokus pemulihan ekonomi.",
   "fact_vs_simulation_notes": "Undang-Undang IKN, lokasi Kaltim, anggaran Rp72 triliun, dan target forest city adalah fakta. Kecepatan pembangunan dan dampak pemerataan ekonomi dalam game adalah simulasi."
 }

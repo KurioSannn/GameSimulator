@@ -1,0 +1,202 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0013",
+ "research_ref": "research/cases/CASE-0013.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Campak dan Gizi Buruk di Asmat",
+ "location_label": "Kab. Asmat, Papua Selatan",
+ "focus_regions": [
+  "93.04"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 5
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0013"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:93.04",
+   "var": "services",
+   "op": "add",
+   "value": -3.0
+  },
+  {
+   "scope": "region:93.04",
+   "var": "welfare",
+   "op": "add",
+   "value": -3.0
+  },
+  {
+   "scope": "region:93.04",
+   "var": "trust",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Bupati Asmat menetapkan KLB campak pada 15 Januari 2018 dan mencabutnya pada 5 Februari 2018 berdasarkan usulan Dinas Kesehatan setelah pasien rawat inap di RSUD Agats menurun.",
+    "source_refs": [
+     "SRC-KEMKES-ASMAT-2018-02-05"
+    ],
+    "as_of": "2018-02-05"
+   },
+   {
+    "text": "Kemenkes mencatat 72 anak meninggal sepanjang September 2017 hingga 4 Februari 2018 (66 karena campak, 6 karena gizi buruk); 651 anak menderita campak dan 223 pasien gizi buruk.",
+    "source_refs": [
+     "SRC-KEMKES-ASMAT-2018-02-05"
+    ],
+    "as_of": "2018-02-05"
+   },
+   {
+    "text": "Imunisasi diberikan kepada 17.337 anak usia 0–15 tahun di 224 kampung pada 23 distrik.",
+    "source_refs": [
+     "SRC-KEMKES-ASMAT-2018-02-05"
+    ],
+    "as_of": "2018-02-05"
+   },
+   {
+    "text": "Pada pertengahan Januari 2018, Dinkes Provinsi Papua mengirim 3 ton makanan tambahan (PMT), 800 vial vaksin campak, dan 10.000 jarum suntik ke Asmat.",
+    "source_refs": [
+     "SRC-KEMKES-ASMAT-2018-01-14"
+    ],
+    "as_of": "2018-01-14"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Kesehatan",
+  "text": "Pak Presiden, kasus ini diangkat dari KLB campak dan gizi buruk di Asmat awal 2018. Dalam simulasi kita, anak-anak dari kampung terpencil dibawa ke Agats dengan perahu; rumah sakit penuh. Vaksin bisa dikirim cepat, tetapi tanpa layanan yang menetap, wabah bisa kembali."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Asmat services −3, welfare −3, trust −1. Grounded in the Kemenkes count (72 child deaths, 651 measles, 223 malnutrition); the mapping to index points is a design value."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "outbreak -> services & welfare -> sentiment; emergency team -> services (temporary); permanent services -> services + welfare_base (delayed); nutrition -> welfare (temporary)",
+  "immediate": "a: fiscal −1.5, services +2/month for 3 months, trust +1; b: fiscal −3.5, trust −0.5; c: fiscal −2, welfare +1/month for 4 months",
+  "delayed": "b: services +6 and welfare_base +1 after 6 months",
+  "regional": "Kab. Asmat only",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "All magnitudes are design values; 'services' stands for primary health service capacity."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Tim kesehatan darurat & imunisasi massal",
+   "description": "Tenaga kesehatan dikirim dari luar daerah untuk imunisasi dan perawatan. Cepat menolong, tetapi tim pulang setelah beberapa bulan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "region:93.04",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "duration": 3
+    },
+    {
+     "scope": "region:93.04",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "asmat2018_response": "emergency_team"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Puskesmas dan tenaga kesehatan menetap",
+   "description": "Membangun dan mengisi puskesmas serta pos kesehatan kampung secara permanen. Mahal dan lambat, tapi layanan tetap ada setelah wabah berlalu.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.5
+    },
+    {
+     "scope": "region:93.04",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "region:93.04",
+     "var": "services",
+     "op": "add",
+     "value": 6.0,
+     "delay": 6
+    },
+    {
+     "scope": "region:93.04",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 1.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "asmat2018_response": "permanent_services"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Program gizi keluarga berbasis kampung",
+   "description": "Makanan tambahan dan pendampingan gizi untuk balita dan ibu di setiap kampung. Menopang kesehatan anak, tetapi tidak menambah kapasitas layanan medis.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:93.04",
+     "var": "welfare",
+     "op": "add",
+     "value": 1.0,
+     "duration": 4
+    },
+    {
+     "scope": "region:93.04",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    }
+   ],
+   "memory": {
+    "asmat2018_response": "nutrition_program"
+   }
+  }
+ ]
+}

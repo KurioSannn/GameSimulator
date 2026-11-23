@@ -1,0 +1,243 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0014",
+ "research_ref": "research/cases/CASE-0014.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Tsunami Tanpa Gempa di Selat Sunda",
+ "location_label": "Kab. Pandeglang & Serang (Banten), Kab. Lampung Selatan (Lampung)",
+ "focus_regions": [
+  "36.01",
+  "18.01",
+  "36.04"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 27
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0014"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:36.01",
+   "var": "damage",
+   "op": "add",
+   "value": 14.0
+  },
+  {
+   "scope": "region:36.01",
+   "var": "welfare",
+   "op": "add",
+   "value": -3.0
+  },
+  {
+   "scope": "region:36.01",
+   "var": "services",
+   "op": "add",
+   "value": -2.0
+  },
+  {
+   "scope": "region:18.01",
+   "var": "damage",
+   "op": "add",
+   "value": 6.0
+  },
+  {
+   "scope": "region:18.01",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "region:36.04",
+   "var": "damage",
+   "op": "add",
+   "value": 3.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Badan Geologi menilai tsunami 22 Desember 2018 kemungkinan besar dipicu longsoran sebagian tubuh Gunung Anak Krakatau (flank collapse) di sektor selatan dan barat daya, sementara erupsinya sejak Juni 2018 tidak menunjukkan peningkatan intensitas yang berarti.",
+    "source_refs": [
+     "SRC-ESDM-TSUNAMI-SELATSUNDA-2018-12-24"
+    ],
+    "as_of": "2018-12-24"
+   },
+   {
+    "text": "Hingga 25 Desember 2018 pukul 13.00 WIB, BNPB mencatat 429 orang meninggal, 1.485 luka-luka, 154 hilang, dan 16.082 mengungsi di lima kabupaten.",
+    "source_refs": [
+     "SRC-SETKAB-TSUNAMI-SELATSUNDA-2018-12-25"
+    ],
+    "as_of": "2018-12-25"
+   },
+   {
+    "text": "Kabupaten Pandeglang paling parah: 290 orang meninggal, 1.143 luka-luka, 77 hilang, dan 14.395 mengungsi; dampak lain menimpa Serang (Banten) serta Lampung Selatan, Pesawaran, dan Tanggamus (Lampung).",
+    "source_refs": [
+     "SRC-SETKAB-TSUNAMI-SELATSUNDA-2018-12-25"
+    ],
+    "as_of": "2018-12-25"
+   },
+   {
+    "text": "Badan Geologi merekomendasikan pemantauan tsunami di tengah Selat Sunda, antara lain stasiun pasang surut di pulau sekitar Anak Krakatau dan/atau buoy, serta pemantauan visual dengan penginderaan jauh.",
+    "source_refs": [
+     "SRC-ESDM-TSUNAMI-SELATSUNDA-2018-12-24"
+    ],
+    "as_of": "2018-12-24"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Penasihat Kebencanaan",
+  "text": "Pak Presiden, kasus ini diangkat dari tsunami Selat Sunda Desember 2018. Dalam simulasi kita, gelombang datang malam hari tanpa gempa yang terasa, menghantam pantai Pandeglang yang ramai wisatawan, lalu pesisir Lampung Selatan. Sirene tidak berbunyi karena tidak ada gempa yang memicunya."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): damage Pandeglang 14 > Lampung Selatan 6 > Serang 3. The ordering follows the verified Pandeglang toll (290 of 429 deaths); other regency tolls were not verified, so their magnitudes are design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "tsunami -> damage -> services & welfare -> sentiment; relief -> damage recovery; relocation -> infrastructure/welfare_base (delayed) at a trust cost; monitoring -> infrastructure + services",
+  "immediate": "a: fiscal −3, damage −2/month for 3 months, trust +1; b: fiscal −4, trust −1.5, damage −1/month for 2 months; c: fiscal −2, trust +0.5, damage −1/month for 2 months",
+  "delayed": "b: infrastructure +6 and welfare_base +1 after 12 months; c: infrastructure +3 and services +1 after 6 months",
+  "regional": "Pandeglang, Lampung Selatan, Serang",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "All magnitudes are design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Tanggap darurat terpusat",
+   "description": "Pemerintah pusat mengambil alih evakuasi, hunian sementara, dan perbaikan jalan pesisir. Pemulihan cepat, tetapi pantai tetap padat seperti sebelumnya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "regions:36.01,18.01,36.04",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "duration": 3
+    },
+    {
+     "scope": "regions:36.01,18.01,36.04",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "sunda2018_response": "central_relief"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Relokasi dari sempadan pantai",
+   "description": "Rumah dan usaha di zona paling berbahaya dipindahkan ke daerah lebih tinggi. Banyak warga keberatan meninggalkan mata pencaharian di pantai, tetapi risiko berikutnya jauh berkurang.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.0
+    },
+    {
+     "scope": "regions:36.01,18.01",
+     "var": "trust",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "regions:36.01,18.01,36.04",
+     "var": "damage",
+     "op": "add",
+     "value": -1.0,
+     "duration": 2
+    },
+    {
+     "scope": "regions:36.01,18.01",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 6.0,
+     "delay": 12
+    },
+    {
+     "scope": "regions:36.01,18.01",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 1.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "sunda2018_response": "coastal_relocation"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Pemantauan gunung api & latihan evakuasi",
+   "description": "Memasang stasiun pasang surut dan buoy di sekitar Anak Krakatau, serta melatih warga pesisir mengungsi tanpa menunggu gempa. Pemulihan biasa, tetapi kesiapsiagaan meningkat.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:36.01,18.01,36.04",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    },
+    {
+     "scope": "regions:36.01,18.01,36.04",
+     "var": "damage",
+     "op": "add",
+     "value": -1.0,
+     "duration": 2
+    },
+    {
+     "scope": "regions:36.01,18.01,36.04",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 6
+    },
+    {
+     "scope": "regions:36.01,18.01,36.04",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "sunda2018_response": "monitoring_drills"
+   }
+  }
+ ]
+}

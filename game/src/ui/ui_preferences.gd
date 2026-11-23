@@ -4,7 +4,8 @@ extends RefCounted
 const PATH := "user://ui_preferences.cfg"
 const DEFAULTS := {"volume": 80.0, "music": 60.0, "effects": 85.0, "dialog": 90.0,
 	"window_mode": 0, "resolution": 0, "antialiasing": 1, "text_scale": 1.0, "reduce_motion": false,
-	"player_name": "Pemain", "pan_left": KEY_A, "pan_right": KEY_D, "pan_up": KEY_W, "pan_down": KEY_S}
+	"player_name": "Pemain", "pan_left": KEY_A, "pan_right": KEY_D, "pan_up": KEY_W, "pan_down": KEY_S,
+	"scroll_mode": 0}
 static var values: Dictionary = DEFAULTS.duplicate(true)
 static var config_path := PATH
 
@@ -21,6 +22,7 @@ static func read() -> void:
 	values.window_mode = clampi(int(values.window_mode), 0, 1)
 	values.resolution = clampi(int(values.resolution), 0, 2)
 	values.antialiasing = clampi(int(values.antialiasing), 0, 2)
+	values.scroll_mode = clampi(int(values.scroll_mode), 0, 2)
 
 
 static func write(next_values: Dictionary) -> Error:
