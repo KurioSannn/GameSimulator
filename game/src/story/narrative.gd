@@ -16,6 +16,7 @@ extends RefCounted
 ##   met {character_id: tick}
 ##   history [{q, pillars}]  pillar values at every quarter end (ending + retrospective)
 ##   agenda {case: {opened_tick}} / expired [case] / quarter_taken: int   (Campaign)
+##   outcomes {case: category} / taken_log [{q, case, critical}]   (Campaign agenda outcome categories)
 ##   prologue_done, tutorial {step, done}, agenda_mode, start {pillar: value}
 
 const PILLARS := ["welfare", "trust", "services", "fiscal"]
@@ -27,10 +28,10 @@ const JOURNAL_CAP := 400
 
 static func ensure(world: SimWorld) -> Dictionary:
 	var s := world.story
-	for k in ["flags", "seen", "snapshots", "promises", "met", "agenda"]:
+	for k in ["flags", "seen", "snapshots", "promises", "met", "agenda", "outcomes"]:
 		if not s.has(k):
 			s[k] = {}
-	for k in ["pending", "callbacks", "journal", "history", "expired"]:
+	for k in ["pending", "callbacks", "journal", "history", "expired", "taken_log"]:
 		if not s.has(k):
 			s[k] = []
 	if not s.has("quarter_taken"):

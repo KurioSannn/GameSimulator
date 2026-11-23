@@ -20,7 +20,8 @@
  },
  "agenda": {
   "hook": "Kasus polio ditemukan lagi di Pidie, Aceh, delapan tahun setelah Indonesia dinyatakan bebas polio.",
-  "if_postponed": "Vaksinasi polio di Aceh berjalan seadanya tanpa dorongan nasional."
+  "if_postponed": "Vaksinasi polio di Aceh berjalan seadanya tanpa dorongan nasional.",
+  "critical": true
  },
  "opening": [
   {

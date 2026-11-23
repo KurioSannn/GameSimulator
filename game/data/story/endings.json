@@ -4,29 +4,50 @@
  "calibration": {
   "status": "calibrated",
   "date": "2026-11-23",
-  "method": "game/tests/calibrate_endings.gd: 47 deterministic full-term campaigns (always a/b/c, cheapest, costliest, first/last agenda item, 40 seeded random strategies) plus a neglect counterfactual that takes up no agenda item. Pillar values are changes since the start of the term (fiscal: level). good = top quartile (p75), poor = bottom quartile (p25) of the 47 strategies; crisis trust = p10 of the lowest trust reached during the term. crisis_unattended = 15: above the maximum reached by any of the 47 strategies (12) and below the neglect counterfactual (19); a term in which most agenda items expire without the President is a mandate crisis whatever the fiscal balance.",
-  "note": "Every strategy ends with lower welfare and trust than at the start because the 50 historical crises hit regardless, and with one decision per quarter a median of 9 agenda items expire unattended even under active play; endings therefore judge how well the damage was contained relative to plausible play, not absolute growth. Recalibrated 2026-11-23 at 50 playable cases. Recalibrate whenever cases or simulation coefficients change.",
+  "method": "game/tests/calibrate_endings.gd: 47 deterministic full-term campaigns (always a/b/c, cheapest, costliest, first/last agenda item, 40 seeded random strategies) define the quartiles; two reference runs are excluded from them: a neglect counterfactual (no agenda item ever taken) and a strong-governance route (4-quarter lookahead, critical crises first, deliberate delegation; game/tests/data/strong_route.json). Pillar values are changes since the start of the term (fiscal: level). good = p75, poor = p25 of the 47; crisis trust = p10 of the lowest trust reached. crisis_neglect = 8 (missed critical crises plus lapsed items): the plausible maximum is 4 and the neglect counterfactual 19 (D-093).",
+  "note": "Every strategy ends with lower welfare and trust than at the start because the 50 historical crises hit regardless; endings judge how well the damage was contained relative to plausible play. The strong route reaches Warisan Besar (welfare -3.72, trust -6.87, services +1.64, fiscal 13.2, promises 3 of 4, no missed critical crisis, 7 items delegated). Recalibrated 2026-11-23 at 50 cases with agenda outcome categories.",
   "neglect_counterfactual": {
    "d_welfare": -5.1,
    "d_trust": -9.28,
    "d_services": -2.64,
-   "fiscal_end": 50.0
+   "fiscal_end": 50.0,
+   "neglect": 19
+  },
+  "strong_route": {
+   "d_welfare": -3.72,
+   "d_trust": -6.87,
+   "d_services": 1.64,
+   "fiscal_end": 13.2,
+   "promises_kept": 3,
+   "promises_broken": 1,
+   "missed_critical": 0,
+   "delegated": 7
+  },
+  "distribution": {
+   "warisan_besar": 1,
+   "nusantara_menguat": 1,
+   "pemerintahan_bertahan": 28,
+   "janji_belum_selesai": 9,
+   "krisis_mandat": 10,
+   "runs": 49
   }
  },
  "thresholds": {
-  "welfare_good": -3.97,
-  "welfare_poor": -5.12,
-  "trust_good": -7.99,
-  "trust_poor": -9.94,
-  "services_good": -0.72,
-  "services_poor": -2.84,
+  "welfare_good": -3.82,
+  "welfare_poor": -4.88,
+  "trust_good": -7.4,
+  "trust_poor": -8.69,
+  "services_good": -0.52,
+  "services_poor": -2.24,
   "fiscal_good": 8.4,
   "fiscal_poor": 0.0,
-  "crisis_trust_delta": -10.96,
+  "crisis_trust_delta": -9.43,
   "crisis_fiscal_level": 0.0,
   "crisis_min_quarters": 4,
   "legacy_promise_ratio": 0.6,
-  "crisis_unattended": 15
+  "crisis_neglect": 8,
+  "legacy_max_missed_critical": 0,
+  "strong_max_missed_critical": 1
  },
  "rating_words": {
   "good": "terjaga dengan baik",

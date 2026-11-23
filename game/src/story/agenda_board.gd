@@ -4,6 +4,7 @@ extends PanelContainer
 ## quarter; every card states how long it can wait and what happens if it does (Campaign).
 
 signal taken(case_id: String)
+signal delegated(case_id: String)
 signal closed
 
 var _list: VBoxContainer
@@ -70,6 +71,9 @@ func _card(session: Session, item: Dictionary) -> PanelContainer:
 	var tags := UiKit.hbox(8)
 	var follow := str(c.get("class", "")) == "secondary_consequence"
 	tags.add_child(UiKit.tag("LANJUTAN" if follow else "BARU", UiKit.INFO if follow else UiKit.ACCENT, 12))
+	var critical := Campaign.is_critical(c)
+	if critical:
+		tags.add_child(UiKit.tag("KRISIS BESAR", UiKit.DANGER, 12))
 	var left := int(item.quarters_left)
 	var urgent := left <= 1
 	tags.add_child(UiKit.tag("Harus ditangani kuartal ini" if urgent else "Bisa menunggu %d kuartal" % (left - 1), UiKit.DANGER if urgent else UiKit.MUTED, 12))
@@ -85,11 +89,20 @@ func _card(session: Session, item: Dictionary) -> PanelContainer:
 	var post := str(story.get("agenda", {}).get("if_postponed", ""))
 	if post != "":
 		info.add_child(UiKit.label("Jika terlalu lama ditunda: " + post, 15, UiKit.MUTED, true))
+	if critical:
+		info.add_child(UiKit.label("Krisis sebesar ini menunggu keputusan Presiden sendiri. Bila terlewat demi urusan yang lebih kecil, rakyat akan mengingatnya.", 15, UiKit.DANGER, true))
+	var acts := UiKit.vbox(8)
+	acts.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(acts)
 	var btn := UiKit.button("TANGANI", func(): hide(); taken.emit(str(item.case_id)), true)
-	btn.custom_minimum_size = Vector2(168, 52)
-	btn.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	btn.custom_minimum_size = Vector2(196, 52)
 	btn.disabled = Campaign.taken_this_quarter(session.world) or session.pending_case() != ""
-	row.add_child(btn)
+	acts.add_child(btn)
+	if not critical:
+		var del := UiKit.ghost_button("Serahkan ke kementerian", func(): delegated.emit(str(item.case_id)),
+			"Kementerian menangani tanpa arahan langsung. Lebih ringan daripada dibiarkan menunggu, tetapi tidak sebaik ditangani sendiri.")
+		del.custom_minimum_size = Vector2(196, 44)
+		acts.add_child(del)
 	return card
 
 

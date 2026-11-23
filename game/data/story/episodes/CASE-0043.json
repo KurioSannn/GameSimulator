@@ -20,7 +20,8 @@
  },
  "agenda": {
   "hook": "Anjing yang biasa berkeliaran di kampung tiba-tiba menjadi ancaman. Rabies merenggut nyawa di dua kabupaten NTT.",
-  "if_postponed": "Penanganan rabies diserahkan ke kabupaten dengan vaksin seadanya."
+  "if_postponed": "Penanganan rabies diserahkan ke kabupaten dengan vaksin seadanya.",
+  "critical": true
  },
  "opening": [
   {

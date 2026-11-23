@@ -4,57 +4,208 @@
  "fact_class": "FICTIONAL",
  "background": "rawa",
  "locals": {
-  "bu_yuliana": {"name": "Bu Yuliana", "role": "Bidan, Agats", "color": "3a7a7a", "initials": "Y"},
-  "pak_niko": {"name": "Pak Niko", "role": "Ayah dari kampung di hulu sungai, Asmat", "color": "6a4a3a", "initials": "N"}
+  "bu_yuliana": {
+   "name": "Bu Yuliana",
+   "role": "Bidan, Agats",
+   "color": "3a7a7a",
+   "initials": "Y"
+  },
+  "pak_niko": {
+   "name": "Pak Niko",
+   "role": "Ayah dari kampung di hulu sungai, Asmat",
+   "color": "6a4a3a",
+   "initials": "N"
+  }
  },
  "agenda": {
   "hook": "Anak-anak dari kampung-kampung Asmat dibawa ke Agats dengan perahu. Campak dan gizi buruk menyebar.",
-  "if_postponed": "Wabah di Asmat ditangani dengan kemampuan daerah sendiri, dan layanan kesehatan tetap jauh dari kampung."
+  "if_postponed": "Wabah di Asmat ditangani dengan kemampuan daerah sendiri, dan layanan kesehatan tetap jauh dari kampung.",
+  "critical": true
  },
  "opening": [
-  {"s": "narasi", "bg": "rawa", "t": "Agats berdiri di atas papan dan tiang kayu. Di bawahnya, rawa dan sungai yang menjadi jalan bagi semua orang."},
-  {"s": "bu_yuliana", "e": "cemas", "t": "Rumah sakit penuh anak-anak. Demam, ruam, sangat kurus. Beberapa datang terlambat."},
-  {"s": "pak_niko", "e": "sedih", "t": "Dari kampung kami ke Agats, berperahu seharian. Anak saya demam tiga hari sebelum kami berangkat."},
-  {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Status kejadian luar biasa sudah ditetapkan bupati, Pak. Vaksin dan makanan tambahan sedang dikirim."},
-  {"s": "yosef", "e": "berpikir", "t": "Tapi kampung-kampungnya tersebar di sepanjang sungai. Tim darurat bisa datang, dan pergi lagi. Masalahnya, siapa yang tinggal sesudahnya."},
-  {"s": "bayu", "e": "netral", "t": "Tim darurat paling murah dan cepat. Puskesmas dan tenaga yang menetap paling mahal. Program gizi di antaranya."},
-  {"s": "nara", "e": "serius", "t": "Kita selamatkan yang sakit sekarang. Lalu kita pastikan anak-anak berikutnya tidak menunggu perahu untuk bisa hidup."}
+  {
+   "s": "narasi",
+   "bg": "rawa",
+   "t": "Agats berdiri di atas papan dan tiang kayu. Di bawahnya, rawa dan sungai yang menjadi jalan bagi semua orang."
+  },
+  {
+   "s": "bu_yuliana",
+   "e": "cemas",
+   "t": "Rumah sakit penuh anak-anak. Demam, ruam, sangat kurus. Beberapa datang terlambat."
+  },
+  {
+   "s": "pak_niko",
+   "e": "sedih",
+   "t": "Dari kampung kami ke Agats, berperahu seharian. Anak saya demam tiga hari sebelum kami berangkat."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "bg": "ruang_rapat",
+   "t": "Status kejadian luar biasa sudah ditetapkan bupati, Pak. Vaksin dan makanan tambahan sedang dikirim."
+  },
+  {
+   "s": "yosef",
+   "e": "berpikir",
+   "t": "Tapi kampung-kampungnya tersebar di sepanjang sungai. Tim darurat bisa datang, dan pergi lagi. Masalahnya, siapa yang tinggal sesudahnya."
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Tim darurat paling murah dan cepat. Puskesmas dan tenaga yang menetap paling mahal. Program gizi di antaranya."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Kita selamatkan yang sakit sekarang. Lalu kita pastikan anak-anak berikutnya tidak menunggu perahu untuk bisa hidup."
+  }
  ],
  "choices": {
-  "a": {"intent": "Mengirim tim kesehatan darurat dan imunisasi massal.", "helps": "Anak-anak yang sakit sekarang.", "burden": "Layanan hilang lagi saat tim pulang.", "now": "Layanan naik selama tiga bulan, kepercayaan naik.", "later": "Tidak ada kapasitas tetap yang bertambah."},
-  "b": {"intent": "Membangun puskesmas dan menempatkan tenaga kesehatan menetap.", "helps": "Kampung-kampung Asmat untuk jangka panjang.", "burden": "Anggaran, dan warga yang menunggu hasil.", "now": "Kepercayaan sedikit turun karena tidak ada bantuan yang terlihat cepat.", "later": "Layanan naik besar setelah sekitar enam bulan, kesejahteraan struktural ikut naik."},
-  "c": {"intent": "Menjalankan program gizi keluarga di setiap kampung.", "helps": "Balita dan ibu: kesehatan anak tertopang.", "burden": "Kapasitas layanan medis tidak bertambah.", "now": "Kesejahteraan naik selama empat bulan.", "later": "Manfaat berhenti saat program selesai."}
+  "a": {
+   "intent": "Mengirim tim kesehatan darurat dan imunisasi massal.",
+   "helps": "Anak-anak yang sakit sekarang.",
+   "burden": "Layanan hilang lagi saat tim pulang.",
+   "now": "Layanan naik selama tiga bulan, kepercayaan naik.",
+   "later": "Tidak ada kapasitas tetap yang bertambah."
+  },
+  "b": {
+   "intent": "Membangun puskesmas dan menempatkan tenaga kesehatan menetap.",
+   "helps": "Kampung-kampung Asmat untuk jangka panjang.",
+   "burden": "Anggaran, dan warga yang menunggu hasil.",
+   "now": "Kepercayaan sedikit turun karena tidak ada bantuan yang terlihat cepat.",
+   "later": "Layanan naik besar setelah sekitar enam bulan, kesejahteraan struktural ikut naik."
+  },
+  "c": {
+   "intent": "Menjalankan program gizi keluarga di setiap kampung.",
+   "helps": "Balita dan ibu: kesehatan anak tertopang.",
+   "burden": "Kapasitas layanan medis tidak bertambah.",
+   "now": "Kesejahteraan naik selama empat bulan.",
+   "later": "Manfaat berhenti saat program selesai."
+  }
  },
  "reactions": {
   "a": [
-   {"s": "narasi", "bg": "rawa", "t": "Perahu-perahu cepat membawa dokter, perawat, dan vaksin menyusuri sungai ke kampung-kampung."},
-   {"s": "bu_yuliana", "e": "lega", "t": "Kami tidak sendirian lagi. Untuk pertama kalinya dalam berminggu-minggu, saya tidur lebih dari empat jam."},
-   {"s": "yosef", "e": "netral", "bg": "ruang_rapat", "t": "Tim ini akan menyelamatkan banyak anak. Tapi tiga bulan lagi mereka pulang, dan sungainya masih sepanjang ini."}
+   {
+    "s": "narasi",
+    "bg": "rawa",
+    "t": "Perahu-perahu cepat membawa dokter, perawat, dan vaksin menyusuri sungai ke kampung-kampung."
+   },
+   {
+    "s": "bu_yuliana",
+    "e": "lega",
+    "t": "Kami tidak sendirian lagi. Untuk pertama kalinya dalam berminggu-minggu, saya tidur lebih dari empat jam."
+   },
+   {
+    "s": "yosef",
+    "e": "netral",
+    "bg": "ruang_rapat",
+    "t": "Tim ini akan menyelamatkan banyak anak. Tapi tiga bulan lagi mereka pulang, dan sungainya masih sepanjang ini."
+   }
   ],
   "b": [
-   {"s": "narasi", "bg": "rawa", "t": "Rencana puskesmas pembantu dan rumah dinas tenaga kesehatan disusun untuk distrik-distrik sepanjang sungai."},
-   {"s": "pak_niko", "e": "kecewa", "t": "Bangunan tahun depan tidak menolong anak saya hari ini, Pak."},
-   {"s": "bu_yuliana", "e": "berpikir", "t": "Saya mengerti kecewanya. Tapi selama ini yang kurang memang orang yang menetap. Bukan obat, bukan perahu."},
-   {"s": "nara", "e": "serius", "t": "Anak-anak yang sakit sekarang tetap ditangani dengan yang ada. Bangunan dan orangnya kita kawal sampai jadi."}
+   {
+    "s": "narasi",
+    "bg": "rawa",
+    "t": "Rencana puskesmas pembantu dan rumah dinas tenaga kesehatan disusun untuk distrik-distrik sepanjang sungai."
+   },
+   {
+    "s": "pak_niko",
+    "e": "kecewa",
+    "t": "Bangunan tahun depan tidak menolong anak saya hari ini, Pak."
+   },
+   {
+    "s": "bu_yuliana",
+    "e": "berpikir",
+    "t": "Saya mengerti kecewanya. Tapi selama ini yang kurang memang orang yang menetap. Bukan obat, bukan perahu."
+   },
+   {
+    "s": "nara",
+    "e": "serius",
+    "t": "Anak-anak yang sakit sekarang tetap ditangani dengan yang ada. Bangunan dan orangnya kita kawal sampai jadi."
+   }
   ],
   "c": [
-   {"s": "narasi", "bg": "rawa", "t": "Kader gizi dilatih di setiap kampung. Makanan tambahan dibagikan untuk balita dan ibu hamil."},
-   {"s": "pak_niko", "e": "senyum", "t": "Anak bungsu saya mulai mau makan lagi. Pipinya pelan-pelan berisi."},
-   {"s": "bu_yuliana", "e": "netral", "t": "Gizi yang baik membuat anak lebih kuat melawan penyakit. Tapi kalau sakit berat, mereka tetap butuh perawat."}
+   {
+    "s": "narasi",
+    "bg": "rawa",
+    "t": "Kader gizi dilatih di setiap kampung. Makanan tambahan dibagikan untuk balita dan ibu hamil."
+   },
+   {
+    "s": "pak_niko",
+    "e": "senyum",
+    "t": "Anak bungsu saya mulai mau makan lagi. Pipinya pelan-pelan berisi."
+   },
+   {
+    "s": "bu_yuliana",
+    "e": "netral",
+    "t": "Gizi yang baik membuat anak lebih kuat melawan penyakit. Tapi kalau sakit berat, mereka tetap butuh perawat."
+   }
   ]
  },
  "callbacks": [
-  {"id": "kampung", "after_quarters": 3, "beats": [
-   {"pick": [
-    {"if": {"delta": "services", "op": ">", "value": 3}, "beats": [{"s": "bu_yuliana", "e": "senyum", "bg": "rawa", "t": "Sekarang ada perawat yang tinggal di dua kampung di hulu, Pak. Anak-anak diperiksa sebelum sakitnya parah."}]},
-    {"if": {"delta": "welfare", "op": ">", "value": 0}, "beats": [{"s": "pak_niko", "e": "netral", "bg": "rawa", "t": "Anak-anak lebih sehat sekarang. Tapi kalau ada yang sakit berat, kami masih harus berperahu seharian."}]},
-    {"if": {}, "beats": [{"s": "bu_yuliana", "e": "sedih", "bg": "rawa", "t": "Tim sudah pulang, Pak. Di beberapa kampung, keadaannya seperti sebelum wabah."}]}
-   ]}
-  ]}
+  {
+   "id": "kampung",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "services",
+        "op": ">",
+        "value": 3
+       },
+       "beats": [
+        {
+         "s": "bu_yuliana",
+         "e": "senyum",
+         "bg": "rawa",
+         "t": "Sekarang ada perawat yang tinggal di dua kampung di hulu, Pak. Anak-anak diperiksa sebelum sakitnya parah."
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "welfare",
+        "op": ">",
+        "value": 0
+       },
+       "beats": [
+        {
+         "s": "pak_niko",
+         "e": "netral",
+         "bg": "rawa",
+         "t": "Anak-anak lebih sehat sekarang. Tapi kalau ada yang sakit berat, kami masih harus berperahu seharian."
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bu_yuliana",
+         "e": "sedih",
+         "bg": "rawa",
+         "t": "Tim sudah pulang, Pak. Di beberapa kampung, keadaannya seperti sebelum wabah."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
  ],
  "unattended": [
-  {"s": "narasi", "bg": "rawa", "t": "Tanpa arahan dari pusat, Dinas Kesehatan Asmat bekerja dengan tenaga yang ada."},
-  {"s": "bu_yuliana", "e": "sedih", "t": "Kami melakukan semampu kami. Tapi kemampuan kami terlalu kecil untuk sungai sepanjang ini."}
+  {
+   "s": "narasi",
+   "bg": "rawa",
+   "t": "Tanpa arahan dari pusat, Dinas Kesehatan Asmat bekerja dengan tenaga yang ada."
+  },
+  {
+   "s": "bu_yuliana",
+   "e": "sedih",
+   "t": "Kami melakukan semampu kami. Tapi kemampuan kami terlalu kecil untuk sungai sepanjang ini."
+  }
  ],
  "journal": {
   "a": "Tim kesehatan darurat dan imunisasi massal dikirim ke Asmat. Cepat menolong, lalu pulang.",
@@ -62,6 +213,14 @@
   "c": "Program gizi keluarga berjalan di kampung-kampung Asmat."
  },
  "promises": {
-  "b": {"text": "Kampung-kampung di Asmat punya tenaga kesehatan yang menetap.", "due_quarters": 3, "check": {"delta": "services", "op": ">", "value": 3}}
+  "b": {
+   "text": "Kampung-kampung di Asmat punya tenaga kesehatan yang menetap.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "services",
+    "op": ">",
+    "value": 3
+   }
+  }
  }
 }

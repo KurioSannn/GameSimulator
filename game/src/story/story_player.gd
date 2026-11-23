@@ -8,6 +8,10 @@ extends Control
 
 signal finished
 signal line_shown(index: int)
+## Exact position in the scene after every step ({} when the scene ends); Main mirrors it into
+## world.story.playing so any save, mid-dialogue included, resumes at this beat (D-094).
+signal progressed(state: Dictionary)
+signal save_requested
 
 const SPEEDS := [28.0, 50.0, 110.0, 100000.0]  # Lambat, Normal, Cepat, Instan (characters/second)
 
@@ -75,6 +79,8 @@ func _ready() -> void:
 	_auto_btn = UiKit.ghost_button("Otomatis (A)", _toggle_auto, "Lanjut otomatis setelah setiap kalimat")
 	_auto_btn.toggle_mode = true
 	tools.add_child(_auto_btn)
+	var save := UiKit.ghost_button("Simpan (F5)", func(): save_requested.emit(), "Simpan permainan di kalimat ini")
+	tools.add_child(save)
 	var skip := UiKit.ghost_button("Lewati (Esc)", skip_scene, "Lewati adegan ini")
 	skip.name = "SkipButton"
 	tools.add_child(skip)
@@ -173,11 +179,35 @@ func play(beats: Array, ctx: Dictionary = {}, done: Callable = Callable(), opts:
 	_portrait_right.character = {}
 	_portrait_left.queue_redraw()
 	_portrait_right.queue_redraw()
+	if opts.has("history"):
+		_history = (opts.history as Array).duplicate(true)
 	show()
 	if _beats.is_empty():
 		_finish()
 		return
+	# Resume support: continue at a saved beat (its flags are re-applied, which is idempotent).
+	_index = clampi(int(opts.get("start_index", 0)), 0, _beats.size() - 1) - 1
+	if opts.has("start_index") and not _history.is_empty():
+		_history.pop_back()  # the resumed line is appended again by _next()
 	_next()
+	if bool(opts.get("revealed", false)) and _index >= 0:
+		_text.visible_characters = _text.get_total_character_count()
+		_shown = float(_text.visible_characters)
+		_on_line_complete()
+
+
+## Everything needed to restore this exact moment of the scene.
+func state() -> Dictionary:
+	if not visible or _index < 0 or _index >= _beats.size():
+		return {}
+	return {
+		"beats": _beats.duplicate(true), "index": _index, "title": _title.text, "skippable": _skippable,
+		"bg": _backdrop.kind, "case": str(_ctx.get("case", "")),
+		"revealed": _text.visible_characters >= _text.get_total_character_count(),
+		"waiting_option": _waiting_option,
+		"speaker": str(_beats[_index].get("s", "narasi")), "expression": str(_beats[_index].get("e", "netral")),
+		"history": _history.slice(maxi(0, _history.size() - 60)),
+	}
 
 
 func is_playing() -> bool:
@@ -222,6 +252,7 @@ func _next() -> void:
 		Narrative.apply_sets(Game.world, b)
 	_history.append({"name": str(c.get("name", "")), "text": _text.text})
 	line_shown.emit(_index)
+	progressed.emit(state())
 
 
 func _process(delta: float) -> void:
@@ -246,6 +277,7 @@ func _on_line_complete() -> void:
 		_show_options(b.options)
 	else:
 		_cont.visible = true
+	progressed.emit(state())
 
 
 func _show_options(options: Array) -> void:
@@ -297,6 +329,7 @@ func skip_scene() -> void:
 
 
 func _finish() -> void:
+	progressed.emit({})
 	hide()
 	_history_panel.hide()
 	UiKit.clear(_options)
@@ -352,6 +385,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				_toggle_history()
 			KEY_A:
 				_toggle_auto()
+			KEY_F5:
+				save_requested.emit()
 			KEY_1, KEY_2, KEY_3, KEY_4:
 				if _waiting_option:
 					var i := int((event as InputEventKey).keycode - KEY_1)

@@ -4,55 +4,190 @@
  "fact_class": "FICTIONAL",
  "background": "rumah_sakit",
  "locals": {
-  "dokter_ayu": {"name": "dr. Ayu", "role": "Dokter anak di rumah sakit rujukan", "color": "3a6a9a", "initials": "A"},
-  "bu_tina": {"name": "Bu Tina", "role": "Ibu dari balita, Jakarta", "color": "9a5a6a", "initials": "T"}
+  "dokter_ayu": {
+   "name": "dr. Ayu",
+   "role": "Dokter anak di rumah sakit rujukan",
+   "color": "3a6a9a",
+   "initials": "A"
+  },
+  "bu_tina": {
+   "name": "Bu Tina",
+   "role": "Ibu dari balita, Jakarta",
+   "color": "9a5a6a",
+   "initials": "T"
+  }
  },
  "agenda": {
   "hook": "Rumah sakit di banyak provinsi menerima balita dengan gagal ginjal akut. Penyebabnya belum pasti; obat sirop dicurigai.",
-  "if_postponed": "Penanganan kasus gagal ginjal akut berjalan tanpa arahan nasional. Orang tua bingung dan takut."
+  "if_postponed": "Penanganan kasus gagal ginjal akut berjalan tanpa arahan nasional. Orang tua bingung dan takut.",
+  "critical": true
  },
  "opening": [
-  {"s": "narasi", "bg": "rumah_sakit", "t": "Lorong ruang perawatan anak. Orang tua duduk di lantai, menunggu kabar."},
-  {"s": "bu_tina", "e": "cemas", "t": "Anak saya demam biasa, saya beri obat sirop dari apotek. Dua hari kemudian dia berhenti buang air kecil."},
-  {"s": "dokter_ayu", "e": "serius", "t": "Kami melihat pola yang sama di banyak pasien, Pak. Ginjalnya berhenti bekerja dengan cepat. Lebih dari separuh tidak tertolong."},
-  {"s": "yosef", "e": "serius", "bg": "ruang_rapat", "t": "Laporan datang dari banyak provinsi. Penyebabnya masih diteliti, tapi obat sirop tertentu dicurigai."},
-  {"s": "sekar", "e": "cemas", "t": "Orang tua di seluruh negeri ketakutan, Pak. Mereka tidak tahu obat mana yang aman."},
-  {"s": "bayu", "e": "netral", "t": "Ada obat penawarnya, tapi tidak diproduksi di sini dan harganya mahal. Harus didatangkan dari luar negeri."},
-  {"s": "nara", "e": "serius", "t": "Dalam keadaan tidak pasti, kita tetap harus bertindak. Pertanyaannya, seberapa luas."}
+  {
+   "s": "narasi",
+   "bg": "rumah_sakit",
+   "t": "Lorong ruang perawatan anak. Orang tua duduk di lantai, menunggu kabar."
+  },
+  {
+   "s": "bu_tina",
+   "e": "cemas",
+   "t": "Anak saya demam biasa, saya beri obat sirop dari apotek. Dua hari kemudian dia berhenti buang air kecil."
+  },
+  {
+   "s": "dokter_ayu",
+   "e": "serius",
+   "t": "Kami melihat pola yang sama di banyak pasien, Pak. Ginjalnya berhenti bekerja dengan cepat. Lebih dari separuh tidak tertolong."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "bg": "ruang_rapat",
+   "t": "Laporan datang dari banyak provinsi. Penyebabnya masih diteliti, tapi obat sirop tertentu dicurigai."
+  },
+  {
+   "s": "sekar",
+   "e": "cemas",
+   "t": "Orang tua di seluruh negeri ketakutan, Pak. Mereka tidak tahu obat mana yang aman."
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Ada obat penawarnya, tapi tidak diproduksi di sini dan harganya mahal. Harus didatangkan dari luar negeri."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Dalam keadaan tidak pasti, kita tetap harus bertindak. Pertanyaannya, seberapa luas."
+  }
  ],
  "choices": {
-  "a": {"intent": "Menghentikan sementara semua obat sirop anak sampai diuji.", "helps": "Semua anak: risiko diputus paling cepat.", "burden": "Apotek, dokter, dan orang tua yang kehilangan pilihan obat.", "now": "Layanan kesehatan sedikit terganggu selama dua bulan, kepercayaan naik.", "later": "Tidak ada beban jangka panjang."},
-  "b": {"intent": "Menguji dan menarik produk tercemar satu per satu.", "helps": "Layanan kesehatan tetap berjalan normal.", "burden": "Orang tua: kepastian datang lebih lambat.", "now": "Kepercayaan turun di seluruh negeri.", "later": "Tidak ada gangguan layanan."},
-  "c": {"intent": "Menggratiskan obat penawar dan menyiapkan rumah sakit rujukan di tiap provinsi.", "helps": "Anak-anak yang sudah sakit: lebih banyak tertolong.", "burden": "Anggaran: pilihan paling mahal.", "now": "Layanan naik selama tiga bulan, kepercayaan sedikit naik.", "later": "Penyebabnya tidak langsung diputus."}
+  "a": {
+   "intent": "Menghentikan sementara semua obat sirop anak sampai diuji.",
+   "helps": "Semua anak: risiko diputus paling cepat.",
+   "burden": "Apotek, dokter, dan orang tua yang kehilangan pilihan obat.",
+   "now": "Layanan kesehatan sedikit terganggu selama dua bulan, kepercayaan naik.",
+   "later": "Tidak ada beban jangka panjang."
+  },
+  "b": {
+   "intent": "Menguji dan menarik produk tercemar satu per satu.",
+   "helps": "Layanan kesehatan tetap berjalan normal.",
+   "burden": "Orang tua: kepastian datang lebih lambat.",
+   "now": "Kepercayaan turun di seluruh negeri.",
+   "later": "Tidak ada gangguan layanan."
+  },
+  "c": {
+   "intent": "Menggratiskan obat penawar dan menyiapkan rumah sakit rujukan di tiap provinsi.",
+   "helps": "Anak-anak yang sudah sakit: lebih banyak tertolong.",
+   "burden": "Anggaran: pilihan paling mahal.",
+   "now": "Layanan naik selama tiga bulan, kepercayaan sedikit naik.",
+   "later": "Penyebabnya tidak langsung diputus."
+  }
  },
  "reactions": {
   "a": [
-   {"s": "narasi", "bg": "rumah_sakit", "t": "Surat edaran keluar malam itu. Semua obat sirop anak berhenti diresepkan dan dijual sampai diuji."},
-   {"s": "bu_tina", "e": "netral", "t": "Saya bingung harus memberi obat apa sekarang. Tapi setidaknya saya tahu apa yang harus dihindari."},
-   {"s": "dokter_ayu", "e": "lega", "bg": "rumah_sakit", "t": "Kalau dugaannya benar, kasus baru akan turun dalam beberapa minggu. Itu harapan kami."}
+   {
+    "s": "narasi",
+    "bg": "rumah_sakit",
+    "t": "Surat edaran keluar malam itu. Semua obat sirop anak berhenti diresepkan dan dijual sampai diuji."
+   },
+   {
+    "s": "bu_tina",
+    "e": "netral",
+    "t": "Saya bingung harus memberi obat apa sekarang. Tapi setidaknya saya tahu apa yang harus dihindari."
+   },
+   {
+    "s": "dokter_ayu",
+    "e": "lega",
+    "bg": "rumah_sakit",
+    "t": "Kalau dugaannya benar, kasus baru akan turun dalam beberapa minggu. Itu harapan kami."
+   }
   ],
   "b": [
-   {"s": "narasi", "bg": "rumah_sakit", "t": "Laboratorium bekerja siang malam menguji produk satu per satu. Hanya yang terbukti tercemar ditarik."},
-   {"s": "bu_tina", "e": "marah", "t": "Jadi selama diuji, obat itu masih dijual? Bagaimana saya tahu yang mana yang aman?"},
-   {"s": "sekar", "e": "cemas", "bg": "ruang_rapat", "t": "Secara teknis masuk akal, Pak. Secara perasaan, orang tua merasa kita mempertaruhkan anak mereka."}
+   {
+    "s": "narasi",
+    "bg": "rumah_sakit",
+    "t": "Laboratorium bekerja siang malam menguji produk satu per satu. Hanya yang terbukti tercemar ditarik."
+   },
+   {
+    "s": "bu_tina",
+    "e": "marah",
+    "t": "Jadi selama diuji, obat itu masih dijual? Bagaimana saya tahu yang mana yang aman?"
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "bg": "ruang_rapat",
+    "t": "Secara teknis masuk akal, Pak. Secara perasaan, orang tua merasa kita mempertaruhkan anak mereka."
+   }
   ],
   "c": [
-   {"s": "narasi", "bg": "rumah_sakit", "t": "Obat penawar didatangkan dengan penerbangan khusus. Setiap provinsi menunjuk rumah sakit rujukan."},
-   {"s": "dokter_ayu", "e": "senyum", "t": "Pasien saya yang mendapat penawar mulai membaik. Saya hampir lupa rasanya membawa kabar baik."},
-   {"s": "bayu", "e": "cemas", "bg": "ruang_rapat", "t": "Mahal, Pak. Dan selama sumbernya belum diputus, kita terus mengobati di hilir."}
+   {
+    "s": "narasi",
+    "bg": "rumah_sakit",
+    "t": "Obat penawar didatangkan dengan penerbangan khusus. Setiap provinsi menunjuk rumah sakit rujukan."
+   },
+   {
+    "s": "dokter_ayu",
+    "e": "senyum",
+    "t": "Pasien saya yang mendapat penawar mulai membaik. Saya hampir lupa rasanya membawa kabar baik."
+   },
+   {
+    "s": "bayu",
+    "e": "cemas",
+    "bg": "ruang_rapat",
+    "t": "Mahal, Pak. Dan selama sumbernya belum diputus, kita terus mengobati di hilir."
+   }
   ]
  },
  "callbacks": [
-  {"id": "orangtua", "after_quarters": 2, "beats": [
-   {"pick": [
-    {"if": {"delta": "trust", "op": ">", "value": 0}, "beats": [{"s": "bu_tina", "e": "senyum", "bg": "kota", "t": "Anak saya sudah sehat, Pak. Sekarang saya selalu membaca label obat. Rasanya pemerintah juga lebih hati-hati."}]},
-    {"if": {}, "beats": [{"s": "bu_tina", "e": "kecewa", "bg": "kota", "t": "Saya masih takut memberi anak obat apa pun, Pak. Kepercayaan itu tidak kembali secepat itu."}]}
-   ]}
-  ]}
+  {
+   "id": "orangtua",
+   "after_quarters": 2,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "trust",
+        "op": ">",
+        "value": 0
+       },
+       "beats": [
+        {
+         "s": "bu_tina",
+         "e": "senyum",
+         "bg": "kota",
+         "t": "Anak saya sudah sehat, Pak. Sekarang saya selalu membaca label obat. Rasanya pemerintah juga lebih hati-hati."
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bu_tina",
+         "e": "kecewa",
+         "bg": "kota",
+         "t": "Saya masih takut memberi anak obat apa pun, Pak. Kepercayaan itu tidak kembali secepat itu."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
  ],
  "unattended": [
-  {"s": "narasi", "bg": "rumah_sakit", "t": "Tanpa arahan nasional, setiap rumah sakit mengambil keputusan sendiri."},
-  {"s": "dokter_ayu", "e": "sedih", "t": "Kami menulis laporan setiap hari. Kami tidak tahu siapa yang membacanya."}
+  {
+   "s": "narasi",
+   "bg": "rumah_sakit",
+   "t": "Tanpa arahan nasional, setiap rumah sakit mengambil keputusan sendiri."
+  },
+  {
+   "s": "dokter_ayu",
+   "e": "sedih",
+   "t": "Kami menulis laporan setiap hari. Kami tidak tahu siapa yang membacanya."
+  }
  ],
  "journal": {
   "a": "Semua obat sirop anak dihentikan sementara untuk diuji. Risiko diputus cepat, layanan sempat terganggu.",

@@ -233,8 +233,68 @@ func test_abandoning_the_agenda_is_a_mandate_crisis() -> void:
 	t.check(s.world.is_term_over(), "neglect term completes")
 	var cfg: Dictionary = ContentDB.story.endings
 	var ev := EndingEvaluator.evaluate(s, cfg)
-	t.check(int(ev.features.unattended) >= int(cfg.thresholds.crisis_unattended), "neglect leaves most issues unattended")
+	t.check(int(ev.features.neglect) >= int(cfg.thresholds.crisis_neglect), "neglect misses critical crises and lets items lapse idle")
 	t.check(ev.id == "krisis_mandat", "abandoning the agenda ends in Krisis Mandat (got %s)" % ev.id)
+
+
+func test_strong_route_reaches_warisan_besar_and_misses_no_crisis() -> void:
+	# Deterministic excellent-but-plausible play (game/tests/data/strong_route.json): no bugs, no edited
+	# state, every event left on. Proves the top ending is attainable; regenerate after balance changes.
+	var route: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/data/strong_route.json"))
+	var acts: Array = route.actions
+	var s := _session()
+	s.present_next_case()
+	var i := 0
+	var guard := 0
+	while not s.world.is_term_over() and guard < 500:
+		guard += 1
+		if s.pending_case() != "":
+			var a: Dictionary = acts[i] if i < acts.size() else {}
+			t.check(str(a.get("decide", "")) == s.pending_case(), "route decides %s" % s.pending_case())
+			s.decide(s.pending_case(), str(a.get("choice", "")))
+			i += 1
+			continue
+		if i < acts.size() and int(acts[i].q) == s.world.quarter_index():
+			var a: Dictionary = acts[i]
+			if a.has("delegate"):
+				t.check(Campaign.delegate(s, str(a.delegate)) == "", "delegate %s" % a.delegate)
+			else:
+				t.check(Campaign.take(s, str(a.take)) == "", "take %s" % a.take)
+				s.decide(str(a.take), str(a.choice))
+			i += 1
+			continue
+		if not Campaign.can_advance(s):
+			t.check(false, "route stalls at quarter %d" % s.world.quarter_index())
+			break
+		s.advance_quarter()
+	t.check(s.world.is_term_over(), "strong route completes the term")
+	var ev := EndingEvaluator.evaluate(s, ContentDB.story.endings)
+	t.check(int(ev.features.missed_critical) == 0, "strong route misses no critical crisis")
+	t.check(ev.id == "warisan_besar", "strong route reaches Warisan Besar (got %s)" % ev.id)
+
+
+func test_active_prioritisation_is_not_neglect() -> void:
+	# Taking an item every quarter (always the first) leaves many items lapsed by displacement, but is
+	# never classified as abandoning the agenda (D-093).
+	var s := _play_campaign("b")
+	var f := EndingEvaluator.features(s)
+	t.check(int(f.lapsed) == 0, "active play has no idle lapses")
+	t.check(int(f.neglect) < int(ContentDB.story.endings.thresholds.crisis_neglect), "active play stays below the neglect line")
+
+
+func test_dialogue_position_survives_save_and_load() -> void:
+	var s := _session()
+	var st := Narrative.ensure(s.world)
+	st["playing"] = {"beats": [{"s": "laras", "t": "Satu."}, {"s": "bayu", "e": "cemas", "t": "Dua."}], "index": 1,
+		"resume": "quarter", "revealed": true, "waiting_option": false, "case": "CASE-0001", "bg": "ruang_rapat",
+		"history": [{"name": "Laras Prameswari", "text": "Satu."}]}
+	var d := s.world.to_dict()
+	var s2 := _session()
+	t.check(s2.world.load_dict(JSON.parse_string(JSON.stringify(d))) == "", "save loads")
+	var pl: Dictionary = s2.world.story.get("playing", {})
+	t.check(int(pl.get("index", -1)) == 1 and str(pl.get("resume", "")) == "quarter", "beat index and flow restored")
+	t.check(str(pl.beats[1].s) == "bayu" and str(pl.beats[1].e) == "cemas", "speaker and expression restored")
+	t.check(str(pl.get("bg", "")) == "ruang_rapat" and bool(pl.get("revealed", false)), "backdrop and reveal state restored")
 
 
 func test_story_state_survives_save_and_load() -> void:

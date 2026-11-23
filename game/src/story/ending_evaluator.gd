@@ -21,13 +21,20 @@ static func features(session: Session) -> Dictionary:
 	var decided := 0
 	for id in session.world.case_state:
 		var ch := str(session.world.case_state[id].get("choice_id", ""))
-		if ch != "" and ch != Campaign.SKIP_CHOICE:
+		if ch != "" and ch != Campaign.SKIP_CHOICE and ch != Campaign.DELEGATE_CHOICE:
 			decided += 1
+	var oc := Campaign.outcome_counts(session.world)
 	return {
 		"d_welfare": float(p.welfare.delta), "d_trust": float(p.trust.delta), "d_services": float(p.services.delta),
 		"fiscal_end": float(p.fiscal.value), "d_fiscal": float(p.fiscal.delta),
 		"promises_kept": kept, "promises_broken": broken, "promises_open": s.promises.size() - kept - broken,
 		"unattended": (s.expired as Array).size(), "decided": decided,
+		"missed_critical": int(oc.get(Campaign.OUTCOME_MISSED_CRITICAL, 0)),
+		"lapsed": int(oc.get(Campaign.OUTCOME_LAPSED, 0)),
+		"displaced": int(oc.get(Campaign.OUTCOME_DISPLACED, 0)),
+		"delegated": int(oc.get(Campaign.OUTCOME_DELEGATED, 0)),
+		"covered": int(oc.get(Campaign.OUTCOME_COVERED, 0)),
+		"neglect": int(oc.get(Campaign.OUTCOME_MISSED_CRITICAL, 0)) + int(oc.get(Campaign.OUTCOME_LAPSED, 0)),
 		"crisis_quarters": 0,
 		"mean_damage": session.world.national_mean("damage"),
 	}
@@ -66,12 +73,15 @@ static func evaluate(session: Session, cfg: Dictionary) -> Dictionary:
 	var settled := int(f.promises_kept) + int(f.promises_broken)
 	var kept_ratio := 1.0 if settled == 0 else float(f.promises_kept) / settled
 	var id := "pemerintahan_bertahan"
-	var abandoned := int(f.unattended) >= int(th.get("crisis_unattended", 999))
+	# Negligence is judged by critical crises missed while lesser items were taken, and by quarters in
+	# which nothing was taken up at all (D-093), not by the raw count of lapsed agenda items.
+	var abandoned := int(f.neglect) >= int(th.get("crisis_neglect", 999))
 	if (crisis_q >= int(th.get("crisis_min_quarters", 4)) and ratings.trust == "poor") or poors >= 3 or abandoned:
 		id = "krisis_mandat"
-	elif goods == 4 and kept_ratio >= float(th.get("legacy_promise_ratio", 0.6)):
+	elif goods == 4 and kept_ratio >= float(th.get("legacy_promise_ratio", 0.6)) \
+			and int(f.missed_critical) <= int(th.get("legacy_max_missed_critical", 0)):
 		id = "warisan_besar"
-	elif goods >= 2 and poors == 0:
+	elif goods >= 2 and poors == 0 and int(f.missed_critical) <= int(th.get("strong_max_missed_critical", 1)):
 		id = "nusantara_menguat"
 	elif (ratings.welfare == "good" or ratings.services == "good") and (ratings.fiscal == "poor" or kept_ratio < 0.5):
 		id = "janji_belum_selesai"

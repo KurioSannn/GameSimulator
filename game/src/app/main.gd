@@ -46,6 +46,8 @@ var story_player: StoryPlayer
 var agenda_board: AgendaBoard
 var coach: TutorialCoach
 var _story_busy := false
+## How to continue after a scene restored from a save: drain | quarter | prologue | ending (D-094).
+var _play_resume := "drain"
 var _qa_story := false  # QA screenshots of the real story UI (--story=...)
 
 
@@ -231,6 +233,22 @@ func _debug_automation() -> void:
 		case_modal.present(args["play-to"])
 	if args.has("decide") and Game.pending_case() != "":
 		case_modal._choose(args.decide)
+	# --qa-save: quick-save at the current dialogue beat; --qa-load: load the quick-save into a fresh run.
+	if args.has("qa-save"):
+		await get_tree().process_frame
+		_quicksave()
+		var pl: Dictionary = Game.world.story.get("playing", {})
+		print("QA saved: resume=%s index=%d speaker=%s revealed=%s" % [pl.get("resume", "-"), int(pl.get("index", -1)), pl.get("speaker", "-"), str(pl.get("revealed", false))])
+	if args.has("qa-load"):
+		_qa_story = true
+		var err := Game.load_from(SaveService.QUICKSAVE_ID)
+		screens.session_started = true
+		screens.close_screen()
+		case_modal.hide()
+		_start_session()
+		await get_tree().process_frame
+		var st := story_player.state()
+		print("QA loaded: err='%s' index=%d speaker=%s" % [err, int(st.get("index", -1)), st.get("speaker", "-")])
 	for _q in int(args.get("quarters", "0")):
 		_next_quarter()
 	if args.has("view"):  # --view=<lon>,<lat>,<metres per pixel>
@@ -424,6 +442,7 @@ func _build_ui() -> void:
 	agenda_board = AgendaBoard.new()
 	center.add_child(agenda_board)
 	agenda_board.taken.connect(_on_agenda_taken)
+	agenda_board.delegated.connect(_on_agenda_delegated)
 	agenda_board.closed.connect(func(): _refresh_all(); _sync_interaction())
 	for modal in [case_modal, policy_panel, budget_panel, sources_dialog, agenda_board]:
 		modal.visibility_changed.connect(_sync_interaction)
@@ -444,6 +463,8 @@ func _build_ui() -> void:
 	story_player = StoryPlayer.new()
 	root.add_child(story_player)
 	story_player.visibility_changed.connect(_sync_interaction)
+	story_player.progressed.connect(_on_story_progress)
+	story_player.save_requested.connect(_quicksave)
 	hud.agenda_pressed.connect(_open_agenda)
 	hud.goals_pressed.connect(func(): screens._origin = "map"; screens.open("goals"))
 	camera.navigated.connect(func(k): if coach: coach.notify(k))
@@ -783,7 +804,7 @@ func _next_quarter() -> void:
 		_story_busy = false
 		return
 	var beats := Narrative.resolve(Game.world, ContentDB.story.get("quarters", {}).get("transition", []), {})
-	_play_beats(beats, {}, func(): _drain_story(_after_quarter_story), {"title": "Kuartal %d dari 20" % mini(Game.world.quarter_index() + 1, 20)})
+	_play_beats(beats, {}, func(): _drain_story(_after_quarter_story), {"title": "Kuartal %d dari 20" % mini(Game.world.quarter_index() + 1, 20), "resume": "quarter"})
 
 
 func _after_quarter_story() -> void:
@@ -837,6 +858,7 @@ func _play_beats(beats: Array, ctx: Dictionary, done: Callable, opts: Dictionary
 	if beats.is_empty() or _automation():
 		done.call()
 		return
+	_play_resume = str(opts.get("resume", "drain"))
 	region_panel.hide()
 	_tooltip.visible = false
 	story_player.play(beats, ctx, done, opts)
@@ -850,6 +872,20 @@ func _open_agenda() -> void:
 		return
 	agenda_board.open(Game.session)
 	if coach: coach.notify("agenda")
+
+
+## Deliberate triage: the item is handed to the ministries now (its scene plays), then the agenda
+## reopens so the president can still take up this quarter's decision.
+func _on_agenda_delegated(case_id: String) -> void:
+	var err := Campaign.delegate(Game.session, case_id)
+	if err != "":
+		_toast_msg(err)
+		return
+	agenda_board.hide()
+	_refresh_all()
+	_drain_story(func():
+		_refresh_all()
+		_open_agenda())
 
 
 func _on_agenda_taken(case_id: String) -> void:
@@ -1073,20 +1109,66 @@ func _start_session() -> void:
 		return
 	if not bool(st.get("prologue_done", true)):
 		var prologue: Dictionary = ContentDB.story.get("prologue", {})
-		_play_beats(Narrative.resolve(Game.world, prologue.get("beats", []), {}), {"bg": "istana_pagi"}, func():
-			st["prologue_done"] = true
-			Narrative.journal(Game.world, "bab", "Pagi Pertama", "Nara Adinata memulai masa bakti lima tahun bersama Laras, Bayu, Yosef, dan Sekar.")
-			coach.start(true)
-			_refresh_all()
-			_sync_interaction(), {"title": "Prolog · Pagi Pertama", "bg": "istana_pagi"})
+		_play_beats(Narrative.resolve(Game.world, prologue.get("beats", []), {}), {"bg": "istana_pagi"}, _after_prologue,
+			{"title": "Prolog · Pagi Pertama", "bg": "istana_pagi", "resume": "prologue"})
+		return
+	var playing: Dictionary = st.get("playing", {})
+	if not playing.is_empty():
+		_resume_story(playing)
 		return
 	coach.resume()
 	_drain_story(_resume_play)
 
 
+func _after_prologue() -> void:
+	Narrative.ensure(Game.world)["prologue_done"] = true
+	Narrative.journal(Game.world, "bab", "Pagi Pertama", "Nara Adinata memulai masa bakti lima tahun bersama Laras, Bayu, Yosef, dan Sekar.")
+	coach.start(true)
+	_refresh_all()
+	_sync_interaction()
+
+
+## Restores a scene saved mid-dialogue at the exact beat, then continues the flow it belonged to.
+## Simulation effects are never re-applied: decisions live in world state, the scene is only text.
+func _resume_story(playing: Dictionary) -> void:
+	var kind := str(playing.get("resume", "drain"))
+	var done: Callable
+	match kind:
+		"prologue": done = _after_prologue
+		"ending": done = _after_ending
+		"quarter": done = func(): _drain_story(_after_quarter_story)
+		_: done = func(): _drain_story(_resume_play)
+	if kind != "prologue":
+		coach.resume()
+	var cid := str(playing.get("case", ""))
+	var ctx := {"case": cid, "case_record": ContentDB.cases.get(cid, {}), "bg": str(playing.get("bg", "ruang_kerja"))}
+	_story_busy = true
+	_play_beats(playing.get("beats", []), ctx, done, {"title": str(playing.get("title", "")),
+		"skippable": bool(playing.get("skippable", true)), "bg": str(playing.get("bg", "ruang_kerja")),
+		"start_index": int(playing.get("index", 0)), "revealed": bool(playing.get("revealed", false)),
+		"history": playing.get("history", []), "resume": kind})
+
+
+## Mirrors the dialogue position into the world so every save (quick, slot, autosave) carries it.
+## Scenario sessions are never saved, so they are not tracked.
+func _on_story_progress(state: Dictionary) -> void:
+	if Game.world == null:
+		return
+	var st := Narrative.ensure(Game.world)
+	if state.is_empty() or Game.in_scenario():
+		st.erase("playing")
+		return
+	state["resume"] = _play_resume
+	st["playing"] = state
+
+
 ## After a load or a scene: reopen whatever the player was in the middle of.
 func _resume_play() -> void:
 	_refresh_all()
+	if Campaign.enabled(Game.world) and Game.world.is_term_over() and not bool(Game.world.story.get("ending_done", false)) \
+			and not Game.in_scenario():
+		_play_ending()
+		return
 	if Game.pending_case() != "":
 		case_modal.present(Game.pending_case())
 	elif Campaign.enabled(Game.world) and not Game.world.is_term_over() and not Campaign.taken_this_quarter(Game.world) \
@@ -1117,9 +1199,13 @@ func _play_ending() -> void:
 	Narrative.ensure(Game.world)["ending"] = ev
 	var beats: Array = Narrative.resolve(Game.world, arch.get("beats", []), {})
 	beats.append_array(Narrative.resolve(Game.world, cfg.get("closing", []), {}))
-	_play_beats(beats, {"bg": "senja"}, func():
-		screens._origin = "map"
-		screens.open("legacy"), {"title": str(arch.get("title", "Akhir Masa Bakti")), "skippable": true})
+	_play_beats(beats, {"bg": "senja"}, _after_ending, {"title": str(arch.get("title", "Akhir Masa Bakti")), "skippable": true, "resume": "ending"})
+
+
+func _after_ending() -> void:
+	Narrative.ensure(Game.world)["ending_done"] = true
+	screens._origin = "map"
+	screens.open("legacy")
 
 
 func _sync_interaction() -> void:

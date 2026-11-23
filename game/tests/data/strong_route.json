@@ -1,0 +1,135 @@
+{
+ "schema": "nusantara.strong_route/1",
+ "note": "Deterministic strong-governance route (calibrate_endings_impl.gd 'strong': 4-quarter lookahead per decision, critical crises answered before their window closes, non-critical items about to lapse delegated on purpose). Replayed by test_story.gd; regenerate after content or coefficient changes.",
+ "seed": 20261115,
+ "actions": [
+  {
+   "choice": "a",
+   "q": 0,
+   "take": "CASE-0001"
+  },
+  {
+   "choice": "b",
+   "q": 1,
+   "take": "CASE-0031"
+  },
+  {
+   "choice": "c",
+   "q": 2,
+   "take": "CASE-0039"
+  },
+  {
+   "choice": "c",
+   "q": 3,
+   "take": "CASE-0001-A"
+  },
+  {
+   "choice": "a",
+   "q": 4,
+   "take": "CASE-0013"
+  },
+  {
+   "delegate": "CASE-0006",
+   "q": 5
+  },
+  {
+   "choice": "a",
+   "q": 5,
+   "take": "CASE-0007"
+  },
+  {
+   "delegate": "CASE-0052",
+   "q": 6
+  },
+  {
+   "choice": "b",
+   "q": 6,
+   "take": "CASE-0049"
+  },
+  {
+   "choice": "a",
+   "q": 7,
+   "take": "CASE-0050"
+  },
+  {
+   "choice": "a",
+   "q": 8,
+   "take": "CASE-0006-R"
+  },
+  {
+   "delegate": "CASE-0007-A",
+   "q": 9
+  },
+  {
+   "choice": "c",
+   "q": 9,
+   "take": "CASE-0002"
+  },
+  {
+   "choice": "c",
+   "q": 10,
+   "take": "CASE-0015"
+  },
+  {
+   "choice": "c",
+   "q": 11,
+   "take": "CASE-0002-C"
+  },
+  {
+   "delegate": "CASE-0005",
+   "q": 12
+  },
+  {
+   "choice": "c",
+   "q": 12,
+   "take": "CASE-0028"
+  },
+  {
+   "choice": "a",
+   "q": 13,
+   "take": "CASE-0021"
+  },
+  {
+   "delegate": "CASE-0008",
+   "q": 14
+  },
+  {
+   "choice": "b",
+   "q": 14,
+   "take": "CASE-0035"
+  },
+  {
+   "choice": "b",
+   "q": 15,
+   "take": "CASE-0003"
+  },
+  {
+   "choice": "c",
+   "q": 16,
+   "take": "CASE-0043"
+  },
+  {
+   "delegate": "CASE-0003-B",
+   "q": 17
+  },
+  {
+   "choice": "c",
+   "q": 17,
+   "take": "CASE-0004"
+  },
+  {
+   "choice": "a",
+   "q": 18,
+   "take": "CASE-0038"
+  },
+  {
+   "delegate": "CASE-0034",
+   "q": 19
+  },
+  {
+   "choice": "b",
+   "q": 19,
+   "take": "CASE-0004-R"
+  }
+ ]
+}
