@@ -1,14 +1,14 @@
 # STATUS
 
-_Last updated: 2026-11-23 (Claude Code, narrative redesign + 32-case library)._ **Submission deadline recorded by the project: 15 Nov 2026.**
+_Last updated: 2026-11-23 (Claude Code, narrative redesign + 50-case library)._ **Submission deadline recorded by the project: 15 Nov 2026.**
 
 ## Current phase
-**Narrative redesign: story campaign, agenda, endings, 32 playable cases (2026-11-23; user redesign brief)**:
+**Narrative redesign: story campaign, agenda, endings, 50 playable cases (2026-11-23; user redesign brief)**:
 - Authoritative GDD rewritten (docs/02_GDD.md). Data-driven story layer: prologue, cast of five, 7-step contextual tutorial, opening and choice-specific reaction scenes for every case, state-checked callbacks, promises, quarter transitions from actual pillar changes, Buku Kisah, Tujuan Masa Bakti, Kumpulan Kisah (isolated scenarios), five calibrated endings.
 - Visible quarterly agenda replaces silent priority picks; unattended issues expire with explicit consequences; never-opened cases are reported. Save schema v6 (v5 migrates).
-- Calibration: neglect originally scored like governing; unattended costs raised. Endings relative to 47 strategies (Bertahan 27, Menguat 9, Janji 8, Krisis 4, Warisan 0).
-- Cases: 18 new researched cases (CASE-0021..0038) from official pages read 2026-11-23; **32/50** playable. PDNS 2024 and rice 2023 dropped (no readable official source).
-- U+2014 removed from game text and authored docs; guard test. Tests 177/177; validate_all OK.
+- Calibration: neglect originally scored like governing; unattended costs raised. Recalibrated at 50 cases against 47 strategies (Bertahan 20, Menguat 9, Janji 8, Krisis 11 incl. neglect, Warisan 0); new rule: 15+ unattended items is a mandate crisis (D-092).
+- Cases: 36 new researched cases (CASE-0021..0056) from official pages read 2026-11-23; **50/50** playable. PDNS 2024, rice 2023 and several others dropped (no readable official source; listed in the report).
+- U+2014 removed from game text and authored docs; guard test. Tests 178/178; validate_all OK.
 - Report: research/reports/2026-11-23_STORY_CAMPAIGN_REPORT.md.
 
 **Trackpad/mouse controls and case re-verification (2026-11-23; user request)**:

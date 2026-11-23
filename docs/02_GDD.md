@@ -101,11 +101,11 @@ Tutorial and prologue choices are saved; continuing a save never replays the pro
 
 Five archetypes: **Warisan Besar**, **Nusantara yang Menguat**, **Pemerintahan yang Bertahan**, **Janji yang Belum Selesai**, **Krisis Mandat**.
 
-Each pillar is rated good / fair / poor against thresholds **calibrated from 48 deterministic full-term campaigns** (always a/b/c, cheapest, costliest, first/last agenda item, 40 seeded random strategies) plus a neglect counterfactual (`game/tests/calibrate_endings.gd`). Good = top quartile, poor = bottom quartile of plausible strategies. Crisis requires sustained failure (trust in the bottom decile for 4+ quarters with poor trust, or 3+ poor pillars); one bad decision cannot end the game. Promises kept and unattended issues are part of the assessment.
+Each pillar is rated good / fair / poor against thresholds **calibrated from 48 deterministic full-term campaigns** (always a/b/c, cheapest, costliest, first/last agenda item, 40 seeded random strategies) plus a neglect counterfactual (`game/tests/calibrate_endings.gd`). Good = top quartile, poor = bottom quartile of plausible strategies. Crisis requires sustained failure (trust in the bottom decile for 4+ quarters with poor trust, 3+ poor pillars, or 15+ agenda items left to expire); one bad decision cannot end the game. Promises kept and unattended issues are part of the assessment.
 
 Every ending has its own final scene, a reflection that remembers the player's prologue priority, the map closing image, and a summary screen with pillar ratings, promises kept/unfinished, the decisions that shaped the country, and the legacy statement.
 
-Calibrated distribution (2026-11-23, 32 cases at the time of calibration): Bertahan 27, Menguat 9, Janji 8, Krisis 4 (including neglect), Warisan Besar 0. Warisan Besar is aspirational: it needs top-quartile results on all four pillars plus kept promises. **Recalibrate whenever cases or coefficients change.**
+Calibrated distribution (2026-11-23, 50 playable cases): Bertahan 20, Menguat 9, Janji 8, Krisis 11 (including neglect), Warisan Besar 0. With one decision per quarter and 50 cases, a median of 9 agenda items expire even under active play; prioritising is the game. Warisan Besar is aspirational: it needs top-quartile results on all four pillars plus kept promises. **Recalibrate whenever cases or coefficients change.**
 
 ## 9. Case library
 

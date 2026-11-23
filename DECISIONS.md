@@ -485,3 +485,7 @@ _Imported (originally D-019). Consistent with the existing .gitignore policy (ra
 **Decision:** Sources stay in research records; in game they appear only with the developer setting. U+2014 is removed from game text and authored docs and guarded by a test; generated data and evidence captures are left unchanged and listed by `scripts/text/em_dash.py`.
 **Why:** User requirement; immutable/generated files must keep their checksums.
 
+
+## D-092: Abandoning the agenda is a mandate crisis (2026-11-23)
+**Decision:** `crisis_unattended = 15` in `game/data/story/endings.json`: a term in which 15 or more agenda items expire without the President ends in Krisis Mandat regardless of the fiscal balance. Thresholds recalibrated at 50 playable cases (p75/p25 of 47 strategies).
+**Why:** At 50 cases the neglect counterfactual (19 expired, best fiscal) rated "Pemerintahan yang Bertahan", because engaged play also pays for real crises. The maximum among plausible strategies is 12, so 15 separates neglect from play without punishing hard prioritisation. Guarded by `test_abandoning_the_agenda_is_a_mandate_crisis`.

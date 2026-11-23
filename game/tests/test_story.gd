@@ -191,6 +191,26 @@ func test_full_campaign_reaches_an_ending_and_accounts_for_every_case() -> void:
 	t.check((s.world.story.history as Array).size() == 20, "pillar history per quarter")
 
 
+func test_abandoning_the_agenda_is_a_mandate_crisis() -> void:
+	# Neglect counterfactual: take up no agenda item all term. Best fiscal balance, but most issues expire.
+	var s := _session()
+	s.present_next_case()
+	var guard := 0
+	while not s.world.is_term_over() and guard < 400:
+		guard += 1
+		if s.pending_case() != "":
+			break
+		if not Campaign.can_advance(s):
+			Narrative.ensure(s.world)["quarter_taken"] = s.world.quarter_index()  # counterfactual: nothing taken up
+			continue
+		s.advance_quarter()
+	t.check(s.world.is_term_over(), "neglect term completes")
+	var cfg: Dictionary = ContentDB.story.endings
+	var ev := EndingEvaluator.evaluate(s, cfg)
+	t.check(int(ev.features.unattended) >= int(cfg.thresholds.crisis_unattended), "neglect leaves most issues unattended")
+	t.check(ev.id == "krisis_mandat", "abandoning the agenda ends in Krisis Mandat (got %s)" % ev.id)
+
+
 func test_story_state_survives_save_and_load() -> void:
 	var s := _session()
 	s.present_next_case()

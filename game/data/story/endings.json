@@ -4,28 +4,29 @@
  "calibration": {
   "status": "calibrated",
   "date": "2026-11-23",
-  "method": "game/tests/calibrate_endings.gd: 47 deterministic full-term campaigns (always a/b/c, cheapest, costliest, first/last agenda item, 40 seeded random strategies) plus a neglect counterfactual that takes up no agenda item. Pillar values are changes since the start of the term (fiscal: level). good = top quartile (p75), poor = bottom quartile (p25) of the 47 strategies; crisis trust = p10 of the lowest trust reached during the term.",
-  "note": "Every strategy ends with lower welfare and trust than at the start because the 14 historical crises hit regardless; endings therefore judge how well the damage was contained relative to plausible play, not absolute growth. Recalibrate whenever cases or simulation coefficients change.",
+  "method": "game/tests/calibrate_endings.gd: 47 deterministic full-term campaigns (always a/b/c, cheapest, costliest, first/last agenda item, 40 seeded random strategies) plus a neglect counterfactual that takes up no agenda item. Pillar values are changes since the start of the term (fiscal: level). good = top quartile (p75), poor = bottom quartile (p25) of the 47 strategies; crisis trust = p10 of the lowest trust reached during the term. crisis_unattended = 15: above the maximum reached by any of the 47 strategies (12) and below the neglect counterfactual (19); a term in which most agenda items expire without the President is a mandate crisis whatever the fiscal balance.",
+  "note": "Every strategy ends with lower welfare and trust than at the start because the 50 historical crises hit regardless, and with one decision per quarter a median of 9 agenda items expire unattended even under active play; endings therefore judge how well the damage was contained relative to plausible play, not absolute growth. Recalibrated 2026-11-23 at 50 playable cases. Recalibrate whenever cases or simulation coefficients change.",
   "neglect_counterfactual": {
-   "d_welfare": -5.15,
-   "d_trust": -9.69,
-   "d_services": -3.06,
+   "d_welfare": -5.1,
+   "d_trust": -9.28,
+   "d_services": -2.64,
    "fiscal_end": 50.0
   }
  },
  "thresholds": {
-  "welfare_good": -3.7,
-  "welfare_poor": -4.73,
-  "trust_good": -7.58,
-  "trust_poor": -8.65,
-  "services_good": -1.03,
-  "services_poor": -2.54,
-  "fiscal_good": 16.3,
-  "fiscal_poor": 5.0,
-  "crisis_trust_delta": -9.27,
+  "welfare_good": -3.97,
+  "welfare_poor": -5.12,
+  "trust_good": -7.99,
+  "trust_poor": -9.94,
+  "services_good": -0.72,
+  "services_poor": -2.84,
+  "fiscal_good": 8.4,
+  "fiscal_poor": 0.0,
+  "crisis_trust_delta": -10.96,
   "crisis_fiscal_level": 0.0,
   "crisis_min_quarters": 4,
-  "legacy_promise_ratio": 0.6
+  "legacy_promise_ratio": 0.6,
+  "crisis_unattended": 15
  },
  "rating_words": {
   "good": "terjaga dengan baik",

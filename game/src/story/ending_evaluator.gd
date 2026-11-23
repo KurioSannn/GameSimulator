@@ -66,7 +66,8 @@ static func evaluate(session: Session, cfg: Dictionary) -> Dictionary:
 	var settled := int(f.promises_kept) + int(f.promises_broken)
 	var kept_ratio := 1.0 if settled == 0 else float(f.promises_kept) / settled
 	var id := "pemerintahan_bertahan"
-	if (crisis_q >= int(th.get("crisis_min_quarters", 4)) and ratings.trust == "poor") or poors >= 3:
+	var abandoned := int(f.unattended) >= int(th.get("crisis_unattended", 999))
+	if (crisis_q >= int(th.get("crisis_min_quarters", 4)) and ratings.trust == "poor") or poors >= 3 or abandoned:
 		id = "krisis_mandat"
 	elif goods == 4 and kept_ratio >= float(th.get("legacy_promise_ratio", 0.6)):
 		id = "warisan_besar"
