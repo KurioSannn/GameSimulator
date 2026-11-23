@@ -1,0 +1,215 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0056",
+ "research_ref": "research/cases/CASE-0056.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Tanggul Jebol di Bekasi",
+ "location_label": "Kota Bekasi dan Kab. Bekasi, Jawa Barat",
+ "focus_regions": [
+  "32.75",
+  "32.16"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 41
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0056"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "regions:32.75,32.16",
+   "var": "damage",
+   "op": "add",
+   "value": 8.0
+  },
+  {
+   "scope": "regions:32.75,32.16",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "regions:32.75,32.16",
+   "var": "services",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "regions:32.75,32.16",
+   "var": "trust",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Hujan intensitas tinggi pada malam 3 Maret hingga dini hari 4 Maret 2025 menyebabkan banjir di tujuh kecamatan Kota Bekasi dengan ketinggian air mencapai 300 sentimeter, dan di enam kecamatan Kabupaten Bekasi akibat hujan dan kiriman air dari hulu.",
+    "source_refs": [
+     "SRC-BNPB-BEKASI-2025-03-04A"
+    ],
+    "as_of": "2025-03-04"
+   },
+   {
+    "text": "Listrik di sejumlah wilayah terdampak dipadamkan untuk mencegah korban tersengat aliran listrik; evakuasi dilakukan dengan perahu karet.",
+    "source_refs": [
+     "SRC-BNPB-BEKASI-2025-03-04A"
+    ],
+    "as_of": "2025-03-04"
+   },
+   {
+    "text": "Menurut BNPB, dua titik banjir terbesar di Kota Bekasi adalah kantor pemerintahan wali kota dan sebuah pusat perbelanjaan yang terendam akibat tanggul jebol; hingga malam 4 Maret, 297 KK atau 600 jiwa mengungsi di Gudang Logistik BNPB Jatiasih.",
+    "source_refs": [
+     "SRC-BNPB-BEKASI-2025-03-04B"
+    ],
+    "as_of": "2025-03-04"
+   },
+   {
+    "text": "Pemerintah melakukan operasi modifikasi cuaca hingga 6 Maret 2025 untuk menekan curah hujan.",
+    "source_refs": [
+     "SRC-BNPB-BEKASI-2025-03-04B"
+    ],
+    "as_of": "2025-03-04"
+   },
+   {
+    "text": "Pada 7 Maret banjir di Kota Bekasi surut total dan warga mulai membersihkan lumpur; 284 orang masih mengungsi, sementara sebagian Kabupaten Bekasi masih tergenang 10 sampai 60 sentimeter.",
+    "source_refs": [
+     "SRC-BNPB-BEKASI-2025-03-08"
+    ],
+    "as_of": "2025-03-08"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Tanggul jebol di Bekasi. Air tiga meter merendam perumahan, kantor wali kota, dan pusat belanja."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Kota and Kab. Bekasi damage +8, welfare -1.5, services -1.5, trust -1 (government office flooded). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "levee failure and upstream water -> damage, welfare, services; levee repair and pumps -> damage down, flood protection now; river space with upstream -> flood_protection later, trust dip (land); early warning -> trust and services",
+  "immediate": "a: fiscal -1.8, damage -2, flood_protection +3; b: fiscal -3, trust -0.5; c: fiscal -0.6, trust +0.6, services +1/month x3",
+  "delayed": "b: flood_protection +8 and welfare_base +0.3 after 12 months; c: none",
+  "regional": "Kota Bekasi, Kab. Bekasi",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Perbaiki tanggul dan tambah pompa",
+   "description": "Tanggul yang jebol ditutup dan diperkuat, pompa air ditambah di titik-titik rendah. Cepat, tetapi air dari hulu tetap datang.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.8
+    },
+    {
+     "scope": "regions:32.75,32.16",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:32.75,32.16",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 3.0
+    }
+   ],
+   "memory": {
+    "bekasi2025_response": "levees"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Beri ruang sungai bersama daerah hulu",
+   "description": "Sungai dilebarkan dan kolam retensi dibangun dari hulu sampai hilir bersama daerah tetangga. Butuh pembebasan lahan, hasilnya bertahun-tahun.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "regions:32.75,32.16",
+     "var": "trust",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:32.75,32.16",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 8.0,
+     "delay": 12
+    },
+    {
+     "scope": "regions:32.75,32.16",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.3,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "bekasi2025_response": "river_space"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Peringatan dini dan evakuasi warga bantaran",
+   "description": "Sensor tinggi muka air, sirene, dan jalur evakuasi disiapkan di setiap kelurahan bantaran. Murah dan menyelamatkan nyawa, rumah tetap terendam.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.6
+    },
+    {
+     "scope": "regions:32.75,32.16",
+     "var": "trust",
+     "op": "add",
+     "value": 0.6
+    },
+    {
+     "scope": "regions:32.75,32.16",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "bekasi2025_response": "early_warning"
+   }
+  }
+ ]
+}

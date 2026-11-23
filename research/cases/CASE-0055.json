@@ -1,0 +1,118 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0055",
+ "title": "Banjir dan tanah longsor Kabupaten Sukabumi, Desember 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "flood_landslide",
+ "subcategories": [
+  "flash_flood",
+  "landslide",
+  "bridges",
+  "isolated_villages",
+  "housing_damage"
+ ],
+ "start_date": "2024-12-03",
+ "end_date": "2024-12-17",
+ "decision_as_of": "2024-12-05",
+ "island": "jawa",
+ "provinces": [
+  "32"
+ ],
+ "regency_city_documented": [
+  "32.02"
+ ],
+ "geographic_resolution": "Kab. Sukabumi, Jawa Barat (184 desa di 39 kecamatan)",
+ "real_facts": [
+  {
+   "fact": "Banjir dan tanah longsor melanda sejumlah wilayah Kabupaten Sukabumi sejak 3 Desember 2024; per 5 Desember sedikitnya sepuluh jembatan terputus dan beberapa daerah, salah satunya Kecamatan Simpenan, sempat terisolasi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SUKABUMI-2024-12-05"
+   ],
+   "as_of": "2024-12-05"
+  },
+  {
+   "fact": "BNPB menyiapkan jembatan darurat Bailey bersama Kementerian PUPR dan satuan zeni TNI untuk membuka jalur distribusi bantuan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SUKABUMI-2024-12-05"
+   ],
+   "as_of": "2024-12-05"
+  },
+  {
+   "fact": "Banjir dari luapan sungai juga melanda kawasan dermaga Pelabuhan Perikanan Nusantara Palabuhanratu dan membalikkan perahu yang sedang ditambatkan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SUKABUMI-2024-12-05"
+   ],
+   "as_of": "2024-12-05"
+  },
+  {
+   "fact": "Data sementara per 11 Desember 2024: 20.629 warga terdampak dan 3.464 mengungsi di 184 desa dan 39 kecamatan; 1.605 rumah rusak ringan, 1.829 rusak sedang, dan 2.058 rusak berat.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SUKABUMI-2024-12-12"
+   ],
+   "as_of": "2024-12-12"
+  },
+  {
+   "fact": "Masa tanggap darurat diperpanjang tujuh hari, 11 sampai 17 Desember 2024, sementara pencarian korban hilang dilanjutkan dan perbaikan serta relokasi rumah masih didata.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SUKABUMI-2024-12-12"
+   ],
+   "as_of": "2024-12-12"
+  }
+ ],
+ "information_available_at_decision": "Awal Desember 2024: hujan ekstrem memicu banjir dan longsor di puluhan kecamatan Sukabumi; jembatan putus, desa-desa terisolasi, ribuan rumah rusak.",
+ "trigger": [
+  "Banjir dan tanah longsor Kabupaten Sukabumi, Desember 2024"
+ ],
+ "root_causes_note": "Lereng curam dan sungai-sungai pendek yang meluap cepat, dengan permukiman di jalur air dan jembatan desa yang rentan.",
+ "stakeholders": [
+  "BNPB dan BPBD Kabupaten Sukabumi",
+  "Kementerian PUPR",
+  "TNI",
+  "Pemkab Sukabumi",
+  "warga desa terisolasi",
+  "nelayan Palabuhanratu"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-SUKABUMI-2024-12-05",
+   "institution": "Badan Nasional Penanggulangan Bencana",
+   "title": "Sepuluh Jembatan Terputus Akibat Banjir dan Longsor Sukabumi, BNPB Siapkan Jembatan Darurat Bailey",
+   "url": "https://www.bnpb.go.id/berita/sepuluh-jembatan-terputus-akibat-banjir-dan-longsor-sukabumi-bnpb-siapkan-jembatan-darurat-bailey",
+   "publication_date": "2024-12-05",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Sukabumi; kecamatan",
+   "reference_period": "2024-12-05",
+   "unit": "jembatan; rumah; orang"
+  },
+  {
+   "source_id": "SRC-BNPB-SUKABUMI-2024-12-12",
+   "institution": "Badan Nasional Penanggulangan Bencana",
+   "title": "[UPDATE] Banjir dan Tanah Longsor Sukabumi: Sebanyak 20.629 Warga Terdampak dan 3.464 Mengungsi",
+   "url": "https://www.bnpb.go.id/index.php/berita/update-banjir-dan-tanah-longsor-sukabumi-sebanyak-20629-warga-terdampak-dan-3464-mengungsi",
+   "publication_date": "2024-12-12",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Sukabumi; 184 desa; 39 kecamatan",
+   "reference_period": "2024-12-11",
+   "unit": "jiwa; unit rumah"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Nama korban meninggal dan hilang di sumber tidak direproduksi.",
+  "Jumlah korban meninggal berubah antar rilis (dua orang per 5 Des; sepuluh per 9 Des menurut rilis lain yang tidak diunduh); tidak dijadikan fakta.",
+  "Jumlah akhir rumah yang direlokasi tidak tercantum di sumber yang dibaca."
+ ],
+ "todo_to_validate": [
+  "Data akhir rehabilitasi dan relokasi rumah Sukabumi 2025"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0055.json",
+ "game_adaptation_notes": "Buka akses lebih dulu dengan jembatan darurat (cepat, sementara) vs relokasi rumah rusak berat dari zona rawan (lambat, kepercayaan diuji) vs bangun ulang jembatan permanen dan tebing sungai (mahal, infrastruktur jangka panjang).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

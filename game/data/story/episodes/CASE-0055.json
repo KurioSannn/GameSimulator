@@ -1,0 +1,224 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0055",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "banjir_bandang",
+ "locals": {
+  "kang_dede": {
+   "name": "Kang Dede",
+   "role": "Ketua RT, Simpenan",
+   "color": "4a6a3a",
+   "initials": "D"
+  },
+  "bu_iis": {
+   "name": "Bu Iis",
+   "role": "Pedagang ikan, Palabuhanratu",
+   "color": "7a4a3a",
+   "initials": "I"
+  }
+ },
+ "agenda": {
+  "hook": "Banjir dan longsor menerjang puluhan kecamatan di Sukabumi. Sepuluh jembatan putus, desa-desa terisolasi.",
+  "if_postponed": "Daerah menangani dengan alat yang ada. Desa terisolasi menunggu giliran."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Sungai cokelat deras di bawah sisa jembatan yang patah. Di seberang, warga melambai dari tepi kampung.",
+   "bg": "banjir_bandang"
+  },
+  {
+   "s": "kang_dede",
+   "e": "cemas",
+   "t": "Kampung kami terputus, Pak. Beras dan obat harus dipikul menyeberang sungai."
+  },
+  {
+   "s": "bu_iis",
+   "e": "sedih",
+   "t": "Perahu-perahu di pelabuhan terbalik dibawa arus. Suami saya belum bisa melaut.",
+   "bg": "pelabuhan"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Ada ribuan rumah rusak berat, Pak. Banyak yang berdiri di jalur air dan di bawah tebing.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Membuka akses itu cepat. Memindahkan rumah dan membangun jembatan yang benar itu yang mahal."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Desa yang terputus lebih dulu. Lalu kita pastikan mereka tidak terputus lagi musim depan."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Memasang jembatan darurat untuk membuka desa terisolasi.",
+   "helps": "Warga desa terisolasi, segera.",
+   "burden": "Jembatan sementara; risiko tetap.",
+   "now": "Layanan naik tiga bulan; kerusakan berkurang.",
+   "later": "Tidak mengubah kerawanan."
+  },
+  "b": {
+   "intent": "Merelokasi rumah rusak berat dari zona rawan.",
+   "helps": "Keluarga yang tinggal di jalur air.",
+   "burden": "Warga yang harus pindah dari tanahnya.",
+   "now": "Kepercayaan turun di awal.",
+   "later": "Perlindungan banjir dan kesejahteraan struktural naik setelah sembilan bulan."
+  },
+  "c": {
+   "intent": "Membangun ulang jembatan permanen dan tebing sungai.",
+   "helps": "Jalur desa untuk jangka panjang.",
+   "burden": "Anggaran besar; desa menunggu lebih lama.",
+   "now": "Belum ada perubahan.",
+   "later": "Infrastruktur dan kepercayaan naik setelah sembilan bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Rangka baja jembatan Bailey disambung di atas sungai. Truk bantuan pertama menyeberang sore itu.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "kang_dede",
+    "e": "lega",
+    "t": "Akhirnya ada jalan, Pak. Anak-anak bisa ke sekolah lagi minggu depan."
+   },
+   {
+    "s": "yosef",
+    "e": "netral",
+    "t": "Jembatan ini menolong sekarang. Kalau hujan sebesar itu datang lagi, sungainya tetap sama.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Petugas mendata keluarga di bantaran dan lereng rawan. Lahan relokasi disiapkan di tempat yang lebih tinggi.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "kang_dede",
+    "e": "sedih",
+    "t": "Ada warga yang mau, ada yang menangis. Rumah itu peninggalan orang tua mereka."
+   },
+   {
+    "s": "sekar",
+    "e": "serius",
+    "t": "Kita harus jujur soal kapan rumah barunya siap. Janji yang molor lebih menyakitkan dari banjirnya.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Insinyur mengukur ulang sungai. Jembatan baru dirancang lebih tinggi dari banjir terbesar yang tercatat.",
+    "bg": "banjir_bandang"
+   },
+   {
+    "s": "kang_dede",
+    "e": "kecewa",
+    "t": "Bagus untuk nanti, Pak. Tapi sekarang kami masih memikul beras."
+   },
+   {
+    "s": "bayu",
+    "e": "berpikir",
+    "t": "Biayanya besar sekali. Tapi jembatan ini tidak perlu dibangun dua kali.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "musim_hujan",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "flood_protection",
+        "op": ">",
+        "value": 3
+       },
+       "beats": [
+        {
+         "s": "kang_dede",
+         "e": "lega",
+         "t": "Hujan besar datang lagi bulan ini, Pak. Rumah-rumah baru di atas tidak kena.",
+         "bg": "pegunungan"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 3
+       },
+       "beats": [
+        {
+         "s": "kang_dede",
+         "e": "senyum",
+         "t": "Jembatan baru itu kokoh, Pak. Sungai naik, jembatannya tidak bergeming.",
+         "bg": "pegunungan"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "kang_dede",
+         "e": "cemas",
+         "t": "Hujan besar datang lagi, Pak. Kami sudah menyiapkan tali untuk menyeberang.",
+         "bg": "banjir_bandang"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Daerah membuka akses dengan alat seadanya. Beberapa desa terisolasi berminggu-minggu.",
+   "bg": "banjir_bandang"
+  },
+  {
+   "s": "kang_dede",
+   "e": "kecewa",
+   "t": "Kami saling bantu sendiri, Pak. Seperti biasa."
+  }
+ ],
+ "journal": {
+  "a": "Jembatan darurat dipasang untuk membuka desa-desa terisolasi di Sukabumi.",
+  "b": "Rumah rusak berat di zona rawan Sukabumi direlokasi.",
+  "c": "Jembatan permanen dan tebing sungai di Sukabumi dibangun ulang."
+ },
+ "promises": {
+  "b": {
+   "text": "Keluarga dari zona rawan Sukabumi tinggal di rumah yang aman sebelum musim hujan berikutnya.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "flood_protection",
+    "op": ">",
+    "value": 3
+   }
+  }
+ }
+}

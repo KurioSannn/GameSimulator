@@ -1,0 +1,220 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0056",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "kota_hujan",
+ "locals": {
+  "bu_rini": {
+   "name": "Bu Rini",
+   "role": "Warga perumahan bantaran, Jatiasih",
+   "color": "6a3a5a",
+   "initials": "R"
+  },
+  "pak_hendra": {
+   "name": "Pak Hendra",
+   "role": "Relawan perahu karet, Bekasi Timur",
+   "color": "3a5a4a",
+   "initials": "H"
+  }
+ },
+ "agenda": {
+  "hook": "Tanggul jebol di Bekasi. Air tiga meter merendam perumahan, kantor wali kota, dan pusat belanja.",
+  "if_postponed": "Daerah menangani banjir dengan kekuatan sendiri. Tanggul ditambal seadanya."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Dini hari di Bekasi. Air naik cepat sampai atap rumah. Perahu karet menyusuri jalan perumahan.",
+   "bg": "kota_hujan"
+  },
+  {
+   "s": "bu_rini",
+   "e": "cemas",
+   "t": "Kami naik ke lantai dua, Pak. Air terus naik. Listrik mati, ponsel tinggal sedikit baterainya."
+  },
+  {
+   "s": "pak_hendra",
+   "e": "serius",
+   "t": "Kami bolak-balik sejak jam tiga pagi. Masih banyak yang bertahan di atap."
+  },
+  {
+   "s": "laras",
+   "e": "cemas",
+   "t": "Kantor wali kota ikut terendam, Pak. Pusat belanja juga, karena tanggulnya jebol.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "yosef",
+   "e": "berpikir",
+   "t": "Air ini bukan cuma hujan Bekasi. Kiriman dari hulu ikut masuk. Kalau hanya Bekasi yang bekerja, tidak akan cukup."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Selamatkan orangnya dulu. Setelah itu kita bicara soal sungai, dari hulu sampai hilir."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Memperbaiki tanggul dan menambah pompa.",
+   "helps": "Permukiman di titik rawan, segera.",
+   "burden": "Anggaran; air dari hulu tetap datang.",
+   "now": "Kerusakan berkurang dan perlindungan banjir naik.",
+   "later": "Tidak menyelesaikan sungai yang menyempit."
+  },
+  "b": {
+   "intent": "Memberi ruang sungai bersama daerah hulu.",
+   "helps": "Bekasi dan daerah sekitarnya untuk jangka panjang.",
+   "burden": "Warga yang lahannya dibebaskan.",
+   "now": "Kepercayaan turun di awal.",
+   "later": "Perlindungan banjir dan kesejahteraan struktural naik setelah setahun."
+  },
+  "c": {
+   "intent": "Peringatan dini dan evakuasi warga bantaran.",
+   "helps": "Keselamatan warga bantaran.",
+   "burden": "Rumah dan harta tetap terendam.",
+   "now": "Kepercayaan dan layanan naik.",
+   "later": "Kerusakan saat banjir berikutnya tetap terjadi."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Karung-karung pasir dan alat berat menutup tanggul yang jebol. Pompa besar menyedot air dari perumahan.",
+    "bg": "kota"
+   },
+   {
+    "s": "bu_rini",
+    "e": "cemas",
+    "t": "Air surut lebih cepat dari yang saya kira. Tapi saya takut kalau hujan lagi."
+   },
+   {
+    "s": "yosef",
+    "e": "netral",
+    "t": "Tanggulnya tertutup. Sungainya masih sesempit kemarin.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Peta sungai dari hulu sampai hilir digelar di meja rapat. Bekasi, Bogor, dan pemerintah pusat duduk bersama.",
+    "bg": "ruang_rapat"
+   },
+   {
+    "s": "yosef",
+    "e": "serius",
+    "t": "Kolam retensi di hulu, sungai yang lebih lebar di hilir. Ini pekerjaan bertahun-tahun."
+   },
+   {
+    "s": "bu_rini",
+    "e": "cemas",
+    "t": "Katanya rumah di pinggir sungai harus dibebaskan. Tetangga saya bingung mau pindah ke mana.",
+    "bg": "kota"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Sirene dipasang di tiang-tiang kelurahan bantaran. Warga berlatih jalur evakuasi.",
+    "bg": "kota"
+   },
+   {
+    "s": "pak_hendra",
+    "e": "lega",
+    "t": "Kalau sirene bunyi satu jam lebih awal, kami tidak perlu menjemput orang dari atap."
+   },
+   {
+    "s": "bu_rini",
+    "e": "berpikir",
+    "t": "Kami bisa selamat. Tapi kasur dan kulkas kami tetap terendam."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "hujan_lagi",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "flood_protection",
+        "op": ">",
+        "value": 4
+       },
+       "beats": [
+        {
+         "s": "bu_rini",
+         "e": "senyum",
+         "t": "Musim hujan ini air hanya sampai mata kaki, Pak. Kolam di hulu itu bekerja.",
+         "bg": "kota"
+        }
+       ]
+      },
+      {
+       "if": {
+        "choice": "c"
+       },
+       "beats": [
+        {
+         "s": "pak_hendra",
+         "e": "lega",
+         "t": "Sirene berbunyi minggu lalu. Semua warga sudah di tempat aman sebelum airnya naik.",
+         "bg": "kota_hujan"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bu_rini",
+         "e": "cemas",
+         "t": "Hujan deras lagi, Pak. Kami sudah memindahkan barang ke lantai dua.",
+         "bg": "kota_hujan"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Tanggul ditambal seadanya. Warga membersihkan lumpur sendiri.",
+   "bg": "kota_hujan"
+  },
+  {
+   "s": "bu_rini",
+   "e": "kecewa",
+   "t": "Setiap musim hujan kami tidur tidak nyenyak, Pak."
+  }
+ ],
+ "journal": {
+  "a": "Tanggul Bekasi yang jebol diperbaiki dan pompa air ditambah.",
+  "b": "Ruang sungai Bekasi diperlebar bersama daerah hulu.",
+  "c": "Peringatan dini dan jalur evakuasi disiapkan untuk warga bantaran Bekasi."
+ },
+ "promises": {
+  "b": {
+   "text": "Kolam retensi dan sungai yang lebih lebar melindungi Bekasi dari banjir kiriman.",
+   "due_quarters": 5,
+   "check": {
+    "delta": "flood_protection",
+    "op": ">",
+    "value": 4
+   }
+  }
+ }
+}

@@ -1,0 +1,129 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0056",
+ "title": "Banjir Kota dan Kabupaten Bekasi, Maret 2025",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "urban_flood",
+ "subcategories": [
+  "urban_flood",
+  "levee_failure",
+  "evacuation",
+  "river_basin"
+ ],
+ "start_date": "2025-03-03",
+ "end_date": "2025-03-08",
+ "decision_as_of": "2025-03-04",
+ "island": "jawa",
+ "provinces": [
+  "32"
+ ],
+ "regency_city_documented": [
+  "32.75",
+  "32.16"
+ ],
+ "geographic_resolution": "Kota Bekasi dan Kab. Bekasi, Jawa Barat",
+ "real_facts": [
+  {
+   "fact": "Hujan intensitas tinggi pada malam 3 Maret hingga dini hari 4 Maret 2025 menyebabkan banjir di tujuh kecamatan Kota Bekasi dengan ketinggian air mencapai 300 sentimeter, dan di enam kecamatan Kabupaten Bekasi akibat hujan dan kiriman air dari hulu.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-BEKASI-2025-03-04A"
+   ],
+   "as_of": "2025-03-04"
+  },
+  {
+   "fact": "Listrik di sejumlah wilayah terdampak dipadamkan untuk mencegah korban tersengat aliran listrik; evakuasi dilakukan dengan perahu karet.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-BEKASI-2025-03-04A"
+   ],
+   "as_of": "2025-03-04"
+  },
+  {
+   "fact": "Menurut BNPB, dua titik banjir terbesar di Kota Bekasi adalah kantor pemerintahan wali kota dan sebuah pusat perbelanjaan yang terendam akibat tanggul jebol; hingga malam 4 Maret, 297 KK atau 600 jiwa mengungsi di Gudang Logistik BNPB Jatiasih.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-BEKASI-2025-03-04B"
+   ],
+   "as_of": "2025-03-04"
+  },
+  {
+   "fact": "Pemerintah melakukan operasi modifikasi cuaca hingga 6 Maret 2025 untuk menekan curah hujan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-BEKASI-2025-03-04B"
+   ],
+   "as_of": "2025-03-04"
+  },
+  {
+   "fact": "Pada 7 Maret banjir di Kota Bekasi surut total dan warga mulai membersihkan lumpur; 284 orang masih mengungsi, sementara sebagian Kabupaten Bekasi masih tergenang 10 sampai 60 sentimeter.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-BEKASI-2025-03-08"
+   ],
+   "as_of": "2025-03-08"
+  }
+ ],
+ "information_available_at_decision": "Awal Maret 2025: tanggul jebol dan sungai meluap; air setinggi tiga meter merendam permukiman, kantor wali kota, dan pusat belanja di Bekasi.",
+ "trigger": [
+  "Banjir Kota dan Kabupaten Bekasi, Maret 2025"
+ ],
+ "root_causes_note": "Kota yang tumbuh di dataran banjir dengan sungai yang menyempit dan tanggul yang menua, menerima kiriman air dari hulu.",
+ "stakeholders": [
+  "BNPB dan BPBD Kota serta Kabupaten Bekasi",
+  "Kementerian PUPR (BBWS Ciliwung Cisadane)",
+  "Pemkot dan Pemkab Bekasi",
+  "warga bantaran sungai",
+  "pemerintah daerah di hulu"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-BEKASI-2025-03-04A",
+   "institution": "Badan Nasional Penanggulangan Bencana",
+   "title": "Banjir Melanda Wilayah Kota dan Kabupaten Bekasi",
+   "url": "https://www.bnpb.go.id/index.php/berita/banjir-melanda-wilayah-kota-dan-kabupaten-bekasi",
+   "publication_date": "2025-03-04",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kota Bekasi; Kab. Bekasi; kecamatan",
+   "reference_period": "2025-03-04",
+   "unit": "kecamatan; unit rumah; cm"
+  },
+  {
+   "source_id": "SRC-BNPB-BEKASI-2025-03-04B",
+   "institution": "Badan Nasional Penanggulangan Bencana",
+   "title": "[UPDATE] Tinjau Pos Pengungsian Banjir Kota Bekasi, Kepala BNPB Pastikan Pemenuhan Kebutuhan Dasar Warga Terdampak",
+   "url": "https://www.bnpb.go.id/berita/update-tinjau-pos-pengungsian-banjir-kota-bekasi-kapala-bnpb-pastikan-pemenuhan-kebutuhan-dasar-warga-terdampak",
+   "publication_date": "2025-03-04",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kota Bekasi",
+   "reference_period": "2025-03-04",
+   "unit": "KK; jiwa"
+  },
+  {
+   "source_id": "SRC-BNPB-BEKASI-2025-03-08",
+   "institution": "Badan Nasional Penanggulangan Bencana",
+   "title": "Perkembangan Situasi dan Penanganan Bencana Tanggal 8 Maret 2025",
+   "url": "https://www.bnpb.go.id/index.php/berita/perkembangan-situasi-dan-penanganan-bencana-tanggal-8-maret-2025",
+   "publication_date": "2025-03-08",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kota Bekasi; Kab. Bekasi",
+   "reference_period": "2025-03-07",
+   "unit": "jiwa; cm"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka terdampak di buletin bulanan (puluhan ribu orang menderita/mengungsi) memakai definisi berbeda dari angka pengungsi di pos; tidak dijadikan fakta.",
+  "Nama korban hilang di sumber tidak direproduksi.",
+  "Lokasi tepat tanggul yang jebol tidak dirinci di sumber yang dibaca."
+ ],
+ "todo_to_validate": [
+  "Kajian penyebab jebolnya tanggul dari BBWS"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0056.json",
+ "game_adaptation_notes": "Perbaiki tanggul dan pompa darurat (cepat, titik rawan) vs normalisasi dan ruang sungai bersama daerah hulu (lambat, sistemik, perlu pembebasan lahan) vs peringatan dini dan evakuasi warga bantaran (murah, melindungi nyawa, kerusakan tetap).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}
