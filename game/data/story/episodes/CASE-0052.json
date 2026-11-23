@@ -1,0 +1,207 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0052",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "ladang",
+ "locals": {
+  "pak_ketut": {
+   "name": "Pak Ketut",
+   "role": "Petani singkong, Lampung Tengah",
+   "color": "6a5a2a",
+   "initials": "K"
+  },
+  "bu_marni": {
+   "name": "Bu Marni",
+   "role": "Sopir angkutan desa, Lampung Timur",
+   "color": "4a5a7a",
+   "initials": "M"
+  }
+ },
+ "agenda": {
+  "hook": "Jalan kabupaten di Lampung berlubang sedalam lutut. Truk hasil panen terguling, keluhan warga ramai di mana-mana.",
+  "if_postponed": "Jalan diperbaiki dengan anggaran daerah yang ada, sedikit demi sedikit."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Sebuah truk singkong miring di tengah jalan berlubang. Di belakangnya, kendaraan mengantre panjang.",
+   "bg": "ladang"
+  },
+  {
+   "s": "pak_ketut",
+   "e": "kecewa",
+   "t": "Ongkos angkut singkong naik karena jalannya begini, Pak. Harga di pabrik tetap. Yang rugi kami."
+  },
+  {
+   "s": "bu_marni",
+   "e": "cemas",
+   "t": "Mobil saya masuk bengkel tiap bulan. Anak sekolah sering terlambat karena jalannya."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Ini jalan provinsi dan kabupaten, Pak. Bukan kewenangan pusat. Tapi anggaran daerah tidak pernah cukup.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "berpikir",
+   "t": "Kalau pusat membangun sekarang, siapa yang merawat lima tahun lagi? Jalan bagus bisa rusak lagi."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Warga tidak peduli jalan itu milik siapa. Mereka peduli bisa lewat atau tidak."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Pusat langsung memperbaiki jalan daerah.",
+   "helps": "Pengguna jalan, dalam waktu dekat.",
+   "burden": "Anggaran pusat; daerah makin bergantung.",
+   "now": "Kepercayaan naik.",
+   "later": "Infrastruktur naik besar setelah enam bulan."
+  },
+  "b": {
+   "intent": "Memberi dana bersyarat pemeliharaan ke daerah.",
+   "helps": "Jalan yang terawat untuk jangka panjang.",
+   "burden": "Warga yang harus menunggu lebih lama.",
+   "now": "Biaya sedang.",
+   "later": "Infrastruktur naik setelah sembilan bulan; kesejahteraan struktural setelah setahun."
+  },
+  "c": {
+   "intent": "Mendahulukan jalur hasil kebun dan pertanian.",
+   "helps": "Petani dan pengangkut hasil bumi.",
+   "burden": "Ruas lain menunggu.",
+   "now": "Biaya sedang.",
+   "later": "Infrastruktur dan kesejahteraan naik setelah enam bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Alat berat datang. Ruas yang paling parah dicor beton tebal.",
+    "bg": "ladang"
+   },
+   {
+    "s": "bu_marni",
+    "e": "lega",
+    "t": "Akhirnya, Pak. Saya kira jalan ini tidak akan pernah diperbaiki."
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Biayanya besar. Dan anggaran perawatan daerah tetap kecil.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Dana perbaikan turun ke daerah bersama perjanjian pemeliharaan tahunan.",
+    "bg": "ruang_rapat"
+   },
+   {
+    "s": "yosef",
+    "e": "senyum",
+    "t": "Daerah sekarang wajib menyisihkan anggaran perawatan. Itu kebiasaan baru yang penting."
+   },
+   {
+    "s": "bu_marni",
+    "e": "kecewa",
+    "t": "Kapan mulainya, Pak? Lubangnya sudah makin dalam.",
+    "bg": "ladang"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Ruas yang dilewati truk-truk hasil kebun mulai diperbaiki lebih dulu.",
+    "bg": "ladang"
+   },
+   {
+    "s": "pak_ketut",
+    "e": "senyum",
+    "t": "Kalau jalannya bagus, truk bisa angkut dua kali sehari. Itu artinya ongkos turun."
+   },
+   {
+    "s": "bu_marni",
+    "e": "kecewa",
+    "t": "Jalan ke sekolah di kampung saya tidak masuk daftar, Pak."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "jalan",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "pak_ketut",
+         "e": "senyum",
+         "t": "Jalannya sudah mulus, Pak. Ongkos angkut singkong turun.",
+         "bg": "ladang"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bu_marni",
+         "e": "kecewa",
+         "t": "Masih banyak lubang, Pak. Kami menunggu giliran.",
+         "bg": "ladang"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Daerah menambal lubang dengan anggaran seadanya. Hujan pertama membukanya lagi.",
+   "bg": "ladang"
+  },
+  {
+   "s": "pak_ketut",
+   "e": "kecewa",
+   "t": "Kami sudah biasa, Pak. Tapi biasa bukan berarti baik."
+  }
+ ],
+ "journal": {
+  "a": "Pusat langsung memperbaiki jalan daerah yang rusak di Lampung.",
+  "b": "Dana perbaikan jalan daerah Lampung diberikan dengan syarat pemeliharaan.",
+  "c": "Jalur hasil kebun dan pertanian Lampung diperbaiki lebih dulu."
+ },
+ "promises": {
+  "a": {
+   "text": "Ruas-ruas jalan terparah di Lampung Tengah selesai diperbaiki.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 3
+   }
+  }
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0053",
+ "title": "Penggagalan penyelundupan benih bening lobster di Batam dan Pesisir Barat, 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "fisheries_smuggling",
+ "subcategories": [
+  "lobster_seed",
+  "smuggling",
+  "customs",
+  "aquaculture",
+  "coastal_livelihood"
+ ],
+ "start_date": "2024-08-22",
+ "end_date": "2024-12-11",
+ "decision_as_of": "2024-08-22",
+ "island": "sumatera",
+ "provinces": [
+  "21",
+  "18"
+ ],
+ "regency_city_documented": [
+  "21.71",
+  "18.13"
+ ],
+ "geographic_resolution": "Kota Batam (Kepulauan Riau) dan Krui, Kab. Pesisir Barat (Lampung)",
+ "real_facts": [
+  {
+   "fact": "Pada Agustus 2024, tim gabungan KKP dan Bea Cukai menggagalkan penyelundupan 795.500 ekor benih bening lobster senilai Rp90 miliar di perairan Batam, terdiri dari 783.200 lobster pasir dan 12.300 lobster mutiara dalam 80 box.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KKP-BBL-2024-08-22"
+   ],
+   "as_of": "2024-08-22"
+  },
+  {
+   "fact": "KKP menyebut penangkapan di Batam itu yang terbesar sepanjang 2024; dua kurir pembawa benih melarikan diri ke hutan bakau.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KKP-BBL-2024-08-22"
+   ],
+   "as_of": "2024-08-22"
+  },
+  {
+   "fact": "Benih hasil sitaan dilepasliarkan di perairan Pulau Galang Baru, dan 10 box dibudidayakan di balai budidaya laut milik KKP.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KKP-BBL-2024-08-22"
+   ],
+   "as_of": "2024-08-22"
+  },
+  {
+   "fact": "Pada 9 Desember 2024, tim Ditjen PSDKP menggagalkan penyelundupan sekitar 52.200 ekor benih bening lobster senilai sekitar Rp7,8 miliar di Krui, Kabupaten Pesisir Barat, berdasarkan laporan masyarakat.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KKP-BBL-2024-12-11"
+   ],
+   "as_of": "2024-12-11"
+  }
+ ],
+ "information_available_at_decision": "Agustus 2024: ratusan ribu benih lobster disita di laut Batam; jalur penyelundupan dari pantai-pantai Sumatera ke luar negeri masih aktif.",
+ "trigger": [
+  "Penggagalan penyelundupan benih bening lobster di Batam dan Pesisir Barat, 2024"
+ ],
+ "root_causes_note": "Harga benih lobster di luar negeri jauh lebih tinggi, sementara budidaya dalam negeri belum menyerap tangkapan nelayan benih.",
+ "stakeholders": [
+  "Kementerian Kelautan dan Perikanan",
+  "Bea Cukai",
+  "nelayan penangkap benih",
+  "pembudidaya lobster",
+  "aparat penegak hukum"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-KKP-BBL-2024-08-22",
+   "institution": "Kementerian Kelautan dan Perikanan (Ditjen PSDKP)",
+   "title": "Tim Gabungan KKP-Bea Cukai Gagalkan Penyelundupan BBL Senilai Rp90 Miliar di Batam",
+   "url": "https://kkp.go.id/news/news-detail/tim-gabungan-kkp-bea-cukai-gagalkan-penyelundupan-bbl-senilai-rp90-miliar-di-batam-6XNl.html",
+   "publication_date": "2024-08-22",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kota Batam, Kepulauan Riau",
+   "reference_period": "2024-08",
+   "unit": "ekor; rupiah; box"
+  },
+  {
+   "source_id": "SRC-KKP-BBL-2024-12-11",
+   "institution": "Kementerian Kelautan dan Perikanan",
+   "title": "KKP Gagalkan Penyelundupan 52 Ribu BBL Senilai Rp7,8 M (Siaran Pers SP.463/SJ.5/XII/2024)",
+   "url": "https://www.kkp.go.id/news/news-detail/kkp-gagalkan-penyelundupan-52-ribu-bbl-senilai-rp78-m-wVYr.html",
+   "publication_date": "2024-12-11",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Krui, Kab. Pesisir Barat, Lampung",
+   "reference_period": "2024-12-09",
+   "unit": "ekor; rupiah"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Negara tujuan penyelundupan tidak disebut pasti di sumber yang dibaca; tidak digunakan.",
+  "Nama pejabat dan tersangka tidak dicantumkan."
+ ],
+ "todo_to_validate": [
+  "Data nasional volume benih lobster yang disita per tahun"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0053.json",
+ "game_adaptation_notes": "Perketat pengawasan pelabuhan dan pantai (penegakan) vs bangun budidaya lobster dalam negeri yang menyerap benih nelayan (ekonomi, lambat) vs libatkan nelayan sebagai pelapor dan mitra (murah, bergantung kepercayaan).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

@@ -1,0 +1,191 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0053",
+ "research_ref": "research/cases/CASE-0053.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Benih Lobster yang Diselundupkan",
+ "location_label": "Kota Batam (Kepulauan Riau) dan Krui, Kab. Pesisir Barat (Lampung)",
+ "focus_regions": [
+  "21.71",
+  "18.13"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 38
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0053"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "regions:21.71,18.13",
+   "var": "environment",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "regions:21.71,18.13",
+   "var": "trust",
+   "op": "add",
+   "value": -0.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Pada Agustus 2024, tim gabungan KKP dan Bea Cukai menggagalkan penyelundupan 795.500 ekor benih bening lobster senilai Rp90 miliar di perairan Batam, terdiri dari 783.200 lobster pasir dan 12.300 lobster mutiara dalam 80 box.",
+    "source_refs": [
+     "SRC-KKP-BBL-2024-08-22"
+    ],
+    "as_of": "2024-08-22"
+   },
+   {
+    "text": "KKP menyebut penangkapan di Batam itu yang terbesar sepanjang 2024; dua kurir pembawa benih melarikan diri ke hutan bakau.",
+    "source_refs": [
+     "SRC-KKP-BBL-2024-08-22"
+    ],
+    "as_of": "2024-08-22"
+   },
+   {
+    "text": "Benih hasil sitaan dilepasliarkan di perairan Pulau Galang Baru, dan 10 box dibudidayakan di balai budidaya laut milik KKP.",
+    "source_refs": [
+     "SRC-KKP-BBL-2024-08-22"
+    ],
+    "as_of": "2024-08-22"
+   },
+   {
+    "text": "Pada 9 Desember 2024, tim Ditjen PSDKP menggagalkan penyelundupan sekitar 52.200 ekor benih bening lobster senilai sekitar Rp7,8 miliar di Krui, Kabupaten Pesisir Barat, berdasarkan laporan masyarakat.",
+    "source_refs": [
+     "SRC-KKP-BBL-2024-12-11"
+    ],
+    "as_of": "2024-12-11"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Ratusan ribu benih lobster disita di laut Batam. Kurirnya lari ke hutan bakau."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Batam and Pesisir Barat environment -1.5 (stock loss), trust -0.5. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "lobster seed smuggling -> stock loss (environment) and trust; enforcement -> environment + trust; domestic aquaculture -> welfare_base later; community reporting -> trust now, environment later",
+  "immediate": "a: fiscal -1.5, trust +0.5, environment +1/month x3; b: fiscal -2.5; c: fiscal -0.8, trust +0.8",
+  "delayed": "b: welfare_base +0.5 and services +1 after 9 months; c: environment +1.5 after 3 months",
+  "regional": "Batam, Pesisir Barat",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Perketat pengawasan pantai dan pelabuhan",
+   "description": "Patroli laut, pemeriksaan bandara, dan pelabuhan kecil diperketat. Penyelundup lebih sulit lewat, operasinya mahal.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "regions:21.71,18.13",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    },
+    {
+     "scope": "regions:21.71,18.13",
+     "var": "environment",
+     "op": "add",
+     "value": 1.0,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "bbl2024_response": "enforcement"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Bangun budidaya lobster dalam negeri",
+   "description": "Keramba dan pembudidaya dalam negeri dibantu supaya benih tangkapan nelayan dibeli dengan harga wajar di dalam negeri.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "regions:21.71,18.13",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.5,
+     "delay": 9
+    },
+    {
+     "scope": "regions:21.71,18.13",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "delay": 9
+    }
+   ],
+   "memory": {
+    "bbl2024_response": "aquaculture"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Jadikan nelayan pelapor dan mitra",
+   "description": "Nelayan yang melapor dilindungi dan diberi imbalan, dan kelompok nelayan diajak menjaga pantainya sendiri.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.8
+    },
+    {
+     "scope": "regions:21.71,18.13",
+     "var": "trust",
+     "op": "add",
+     "value": 0.8
+    },
+    {
+     "scope": "regions:21.71,18.13",
+     "var": "environment",
+     "op": "add",
+     "value": 1.5,
+     "delay": 3
+    }
+   ],
+   "memory": {
+    "bbl2024_response": "community"
+   }
+  }
+ ]
+}

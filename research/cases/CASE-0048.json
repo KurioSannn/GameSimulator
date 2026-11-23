@@ -1,0 +1,100 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0048",
+ "title": "Penangkapan kapal ikan asing pelaku illegal fishing di Laut Natuna Utara, 2024 sampai 2025",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "maritime_sovereignty",
+ "subcategories": [
+  "illegal_fishing",
+  "maritime_patrol",
+  "local_fishers",
+  "eez"
+ ],
+ "start_date": "2024-05-04",
+ "end_date": "2025-11-07",
+ "decision_as_of": "2024-05-05",
+ "island": "sumatera",
+ "provinces": [
+  "21"
+ ],
+ "regency_city_documented": [
+  "21.03"
+ ],
+ "geographic_resolution": "Laut Natuna Utara (WPPNRI 711), Kab. Natuna, Kepulauan Riau",
+ "real_facts": [
+  {
+   "fact": "Pada 4 Mei 2024, aparat pengawas perikanan menahan dua kapal ikan asing berbendera Vietnam di Laut Natuna Utara; kapal-kapal itu tidak memiliki perizinan penangkapan ikan yang sah dan memakai trawl, alat tangkap yang dilarang.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KKP-NATUNA-2024-05-05"
+   ],
+   "as_of": "2024-05-05"
+  },
+  {
+   "fact": "Pada 1 November 2025, kapal pengawas KKP menangkap satu kapal Vietnam (70 GT, alat tangkap trawl) di Zona Ekonomi Eksklusif Indonesia setelah terdeteksi lewat pusat komando dan pengawasan udara; nilai potensi kerugian negara yang diselamatkan disebut Rp22,6 miliar.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KKP-NATUNA-2025-11-07"
+   ],
+   "as_of": "2025-11-07"
+  },
+  {
+   "fact": "Menurut Dirjen PSDKP, sepanjang 2025 hingga awal November sudah 6 kapal asing pelaku illegal fishing ditangkap di Laut Natuna Utara.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KKP-NATUNA-2025-11-07"
+   ],
+   "as_of": "2025-11-07"
+  }
+ ],
+ "information_available_at_decision": "Mei 2024: kapal-kapal asing dengan trawl kembali masuk Laut Natuna Utara; nelayan kecil Natuna bersaing dengan kapal yang lebih besar dan alat tangkap terlarang.",
+ "trigger": [
+  "Penangkapan kapal ikan asing pelaku illegal fishing di Laut Natuna Utara, 2024 sampai 2025"
+ ],
+ "root_causes_note": "Laut kaya ikan yang luas dan jauh dari pangkalan, dengan kapal pengawas yang terbatas.",
+ "stakeholders": [
+  "Kementerian Kelautan dan Perikanan",
+  "TNI AL dan Bakamla",
+  "nelayan tradisional Natuna",
+  "Pemkab Natuna",
+  "Kementerian Luar Negeri"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-KKP-NATUNA-2024-05-05",
+   "institution": "Kementerian Kelautan dan Perikanan (Ditjen PSDKP)",
+   "title": "KKP Amankan 3 Kapal Asing di Laut Natuna dan Selat Malaka (Siaran Pers SP.135/SJ.5/VI/2024)",
+   "url": "https://www.kkp.go.id/djpsdkp/kkp-amankan-3-kapal-asing-di-laut-natuna-dan-selat-malaka/detail.html",
+   "publication_date": "2024-05-05",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Laut Natuna Utara; Selat Malaka",
+   "reference_period": "2024-05-04",
+   "unit": "kapal; GT",
+   "note": "Dibaca melalui alat web-fetch (situs memblokir unduhan otomatis biasa)."
+  },
+  {
+   "source_id": "SRC-KKP-NATUNA-2025-11-07",
+   "institution": "Kementerian Kelautan dan Perikanan",
+   "title": "KKP Tangkap Kapal Ikan Asing Berbendera Vietnam di Laut Natuna Utara (Siaran Pers SP.449/SJ.5/XI/2025)",
+   "url": "https://kkp.go.id/news/news-detail/kkp-tangkap-kapal-ikan-asing-berbendera-vietnam-di-laut-natuna-utara-Y72O.html",
+   "publication_date": "2025-11-07",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "WPPNRI 711 Laut Natuna Utara",
+   "reference_period": "2025-11-01",
+   "unit": "kapal; rupiah"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Jumlah total kapal asing yang ditangkap sepanjang 2024 tidak tercantum di sumber yang dibaca.",
+  "Nama nakhoda dan awak di siaran pers tidak dicantumkan."
+ ],
+ "todo_to_validate": [
+  "Data hari operasi kapal pengawas di WPP 711"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0048.json",
+ "game_adaptation_notes": "Patroli dan penegakan hukum (tegas, mahal) vs perkuat armada dan pelabuhan nelayan lokal agar laut tidak kosong (ekonomi) vs teknologi pemantauan satelit dan udara (efisien, butuh kapal untuk menindak).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

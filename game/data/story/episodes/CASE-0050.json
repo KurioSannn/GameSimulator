@@ -1,0 +1,225 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0050",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "gunung_api",
+ "locals": {
+  "uda_rizal": {
+   "name": "Uda Rizal",
+   "role": "Relawan SAR, Agam",
+   "color": "7a3a2a",
+   "initials": "R"
+  },
+  "bu_nurlela": {
+   "name": "Bu Nurlela",
+   "role": "Pemilik warung di jalur pendakian, Tanah Datar",
+   "color": "5a6a3a",
+   "initials": "N"
+  }
+ },
+ "agenda": {
+  "hook": "Marapi meletus saat puluhan pendaki masih di jalur. Tim gabungan naik di tengah letusan susulan.",
+  "if_postponed": "Pencarian berjalan dengan kekuatan daerah. Jalur pendakian tetap seperti sebelumnya."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Kolom abu kelabu menjulang dari puncak Marapi. Di kaki gunung, atap-atap rumah memutih.",
+   "bg": "gunung_api"
+  },
+  {
+   "s": "uda_rizal",
+   "e": "cemas",
+   "t": "Kami naik bergantian, Pak. Setiap ada letusan, kami harus turun lagi."
+  },
+  {
+   "s": "bu_nurlela",
+   "e": "sedih",
+   "t": "Anak-anak muda itu sarapan di warung saya dua hari lalu. Saya terus memikirkan mereka.",
+   "bg": "pegunungan"
+  },
+  {
+   "s": "laras",
+   "e": "serius",
+   "t": "Daftar pendaki sebagian dari pendaftaran daring, sebagian dicatat di pos. Datanya tidak sepenuhnya cocok.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "yosef",
+   "e": "berpikir",
+   "t": "Pertanyaan yang akan datang setelah ini: kenapa jalurnya masih dibuka di gunung yang aktif."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Pertama, semua orang ditemukan. Lalu kita pastikan ini tidak terulang."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Menutup pendakian dan mengaudit izin di gunung api.",
+   "helps": "Keselamatan pendaki berikutnya.",
+   "burden": "Warung dan pemandu di jalur pendakian.",
+   "now": "Kepercayaan naik; pemasukan lokal turun tiga bulan.",
+   "later": "Tidak ada perubahan sistem."
+  },
+  "b": {
+   "intent": "Pendaftaran digital wajib yang terhubung ke status gunung.",
+   "helps": "Pendaki dan tim SAR di masa depan.",
+   "burden": "Anggaran dan pengelola kawasan.",
+   "now": "Biaya kecil.",
+   "later": "Layanan dan kepercayaan naik setelah enam bulan."
+  },
+  "c": {
+   "intent": "Melindungi warga kaki gunung dari abu.",
+   "helps": "Warga, petani, dan peternak terdekat.",
+   "burden": "Anggaran darurat.",
+   "now": "Layanan naik tiga bulan.",
+   "later": "Kesejahteraan pulih setelah tiga bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Papan penutupan dipasang di Batu Palano dan Koto Baru. Jalur pendakian sunyi.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "bu_nurlela",
+    "e": "sedih",
+    "t": "Warung saya sepi, Pak. Tapi saya lebih tenang begini."
+   },
+   {
+    "s": "uda_rizal",
+    "e": "serius",
+    "t": "Gunung lain juga harus diperiksa. Marapi bukan satu-satunya.",
+    "bg": "gunung_api"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Sistem pendaftaran baru menghubungkan setiap izin pendakian dengan status gunung.",
+    "bg": "ruang_rapat"
+   },
+   {
+    "s": "uda_rizal",
+    "e": "lega",
+    "t": "Kalau nanti ada bencana, kami tahu siapa yang di atas dan lewat mana. Itu menyelamatkan waktu.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "laras",
+    "e": "netral",
+    "t": "Sistemnya baru siap beberapa bulan lagi, Pak. Sampai itu, jalur tetap diawasi ketat."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Posko kesehatan dibuka di kecamatan terdekat. Masker dan air bersih dibagikan dari rumah ke rumah.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "bu_nurlela",
+    "e": "lega",
+    "t": "Cucu saya batuk karena abu. Sekarang ada petugas yang memeriksa."
+   },
+   {
+    "s": "yosef",
+    "e": "berpikir",
+    "t": "Kebun dan ternak warga kena abu juga, Pak. Itu yang akan terasa bulan depan.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "jalur",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "choice": "b",
+        "delta": "services",
+        "op": ">",
+        "value": 1.5
+       },
+       "beats": [
+        {
+         "s": "uda_rizal",
+         "e": "senyum",
+         "t": "Sistem pendaftaran itu sudah jalan, Pak. Waktu status gunung naik bulan lalu, semua izin otomatis ditutup.",
+         "bg": "pegunungan"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "welfare",
+        "op": ">",
+        "value": 0
+       },
+       "beats": [
+        {
+         "s": "bu_nurlela",
+         "e": "senyum",
+         "t": "Kebun-kebun di sini mulai pulih dari abu. Warung saya buka lagi.",
+         "bg": "pegunungan"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bu_nurlela",
+         "e": "kecewa",
+         "t": "Orang masih bertanya kenapa waktu itu jalurnya dibuka. Belum ada yang menjawab dengan jelas.",
+         "bg": "pegunungan"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Pencarian selesai. Jalur pendakian kembali dibuka tanpa banyak perubahan.",
+   "bg": "gunung_api"
+  },
+  {
+   "s": "uda_rizal",
+   "e": "sedih",
+   "t": "Kami hanya berharap tidak naik lagi untuk alasan yang sama."
+  }
+ ],
+ "journal": {
+  "a": "Pendakian Marapi ditutup dan izin pendakian gunung api diaudit.",
+  "b": "Pendaftaran pendakian digital dihubungkan ke status gunung.",
+  "c": "Warga kaki Marapi dilindungi dari dampak abu."
+ },
+ "promises": {
+  "b": {
+   "text": "Izin pendakian Marapi tertutup otomatis setiap kali status gunung naik.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "services",
+    "op": ">",
+    "value": 1.5
+   }
+  }
+ }
+}

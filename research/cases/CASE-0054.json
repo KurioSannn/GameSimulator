@@ -1,0 +1,111 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0054",
+ "title": "Kekurangan dan ketimpangan sebaran dokter spesialis; peluncuran PPDS berbasis rumah sakit pendidikan, 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "health_workforce",
+ "subcategories": [
+  "specialist_doctors",
+  "medical_education",
+  "health_equity",
+  "remote_regions"
+ ],
+ "start_date": "2024-05-06",
+ "end_date": "2026-02-25",
+ "decision_as_of": "2024-05-06",
+ "island": "nasional",
+ "provinces": [],
+ "regency_city_documented": [],
+ "geographic_resolution": "Nasional (rumah sakit daerah di luar Jawa)",
+ "real_facts": [
+  {
+   "fact": "Menurut Kemenkes pada Mei 2024, rasio dokter Indonesia 0,47 per 1.000 penduduk; jumlah dokter umum 156.310, sehingga terhadap target 1 per 1.000 penduduk masih kurang 124.294 dokter umum.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENKES-PPDS-2024-05-06"
+   ],
+   "as_of": "2024-05-06"
+  },
+  {
+   "fact": "Jumlah dokter spesialis 49.670; dengan rasio ideal 0,28 per 1.000 penduduk menurut Bappenas, Indonesia kekurangan 29.179 dokter spesialis, sementara lulusan baru sekitar 2.700 per tahun dari 24 fakultas kedokteran.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENKES-PPDS-2024-05-06"
+   ],
+   "as_of": "2024-05-06"
+  },
+  {
+   "fact": "Sekitar 59 persen dokter spesialis terkonsentrasi di Pulau Jawa.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENKES-PPDS-2024-05-06"
+   ],
+   "as_of": "2024-05-06"
+  },
+  {
+   "fact": "Pada 6 Mei 2024, Program Pendidikan Dokter Spesialis berbasis rumah sakit pendidikan diluncurkan; Kemenkes menyebut 420 dari 3.000 rumah sakit berpotensi menjadi rumah sakit pendidikan dan skema ini diharapkan mempercepat pemenuhan dari lebih dari 10 tahun menjadi sekitar 5 tahun.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENKES-PPDS-2024-05-06"
+   ],
+   "as_of": "2024-05-06"
+  },
+  {
+   "fact": "Pada Februari 2026, Kemenkes menyebut program ini merekrut putra-putri daerah yang sudah bekerja di rumah sakit dan dibutuhkan layanannya, dengan proyeksi kekurangan hampir 65 ribu dokter spesialis hingga 2032.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENKES-PPDS-2026-02-25"
+   ],
+   "as_of": "2026-02-25"
+  }
+ ],
+ "information_available_at_decision": "Mei 2024: banyak rumah sakit daerah di luar Jawa punya alat tetapi tidak punya dokter spesialis; pendidikan spesialis lama dan terpusat di kota besar.",
+ "trigger": [
+  "Kekurangan dan ketimpangan sebaran dokter spesialis; peluncuran PPDS berbasis rumah sakit pendidikan, 2024"
+ ],
+ "root_causes_note": "Pendidikan spesialis yang lama, mahal, dan terpusat di beberapa kota, sehingga lulusannya jarang kembali ke daerah.",
+ "stakeholders": [
+  "Kementerian Kesehatan",
+  "fakultas kedokteran dan kolegium",
+  "rumah sakit daerah",
+  "dokter umum di daerah",
+  "pasien di daerah terpencil"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-KEMENKES-PPDS-2024-05-06",
+   "institution": "Kementerian Kesehatan",
+   "title": "Pendidikan Dokter Spesialis Berbasis Rumah Sakit Resmi Diluncurkan Presiden Joko Widodo",
+   "url": "https://kemkes.go.id/id/%20pendidikan-dokter-spesialis-berbasis-rumah-sakit-resmi-diluncurkan-presiden-joko-widodo",
+   "publication_date": "2024-05-06",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional",
+   "reference_period": "2024",
+   "unit": "dokter; per 1.000 penduduk; persen"
+  },
+  {
+   "source_id": "SRC-KEMENKES-PPDS-2026-02-25",
+   "institution": "Kementerian Kesehatan",
+   "title": "Dengan Skema Baru, Putra Daerah Kini Lebih Berpeluang Jadi Dokter Spesialis",
+   "url": "https://www.kemkes.go.id/id/dengan-skema-baru-putra-daerah-kini-lebih-berpeluang-jadi-dokter-spesialis",
+   "publication_date": "2026-02-26",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional",
+   "reference_period": "proyeksi s.d. 2032",
+   "unit": "dokter spesialis"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka kekurangan berbeda karena dasar hitungnya berbeda: 29.179 (rasio 0,28 per 1.000, Mei 2024) vs hampir 65 ribu (proyeksi hingga 2032, Feb 2026); keduanya dicatat dengan konteksnya.",
+  "Jumlah peserta tiap angkatan tidak tercantum lengkap di sumber yang dibaca."
+ ],
+ "todo_to_validate": [
+  "Data jumlah dokter spesialis per kabupaten/kota (SISDMK)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0054.json",
+ "game_adaptation_notes": "Perluas pendidikan spesialis di rumah sakit daerah untuk putra daerah (lambat, merata) vs penempatan dan insentif spesialis ke daerah (cepat, tidak permanen) vs telemedisin dan rujukan dulu (murah, terbatas).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

@@ -1,0 +1,224 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0053",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "pesisir",
+ "locals": {
+  "pak_dahlan": {
+   "name": "Pak Dahlan",
+   "role": "Nelayan penangkap benih, Krui",
+   "color": "3a5a6a",
+   "initials": "D"
+  },
+  "kak_sinta": {
+   "name": "Kak Sinta",
+   "role": "Pembudidaya lobster, Batam",
+   "color": "7a4a5a",
+   "initials": "S"
+  }
+ },
+ "agenda": {
+  "hook": "Ratusan ribu benih lobster disita di laut Batam. Kurirnya lari ke hutan bakau.",
+  "if_postponed": "Pengawasan berjalan seperti biasa. Jalur penyelundupan tetap terbuka."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Malam di perairan Batam. Kotak-kotak styrofoam berisi benih lobster ditemukan di perahu yang ditinggalkan.",
+   "bg": "pesisir_malam"
+  },
+  {
+   "s": "kak_sinta",
+   "e": "kecewa",
+   "t": "Satu kotak itu bisa jadi ribuan lobster besar kalau dibesarkan di sini, Pak. Tapi semuanya mau dibawa keluar.",
+   "bg": "pelabuhan"
+  },
+  {
+   "s": "pak_dahlan",
+   "e": "berpikir",
+   "t": "Pengepul dari luar membayar benih jauh lebih mahal. Nelayan kecil seperti saya ya menjual ke yang bayar.",
+   "bg": "pesisir"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Pantainya panjang dan penuh teluk kecil, Pak. Menutup semua jalan keluar hampir mustahil.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Kalau benihnya bisa dijual wajar di dalam negeri, penyelundup kehilangan alasan."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Kita bisa menangkap kurirnya. Tapi selama harganya timpang, akan selalu ada kurir baru."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Memperketat pengawasan pantai dan pelabuhan.",
+   "helps": "Stok lobster di alam.",
+   "burden": "Anggaran operasi; nelayan benih kehilangan pembeli.",
+   "now": "Lingkungan dan kepercayaan naik.",
+   "later": "Bergantung pada patroli terus-menerus."
+  },
+  "b": {
+   "intent": "Membangun budidaya lobster dalam negeri.",
+   "helps": "Nelayan benih dan pembudidaya.",
+   "burden": "Biaya besar; penyelundupan belum langsung berhenti.",
+   "now": "Belum ada perubahan.",
+   "later": "Kesejahteraan struktural dan layanan naik setelah sembilan bulan."
+  },
+  "c": {
+   "intent": "Menjadikan nelayan pelapor dan mitra.",
+   "helps": "Kelompok nelayan dan pantainya.",
+   "burden": "Pelapor yang berisiko.",
+   "now": "Kepercayaan naik.",
+   "later": "Lingkungan naik setelah tiga bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Pos pemeriksaan bertambah di pelabuhan kecil dan bandara. Kapal patroli berjaga di teluk-teluk.",
+    "bg": "pelabuhan"
+   },
+   {
+    "s": "kak_sinta",
+    "e": "lega",
+    "t": "Bulan ini tidak ada kabar penyelundupan. Semoga bertahan."
+   },
+   {
+    "s": "pak_dahlan",
+    "e": "cemas",
+    "t": "Pengepul menghilang, Pak. Benih saya sekarang tidak ada yang beli.",
+    "bg": "pesisir"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Keramba-keramba baru dipasang di teluk-teluk Batam dan Lampung.",
+    "bg": "pesisir"
+   },
+   {
+    "s": "kak_sinta",
+    "e": "senyum",
+    "t": "Kami butuh benih dari nelayan. Kalau harganya pas, semua untung."
+   },
+   {
+    "s": "pak_dahlan",
+    "e": "berpikir",
+    "t": "Saya mau menjual ke sini, Pak. Asal dibayar tepat waktu."
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kelompok-kelompok nelayan dibentuk untuk menjaga pantai, lengkap dengan nomor pelaporan yang dilindungi.",
+    "bg": "pesisir"
+   },
+   {
+    "s": "pak_dahlan",
+    "e": "serius",
+    "t": "Kami yang paling tahu perahu siapa yang keluar malam-malam."
+   },
+   {
+    "s": "yosef",
+    "e": "cemas",
+    "t": "Pelapornya harus benar-benar dilindungi, Pak. Kalau tidak, tidak ada yang berani bicara lagi.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "benih",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "welfare_base",
+        "op": ">",
+        "value": 0.3
+       },
+       "beats": [
+        {
+         "s": "kak_sinta",
+         "e": "senyum",
+         "t": "Keramba kami penuh lobster dari benih nelayan Krui, Pak. Panen pertama sudah dijual.",
+         "bg": "pesisir"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "environment",
+        "op": ">",
+        "value": 1
+       },
+       "beats": [
+        {
+         "s": "pak_dahlan",
+         "e": "senyum",
+         "t": "Lobster dewasa mulai sering masuk jaring lagi, Pak.",
+         "bg": "pesisir"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_dahlan",
+         "e": "kecewa",
+         "t": "Pengepul dari luar sudah datang lagi, Pak. Harganya masih menggoda.",
+         "bg": "pesisir"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Penyitaan sesekali terjadi. Jalur penyelundupan tetap bekerja.",
+   "bg": "pesisir_malam"
+  },
+  {
+   "s": "kak_sinta",
+   "e": "kecewa",
+   "t": "Yang tertangkap hanya sebagian kecil, Pak."
+  }
+ ],
+ "journal": {
+  "a": "Pengawasan penyelundupan benih lobster di pantai dan pelabuhan diperketat.",
+  "b": "Budidaya lobster dalam negeri dibangun untuk menyerap benih nelayan.",
+  "c": "Nelayan diajak menjadi pelapor dan mitra penjaga pantai."
+ },
+ "promises": {
+  "b": {
+   "text": "Benih lobster tangkapan nelayan dibeli dan dibesarkan di dalam negeri.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "welfare_base",
+    "op": ">",
+    "value": 0.3
+   }
+  }
+ }
+}

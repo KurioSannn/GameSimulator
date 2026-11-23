@@ -1,0 +1,224 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0051",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "kering",
+ "locals": {
+  "pak_udin": {
+   "name": "Pak Udin",
+   "role": "Ketua kelompok tani, Karawang",
+   "color": "6a5a2a",
+   "initials": "U"
+  },
+  "bu_enah": {
+   "name": "Bu Enah",
+   "role": "Petani sawah tadah hujan, Anyer",
+   "color": "7a4a4a",
+   "initials": "E"
+  }
+ },
+ "agenda": {
+  "hook": "Padi muda di Karawang mengering sebulan. Sumber airnya rusak, kemarau belum selesai.",
+  "if_postponed": "Petani menunggu hujan dan memompa sendiri sebisanya."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Sawah di Karawang retak-retak. Padi umur sebulan mulai menguning sebelum waktunya.",
+   "bg": "kering"
+  },
+  {
+   "s": "pak_udin",
+   "e": "cemas",
+   "t": "Sumber air kami jebol dindingnya, Pak. Tiga kelompok tani menunggu air yang tidak datang."
+  },
+  {
+   "s": "bu_enah",
+   "e": "kecewa",
+   "t": "Di Anyer, separuh sawah kami sudah tujuh tahun tidak ditanami sejak bendungannya jebol.",
+   "bg": "ladang"
+  },
+  {
+   "s": "yosef",
+   "e": "berpikir",
+   "t": "Air sebenarnya ada di saluran pembuang dekat situ. Masalahnya mengangkatnya ke sawah.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Pompa itu murah dan cepat. Bendungan mahal dan lama. Yang satu menolong musim ini, yang lain menolong sepuluh tahun."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Karawang lumbung padi. Kalau di sini kering, piring di seluruh negeri ikut terasa."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Mengirim pompa dan pipa darurat.",
+   "helps": "Padi yang masih bisa diselamatkan musim ini.",
+   "burden": "Anggaran; masalah air kembali musim depan.",
+   "now": "Kesejahteraan petani naik tiga bulan.",
+   "later": "Tekanan harga beras turun sedikit setelah tiga bulan."
+  },
+  "b": {
+   "intent": "Memperbaiki bendungan dan saluran irigasi.",
+   "helps": "Petani untuk jangka panjang.",
+   "burden": "Musim ini tetap berat; biaya besar.",
+   "now": "Belum ada perubahan.",
+   "later": "Infrastruktur dan kesejahteraan struktural naik setelah sembilan bulan."
+  },
+  "c": {
+   "intent": "Membantu asuransi tani dan benih tahan kering.",
+   "helps": "Pendapatan petani bila gagal panen.",
+   "burden": "Air tetap kurang.",
+   "now": "Kepercayaan dan kesejahteraan naik sedikit.",
+   "later": "Tidak menambah air."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Mesin pompa menderu di tepi saluran. Air keruh mengalir lewat pipa panjang ke petak-petak sawah.",
+    "bg": "ladang"
+   },
+   {
+    "s": "pak_udin",
+    "e": "lega",
+    "t": "Air sampai, Pak. Sebagian padi masih bisa diselamatkan."
+   },
+   {
+    "s": "yosef",
+    "e": "netral",
+    "t": "Pompanya menolong musim ini. Dinding sumber airnya masih retak.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Alat berat datang ke bendungan yang jebol. Pekerjaannya akan makan waktu berbulan-bulan.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "bu_enah",
+    "e": "senyum",
+    "t": "Kalau bendungan kami jadi, sawah yang tujuh tahun tidur itu bisa ditanam lagi.",
+    "bg": "ladang"
+   },
+   {
+    "s": "pak_udin",
+    "e": "cemas",
+    "t": "Tapi padi saya yang sekarang, Pak? Itu yang saya pikirkan malam ini.",
+    "bg": "kering"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Petugas mendaftarkan petani ke asuransi dan membagikan benih padi tahan kering.",
+    "bg": "ladang"
+   },
+   {
+    "s": "pak_udin",
+    "e": "netral",
+    "t": "Kalau gagal panen, setidaknya modal kami kembali."
+   },
+   {
+    "s": "bu_enah",
+    "e": "berpikir",
+    "t": "Benih ini bisa bertahan kalau hujan telat. Tapi tanpa air tetap tidak bisa."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "air",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "bu_enah",
+         "e": "senyum",
+         "t": "Bendungan sudah mengalirkan air lagi, Pak. Sawah yang lama tidur itu hijau sekarang.",
+         "bg": "ladang"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "welfare",
+        "op": ">",
+        "value": 0
+       },
+       "beats": [
+        {
+         "s": "pak_udin",
+         "e": "lega",
+         "t": "Musim kering ini kami lewati, Pak. Panen tidak penuh, tapi tidak hilang.",
+         "bg": "ladang"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_udin",
+         "e": "kecewa",
+         "t": "Kemarau datang lagi, Pak. Sumber air kami masih sama rusaknya.",
+         "bg": "kering"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Petani memompa sendiri dengan mesin sewaan. Sebagian padi tidak tertolong.",
+   "bg": "kering"
+  },
+  {
+   "s": "pak_udin",
+   "e": "kecewa",
+   "t": "Yang punya uang sewa pompa selamat. Yang tidak, ya begini."
+  }
+ ],
+ "journal": {
+  "a": "Pompa dan pipa darurat dikirim ke sawah kering Karawang dan Serang.",
+  "b": "Bendungan dan saluran irigasi yang rusak di Karawang dan Serang diperbaiki.",
+  "c": "Petani Karawang dan Serang dibantu asuransi tani dan benih tahan kering."
+ },
+ "promises": {
+  "b": {
+   "text": "Sawah di Karawang dan Anyer mendapat air dari bendungan yang sudah diperbaiki.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 2
+   }
+  }
+ }
+}

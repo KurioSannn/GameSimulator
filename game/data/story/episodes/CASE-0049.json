@@ -1,0 +1,212 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0049",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "kota",
+ "locals": {
+  "bu_sumi": {
+   "name": "Bu Sumi",
+   "role": "Pemilik warung makan, Bekasi",
+   "color": "8a4a3a",
+   "initials": "S"
+  },
+  "pak_rahmat": {
+   "name": "Pak Rahmat",
+   "role": "Pemilik pangkalan LPG, Pekanbaru",
+   "color": "3a5a7a",
+   "initials": "R"
+  }
+ },
+ "agenda": {
+  "hook": "Warung tidak boleh lagi menjual gas tiga kilo. Antrean di pangkalan mengular sejak subuh.",
+  "if_postponed": "Aturan berjalan apa adanya. Warga antre di pangkalan yang ada."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Pagi di pinggiran kota. Tabung-tabung hijau berjajar di depan pangkalan, pemiliknya berdiri sejak subuh.",
+   "bg": "kota"
+  },
+  {
+   "s": "bu_sumi",
+   "e": "kecewa",
+   "t": "Biasanya saya beli di warung sebelah, Pak. Sekarang harus antre dua jam. Dagangan saya tutup setengah hari."
+  },
+  {
+   "s": "pak_rahmat",
+   "e": "cemas",
+   "t": "Stok saya habis sebelum siang. Orang marah ke saya, padahal saya cuma menjual.",
+   "bg": "pasar"
+  },
+  {
+   "s": "bayu",
+   "e": "serius",
+   "t": "Tujuannya benar, Pak. Subsidi gas besar dan banyak yang bocor. Tapi perubahan sebesar ini butuh masa transisi.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "sekar",
+   "e": "cemas",
+   "t": "Keluhan antrean ada di mana-mana. Orang tidak membaca alasannya, mereka merasakan antreannya."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Kebijakan yang benar tetap bisa salah cara. Kita perbaiki caranya, sekarang."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Mengaktifkan lagi pengecer sebagai subpangkalan tercatat.",
+   "helps": "Rumah tangga dan warung kecil, segera.",
+   "burden": "Kebocoran subsidi belum tertutup.",
+   "now": "Kepercayaan pulih cepat.",
+   "later": "Ruang fiskal turun sedikit setelah enam bulan."
+  },
+  "b": {
+   "intent": "Menambah pangkalan dan jam layanan.",
+   "helps": "Warga yang jauh dari pangkalan.",
+   "burden": "Anggaran dan pengelola pangkalan.",
+   "now": "Pelayanan naik tiga bulan.",
+   "later": "Aturan tetap, pengawasan lebih rapi."
+  },
+  "c": {
+   "intent": "Subsidi tertutup berbasis data penerima.",
+   "helps": "Anggaran negara dan penerima yang berhak.",
+   "burden": "Warga yang datanya belum tercatat.",
+   "now": "Kepercayaan turun di awal.",
+   "later": "Ruang fiskal naik setelah sembilan bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Papan kecil bertuliskan subpangkalan dipasang di warung-warung. Antrean menyusut dalam beberapa hari.",
+    "bg": "kota"
+   },
+   {
+    "s": "bu_sumi",
+    "e": "lega",
+    "t": "Gas sudah ada lagi di warung sebelah. Saya bisa buka penuh hari ini."
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Antreannya selesai. Kebocorannya belum.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Pangkalan-pangkalan baru dibuka dan jam layanan diperpanjang sampai malam.",
+    "bg": "pasar"
+   },
+   {
+    "s": "pak_rahmat",
+    "e": "netral",
+    "t": "Kiriman saya ditambah. Antrean masih ada, tapi tidak sampai siang."
+   },
+   {
+    "s": "bu_sumi",
+    "e": "berpikir",
+    "t": "Masih harus jalan, tapi tidak sejauh kemarin.",
+    "bg": "kota"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Petugas mulai mencocokkan data penerima di setiap pangkalan.",
+    "bg": "pasar"
+   },
+   {
+    "s": "bu_sumi",
+    "e": "cemas",
+    "t": "Nama saya belum ada di daftar, Pak. Usaha saya kecil, tapi saya harus mengurus surat dulu."
+   },
+   {
+    "s": "sekar",
+    "e": "serius",
+    "t": "Kebingungannya nyata. Kita harus menjelaskan setiap hari sampai datanya rapi.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "gas",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "trust",
+        "op": ">",
+        "value": 0.3
+       },
+       "beats": [
+        {
+         "s": "bu_sumi",
+         "e": "senyum",
+         "t": "Sekarang gas gampang dicari lagi, Pak. Orang sudah lupa antrean itu.",
+         "bg": "kota"
+        }
+       ]
+      },
+      {
+       "if": {
+        "choice": "c"
+       },
+       "beats": [
+        {
+         "s": "bayu",
+         "e": "senyum",
+         "t": "Subsidi gas mulai lebih hemat, Pak. Datanya makin rapi.",
+         "bg": "ruang_rapat"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_rahmat",
+         "e": "kecewa",
+         "t": "Orang masih ingat antrean bulan itu. Setiap ada kabar soal gas, mereka panik lagi.",
+         "bg": "pasar"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Aturan berjalan tanpa penyesuaian. Antrean berlangsung berminggu-minggu.",
+   "bg": "kota"
+  },
+  {
+   "s": "bu_sumi",
+   "e": "kecewa",
+   "t": "Kami ikut antre saja, Pak. Mau bagaimana lagi."
+  }
+ ],
+ "journal": {
+  "a": "Pengecer LPG 3 kg diaktifkan lagi sebagai subpangkalan tercatat.",
+  "b": "Pangkalan LPG 3 kg ditambah dan jam layanannya diperpanjang.",
+  "c": "Subsidi LPG 3 kg diarahkan ke penerima yang terdata."
+ },
+ "promises": {}
+}

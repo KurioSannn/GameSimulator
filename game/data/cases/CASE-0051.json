@@ -1,0 +1,198 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0051",
+ "research_ref": "research/cases/CASE-0051.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Pompa untuk Sawah Kering",
+ "location_label": "Kab. Karawang (Jawa Barat) dan Kab. Serang (Banten)",
+ "focus_regions": [
+  "32.15",
+  "36.04"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 25
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0051"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "regions:32.15,36.04",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "regions:32.15,36.04",
+   "var": "environment",
+   "op": "add",
+   "value": -0.5
+  },
+  {
+   "scope": "national",
+   "var": "price_pressure",
+   "op": "add",
+   "value": 0.003
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Kementerian Pertanian memfokuskan program pompanisasi 2024 pada sawah yang hanya bisa ditanam sekali setahun tetapi punya sumber air sepanjang tahun, dengan rancangan minimal 500.000 hektare di Jawa dan 500.000 hektare di luar Jawa.",
+    "source_refs": [
+     "SRC-KEMENTAN-POMPA-2024-03-30"
+    ],
+    "as_of": "2024-03-30"
+   },
+   {
+    "text": "Di Desa Mekar Sari, Anyer, Kabupaten Serang, dari 100 hektare sawah tadah hujan hanya 50 hektare yang dapat dikelola; sisanya tidak tergarap sejak bendungan Kidemang jebol saat banjir 2016.",
+    "source_refs": [
+     "SRC-KEMENTAN-POMPA-2024-03-30"
+    ],
+    "as_of": "2024-03-30"
+   },
+   {
+    "text": "Pada September 2024, sawah seluas 50 hektare milik tiga kelompok tani di Desa Cirangon, Kecamatan Majalaya, Karawang, mengalami kekeringan selama 30 hari karena dinding pondasi sumber air Leuweung Sereh rusak.",
+    "source_refs": [
+     "SRC-KEMENTAN-POMPA-2024-09-05"
+    ],
+    "as_of": "2024-09-05"
+   },
+   {
+    "text": "Penanganannya dua pompa 6 inci dengan pipa 150 meter dan 500 meter dari saluran pembuang Ciwadas dan Ciderewak; petani juga diimbau mengikuti Asuransi Usaha Tani Padi.",
+    "source_refs": [
+     "SRC-KEMENTAN-POMPA-2024-09-05"
+    ],
+    "as_of": "2024-09-05"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Padi muda di Karawang mengering sebulan. Sumber airnya rusak, kemarau belum selesai."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Karawang and Serang welfare -1 (failed young rice), environment -0.5, price pressure +0.003. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "broken water works + drought -> farm welfare and rice price pressure; pumps -> welfare now; dam repair -> infrastructure and welfare_base later; insurance -> trust and welfare cushion",
+  "immediate": "a: fiscal -1.5, welfare +0.5/month x3; b: fiscal -2.5; c: fiscal -0.8, trust +0.5, welfare +0.2/month x3",
+  "delayed": "a: price pressure -0.003 after 3 months; b: infrastructure +3 and welfare_base +0.5 after 9 months",
+  "regional": "Karawang, Serang",
+  "national": "fiscal_space; price_pressure",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Kirim pompa dan pipa darurat",
+   "description": "Pompa dan pipa dipasang dari saluran terdekat supaya padi muda bisa diselamatkan musim ini.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "regions:32.15,36.04",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.5,
+     "duration": 3
+    },
+    {
+     "scope": "national",
+     "var": "price_pressure",
+     "op": "add",
+     "value": -0.003,
+     "delay": 3
+    }
+   ],
+   "memory": {
+    "pompa2024_response": "pumps"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Perbaiki bendungan dan saluran irigasi",
+   "description": "Sumber air yang rusak dan bendungan yang jebol dibangun ulang. Musim ini tetap berat, musim-musim berikutnya air mengalir sendiri.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "regions:32.15,36.04",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 9
+    },
+    {
+     "scope": "regions:32.15,36.04",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.5,
+     "delay": 9
+    }
+   ],
+   "memory": {
+    "pompa2024_response": "repair_dams"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Asuransi tani dan benih tahan kering",
+   "description": "Premi asuransi usaha tani dibantu dan benih padi tahan kering dibagikan. Petani terlindungi dari rugi, airnya tetap sedikit.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.8
+    },
+    {
+     "scope": "regions:32.15,36.04",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    },
+    {
+     "scope": "regions:32.15,36.04",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.2,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "pompa2024_response": "insurance"
+   }
+  }
+ ]
+}

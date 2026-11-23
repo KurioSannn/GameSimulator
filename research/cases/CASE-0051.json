@@ -1,0 +1,110 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0051",
+ "title": "Kekeringan sawah dan program pompanisasi Kementerian Pertanian, Karawang dan Serang, 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "drought_agriculture",
+ "subcategories": [
+  "drought",
+  "irrigation",
+  "pumps",
+  "rice_production",
+  "crop_insurance"
+ ],
+ "start_date": "2024-03-30",
+ "end_date": "2024-09-05",
+ "decision_as_of": "2024-09-05",
+ "island": "jawa",
+ "provinces": [
+  "32",
+  "36"
+ ],
+ "regency_city_documented": [
+  "32.15",
+  "36.04"
+ ],
+ "geographic_resolution": "Kab. Karawang (Jawa Barat) dan Kab. Serang (Banten)",
+ "real_facts": [
+  {
+   "fact": "Kementerian Pertanian memfokuskan program pompanisasi 2024 pada sawah yang hanya bisa ditanam sekali setahun tetapi punya sumber air sepanjang tahun, dengan rancangan minimal 500.000 hektare di Jawa dan 500.000 hektare di luar Jawa.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENTAN-POMPA-2024-03-30"
+   ],
+   "as_of": "2024-03-30"
+  },
+  {
+   "fact": "Di Desa Mekar Sari, Anyer, Kabupaten Serang, dari 100 hektare sawah tadah hujan hanya 50 hektare yang dapat dikelola; sisanya tidak tergarap sejak bendungan Kidemang jebol saat banjir 2016.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENTAN-POMPA-2024-03-30"
+   ],
+   "as_of": "2024-03-30"
+  },
+  {
+   "fact": "Pada September 2024, sawah seluas 50 hektare milik tiga kelompok tani di Desa Cirangon, Kecamatan Majalaya, Karawang, mengalami kekeringan selama 30 hari karena dinding pondasi sumber air Leuweung Sereh rusak.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENTAN-POMPA-2024-09-05"
+   ],
+   "as_of": "2024-09-05"
+  },
+  {
+   "fact": "Penanganannya dua pompa 6 inci dengan pipa 150 meter dan 500 meter dari saluran pembuang Ciwadas dan Ciderewak; petani juga diimbau mengikuti Asuransi Usaha Tani Padi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-KEMENTAN-POMPA-2024-09-05"
+   ],
+   "as_of": "2024-09-05"
+  }
+ ],
+ "information_available_at_decision": "September 2024: kemarau panjang; padi muda di Karawang mengering karena sumber air rusak, dan sawah tadah hujan di Serang hanya bisa ditanam sekali setahun.",
+ "trigger": [
+  "Kekeringan sawah dan program pompanisasi Kementerian Pertanian, Karawang dan Serang, 2024"
+ ],
+ "root_causes_note": "Bangunan air yang rusak bertahun-tahun tanpa perbaikan, sehingga sawah bergantung pada hujan dan pompa darurat.",
+ "stakeholders": [
+  "Kementerian Pertanian",
+  "Kementerian PUPR (balai wilayah sungai)",
+  "kelompok tani",
+  "Pemkab Karawang dan Serang",
+  "penyedia asuransi pertanian"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-KEMENTAN-POMPA-2024-03-30",
+   "institution": "Kementerian Pertanian (Ditjen PSP)",
+   "title": "Kementan Pompanisasi Sawah Tadah Hujan di Banten",
+   "url": "https://psp.pertanian.go.id/berita/kementan-pompanisasi-sawah-tadah-hujan-di-banten",
+   "publication_date": "2024-03-30",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional; Desa Mekar Sari, Anyer, Kab. Serang",
+   "reference_period": "2024",
+   "unit": "hektare"
+  },
+  {
+   "source_id": "SRC-KEMENTAN-POMPA-2024-09-05",
+   "institution": "Kementerian Pertanian (Ditjen PSP)",
+   "title": "Tanggap Darurat Kekeringan, Kementan Terjunkan Pompanisasi di Karawang",
+   "url": "https://psp.pertanian.go.id/berita/tanggap-darurat-kekeringan-kementan-terjunkan-pompanisasi-di-karawang",
+   "publication_date": "2024-09-05",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Desa Cirangon, Kec. Majalaya, Kab. Karawang",
+   "reference_period": "2024-09",
+   "unit": "hektare; unit pompa; meter"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Luas total sawah kekeringan nasional 2024 tidak tercantum di sumber yang dibaca.",
+  "Hasil panen setelah pompanisasi di lokasi ini tidak dilaporkan di sumber."
+ ],
+ "todo_to_validate": [
+  "Realisasi luas tambah tanam dari pompanisasi 2024 per kabupaten"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0051.json",
+ "game_adaptation_notes": "Pompa darurat (cepat, sementara) vs perbaiki bendungan dan saluran (lambat, permanen) vs asuransi dan varietas tahan kering (melindungi pendapatan, tidak menambah air).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

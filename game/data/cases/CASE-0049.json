@@ -1,0 +1,207 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0049",
+ "research_ref": "research/cases/CASE-0049.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Antrean Gas Melon",
+ "location_label": "Nasional (pangkalan dan pengecer LPG 3 kg)",
+ "focus_regions": [],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 8
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0049"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "all",
+   "var": "trust",
+   "op": "add",
+   "value": -0.8
+  },
+  {
+   "scope": "all",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.2
+  },
+  {
+   "scope": "national",
+   "var": "price_pressure",
+   "op": "add",
+   "value": 0.005
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Sejak 1 Februari 2025, aturan baru pemerintah melarang penjualan LPG 3 kg melalui pengecer, dengan tujuan agar gas bersubsidi lebih tepat sasaran dan tidak disalahgunakan.",
+    "source_refs": [
+     "SRC-ESDM-LPG-2025-02-05"
+    ],
+    "as_of": "2025-02-05"
+   },
+   {
+    "text": "Pada 4 Februari 2025, setelah dinamika di masyarakat akibat perubahan tata kelola penjualan, pemerintah mengumumkan sekitar 375 ribu pengecer LPG 3 kg di seluruh Indonesia dinaikkan statusnya menjadi subpangkalan dan kembali aktif.",
+    "source_refs": [
+     "SRC-ESDM-LPG-2025-02-04"
+    ],
+    "as_of": "2025-02-04"
+   },
+   {
+    "text": "Menurut Kementerian ESDM, pemantauan harga dan jumlah pasokan selama ini hanya bisa dilakukan sampai tingkat pangkalan; status subpangkalan dimaksudkan agar distribusi sampai pengecer dapat dikontrol dengan sistem informasi.",
+    "source_refs": [
+     "SRC-ESDM-LPG-2025-02-04"
+    ],
+    "as_of": "2025-02-04"
+   },
+   {
+    "text": "Kementerian ESDM menyampaikan permintaan maaf atas antrean panjang dan kendala yang terjadi, dan menyatakan pemerintah perlu memitigasi dampak perubahan sistem dengan lebih baik.",
+    "source_refs": [
+     "SRC-ESDM-LPG-2025-02-04"
+    ],
+    "as_of": "2025-02-04"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Warung tidak boleh lagi menjual gas tiga kilo. Antrean di pangkalan mengular sejak subuh."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): nationwide trust -0.8 (queues and confusion), welfare -0.2 (time and cost of buying gas), price pressure +0.005. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "sudden distribution change -> queues -> trust and household welfare; reactivated retailers -> trust back, subsidy leakage stays; more outlets -> services; targeted subsidy -> fiscal later, trust dip now",
+  "immediate": "a: fiscal -1, trust +0.8, welfare +0.1/month x3; b: fiscal -1.8, services +0.5/month x3, trust +0.3; c: fiscal -0.5, trust -0.4, welfare -0.1/month x3",
+  "delayed": "a: fiscal -0.5 after 6 months (leakage); c: fiscal +2.5 after 9 months",
+  "regional": "nationwide",
+  "national": "fiscal_space; price_pressure",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Aktifkan lagi pengecer sebagai subpangkalan",
+   "description": "Warung boleh menjual lagi dengan status subpangkalan yang tercatat. Antrean cepat reda, tetapi kebocoran subsidi belum tertutup.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": 0.8
+    },
+    {
+     "scope": "all",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.1,
+     "duration": 3
+    },
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.5,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "lpg2025_response": "reactivate_retailers"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Tambah pangkalan dan jam layanan",
+   "description": "Aturan tetap berjalan, tetapi jumlah pangkalan dan jam buka ditambah supaya warga tidak perlu antre jauh.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.8
+    },
+    {
+     "scope": "all",
+     "var": "services",
+     "op": "add",
+     "value": 0.5,
+     "duration": 3
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": 0.3
+    }
+   ],
+   "memory": {
+    "lpg2025_response": "more_outlets"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Subsidi tertutup berbasis data penerima",
+   "description": "Gas bersubsidi hanya untuk rumah tangga dan usaha mikro yang terdata. Awalnya membingungkan, lama-lama subsidi lebih hemat dan tepat.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": -0.4
+    },
+    {
+     "scope": "all",
+     "var": "welfare",
+     "op": "add",
+     "value": -0.1,
+     "duration": 3
+    },
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": 2.5,
+     "delay": 9
+    }
+   ],
+   "memory": {
+    "lpg2025_response": "targeted"
+   }
+  }
+ ]
+}

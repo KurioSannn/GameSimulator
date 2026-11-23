@@ -1,0 +1,199 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0052",
+ "research_ref": "research/cases/CASE-0052.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Jalan Rusak di Lampung",
+ "location_label": "Kab. Lampung Tengah dan sekitarnya, Lampung",
+ "focus_regions": [
+  "18.02",
+  "18.07"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 5
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0052"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "regions:18.02,18.07",
+   "var": "trust",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "regions:18.02,18.07",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.5
+  },
+  {
+   "scope": "regions:18.02,18.07",
+   "var": "infrastructure",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Inpres Nomor 3 Tahun 2023 tentang Percepatan Peningkatan Konektivitas Jalan Daerah dilaksanakan bertahap; tahap I tahun 2023 dialokasikan Rp14,6 triliun untuk rencana 2.873 km jalan dan 2.362 m jembatan.",
+    "source_refs": [
+     "SRC-PUPR-IJD-2023-09-29"
+    ],
+    "as_of": "2023-09-29"
+   },
+   {
+    "text": "Per 29 September 2023, progres fisik IJD secara keseluruhan sekitar 12 persen dari 599 paket pekerjaan, ditargetkan rampung akhir 2023.",
+    "source_refs": [
+     "SRC-PUPR-IJD-2023-09-29"
+    ],
+    "as_of": "2023-09-29"
+   },
+   {
+    "text": "Provinsi Lampung mendapat alokasi APBN Rp800,9 miliar untuk perbaikan 17 ruas jalan daerah, sebagai tindak lanjut keluhan masyarakat.",
+    "source_refs": [
+     "SRC-PUPR-IJD-2023-10-27"
+    ],
+    "as_of": "2023-10-27"
+   },
+   {
+    "text": "Ruas Simpang Randu sampai Seputih Surabaya di Kecamatan Rumbia, Lampung Tengah, sepanjang 14 km, dianggarkan Rp102,1 miliar dengan perkerasan rigid; progresnya 61,28 persen pada 27 Oktober 2023.",
+    "source_refs": [
+     "SRC-PUPR-IJD-2023-10-27"
+    ],
+    "as_of": "2023-10-27"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Jalan kabupaten di Lampung berlubang sedalam lutut. Truk hasil panen terguling, keluhan warga ramai di mana-mana."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Lampung Tengah and Lampung Timur trust -1 (road complaints), welfare -0.5 (logistics cost), infrastructure -1. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "unmaintained regional roads -> logistics cost (welfare) and trust; central takeover -> infrastructure + trust; conditional grants -> infrastructure + welfare_base later; production corridors -> welfare first",
+  "immediate": "a: fiscal -3.5, trust +1; b: fiscal -2; c: fiscal -2",
+  "delayed": "a: infrastructure +4 after 6 months; b: infrastructure +2 after 9 months, welfare_base +0.3 after 12 months; c: infrastructure +2.5 and welfare +0.3/month x6 after 6 months",
+  "regional": "Lampung Tengah, Lampung Timur",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Pusat langsung memperbaiki jalan daerah",
+   "description": "Kementerian membangun ulang ruas-ruas terparah dengan beton tebal. Cepat dan awet, mahal, dan daerah makin bergantung pada pusat.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.5
+    },
+    {
+     "scope": "regions:18.02,18.07",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    },
+    {
+     "scope": "regions:18.02,18.07",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 4.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "ijd2023_response": "central_takeover"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Dana untuk daerah dengan syarat pemeliharaan",
+   "description": "Daerah mendapat dana perbaikan, asalkan menyediakan anggaran pemeliharaan setiap tahun. Lebih lambat, jalannya lebih mungkin terawat.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:18.02,18.07",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 2.0,
+     "delay": 9
+    },
+    {
+     "scope": "regions:18.02,18.07",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.3,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "ijd2023_response": "conditional_grant"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Dahulukan jalur hasil kebun dan pertanian",
+   "description": "Ruas yang dilalui truk singkong, jagung, dan kopi diperbaiki lebih dulu. Ekonomi cepat terasa, ruas lain menunggu.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "regions:18.02,18.07",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 2.5,
+     "delay": 6
+    },
+    {
+     "scope": "regions:18.02,18.07",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.3,
+     "delay": 6,
+     "duration": 6
+    }
+   ],
+   "memory": {
+    "ijd2023_response": "production_corridors"
+   }
+  }
+ ]
+}

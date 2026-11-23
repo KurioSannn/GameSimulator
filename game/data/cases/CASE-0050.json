@@ -1,0 +1,204 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0050",
+ "research_ref": "research/cases/CASE-0050.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Pendaki di Puncak Marapi",
+ "location_label": "Gunung Marapi, Kab. Agam dan Kab. Tanah Datar, Sumatera Barat",
+ "focus_regions": [
+  "13.06",
+  "13.04"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 11
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0050"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "regions:13.06,13.04",
+   "var": "damage",
+   "op": "add",
+   "value": 3.0
+  },
+  {
+   "scope": "regions:13.06,13.04",
+   "var": "services",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "regions:13.06,13.04",
+   "var": "trust",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "regions:13.06,13.04",
+   "var": "welfare",
+   "op": "add",
+   "value": -0.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Hingga 4 Desember 2023 pukul 10.30 WIB, tercatat 75 pendaki di Gunung Marapi: 54 orang masuk lewat pintu Batu Palano di Kabupaten Agam dan 21 orang lewat pintu Koto Baru di Kabupaten Tanah Datar.",
+    "source_refs": [
+     "SRC-BNPB-MARAPI-2023-12-04"
+    ],
+    "as_of": "2023-12-04"
+   },
+   {
+    "text": "Sebagian besar pendaki yang belum dievakuasi teridentifikasi lewat jejak pendaftaran digital; sisanya terdaftar langsung di lokasi Taman Wisata Alam Gunung Marapi.",
+    "source_refs": [
+     "SRC-BNPB-MARAPI-2023-12-04"
+    ],
+    "as_of": "2023-12-04"
+   },
+   {
+    "text": "Pada 6 Desember 2023, seluruh 75 pendaki telah ditemukan: 52 selamat dan 23 meninggal dunia; operasi SAR gabungan ditutup, tetapi posko tanggap darurat tetap aktif untuk keluarga.",
+    "source_refs": [
+     "SRC-BNPB-MARAPI-2023-12-06"
+    ],
+    "as_of": "2023-12-06"
+   },
+   {
+    "text": "Masyarakat diimbau tidak beraktivitas dalam radius 3 km dari puncak, dan warga di 4 kecamatan terdekat diminta mengurangi aktivitas di luar rumah serta memakai masker.",
+    "source_refs": [
+     "SRC-BNPB-MARAPI-2023-12-06"
+    ],
+    "as_of": "2023-12-06"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Marapi meletus saat puluhan pendaki masih di jalur. Tim gabungan naik di tengah letusan susulan."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Agam and Tanah Datar damage +3, services -1.5, trust -1.5 (loss of life on a mountain that was open), welfare -0.5 (ash). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "eruption with climbers -> trust & services; closure -> trust now, welfare (tourism) loss; digital registration -> services later; ashfall response -> services now and welfare",
+  "immediate": "a: fiscal -0.5, trust +1, welfare -0.3/month x3; b: fiscal -1; c: fiscal -1.5, services +1.5/month x3",
+  "delayed": "b: services +2.5 and trust +1 after 6 months; c: welfare +0.5 after 3 months",
+  "regional": "Agam, Tanah Datar",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Tutup pendakian dan audit izin",
+   "description": "Semua jalur Marapi ditutup sampai gunung benar-benar aman, dan izin pendakian di gunung api lain diperiksa. Lebih aman, usaha di jalur pendakian kehilangan pemasukan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "regions:13.06,13.04",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    },
+    {
+     "scope": "regions:13.06,13.04",
+     "var": "welfare",
+     "op": "add",
+     "value": -0.3,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "marapi2023_response": "close"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Pendaftaran digital yang terhubung ke status gunung",
+   "description": "Setiap pendaki wajib terdaftar secara digital, dan izin otomatis tertutup bila status gunung naik. Pencarian juga lebih cepat bila terjadi bencana.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "regions:13.06,13.04",
+     "var": "services",
+     "op": "add",
+     "value": 2.5,
+     "delay": 6
+    },
+    {
+     "scope": "regions:13.06,13.04",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "marapi2023_response": "digital_registration"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Lindungi warga kaki gunung dari abu",
+   "description": "Masker, air bersih, layanan kesehatan, dan bantuan ternak serta kebun untuk warga di kecamatan terdekat diutamakan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.5
+    },
+    {
+     "scope": "regions:13.06,13.04",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "duration": 3
+    },
+    {
+     "scope": "regions:13.06,13.04",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.5,
+     "delay": 3
+    }
+   ],
+   "memory": {
+    "marapi2023_response": "ashfall_care"
+   }
+  }
+ ]
+}

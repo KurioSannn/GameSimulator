@@ -1,0 +1,190 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0048",
+ "research_ref": "research/cases/CASE-0048.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Pencuri Ikan di Laut Natuna",
+ "location_label": "Laut Natuna Utara (WPPNRI 711), Kab. Natuna, Kepulauan Riau",
+ "focus_regions": [
+  "21.03"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 22
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0048"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:21.03",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "region:21.03",
+   "var": "environment",
+   "op": "add",
+   "value": -2.0
+  },
+  {
+   "scope": "region:21.03",
+   "var": "trust",
+   "op": "add",
+   "value": -0.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Pada 4 Mei 2024, aparat pengawas perikanan menahan dua kapal ikan asing berbendera Vietnam di Laut Natuna Utara; kapal-kapal itu tidak memiliki perizinan penangkapan ikan yang sah dan memakai trawl, alat tangkap yang dilarang.",
+    "source_refs": [
+     "SRC-KKP-NATUNA-2024-05-05"
+    ],
+    "as_of": "2024-05-05"
+   },
+   {
+    "text": "Pada 1 November 2025, kapal pengawas KKP menangkap satu kapal Vietnam (70 GT, alat tangkap trawl) di Zona Ekonomi Eksklusif Indonesia setelah terdeteksi lewat pusat komando dan pengawasan udara; nilai potensi kerugian negara yang diselamatkan disebut Rp22,6 miliar.",
+    "source_refs": [
+     "SRC-KKP-NATUNA-2025-11-07"
+    ],
+    "as_of": "2025-11-07"
+   },
+   {
+    "text": "Menurut Dirjen PSDKP, sepanjang 2025 hingga awal November sudah 6 kapal asing pelaku illegal fishing ditangkap di Laut Natuna Utara.",
+    "source_refs": [
+     "SRC-KKP-NATUNA-2025-11-07"
+    ],
+    "as_of": "2025-11-07"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Kapal-kapal asing dengan pukat dilarang kembali menyapu Laut Natuna Utara. Nelayan kecil Natuna pulang dengan tangkapan yang makin sedikit."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Natuna welfare -1 (fishers' catch), environment -2 (trawl damage), trust -0.5. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "illegal trawling -> environment & fishers' welfare; patrols -> environment + trust; local fleet -> welfare + infrastructure later; surveillance tech -> services + environment later",
+  "immediate": "a: fiscal -2.5, trust +1, environment +1.5/month x3; b: fiscal -3; c: fiscal -2",
+  "delayed": "b: welfare_base +0.8 and infrastructure +3 after 9 months; c: services +2 after 6 months, environment +2 after 6 months",
+  "regional": "Kab. Natuna",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Perbanyak patroli dan tindak tegas",
+   "description": "Kapal pengawas tambahan berjaga di Laut Natuna Utara dan kapal pencuri ikan diproses hukum. Laut lebih terlindungi, operasinya mahal.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "region:21.03",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    },
+    {
+     "scope": "region:21.03",
+     "var": "environment",
+     "op": "add",
+     "value": 1.5,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "natuna_response": "patrol"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Perkuat kapal dan pelabuhan nelayan Natuna",
+   "description": "Nelayan lokal dibantu kapal yang lebih besar, cold storage, dan pelabuhan, supaya laut Natuna diisi oleh nelayannya sendiri.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "region:21.03",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.8,
+     "delay": 9
+    },
+    {
+     "scope": "region:21.03",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 9
+    }
+   ],
+   "memory": {
+    "natuna_response": "local_fleet"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Pemantauan satelit dan udara",
+   "description": "Pusat komando, pengawasan udara, dan pelacak kapal diperluas agar kapal asing terdeteksi lebih awal dan patroli lebih tepat sasaran.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:21.03",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    },
+    {
+     "scope": "region:21.03",
+     "var": "environment",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "natuna_response": "surveillance"
+   }
+  }
+ ]
+}

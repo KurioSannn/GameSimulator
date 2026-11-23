@@ -1,0 +1,108 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0052",
+ "title": "Jalan daerah rusak dan Inpres Jalan Daerah (Inpres No. 3 Tahun 2023), Lampung, 2023",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "regional_infrastructure",
+ "subcategories": [
+  "regional_roads",
+  "central_local_fiscal",
+  "logistics",
+  "agriculture_access"
+ ],
+ "start_date": "2023-05",
+ "end_date": "2023-10-27",
+ "decision_as_of": "2023-09-29",
+ "island": "sumatera",
+ "provinces": [
+  "18"
+ ],
+ "regency_city_documented": [
+  "18.02",
+  "18.07"
+ ],
+ "geographic_resolution": "Kab. Lampung Tengah dan sekitarnya, Lampung",
+ "real_facts": [
+  {
+   "fact": "Inpres Nomor 3 Tahun 2023 tentang Percepatan Peningkatan Konektivitas Jalan Daerah dilaksanakan bertahap; tahap I tahun 2023 dialokasikan Rp14,6 triliun untuk rencana 2.873 km jalan dan 2.362 m jembatan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-PUPR-IJD-2023-09-29"
+   ],
+   "as_of": "2023-09-29"
+  },
+  {
+   "fact": "Per 29 September 2023, progres fisik IJD secara keseluruhan sekitar 12 persen dari 599 paket pekerjaan, ditargetkan rampung akhir 2023.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-PUPR-IJD-2023-09-29"
+   ],
+   "as_of": "2023-09-29"
+  },
+  {
+   "fact": "Provinsi Lampung mendapat alokasi APBN Rp800,9 miliar untuk perbaikan 17 ruas jalan daerah, sebagai tindak lanjut keluhan masyarakat.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-PUPR-IJD-2023-10-27"
+   ],
+   "as_of": "2023-10-27"
+  },
+  {
+   "fact": "Ruas Simpang Randu sampai Seputih Surabaya di Kecamatan Rumbia, Lampung Tengah, sepanjang 14 km, dianggarkan Rp102,1 miliar dengan perkerasan rigid; progresnya 61,28 persen pada 27 Oktober 2023.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-PUPR-IJD-2023-10-27"
+   ],
+   "as_of": "2023-10-27"
+  }
+ ],
+ "information_available_at_decision": "2023: keluhan jalan provinsi dan kabupaten yang rusak parah di Lampung ramai; pemerintah pusat menyiapkan anggaran khusus untuk jalan yang sebenarnya kewenangan daerah.",
+ "trigger": [
+  "Jalan daerah rusak dan Inpres Jalan Daerah (Inpres No. 3 Tahun 2023), Lampung, 2023"
+ ],
+ "root_causes_note": "Jalan daerah yang lama tidak terpelihara karena anggaran daerah terbatas, padahal menjadi jalur hasil kebun dan pertanian.",
+ "stakeholders": [
+  "Kementerian PUPR",
+  "Pemprov Lampung",
+  "Pemkab Lampung Tengah dan Lampung Timur",
+  "petani dan pengangkut hasil bumi",
+  "Kementerian Keuangan"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-PUPR-IJD-2023-09-29",
+   "institution": "Kementerian PUPR (Ditjen Bina Marga)",
+   "title": "Laksanakan Inpres Jalan Daerah, Kementerian PUPR Targetkan Pelaksanaan Tahap I Rampung di Akhir 2023",
+   "url": "https://binamarga.pu.go.id/index.php/berita/laksanakan-inpres-jalan-daerah-kementerian-pupr-targetkan-pelaksanaan-tahap-i-rampung-di-akhir-2023",
+   "publication_date": "2023-09-29",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional; ruas di Lampung, Sumatera Utara, Jambi",
+   "reference_period": "2023",
+   "unit": "rupiah; km; meter; persen"
+  },
+  {
+   "source_id": "SRC-PUPR-IJD-2023-10-27",
+   "institution": "Kementerian PUPR",
+   "title": "Menteri Basuki Dampingi Presiden Jokowi Tinjau Inpres Jalan Daerah di Lampung, Progress Capai 60%",
+   "url": "https://pu.go.id/berita/menteri-basuki-dampingi-presiden-jokowi-tinjau-inpres-jalan-daerah-di-lampung-progress-capai-60",
+   "publication_date": "2023-10-27",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Provinsi Lampung; Kab. Lampung Tengah",
+   "reference_period": "2023-10-27",
+   "unit": "rupiah; ruas; km; persen"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka nasional berbeda antar rilis: Rp14,6 triliun, 2.873 km, 2.362 m jembatan (Bina Marga, 29 Sep 2023) vs sekitar Rp14,7 triliun, 3.140 ruas, 2.700 m jembatan (PUPR, 27 Okt 2023); angka pertama dipakai di fakta, perbedaan dicatat di sini.",
+  "Kondisi jalan rusak sebelum Inpres tidak diukur di sumber yang dibaca."
+ ],
+ "todo_to_validate": [
+  "Data kemantapan jalan provinsi dan kabupaten Lampung 2022 sampai 2024"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0052.json",
+ "game_adaptation_notes": "Pusat ambil alih perbaikan (cepat, mahal, daerah bergantung) vs dana bersyarat pemeliharaan untuk daerah (lambat, berkelanjutan) vs prioritaskan ruas sentra produksi (ekonomi lebih dulu, wilayah lain menunggu).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

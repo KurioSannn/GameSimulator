@@ -1,0 +1,189 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0054",
+ "research_ref": "research/cases/CASE-0054.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Dokter Spesialis untuk Daerah",
+ "location_label": "Nasional (rumah sakit daerah di luar Jawa)",
+ "focus_regions": [],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 50
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0054"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "all",
+   "var": "services",
+   "op": "add",
+   "value": -0.2
+  },
+  {
+   "scope": "all",
+   "var": "trust",
+   "op": "add",
+   "value": -0.2
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Menurut Kemenkes pada Mei 2024, rasio dokter Indonesia 0,47 per 1.000 penduduk; jumlah dokter umum 156.310, sehingga terhadap target 1 per 1.000 penduduk masih kurang 124.294 dokter umum.",
+    "source_refs": [
+     "SRC-KEMENKES-PPDS-2024-05-06"
+    ],
+    "as_of": "2024-05-06"
+   },
+   {
+    "text": "Jumlah dokter spesialis 49.670; dengan rasio ideal 0,28 per 1.000 penduduk menurut Bappenas, Indonesia kekurangan 29.179 dokter spesialis, sementara lulusan baru sekitar 2.700 per tahun dari 24 fakultas kedokteran.",
+    "source_refs": [
+     "SRC-KEMENKES-PPDS-2024-05-06"
+    ],
+    "as_of": "2024-05-06"
+   },
+   {
+    "text": "Sekitar 59 persen dokter spesialis terkonsentrasi di Pulau Jawa.",
+    "source_refs": [
+     "SRC-KEMENKES-PPDS-2024-05-06"
+    ],
+    "as_of": "2024-05-06"
+   },
+   {
+    "text": "Pada 6 Mei 2024, Program Pendidikan Dokter Spesialis berbasis rumah sakit pendidikan diluncurkan; Kemenkes menyebut 420 dari 3.000 rumah sakit berpotensi menjadi rumah sakit pendidikan dan skema ini diharapkan mempercepat pemenuhan dari lebih dari 10 tahun menjadi sekitar 5 tahun.",
+    "source_refs": [
+     "SRC-KEMENKES-PPDS-2024-05-06"
+    ],
+    "as_of": "2024-05-06"
+   },
+   {
+    "text": "Pada Februari 2026, Kemenkes menyebut program ini merekrut putra-putri daerah yang sudah bekerja di rumah sakit dan dibutuhkan layanannya, dengan proyeksi kekurangan hampir 65 ribu dokter spesialis hingga 2032.",
+    "source_refs": [
+     "SRC-KEMENKES-PPDS-2026-02-25"
+    ],
+    "as_of": "2026-02-25"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Rumah sakit di banyak kabupaten punya alat baru, tetapi tidak punya dokter spesialis untuk memakainya."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): small nationwide services -0.2 and trust -0.2 (unequal specialist access becomes a public issue). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "specialist shortage outside Java -> services and trust; hospital-based training -> services later; placement incentives -> services now, trust dip from doctors; telemedicine -> modest services soon",
+  "immediate": "a: fiscal -2.5; b: fiscal -2, services +0.4/month x6, trust -0.3; c: fiscal -1.2",
+  "delayed": "a: services +0.8 and trust +0.4 after 12 months; c: services +0.3 after 3 months",
+  "regional": "nationwide",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Perluas pendidikan spesialis untuk putra daerah",
+   "description": "Lebih banyak rumah sakit daerah menjadi tempat pendidikan spesialis, dengan beasiswa untuk dokter yang sudah bekerja di sana. Lambat, tetapi dokternya tinggal.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "all",
+     "var": "services",
+     "op": "add",
+     "value": 0.8,
+     "delay": 12
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": 0.4,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "ppds2024_response": "hospital_based_local"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Tempatkan spesialis ke daerah dengan insentif",
+   "description": "Dokter spesialis ditugaskan ke rumah sakit daerah dengan insentif besar. Cepat terasa, tetapi banyak yang pulang setelah masa tugasnya.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "all",
+     "var": "services",
+     "op": "add",
+     "value": 0.4,
+     "duration": 6
+    },
+    {
+     "scope": "all",
+     "var": "trust",
+     "op": "add",
+     "value": -0.3
+    }
+   ],
+   "memory": {
+    "ppds2024_response": "placement"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Telemedisin dan rujukan lebih dulu",
+   "description": "Rumah sakit daerah dihubungkan dengan spesialis di kota besar lewat konsultasi jarak jauh dan jalur rujukan yang lebih cepat.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.2
+    },
+    {
+     "scope": "all",
+     "var": "services",
+     "op": "add",
+     "value": 0.3,
+     "delay": 3
+    }
+   ],
+   "memory": {
+    "ppds2024_response": "telemedicine"
+   }
+  }
+ ]
+}

@@ -1,0 +1,110 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0050",
+ "title": "Erupsi Gunung Marapi dan korban pendaki, Sumatera Barat, Desember 2023",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "volcanic_eruption",
+ "subcategories": [
+  "volcano",
+  "search_and_rescue",
+  "climbing_regulation",
+  "ashfall"
+ ],
+ "start_date": "2023-12",
+ "end_date": "2023-12-06",
+ "decision_as_of": "2023-12-04",
+ "island": "sumatera",
+ "provinces": [
+  "13"
+ ],
+ "regency_city_documented": [
+  "13.06",
+  "13.04"
+ ],
+ "geographic_resolution": "Gunung Marapi, Kab. Agam dan Kab. Tanah Datar, Sumatera Barat",
+ "real_facts": [
+  {
+   "fact": "Hingga 4 Desember 2023 pukul 10.30 WIB, tercatat 75 pendaki di Gunung Marapi: 54 orang masuk lewat pintu Batu Palano di Kabupaten Agam dan 21 orang lewat pintu Koto Baru di Kabupaten Tanah Datar.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-MARAPI-2023-12-04"
+   ],
+   "as_of": "2023-12-04"
+  },
+  {
+   "fact": "Sebagian besar pendaki yang belum dievakuasi teridentifikasi lewat jejak pendaftaran digital; sisanya terdaftar langsung di lokasi Taman Wisata Alam Gunung Marapi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-MARAPI-2023-12-04"
+   ],
+   "as_of": "2023-12-04"
+  },
+  {
+   "fact": "Pada 6 Desember 2023, seluruh 75 pendaki telah ditemukan: 52 selamat dan 23 meninggal dunia; operasi SAR gabungan ditutup, tetapi posko tanggap darurat tetap aktif untuk keluarga.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-MARAPI-2023-12-06"
+   ],
+   "as_of": "2023-12-06"
+  },
+  {
+   "fact": "Masyarakat diimbau tidak beraktivitas dalam radius 3 km dari puncak, dan warga di 4 kecamatan terdekat diminta mengurangi aktivitas di luar rumah serta memakai masker.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-MARAPI-2023-12-06"
+   ],
+   "as_of": "2023-12-06"
+  }
+ ],
+ "information_available_at_decision": "Awal Desember 2023: Marapi meletus saat puluhan pendaki berada di jalur pendakian; pencarian berlangsung di tengah letusan susulan dan hujan abu.",
+ "trigger": [
+  "Erupsi Gunung Marapi dan korban pendaki, Sumatera Barat, Desember 2023"
+ ],
+ "root_causes_note": "Gunung api aktif yang tetap dibuka untuk pendakian, dengan pendaftaran yang belum sepenuhnya terhubung ke status gunung.",
+ "stakeholders": [
+  "BNPB dan BPBD Agam serta Tanah Datar",
+  "Basarnas",
+  "Badan Geologi (PVMBG)",
+  "pengelola TWA Gunung Marapi (BKSDA)",
+  "keluarga pendaki",
+  "warga dan usaha di kaki gunung"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-MARAPI-2023-12-04",
+   "institution": "Badan Nasional Penanggulangan Bencana",
+   "title": "[UPDATE] Erupsi Gunung Marapi, 28 Pendaki Selamat dan 11 Meninggal Dunia",
+   "url": "https://bnpb.go.id/berita/update-erupsi-gunung-marapi-28-pendaki-selamat-dan-11-meninggal-dunia",
+   "publication_date": "2023-12-04",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Agam; Kab. Tanah Datar",
+   "reference_period": "2023-12-04",
+   "unit": "orang"
+  },
+  {
+   "source_id": "SRC-BNPB-MARAPI-2023-12-06",
+   "institution": "Badan Nasional Penanggulangan Bencana",
+   "title": "[UPDATE] Erupsi Gunung Marapi, Total Korban Meninggal Dunia Capai 23 Jiwa",
+   "url": "https://www.bnpb.go.id/berita/update-erupsi-gunung-marapi-total-korban-meninggal-dunia-capai-23-jiwa",
+   "publication_date": "2023-12-06",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Agam; Kab. Tanah Datar",
+   "reference_period": "2023-12-06",
+   "unit": "orang; km"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Daftar nama korban di sumber tidak direproduksi.",
+  "Tanggal letusan pertama tidak tertulis di badan berita; keterangan foto menyebut (3/11), kemungkinan salah ketik. Tanggal mulai dicatat sebagai Desember 2023.",
+  "Status level aktivitas gunung saat pendakian tidak tercantum di sumber yang dibaca."
+ ],
+ "todo_to_validate": [
+  "Status aktivitas Marapi dari Badan Geologi pada akhir November 2023"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0050.json",
+ "game_adaptation_notes": "Tutup pendakian dan audit izin (aman, ekonomi lokal tertekan) vs pendaftaran digital wajib yang terhubung ke status gunung (lambat, berkelanjutan) vs prioritas warga kaki gunung yang terkena abu (layanan segera).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

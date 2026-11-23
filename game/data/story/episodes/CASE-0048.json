@@ -1,0 +1,224 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0048",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "laut",
+ "locals": {
+  "pak_jamal": {
+   "name": "Pak Jamal",
+   "role": "Nelayan tradisional, Natuna",
+   "color": "2a5a7a",
+   "initials": "J"
+  },
+  "bu_halimah": {
+   "name": "Bu Halimah",
+   "role": "Pengolah ikan asin, Ranai",
+   "color": "7a5a3a",
+   "initials": "H"
+  }
+ },
+ "agenda": {
+  "hook": "Kapal-kapal asing dengan pukat dilarang kembali menyapu Laut Natuna Utara. Nelayan kecil Natuna pulang dengan tangkapan yang makin sedikit.",
+  "if_postponed": "Pengawasan Laut Natuna Utara berjalan dengan armada yang ada."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Subuh di Laut Natuna Utara. Di kejauhan, lampu-lampu kapal besar berderet seperti kota terapung.",
+   "bg": "laut"
+  },
+  {
+   "s": "pak_jamal",
+   "e": "cemas",
+   "t": "Itu bukan kapal kita, Pak. Pukat mereka menyapu dasar laut. Perahu kecil saya tidak berani mendekat."
+  },
+  {
+   "s": "bu_halimah",
+   "e": "kecewa",
+   "t": "Ikan yang sampai ke tempat kami makin kecil dan makin sedikit.",
+   "bg": "pelabuhan"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Petugas kita menangkap beberapa kapal asing, Pak. Tapi lautnya luas sekali, dan kapal pengawas sedikit.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Patroli mahal, membangun armada nelayan mahal, teknologi juga mahal. Pertanyaannya mana yang paling lama menjaga laut."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Laut yang kosong akan selalu diisi orang lain. Kita harus mengisinya dengan nelayan kita sendiri."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Menambah patroli dan menindak tegas kapal asing.",
+   "helps": "Laut Natuna dan nelayan lokal.",
+   "burden": "Anggaran operasi yang terus berjalan.",
+   "now": "Lingkungan laut dan kepercayaan naik.",
+   "later": "Bergantung pada patroli terus-menerus."
+  },
+  "b": {
+   "intent": "Memperkuat kapal dan pelabuhan nelayan Natuna.",
+   "helps": "Nelayan lokal untuk jangka panjang.",
+   "burden": "Anggaran; kapal asing masih masuk sementara.",
+   "now": "Biaya besar.",
+   "later": "Kesejahteraan struktural dan infrastruktur naik setelah sembilan bulan."
+  },
+  "c": {
+   "intent": "Memperluas pemantauan satelit dan udara.",
+   "helps": "Patroli yang lebih tepat sasaran.",
+   "burden": "Tetap butuh kapal untuk menindak.",
+   "now": "Biaya sedang.",
+   "later": "Layanan dan lingkungan naik setelah enam bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kapal-kapal pengawas tambahan berlayar ke utara. Satu demi satu kapal asing digiring ke pangkalan.",
+    "bg": "laut"
+   },
+   {
+    "s": "pak_jamal",
+    "e": "senyum",
+    "t": "Minggu ini lautnya lebih sepi dari lampu-lampu itu. Jaring saya lebih berat."
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Setiap hari kapal berlayar, setiap hari ada biaya.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kapal nelayan yang lebih besar dan gudang pendingin mulai dibangun di Natuna.",
+    "bg": "pelabuhan"
+   },
+   {
+    "s": "bu_halimah",
+    "e": "senyum",
+    "t": "Kalau ada gudang pendingin, ikan kami tidak perlu cepat-cepat diasinkan. Harganya bisa lebih baik."
+   },
+   {
+    "s": "pak_jamal",
+    "e": "berpikir",
+    "t": "Kapal besar itu harus bisa dirawat nelayan sendiri, Pak. Jangan cuma jadi pajangan.",
+    "bg": "laut"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Layar-layar di pusat komando menampilkan titik-titik kapal di seluruh Laut Natuna.",
+    "bg": "ruang_rapat"
+   },
+   {
+    "s": "yosef",
+    "e": "netral",
+    "t": "Sekarang kita tahu di mana mereka. Kita tetap butuh kapal untuk sampai ke sana."
+   },
+   {
+    "s": "pak_jamal",
+    "e": "netral",
+    "t": "Kalau patroli datang tepat waktu, kami tidak perlu menghindar lagi.",
+    "bg": "laut"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "laut",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "environment",
+        "op": ">",
+        "value": 1.5
+       },
+       "beats": [
+        {
+         "s": "pak_jamal",
+         "e": "senyum",
+         "t": "Ikan karang mulai kembali di tempat lama, Pak. Anak saya ikut melaut lagi.",
+         "bg": "laut"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "welfare_base",
+        "op": ">",
+        "value": 0.3
+       },
+       "beats": [
+        {
+         "s": "bu_halimah",
+         "e": "senyum",
+         "t": "Kapal-kapal nelayan Natuna sekarang berani ke tengah. Gudang kami penuh.",
+         "bg": "pelabuhan"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_jamal",
+         "e": "kecewa",
+         "t": "Lampu-lampu kapal asing itu kembali lagi, Pak.",
+         "bg": "laut"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Laut Natuna Utara dijaga dengan armada yang ada.",
+   "bg": "laut"
+  },
+  {
+   "s": "pak_jamal",
+   "e": "kecewa",
+   "t": "Kami menghindar ke dekat pantai. Ikannya sedikit di sana."
+  }
+ ],
+ "journal": {
+  "a": "Patroli di Laut Natuna Utara diperbanyak dan kapal pencuri ikan ditindak.",
+  "b": "Kapal, gudang pendingin, dan pelabuhan nelayan Natuna diperkuat.",
+  "c": "Pemantauan satelit dan udara di Laut Natuna diperluas."
+ },
+ "promises": {
+  "b": {
+   "text": "Nelayan Natuna punya kapal dan pelabuhan yang cukup untuk mengisi lautnya sendiri.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "welfare_base",
+    "op": ">",
+    "value": 0.3
+   }
+  }
+ }
+}

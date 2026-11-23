@@ -1,0 +1,223 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0054",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "rumah_sakit",
+ "locals": {
+  "dr_maria": {
+   "name": "dr. Maria",
+   "role": "Dokter umum RSUD kabupaten, Maluku",
+   "color": "3a6a6a",
+   "initials": "M"
+  },
+  "pak_yohanis": {
+   "name": "Pak Yohanis",
+   "role": "Ayah pasien, Sumba",
+   "color": "6a4a3a",
+   "initials": "Y"
+  }
+ },
+ "agenda": {
+  "hook": "Rumah sakit di banyak kabupaten punya alat baru, tetapi tidak punya dokter spesialis untuk memakainya.",
+  "if_postponed": "Pendidikan spesialis berjalan seperti biasa. Pasien di daerah tetap dirujuk jauh."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Sebuah RSUD kabupaten. Mesin baru masih terbungkus plastik di ruang yang belum pernah dipakai.",
+   "bg": "rumah_sakit"
+  },
+  {
+   "s": "dr_maria",
+   "e": "cemas",
+   "t": "Alatnya ada, Pak. Dokter anaknya tidak ada. Bayi-bayi tetap harus dibawa naik kapal ke kota."
+  },
+  {
+   "s": "pak_yohanis",
+   "e": "sedih",
+   "t": "Anak saya dirujuk ke rumah sakit di pulau lain. Ongkosnya habis sebelum pengobatannya mulai.",
+   "bg": "pelabuhan"
+  },
+  {
+   "s": "laras",
+   "e": "serius",
+   "t": "Sebagian besar dokter spesialis ada di Jawa, Pak. Pendidikannya pun lebih dari sepuluh tahun untuk menutup kekurangan.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Membeli alat itu cepat. Mendidik dokter butuh bertahun-tahun."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Dokter yang dididik di daerah lebih mungkin tinggal di daerah. Tapi pasien hari ini tidak bisa menunggu lima tahun."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Memperluas pendidikan spesialis di rumah sakit daerah.",
+   "helps": "Daerah, untuk jangka panjang.",
+   "burden": "Anggaran; pasien yang menunggu.",
+   "now": "Belum ada perubahan.",
+   "later": "Pelayanan dan kepercayaan naik setelah setahun."
+  },
+  "b": {
+   "intent": "Menempatkan spesialis ke daerah dengan insentif.",
+   "helps": "Pasien di daerah, segera.",
+   "burden": "Anggaran; dokter yang ditugaskan.",
+   "now": "Pelayanan naik enam bulan; kepercayaan turun sedikit.",
+   "later": "Banyak dokter pulang setelah masa tugas."
+  },
+  "c": {
+   "intent": "Telemedisin dan rujukan lebih cepat.",
+   "helps": "Dokter umum di daerah.",
+   "burden": "Pasien yang tetap butuh tindakan langsung.",
+   "now": "Biaya kecil.",
+   "later": "Pelayanan naik sedikit setelah tiga bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Rumah sakit daerah pertama membuka program pendidikan spesialis. Pesertanya dokter yang sudah bertahun-tahun bekerja di sana.",
+    "bg": "rumah_sakit"
+   },
+   {
+    "s": "dr_maria",
+    "e": "senyum",
+    "t": "Saya bisa belajar jadi dokter anak tanpa meninggalkan pasien saya. Itu yang saya tunggu."
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Hasilnya baru terlihat beberapa tahun lagi, Pak.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Dokter-dokter spesialis tiba di bandara kecil dan pelabuhan, membawa koper dan kontrak satu tahun.",
+    "bg": "pelabuhan"
+   },
+   {
+    "s": "pak_yohanis",
+    "e": "lega",
+    "t": "Sekarang ada dokter anak di sini. Anak saya tidak perlu naik kapal lagi."
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "t": "Organisasi profesi keberatan dengan cara penugasan, Pak. Ini akan jadi perdebatan.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Layar kecil di ruang periksa menyambungkan dr. Maria dengan spesialis di kota besar.",
+    "bg": "rumah_sakit"
+   },
+   {
+    "s": "dr_maria",
+    "e": "lega",
+    "t": "Saya bisa bertanya langsung sebelum memutuskan merujuk. Banyak pasien jadi tidak perlu berangkat."
+   },
+   {
+    "s": "pak_yohanis",
+    "e": "berpikir",
+    "t": "Tapi kalau harus dioperasi, tetap harus ke kota, Pak.",
+    "bg": "pelabuhan"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "spesialis",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "choice": "a",
+        "delta": "services",
+        "op": ">",
+        "value": 0.4
+       },
+       "beats": [
+        {
+         "s": "dr_maria",
+         "e": "senyum",
+         "t": "Angkatan pertama sudah lulus, Pak. Mereka semua bertugas di rumah sakit asalnya.",
+         "bg": "rumah_sakit"
+        }
+       ]
+      },
+      {
+       "if": {
+        "choice": "b"
+       },
+       "beats": [
+        {
+         "s": "dr_maria",
+         "e": "kecewa",
+         "t": "Kontrak dokter spesialisnya habis bulan lalu. Sebagian pulang ke kota.",
+         "bg": "rumah_sakit"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_yohanis",
+         "e": "sedih",
+         "t": "Anak saya masih harus berobat ke pulau lain, Pak.",
+         "bg": "pelabuhan"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Pendidikan spesialis berjalan seperti biasa. Alat-alat baru di daerah menunggu dokternya.",
+   "bg": "rumah_sakit"
+  },
+  {
+   "s": "dr_maria",
+   "e": "kecewa",
+   "t": "Kami terus merujuk, Pak. Itu yang bisa kami lakukan."
+  }
+ ],
+ "journal": {
+  "a": "Pendidikan dokter spesialis diperluas di rumah sakit daerah untuk putra-putri daerah.",
+  "b": "Dokter spesialis ditempatkan ke daerah dengan insentif.",
+  "c": "Telemedisin dan jalur rujukan rumah sakit daerah diperkuat."
+ },
+ "promises": {
+  "a": {
+   "text": "Lulusan pertama pendidikan spesialis daerah bertugas di rumah sakit asalnya.",
+   "due_quarters": 5,
+   "check": {
+    "delta": "services",
+    "op": ">",
+    "value": 0.4
+   }
+  }
+ }
+}

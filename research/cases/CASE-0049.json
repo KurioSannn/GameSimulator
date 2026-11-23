@@ -1,0 +1,103 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0049",
+ "title": "Larangan penjualan LPG 3 kg melalui pengecer dan pengaktifan kembali pengecer sebagai subpangkalan, Februari 2025",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "energy_subsidy",
+ "subcategories": [
+  "lpg_subsidy",
+  "distribution",
+  "household_energy",
+  "policy_reversal"
+ ],
+ "start_date": "2025-02-01",
+ "end_date": "2025-02-05",
+ "decision_as_of": "2025-02-04",
+ "island": "nasional",
+ "provinces": [],
+ "regency_city_documented": [],
+ "geographic_resolution": "Nasional (pangkalan dan pengecer LPG 3 kg)",
+ "real_facts": [
+  {
+   "fact": "Sejak 1 Februari 2025, aturan baru pemerintah melarang penjualan LPG 3 kg melalui pengecer, dengan tujuan agar gas bersubsidi lebih tepat sasaran dan tidak disalahgunakan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-ESDM-LPG-2025-02-05"
+   ],
+   "as_of": "2025-02-05"
+  },
+  {
+   "fact": "Pada 4 Februari 2025, setelah dinamika di masyarakat akibat perubahan tata kelola penjualan, pemerintah mengumumkan sekitar 375 ribu pengecer LPG 3 kg di seluruh Indonesia dinaikkan statusnya menjadi subpangkalan dan kembali aktif.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-ESDM-LPG-2025-02-04"
+   ],
+   "as_of": "2025-02-04"
+  },
+  {
+   "fact": "Menurut Kementerian ESDM, pemantauan harga dan jumlah pasokan selama ini hanya bisa dilakukan sampai tingkat pangkalan; status subpangkalan dimaksudkan agar distribusi sampai pengecer dapat dikontrol dengan sistem informasi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-ESDM-LPG-2025-02-04"
+   ],
+   "as_of": "2025-02-04"
+  },
+  {
+   "fact": "Kementerian ESDM menyampaikan permintaan maaf atas antrean panjang dan kendala yang terjadi, dan menyatakan pemerintah perlu memitigasi dampak perubahan sistem dengan lebih baik.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-ESDM-LPG-2025-02-04"
+   ],
+   "as_of": "2025-02-04"
+  }
+ ],
+ "information_available_at_decision": "Awal Februari 2025: warung-warung tidak boleh lagi menjual LPG 3 kg; warga antre panjang di pangkalan dan keluhan meluas di banyak kota.",
+ "trigger": [
+  "Larangan penjualan LPG 3 kg melalui pengecer dan pengaktifan kembali pengecer sebagai subpangkalan, Februari 2025"
+ ],
+ "root_causes_note": "Subsidi energi yang besar dengan rantai distribusi terakhir yang tidak terpantau, diubah mendadak tanpa masa transisi yang cukup.",
+ "stakeholders": [
+  "Kementerian ESDM",
+  "PT Pertamina (Persero)",
+  "pemilik pangkalan dan pengecer",
+  "rumah tangga dan usaha mikro",
+  "pemerintah daerah"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-ESDM-LPG-2025-02-04",
+   "institution": "Kementerian Energi dan Sumber Daya Mineral",
+   "title": "Jalankan Instruksi Presiden, Menteri Bahlil Naikkan 375 Ribu Pengecer Jadi Sub Pangkalan LPG 3 Kg (Siaran Pers 009.Pers/04/SJI/2025)",
+   "url": "https://www.esdm.go.id/id/media-center/arsip-berita/jalankan-instruksi-presiden-menteri-bahlil-naikkan-375-ribu-pengecer-jadi-sub-pangkalan-lpg-3-kg",
+   "publication_date": "2025-02-04",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional",
+   "reference_period": "2025-02",
+   "unit": "pengecer"
+  },
+  {
+   "source_id": "SRC-ESDM-LPG-2025-02-05",
+   "institution": "Kementerian Energi dan Sumber Daya Mineral",
+   "title": "Sidak Pangkalan LPG di Pekanbaru, Menteri ESDM Pastikan Distribusi dan Harga Terkendali (Siaran Pers 010.Pers/04/SJI/2025)",
+   "url": "https://www.esdm.go.id/id/media-center/arsip-berita/sidak-pangkalan-lpg-di-pekanbaru-menteri-esdm-pastikan-distribusi-dan-harga-terkendali",
+   "publication_date": "2025-02-05",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional; Kota Pekanbaru",
+   "reference_period": "2025-02",
+   "unit": ""
+  }
+ ],
+ "rejected_or_unverified": [
+  "Jumlah antrean, lokasi, dan dampak kesehatan selama antrean tidak tercantum di sumber resmi yang dibaca; tidak digunakan.",
+  "Besaran penghematan subsidi dari aturan baru tidak tercantum di sumber yang dibaca."
+ ],
+ "todo_to_validate": [
+  "Data realisasi volume LPG 3 kg per provinsi Februari 2025"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0049.json",
+ "game_adaptation_notes": "Aktifkan kembali pengecer sebagai subpangkalan (cepat meredakan antrean, kebocoran subsidi tetap) vs perbanyak pangkalan dan jam layanan (mahal, aturan tetap) vs subsidi tertutup berbasis data penerima (hemat jangka panjang, kepercayaan turun di awal).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}
