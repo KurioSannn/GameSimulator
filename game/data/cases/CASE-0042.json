@@ -1,0 +1,204 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0042",
+ "research_ref": "research/cases/CASE-0042.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Laut Masuk ke Pekalongan",
+ "location_label": "Kota Pekalongan dan Kab. Pekalongan, Jawa Tengah",
+ "focus_regions": [
+  "33.75",
+  "33.26"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 40
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0042"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "regions:33.75,33.26",
+   "var": "damage",
+   "op": "add",
+   "value": 4.0
+  },
+  {
+   "scope": "regions:33.75,33.26",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.0
+  },
+  {
+   "scope": "region:33.26",
+   "var": "services",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Kementerian PUPR menyelesaikan tanggul rob sepanjang 7,2 km dengan sistem polder dan long storage di Pekalongan untuk mengeringkan kawasan yang selalu tergenang rob dan memisahkan permukiman dari zona tambak.",
+    "source_refs": [
+     "SRC-PU-PEKALONGAN-2021-02-22"
+    ],
+    "as_of": "2021-02-22"
+   },
+   {
+    "text": "Pada 2 Desember 2022, banjir rob melanda tiga kecamatan di Kabupaten Pekalongan (Tirto, Siwalan, Wonokerto), berdampak pada 1.272 KK atau 3.900 jiwa; 62 jiwa mengungsi.",
+    "source_refs": [
+     "SRC-BNPB-PEKALONGAN-ROB-2022-12-03"
+    ],
+    "as_of": "2022-12-03"
+   },
+   {
+    "text": "Pengendalian banjir dan rob Sungai Loji dan Banger di Kota Pekalongan dibangun dengan tanggul laut, bendung gerak, kolam retensi, dan rumah pompa; paket I bernilai Rp460,74 miliar (APBN 2021 sampai 2023) dengan progres fisik 57,4 persen per 11 Juni 2023.",
+    "source_refs": [
+     "SRC-PU-PEKALONGAN-2023-07-26"
+    ],
+    "as_of": "2023-07-26"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Air laut masuk ke rumah-rumah di Pekalongan setiap pasang tinggi. Sebagian kampung sudah tak lagi kering."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): damage 4 and welfare -1 in Kota and Kab. Pekalongan; services -1 in Kab. Pekalongan (outside the finished levee, per BNPB Dec 2022). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "tidal flooding -> damage, welfare; polder completion -> flood_protection + infrastructure; groundwater limits + piped water -> services + environment later, small welfare_base cost; mangroves + managed retreat -> environment + flood_protection later, trust cost",
+  "immediate": "a: fiscal -4; b: fiscal -3, welfare_base -0.2; c: fiscal -2.5, trust -1",
+  "delayed": "a: flood_protection +10 and infrastructure +2 after 6 months; b: services +2 after 9 months, environment +2 after 12; c: environment +4 and flood_protection +4 after 12 months",
+  "regional": "Kota and Kab. Pekalongan",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Selesaikan polder, tanggul, dan pompa",
+   "description": "Anggaran tambahan agar tanggul laut, kolam retensi, dan rumah pompa selesai lebih cepat. Perlindungan paling cepat terasa.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.0
+    },
+    {
+     "scope": "regions:33.75,33.26",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 10.0,
+     "delay": 6
+    },
+    {
+     "scope": "regions:33.75,33.26",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 2.0,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "pekalongan_response": "polder"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Batasi air tanah, alirkan air perpipaan",
+   "description": "Pengambilan air tanah dibatasi dan warga serta industri batik disambung ke air perpipaan, supaya tanah tidak terus turun. Lambat dan menuntut pengorbanan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "regions:33.75,33.26",
+     "var": "welfare_base",
+     "op": "add",
+     "value": -0.2
+    },
+    {
+     "scope": "regions:33.75,33.26",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "delay": 9
+    },
+    {
+     "scope": "regions:33.75,33.26",
+     "var": "environment",
+     "op": "add",
+     "value": 2.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "pekalongan_response": "groundwater"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Mangrove dan mundur dari pantai terendah",
+   "description": "Sabuk mangrove ditanam dan permukiman paling rendah dipindahkan bertahap. Menerima bahwa sebagian pesisir tidak bisa dipertahankan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "regions:33.75,33.26",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "regions:33.75,33.26",
+     "var": "environment",
+     "op": "add",
+     "value": 4.0,
+     "delay": 12
+    },
+    {
+     "scope": "regions:33.75,33.26",
+     "var": "flood_protection",
+     "op": "add",
+     "value": 4.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "pekalongan_response": "mangrove_retreat"
+   }
+  }
+ ]
+}

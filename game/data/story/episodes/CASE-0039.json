@@ -1,0 +1,223 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0039",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "pesisir",
+ "locals": {
+  "pak_haji_mukhlis": {
+   "name": "Pak Mukhlis",
+   "role": "Guru mengaji, Sangkapura",
+   "color": "3a6a4a",
+   "initials": "M"
+  },
+  "bu_nur": {
+   "name": "Bu Nur",
+   "role": "Pedagang ikan, Tambak",
+   "color": "8a5a4a",
+   "initials": "N"
+  }
+ },
+ "agenda": {
+  "hook": "Gempa mengguncang Pulau Bawean. Ratusan rumah rusak, dan kabar tsunami membuat ribuan warga tidur di luar.",
+  "if_postponed": "Warga Bawean menunggu bantuan dengan kapal yang datang tidak menentu."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Siang hari di Pulau Bawean. Tanah berguncang dua kali, keras dan panjang.",
+   "bg": "pesisir"
+  },
+  {
+   "s": "bu_nur",
+   "e": "cemas",
+   "t": "Dinding dapur saya ambruk, Pak. Lalu ada yang bilang air laut akan naik. Semua orang lari ke bukit."
+  },
+  {
+   "s": "pak_haji_mukhlis",
+   "e": "sedih",
+   "t": "Gempa susulan datang terus. Anak-anak tidak mau masuk rumah. Kami tidur di tenda di halaman masjid."
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Kebanyakan pengungsi rumahnya masih berdiri, Pak. Mereka takut, dan kabar bohong soal tsunami membuatnya lebih buruk.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "sekar",
+   "e": "berpikir",
+   "t": "Kadang yang paling dibutuhkan setelah gempa adalah kabar yang bisa dipercaya."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Rumah yang roboh bisa dibangun. Rasa aman yang roboh butuh cara lain."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Memperbaiki rumah warga secepatnya.",
+   "helps": "Keluarga dengan rumah rusak berat.",
+   "burden": "Anggaran; ketakutan warga belum tertangani.",
+   "now": "Pemulihan dan kesejahteraan naik tiga bulan.",
+   "later": "Akses pulau tetap sama."
+  },
+  "b": {
+   "intent": "Menenangkan warga dan melawan isu tsunami.",
+   "helps": "Ribuan warga yang mengungsi karena takut.",
+   "burden": "Rumah rusak belum diperbaiki.",
+   "now": "Kepercayaan naik, layanan sedikit naik.",
+   "later": "Biaya kecil."
+  },
+  "c": {
+   "intent": "Memperkuat dermaga, kapal, dan layanan pulau.",
+   "helps": "Warga Bawean di bencana berikutnya.",
+   "burden": "Kebutuhan mendesak sekarang.",
+   "now": "Biaya besar.",
+   "later": "Infrastruktur dan layanan naik setelah sembilan bulan."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Kapal membawa semen, seng, dan tukang dari Gresik.",
+    "bg": "pesisir"
+   },
+   {
+    "s": "bu_nur",
+    "e": "netral",
+    "t": "Dapur saya sudah berdinding lagi. Tapi tiap malam saya masih terbangun kalau lantai bergetar."
+   },
+   {
+    "s": "yosef",
+    "e": "berpikir",
+    "t": "Rumahnya pulih. Rasa takutnya belum.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Petugas BMKG, kiai, dan radio desa menjelaskan gempa susulan dari masjid ke masjid.",
+    "bg": "desa"
+   },
+   {
+    "s": "pak_haji_mukhlis",
+    "e": "lega",
+    "t": "Setelah dijelaskan, banyak keluarga pulang ke rumahnya. Anak-anak mengaji lagi di dalam."
+   },
+   {
+    "s": "bu_nur",
+    "e": "kecewa",
+    "t": "Saya tenang sekarang. Tapi dapur saya masih ambruk, Pak.",
+    "bg": "pesisir"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Rencana perpanjangan dermaga dan puskesmas pulau yang lebih lengkap disusun.",
+    "bg": "pelabuhan"
+   },
+   {
+    "s": "pak_haji_mukhlis",
+    "e": "netral",
+    "t": "Kalau dermaganya kuat dan kapal siaga, kami tidak merasa ditinggal di tengah laut."
+   },
+   {
+    "s": "sekar",
+    "e": "cemas",
+    "t": "Warga bertanya kenapa bantuannya bukan untuk rumah mereka sekarang.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "pulau",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 2
+       },
+       "beats": [
+        {
+         "s": "pak_haji_mukhlis",
+         "e": "senyum",
+         "t": "Kapal sekarang bisa merapat kapan saja, Pak. Bawean terasa lebih dekat.",
+         "bg": "pelabuhan"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "trust",
+        "op": ">",
+        "value": 0
+       },
+       "beats": [
+        {
+         "s": "bu_nur",
+         "e": "senyum",
+         "t": "Kalau ada kabar aneh di grup, kami tanya dulu ke petugas. Kami sudah belajar.",
+         "bg": "pesisir"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bu_nur",
+         "e": "kecewa",
+         "t": "Masih ada tetangga yang tinggal di rumah retak, Pak.",
+         "bg": "pesisir"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Bawean memulihkan diri dengan kemampuan kabupaten.",
+   "bg": "pesisir"
+  },
+  {
+   "s": "pak_haji_mukhlis",
+   "e": "kecewa",
+   "t": "Kami mengurus diri sendiri, seperti biasanya orang pulau."
+  }
+ ],
+ "journal": {
+  "a": "Rumah rusak di Pulau Bawean diperbaiki setelah gempa.",
+  "b": "Warga Bawean ditenangkan dan isu tsunami dilawan dengan informasi.",
+  "c": "Dermaga dan layanan Pulau Bawean diperkuat."
+ },
+ "promises": {
+  "c": {
+   "text": "Pulau Bawean punya dermaga dan layanan yang tidak terputus saat bencana.",
+   "due_quarters": 4,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 2
+   }
+  }
+ }
+}

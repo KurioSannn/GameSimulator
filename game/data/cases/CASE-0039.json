@@ -1,0 +1,190 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0039",
+ "research_ref": "research/cases/CASE-0039.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Pulau Bawean Bergetar",
+ "location_label": "Kab. Gresik (Pulau Bawean), Jawa Timur",
+ "focus_regions": [
+  "35.25"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 3
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0039"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:35.25",
+   "var": "damage",
+   "op": "add",
+   "value": 8.0
+  },
+  {
+   "scope": "region:35.25",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "region:35.25",
+   "var": "trust",
+   "op": "add",
+   "value": -1.0
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Gempa yang berpusat di lepas pantai Kabupaten Gresik sejak Jumat 22 Maret 2024 berdampak pada 17.644 jiwa; pengungsi di Gresik tercatat 6.277 anak, 8.833 dewasa, dan 2.534 lansia per 24 Maret.",
+    "source_refs": [
+     "SRC-BNPB-BAWEAN-2024-03-24"
+    ],
+    "as_of": "2024-03-24"
+   },
+   {
+    "text": "Menurut BNPB, sebagian besar warga mengungsi bukan karena rumahnya rusak, melainkan karena trauma gempa susulan (238 kali tercatat) dan isu tsunami dari pihak yang tidak bertanggung jawab.",
+    "source_refs": [
+     "SRC-BNPB-BAWEAN-2024-03-24"
+    ],
+    "as_of": "2024-03-24"
+   },
+   {
+    "text": "Per 25 Maret 2024 tercatat 4.679 rumah rusak di Jawa Timur, terbanyak di Gresik: 772 rusak berat, 1.330 rusak sedang, dan 2.554 rusak ringan.",
+    "source_refs": [
+     "SRC-BNPB-BAWEAN-2024-03-25"
+    ],
+    "as_of": "2024-03-25"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Gempa mengguncang Pulau Bawean. Ratusan rumah rusak, dan kabar tsunami membuat ribuan warga tidur di luar."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Gresik damage 8 (772 heavily damaged houses mostly on Bawean), welfare -1.5, trust -1 (fear and rumours). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "earthquake -> damage, welfare; rebuild -> damage recovery + welfare; information campaign -> trust + services quickly; island access -> infrastructure + services later",
+  "immediate": "a: fiscal -3, damage -2/month x3, welfare +0.5/month x3; b: fiscal -0.5, trust +2, services +0.5/month x2; c: fiscal -3.5",
+  "delayed": "c: infrastructure +5 and services +1.5 after 9 months",
+  "regional": "Kab. Gresik",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Perbaiki rumah warga secepatnya",
+   "description": "Bantuan dan tukang dikirim menyeberang ke Bawean untuk memperbaiki ratusan rumah rusak berat. Warga bisa kembali tidur di rumah.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.0
+    },
+    {
+     "scope": "region:35.25",
+     "var": "damage",
+     "op": "add",
+     "value": -2.0,
+     "duration": 3
+    },
+    {
+     "scope": "region:35.25",
+     "var": "welfare",
+     "op": "add",
+     "value": 0.5,
+     "duration": 3
+    }
+   ],
+   "memory": {
+    "bawean_response": "rebuild"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Lawan isu tsunami dan pulihkan rasa aman",
+   "description": "Petugas, tokoh agama, dan radio lokal menjelaskan gempa susulan dan menepis kabar tsunami. Murah, menenangkan, rumah rusak belum tersentuh.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -0.5
+    },
+    {
+     "scope": "region:35.25",
+     "var": "trust",
+     "op": "add",
+     "value": 2.0
+    },
+    {
+     "scope": "region:35.25",
+     "var": "services",
+     "op": "add",
+     "value": 0.5,
+     "duration": 2
+    }
+   ],
+   "memory": {
+    "bawean_response": "information"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Perkuat dermaga dan layanan pulau",
+   "description": "Dermaga, kapal cadangan, dan puskesmas pulau diperkuat supaya bencana berikutnya tidak memutus Bawean dari daratan.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.5
+    },
+    {
+     "scope": "region:35.25",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 5.0,
+     "delay": 9
+    },
+    {
+     "scope": "region:35.25",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "delay": 9
+    }
+   ],
+   "memory": {
+    "bawean_response": "island_access"
+   }
+  }
+ ]
+}

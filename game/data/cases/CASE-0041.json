@@ -1,0 +1,204 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0041",
+ "research_ref": "research/cases/CASE-0041.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Asap dari TPA Suwung",
+ "location_label": "Kota Denpasar dan Kab. Badung, Bali",
+ "focus_regions": [
+  "51.71",
+  "51.03"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 55
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0041"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:51.71",
+   "var": "environment",
+   "op": "add",
+   "value": -4.0
+  },
+  {
+   "scope": "region:51.71",
+   "var": "damage",
+   "op": "add",
+   "value": 2.0
+  },
+  {
+   "scope": "regions:51.71,51.03",
+   "var": "services",
+   "op": "add",
+   "value": -1.5
+  },
+  {
+   "scope": "regions:51.71,51.03",
+   "var": "trust",
+   "op": "add",
+   "value": -0.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Pada 14 Oktober 2023 kebakaran TPA Suwung di Denpasar belum padam; BNPB menambah satu helikopter untuk water bombing serta mengirim peralatan pemadaman, tenda, dan perlengkapan darurat lainnya.",
+    "source_refs": [
+     "SRC-BALIPROV-SUWUNG-HELI-2023-10-14"
+    ],
+    "as_of": "2023-10-14"
+   },
+   {
+    "text": "Sejak 13 Oktober malam, 25 warga dari 6 KK yang tinggal di dekat TPA Suwung Kangin mengungsi ke posko di Kantor Lurah Serangan; jumlahnya diperkirakan bertambah karena api belum padam tuntas.",
+    "source_refs": [
+     "SRC-BALIPROV-SUWUNG-POSKO-2023-10-14"
+    ],
+    "as_of": "2023-10-14"
+   },
+   {
+    "text": "Menurut catatan BNPB, sepanjang 2023 ada 16 TPA yang mengalami kebakaran hebat, dan yang terbesar adalah TPA Sarimukti di Bandung Barat dan TPA Suwung di Bali; pada Juni 2024 BNPB memimpin rapat pencegahan agar kejadian serupa tidak terulang.",
+    "source_refs": [
+     "SRC-BNPB-SUWUNG-2024-06-22"
+    ],
+    "as_of": "2024-06-22"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "TPA Suwung terbakar di tengah musim wisata Bali. Asapnya sampai ke permukiman, dan sampah kota menumpuk."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Denpasar environment -4, damage 2; services -1.5 and trust -0.5 in Denpasar and Badung (waste collection disrupted). Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "landfill fire -> environment, services; firefighting -> damage recovery + services now; source sorting -> services + environment later; processing facility -> infrastructure, environment, services later",
+  "immediate": "a: fiscal -2, damage -1/month x2 (Denpasar), services +1/month x2; b: fiscal -1, trust +0.5; c: fiscal -5",
+  "delayed": "b: environment +2.5 and services +1.5 after 6 months; c: infrastructure +4, environment +3 after 12 months",
+  "regional": "Denpasar, Badung",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Padamkan dan angkut sampah darurat",
+   "description": "Helikopter, pemadam, dan armada pengangkut tambahan dikerahkan sampai api padam dan jalanan bersih.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.0
+    },
+    {
+     "scope": "region:51.71",
+     "var": "damage",
+     "op": "add",
+     "value": -1.0,
+     "duration": 2
+    },
+    {
+     "scope": "regions:51.71,51.03",
+     "var": "services",
+     "op": "add",
+     "value": 1.0,
+     "duration": 2
+    }
+   ],
+   "memory": {
+    "suwung_response": "firefight"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Pilah sampah dari rumah, desa, dan hotel",
+   "description": "Sampah organik diolah di desa, banjar, dan hotel; hanya residu yang dibawa ke TPA. Mengandalkan kekuatan komunitas setempat.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "regions:51.71,51.03",
+     "var": "trust",
+     "op": "add",
+     "value": 0.5
+    },
+    {
+     "scope": "regions:51.71,51.03",
+     "var": "environment",
+     "op": "add",
+     "value": 2.5,
+     "delay": 6
+    },
+    {
+     "scope": "regions:51.71,51.03",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "suwung_response": "source_sorting"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Bangun pengolahan sampah dan tutup TPA bertahap",
+   "description": "Fasilitas pengolahan modern untuk Denpasar dan Badung, lalu TPA Suwung ditutup bertahap. Mahal dan lama, menyelesaikan akar masalah.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -5.0
+    },
+    {
+     "scope": "regions:51.71,51.03",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 4.0,
+     "delay": 12
+    },
+    {
+     "scope": "regions:51.71,51.03",
+     "var": "environment",
+     "op": "add",
+     "value": 3.0,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "suwung_response": "processing_facility"
+   }
+  }
+ ]
+}

@@ -1,0 +1,209 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0041",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "asap",
+ "locals": {
+  "bli_komang": {
+   "name": "Bli Komang",
+   "role": "Sopir truk sampah, Denpasar",
+   "color": "4a6a7a",
+   "initials": "K"
+  },
+  "mbok_sari": {
+   "name": "Mbok Sari",
+   "role": "Pemilik warung, Serangan",
+   "color": "8a5a3a",
+   "initials": "S"
+  }
+ },
+ "agenda": {
+  "hook": "TPA Suwung terbakar di tengah musim wisata Bali. Asapnya sampai ke permukiman, dan sampah kota menumpuk.",
+  "if_postponed": "Api di TPA Suwung padam setelah berminggu-minggu. Sampah kembali ke tempat yang sama."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Langit di atas Denpasar Selatan berubah kelabu. Bau sampah terbakar terbawa angin sampai ke pantai.",
+   "bg": "asap"
+  },
+  {
+   "s": "mbok_sari",
+   "e": "cemas",
+   "t": "Mata anak-anak perih, Pak. Kami mengungsi ke kantor lurah malam itu."
+  },
+  {
+   "s": "bli_komang",
+   "e": "kecewa",
+   "t": "Truk saya tidak bisa masuk TPA. Sampah dari pasar dan hotel menunggu di jalan.",
+   "bg": "kota"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Gas metana di bawah tumpukan membuat api sulit dipadamkan. Ini bukan pertama kali, dan bukan satu-satunya TPA yang terbakar tahun ini.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "sekar",
+   "e": "berpikir",
+   "t": "Wisatawan memotret asapnya, Pak. Tapi yang paling menderita warga yang tinggal di sebelahnya."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Pulau ini terkenal karena keindahannya. Sampahnya pun harus kita urus dengan serius."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Memadamkan api dan mengangkut sampah darurat.",
+   "helps": "Warga sekitar TPA dan kota yang sampahnya menumpuk.",
+   "burden": "Cara mengelola sampah tidak berubah.",
+   "now": "Pemulihan dan layanan naik dua bulan.",
+   "later": "TPA tetap penuh."
+  },
+  "b": {
+   "intent": "Memilah dan mengolah sampah organik dari sumbernya.",
+   "helps": "Lingkungan Bali dan umur TPA.",
+   "burden": "Warga, desa, dan hotel yang harus mengubah kebiasaan.",
+   "now": "Kepercayaan naik sedikit.",
+   "later": "Lingkungan dan layanan naik setelah enam bulan."
+  },
+  "c": {
+   "intent": "Membangun fasilitas pengolahan dan menutup TPA bertahap.",
+   "helps": "Denpasar dan Badung untuk jangka panjang.",
+   "burden": "Anggaran: biaya besar.",
+   "now": "Belum ada perubahan.",
+   "later": "Infrastruktur dan lingkungan naik setelah setahun."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Dua helikopter bergantian menjatuhkan air. Armada truk tambahan menyisir jalan-jalan kota.",
+    "bg": "asap"
+   },
+   {
+    "s": "bli_komang",
+    "e": "netral",
+    "t": "Jalanan bersih lagi dalam beberapa hari. Tapi kami tahu, TPA itu sudah terlalu penuh.",
+    "bg": "kota"
+   },
+   {
+    "s": "mbok_sari",
+    "e": "berpikir",
+    "t": "Kami sudah pulang. Asapnya hilang, baunya belum."
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Banjar dan desa adat mulai mengolah sampah organik sendiri. Hotel-hotel memilah di dapurnya.",
+    "bg": "desa"
+   },
+   {
+    "s": "mbok_sari",
+    "e": "senyum",
+    "t": "Di banjar kami ada kompos sekarang. Ibu-ibu bergiliran mengurusnya."
+   },
+   {
+    "s": "sekar",
+    "e": "netral",
+    "t": "Gerakan ini tumbuh dari warga sendiri. Itu kekuatannya, dan juga risikonya.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Lokasi fasilitas pengolahan sampah ditetapkan. Rencana penutupan TPA bertahap diumumkan.",
+    "bg": "ruang_rapat"
+   },
+   {
+    "s": "bli_komang",
+    "e": "cemas",
+    "t": "Kalau TPA ditutup, sampahnya ke mana selama pabriknya belum jadi, Pak?",
+    "bg": "kota"
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Pertanyaan yang tepat. Kita butuh jembatan sampai fasilitasnya berjalan."
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "kemarau",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "environment",
+        "op": ">",
+        "value": 1.5
+       },
+       "beats": [
+        {
+         "s": "mbok_sari",
+         "e": "senyum",
+         "t": "Kemarau tahun ini tidak ada asap dari TPA, Pak. Sampah yang dibuang ke sana jauh berkurang.",
+         "bg": "pesisir"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bli_komang",
+         "e": "cemas",
+         "t": "Kemarau datang lagi, dan TPA makin tinggi. Semua orang menahan napas.",
+         "bg": "kota"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Api di TPA Suwung padam sendiri setelah berminggu-minggu.",
+   "bg": "asap"
+  },
+  {
+   "s": "mbok_sari",
+   "e": "kecewa",
+   "t": "Kami pulang ke rumah yang berbau asap."
+  }
+ ],
+ "journal": {
+  "a": "Kebakaran TPA Suwung dipadamkan dan sampah Denpasar diangkut darurat.",
+  "b": "Pilah dan olah sampah dari rumah, banjar, dan hotel di Denpasar dan Badung.",
+  "c": "Fasilitas pengolahan sampah dibangun dan TPA Suwung ditutup bertahap."
+ },
+ "promises": {
+  "b": {
+   "text": "Sampah organik Denpasar dan Badung diolah dari sumbernya.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "environment",
+    "op": ">",
+    "value": 1.5
+   }
+  }
+ }
+}

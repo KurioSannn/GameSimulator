@@ -1,0 +1,98 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0040",
+ "title": "Banjir dan longsor Kabupaten Luwu, Mei 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_flood_landslide",
+ "subcategories": [
+  "flash_flood",
+  "landslide",
+  "isolated_villages",
+  "air_logistics"
+ ],
+ "start_date": "2024-05-03",
+ "end_date": "2024-05-05",
+ "decision_as_of": "2024-05-05",
+ "island": "sulawesi",
+ "provinces": [
+  "73"
+ ],
+ "regency_city_documented": [
+  "73.17"
+ ],
+ "geographic_resolution": "Kab. Luwu, Sulawesi Selatan",
+ "real_facts": [
+  {
+   "fact": "Banjir dan longsor terjadi Jumat 3 Mei 2024 pukul 01.17 WITA di 13 kecamatan Kabupaten Luwu dengan ketinggian air 1 sampai 3 meter; per 4 Mei tercatat 1.385 KK terdampak dan 1.867 rumah terdampak.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-LUWU-2024-05-04"
+   ],
+   "as_of": "2024-05-04"
+  },
+  {
+   "fact": "Kecamatan Latimojong terdampak paling parah: jalan menuju ke sana ambles sepanjang 100 meter, beberapa jembatan desa putus, dan logistik ke 12 desa dikirim dengan helikopter TNI AU dan Polda Sulawesi Selatan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-LUWU-2024-05-05"
+   ],
+   "as_of": "2024-05-05"
+  },
+  {
+   "fact": "Data termutakhir 5 Mei mencatat 12 orang meninggal: delapan warga Latimojong dan empat warga Desa Poringan, Suli Barat.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-LUWU-2024-05-05"
+   ],
+   "as_of": "2024-05-05"
+  }
+ ],
+ "information_available_at_decision": "5 Mei 2024: hujan masih turun, longsoran baru muncul, desa-desa di pegunungan Latimojong terisolasi dan hanya bisa dijangkau helikopter.",
+ "trigger": [
+  "Banjir dan longsor Kabupaten Luwu, Mei 2024"
+ ],
+ "root_causes_note": "Desa-desa pegunungan dengan satu jalan akses di lereng rawan longsor.",
+ "stakeholders": [
+  "BNPB dan BPBD Luwu",
+  "TNI AU dan Polda Sulsel",
+  "warga Latimojong",
+  "Pemkab Luwu",
+  "Kementerian PUPR"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-LUWU-2024-05-04",
+   "institution": "BNPB",
+   "title": "Total 14 Warga Meninggal Dunia Akibat Banjir dan Longsor di Kabupaten Luwu",
+   "url": "https://bnpb.go.id/berita/total-14-warga-meninggal-dunia-akibat-banjir-dan-longsor-di-kabupaten-luwu",
+   "publication_date": "2024-05-04",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Luwu (13 kecamatan)",
+   "reference_period": "2024-05-04 06.00 WIB",
+   "unit": "KK; unit rumah"
+  },
+  {
+   "source_id": "SRC-BNPB-LUWU-2024-05-05",
+   "institution": "BNPB",
+   "title": "[UPDATE] Banjir Longsor Kabupaten Luwu: Akses Menuju Kecamatan Latimojong Putus, Warga Terisolir",
+   "url": "https://www.bnpb.go.id/berita/update-banjir-longsor-kabupaten-luwu-akses-menuju-kecamatan-latimojong-putus-warga-terisolir",
+   "publication_date": "2024-05-05",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kec. Latimojong",
+   "reference_period": "2024-05-05",
+   "unit": "orang"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Angka 14 meninggal (4 Mei) direvisi menjadi 12 (5 Mei); game memakai data terbaru."
+ ],
+ "todo_to_validate": [
+  "Data jalan dan jembatan yang diperbaiki (PUPR/Pemkab)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0040.json",
+ "game_adaptation_notes": "Jembatan udara logistik (cepat, mahal) vs bangun kembali jalan dan jembatan tahan longsor (lambat) vs pindahkan dusun paling rawan (aman, berat).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

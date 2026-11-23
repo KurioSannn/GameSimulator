@@ -1,0 +1,99 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0039",
+ "title": "Gempa bumi di lepas pantai Gresik dan kerusakan di Pulau Bawean, Maret 2024",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "disaster_earthquake",
+ "subcategories": [
+  "earthquake",
+  "small_island",
+  "trauma_displacement",
+  "hoax_tsunami"
+ ],
+ "start_date": "2024-03-22",
+ "end_date": "2024-03-25",
+ "decision_as_of": "2024-03-25",
+ "island": "jawa",
+ "provinces": [
+  "35"
+ ],
+ "regency_city_documented": [
+  "35.25"
+ ],
+ "geographic_resolution": "Kab. Gresik (Pulau Bawean), Jawa Timur",
+ "real_facts": [
+  {
+   "fact": "Gempa yang berpusat di lepas pantai Kabupaten Gresik sejak Jumat 22 Maret 2024 berdampak pada 17.644 jiwa; pengungsi di Gresik tercatat 6.277 anak, 8.833 dewasa, dan 2.534 lansia per 24 Maret.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-BAWEAN-2024-03-24"
+   ],
+   "as_of": "2024-03-24"
+  },
+  {
+   "fact": "Menurut BNPB, sebagian besar warga mengungsi bukan karena rumahnya rusak, melainkan karena trauma gempa susulan (238 kali tercatat) dan isu tsunami dari pihak yang tidak bertanggung jawab.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-BAWEAN-2024-03-24"
+   ],
+   "as_of": "2024-03-24"
+  },
+  {
+   "fact": "Per 25 Maret 2024 tercatat 4.679 rumah rusak di Jawa Timur, terbanyak di Gresik: 772 rusak berat, 1.330 rusak sedang, dan 2.554 rusak ringan.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-BAWEAN-2024-03-25"
+   ],
+   "as_of": "2024-03-25"
+  }
+ ],
+ "information_available_at_decision": "25 Maret 2024: ribuan warga Bawean tidur di luar rumah karena takut; isu tsunami beredar; ratusan rumah rusak berat di pulau yang hanya bisa dijangkau lewat laut.",
+ "trigger": [
+  "Gempa bumi di lepas pantai Gresik dan kerusakan di Pulau Bawean, Maret 2024"
+ ],
+ "root_causes_note": "Pulau kecil dengan banyak rumah tidak tahan gempa, akses terbatas, dan informasi yang mudah dikalahkan kabar bohong.",
+ "stakeholders": [
+  "BNPB dan BPBD Jawa Timur",
+  "Pemkab Gresik",
+  "BMKG",
+  "warga Pulau Bawean",
+  "tokoh agama dan masyarakat"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BNPB-BAWEAN-2024-03-24",
+   "institution": "BNPB",
+   "title": "[UPDATE] Ribuan Warga Terdampak Gempa di Gresik",
+   "url": "https://bnpb.go.id/berita/update-ribuan-warga-terdampak-gempa-di-gresik",
+   "publication_date": "2024-03-24",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kab. Gresik",
+   "reference_period": "2024-03-24 12.00 WIB",
+   "unit": "jiwa"
+  },
+  {
+   "source_id": "SRC-BNPB-BAWEAN-2024-03-25",
+   "institution": "BNPB",
+   "title": "[UPDATE] Lebih dari 700 Rumah Warga Rusak Berat Akibat Gempa M6,5 Jatim",
+   "url": "https://bnpb.go.id/berita/update-lebih-dari-700-rumah-warga-rusak-berat-akibat-gempa-m65-jatim",
+   "publication_date": "2024-03-25",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Provinsi Jawa Timur; Kab. Gresik",
+   "reference_period": "2024-03-25 06.00 WIB",
+   "unit": "unit rumah"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Magnitudo berbeda antarsumber; game tidak menyebut angka magnitudo.",
+  "Nilai bantuan perbaikan rumah hanya dari ringkasan pencarian; tidak dicantumkan."
+ ],
+ "todo_to_validate": [
+  "Data rehabilitasi rumah Bawean (BNPB)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0039.json",
+ "game_adaptation_notes": "Bangun ulang rumah rusak (fisik) vs lawan isu dan pulihkan rasa aman (informasi) vs perbaiki akses laut dan layanan pulau (jangka panjang).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

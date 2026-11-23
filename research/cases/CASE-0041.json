@@ -1,0 +1,112 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0041",
+ "title": "Kebakaran TPA Suwung Denpasar, Oktober 2023",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "urban_waste",
+ "subcategories": [
+  "landfill_fire",
+  "tourism_destination",
+  "waste_management",
+  "air_quality"
+ ],
+ "start_date": "2023-10",
+ "end_date": "2024-06-21",
+ "decision_as_of": "2023-10-14",
+ "island": "bali_nusa_tenggara",
+ "provinces": [
+  "51"
+ ],
+ "regency_city_documented": [
+  "51.71",
+  "51.03"
+ ],
+ "geographic_resolution": "Kota Denpasar dan Kab. Badung, Bali",
+ "real_facts": [
+  {
+   "fact": "Pada 14 Oktober 2023 kebakaran TPA Suwung di Denpasar belum padam; BNPB menambah satu helikopter untuk water bombing serta mengirim peralatan pemadaman, tenda, dan perlengkapan darurat lainnya.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BALIPROV-SUWUNG-HELI-2023-10-14"
+   ],
+   "as_of": "2023-10-14"
+  },
+  {
+   "fact": "Sejak 13 Oktober malam, 25 warga dari 6 KK yang tinggal di dekat TPA Suwung Kangin mengungsi ke posko di Kantor Lurah Serangan; jumlahnya diperkirakan bertambah karena api belum padam tuntas.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BALIPROV-SUWUNG-POSKO-2023-10-14"
+   ],
+   "as_of": "2023-10-14"
+  },
+  {
+   "fact": "Menurut catatan BNPB, sepanjang 2023 ada 16 TPA yang mengalami kebakaran hebat, dan yang terbesar adalah TPA Sarimukti di Bandung Barat dan TPA Suwung di Bali; pada Juni 2024 BNPB memimpin rapat pencegahan agar kejadian serupa tidak terulang.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-SUWUNG-2024-06-22"
+   ],
+   "as_of": "2024-06-22"
+  }
+ ],
+ "information_available_at_decision": "Pertengahan Oktober 2023: api dan asap dari TPA Suwung belum padam di tengah musim wisata; pengangkutan sampah Denpasar tersendat.",
+ "trigger": [
+  "Kebakaran TPA Suwung Denpasar, Oktober 2023"
+ ],
+ "root_causes_note": "Satu TPA besar menampung sampah kota wisata yang padat, dengan sampah organik yang tidak dipilah dan musim kemarau panjang.",
+ "stakeholders": [
+  "Pemprov Bali",
+  "Pemkot Denpasar dan Pemkab Badung",
+  "BNPB dan BPBD Bali",
+  "warga Serangan dan Suwung",
+  "pelaku pariwisata"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-BALIPROV-SUWUNG-HELI-2023-10-14",
+   "institution": "Pemerintah Provinsi Bali (BPBD Bali)",
+   "title": "Tambahan 1 Unit Helikopter Bantu Penanganan Kebakaran TPA Suwung",
+   "url": "https://bmc.baliprov.go.id/news/title/tambahan-1-unit-helikopter-bantu-penanganan-kebakaran-tpa-suwung",
+   "publication_date": "2023-10-14",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kota Denpasar",
+   "reference_period": "2023-10-14",
+   "unit": ""
+  },
+  {
+   "source_id": "SRC-BALIPROV-SUWUNG-POSKO-2023-10-14",
+   "institution": "Pemerintah Provinsi Bali (BPBD Bali)",
+   "title": "Posko Pengungsian Tampung 25 Warga Terdampak Kebakaran TPA Suwung",
+   "url": "https://bmc.baliprov.go.id/news/title/posko-pengungsian-tampung-25-warga-terdampak-kebakaran-tpa-suwung",
+   "publication_date": "2023-10-14",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kel. Serangan, Denpasar Selatan",
+   "reference_period": "2023-10-13/14",
+   "unit": "orang; KK"
+  },
+  {
+   "source_id": "SRC-BNPB-SUWUNG-2024-06-22",
+   "institution": "BNPB",
+   "title": "Sambangi Bali, Kepala BNPB Himpun Kekuatan Awal Demi Mencegah Kebakaran TPA Suwung",
+   "url": "https://bnpb.go.id/berita/sambangi-bali-kepala-bnpb-himpun-kekuatan-awal-demi-mencegah-kebakaran-tpa-suwung",
+   "publication_date": "2024-06-22",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "nasional; Bali",
+   "reference_period": "2023",
+   "unit": "TPA"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Luas lahan terbakar berbeda antarsumber (8 ha dan 32,4 ha); tidak dicantumkan.",
+  "Tanggal mulai kebakaran hanya dari ringkasan pencarian; game menulis Oktober 2023."
+ ],
+ "todo_to_validate": [
+  "Data timbulan sampah Sarbagita (SIPSN)"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0041.json",
+ "game_adaptation_notes": "Pemadaman dan pengangkutan darurat (cepat) vs pilah sampah dari sumber di desa adat dan hotel (bergantung partisipasi) vs fasilitas pengolahan dan penutupan bertahap TPA (mahal, tuntas).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

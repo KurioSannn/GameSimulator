@@ -1,0 +1,225 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0042",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "pesisir_rusak",
+ "locals": {
+  "pak_slamet": {
+   "name": "Pak Slamet",
+   "role": "Perajin batik, Kota Pekalongan",
+   "color": "6a3a6a",
+   "initials": "S"
+  },
+  "bu_kartini": {
+   "name": "Bu Kartini",
+   "role": "Petambak, Wonokerto",
+   "color": "3a6a6a",
+   "initials": "K"
+  }
+ },
+ "agenda": {
+  "hook": "Air laut masuk ke rumah-rumah di Pekalongan setiap pasang tinggi. Sebagian kampung sudah tak lagi kering.",
+  "if_postponed": "Pekalongan menunggu proyek tanggul berjalan sesuai jadwal. Rob tetap datang setiap bulan."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Pagi di pesisir Pekalongan. Air laut menggenang di jalan, tanpa hujan, tanpa badai.",
+   "bg": "pesisir_rusak"
+  },
+  {
+   "s": "bu_kartini",
+   "e": "sedih",
+   "t": "Tambak saya sudah jadi laut, Pak. Rumah saya ditinggikan dua kali, airnya tetap masuk."
+  },
+  {
+   "s": "pak_slamet",
+   "e": "kecewa",
+   "t": "Kain batik saya harus dijemur di loteng. Bengkel di lantai bawah sudah tidak bisa dipakai.",
+   "bg": "kota"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Tanggul sudah berdiri di sebagian kota, tapi desa-desa di luar tanggul masih tergenang. Dan tanahnya terus turun.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Tanggul dan pompa memberi waktu. Tapi kalau tanahnya terus turun, tanggul harus terus ditinggikan."
+  },
+  {
+   "s": "nara",
+   "e": "berpikir",
+   "t": "Kita bisa menahan laut, atau berhenti membuat tanahnya tenggelam, atau mengakui sebagian pantai harus dilepas. Mungkin ketiganya."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Mempercepat polder, tanggul laut, dan pompa.",
+   "helps": "Permukiman di dalam tanggul.",
+   "burden": "Anggaran; desa di luar tanggul.",
+   "now": "Biaya besar.",
+   "later": "Perlindungan banjir naik besar setelah enam bulan."
+  },
+  "b": {
+   "intent": "Membatasi air tanah dan menyediakan air perpipaan.",
+   "helps": "Seluruh Pekalongan untuk jangka panjang.",
+   "burden": "Industri dan warga yang biasa memakai air tanah.",
+   "now": "Kesejahteraan struktural turun sedikit.",
+   "later": "Layanan naik setelah sembilan bulan, lingkungan setelah setahun."
+  },
+  "c": {
+   "intent": "Menanam mangrove dan memindahkan permukiman terendah.",
+   "helps": "Pesisir dan generasi berikutnya.",
+   "burden": "Warga yang harus meninggalkan rumah dan tambaknya.",
+   "now": "Kepercayaan turun.",
+   "later": "Lingkungan dan perlindungan naik setelah setahun."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Rumah pompa baru mulai berdengung. Tanggul laut diperpanjang ke desa-desa berikutnya.",
+    "bg": "pesisir"
+   },
+   {
+    "s": "pak_slamet",
+    "e": "lega",
+    "t": "Jalan depan bengkel saya kering minggu ini. Pertama kali dalam setahun.",
+    "bg": "kota"
+   },
+   {
+    "s": "yosef",
+    "e": "berpikir",
+    "t": "Pompa harus menyala terus selamanya. Itu biaya yang tidak boleh kita lupakan.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Sumur-sumur dalam ditutup bertahap. Pipa air bersih disambungkan ke rumah dan bengkel batik.",
+    "bg": "kota"
+   },
+   {
+    "s": "pak_slamet",
+    "e": "berpikir",
+    "t": "Tagihan air saya naik. Tapi kalau tanah berhenti turun, anak saya masih bisa membatik di sini."
+   },
+   {
+    "s": "bayu",
+    "e": "netral",
+    "t": "Ini keputusan yang hasilnya baru terlihat setelah masa bakti kita, Pak.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Bibit mangrove ditanam di bekas tambak. Rencana pemindahan kampung paling rendah dibicarakan dengan warga.",
+    "bg": "pesisir"
+   },
+   {
+    "s": "bu_kartini",
+    "e": "sedih",
+    "t": "Tambak keluarga kami tiga generasi. Melepasnya ke laut rasanya seperti menyerah."
+   },
+   {
+    "s": "sekar",
+    "e": "serius",
+    "t": "Kita harus menyebutnya dengan jujur, Pak: ini bukan kekalahan, ini memilih untuk tetap hidup.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "pasang",
+   "after_quarters": 4,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "flood_protection",
+        "op": ">",
+        "value": 3
+       },
+       "beats": [
+        {
+         "s": "pak_slamet",
+         "e": "senyum",
+         "t": "Pasang tinggi bulan lalu, air berhenti di tanggul, Pak. Bengkel saya kering.",
+         "bg": "kota"
+        }
+       ]
+      },
+      {
+       "if": {
+        "delta": "environment",
+        "op": ">",
+        "value": 1
+       },
+       "beats": [
+        {
+         "s": "bu_kartini",
+         "e": "netral",
+         "t": "Mangrove sudah setinggi pinggang. Ombak tidak sekeras dulu.",
+         "bg": "pesisir"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "bu_kartini",
+         "e": "kecewa",
+         "t": "Air masih masuk ke rumah setiap pasang, Pak.",
+         "bg": "pesisir_rusak"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Proyek pengendalian rob berjalan sesuai jadwal lamanya. Laut tidak menunggu.",
+   "bg": "pesisir_rusak"
+  },
+  {
+   "s": "bu_kartini",
+   "e": "kecewa",
+   "t": "Kami meninggikan lantai lagi tahun ini."
+  }
+ ],
+ "journal": {
+  "a": "Polder, tanggul laut, dan pompa Pekalongan dipercepat.",
+  "b": "Pengambilan air tanah di Pekalongan dibatasi dan diganti air perpipaan.",
+  "c": "Mangrove ditanam dan permukiman terendah Pekalongan dipindahkan bertahap."
+ },
+ "promises": {
+  "a": {
+   "text": "Kota Pekalongan terlindungi dari rob dengan tanggul dan pompa yang selesai.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "flood_protection",
+    "op": ">",
+    "value": 3
+   }
+  }
+ }
+}

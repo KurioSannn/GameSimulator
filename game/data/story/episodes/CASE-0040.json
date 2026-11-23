@@ -1,0 +1,209 @@
+{
+ "schema": "nusantara.story_episode/1",
+ "case_id": "CASE-0040",
+ "fact_class": "FICTIONAL",
+ "note": "Characters are fictional composites; no line quotes a real person. Reactions follow each choice's scheduled effects; callbacks read actual state.",
+ "background": "pegunungan",
+ "locals": {
+  "pak_andi": {
+   "name": "Pak Andi",
+   "role": "Kepala dusun, Latimojong",
+   "color": "5a6a3a",
+   "initials": "A"
+  },
+  "bu_hasna": {
+   "name": "Bu Hasna",
+   "role": "Bidan desa, Suli Barat",
+   "color": "7a4a5a",
+   "initials": "H"
+  }
+ },
+ "agenda": {
+  "hook": "Banjir dan longsor memutus jalan ke desa-desa pegunungan Latimojong. Bantuan hanya bisa datang dari udara.",
+  "if_postponed": "Latimojong menunggu jalan dibuka dengan alat berat kabupaten."
+ },
+ "opening": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Tengah malam di pegunungan Luwu. Hujan deras berjam-jam, lalu tebing runtuh menutup sungai dan jalan.",
+   "bg": "pegunungan"
+  },
+  {
+   "s": "pak_andi",
+   "e": "cemas",
+   "t": "Jalan satu-satunya ke dusun kami ambles, Pak. Jembatan putus. Kami tidak bisa turun, bantuan tidak bisa naik."
+  },
+  {
+   "s": "bu_hasna",
+   "e": "sedih",
+   "t": "Di bawah, rumah-rumah terendam sampai atap. Saya merawat yang luka di masjid.",
+   "bg": "banjir_bandang"
+  },
+  {
+   "s": "yosef",
+   "e": "serius",
+   "t": "Belasan desa terisolasi, Pak. Helikopter satu-satunya jalan untuk sekarang.",
+   "bg": "ruang_rapat"
+  },
+  {
+   "s": "bayu",
+   "e": "netral",
+   "t": "Helikopter mahal per jam. Jalan baru mahal per kilometer. Dusun yang dipindah mahal dengan cara lain."
+  },
+  {
+   "s": "nara",
+   "e": "serius",
+   "t": "Hari ini mereka butuh makanan. Tahun depan mereka butuh jalan yang tidak runtuh."
+  }
+ ],
+ "choices": {
+  "a": {
+   "intent": "Mengirim logistik lewat udara ke desa terisolasi.",
+   "helps": "Warga desa yang terputus.",
+   "burden": "Anggaran; jalan tetap rusak.",
+   "now": "Layanan naik dua bulan, kepercayaan naik.",
+   "later": "Akses tetap rapuh."
+  },
+  "b": {
+   "intent": "Membangun ulang jalan dan jembatan tahan longsor.",
+   "helps": "Desa-desa pegunungan untuk jangka panjang.",
+   "burden": "Warga yang terisolasi sambil menunggu.",
+   "now": "Biaya besar.",
+   "later": "Infrastruktur dan layanan naik setelah enam bulan."
+  },
+  "c": {
+   "intent": "Memindahkan dusun di lereng paling labil.",
+   "helps": "Keselamatan warga dusun rawan.",
+   "burden": "Warga yang meninggalkan kebun dan rumahnya.",
+   "now": "Kepercayaan turun.",
+   "later": "Infrastruktur naik setelah sembilan bulan, kesejahteraan struktural setelah setahun."
+  }
+ },
+ "reactions": {
+  "a": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Helikopter mendarat di lapangan sekolah, membawa beras, obat, dan dokter.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "pak_andi",
+    "e": "lega",
+    "t": "Anak-anak berlari menyambut. Kami tidak merasa dilupakan."
+   },
+   {
+    "s": "yosef",
+    "e": "netral",
+    "t": "Ini menyambung hidup mereka. Jalannya masih harus dibangun.",
+    "bg": "ruang_rapat"
+   }
+  ],
+  "b": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Alat berat merayap membuka jalan baru dengan penguat tebing.",
+    "bg": "pegunungan"
+   },
+   {
+    "s": "pak_andi",
+    "e": "netral",
+    "t": "Kami turun bergotong royong membantu. Lebih lama, tapi jalan ini untuk anak cucu."
+   },
+   {
+    "s": "bu_hasna",
+    "e": "cemas",
+    "t": "Sementara jalan dibangun, pasien berat kami pikul berjam-jam.",
+    "bg": "desa"
+   }
+  ],
+  "c": [
+   {
+    "s": "narasi",
+    "e": "netral",
+    "t": "Lahan baru di lembah disiapkan untuk dusun yang paling rawan.",
+    "bg": "desa"
+   },
+   {
+    "s": "pak_andi",
+    "e": "kecewa",
+    "t": "Kebun kopi kami di atas, Pak. Kalau pindah, kami harus berjalan jauh setiap hari."
+   },
+   {
+    "s": "sekar",
+    "e": "serius",
+    "t": "Ini harus dibicarakan dengan warga, bukan diumumkan.",
+    "bg": "ruang_rapat"
+   }
+  ]
+ },
+ "callbacks": [
+  {
+   "id": "jalan",
+   "after_quarters": 3,
+   "beats": [
+    {
+     "pick": [
+      {
+       "if": {
+        "delta": "infrastructure",
+        "op": ">",
+        "value": 3
+       },
+       "beats": [
+        {
+         "s": "pak_andi",
+         "e": "senyum",
+         "t": "Jalan baru sudah bisa dilewati motor dan mobil, Pak. Hujan besar bulan lalu, jalannya bertahan.",
+         "bg": "pegunungan"
+        }
+       ]
+      },
+      {
+       "if": {},
+       "beats": [
+        {
+         "s": "pak_andi",
+         "e": "cemas",
+         "t": "Jalan masih licin dan sempit, Pak. Kalau hujan lebat, kami cemas lagi.",
+         "bg": "pegunungan"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "unattended": [
+  {
+   "s": "narasi",
+   "e": "netral",
+   "t": "Jalan ke Latimojong dibuka pelan-pelan dengan alat berat kabupaten.",
+   "bg": "pegunungan"
+  },
+  {
+   "s": "pak_andi",
+   "e": "sedih",
+   "t": "Seminggu kami menunggu di atas. Persediaan hampir habis."
+  }
+ ],
+ "journal": {
+  "a": "Logistik udara dikirim ke desa-desa terisolasi di Latimojong.",
+  "b": "Jalan dan jembatan Latimojong dibangun ulang dengan penguat lereng.",
+  "c": "Dusun paling rawan longsor di Luwu dipindahkan."
+ },
+ "promises": {
+  "b": {
+   "text": "Jalan ke Latimojong tidak terputus lagi saat musim hujan.",
+   "due_quarters": 3,
+   "check": {
+    "delta": "infrastructure",
+    "op": ">",
+    "value": 3
+   }
+  }
+ }
+}

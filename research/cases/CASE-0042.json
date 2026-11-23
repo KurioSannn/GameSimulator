@@ -1,0 +1,113 @@
+{
+ "schema": "nusantara.case_research/1",
+ "case_id": "CASE-0042",
+ "title": "Banjir rob dan pengendalian banjir pesisir Pekalongan, 2021 sampai 2023",
+ "status": "researched",
+ "status_note": "Diteliti 2026-11-23: semua sumber diunduh dan isinya dibaca; angka disalin persis dari halaman sumber.",
+ "category": "coastal_flooding",
+ "subcategories": [
+  "tidal_flooding",
+  "land_subsidence",
+  "polder",
+  "coastal_infrastructure"
+ ],
+ "start_date": "2021-02",
+ "end_date": "2023-07-26",
+ "decision_as_of": "2023-07-26",
+ "island": "jawa",
+ "provinces": [
+  "33"
+ ],
+ "regency_city_documented": [
+  "33.75",
+  "33.26"
+ ],
+ "geographic_resolution": "Kota Pekalongan dan Kab. Pekalongan, Jawa Tengah",
+ "real_facts": [
+  {
+   "fact": "Kementerian PUPR menyelesaikan tanggul rob sepanjang 7,2 km dengan sistem polder dan long storage di Pekalongan untuk mengeringkan kawasan yang selalu tergenang rob dan memisahkan permukiman dari zona tambak.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-PU-PEKALONGAN-2021-02-22"
+   ],
+   "as_of": "2021-02-22"
+  },
+  {
+   "fact": "Pada 2 Desember 2022, banjir rob melanda tiga kecamatan di Kabupaten Pekalongan (Tirto, Siwalan, Wonokerto), berdampak pada 1.272 KK atau 3.900 jiwa; 62 jiwa mengungsi.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-BNPB-PEKALONGAN-ROB-2022-12-03"
+   ],
+   "as_of": "2022-12-03"
+  },
+  {
+   "fact": "Pengendalian banjir dan rob Sungai Loji dan Banger di Kota Pekalongan dibangun dengan tanggul laut, bendung gerak, kolam retensi, dan rumah pompa; paket I bernilai Rp460,74 miliar (APBN 2021 sampai 2023) dengan progres fisik 57,4 persen per 11 Juni 2023.",
+   "kind": "fact",
+   "source_refs": [
+    "SRC-PU-PEKALONGAN-2023-07-26"
+   ],
+   "as_of": "2023-07-26"
+  }
+ ],
+ "information_available_at_decision": "Pertengahan 2023: sebagian tanggul sudah berdiri, proyek polder Sungai Loji dan Banger belum selesai, dan rob masih merendam desa-desa pesisir di luar tanggul.",
+ "trigger": [
+  "Banjir rob dan pengendalian banjir pesisir Pekalongan, 2021 sampai 2023"
+ ],
+ "root_causes_note": "Pasang laut di pesisir utara Jawa yang landai, diperparah penurunan tanah (penyebab spesifik tidak diverifikasi dalam batch ini).",
+ "stakeholders": [
+  "Kementerian PUPR (BBWS Pemali Juana)",
+  "Pemkot dan Pemkab Pekalongan",
+  "warga pesisir",
+  "petambak",
+  "perajin batik"
+ ],
+ "sources": [
+  {
+   "source_id": "SRC-PU-PEKALONGAN-2021-02-22",
+   "institution": "Kementerian PUPR (BBWS Pemali Juana)",
+   "title": "Reduksi Banjir Rob Pekalongan, Kementerian PUPR Rampungkan Pembangunan Tanggul 7,2 Km (Siaran pers SP.BIRKOM/II/2021/54)",
+   "url": "https://sda.pu.go.id/balai/bbwspemalijuana/pages/posts/reduksi-banjir-rob-pekalongan-kementerian-pupr-rampungkan-pembangunan-tanggul-72-km",
+   "publication_date": "2021-02-22",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Pekalongan",
+   "reference_period": "2021",
+   "unit": "km"
+  },
+  {
+   "source_id": "SRC-PU-PEKALONGAN-2023-07-26",
+   "institution": "Kementerian PUPR",
+   "title": "Reduksi Banjir dan Rob Pekalongan, Paket Pengendali Banjir Sungai Loji dan Banger Tuntas Akhir 2023",
+   "url": "https://pu.go.id/berita/reduksi-banjir-dan-rob-pekalongan-paket-pengendali-banjir-sungai-loji-dan-banger-tuntas-akhir-2023",
+   "publication_date": "2023-07-26",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kota Pekalongan",
+   "reference_period": "s.d. 2023-06-11",
+   "unit": "rupiah; persen progres"
+  },
+  {
+   "source_id": "SRC-BNPB-PEKALONGAN-ROB-2022-12-03",
+   "institution": "BNPB",
+   "title": "Banjir Rob Landa Tiga Kecamatan di Kabupaten Pekalongan",
+   "url": "https://www.bnpb.go.id/berita/banjir-rob-landa-tiga-kecamatan-di-kabupaten-pekalongan",
+   "publication_date": "2022-12-03",
+   "retrieved_at": "2026-11-23",
+   "source_quality": "REAL_OFFICIAL",
+   "geographic_resolution": "Kec. Tirto, Siwalan, Wonokerto",
+   "reference_period": "2022-12-02",
+   "unit": "KK; jiwa"
+  }
+ ],
+ "rejected_or_unverified": [
+  "Laju dan penyebab penurunan tanah di Pekalongan tidak diverifikasi dari sumber resmi yang dibaca; game hanya menyebutnya sebagai konteks umum.",
+  "Status penyelesaian akhir proyek 2023 tidak diverifikasi."
+ ],
+ "todo_to_validate": [
+  "Data laju penurunan tanah Pekalongan (Badan Geologi/BIG)",
+  "Status akhir paket polder 2024"
+ ],
+ "game_adaptation_ref": "game/data/cases/CASE-0042.json",
+ "game_adaptation_notes": "Selesaikan polder dan pompa (perlindungan cepat) vs batasi air tanah dan sediakan air perpipaan (memperlambat penurunan tanah) vs mangrove dan relokasi bertahap kawasan paling rendah (adaptasi).",
+ "fact_vs_simulation_notes": "Peristiwa dan angka di real_facts nyata dan bersumber. Pilihan, besaran efek, dan hasilnya adalah simulasi; tokoh dalam episode cerita fiktif."
+}

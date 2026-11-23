@@ -1,0 +1,196 @@
+{
+ "schema": "nusantara.case/1",
+ "case_id": "CASE-0040",
+ "research_ref": "research/cases/CASE-0040.json",
+ "research_status": "researched",
+ "class": "major_historical",
+ "title": "Latimojong Terputus",
+ "location_label": "Kab. Luwu, Sulawesi Selatan",
+ "focus_regions": [
+  "73.17"
+ ],
+ "trigger": {
+  "type": "condition",
+  "conditions": {
+   "all": [
+    {
+     "tick": ">=",
+     "value": 52
+    },
+    {
+     "not": {
+      "case_seen": "CASE-0040"
+     }
+    }
+   ]
+  },
+  "weight": 100,
+  "story_priority": 8
+ },
+ "on_trigger_effects": [
+  {
+   "scope": "region:73.17",
+   "var": "damage",
+   "op": "add",
+   "value": 9.0
+  },
+  {
+   "scope": "region:73.17",
+   "var": "services",
+   "op": "add",
+   "value": -2.5
+  },
+  {
+   "scope": "region:73.17",
+   "var": "welfare",
+   "op": "add",
+   "value": -1.5
+  }
+ ],
+ "real_context": {
+  "fact_class": "REAL_OFFICIAL",
+  "lines": [
+   {
+    "text": "Banjir dan longsor terjadi Jumat 3 Mei 2024 pukul 01.17 WITA di 13 kecamatan Kabupaten Luwu dengan ketinggian air 1 sampai 3 meter; per 4 Mei tercatat 1.385 KK terdampak dan 1.867 rumah terdampak.",
+    "source_refs": [
+     "SRC-BNPB-LUWU-2024-05-04"
+    ],
+    "as_of": "2024-05-04"
+   },
+   {
+    "text": "Kecamatan Latimojong terdampak paling parah: jalan menuju ke sana ambles sepanjang 100 meter, beberapa jembatan desa putus, dan logistik ke 12 desa dikirim dengan helikopter TNI AU dan Polda Sulawesi Selatan.",
+    "source_refs": [
+     "SRC-BNPB-LUWU-2024-05-05"
+    ],
+    "as_of": "2024-05-05"
+   },
+   {
+    "text": "Data termutakhir 5 Mei mencatat 12 orang meninggal: delapan warga Latimojong dan empat warga Desa Poringan, Suli Barat.",
+    "source_refs": [
+     "SRC-BNPB-LUWU-2024-05-05"
+    ],
+    "as_of": "2024-05-05"
+   }
+  ]
+ },
+ "briefing": {
+  "fact_class": "FICTIONAL",
+  "speaker": "Laras Prameswari",
+  "text": "Banjir dan longsor memutus jalan ke desa-desa pegunungan Latimojong. Bantuan hanya bisa datang dari udara."
+ },
+ "shock_note": {
+  "fact_class": "DERIVED",
+  "text": "Case event (design): Luwu damage 9, services -2.5 (isolated villages), welfare -1.5. Design values."
+ },
+ "follow_ups": [],
+ "consequence_notes": {
+  "fact_class": "SIMULATED",
+  "cross_system_chain": "flood & landslide -> damage, services; airlift -> services + trust now; road rebuild -> infrastructure + services later; relocation -> welfare_base later at trust cost",
+  "immediate": "a: fiscal -2.5, services +2/month x2, trust +1; b: fiscal -4.5; c: fiscal -3.5, trust -1",
+  "delayed": "b: infrastructure +6 and services +1.5 after 6 months; c: infrastructure +3 after 9 months, welfare_base +0.8 after 12",
+  "regional": "Kab. Luwu",
+  "national": "fiscal_space",
+  "branching": "none",
+  "assumptions": "Design values."
+ },
+ "choices": [
+  {
+   "choice_id": "a",
+   "label": "Jembatan udara untuk desa terisolasi",
+   "description": "Helikopter mengantar makanan, obat, dan tenaga kesehatan ke desa-desa yang terputus sampai jalan pulih.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -2.5
+    },
+    {
+     "scope": "region:73.17",
+     "var": "services",
+     "op": "add",
+     "value": 2.0,
+     "duration": 2
+    },
+    {
+     "scope": "region:73.17",
+     "var": "trust",
+     "op": "add",
+     "value": 1.0
+    }
+   ],
+   "memory": {
+    "luwu_response": "airlift"
+   }
+  },
+  {
+   "choice_id": "b",
+   "label": "Bangun kembali jalan dan jembatan tahan longsor",
+   "description": "Jalan ke Latimojong dibangun ulang dengan penguat lereng dan jembatan yang lebih kuat. Lama, tetapi desa tidak mudah terputus lagi.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -4.5
+    },
+    {
+     "scope": "region:73.17",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 6.0,
+     "delay": 6
+    },
+    {
+     "scope": "region:73.17",
+     "var": "services",
+     "op": "add",
+     "value": 1.5,
+     "delay": 6
+    }
+   ],
+   "memory": {
+    "luwu_response": "rebuild_road"
+   }
+  },
+  {
+   "choice_id": "c",
+   "label": "Pindahkan dusun paling rawan",
+   "description": "Dusun di lereng paling labil dipindahkan ke lahan yang lebih aman di lembah. Mengurangi korban berikutnya, berat bagi warga yang kebunnya di atas.",
+   "fact_class": "SIMULATED",
+   "effects": [
+    {
+     "scope": "national",
+     "var": "fiscal_space",
+     "op": "add",
+     "value": -3.5
+    },
+    {
+     "scope": "region:73.17",
+     "var": "trust",
+     "op": "add",
+     "value": -1.0
+    },
+    {
+     "scope": "region:73.17",
+     "var": "infrastructure",
+     "op": "add",
+     "value": 3.0,
+     "delay": 9
+    },
+    {
+     "scope": "region:73.17",
+     "var": "welfare_base",
+     "op": "add",
+     "value": 0.8,
+     "delay": 12
+    }
+   ],
+   "memory": {
+    "luwu_response": "relocation"
+   }
+  }
+ ]
+}
