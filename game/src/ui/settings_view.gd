@@ -123,7 +123,7 @@ func _build() -> void:
 	audio.add_child(audio_bar)
 
 	var display := _section("TAMPILAN DAN BAHASA", "imgIkonScreen")
-	_option(display, "KUALITAS GRAFIS", "graphics", ["Tinggi", "Hemat baterai"])
+	_option(display, "KUALITAS GRAFIS", "graphics", ["Tinggi", "Seimbang", "Ringan (peta 2D)"])
 	if not OS.has_feature("mobile"):
 		_option(display, "MODE LAYAR", "window_mode", ["Layar penuh", "Jendela"])
 		_option(display, "RESOLUSI JENDELA", "resolution", ["1920 × 1080", "1600 × 900", "1280 × 720"])

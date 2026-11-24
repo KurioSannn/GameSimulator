@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8txpmgt6ka5u"
-path="res://.godot/imported/CASE-0042_bu_kartini.jpg-33c5831f48a6b1c931afc425b91d1fce.ctex"
+path.s3tc="res://.godot/imported/CASE-0042_bu_kartini.jpg-33c5831f48a6b1c931afc425b91d1fce.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0042_bu_kartini.jpg-33c5831f48a6b1c931afc425b91d1fce.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0042_bu_kartini.jpg"
-dest_files=["res://.godot/imported/CASE-0042_bu_kartini.jpg-33c5831f48a6b1c931afc425b91d1fce.ctex"]
+dest_files=["res://.godot/imported/CASE-0042_bu_kartini.jpg-33c5831f48a6b1c931afc425b91d1fce.s3tc.ctex", "res://.godot/imported/CASE-0042_bu_kartini.jpg-33c5831f48a6b1c931afc425b91d1fce.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjunkpaqd2w5l"
-path="res://.godot/imported/CASE-0013_pak_niko.jpg-0010a9e7f050e66a573ec260cd5da2d8.ctex"
+path.s3tc="res://.godot/imported/CASE-0013_pak_niko.jpg-0010a9e7f050e66a573ec260cd5da2d8.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0013_pak_niko.jpg-0010a9e7f050e66a573ec260cd5da2d8.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0013_pak_niko.jpg"
-dest_files=["res://.godot/imported/CASE-0013_pak_niko.jpg-0010a9e7f050e66a573ec260cd5da2d8.ctex"]
+dest_files=["res://.godot/imported/CASE-0013_pak_niko.jpg-0010a9e7f050e66a573ec260cd5da2d8.s3tc.ctex", "res://.godot/imported/CASE-0013_pak_niko.jpg-0010a9e7f050e66a573ec260cd5da2d8.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

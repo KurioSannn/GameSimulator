@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5il84j5u1avv"
-path="res://.godot/imported/CASE-0007_suster_ani.jpg-105c3c7650be46d7375a4b8873d47e65.ctex"
+path.s3tc="res://.godot/imported/CASE-0007_suster_ani.jpg-105c3c7650be46d7375a4b8873d47e65.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0007_suster_ani.jpg-105c3c7650be46d7375a4b8873d47e65.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0007_suster_ani.jpg"
-dest_files=["res://.godot/imported/CASE-0007_suster_ani.jpg-105c3c7650be46d7375a4b8873d47e65.ctex"]
+dest_files=["res://.godot/imported/CASE-0007_suster_ani.jpg-105c3c7650be46d7375a4b8873d47e65.s3tc.ctex", "res://.godot/imported/CASE-0007_suster_ani.jpg-105c3c7650be46d7375a4b8873d47e65.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

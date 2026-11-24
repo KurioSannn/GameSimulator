@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6h3wwg4nals5"
-path="res://.godot/imported/CASE-0047_mas_bagus.jpg-d215def9f1ca5fee1f279af1225d8801.ctex"
+path.s3tc="res://.godot/imported/CASE-0047_mas_bagus.jpg-d215def9f1ca5fee1f279af1225d8801.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0047_mas_bagus.jpg-d215def9f1ca5fee1f279af1225d8801.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0047_mas_bagus.jpg"
-dest_files=["res://.godot/imported/CASE-0047_mas_bagus.jpg-d215def9f1ca5fee1f279af1225d8801.ctex"]
+dest_files=["res://.godot/imported/CASE-0047_mas_bagus.jpg-d215def9f1ca5fee1f279af1225d8801.s3tc.ctex", "res://.godot/imported/CASE-0047_mas_bagus.jpg-d215def9f1ca5fee1f279af1225d8801.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

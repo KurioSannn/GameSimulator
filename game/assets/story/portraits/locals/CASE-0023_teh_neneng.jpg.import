@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3evpr0n0xork"
-path="res://.godot/imported/CASE-0023_teh_neneng.jpg-ed56ca57d630679267777c26c7521d30.ctex"
+path.s3tc="res://.godot/imported/CASE-0023_teh_neneng.jpg-ed56ca57d630679267777c26c7521d30.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0023_teh_neneng.jpg-ed56ca57d630679267777c26c7521d30.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0023_teh_neneng.jpg"
-dest_files=["res://.godot/imported/CASE-0023_teh_neneng.jpg-ed56ca57d630679267777c26c7521d30.ctex"]
+dest_files=["res://.godot/imported/CASE-0023_teh_neneng.jpg-ed56ca57d630679267777c26c7521d30.s3tc.ctex", "res://.godot/imported/CASE-0023_teh_neneng.jpg-ed56ca57d630679267777c26c7521d30.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

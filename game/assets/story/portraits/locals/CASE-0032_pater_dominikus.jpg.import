@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6jf1lpfm0281"
-path="res://.godot/imported/CASE-0032_pater_dominikus.jpg-deb65618e517e6a1d19d054e86faa1c1.ctex"
+path.s3tc="res://.godot/imported/CASE-0032_pater_dominikus.jpg-deb65618e517e6a1d19d054e86faa1c1.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0032_pater_dominikus.jpg-deb65618e517e6a1d19d054e86faa1c1.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0032_pater_dominikus.jpg"
-dest_files=["res://.godot/imported/CASE-0032_pater_dominikus.jpg-deb65618e517e6a1d19d054e86faa1c1.ctex"]
+dest_files=["res://.godot/imported/CASE-0032_pater_dominikus.jpg-deb65618e517e6a1d19d054e86faa1c1.s3tc.ctex", "res://.godot/imported/CASE-0032_pater_dominikus.jpg-deb65618e517e6a1d19d054e86faa1c1.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

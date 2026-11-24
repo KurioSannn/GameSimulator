@@ -74,6 +74,12 @@ func _notification(what: int) -> void:
 			var up := ev.duplicate()
 			up.pressed = false
 			Input.parse_input_event(up)
+		NOTIFICATION_APPLICATION_FOCUS_OUT:
+			if not _automation():
+				Engine.max_fps = 10  # in the background: keep audio and state alive, stop heating the GPU
+		NOTIFICATION_APPLICATION_FOCUS_IN:
+			if not _automation():
+				Engine.max_fps = 30 if int(UiPreferences.values.get("graphics", 0)) >= 1 else 60
 		NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_CLOSE_REQUEST:
 			if Game.world != null and Game.mode == "campaign" and screens != null and screens.session_started:
 				Game.autosave_counter += 1
@@ -81,9 +87,15 @@ func _notification(what: int) -> void:
 
 
 func _apply_graphics() -> void:
+	var level := int(UiPreferences.values.get("graphics", 0))
 	if map_view_3d != null:
-		map_view_3d.set_low_power(int(UiPreferences.values.get("graphics", 0)) == 1)
-	UiPreferences.apply(get_viewport()) if not _automation() else null
+		map_view_3d.set_low_power(level >= 1)
+	if level >= 2 and _mode_3d:
+		_toggle_3d_mode()  # Ringan: flat 2D map
+	if not _automation():
+		UiPreferences.apply(get_viewport())
+	elif int(UiPreferences.values.get("graphics", 0)) >= 1:
+		get_viewport().msaa_3d = Viewport.MSAA_DISABLED
 
 
 func _on_patch_ready(version: String) -> void:
@@ -118,6 +130,7 @@ func _ready() -> void:
 	Updater.patch_ready.connect(_on_patch_ready)
 	Updater.major_available.connect(_on_major_update)
 	UiPreferences.read()
+	MapView.max_lod = "lod2" if int(UiPreferences.values.get("graphics", 0)) >= 1 else "lod3"
 	var automation := Array(OS.get_cmdline_user_args()).any(func(a): return a.begins_with("--screenshot=") or a.begins_with("--qa-") or a.begins_with("--map-bench="))
 	if not automation:
 		UiPreferences.apply(get_viewport())
@@ -157,9 +170,11 @@ func _ready() -> void:
 	Game.case_resolved.connect(func(_c, _ch): _refresh_all())
 	Game.policy_enacted.connect(func(_p): _refresh_all())
 	_refresh_all()
-	if not automation:
+	if not automation and not MapView3D.ringan():
 		_toggle_3d_mode()
 	_apply_graphics()
+	if not automation:
+		_warm_up_world()
 	var pend := Game.pending_case()
 	if pend != "":
 		_on_case_presented(pend)
@@ -304,6 +319,34 @@ func _debug_automation() -> void:
 		await get_tree().process_frame
 		var st := story_player.state()
 		print("QA loaded: err='%s' index=%d speaker=%s" % [err, int(st.get("index", -1)), st.get("speaker", "-")])
+	# --qa-perf: print frame and memory monitors after the scene settles (performance budget checks).
+	if args.has("qa-perf"):
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		Engine.max_fps = 0
+		for _i in 240:
+			await get_tree().process_frame
+		var f0 := Engine.get_frames_drawn()
+		var t0 := Time.get_ticks_msec()
+		for _i in 120:
+			await get_tree().process_frame
+		var fps := 1000.0 * (Engine.get_frames_drawn() - f0) / maxf(1.0, Time.get_ticks_msec() - t0)
+		print("QA perf: fps=%.1f process_ms=%.2f draw_calls=%d objects=%d primitives=%d static_mem_mb=%.0f video_mem_mb=%.0f texture_mem_mb=%.0f nodes=%d" % [
+			fps, Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0,
+			Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),
+			Performance.get_monitor(Performance.RENDER_TOTAL_OBJECTS_IN_FRAME),
+			Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME),
+			Performance.get_monitor(Performance.MEMORY_STATIC) / 1048576.0,
+			Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED) / 1048576.0,
+			Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED) / 1048576.0,
+			Performance.get_monitor(Performance.OBJECT_NODE_COUNT)])
+	if args.has("qa-meshes"):
+		for _i in 60:
+			await get_tree().process_frame
+		var rows: Array = []
+		_qa_collect_meshes(get_tree().root, rows)
+		rows.sort_custom(func(a, b): return a[0] > b[0])
+		for r in rows.slice(0, 20):
+			print("QA mesh: tris=%d inst=%d %s" % [r[0], r[1], r[2]])
 	for _q in int(args.get("quarters", "0")):
 		_next_quarter()
 	if args.has("view"):  # --view=<lon>,<lat>,<metres per pixel>
@@ -519,6 +562,7 @@ func _build_ui() -> void:
 	root.add_child(story_player)
 	story_player.visibility_changed.connect(_sync_interaction)
 	story_player.progressed.connect(_on_story_progress)
+	story_player.cover_changed.connect(func(_c): _update_world_rendering())
 	story_player.save_requested.connect(_quicksave)
 	hud.agenda_pressed.connect(_open_agenda)
 	hud.goals_pressed.connect(func(): screens._origin = "map"; screens.open("goals"))
@@ -1271,9 +1315,21 @@ func _after_ending() -> void:
 	screens.open("legacy")
 
 
+## The 3D world is not rendered while something opaque covers it (painted story scene, full-screen
+## page): on weak GPUs this is the difference between a cool idle device and a hot one (D-097).
+func _update_world_rendering() -> void:
+	if map_view_3d == null or screens == null or story_player == null:
+		return
+	var covered := story_player.covers_map() or (screens.visible and screens.active_screen not in ["menu", "new", ""])
+	map_view_3d.visible = _mode_3d and not covered
+	if map_view_3d.has_method("set_paused"):
+		map_view_3d.set_paused(covered)
+
+
 func _sync_interaction() -> void:
 	if case_modal == null or policy_panel == null or sources_dialog == null or screens == null:
 		return
+	_update_world_rendering()
 	var modal := case_modal.visible or policy_panel.visible or budget_panel.visible or sources_dialog.visible or (agenda_board != null and agenda_board.visible)
 	_modal_shade.visible = modal
 	var story := story_player != null and story_player.visible
@@ -1297,7 +1353,41 @@ func _sync_interaction() -> void:
 	_sync_world_audio()
 
 
+## Adaptive quality (D-097): if the visible map runs well below its target for two 8-second windows,
+## step down one graphics level and tell the player. Never steps up by itself.
+var _perf_t := 0.0
+var _perf_frames := 0
+var _perf_slow := 0
+
+
+func _watch_performance(delta: float) -> void:
+	if _automation() or map_view_3d == null or not map_view_3d.visible or _story_busy:
+		_perf_t = 0.0
+		_perf_frames = 0
+		return
+	_perf_t += delta
+	_perf_frames += 1
+	if _perf_t < 8.0:
+		return
+	var fps := _perf_frames / _perf_t
+	_perf_t = 0.0
+	_perf_frames = 0
+	var level := int(UiPreferences.values.get("graphics", 0))
+	var target := 60.0 if level == 0 else 30.0
+	_perf_slow = _perf_slow + 1 if fps < target * 0.6 else 0
+	if _perf_slow >= 2 and level < 2:
+		_perf_slow = 0
+		var next := UiPreferences.values.duplicate()
+		next["graphics"] = level + 1
+		UiPreferences.write(next)
+		MapView.max_lod = "lod2"
+		_apply_graphics()
+		Engine.max_fps = 30
+		_toast_msg("Kualitas grafis diturunkan ke %s agar permainan tetap lancar. Bisa diubah di Pengaturan." % ["Tinggi", "Seimbang", "Ringan"][level + 1])
+
+
 func _process(delta: float) -> void:
+	_watch_performance(delta)
 	_audio_accum += delta
 	if _audio_accum < 0.12:
 		return
@@ -1350,3 +1440,91 @@ func _qa_finish_term() -> void:
 		Game.advance_quarter()
 	Narrative.ensure(s.world)["pending"] = []
 	_refresh_all()
+
+
+func _qa_collect_meshes(n: Node, rows: Array) -> void:
+	if n is GeometryInstance3D and (n as Node3D).is_visible_in_tree():
+		var mesh: Mesh = null
+		var inst := 1
+		if n is MeshInstance3D:
+			mesh = (n as MeshInstance3D).mesh
+		elif n is MultiMeshInstance3D and (n as MultiMeshInstance3D).multimesh:
+			mesh = (n as MultiMeshInstance3D).multimesh.mesh
+			inst = (n as MultiMeshInstance3D).multimesh.visible_instance_count
+			if inst < 0:
+				inst = (n as MultiMeshInstance3D).multimesh.instance_count
+		if mesh:
+			var tris := 0
+			for si in mesh.get_surface_count():
+				var arr := mesh.surface_get_arrays(si) if mesh is ArrayMesh else []
+				if arr.size() > 0:
+					var idx: Variant = arr[Mesh.ARRAY_INDEX]
+					tris += (idx.size() if idx != null else (arr[Mesh.ARRAY_VERTEX] as PackedVector3Array).size()) / 3
+			rows.append([tris * inst, inst, str(n.get_path())])
+	for c in n.get_children():
+		_qa_collect_meshes(c, rows)
+
+
+## Loading screen (D-097). The first frame that shows the 3D world compiles every shader at once; on
+## phone GPUs that froze the boot splash for tens of seconds. Instead a live loading screen (splash
+## art, status, progress) stays on top while the world's layers are switched on one per frame, so the
+## shader work is spread out and the screen never stops responding.
+func _warm_up_world() -> void:
+	# Hide the world's layers before the first frame is drawn.
+	var kids: Array = []
+	if _mode_3d and map_view_3d != null:
+		kids = map_view_3d.get_children().filter(func(c): return c is Node3D and (c as Node3D).visible)
+		for k in kids:
+			(k as Node3D).visible = false
+	var layer := CanvasLayer.new()
+	layer.layer = 120
+	add_child(layer)
+	var bg := ColorRect.new()
+	bg.color = Color(0.07, 0.11, 0.18)
+	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	layer.add_child(bg)
+	var art := TextureRect.new()
+	art.texture = load("res://assets/ui/splash.png")
+	art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	art.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	layer.add_child(art)
+	var box := VBoxContainer.new()
+	box.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
+	box.offset_left = -260
+	box.offset_right = 260
+	box.offset_top = -110
+	box.offset_bottom = -50
+	layer.add_child(box)
+	var label := UiKit.label("Menyiapkan peta Nusantara...", 18, Color("fff4d2"))
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.7))
+	box.add_child(label)
+	var bar := ProgressBar.new()
+	bar.show_percentage = false
+	bar.custom_minimum_size = Vector2(520, 14)
+	box.add_child(bar)
+	print("warm-up: start at %d ms" % Time.get_ticks_msec())
+	await get_tree().process_frame
+	print("warm-up: first frame at %d ms" % Time.get_ticks_msec())
+	if not kids.is_empty():
+		for i in kids.size():
+			var t0 := Time.get_ticks_msec()
+			(kids[i] as Node3D).visible = true
+			bar.value = 100.0 * (i + 1) / kids.size()
+			await get_tree().process_frame
+			await get_tree().process_frame
+			var dt := Time.get_ticks_msec() - t0
+			if dt > 300:
+				print("warm-up: %s took %d ms" % [kids[i].name, dt])
+	else:
+		bar.value = 100.0
+		await get_tree().process_frame
+	print("warm-up: layers done at %d ms" % Time.get_ticks_msec())
+	label.text = "Siap."
+	var tw := create_tween()
+	tw.tween_property(layer.get_child(0), "modulate:a", 0.0, 0.35)
+	tw.parallel().tween_property(art, "modulate:a", 0.0, 0.35)
+	tw.parallel().tween_property(box, "modulate:a", 0.0, 0.35)
+	await tw.finished
+	layer.queue_free()

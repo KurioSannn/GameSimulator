@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp3y1mvbht4ev"
-path="res://.godot/imported/CASE-0015_mbak_ratih.jpg-b62829570f167813f09c0f2912005c1b.ctex"
+path.s3tc="res://.godot/imported/CASE-0015_mbak_ratih.jpg-b62829570f167813f09c0f2912005c1b.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0015_mbak_ratih.jpg-b62829570f167813f09c0f2912005c1b.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0015_mbak_ratih.jpg"
-dest_files=["res://.godot/imported/CASE-0015_mbak_ratih.jpg-b62829570f167813f09c0f2912005c1b.ctex"]
+dest_files=["res://.godot/imported/CASE-0015_mbak_ratih.jpg-b62829570f167813f09c0f2912005c1b.s3tc.ctex", "res://.godot/imported/CASE-0015_mbak_ratih.jpg-b62829570f167813f09c0f2912005c1b.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

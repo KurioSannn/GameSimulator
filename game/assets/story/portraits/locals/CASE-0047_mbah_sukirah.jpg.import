@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdrbujg2tm2mi"
-path="res://.godot/imported/CASE-0047_mbah_sukirah.jpg-f3e9dd66a156ad381d5d8f22d3b1e8a8.ctex"
+path.s3tc="res://.godot/imported/CASE-0047_mbah_sukirah.jpg-f3e9dd66a156ad381d5d8f22d3b1e8a8.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0047_mbah_sukirah.jpg-f3e9dd66a156ad381d5d8f22d3b1e8a8.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0047_mbah_sukirah.jpg"
-dest_files=["res://.godot/imported/CASE-0047_mbah_sukirah.jpg-f3e9dd66a156ad381d5d8f22d3b1e8a8.ctex"]
+dest_files=["res://.godot/imported/CASE-0047_mbah_sukirah.jpg-f3e9dd66a156ad381d5d8f22d3b1e8a8.s3tc.ctex", "res://.godot/imported/CASE-0047_mbah_sukirah.jpg-f3e9dd66a156ad381d5d8f22d3b1e8a8.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv7qpoy74wb07"
-path="res://.godot/imported/CASE-0022_bu_cut.jpg-28e8351081eee008a487bee181408e8e.ctex"
+path.s3tc="res://.godot/imported/CASE-0022_bu_cut.jpg-28e8351081eee008a487bee181408e8e.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0022_bu_cut.jpg-28e8351081eee008a487bee181408e8e.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0022_bu_cut.jpg"
-dest_files=["res://.godot/imported/CASE-0022_bu_cut.jpg-28e8351081eee008a487bee181408e8e.ctex"]
+dest_files=["res://.godot/imported/CASE-0022_bu_cut.jpg-28e8351081eee008a487bee181408e8e.s3tc.ctex", "res://.godot/imported/CASE-0022_bu_cut.jpg-28e8351081eee008a487bee181408e8e.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

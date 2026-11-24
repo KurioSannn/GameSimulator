@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cou6blbsnqajr"
-path="res://.godot/imported/CASE-0001_bu_yati.jpg-29bea812a47f9342a6eb3e1262f64c6e.ctex"
+path.s3tc="res://.godot/imported/CASE-0001_bu_yati.jpg-29bea812a47f9342a6eb3e1262f64c6e.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0001_bu_yati.jpg-29bea812a47f9342a6eb3e1262f64c6e.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0001_bu_yati.jpg"
-dest_files=["res://.godot/imported/CASE-0001_bu_yati.jpg-29bea812a47f9342a6eb3e1262f64c6e.ctex"]
+dest_files=["res://.godot/imported/CASE-0001_bu_yati.jpg-29bea812a47f9342a6eb3e1262f64c6e.s3tc.ctex", "res://.godot/imported/CASE-0001_bu_yati.jpg-29bea812a47f9342a6eb3e1262f64c6e.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ja8mf8apotee"
-path="res://.godot/imported/kebun.jpg-aa6eae05ef4ef187fd100794ce212843.ctex"
+path.s3tc="res://.godot/imported/kebun.jpg-aa6eae05ef4ef187fd100794ce212843.s3tc.ctex"
+path.etc2="res://.godot/imported/kebun.jpg-aa6eae05ef4ef187fd100794ce212843.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/backgrounds/kebun.jpg"
-dest_files=["res://.godot/imported/kebun.jpg-aa6eae05ef4ef187fd100794ce212843.ctex"]
+dest_files=["res://.godot/imported/kebun.jpg-aa6eae05ef4ef187fd100794ce212843.s3tc.ctex", "res://.godot/imported/kebun.jpg-aa6eae05ef4ef187fd100794ce212843.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -36,5 +38,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=1280
 detect_3d/compress_to=1

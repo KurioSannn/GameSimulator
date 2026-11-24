@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8k2vbyxonnxt"
-path="res://.godot/imported/bayu.jpg-6a6672933578ca904da68ba272e4291e.ctex"
+path.s3tc="res://.godot/imported/bayu.jpg-6a6672933578ca904da68ba272e4291e.s3tc.ctex"
+path.etc2="res://.godot/imported/bayu.jpg-6a6672933578ca904da68ba272e4291e.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/bayu.jpg"
-dest_files=["res://.godot/imported/bayu.jpg-6a6672933578ca904da68ba272e4291e.ctex"]
+dest_files=["res://.godot/imported/bayu.jpg-6a6672933578ca904da68ba272e4291e.s3tc.ctex", "res://.godot/imported/bayu.jpg-6a6672933578ca904da68ba272e4291e.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

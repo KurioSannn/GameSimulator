@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1i8owly3k86e"
-path="res://.godot/imported/CASE-0048_pak_jamal.jpg-0e409cc1fca79865b199b4ab29462aac.ctex"
+path.s3tc="res://.godot/imported/CASE-0048_pak_jamal.jpg-0e409cc1fca79865b199b4ab29462aac.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0048_pak_jamal.jpg-0e409cc1fca79865b199b4ab29462aac.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0048_pak_jamal.jpg"
-dest_files=["res://.godot/imported/CASE-0048_pak_jamal.jpg-0e409cc1fca79865b199b4ab29462aac.ctex"]
+dest_files=["res://.godot/imported/CASE-0048_pak_jamal.jpg-0e409cc1fca79865b199b4ab29462aac.s3tc.ctex", "res://.godot/imported/CASE-0048_pak_jamal.jpg-0e409cc1fca79865b199b4ab29462aac.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

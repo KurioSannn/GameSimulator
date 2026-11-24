@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chu2yad3ytt4u"
-path="res://.godot/imported/yosef_cemas.jpg-ef7ee767c8b2fca5f245df74b8d7ee3a.ctex"
+path.s3tc="res://.godot/imported/yosef_cemas.jpg-ef7ee767c8b2fca5f245df74b8d7ee3a.s3tc.ctex"
+path.etc2="res://.godot/imported/yosef_cemas.jpg-ef7ee767c8b2fca5f245df74b8d7ee3a.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/yosef_cemas.jpg"
-dest_files=["res://.godot/imported/yosef_cemas.jpg-ef7ee767c8b2fca5f245df74b8d7ee3a.ctex"]
+dest_files=["res://.godot/imported/yosef_cemas.jpg-ef7ee767c8b2fca5f245df74b8d7ee3a.s3tc.ctex", "res://.godot/imported/yosef_cemas.jpg-ef7ee767c8b2fca5f245df74b8d7ee3a.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -120,29 +120,32 @@ func setup(mv2d: MapView) -> void:
 		material.set_shader_parameter("field_bounds", extent)
 	if detail_field != null:
 		_mat_fill.set_shader_parameter("detail_field", detail_field)
-	_props = DioramaProps.new()
-	_props.name = "DekorasiLowPoly"
-	add_child(_props)
-	_props.build(_art_config.props)
-	_roads = DioramaRoads.new()
-	_roads.name = "JaringanJalanIndonesia"
-	add_child(_roads)
-	_roads.build()
-	_maritime = DioramaMaritime.new()
-	_maritime.name = "DekorasiMaritim"
-	add_child(_maritime)
-	_maritime.build(_art_config.get("vessels", []), SEA_LEVEL_Y)
-	_aviation = DioramaAviation.new()
-	_aviation.name = "DekorasiPenerbangan"
-	add_child(_aviation)
-	_aviation.build(_art_config, region_ids)
-	_atmosphere = DioramaAtmosphere.new()
-	add_child(_atmosphere)
-	_atmosphere.build(_art_config)
-	_weather_fx = DioramaWeatherFX.new()
-	_weather_fx.name = "EfekMusim"
-	add_child(_weather_fx)
-	_weather_fx.build(_art_config, region_ids)
+	# Ringan graphics (weakest devices): the 2D map is used and no decoration layer is built (D-097).
+	if not ringan():
+		_props = DioramaProps.new()
+		_props.name = "DekorasiLowPoly"
+		add_child(_props)
+		_props.build(_art_config.props)
+		_roads = DioramaRoads.new()
+		_roads.name = "JaringanJalanIndonesia"
+		add_child(_roads)
+		_roads.build()
+		_maritime = DioramaMaritime.new()
+		_maritime.name = "DekorasiMaritim"
+		add_child(_maritime)
+		_maritime.build(_art_config.get("vessels", []), SEA_LEVEL_Y)
+		_aviation = DioramaAviation.new()
+		_aviation.name = "DekorasiPenerbangan"
+		add_child(_aviation)
+		_aviation.build(_art_config, region_ids)
+		_atmosphere = DioramaAtmosphere.new()
+		add_child(_atmosphere)
+		_atmosphere.build(_art_config)
+		_weather_fx = DioramaWeatherFX.new()
+		_weather_fx.name = "EfekMusim"
+		add_child(_weather_fx)
+		_weather_fx.build(_art_config, region_ids)
+	_apply_perf_off.call_deferred()
 	_build_island_labels()
 	_build_province_labels()
 	_build_city_labels()
@@ -198,9 +201,42 @@ func _init_materials() -> void:
 	_mat_highlight_hover.albedo_color = HOVER_COLOR
 
 
+## Diagnostics: NUS_PERF_OFF="shadows,props,roads,maritime,aviation,atmosphere,weather,neighbor,skirt,ocean,fill"
+func _apply_perf_off() -> void:
+	var off := OS.get_environment("NUS_PERF_OFF").split(",", false)
+	var map := {"props": _props, "roads": _roads, "maritime": _maritime, "aviation": _aviation, "atmosphere": _atmosphere,
+		"weather": _weather_fx, "neighbor": _neighbor_props, "ocean": _ocean_mesh, "neighbor_mesh": _neighbor_mesh}
+	for k in off:
+		if k == "shadows" and _sun:
+			_sun.shadow_enabled = false
+		elif k == "fill":
+			for m in _fill_instances.values(): m.visible = false
+		elif k == "skirt":
+			for m in _skirt_instances.values(): m.visible = false
+		elif k == "border":
+			for m in _border_instances.values(): m.visible = false
+		elif map.has(k) and map[k] != null:
+			map[k].visible = false
+			map[k].process_mode = Node.PROCESS_MODE_DISABLED
+		elif k == "self":
+			set_process(false)
+
+
+static func ringan() -> bool:
+	return int(UiPreferences.values.get("graphics", 0)) >= 2
+
+
+## Covered by an opaque scene: stop per-frame work of every layer (they resume where they were).
+func set_paused(on: bool) -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED if on else Node.PROCESS_MODE_INHERIT
+
+
 ## Hemat graphics (mobile default): no sun shadows and no decorative traffic, ships or neighbouring
 ## countries' props. The regions, roads, clouds and weather that carry game information stay.
 func set_low_power(on: bool) -> void:
+	if _props != null:
+		for b in _props.batches:
+			b.visibility_range_end = 850.0 if on else 1300.0
 	if _sun:
 		_sun.shadow_enabled = not on
 	for layer in [_maritime, _aviation, _neighbor_props]:
@@ -217,8 +253,10 @@ func _init_environment() -> void:
 	_sun.light_color = Color("fff0d2")
 	_sun.light_energy = 0.95
 	_sun.shadow_enabled = true
-	_sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS
-	_sun.directional_shadow_max_distance = 18000.0
+	# The camera never goes beyond 2500 units: 2 splits over 6000 look the same as 4 over 18000 and
+	# draw the shadow casters half as often (D-097).
+	_sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
+	_sun.directional_shadow_max_distance = 6000.0
 	_sun.shadow_bias = 0.02
 	add_child(_sun)
 	
@@ -327,7 +365,7 @@ func _build_neighbor_land() -> void:
 	_neighbor_mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(_neighbor_mesh)
 	var neighbor_props: Array = data.get("props", [])
-	if not neighbor_props.is_empty():
+	if not neighbor_props.is_empty() and not ringan():
 		_neighbor_props = DioramaProps.new()
 		_neighbor_props.name = "DekorasiTetangga"
 		add_child(_neighbor_props)

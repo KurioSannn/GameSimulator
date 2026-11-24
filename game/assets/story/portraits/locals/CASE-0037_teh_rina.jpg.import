@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d7qipinslmm4"
-path="res://.godot/imported/CASE-0037_teh_rina.jpg-2c7e970b9c04935671ab1763e6bd0579.ctex"
+path.s3tc="res://.godot/imported/CASE-0037_teh_rina.jpg-2c7e970b9c04935671ab1763e6bd0579.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0037_teh_rina.jpg-2c7e970b9c04935671ab1763e6bd0579.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0037_teh_rina.jpg"
-dest_files=["res://.godot/imported/CASE-0037_teh_rina.jpg-2c7e970b9c04935671ab1763e6bd0579.ctex"]
+dest_files=["res://.godot/imported/CASE-0037_teh_rina.jpg-2c7e970b9c04935671ab1763e6bd0579.s3tc.ctex", "res://.godot/imported/CASE-0037_teh_rina.jpg-2c7e970b9c04935671ab1763e6bd0579.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

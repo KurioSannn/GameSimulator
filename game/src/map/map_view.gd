@@ -63,7 +63,7 @@ var _pending: Dictionary = {}           # lod name -> {task: int, lod: MapLod, e
 ## LOD is needed first (_ensure_lod waits for its task instead of loading it twice).
 func preload_remaining(base_dir: String = BASE_DIR) -> void:
 	for name in LOD_NAMES:
-		if _lods.has(name) or _pending.has(name):
+		if _lods.has(name) or _pending.has(name) or (max_lod == "lod2" and name == "lod3"):
 			continue
 		var job := {"lod": MapLod.new(), "err": "", "t0": Time.get_ticks_usec()}
 		job["task"] = WorkerThreadPool.add_task(func(): job["err"] = (job["lod"] as MapLod).load_from(base_dir + "kabkota_" + name))
@@ -133,9 +133,14 @@ static func project_lonlat(lon: float, lat: float) -> Vector2:
 static func lod_for_scale(m_per_px: float) -> String:
 	if m_per_px >= LOD1_MIN_M_PER_PX:
 		return "lod1"
-	if m_per_px >= LOD2_MIN_M_PER_PX:
+	if m_per_px >= LOD2_MIN_M_PER_PX or max_lod == "lod2":
 		return "lod2"
 	return "lod3"
+
+
+## Finest geometry this device loads. Hemat graphics stops at lod2: lod3 (33 MB of kabupaten detail)
+## is never parsed or uploaded, which keeps low-memory phones from being killed (D-097).
+static var max_lod := "lod3"
 
 
 ## Called on every camera change. `zoom` = screen pixels per world unit.

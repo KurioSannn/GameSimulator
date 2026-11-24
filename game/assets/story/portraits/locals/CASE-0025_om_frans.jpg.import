@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://g73c3sisvi4r"
-path="res://.godot/imported/CASE-0025_om_frans.jpg-269ed6bc0d8909f143cb332d46072a3d.ctex"
+path.s3tc="res://.godot/imported/CASE-0025_om_frans.jpg-269ed6bc0d8909f143cb332d46072a3d.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0025_om_frans.jpg-269ed6bc0d8909f143cb332d46072a3d.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0025_om_frans.jpg"
-dest_files=["res://.godot/imported/CASE-0025_om_frans.jpg-269ed6bc0d8909f143cb332d46072a3d.ctex"]
+dest_files=["res://.godot/imported/CASE-0025_om_frans.jpg-269ed6bc0d8909f143cb332d46072a3d.s3tc.ctex", "res://.godot/imported/CASE-0025_om_frans.jpg-269ed6bc0d8909f143cb332d46072a3d.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -7,12 +7,28 @@ var prop_count := 0
 var model_count := 0
 var _last_state := ""
 var catalog: Dictionary
+## Performance (D-097): props are split into CHUNK-sized spatial cells so off-screen cells are frustum
+## culled, and every cell is only drawn when the camera is close (visibility range). Hemat graphics
+## also thins vegetation and traffic. At country zoom a prop is smaller than a pixel anyway.
+const CHUNK := 400.0
+var range_end := 1300.0
+var low_power := false
 
 
 func build(records: Array, base_y: float = 0.4) -> void:
 	catalog = JSON.parse_string(FileAccess.get_file_as_string("res://data/map/art_catalog.json")).groups
+	low_power = int(UiPreferences.values.get("graphics", 0)) == 1
+	range_end = 850.0 if low_power else 1300.0
 	var groups := {}
+	var n_rec := 0
 	for record in records:
+		n_rec += 1
+		if low_power:
+			var k := str(record.kind)
+			if k in ["tree", "highland_tree", "palm", "shrub", "rock", "crop"] and n_rec % 2 == 1:
+				continue
+			if k in ["vehicle", "streetlight"] and n_rec % 3 != 0:
+				continue
 		var spec: Dictionary = catalog[str(record.kind)]
 		var subdir := str(spec.get("subdir", ""))
 		var model_name := str(spec.models[int(record.variant)])
@@ -94,28 +110,39 @@ func _batch(item: Dictionary, bounds: AABB, records: Array, model_key: String, b
 			material.set_shader_parameter("is_vehicle", kind == "vehicle")
 		mesh.surface_set_material(surface, material)
 		materials.append(material)
-	var multimesh := MultiMesh.new()
-	multimesh.transform_format = MultiMesh.TRANSFORM_3D
-	multimesh.use_custom_data = true
-	multimesh.mesh = mesh
-	multimesh.instance_count = records.size()
+	# Instances grouped by spatial cell: one MultiMesh per (mesh, cell).
+	var cells := {}
 	for n in records.size():
 		var r: Dictionary = records[n]
-		# Both dimensions are constrained so tall/narrow source models cannot spill over the block.
-		var height_scale := float(spec.height) / maxf(bounds.size.y, 0.01)
-		var footprint_scale := float(spec.footprint) / maxf(maxf(bounds.size.x, bounds.size.z), 0.01)
-		var scale_factor := minf(height_scale, footprint_scale) * float(r.size)
-		var basis := Basis(Vector3.UP, float(r.rotation)).scaled(Vector3.ONE * scale_factor)
-		var center := Vector3(bounds.get_center().x, bounds.position.y, bounds.get_center().z)
-		var root := Transform3D(basis, Vector3(r.x, base_y, r.z) - basis * center)
-		multimesh.set_instance_transform(n, root * (item.transform as Transform3D))
-		multimesh.set_instance_custom_data(n, Color(float(r.region) / 1024.0, float(n % 37) / 37.0, float(n % 11) / 11.0, 1))
-	var batch := MultiMeshInstance3D.new()
-	batch.multimesh = multimesh
-	batch.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	batch.extra_cull_margin = 150.0
-	add_child(batch)
-	batches.append(batch)
+		var key := Vector2i(floori(float(r.x) / CHUNK), floori(float(r.z) / CHUNK))
+		cells.get_or_add(key, []).append(n)
+	var height_scale := float(spec.height) / maxf(bounds.size.y, 0.01)
+	var footprint_scale := float(spec.footprint) / maxf(maxf(bounds.size.x, bounds.size.z), 0.01)
+	var center := Vector3(bounds.get_center().x, bounds.position.y, bounds.get_center().z)
+	for key in cells:
+		var idx: Array = cells[key]
+		var multimesh := MultiMesh.new()
+		multimesh.transform_format = MultiMesh.TRANSFORM_3D
+		multimesh.use_custom_data = true
+		multimesh.mesh = mesh
+		multimesh.instance_count = idx.size()
+		for m in idx.size():
+			var n: int = idx[m]
+			var r: Dictionary = records[n]
+			# Both dimensions are constrained so tall/narrow source models cannot spill over the block.
+			var scale_factor := minf(height_scale, footprint_scale) * float(r.size)
+			var basis := Basis(Vector3.UP, float(r.rotation)).scaled(Vector3.ONE * scale_factor)
+			var root := Transform3D(basis, Vector3(r.x, base_y, r.z) - basis * center)
+			multimesh.set_instance_transform(m, root * (item.transform as Transform3D))
+			multimesh.set_instance_custom_data(m, Color(float(r.region) / 1024.0, float(n % 37) / 37.0, float(n % 11) / 11.0, 1))
+		var batch := MultiMeshInstance3D.new()
+		batch.multimesh = multimesh
+		batch.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		batch.extra_cull_margin = 40.0
+		batch.visibility_range_end = range_end
+		batch.visibility_range_end_margin = 120.0
+		add_child(batch)
+		batches.append(batch)
 
 
 func sync(selected: int, lift: float, hovered: int, hover_lift: float, reduced_motion: bool, landscape: bool) -> void:

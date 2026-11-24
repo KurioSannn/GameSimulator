@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgs67hd6ritvh"
-path="res://.godot/imported/CASE-0021_bu_sri.jpg-a76ceb77090f77f0537db4cd46b0a072.ctex"
+path.s3tc="res://.godot/imported/CASE-0021_bu_sri.jpg-a76ceb77090f77f0537db4cd46b0a072.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0021_bu_sri.jpg-a76ceb77090f77f0537db4cd46b0a072.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0021_bu_sri.jpg"
-dest_files=["res://.godot/imported/CASE-0021_bu_sri.jpg-a76ceb77090f77f0537db4cd46b0a072.ctex"]
+dest_files=["res://.godot/imported/CASE-0021_bu_sri.jpg-a76ceb77090f77f0537db4cd46b0a072.s3tc.ctex", "res://.godot/imported/CASE-0021_bu_sri.jpg-a76ceb77090f77f0537db4cd46b0a072.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

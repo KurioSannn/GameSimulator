@@ -10,19 +10,24 @@ static var values: Dictionary = DEFAULTS.duplicate(true)
 static var config_path := PATH
 
 
-## Graphics quality: 0 Tinggi, 1 Hemat. Phones and tablets start in Hemat (battery, heat, low-end GPUs).
+## Graphics quality: 0 Tinggi, 1 Seimbang, 2 Ringan (2D map). Phones and tablets start in Seimbang;
+## the game drops a level by itself when the map stays slow (Main._watch_performance).
 static func default_graphics() -> int:
 	return 1 if OS.has_feature("mobile") else 0
 
 
 static func read() -> void:
 	values.graphics = default_graphics()
+	if OS.get_environment("NUS_GRAPHICS") != "":
+		values.graphics = clampi(int(OS.get_environment("NUS_GRAPHICS")), 0, 2)
 	var cfg := ConfigFile.new()
 	if cfg.load(config_path) != OK:
 		return
 	for key in DEFAULTS:
 		values[key] = cfg.get_value("ui", key, default_graphics() if key == "graphics" else DEFAULTS[key])
-	values.graphics = clampi(int(values.graphics), 0, 1)
+	values.graphics = clampi(int(values.graphics), 0, 2)
+	if OS.get_environment("NUS_GRAPHICS") != "":  # QA: measure a quality level on any machine
+		values.graphics = clampi(int(OS.get_environment("NUS_GRAPHICS")), 0, 2)
 	values.text_scale = clampf(float(values.text_scale), 1.0, 1.1)
 	for key in ["volume", "music", "effects", "dialog"]:
 		values[key] = clampf(float(values[key]), 0.0, 100.0)
@@ -61,10 +66,11 @@ static func apply_audio_values(source: Dictionary) -> void:
 
 static func apply(viewport: Viewport) -> void:
 	apply_audio_values(values)
-	var low := int(values.get("graphics", 0)) == 1
+	var low := int(values.get("graphics", 0)) >= 1
 	viewport.msaa_3d = Viewport.MSAA_DISABLED if low else [Viewport.MSAA_DISABLED, Viewport.MSAA_2X, Viewport.MSAA_4X][int(values.antialiasing)]
-	viewport.scaling_3d_scale = 0.7 if low else 1.0
-	Engine.max_fps = 30 if low else 0
+	viewport.scaling_3d_scale = 1.0  # sub-1.0 scaling costs ~190 MB extra video memory in this renderer
+	# Never faster than needed: high-refresh gaming laptops otherwise render 144+ fps and run hot.
+	Engine.max_fps = 30 if low else 60
 	# Phones and tablets are always full screen; window options are desktop-only.
 	if DisplayServer.get_name() != "headless" and not OS.has_feature("mobile"):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if int(values.window_mode) == 0 else DisplayServer.WINDOW_MODE_WINDOWED)

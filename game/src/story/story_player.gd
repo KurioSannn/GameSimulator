@@ -12,6 +12,8 @@ signal line_shown(index: int)
 ## world.story.playing so any save, mid-dialogue included, resumes at this beat (D-094).
 signal progressed(state: Dictionary)
 signal save_requested
+## True while an opaque painted backdrop hides the map: Main stops rendering the 3D world then.
+signal cover_changed(covering: bool)
 
 const SPEEDS := [28.0, 50.0, 110.0, 100000.0]  # Lambat, Normal, Cepat, Instan (characters/second)
 
@@ -175,6 +177,7 @@ func play(beats: Array, ctx: Dictionary = {}, done: Callable = Callable(), opts:
 	_auto_btn.button_pressed = _auto
 	find_child("SkipButton", true, false).visible = _skippable
 	_backdrop.set_kind(str(opts.get("bg", ctx.get("bg", "ruang_kerja"))))
+	cover_changed.emit(covers_map())
 	_portrait_left.character = {}
 	_portrait_right.character = {}
 	_portrait_left.queue_redraw()
@@ -224,6 +227,7 @@ func _next() -> void:
 	var b: Dictionary = _beats[_index]
 	if b.has("bg"):
 		_backdrop.set_kind(str(b.bg))
+		cover_changed.emit(covers_map())
 	var who := str(b.get("s", "narasi"))
 	# A beat may name its own case (legacy sequence: locals from several episodes in one scene).
 	var rec: Dictionary = ContentDB.cases.get(str(b.case), {}) if b.has("case") else _ctx.get("case_record", {})
@@ -333,6 +337,7 @@ func skip_scene() -> void:
 func _finish() -> void:
 	progressed.emit({})
 	hide()
+	cover_changed.emit(false)
 	_history_panel.hide()
 	UiKit.clear(_options)
 	var cb := _done_cb
@@ -400,3 +405,7 @@ func _unhandled_input(event: InputEvent) -> void:
 ## Button label with its keyboard shortcut on desktop; touch devices show the word only.
 static func _k(label: String, key: String) -> String:
 	return label if OS.has_feature("mobile") else "%s (%s)" % [label, key]
+
+
+func covers_map() -> bool:
+	return visible and StoryBackdrop.art_for(_backdrop.kind) != null

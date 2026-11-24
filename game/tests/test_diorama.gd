@@ -88,10 +88,14 @@ func test_distance_field_contract_and_clouds_are_separate_from_simulation() -> v
 	var config := _config()
 	var texture: Texture2D = load("res://data/map/art/coast_field.png")
 	var image := texture.get_image()
-	t.check(image.get_width() == int(config.field_size[0]) and image.get_height() == int(config.field_size[1]), "coast field dimensions match build metadata")
+	# Import may downscale the field for performance (D-097); shaders sample by UV and textureSize, so
+	# the contract is the aspect ratio and an upper bound, not exact pixels.
+	var fw := float(config.field_size[0])
+	var fh := float(config.field_size[1])
+	t.check(image.get_width() <= fw and absf(float(image.get_width()) / image.get_height() - fw / fh) < 0.01, "coast field matches build metadata (aspect, max size)")
 	var detail_tex: Texture2D = load("res://data/map/art/landscape_detail.png")
 	var detail_img := detail_tex.get_image()
-	t.check(detail_img.get_width() == int(config.field_size[0]) and detail_img.get_height() == int(config.field_size[1]), "landscape detail dimensions match build metadata")
+	t.check(detail_img.get_width() <= fw and absf(float(detail_img.get_width()) / detail_img.get_height() - fw / fh) < 0.01, "landscape detail matches build metadata (aspect, max size)")
 	t.check(config.seed == 20261119 and config.clouds.size() == 120 and config.get("high_clouds", []).size() == 64, "independent deterministic decoration seed with 184 cloud clusters")
 	var b: Array = config.field_bounds
 	for point in config.clouds:

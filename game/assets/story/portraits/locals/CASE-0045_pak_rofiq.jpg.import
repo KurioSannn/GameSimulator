@@ -3,19 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csdypsmfcppas"
-path="res://.godot/imported/CASE-0045_pak_rofiq.jpg-fe70c0b5d2b9ad63c6801d43cca60189.ctex"
+path.s3tc="res://.godot/imported/CASE-0045_pak_rofiq.jpg-fe70c0b5d2b9ad63c6801d43cca60189.s3tc.ctex"
+path.etc2="res://.godot/imported/CASE-0045_pak_rofiq.jpg-fe70c0b5d2b9ad63c6801d43cca60189.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/story/portraits/locals/CASE-0045_pak_rofiq.jpg"
-dest_files=["res://.godot/imported/CASE-0045_pak_rofiq.jpg-fe70c0b5d2b9ad63c6801d43cca60189.ctex"]
+dest_files=["res://.godot/imported/CASE-0045_pak_rofiq.jpg-fe70c0b5d2b9ad63c6801d43cca60189.s3tc.ctex", "res://.godot/imported/CASE-0045_pak_rofiq.jpg-fe70c0b5d2b9ad63c6801d43cca60189.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
