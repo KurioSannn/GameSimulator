@@ -62,6 +62,10 @@ NUSANTARA_UPDATE_URL=http://127.0.0.1:8765/update.json
 
 Uji 2026-11-24: aplikasi macOS 1.0.0 mengunduh, memverifikasi, dan memuat patch 1.0.1 (1.980 byte).
 
+## Kualitas grafis
+
+Tinggi (desktop), Seimbang (bawaan HP/tablet), Ringan (peta 2D untuk perangkat paling lemah). Game turun satu tingkat sendiri bila peta terus lambat. Untuk mengukur di mesin mana pun: `NUS_GRAPHICS=0|1|2` dan argumen `--qa-perf` (lihat D-097).
+
 ## Peringatan yang diketahui
 
 - **Windows SmartScreen** dan **macOS Gatekeeper** akan memperingatkan karena aplikasi belum ditandatangani dengan sertifikat berbayar. Di macOS: klik kanan, Buka. Di Windows: Info lainnya, Tetap jalankan. Sertifikat code signing (Windows) dan Apple Developer ID plus notarization (macOS) menghilangkan peringatan ini.

@@ -3,6 +3,8 @@
 _Last updated: 2026-11-23 (Claude Code, final experience milestone)._ **Submission deadline recorded by the project: 15 Nov 2026.**
 
 ## Current phase
+**Release 1.0.1: performance (2026-11-24; player reports of force closes on Snapdragon 680 and hot gaming laptops)**: measured, then fixed (D-097). Map primitives 18.3M to 1.1M (Tinggi) and 0.69M (Seimbang); story scenes no longer render the 3D world; 60/30 fps caps and 10 fps in the background; graphics levels Tinggi/Seimbang/Ringan with automatic step-down; live loading screen (Android emulator: first frame 6 s, menu 13 s, ~340 MB PSS, no ANR); cover splash without black bars. Release 1.0.1 built (installers + 32 MB patch for 1.0.0 installs, verified end to end). Not yet published. Tests 184/184.
+
 **Release builds and auto-update (2026-11-24; user request)**: Windows .exe, macOS .zip and signed Android .apk built with `scripts/release/build_release.sh` (D-096); in-game Updater with SHA-256-verified patch packs (tested end to end on macOS: 1.0.0 downloaded and mounted a 1,980-byte 1.0.1 patch) and a download prompt for major versions. Android tested on an emulator (phone 2400x1080): splash, prologue, tap to advance, swipe the map. Mobile fixes: back button, pause autosave, graphics quality setting, touch wording, tutorial panel sizing. Not published yet; iOS blocked (no Xcode/Apple account). Guide: docs/RELEASE.md. Tests 184/184.
 
 **Final experience milestone: content freeze at 50 cases (2026-11-23; user brief)**:
