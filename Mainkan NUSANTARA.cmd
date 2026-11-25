@@ -8,8 +8,8 @@ if not exist "%NUSANTARA_ENGINE%" (
   pause
   exit /b 1
 )
-if not exist "%NUSANTARA_DIR%game\.godot\global_script_class_cache.cfg" (
-  "%NUSANTARA_ENGINE%" --headless --editor --import --path "%NUSANTARA_DIR%game"
-)
+rem Selalu segarkan cache kelas/aset agar tidak macet setelah update (cepat bila tidak ada perubahan).
+echo Menyiapkan aset game...
+"%NUSANTARA_ENGINE%" --headless --editor --import --path "%NUSANTARA_DIR%game" >nul 2>&1
 start "" "%NUSANTARA_ENGINE%" --path "%NUSANTARA_DIR%game"
 endlocal
