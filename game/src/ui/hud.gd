@@ -44,6 +44,9 @@ var _term_over := false
 var _bottom_dock: PanelContainer
 var _agenda_text: VBoxContainer
 var goals_panel: PanelContainer
+var _name_label: Label
+var _identity: PanelContainer
+var _top_row: HBoxContainer
 var _goal_rows: Dictionary = {}
 
 func _ready() -> void:
@@ -62,17 +65,21 @@ func _build_top() -> void:
 	dock.offset_left = 14
 	dock.offset_right = -14
 	dock.offset_top = 12
-	dock.offset_bottom = 90
+	dock.offset_bottom = 74
 	add_child(dock)
-	var row := UiKit.hbox(12)
+	var row := UiKit.hbox(10)
+	_top_row = row
 	row.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	dock.add_child(row)
 	var identity := PanelContainer.new()
 	identity.name = "IdentitasHUD"
+	_identity = identity
 	identity.add_theme_stylebox_override("panel", GameSkin.hud_frame())
+	identity.size_flags_vertical = Control.SIZE_FILL
 	row.add_child(identity)
 	var profile := UiKit.ghost_button("", func(): menu_selected.emit("profile"), "Profil Presiden · perjalanan mandat")
-	profile.custom_minimum_size = Vector2(190, 48)
+	profile.custom_minimum_size = Vector2(142, 0)
+	profile.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	for state in ["normal", "hover", "pressed", "hover_pressed"]:
 		profile.add_theme_stylebox_override(state, StyleBoxEmpty.new())
 	var portrait_margin := MarginContainer.new()
@@ -80,13 +87,17 @@ func _build_top() -> void:
 	for side in ["left", "right", "top", "bottom"]:
 		portrait_margin.add_theme_constant_override("margin_" + side, 0)
 	profile.add_child(portrait_margin)
-	var portrait_row := UiKit.hbox(8)
+	var portrait_row := UiKit.hbox(7)
+	portrait_row.alignment = BoxContainer.ALIGNMENT_CENTER
 	portrait_margin.add_child(portrait_row)
-	portrait_row.add_child(FigmaAssets.avatar(1, Vector2(32, 32)))
-	var names := UiKit.vbox(0)
+	var av := FigmaAssets.avatar(1, Vector2(24, 24))
+	av.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	portrait_row.add_child(av)
+	var names := UiKit.vbox(-3)
 	names.alignment = BoxContainer.ALIGNMENT_CENTER
-	var character_name := UiKit.title("NARA ADINATA", 20)
-	UiKit.hud_type(character_name, 20)
+	var character_name := UiKit.title(UiPreferences.display_name().to_upper(), 18)
+	UiKit.hud_type(character_name, 18)
+	_name_label = character_name
 	names.add_child(character_name)
 	_period = UiKit.label("", 14, UiKit.MUTED)
 	UiKit.hud_type(_period, 18)
@@ -95,14 +106,16 @@ func _build_top() -> void:
 	portrait_row.add_child(names)
 	UiKit.ignore_mouse(portrait_margin)
 	identity.add_child(profile)
+	_build_goals(row)
 	row.add_child(UiKit.spacer())
 	var resources := PanelContainer.new()
 	resources.name = "IndikatorHUD"
 	resources.add_theme_stylebox_override("panel", GameSkin.hud_frame())
 	resources.size_flags_horizontal = Control.SIZE_SHRINK_END
-	resources.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	resources.size_flags_vertical = Control.SIZE_FILL
 	row.add_child(resources)
-	indicators = UiKit.hbox(18)
+	indicators = UiKit.hbox(12)
+	indicators.alignment = BoxContainer.ALIGNMENT_CENTER
 	resources.add_child(indicators)
 	var menu := MenuButton.new()
 	menu.text = "☰"
@@ -110,8 +123,8 @@ func _build_top() -> void:
 	menu.tooltip_text = "Menu pemerintahan"
 	menu.add_theme_stylebox_override("normal", GameSkin.frame("round_brown", 0, 0))
 	menu.add_theme_stylebox_override("hover", GameSkin.frame("round_brown", 0, 0, Color("ffe7ac")))
-	menu.custom_minimum_size = Vector2(44, 44)
-	UiKit.hud_type(menu, 20)
+	menu.custom_minimum_size = Vector2(36, 36)
+	UiKit.hud_type(menu, 18)
 	menu.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	menu.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	var popup := menu.get_popup()
@@ -126,9 +139,13 @@ func _build_top() -> void:
 	row.add_child(menu)
 
 func _build_sidebar() -> void:
-	var column := UiKit.vbox(8)
+	var rail := UiKit.vbox(10)
+	rail.position = Vector2(14, 86)
+	rail.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(rail)
+	var column := UiKit.vbox(5)
 	column.name = "NavigasiHUD"
-	column.position = Vector2(18, 96)
+	column.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	for item in [["Kebijakan", "imgIkonScroll", "policy", "Kebijakan (P)"],
 		["Anggaran", "imgIkonCoin1", "budget", "Anggaran nasional (B)"],
 		["Statistik", "imgIkonBook", "statistics", "Semua indikator nasional"],
@@ -143,16 +160,16 @@ func _build_sidebar() -> void:
 		button.theme_type_variation = "ButtonHex"
 		button.icon = FigmaAssets.texture(1, item[1])
 		button.expand_icon = true
-		button.add_theme_constant_override("icon_max_width", 22)
-		button.custom_minimum_size = Vector2(46, 56)
+		button.add_theme_constant_override("icon_max_width", 16)
+		button.custom_minimum_size = Vector2(36, 40)
 		button.alignment = HORIZONTAL_ALIGNMENT_CENTER
 		button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		column.add_child(button)
-	add_child(column)
-	# Always-visible map navigation: zoom without hunting for the scroll wheel or the tools card.
-	var nav := UiKit.vbox(6)
+	rail.add_child(column)
+	# Always-visible map navigation: shares exact width and center axis with NavigasiHUD.
+	var nav := UiKit.vbox(4)
 	nav.name = "ZoomHUD"
-	nav.position = Vector2(18, 360)
+	nav.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	for item in [["+", "zoom_in", "Perbesar peta (+ · scroll · cubit trackpad)"],
 		["−", "zoom_out", "Perkecil peta (− · scroll · cubit trackpad)"],
 		["⌂", "home", "Seluruh Indonesia (Home)"]]:
@@ -164,58 +181,70 @@ func _build_sidebar() -> void:
 				_: home_pressed.emit()
 		var b := UiKit.ghost_button(item[0], on_nav, item[2])
 		b.name = "Zoom_" + kind
-		b.custom_minimum_size = Vector2(46, 42)
-		UiKit.hud_type(b, 22)
+		b.custom_minimum_size = Vector2(36, 32)
+		b.add_theme_stylebox_override("normal", GameSkin.frame("button_brown", 6, 10))
+		b.add_theme_stylebox_override("hover", GameSkin.frame("button_brown", 6, 10, Color("fff2c7")))
+		b.add_theme_stylebox_override("pressed", GameSkin.frame("button_brown", 6, 10, Color("d8c5a0")))
+		UiKit.hud_type(b, 18)
 		nav.add_child(b)
-	add_child(nav)
-	_build_goals()
+	rail.add_child(nav)
 
-## Tujuan Masa Bakti: the four pillars as plain words (detail on click).
-func _build_goals() -> void:
+## Tujuan Masa Bakti: the four pillars aligned inline beside the profile card.
+func _build_goals(parent: HBoxContainer) -> void:
 	goals_panel = PanelContainer.new()
 	goals_panel.name = "TujuanMasaBakti"
 	goals_panel.add_theme_stylebox_override("panel", GameSkin.hud_frame())
-	goals_panel.position = Vector2(84, 104)
-	goals_panel.custom_minimum_size = Vector2(252, 0)
+	goals_panel.size_flags_vertical = Control.SIZE_FILL
 	goals_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	goals_panel.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	goals_panel.tooltip_text = "Tujuan Masa Bakti: klik untuk melihat rinciannya"
 	goals_panel.gui_input.connect(func(e):
 		if e is InputEventMouseButton and e.pressed and e.button_index == MOUSE_BUTTON_LEFT:
 			goals_pressed.emit())
-	var col := UiKit.vbox(3)
+	# Wide strip (2 x 2) inline in the top bar so height, padding, and baseline match the other HUD pills.
+	var col := GridContainer.new()
+	col.columns = 2
+	col.add_theme_constant_override("h_separation", 12)
+	col.add_theme_constant_override("v_separation", -2)
+	col.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	col.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	goals_panel.add_child(col)
-	var head := UiKit.subheader("TUJUAN MASA BAKTI", UiKit.ACCENT, 12)
-	col.add_child(head)
 	for p in Narrative.PILLARS:
-		var row := UiKit.hbox(6)
+		var row := UiKit.hbox(4)
 		row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		var name := UiKit.label(str(Narrative.PILLAR_LABELS[p]), 14, UiKit.TEXT)
+		UiKit.hud_type(name, 18)
 		name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(name)
 		var trend := UiKit.label("", 14, UiKit.MUTED)
+		UiKit.hud_type(trend, 18)
 		row.add_child(trend)
 		col.add_child(row)
 		_goal_rows[p] = trend
-	add_child(goals_panel)
+	parent.add_child(goals_panel)
+
+
+func refresh_identity() -> void:
+	if _name_label != null:
+		_name_label.text = UiPreferences.display_name().to_upper()
 
 
 func refresh_goals(pillars: Dictionary) -> void:
 	for p in _goal_rows:
 		var lbl: Label = _goal_rows[p]
 		var word := str(pillars.get(p, {}).get("trend", "stabil"))
-		lbl.text = {"membaik": "▲ membaik", "menurun": "▼ menurun"}.get(word, "● stabil")
+		lbl.text = {"membaik": "▲", "menurun": "▼"}.get(word, "●")
+		lbl.tooltip_text = word.capitalize()
 		lbl.add_theme_color_override("font_color", UiKit.SUCCESS if word == "membaik" else UiKit.DANGER if word == "menurun" else UiKit.MUTED)
 
 
 func _build_right() -> void:
-	right_col = UiKit.vbox(8)
+	right_col = UiKit.vbox(6)
 	right_col.set_anchors_preset(Control.PRESET_TOP_RIGHT)
 	right_col.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 	right_col.offset_right = -14
-	right_col.offset_left = -370
-	right_col.offset_top = 92
+	right_col.offset_left = -334
+	right_col.offset_top = 86
 	right_col.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(right_col)
 	var toggle_tools := func(): map_tools_card.visible = not map_tools_card.visible
@@ -224,9 +253,9 @@ func _build_right() -> void:
 	tools.size_flags_horizontal = Control.SIZE_SHRINK_END
 	tools.icon = GameSkin.texture("minimap_compass_toon_n")
 	tools.expand_icon = true
-	tools.add_theme_constant_override("icon_max_width", 20)
-	tools.custom_minimum_size = Vector2(112, 38)
-	UiKit.hud_type(tools, 20)
+	tools.add_theme_constant_override("icon_max_width", 16)
+	tools.custom_minimum_size = Vector2(90, 32)
+	UiKit.hud_type(tools, 18)
 	right_col.add_child(tools)
 	var panel := PanelContainer.new()
 	map_tools_card = panel
@@ -234,7 +263,7 @@ func _build_right() -> void:
 	var scroll := ScrollContainer.new()
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	panel.add_child(scroll)
-	map_controls = UiKit.vbox(10)
+	map_controls = UiKit.vbox(8)
 	map_controls.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(map_controls)
 	map_controls.minimum_size_changed.connect(_fit_tools)
@@ -274,7 +303,7 @@ func _build_right() -> void:
 	var navigation := UiKit.hbox(6)
 	for item in [["+", 1.3, "Perbesar peta"], ["−", 1.0 / 1.3, "Perkecil peta"]]:
 		var zoom := UiKit.ghost_button(item[0], func(): zoom_pressed.emit(float(item[1])), item[2])
-		zoom.custom_minimum_size = Vector2(38, 38)
+		zoom.custom_minimum_size = Vector2(36, 36)
 		navigation.add_child(zoom)
 	var home := UiKit.ghost_button("Indonesia", func(): home_pressed.emit(), "Seluruh Indonesia (Home)")
 	home.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -311,7 +340,7 @@ func _fit_tools() -> void:
 	if map_tools_card == null or not map_tools_card.visible:
 		return
 	var height := map_controls.get_combined_minimum_size().y + map_tools_card.get_theme_stylebox("panel").get_minimum_size().y
-	map_tools_card.custom_minimum_size = Vector2(356, minf(height, get_viewport_rect().size.y - 280))
+	map_tools_card.custom_minimum_size = Vector2(320, minf(height, get_viewport_rect().size.y - 220))
 
 func _preview_select(items: Array) -> OptionButton:
 	var select := OptionButton.new()
@@ -333,28 +362,28 @@ func _build_bottom() -> void:
 	dock.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
 	dock.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 	dock.grow_vertical = Control.GROW_DIRECTION_BEGIN
-	dock.offset_left = -750
+	dock.offset_left = -610
 	dock.offset_right = -14
-	dock.offset_top = -92
+	dock.offset_top = -74
 	dock.offset_bottom = -12
 	add_child(dock)
-	var row := UiKit.hbox(12)
+	var row := UiKit.hbox(10)
 	dock.add_child(row)
 	var log := UiKit.ghost_button("", func(): log_pressed.emit(), "Catatan peristiwa (L)")
 	log.theme_type_variation = "ButtonMedallion"
 	log.icon = GameSkin.texture("minimap_icon_exclamation_red")
 	log.expand_icon = true
 	log.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	log.add_theme_constant_override("icon_max_width", 14)
-	log.custom_minimum_size = Vector2(36, 36)
+	log.add_theme_constant_override("icon_max_width", 12)
+	log.custom_minimum_size = Vector2(32, 32)
 	log.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	row.add_child(log)
-	var text := UiKit.vbox(0)
+	var text := UiKit.vbox(-3)
 	_agenda_text = text
 	text.alignment = BoxContainer.ALIGNMENT_CENTER
 	text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_agenda_title = UiKit.title("", 20)
-	UiKit.hud_type(_agenda_title, 20)
+	_agenda_title = UiKit.title("", 18)
+	UiKit.hud_type(_agenda_title, 18)
 	_agenda_title.clip_text = true
 	_agenda_title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	text.add_child(_agenda_title)
@@ -371,13 +400,13 @@ func _build_bottom() -> void:
 		else:
 			decision_pressed.emit()
 	_agenda_btn = UiKit.button("BUKA KEPUTUSAN", on_agenda, true)
-	_agenda_btn.custom_minimum_size = Vector2(180, 40)
-	UiKit.hud_type(_agenda_btn, 20)
+	_agenda_btn.custom_minimum_size = Vector2(150, 34)
+	UiKit.hud_type(_agenda_btn, 18)
 	_agenda_btn.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	row.add_child(_agenda_btn)
 	next_btn = UiKit.button("LANJUTKAN KUARTAL", func(): next_pressed.emit(), true)
-	next_btn.custom_minimum_size = Vector2(196, 40)
-	UiKit.hud_type(next_btn, 20)
+	next_btn.custom_minimum_size = Vector2(166, 34)
+	UiKit.hud_type(next_btn, 18)
 	next_btn.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	next_btn.tooltip_text = "Jalankan 3 bulan untuk seluruh wilayah (Spasi)"
 	row.add_child(next_btn)
@@ -385,8 +414,8 @@ func _build_bottom() -> void:
 func _layout_bottom() -> void:
 	if _bottom_dock == null:
 		return
-	var width := 748.0 if _agenda_text.visible else 318.0
-	width = minf(width, maxf(318.0, size.x - 96))
+	var width := 610.0 if _agenda_text.visible else 256.0
+	width = minf(width, maxf(256.0, size.x - 96))
 	_bottom_dock.offset_left = -14 - width
 	_bottom_dock.offset_right = -14
 

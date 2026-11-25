@@ -9,7 +9,7 @@ var contact_y := 0.0
 var shadow_rect := Rect2()
 
 func _init() -> void:
-	custom_minimum_size = Vector2(240, 360)
+	custom_minimum_size = Vector2(200, 300)
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	size_flags_vertical = Control.SIZE_EXPAND_FILL
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -23,7 +23,7 @@ func _init() -> void:
 	resized.connect(_layout_art)
 
 func _layout_art() -> void:
-	var available := Vector2(maxf(1, size.x - 32), maxf(1, size.y - 24))
+	var available := Vector2(maxf(1, size.x - 48), maxf(1, size.y - 36))
 	var scale := minf(available.x / VISIBLE_BOUNDS.size.x, available.y / VISIBLE_BOUNDS.size.y)
 	var extent := VISIBLE_BOUNDS.size * scale
 	contact_y = size.y - 14

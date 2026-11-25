@@ -13,7 +13,7 @@ var _ledger_vals: Dictionary = {}
 
 
 func _ready() -> void:
-	custom_minimum_size = Vector2(840, 720)
+	custom_minimum_size = Vector2(800, 690)
 	add_theme_stylebox_override("panel", GameSkin.frame())
 	var box := UiKit.vbox(14)
 	add_child(box)

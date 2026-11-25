@@ -83,7 +83,7 @@ func _ready() -> void:
 
 func open() -> void:
 	var vp := get_viewport_rect().size
-	custom_minimum_size = Vector2(minf(vp.x - 64.0, 1240.0), minf(vp.y - 64.0, 704.0))
+	custom_minimum_size = Vector2(minf(vp.x - 80.0, 1120.0), minf(vp.y - 80.0, 620.0))
 	refresh()
 	visible = true
 	UiKit.animate_open(self)

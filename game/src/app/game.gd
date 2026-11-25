@@ -167,7 +167,7 @@ func save_meta() -> Dictionary:
 		"tick": world.tick,
 		"year": world.year_index() + 1,
 		"quarter": world.quarter_index() % SimWorld.QUARTERS_PER_YEAR + 1,
-		"player": "Nara Adinata",
+		"player": UiPreferences.display_name(),
 		"snapshot_id": str(ContentDB.baseline.get("snapshot_id", "")),
 		"sim_save_schema": SimWorld.SAVE_SCHEMA,
 		"national": sim.national_summary(world),

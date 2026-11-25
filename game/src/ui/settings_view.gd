@@ -26,7 +26,7 @@ func _exit_tree() -> void:
 		UiPreferences.apply_audio_values(UiPreferences.values)
 
 
-func _section(title: String, icon: String) -> VBoxContainer:
+func _section(title: String, icon: String, screen: int = 4) -> VBoxContainer:
 	var panel := PanelContainer.new()
 	panel.theme_type_variation = "PanelCard"
 	panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -35,7 +35,7 @@ func _section(title: String, icon: String) -> VBoxContainer:
 	panel.add_child(body)
 
 	var head := UiKit.hbox(10)
-	head.add_child(FigmaAssets.picture(4, icon, Vector2(22, 22)))
+	head.add_child(FigmaAssets.picture(screen, icon, Vector2(22, 22)))
 	head.add_child(UiKit.title(title, 20, UiKit.ACCENT))
 	body.add_child(head)
 	body.add_child(HSeparator.new())
@@ -45,12 +45,16 @@ func _section(title: String, icon: String) -> VBoxContainer:
 
 func _build() -> void:
 	UiKit.clear(self)
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	add_child(scroll)
 	_grid = GridContainer.new()
 	_grid.columns = 2
 	_grid.add_theme_constant_override("h_separation", 18)
 	_grid.add_theme_constant_override("v_separation", 16)
-	_grid.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	add_child(_grid)
+	_grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(_grid)
 
 	var audio := _section("AUDIO", "imgIkonSpeaker")
 	var sliders: Dictionary = {}
@@ -185,7 +189,7 @@ func _build() -> void:
 	mrow.add_child(motion)
 	access.add_child(mrow)
 
-	var story := _section("CERITA DAN DIALOG", "imgIkonBook")
+	var story := _section("CERITA DAN DIALOG", "imgIkonBook", 1)
 	_option(story, "KECEPATAN TEKS", "text_speed", ["Lambat", "Normal", "Cepat", "Langsung"])
 	_check(story, "LANJUT OTOMATIS", "auto_dialogue")
 	_check(story, "TAMPILKAN SUMBER DATA (MODE PENGEMBANG)", "show_sources")

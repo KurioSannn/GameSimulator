@@ -51,6 +51,14 @@ static func write(next_values: Dictionary) -> Error:
 	return err
 
 
+static func display_name() -> String:
+	# The player's chosen profile name; the untouched default falls back to the fictional president.
+	var chosen := str(values.get("player_name", "")).strip_edges()
+	if chosen == "" or chosen == str(DEFAULTS.player_name):
+		return "Nara Adinata"
+	return chosen
+
+
 static func apply_audio_values(source: Dictionary) -> void:
 	for pair in [["Master", "volume"], ["Musik", "music"], ["Efek", "effects"], ["Dialog", "dialog"]]:
 		var index := AudioServer.get_bus_index(pair[0])

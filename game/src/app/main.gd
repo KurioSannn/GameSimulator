@@ -49,6 +49,7 @@ var _story_busy := false
 ## How to continue after a scene restored from a save: drain | quarter | prologue | ending (D-094).
 var _play_resume := "drain"
 var _qa_story := false  # QA screenshots of the real story UI (--story=...)
+var _splash_layer: CanvasLayer
 
 
 const FIGMA_ICONS := {
@@ -88,13 +89,17 @@ func _notification(what: int) -> void:
 
 func _apply_graphics() -> void:
 	var level := int(UiPreferences.values.get("graphics", 0))
-	if map_view_3d != null:
+	MapView.max_lod = "lod2" if level >= 1 else "lod3"
+	if level < 2 and map_view_3d != null:
+		map_view_3d.ensure_decorations()
 		map_view_3d.set_low_power(level >= 1)
+		if not _automation() and not _mode_3d:
+			_toggle_3d_mode()
 	if level >= 2 and _mode_3d:
 		_toggle_3d_mode()  # Ringan: flat 2D map
 	if not _automation():
 		UiPreferences.apply(get_viewport())
-	elif int(UiPreferences.values.get("graphics", 0)) >= 1:
+	elif level >= 1:
 		get_viewport().msaa_3d = Viewport.MSAA_DISABLED
 
 
@@ -181,6 +186,15 @@ func _ready() -> void:
 	if not automation:
 		case_modal.hide()
 		screens.open("menu")
+		_splash_layer = CanvasLayer.new()
+		_splash_layer.layer = 125
+		add_child(_splash_layer)
+		var splash := StartupSplash.new()
+		splash.finished.connect(func():
+			if is_instance_valid(_splash_layer):
+				_splash_layer.queue_free()
+				_splash_layer = null)
+		_splash_layer.add_child(splash)
 	else:
 		screens.session_started = true
 	_sync_interaction()
@@ -440,14 +454,14 @@ func _build_ui() -> void:
 	hud.weather_mode_selected.connect(func(mode: String):
 		if map_view_3d:
 			map_view_3d.set_weather_mode(mode))
-	# Region panel (docked cleanly in the middle-right zone, strictly above the bottom dock).
+	# Region panel (docked cleanly in the middle-right zone, aligned with top/right HUD margins).
 	region_panel = RegionPanel.new()
 	region_panel.set_anchors_preset(Control.PRESET_TOP_RIGHT)
 	region_panel.grow_horizontal = Control.GROW_DIRECTION_BEGIN
-	region_panel.offset_left = -446
-	region_panel.offset_top = 112
-	region_panel.offset_right = -16
-	region_panel.offset_bottom = 112
+	region_panel.offset_left = -394
+	region_panel.offset_top = 86
+	region_panel.offset_right = -14
+	region_panel.offset_bottom = 86
 	_map_chrome.add_child(region_panel)
 	region_panel.province_view_requested.connect(_view_province)
 	region_panel.sources_requested.connect(func(model): sources_dialog.open(model))
@@ -463,7 +477,7 @@ func _build_ui() -> void:
 	_toast_panel.add_theme_stylebox_override("panel", GameSkin.frame("panel_brown", 16, 16))
 	_toast_panel.set_anchors_preset(Control.PRESET_CENTER_TOP)
 	_toast_panel.grow_horizontal = Control.GROW_DIRECTION_BOTH
-	_toast_panel.offset_top = 92
+	_toast_panel.offset_top = 86
 	_toast_panel.offset_left = -420
 	_toast_panel.offset_right = 420
 	_toast = UiKit.label("", 13, UiKit.ACCENT, true)
@@ -478,29 +492,29 @@ func _build_ui() -> void:
 	# Budget panel (floats in centered modal layer).
 	budget_panel = BudgetPanel.new()
 
-	# Event log (docked cleanly next to the left rail, above the bottom dock).
+	# Event log (docked cleanly next to the left rail, aligned to bottom margin).
 	_log_panel = PanelContainer.new()
 	_log_panel.theme_type_variation = "PanelDock"
 	_log_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	_log_panel.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
 	_log_panel.grow_vertical = Control.GROW_DIRECTION_BEGIN
-	_log_panel.offset_left = 188
-	_log_panel.offset_bottom = -112
-	_log_panel.custom_minimum_size = Vector2(540, 0)
-	var lv := UiKit.vbox(10)
+	_log_panel.offset_left = 64
+	_log_panel.offset_bottom = -12
+	_log_panel.custom_minimum_size = Vector2(460, 0)
+	var lv := UiKit.vbox(8)
 	_log_panel.add_child(lv)
 	var lh := UiKit.hbox(8)
-	var lt := UiKit.title("CATATAN PERISTIWA", 17, UiKit.ACCENT)
+	var lt := UiKit.title("CATATAN PERISTIWA", 16, UiKit.ACCENT)
 	lt.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	lh.add_child(lt)
 	lh.add_child(UiKit.subheader("TERBARU DI ATAS", UiKit.MUTED, 11))
 	var lclose := UiKit.ghost_button("✕", func(): _log_panel.visible = false, "Tutup catatan (L)")
-	lclose.custom_minimum_size = Vector2(32, 30)
+	lclose.custom_minimum_size = Vector2(30, 28)
 	lh.add_child(lclose)
 	lv.add_child(lh)
 	lv.add_child(HSeparator.new())
 	var ls := ScrollContainer.new()
-	ls.custom_minimum_size = Vector2(510, 270)
+	ls.custom_minimum_size = Vector2(430, 230)
 	ls.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	lv.add_child(ls)
 	_log_box = UiKit.vbox(10)
@@ -511,8 +525,9 @@ func _build_ui() -> void:
 
 	_tooltip = PanelContainer.new()
 	_tooltip.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_tooltip.add_theme_stylebox_override("panel", GameSkin.frame("panel_brown", 14, 16))
+	_tooltip.add_theme_stylebox_override("panel", GameSkin.frame("panel_brown", 10, 12))
 	_tooltip_label = UiKit.label("", 13)
+	UiKit.hud_type(_tooltip_label, 18)
 	_tooltip.add_child(_tooltip_label)
 	_tooltip.visible = false
 	_map_chrome.add_child(_tooltip)
@@ -699,7 +714,7 @@ func _update_tooltip(id: String, screen_pos: Vector2) -> void:
 	var vp := get_viewport().get_visible_rect().size
 	var pos := screen_pos + Vector2(18, 18)
 	var right_edge := region_panel.position.x - 12.0 if region_panel.visible else vp.x - 12.0
-	pos.x = clampf(pos.x, 110.0, maxf(110.0, right_edge - _tooltip.size.x))
+	pos.x = clampf(pos.x, 70.0, maxf(70.0, right_edge - _tooltip.size.x))
 	pos.y = clampf(pos.y, 98.0, maxf(98.0, vp.y - 112.0 - _tooltip.size.y))
 	_tooltip.position = pos
 	_tooltip.visible = true
@@ -773,6 +788,7 @@ func _recolor() -> void:
 func _refresh_all() -> void:
 	var w := Game.world
 	hud.refresh(w, Game.pending_case())
+	hud.refresh_identity()
 	UiKit.clear(_indicators)
 	var n: Dictionary = Game.sim.national_summary(w)
 	var has_q := SimLedger.active(w)
@@ -789,7 +805,7 @@ func _refresh_all() -> void:
 		var outer := UiKit.hbox(6)
 		outer.alignment = BoxContainer.ALIGNMENT_CENTER
 		box.add_child(outer)
-		var ic := FigmaAssets.picture(3, FIGMA_ICONS[key], Vector2(20, 20))
+		var ic := FigmaAssets.picture(3, FIGMA_ICONS[key], Vector2(16, 16))
 		ic.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		outer.add_child(ic)
 		var col := UiKit.vbox(1)
@@ -798,8 +814,8 @@ func _refresh_all() -> void:
 		outer.add_child(col)
 		var row := UiKit.hbox(6)
 		var suffix := "%" if key == "trust" else " / 100" if key in ["welfare", "sentiment", "environment"] else ""
-		var readout := UiKit.number(Fmt.num(val, 1) + suffix, 20)
-		UiKit.hud_type(readout, 20)
+		var readout := UiKit.number(Fmt.num(val, 1) + suffix, 18)
+		UiKit.hud_type(readout, 18)
 		row.add_child(readout)
 		if has_q:
 			var prev: float = float(w.ledger.get("fiscal_space_start", val)) if key == "fiscal_space" else w.weighted_mean_of(w.ledger.start[key])
@@ -1323,7 +1339,7 @@ func _update_world_rendering() -> void:
 	var covered := story_player.covers_map() or (screens.visible and screens.active_screen not in ["menu", "new", ""])
 	map_view_3d.visible = _mode_3d and not covered
 	if map_view_3d.has_method("set_paused"):
-		map_view_3d.set_paused(covered)
+		map_view_3d.set_paused((not _mode_3d) or covered)
 
 
 func _sync_interaction() -> void:
@@ -1361,7 +1377,7 @@ var _perf_slow := 0
 
 
 func _watch_performance(delta: float) -> void:
-	if _automation() or map_view_3d == null or not map_view_3d.visible or _story_busy:
+	if _automation() or _splash_layer != null or map_view_3d == null or not map_view_3d.visible or not _mode_3d or _story_busy or (screens != null and screens.visible) or (Engine.max_fps > 0 and Engine.max_fps <= 15):
 		_perf_t = 0.0
 		_perf_frames = 0
 		return
@@ -1480,29 +1496,33 @@ func _warm_up_world() -> void:
 	layer.layer = 120
 	add_child(layer)
 	var bg := ColorRect.new()
-	bg.color = Color(0.07, 0.11, 0.18)
+	bg.color = Color(1.0, 1.0, 1.0, 1.0)
 	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	layer.add_child(bg)
+	var logo_center := CenterContainer.new()
+	logo_center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	layer.add_child(logo_center)
 	var art := TextureRect.new()
-	art.texture = load("res://assets/ui/splash.png")
+	art.texture = load("res://assets/ui/nusantara_logo.png")
 	art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	art.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	layer.add_child(art)
+	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	art.custom_minimum_size = Vector2(540, 405)
+	logo_center.add_child(art)
 	var box := VBoxContainer.new()
 	box.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
 	box.offset_left = -260
 	box.offset_right = 260
-	box.offset_top = -110
-	box.offset_bottom = -50
+	box.offset_top = -100
+	box.offset_bottom = -44
 	layer.add_child(box)
-	var label := UiKit.label("Menyiapkan peta Nusantara...", 18, Color("fff4d2"))
+	var label := UiKit.label("Menyiapkan peta Nusantara...", 16, UiKit.ACCENT)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.7))
 	box.add_child(label)
 	var bar := ProgressBar.new()
 	bar.show_percentage = false
-	bar.custom_minimum_size = Vector2(520, 14)
+	bar.custom_minimum_size = Vector2(520, 10)
+	bar.add_theme_stylebox_override("background", StitchTheme.soft_box(Color("eae2d0"), Color("d2c3a4"), 99, 0, 0, 1))
+	bar.add_theme_stylebox_override("fill", StitchTheme.soft_box(Color("c98b32"), Color(0, 0, 0, 0), 99, 0, 0, 0))
 	box.add_child(bar)
 	print("warm-up: start at %d ms" % Time.get_ticks_msec())
 	await get_tree().process_frame
@@ -1523,8 +1543,8 @@ func _warm_up_world() -> void:
 	print("warm-up: layers done at %d ms" % Time.get_ticks_msec())
 	label.text = "Siap."
 	var tw := create_tween()
-	tw.tween_property(layer.get_child(0), "modulate:a", 0.0, 0.35)
-	tw.parallel().tween_property(art, "modulate:a", 0.0, 0.35)
+	tw.tween_property(bg, "modulate:a", 0.0, 0.35)
+	tw.parallel().tween_property(logo_center, "modulate:a", 0.0, 0.35)
 	tw.parallel().tween_property(box, "modulate:a", 0.0, 0.35)
 	await tw.finished
 	layer.queue_free()

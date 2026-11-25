@@ -50,12 +50,12 @@ func open(screen: String) -> void:
 	var margin := MarginContainer.new()
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for side in ["left", "right"]:
-		margin.add_theme_constant_override("margin_" + side, 28)
+		margin.add_theme_constant_override("margin_" + side, 24)
 	for side in ["top", "bottom"]:
-		margin.add_theme_constant_override("margin_" + side, 20)
+		margin.add_theme_constant_override("margin_" + side, 18)
 	_surface.add_child(margin)
 
-	_content = UiKit.vbox(14)
+	_content = UiKit.vbox(12)
 	margin.add_child(_content)
 
 	var names := {
@@ -74,14 +74,16 @@ func open(screen: String) -> void:
 		"scenario_end": "AKHIR KISAH",
 	}
 
-	var header := UiKit.hbox(14)
+	var header := UiKit.hbox(12)
 	var back := UiKit.ghost_button("", _back, "Kembali (Esc)")
 	back.icon = FigmaAssets.texture(2 if screen == "profile" else 3 if screen == "statistics" else 4, "imgIkonBack")
-	back.custom_minimum_size = Vector2(56, 46)
+	back.custom_minimum_size = Vector2(44, 38)
 	back.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	for color_key in ["icon_normal_color", "icon_hover_color", "icon_pressed_color", "icon_focus_color"]:
+		back.add_theme_color_override(color_key, UiKit.TEXT)
 	header.add_child(back)
 
-	header.add_child(UiKit.title(str(names.get(screen, screen)), 32, UiKit.ACCENT))
+	header.add_child(UiKit.title(str(names.get(screen, screen)), 26, UiKit.ACCENT))
 	header.add_child(UiKit.spacer())
 
 	if screen in ["profile", "statistics", "report", "legacy"]:
@@ -92,7 +94,7 @@ func open(screen: String) -> void:
 			var dest: String = spec[1]
 			var button := UiKit.button(spec[0], func(): open(dest))
 			button.theme_type_variation = "ButtonAccent" if screen == dest else "ButtonGhost"
-			button.custom_minimum_size = Vector2(148, 42)
+			button.custom_minimum_size = Vector2(124, 38)
 			header.add_child(button)
 	_content.add_child(header)
 
@@ -177,50 +179,48 @@ func _menu() -> void:
 	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_surface.add_child(shade)
 
-	# Top-left Brand Lockup
-	var brand := UiKit.vbox(8)
-	brand.position = Vector2(48, 36)
-	brand.add_child(UiKit.title("NUSANTARA", 64, Color("ffe9a7")))
-	var ribbon := PanelContainer.new()
-	ribbon.add_theme_stylebox_override("panel", StitchTheme.soft_box(Color("ed4b39"), StitchTheme.color("outline"), 8, 14, 6, 2))
-	ribbon.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-	var subtitle := UiKit.title("LIMA TAHUN MENJAGA NEGERI", 22, Color("fff4d2"))
-	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	ribbon.add_child(subtitle)
-	brand.add_child(ribbon)
-	brand.add_child(UiKit.title("Satu negeri. Ratusan cerita. Setiap keputusan meninggalkan jejak.", 18, Color("fff4d2")))
-	_surface.add_child(brand)
+	# Top-left Brand Lockup (clean AAA logo only, aligned to 40px/32px margins)
+	var brand_logo := TextureRect.new()
+	brand_logo.texture = load("res://assets/ui/nusantara_logo.png") as Texture2D
+	brand_logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	brand_logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	brand_logo.custom_minimum_size = Vector2(380, 285)
+	brand_logo.position = Vector2(40, 32)
+	brand_logo.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_surface.add_child(brand_logo)
 
-	# Top-right utility pills (clean inline row)
+	# Top-right utility pills (aligned with right card edge at -40px, top 32px)
 	var top_right := UiKit.hbox(10)
 	top_right.set_anchors_preset(Control.PRESET_TOP_RIGHT)
 	top_right.grow_horizontal = Control.GROW_DIRECTION_BEGIN
-	top_right.offset_top = 28
-	top_right.offset_right = -32
+	top_right.offset_top = 32
+	top_right.offset_right = -40
 	_surface.add_child(top_right)
 
 	var settings := UiKit.ghost_button("PENGATURAN", func(): _origin = "menu"; open("settings"), "Buka pengaturan audio, layar, dan kontrol")
 	settings.icon = FigmaAssets.texture(0, "imgGroup465")
-	settings.custom_minimum_size = Vector2(154, 44)
+	settings.custom_minimum_size = Vector2(142, 40)
 	top_right.add_child(settings)
 
-	# Right action card
+	# Right action card (exact same -40px right margin, uniform 32px inner padding, uniform 10px gaps)
 	var panel := PanelContainer.new()
 	panel.theme_type_variation = "PanelDock"
-	panel.anchor_left = 0.60
-	panel.anchor_right = 0.955
-	panel.anchor_top = 0.52
-	panel.anchor_bottom = 0.52
+	panel.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
+	panel.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 	panel.grow_vertical = Control.GROW_DIRECTION_BOTH
-	var style := GameSkin.frame()
-	panel.add_theme_stylebox_override("panel", style)
+	panel.offset_right = -40
+	panel.offset_left = -460
+	panel.custom_minimum_size.x = 420
+	panel.add_theme_stylebox_override("panel", GameSkin.frame("panel_brown_corners_a", 32, 24))
 	_surface.add_child(panel)
 
-	var body := UiKit.vbox(14)
+	var body := UiKit.vbox(10)
 	body.alignment = BoxContainer.ALIGNMENT_CENTER
 	panel.add_child(body)
-	var heading := UiKit.heading("PEMERINTAHANMU")
-	body.add_child(heading)
+	var hdr_lbl := UiKit.title("PEMERINTAHANMU", 20, UiKit.ACCENT)
+	hdr_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	body.add_child(hdr_lbl)
+	body.add_child(HSeparator.new())
 
 	var begin := UiKit.button("MULAI PEMERINTAHAN BARU", func():
 		_origin = "menu"
@@ -228,28 +228,28 @@ func _menu() -> void:
 			open("new")
 		else:
 			_start_new(), true)
-	begin.custom_minimum_size.y = 58
-	begin.add_theme_font_size_override("font_size", 21)
+	begin.custom_minimum_size.y = 48
+	begin.add_theme_font_size_override("font_size", 19)
 	body.add_child(begin)
 
 	if Game.in_scenario():
 		var leave := UiKit.button("KELUAR DARI KISAH INI", func(): Game.end_scenario(); open("library"))
-		leave.custom_minimum_size.y = 46
+		leave.custom_minimum_size.y = 40
 		body.add_child(leave)
 	if session_started and not Game.in_scenario():
 		var cont := UiKit.button("LANJUTKAN", close_screen)
-		cont.custom_minimum_size.y = 46
+		cont.custom_minimum_size.y = 40
 		body.add_child(cont)
 	elif not Game.saves.list_slots().is_empty():
 		var latest := UiKit.button("LANJUTKAN", _continue_latest)
-		latest.custom_minimum_size.y = 46
+		latest.custom_minimum_size.y = 40
 		latest.tooltip_text = "Lanjutkan simpanan terakhir"
 		body.add_child(latest)
 	var row := UiKit.hbox(10)
 	for spec in [["MUAT PERMAINAN", "saves"], ["KUMPULAN KISAH", "library"]]:
 		var dest: String = spec[1]
 		var b := UiKit.button(spec[0], func(): _origin = "menu"; open(dest))
-		b.custom_minimum_size.y = 44
+		b.custom_minimum_size.y = 38
 		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(b)
 	body.add_child(row)
@@ -257,7 +257,7 @@ func _menu() -> void:
 	for spec in [["CARA BERMAIN", "help"], ["KREDIT", "credits"]]:
 		var dest2: String = spec[1]
 		var b2 := UiKit.ghost_button(spec[0], func(): _origin = "menu"; open(dest2))
-		b2.custom_minimum_size.y = 40
+		b2.custom_minimum_size.y = 38
 		b2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row2.add_child(b2)
 	body.add_child(row2)
@@ -394,28 +394,28 @@ func _card(title: String, parent: Node = null) -> VBoxContainer:
 
 
 func _profile() -> void:
-	var row := UiKit.hbox(20)
+	var row := UiKit.hbox(14)
 	row.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_content.add_child(row)
 
-	var left := UiKit.vbox(14)
+	var left := UiKit.vbox(10)
 	left.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	left.size_flags_stretch_ratio = 1.2
+	left.size_flags_stretch_ratio = 1.15
 	row.add_child(left)
 
 	var mandate := _card("PERJALANAN MANDAT", left)
-	mandate.add_child(UiKit.title("TAHUN %d DARI 5 TAHUN" % mini(Game.world.year_index() + 1, 5), 28, UiKit.ACCENT))
-	mandate.add_child(UiKit.label("Kuartal %d · %d kasus aktif" % [Game.world.quarter_index() % 4 + 1, Game.cases.active_cases(Game.world).size()], 22, UiKit.MUTED))
-	var years := UiKit.hbox(10)
+	mandate.add_child(UiKit.title("TAHUN %d DARI 5 TAHUN" % mini(Game.world.year_index() + 1, 5), 20, UiKit.ACCENT))
+	mandate.add_child(UiKit.label("Kuartal %d · %d kasus aktif" % [Game.world.quarter_index() % 4 + 1, Game.cases.active_cases(Game.world).size()], 15, UiKit.MUTED))
+	var years := UiKit.hbox(6)
 	var cur_y := mini(Game.world.year_index(), 4)
 	for y in 5:
 		var badge := PanelContainer.new()
 		var active := y == cur_y
 		badge.add_theme_stylebox_override("panel", StitchTheme.soft_box(
 			Color(UiKit.ACCENT, 0.22) if active else Color(1, 1, 1, 0.05),
-			UiKit.ACCENT if active else Color(1, 1, 1, 0.12), 99, 0, 6, 1))
+			UiKit.ACCENT if active else Color(1, 1, 1, 0.12), 99, 0, 4, 1))
 		badge.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		var yt := UiKit.title("Thn " + str(y + 1), 15, UiKit.ACCENT if active else UiKit.MUTED)
+		var yt := UiKit.title("Thn " + str(y + 1), 13, UiKit.ACCENT if active else UiKit.MUTED)
 		yt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		badge.add_child(yt)
 		years.add_child(badge)
@@ -424,13 +424,13 @@ func _profile() -> void:
 	bar.max_value = 60
 	bar.value = Game.world.tick
 	bar.show_percentage = false
-	bar.custom_minimum_size.y = 12
+	bar.custom_minimum_size.y = 8
 	mandate.add_child(bar)
 
-	mandate.add_child(UiKit.kv_row("Kepercayaan rakyat", "%s%%" % Fmt.num(Game.world.national_mean("trust"), 1), UiKit.SUCCESS, 22))
+	mandate.add_child(UiKit.kv_row("Kepercayaan rakyat", "%s%%" % Fmt.num(Game.world.national_mean("trust"), 1), UiKit.SUCCESS, 15))
 
 	var badges := _card("LENCANA PENCAPAIAN", left)
-	var badges_row := UiKit.hbox(12)
+	var badges_row := UiKit.hbox(8)
 	var decisions := 0
 	for state in Game.world.case_state.values():
 		decisions += state.get("history", []).size()
@@ -440,9 +440,9 @@ func _profile() -> void:
 		["Solusi pertama", "imgMedaliSolusiPertama", decisions > 0, "imgTepiMedaliSolusiPertama", "imgIkonLock"],
 	]:
 		var tile := PanelContainer.new()
-		tile.add_theme_stylebox_override("panel", StitchTheme.soft_box(UiKit.PANEL_SOFT, Color(1, 1, 1, 0.10), 8, 8, 8, 1))
+		tile.add_theme_stylebox_override("panel", StitchTheme.soft_box(UiKit.PANEL_SOFT, Color(1, 1, 1, 0.10), 8, 6, 6, 1))
 		tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		var badge := UiKit.vbox(4)
+		var badge := UiKit.vbox(3)
 		badge.alignment = BoxContainer.ALIGNMENT_CENTER
 		tile.add_child(badge)
 		var symbol: String = "imgIkonStar" if spec[4] == "imgIkonLock" and bool(spec[2]) else str(spec[4])
@@ -450,27 +450,28 @@ func _profile() -> void:
 		art.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		art.modulate.a = 1.0 if spec[2] else 0.35
 		badge.add_child(art)
-		var bl := UiKit.label(spec[0], 13, UiKit.TEXT, true)
+		var bl := UiKit.label(spec[0], 12, UiKit.TEXT, true)
 		bl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		badge.add_child(bl)
-		var bs := UiKit.label("TERBUKA" if spec[2] else "TERKUNCI", 11, UiKit.SUCCESS if spec[2] else UiKit.MUTED)
+		var bs := UiKit.label("TERBUKA" if spec[2] else "TERKUNCI", 10, UiKit.SUCCESS if spec[2] else UiKit.MUTED)
 		bs.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		badge.add_child(bs)
 		badges_row.add_child(tile)
 	badges.add_child(badges_row)
 
 	# Character and contact shadow resize together from one feet anchor.
-	var stage := UiKit.vbox(12)
+	var stage := UiKit.vbox(8)
 	stage.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	stage.size_flags_stretch_ratio = 0.9
 	stage.alignment = BoxContainer.ALIGNMENT_CENTER
 	stage.add_child(PresidentPortrait.new())
 	var nameplate := PanelContainer.new()
-	nameplate.add_theme_stylebox_override("panel", GameSkin.frame("panel_brown", 18, 12))
-	var identity := UiKit.vbox(4)
-	var character_name := UiKit.title("NARA ADINATA", 28, UiKit.ACCENT)
+	nameplate.add_theme_stylebox_override("panel", GameSkin.frame("panel_brown", 18, 16))
+	var identity := UiKit.vbox(2)
+	var character_name := UiKit.title(UiPreferences.display_name().to_upper(), 20, UiKit.ACCENT)
 	character_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	identity.add_child(character_name)
-	var role := UiKit.label("Presiden Republik Indonesia", 22, UiKit.MUTED, true)
+	var role := UiKit.label("Presiden Republik Indonesia", 14, UiKit.MUTED, true)
 	role.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	identity.add_child(role)
 	nameplate.add_child(identity)
@@ -478,12 +479,16 @@ func _profile() -> void:
 	row.add_child(stage)
 
 	# Right player profile card
-	var right := UiKit.vbox(14)
+	var right := UiKit.vbox(10)
 	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	right.size_flags_stretch_ratio = 0.9
+	right.size_flags_stretch_ratio = 0.85
 	row.add_child(right)
 	var profile := _card("IDENTITAS PEMAIN", right)
-	profile.add_child(PlayerNameEditor.new())
+	var name_editor := PlayerNameEditor.new()
+	name_editor.saved.connect(func():
+		character_name.text = UiPreferences.display_name().to_upper()
+		preferences_changed.emit())
+	profile.add_child(name_editor)
 
 
 
@@ -521,7 +526,7 @@ func _statistics() -> void:
 	columns.add_child(right)
 	var report := _card("RAPOR MANDAT", right)
 	report.get_parent().size_flags_vertical = Control.SIZE_EXPAND_FILL
-	report.add_child(UiKit.title("NARA ADINATA", 20, UiKit.ACCENT))
+	report.add_child(UiKit.title(UiPreferences.display_name().to_upper(), 20, UiKit.ACCENT))
 	report.add_child(UiKit.label(Fmt.period(Game.world), 14, UiKit.MUTED, true))
 	var pic := FigmaAssets.picture(3, "imgNaraRaporStatistik", Vector2(220, 230))
 	pic.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -697,7 +702,7 @@ func _legacy() -> void:
 	var head := PanelContainer.new()
 	head.theme_type_variation = "PanelHeader"
 	var hv := UiKit.vbox(2)
-	hv.add_child(UiKit.subheader("AKHIR MASA BAKTI PRESIDEN NARA ADINATA", Color("fff4d2"), 12))
+	hv.add_child(UiKit.subheader("AKHIR MASA BAKTI PRESIDEN " + UiPreferences.display_name().to_upper(), Color("fff4d2"), 12))
 	hv.add_child(UiKit.title(str(arch.get("title", "")), 34, Color("fff4d2")))
 	hv.add_child(UiKit.label(str(arch.get("subtitle", "")), 17, Color("f4dcae")))
 	head.add_child(hv)

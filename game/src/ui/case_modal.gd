@@ -322,7 +322,7 @@ func _fit() -> void:
 	if not visible:
 		return
 	var viewport := get_viewport_rect().size
-	var width := minf(viewport.x - 48.0, 1320.0)
+	var width := minf(viewport.x - 48.0, 1260.0)
 	custom_minimum_size.x = width
 	var content: VBoxContainer = get_child(0)
 	var reserved: float = get_theme_stylebox("panel").get_minimum_size().y

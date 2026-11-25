@@ -83,6 +83,8 @@ var _neighbor_mesh: MeshInstance3D
 var _mat_neighbor: ShaderMaterial
 var _water_material: ShaderMaterial
 var _art_config: Dictionary = {}
+var _neighbor_props_data: Array = []
+var _decorations_built := false
 var _case_pins: Array[Node3D] = []
 var _case_signature := ""
 var _labels: Array[Label3D] = []
@@ -122,29 +124,7 @@ func setup(mv2d: MapView) -> void:
 		_mat_fill.set_shader_parameter("detail_field", detail_field)
 	# Ringan graphics (weakest devices): the 2D map is used and no decoration layer is built (D-097).
 	if not ringan():
-		_props = DioramaProps.new()
-		_props.name = "DekorasiLowPoly"
-		add_child(_props)
-		_props.build(_art_config.props)
-		_roads = DioramaRoads.new()
-		_roads.name = "JaringanJalanIndonesia"
-		add_child(_roads)
-		_roads.build()
-		_maritime = DioramaMaritime.new()
-		_maritime.name = "DekorasiMaritim"
-		add_child(_maritime)
-		_maritime.build(_art_config.get("vessels", []), SEA_LEVEL_Y)
-		_aviation = DioramaAviation.new()
-		_aviation.name = "DekorasiPenerbangan"
-		add_child(_aviation)
-		_aviation.build(_art_config, region_ids)
-		_atmosphere = DioramaAtmosphere.new()
-		add_child(_atmosphere)
-		_atmosphere.build(_art_config)
-		_weather_fx = DioramaWeatherFX.new()
-		_weather_fx.name = "EfekMusim"
-		add_child(_weather_fx)
-		_weather_fx.build(_art_config, region_ids)
+		ensure_decorations()
 	_apply_perf_off.call_deferred()
 	_build_island_labels()
 	_build_province_labels()
@@ -155,6 +135,49 @@ func setup(mv2d: MapView) -> void:
 		if mv2d.is_loaded(lod_name):
 			_build_lod_meshes(lod_name, mv2d.lod(lod_name))
 	set_active_lod(mv2d.active_lod)
+
+
+## Builds 3D props, roads, ships, planes, clouds, and weather on demand (also when leaving Ringan mode).
+func ensure_decorations() -> void:
+	if _decorations_built or _art_config.is_empty():
+		return
+	_decorations_built = true
+	if _props == null:
+		_props = DioramaProps.new()
+		_props.name = "DekorasiLowPoly"
+		add_child(_props)
+		_props.build(_art_config.props)
+	if _roads == null:
+		_roads = DioramaRoads.new()
+		_roads.name = "JaringanJalanIndonesia"
+		add_child(_roads)
+		_roads.build()
+	if _maritime == null:
+		_maritime = DioramaMaritime.new()
+		_maritime.name = "DekorasiMaritim"
+		add_child(_maritime)
+		_maritime.build(_art_config.get("vessels", []), SEA_LEVEL_Y)
+	if _aviation == null:
+		_aviation = DioramaAviation.new()
+		_aviation.name = "DekorasiPenerbangan"
+		add_child(_aviation)
+		_aviation.build(_art_config, region_ids)
+	if _atmosphere == null:
+		_atmosphere = DioramaAtmosphere.new()
+		add_child(_atmosphere)
+		_atmosphere.build(_art_config)
+	if _weather_fx == null:
+		_weather_fx = DioramaWeatherFX.new()
+		_weather_fx.name = "EfekMusim"
+		add_child(_weather_fx)
+		_weather_fx.build(_art_config, region_ids)
+	if _neighbor_props == null and not _neighbor_props_data.is_empty():
+		_neighbor_props = DioramaProps.new()
+		_neighbor_props.name = "DekorasiTetangga"
+		add_child(_neighbor_props)
+		_neighbor_props.build(_neighbor_props_data, -0.18)
+	_apply_perf_off()
+	_apply_atmosphere(true)
 
 
 func _init_materials() -> void:
@@ -364,12 +387,7 @@ func _build_neighbor_land() -> void:
 	_neighbor_mesh.material_override = _mat_neighbor
 	_neighbor_mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(_neighbor_mesh)
-	var neighbor_props: Array = data.get("props", [])
-	if not neighbor_props.is_empty() and not ringan():
-		_neighbor_props = DioramaProps.new()
-		_neighbor_props.name = "DekorasiTetangga"
-		add_child(_neighbor_props)
-		_neighbor_props.build(neighbor_props, top_y + 0.04)
+	_neighbor_props_data = data.get("props", [])
 
 
 func _build_elevated_nodes() -> void:

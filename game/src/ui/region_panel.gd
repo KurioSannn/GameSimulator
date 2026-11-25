@@ -23,28 +23,29 @@ var _root: VBoxContainer
 
 
 func _ready() -> void:
-	custom_minimum_size = Vector2(430, 0)
+	custom_minimum_size = Vector2(380, 0)
 	clip_contents = true
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	add_theme_stylebox_override("panel", GameSkin.frame())
-	var root := UiKit.vbox(10)
+	var root := UiKit.vbox(8)
 	_root = root
 	add_child(root)
 
+	var header_row := UiKit.hbox(8)
 	var header := PanelContainer.new()
 	header.theme_type_variation = "PanelHeader"
-	var row := UiKit.hbox(8)
-	var title := UiKit.title("Wilayah", 28, Color("fff4d2"))
+	header.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var title := UiKit.title("Wilayah", 24, Color("fff4d2"))
 	_heading = title
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	row.add_child(title)
+	header.add_child(title)
+	header_row.add_child(header)
 	var close := UiKit.ghost_button("×", func(): show_region(""), "Tutup panel wilayah (Esc)")
-	close.custom_minimum_size = Vector2(36, 34)
-	row.add_child(close)
-	header.add_child(row)
-	root.add_child(header)
+	close.custom_minimum_size = Vector2(38, 38)
+	close.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	header_row.add_child(close)
+	root.add_child(header_row)
 	var tabs := UiKit.hbox(6)
 	for item in [["Kondisi", "kondisi"], ["Aktivitas", "aktivitas"], ["Data", "data"]]:
 		var id: String = item[1]

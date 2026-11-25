@@ -61,11 +61,29 @@ static func apply(theme: Theme) -> void:
 		theme.set_stylebox("grabber", type, StitchTheme.soft_box(Color("8b6c48"), Color(0, 0, 0, 0), 3, 3, 3, 0))
 		theme.set_stylebox("grabber_highlight", type, StitchTheme.soft_box(Color("614c35"), Color(0, 0, 0, 0), 3, 3, 3, 0))
 
-## Map chrome uses a lighter frame; 16px matches panel_brown's painted wood border cleanly.
+static var _hud_panel_tex: ImageTexture
+
+
+## Map chrome uses a sleeker scaled frame (80x80 -> 10px wood border, 12px content margin).
 static func hud_frame() -> StyleBoxTexture:
-	var box := frame("panel_brown", 24, 16)
-	box.set_content_margin(SIDE_TOP, 18)
-	box.set_content_margin(SIDE_BOTTOM, 18)
+	if _hud_panel_tex == null:
+		var src := texture("panel_brown")
+		if src != null and src.get_image() != null:
+			var img := src.get_image()
+			if img.is_compressed():
+				img.decompress()
+			img.convert(Image.FORMAT_RGBA8)
+			img.resize(80, 80, Image.INTERPOLATE_LANCZOS)
+			_hud_panel_tex = ImageTexture.create_from_image(img)
+	var box := StyleBoxTexture.new()
+	box.texture = _hud_panel_tex if _hud_panel_tex != null else texture("panel_brown")
+	var border := 10 if _hud_panel_tex != null else 16
+	var inset := border + 2
+	for side in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
+		box.set_texture_margin(side, border)
+		box.set_content_margin(side, inset)
+	box.set_content_margin(SIDE_LEFT, inset + 4)
+	box.set_content_margin(SIDE_RIGHT, inset + 4)
 	return box
 
 static func _buttons(theme: Theme, type: String, asset: String, text: Color, inset: int) -> void:
