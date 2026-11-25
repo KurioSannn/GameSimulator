@@ -1,0 +1,7 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 581.86 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3050 6GB Laptop GPU
+
+SCRIPT ERROR: Parse Error: Cannot infer the type of "panel" variable because the value doesn't have a set type.
+   at: GDScript::reload (D:/GameSimulator/research/reports/ui_compact_hud_20261120/verify_compact.gd:87)
+ERROR: Failed to load script "D:/GameSimulator/research/reports/ui_compact_hud_20261120/verify_compact.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
