@@ -1,110 +1,98 @@
-# NUSANTARA
+# NUSANTARA: Lima Tahun Menjaga Negeri
 
-## AI-Assisted Game Development Project
+> **Karya Lomba IT-Competition AMIKOM Surakarta (IT-CAS) 2026 — Kategori Game Development (Mahasiswa)**  
+> **Tema:** *“Inovasi Cerdas & Kearifan Lokal untuk Indonesia Emas”*
 
-**Working title:** NUSANTARA: THE MANDATE  
-**Codename:** NUSANTARA  
-**Engine:** Godot 2D  
-**Language:** GDScript  
-**Primary development assistant:** Claude Code  
-**Visual workflow:** Figma + SVG + GPT-assisted generation  
-**Audio:** Lyria family / approved music-generation workflow  
-**Voice:** AI TTS workflow, tool to be finalized
+---
 
-## Executive concept
+## Ringkasan Permainan
 
-Untuk menjalankan di Windows, klik dua kali **Mainkan NUSANTARA.cmd** di folder proyek. Pilih **Mulai Mandat Baru** atau lanjutkan simpanan dari menu awal. Pengaturan, profil, statistik dan laporan tersedia melalui menu permainan; klik wilayah untuk membuka Detail Wilayah.
+**NUSANTARA** adalah gim simulasi tata kelola pemerintahan dan strategi berbasis data nyata Indonesia (*offline-first*). Pemain berperan sebagai **Presiden Nara Adinata** (tokoh fiktif) yang memimpin Indonesia selama satu masa bakti lima tahun (20 kuartal) di tengah tantangan bencana, ketahanan pangan, ekonomi, lingkungan, dan keragaman budaya.
 
+Berbeda dari simulasi abstrak pada umumnya, peta dan kondisi awal **NUSANTARA** memodelkan **38 provinsi dan 514 kabupaten/kota Indonesia secara individual**, lengkap dengan **50 studi kasus nyata** yang diadaptasi dari peristiwa faktual serta **kearifan lokal Nusantara** (seperti *Subak*, *Sasi*, *Awig-awig*, *Panglima Laot*, dan pengelolaan hutan adat).
 
-NUSANTARA is a data-driven 2D governance simulation set in **real Indonesia**. The player controls a **fictional president, Nara Adinata**, and leads Indonesia through a five-year administration. The geographic world, administrative regions, public datasets, cultural context, local wisdom, and historical problem cases are grounded in real Indonesian sources. The future after each player decision is simulated and fictional.
+> **Alur Permainan Inti:**  
+> `Amati Peta & Data` → `Pahami Kasus` → `Tetapkan Keputusan` → `Alokasi Anggaran & Kebijakan` → `Simulasi Kuartal (514 Daerah)` → `Evaluasi & Warisan`
 
-Core fantasy:
+---
 
-> Lead a real, diverse Indonesia through interconnected crises where every decision has regional, national, social, economic, environmental, and cultural consequences.
+## Tautan Unduhan Resmi (v1.0.2)
 
-Core loop:
+Seluruh build bersifat mandiri (*standalone*) dan **dapat langsung dimainkan tanpa instalasi perangkat lunak tambahan**:
 
-> Observe → Understand → Decide → Allocate → Simulate → React → Adapt → Legacy
+| Platform | Berkas Unduhan | Ukuran | Batas Ketentuan IT-CAS |
+| :--- | :--- | :--- | :--- |
+| **Windows (10/11 64-bit)** | [NUSANTARA-1.0.2-windows.exe](https://github.com/KurioSannn/GameSimulator/releases/download/v1.0.2-windows/NUSANTARA-1.0.2-windows.exe) | ~217 MB | Maks 1 GB (Memenuhi) |
+| **Android (7.0+ Mobile/Tablet)** | [NUSANTARA-1.0.2-android.apk](https://github.com/KurioSannn/GameSimulator/releases/download/v1.0.2-mobile/NUSANTARA-1.0.2-android.apk) | ~150 MB | Maks 250 MB (Memenuhi) |
+| **macOS (Apple Silicon & Intel)** | [NUSANTARA-1.0.2-macos.zip](https://github.com/KurioSannn/GameSimulator/releases/download/v1.0.2-macos/NUSANTARA-1.0.2-macos.zip) | ~123 MB | Bonus Multiplatform |
+| **Panduan Bermain (PDF)** | [Panduan_Bermain_NUSANTARA.pdf](./Panduan_Bermain_NUSANTARA.pdf) | PDF | Wajib Sesuai Ketentuan |
 
-This repository is the **single source of truth** for game design, research rules, data standards, technical principles, content schemas, AI usage, and quality gates.
+> **Catatan Keamanan OS:**  
+> - **Windows SmartScreen:** Jika muncul peringatan aplikasi tidak dikenal, klik **More info** lalu **Run anyway**.  
+> - **Android:** Izinkan opsi *"Pasang aplikasi dari sumber ini"* saat membuka berkas `.apk`.  
+> - **Auto-Updater:** Game dilengkapi sistem pembaruan otomatis (*in-game patch*) melalui [manifest rilis terbaru](https://github.com/KurioSannn/GameSimulator/releases/latest/download/update.json).
 
-## Before doing anything
+---
 
-Claude Code must read, in this order:
+## Kesesuaian dengan Tema IT-CAS 2026
 
-1. `CLAUDE.md`
-2. `AGENTS.md`
-3. `docs/00_PROJECT_CHARTER.md`
-4. `docs/01_PRD.md`
-5. `docs/02_GDD.md`
-6. `docs/03_COMPETITION_REQUIREMENTS.md`
-7. `docs/04_DATA_RESEARCH_SPEC.md`
-8. `docs/05_CULTURAL_RESEARCH_SPEC.md`
-9. `docs/06_CASE_RESEARCH_SPEC.md`
-10. `docs/07_SIMULATION_SPEC.md`
-11. `docs/08_MAP_AND_GIS_SPEC.md`
-12. `docs/09_CONTENT_DATA_SCHEMA.md`
-13. `docs/10_TECHNICAL_ARCHITECTURE_PRINCIPLES.md`
-14. `docs/11_SAVE_SYSTEM_SPEC.md`
-15. `docs/12_AI_USAGE_AND_PROVENANCE.md`
-16. `docs/13_ASSET_PIPELINE.md`
-17. `docs/14_QA_ACCEPTANCE.md`
-18. `docs/15_ROADMAP.md`
-19. `docs/16_RESEARCH_EXECUTION_PLAN.md`
-20. `docs/17_RISK_REGISTER.md`
-21. `docs/18_GLOSSARY.md`
-22. `prompts/MASTER_EXECUTION_PROMPT.md`
+1. **Inovasi Cerdas:** Simulasi deterministik yang menghitung dinamika sosial, ekonomi, harga pangan, kepercayaan publik, dan dampak lingkungan di **514 kabupaten/kota secara bersamaan** setiap kuartal berdasarkan data publik resmi (BPS, BIG, Kemendagri, BNPB, BMKG).
+2. **Kearifan Lokal untuk Indonesia Emas:** Mengangkat nilai gotong royong dan kearifan lokal spesifik daerah sebagai opsi kebijakan strategis yang memiliki konsekuensi terukur terhadap keberlanjutan wilayah.
+3. **Nilai Edukatif & Transparansi Data:** Pemain dapat meninjau sumber data asli di dalam gim (*Mode Pengembang / Sumber Data*), memahami *trade-off* kebijakan fiskal, serta melihat bagaimana keputusan jangka pendek memengaruhi warisan bangsa jangka panjang.
 
-Do not skip documents because they appear redundant. Their separation is intentional.
+---
 
-## Repository policy
+## Cara Bermain Singkat
 
-- Do not invent factual data.
-- Do not silently replace an official source with a lower-quality source.
-- Do not silently overwrite raw data.
-- Do not mix real facts with simulated outcomes without explicit labeling.
-- Do not treat a province as culturally homogeneous.
-- Do not use sacred or sensitive cultural material as a game mechanic without explicit suitability review.
-- Do not hardcode content into gameplay controllers when it can be represented as data.
-- Do not start large-scale gameplay coding before the research/data contracts are established.
-- Never expose secrets or API keys in Git.
+Lihat panduan lengkap bergambar di berkas **[Panduan_Bermain_NUSANTARA.pdf](./Panduan_Bermain_NUSANTARA.pdf)**.
 
-## Planned project layout
+1. **Mulai Mandat:** Buka game, klik **MULAI PEMERINTAHAN BARU** (atau **LANJUTKAN** untuk memuat simpanan terakhir).
+2. **Eksplorasi Peta:** Klik provinsi atau kabupaten/kota pada peta 3D/2D Nusantara untuk membaca kondisi ekonomi, risiko bencana, dan sentimen daerah.
+3. **Tangani Kasus:** Setiap kuartal akan muncul kasus nasional atau daerah. Pelajari opsi yang tersedia, perhatikan dampaknya, lalu klik **Tetapkan Keputusan**.
+4. **Atur Kebijakan & Anggaran:** Gunakan panel **Kebijakan (`P`)** dan **Anggaran (`B`)** untuk menjaga stabilitas fiskal dan melindungi wilayah rawan.
+5. **Lanjut Kuartal (`Spasi`):** Jalankan simulasi 3 bulan sekaligus untuk seluruh 514 daerah dan pantau hasilnya di **Laporan Kuartal** hingga akhir tahun ke-5 (**Rapor Warisan**).
 
-```text
-NUSANTARA/
-├── CLAUDE.md
-├── AGENTS.md
-├── README.md
-├── ITCAS_2026_Game_Development_Guidebook.pdf
-├── ITCAS_2026_Poster.png
-├── docs/
-├── prompts/
-├── game_design/
-├── research/
-│   ├── cases/
-│   ├── culture/
-│   ├── data/
-│   ├── reports/
-│   └── sources/
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   ├── normalized/
-│   ├── catalog/
-│   ├── schemas/
-│   └── snapshots/
-└── scripts/
+### Kontrol Utama
+- **Geser Peta:** Seret Klik Kiri / `WASD` / Tombol Panah / Usap Layar (Mobile)
+- **Zoom:** Scroll Mouse / Cubit (*Pinch*) / Tombol `+` & `−` / `Home` (Reset Seluruh Indonesia)
+- **Putar Peta 3D:** Tahan Klik Kanan atau `Q` / `E`
+- **Pintasan Cepat:** `Spasi` (Lanjut Kuartal) · `P` (Kebijakan) · `B` (Anggaran) · `F5` (Simpan Cepat) · `F9` (Muat Cepat) · `Esc` (Tutup Panel)
+- **Keluar Permainan:** Klik tombol **KELUAR** di Menu Utama atau melalui menu **`☰` → Keluar** (progres disimpan otomatis).
+
+---
+
+## Teknologi & Tools yang Digunakan
+
+| Kategori | Teknologi / Tools | Kegunaan |
+| :--- | :--- | :--- |
+| **Game Engine** | Godot Engine 4.7 | Engine utama untuk rendering peta 3D/2D, UI, audio, dan ekspor lintas platform (`.exe`, `.apk`, `.zip`) |
+| **Bahasa Pemrograman** | GDScript | Logika simulasi deterministik, manajemen kasus/cerita, UI reaktif, dan pengujian otomatis (184 unit/integration tests) |
+| **Pengolahan Data & GIS** | Python | Pemrosesan data spasial GeoJSON/Shapefile (BIG & Kemendagri) dan normalisasi data statistik (BPS, BNPB, BMKG) |
+| **Desain UI & Aset Visual** | Figma, Aset CC0 (Kenney), Google Fonts | Perancangan antarmuka, ikonografi, model 3D dekorasi peta, serta tipografi |
+| **Kolaborasi & Rilis** | Git & GitHub Releases | Manajemen versi kode sumber dan distribusi installer serta patch otomatis |
+
+---
+
+## Tim Pengembang (3 Anggota)
+
+- **Galih** — Game Director, Integrasi Teknis, Pemrograman Simulasi & Engine
+- **Ananda** — Desain Karakter & Aset Visual
+- **Cleo** — Desain Antarmuka (UI/UX), Aset Grafis & Tata Letak
+
+---
+
+## Pernyataan Penggunaan AI (Sesuai Ketentuan IT-CAS 2026)
+
+Sesuai dengan ketentuan penggunaan AI pada panduan lomba **IT-CAS 2026**, tim kami mengungkapkan secara transparan bahwa perangkat AI generatif (**ChatGPT / Claude**) digunakan **sebatas sebagai alat bantu untuk *brainstorming*, riset awal, dan penyusunan ide** (seperti eksplorasi kerangka konsep tata kelola, pemetaan referensi publik resmi, serta perumusan variasi skenario edukatif).
+
+Seluruh proses kreatif inti, penulisan dan arsitektur kode permainan, perancangan visual/UI, validasi data statistik resmi, serta keputusan desain akhir dikerjakan, diverifikasi, dan dipertanggungjawabkan sepenuhnya oleh anggota tim.
+
+---
+
+## Pengujian & Verifikasi (Untuk Pengembang)
+
+Menjalankan seluruh *test suite* headless (184 pengujian simulasi, kasus, peta, tema UI, audio, dan simpanan):
+
+```sh
+tools/Godot.app/Contents/MacOS/Godot --headless --path game -s res://tests/run_tests.gd
 ```
-
-## Definition of complete research
-
-"Complete" means maximum defensible coverage of publicly accessible relevant data, with explicit provenance and an explicit gap registry. It does **not** mean claiming that no dataset anywhere can ever be missing.
-
-## Platform policy
-
-This repository is **desktop-first**. Do not redesign the core experience for mobile. The IT-CAS 2026 guidebook presently states that both APK and EXE are required, so Android remains a secondary export/compliance concern rather than the primary design target. See `docs/26_DESKTOP_FIRST_TECH_STACK_POLICY.md`.
-
-## Tactical implementation prompt
-
-For a focused Claude Code implementation session, use `prompts/DESKTOP_FIRST_EXECUTION_PROMPT.md`.
