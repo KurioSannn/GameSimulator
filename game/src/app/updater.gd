@@ -19,6 +19,7 @@ extends Node
 
 signal patch_ready(version: String)
 signal major_available(version: String, url: String, notes: String)
+signal status_changed(message: String)
 
 const UPDATES_DIR := "user://updates"
 const INSTALLED := "user://updates/installed.json"
@@ -32,6 +33,7 @@ var pending_version := ""
 var _http: HTTPRequest
 var _cfg := {}
 var _manifest := {}
+var _manual_check := false
 
 
 func _init() -> void:
@@ -107,39 +109,71 @@ func _should_check() -> bool:
 		return false
 	if str(_cfg.get("manifest_url", "")) == "":
 		return false
+	UiPreferences.read()
 	return bool(UiPreferences.values.get("auto_update", true))
 
 
-func check_now() -> void:
-	if _http.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+func check_now(manual: bool = false) -> void:
+	if str(_cfg.get("manifest_url", "")) == "":
+		if manual:
+			status_changed.emit("Alamat pembaruan belum dikonfigurasi.")
 		return
+	if _http.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		if manual:
+			status_changed.emit("Sedang memeriksa pembaruan...")
+		return
+	_manual_check = manual
+	if manual:
+		status_changed.emit("Memeriksa pembaruan...")
+	_http.timeout = 20.0
+	_http.download_file = ""
 	_http.request_completed.connect(_on_manifest, CONNECT_ONE_SHOT)
 	if _http.request(str(_cfg.manifest_url)) != OK:
 		_http.request_completed.disconnect(_on_manifest)
+		if _manual_check:
+			status_changed.emit("Gagal memulai pemeriksaan pembaruan.")
+		_manual_check = false
 
 
 func _on_manifest(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	var was_manual := _manual_check
+	_manual_check = false
 	if result != HTTPRequest.RESULT_SUCCESS or code != 200:
 		print("Updater: no manifest (result %d, http %d)" % [result, code])
+		if was_manual:
+			status_changed.emit("Tidak dapat terhubung ke server pembaruan.")
 		return
 	var m: Variant = JSON.parse_string(body.get_string_from_utf8())
 	if not (m is Dictionary):
+		if was_manual:
+			status_changed.emit("Format manifest pembaruan tidak valid.")
 		return
 	_manifest = m
 	var full: Dictionary = m.get("full", {})
 	if not full.is_empty() and compare(line_of(str(full.get("version", "0"))), binary_line) > 0:
 		var url := str(full.get(platform_key(), ""))
 		if url != "":
+			if was_manual:
+				status_changed.emit("Versi baru %s tersedia." % str(full.version))
 			major_available.emit(str(full.version), url, str(m.get("notes", "")))
+			return
 	var patch: Dictionary = m.get("patch", {})
 	if patch.is_empty() or str(patch.get("binary_line", "")) != binary_line:
+		if was_manual:
+			status_changed.emit("Permainan sudah versi terbaru (%s)." % current_version)
 		return
 	if compare(str(patch.get("version", "0")), current_version) <= 0:
+		if was_manual:
+			status_changed.emit("Permainan sudah versi terbaru (%s)." % current_version)
 		return
 	# Patch packs are per platform (desktop and Android use different texture formats).
 	var file: Dictionary = patch.get("files", {}).get(platform_key(), {})
 	if str(file.get("url", "")) == "":
+		if was_manual:
+			status_changed.emit("Belum ada paket pembaruan untuk platform ini.")
 		return
+	if was_manual:
+		status_changed.emit("Mengunduh pembaruan %s..." % str(patch.version))
 	_download_patch({"version": str(patch.version), "url": str(file.url), "sha256": str(file.get("sha256", ""))})
 
 
@@ -154,23 +188,31 @@ static func platform_key() -> String:
 func _download_patch(patch: Dictionary) -> void:
 	DirAccess.make_dir_recursive_absolute(UPDATES_DIR)
 	var tmp := UPDATES_DIR + "/download.tmp"
+	if FileAccess.file_exists(tmp):
+		DirAccess.remove_absolute(tmp)
+	_http.timeout = 300.0
 	_http.download_file = tmp
 	_http.request_completed.connect(func(result: int, code: int, _h: PackedStringArray, _b: PackedByteArray):
 		_http.download_file = ""
 		_on_patch(result, code, tmp, patch), CONNECT_ONE_SHOT)
 	if _http.request(str(patch.url)) != OK:
 		_http.download_file = ""
+		status_changed.emit("Gagal mengunduh berkas pembaruan.")
 
 
 func _on_patch(result: int, code: int, tmp: String, patch: Dictionary) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS or code != 200:
 		print("Updater: patch download failed (result %d, http %d)" % [result, code])
+		status_changed.emit("Unduhan pembaruan gagal (kode %d)." % code)
 		return
 	if FileAccess.get_sha256(tmp) != str(patch.get("sha256", "")):
 		push_warning("Updater: patch checksum mismatch; discarded.")
 		DirAccess.remove_absolute(tmp)
+		status_changed.emit("Berkas pembaruan rusak (checksum tidak cocok).")
 		return
 	var dest := "%s/nusantara_%s.pck" % [UPDATES_DIR, str(patch.version)]
+	if FileAccess.file_exists(dest):
+		DirAccess.remove_absolute(dest)
 	DirAccess.rename_absolute(tmp, dest)
 	var old := {}
 	if FileAccess.file_exists(INSTALLED):

@@ -132,7 +132,7 @@ func _build_top() -> void:
 		["Laporan Kuartal", "report"], ["Rapor Warisan", "legacy"],
 		["Catatan Peristiwa (L)", "log"], ["Daftar Simpanan", "saves"],
 		["Simpan Cepat (F5)", "save_quick"], ["Muat Cepat (F9)", "load_quick"],
-		["Simpan Slot Baru (Ctrl+S)", "save_new"], ["Pengaturan", "settings"], ["Menu Utama", "menu"]]:
+		["Simpan Slot Baru (Ctrl+S)", "save_new"], ["Pengaturan", "settings"], ["Menu Utama", "menu"], ["Keluar", "quit"]]:
 		popup.add_item(item[0])
 		popup.set_item_metadata(popup.item_count - 1, item[1])
 	popup.id_pressed.connect(func(id: int): menu_selected.emit(str(popup.get_item_metadata(popup.get_item_index(id)))))

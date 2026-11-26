@@ -9,6 +9,7 @@ signal region_selected(id: String)
 signal preferences_changed
 signal scenario_requested(case_id: String)
 signal tutorial_requested
+signal quit_requested
 
 var active_screen := ""
 var session_started := false
@@ -261,6 +262,10 @@ func _menu() -> void:
 		b2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row2.add_child(b2)
 	body.add_child(row2)
+	var quit_btn := UiKit.ghost_button("KELUAR", func(): quit_requested.emit(), "Simpan otomatis dan keluar dari permainan")
+	quit_btn.custom_minimum_size.y = 38
+	quit_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	body.add_child(quit_btn)
 
 
 func _continue_latest() -> void:

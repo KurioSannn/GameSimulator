@@ -12,6 +12,7 @@ var _grid: GridContainer
 var _committed := false
 var _previewed := false
 var _pre_mute_volume := 80.0
+var _update_status_lbl: Label
 
 
 func _ready() -> void:
@@ -19,11 +20,20 @@ func _ready() -> void:
 	_pre_mute_volume = float(pending.get("volume", 80.0)) if float(pending.get("volume", 80.0)) > 0.0 else 80.0
 	add_theme_constant_override("separation", 14)
 	_build()
+	if not Updater.status_changed.is_connected(_on_updater_status):
+		Updater.status_changed.connect(_on_updater_status)
 
 
 func _exit_tree() -> void:
+	if Updater.status_changed.is_connected(_on_updater_status):
+		Updater.status_changed.disconnect(_on_updater_status)
 	if _previewed and not _committed:
 		UiPreferences.apply_audio_values(UiPreferences.values)
+
+
+func _on_updater_status(msg: String) -> void:
+	if _update_status_lbl != null and is_instance_valid(_update_status_lbl):
+		_update_status_lbl.text = msg
 
 
 func _section(title: String, icon: String, screen: int = 4) -> VBoxContainer:
@@ -194,8 +204,16 @@ func _build() -> void:
 	_check(story, "LANJUT OTOMATIS", "auto_dialogue")
 	_check(story, "TAMPILKAN SUMBER DATA (MODE PENGEMBANG)", "show_sources")
 	_check(story, "PERIKSA PEMBARUAN OTOMATIS", "auto_update")
+	var ver_row := UiKit.hbox(10)
 	var ver := UiKit.label("Versi permainan %s" % Updater.current_version + ("" if Updater.current_version == Updater.binary_version else " (aplikasi %s)" % Updater.binary_version), 14, UiKit.MUTED, true)
-	story.add_child(ver)
+	ver.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	ver_row.add_child(ver)
+	var check_upd := UiKit.ghost_button("PERIKSA PEMBARUAN", func(): Updater.check_now(true), "Periksa dan unduh pembaruan terbaru sekarang")
+	check_upd.custom_minimum_size = Vector2(180, 32)
+	ver_row.add_child(check_upd)
+	story.add_child(ver_row)
+	_update_status_lbl = UiKit.label("" if Updater.pending_version == "" else "Pembaruan %s siap dipakai (mulai ulang aplikasi)." % Updater.pending_version, 13, UiKit.ACCENT, true)
+	story.add_child(_update_status_lbl)
 	var tut := UiKit.ghost_button("ULANGI TUTORIAL", func(): tutorial_requested.emit(), "Mulai lagi panduan bermain langkah demi langkah")
 	tut.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	story.add_child(tut)

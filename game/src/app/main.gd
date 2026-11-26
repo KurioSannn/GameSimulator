@@ -134,6 +134,8 @@ func _on_major_update(version: String, url: String, notes: String) -> void:
 func _ready() -> void:
 	Updater.patch_ready.connect(_on_patch_ready)
 	Updater.major_available.connect(_on_major_update)
+	if Updater.pending_version != "":
+		_on_patch_ready.call_deferred(Updater.pending_version)
 	UiPreferences.read()
 	MapView.max_lod = "lod2" if int(UiPreferences.values.get("graphics", 0)) >= 1 else "lod3"
 	var automation := Array(OS.get_cmdline_user_args()).any(func(a): return a.begins_with("--screenshot=") or a.begins_with("--qa-") or a.begins_with("--map-bench="))
@@ -570,6 +572,7 @@ func _build_ui() -> void:
 	screens.region_selected.connect(func(id): map_view.set_selected(id); region_panel.show_region(id); screens.visited[id] = true)
 	screens.scenario_requested.connect(_start_scenario)
 	screens.tutorial_requested.connect(func(): screens.close_screen(); coach.start(true); _sync_interaction())
+	screens.quit_requested.connect(_quit_game)
 	coach = TutorialCoach.new()
 	_map_chrome.add_child(coach)
 	coach.completed.connect(_refresh_all)
@@ -1082,9 +1085,15 @@ func _on_menu(id: String) -> void:
 		"load_quick": _quickload()
 		"save_new": _manual_save()
 		"log": _toggle_log()
+		"quit": _quit_game()
 		"profile", "statistics", "report", "legacy", "settings", "menu", "saves":
 			screens._origin = "map"
 			screens.open(id)
+
+
+func _quit_game() -> void:
+	_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	get_tree().quit()
 
 
 func _zoom_by(factor: float) -> void:
